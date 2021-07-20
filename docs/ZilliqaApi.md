@@ -4,14 +4,14 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetLatestMinedZilliqaBlock**](ZilliqaApi.md#GetLatestMinedZilliqaBlock) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/last | Get Latest Mined Zilliqa Block
-[**GetZilliqaAddressDetails**](ZilliqaApi.md#GetZilliqaAddressDetails) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/addresses/{address} | Get Zilliqa Address Details
-[**GetZilliqaBlockDetailsByBlockHash**](ZilliqaApi.md#GetZilliqaBlockDetailsByBlockHash) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/hash/{blockHash} | Get Zilliqa Block Details By Block Hash
-[**GetZilliqaBlockDetailsByBlockHeight**](ZilliqaApi.md#GetZilliqaBlockDetailsByBlockHeight) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/height/{blockHeight} | Get Zilliqa Block Details By Block Height
-[**GetZilliqaTransactionDetailsByTransactionID**](ZilliqaApi.md#GetZilliqaTransactionDetailsByTransactionID) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/transactions/{transactionHash} | Get Zilliqa Transaction Details by Transaction ID
-[**ListZilliqaTransactionsByAddress**](ZilliqaApi.md#ListZilliqaTransactionsByAddress) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/addresses/{address}/transactions | List Zilliqa Transactions by Address
-[**ListZilliqaTransactionsByBlockHash**](ZilliqaApi.md#ListZilliqaTransactionsByBlockHash) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/hash/{blockHash}/transactions | List Zilliqa Transactions By Block Hash
-[**ListZilliqaTransactionsByBlockHeight**](ZilliqaApi.md#ListZilliqaTransactionsByBlockHeight) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/height/{blockHeight}/transactions | List Zilliqa Transactions By Block Height
+[**GetLatestMinedZilliqaBlock**](ZilliqaApi.md#GetLatestMinedZilliqaBlock) | **Get** /blockchain-data/zilliqa-specific/{network}/blocks/last | Get Latest Mined Zilliqa Block
+[**GetZilliqaAddressDetails**](ZilliqaApi.md#GetZilliqaAddressDetails) | **Get** /blockchain-data/zilliqa-specific/{network}/addresses/{address} | Get Zilliqa Address Details
+[**GetZilliqaBlockDetailsByBlockHash**](ZilliqaApi.md#GetZilliqaBlockDetailsByBlockHash) | **Get** /blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash} | Get Zilliqa Block Details By Block Hash
+[**GetZilliqaBlockDetailsByBlockHeight**](ZilliqaApi.md#GetZilliqaBlockDetailsByBlockHeight) | **Get** /blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight} | Get Zilliqa Block Details By Block Height
+[**GetZilliqaTransactionDetailsByTransactionID**](ZilliqaApi.md#GetZilliqaTransactionDetailsByTransactionID) | **Get** /blockchain-data/zilliqa-specific/{network}/transactions/{transactionHash} | Get Zilliqa Transaction Details by Transaction ID
+[**ListZilliqaTransactionsByAddress**](ZilliqaApi.md#ListZilliqaTransactionsByAddress) | **Get** /blockchain-data/zilliqa-specific/{network}/addresses/{address}/transactions | List Zilliqa Transactions by Address
+[**ListZilliqaTransactionsByBlockHash**](ZilliqaApi.md#ListZilliqaTransactionsByBlockHash) | **Get** /blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash}/transactions | List Zilliqa Transactions By Block Hash
+[**ListZilliqaTransactionsByBlockHeight**](ZilliqaApi.md#ListZilliqaTransactionsByBlockHeight) | **Get** /blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight}/transactions | List Zilliqa Transactions By Block Height
 
 
 

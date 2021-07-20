@@ -101,7 +101,7 @@ Class | Method | HTTP request | Description
 *ExchangeRatesApi* | [**GetExchangeRateByAssetSymbols**](docs/ExchangeRatesApi.md#getexchangeratebyassetsymbols) | **Get** /market-data/exchange-rates/by-symbols/{fromAssetSymbol}/{toAssetSymbol} | Get Exchange Rate By Asset Symbols
 *ExchangeRatesApi* | [**GetExchangeRateByAssetsIDs**](docs/ExchangeRatesApi.md#getexchangeratebyassetsids) | **Get** /market-data/exchange-rates/by-asset-ids/{fromAssetId}/{toAssetId} | Get Exchange Rate By Assets IDs
 *GeneratingApi* | [**GenerateReceivingAddress**](docs/GeneratingApi.md#generatereceivingaddress) | **Post** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses | Generate Receiving Address
-*InformativeApi* | [**GetWalletDetails**](docs/InformativeApi.md#getwalletdetails) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network} | Get Wallet Details
+*InformativeApi* | [**GetWalletAssetDetails**](docs/InformativeApi.md#getwalletassetdetails) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network} | Get Wallet Asset Details
 *InformativeApi* | [**ListReceivingAddresses**](docs/InformativeApi.md#listreceivingaddresses) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses | List Receiving Addresses
 *InformativeApi* | [**ListSupportedTokens**](docs/InformativeApi.md#listsupportedtokens) | **Get** /wallet-as-a-service/info/{blockchain}/{network}/supported-tokens | List Supported Tokens
 *InternalApi* | [**GetInternalTransactionByTransactionHashAndOperationId**](docs/InternalApi.md#getinternaltransactionbytransactionhashandoperationid) | **Get** /blockchain-data/{blockchain}/{network}/transactions/{transactionHash}/internal/{operationId} | Get Internal Transaction by Transaction Hash and Operation Id
@@ -137,22 +137,22 @@ Class | Method | HTTP request | Description
 *UnifiedEndpointsApi* | [**ListTransactionsByBlockHash**](docs/UnifiedEndpointsApi.md#listtransactionsbyblockhash) | **Get** /blockchain-data/{blockchain}/{network}/blocks/hash/{blockHash}/transactions | List Transactions by Block Hash
 *UnifiedEndpointsApi* | [**ListTransactionsByBlockHeight**](docs/UnifiedEndpointsApi.md#listtransactionsbyblockheight) | **Get** /blockchain-data/{blockchain}/{network}/blocks/height/{height}/transactions | List Transactions by Block Height
 *ValidatingApi* | [**ValidateAddress**](docs/ValidatingApi.md#validateaddress) | **Post** /blockchain-tools/{blockchain}/{network}/addresses/validate | Validate Address
-*XRPRippleApi* | [**GetLatestMinedXRPRippleBlock**](docs/XRPRippleApi.md#getlatestminedxrprippleblock) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/last | Get Latest Mined XRP (Ripple) Block
-*XRPRippleApi* | [**GetXRPRippleAddressDetails**](docs/XRPRippleApi.md#getxrprippleaddressdetails) | **Get** /blockchain-data/xrp-specific/xrp/{network}/addresses/{address} | Get XRP (Ripple) Address Details
-*XRPRippleApi* | [**GetXRPRippleBlockDetailsByBlockHash**](docs/XRPRippleApi.md#getxrprippleblockdetailsbyblockhash) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/hash/{blockHash} | Get XRP (Ripple) Block Details By Block Hash
-*XRPRippleApi* | [**GetXRPRippleBlockDetailsByBlockHeight**](docs/XRPRippleApi.md#getxrprippleblockdetailsbyblockheight) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/height/{blockHeight} | Get XRP (Ripple) Block Details By Block Height
-*XRPRippleApi* | [**GetXRPRippleTransactionDetailsByTransactionID**](docs/XRPRippleApi.md#getxrprippletransactiondetailsbytransactionid) | **Get** /blockchain-data/xrp-specific/xrp/{network}/transactions/{transactionHash} | Get XRP (Ripple) Transaction Details By Transaction ID
-*XRPRippleApi* | [**ListXRPRippleTransactionsByAddress**](docs/XRPRippleApi.md#listxrprippletransactionsbyaddress) | **Get** /blockchain-data/xrp-specific/xrp/{network}/addresses/{address}/transactions | List XRP (Ripple) Transactions by Address
-*XRPRippleApi* | [**ListXRPRippleTransactionsByBlockHash**](docs/XRPRippleApi.md#listxrprippletransactionsbyblockhash) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/hash/{blockHash}/transactions | List XRP (Ripple) Transactions By Block Hash
-*XRPRippleApi* | [**ListXRPRippleTransactionsByBlockHeight**](docs/XRPRippleApi.md#listxrprippletransactionsbyblockheight) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/height/{blockHeight}/transactions | List XRP (Ripple) Transactions By Block Height
-*ZilliqaApi* | [**GetLatestMinedZilliqaBlock**](docs/ZilliqaApi.md#getlatestminedzilliqablock) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/last | Get Latest Mined Zilliqa Block
-*ZilliqaApi* | [**GetZilliqaAddressDetails**](docs/ZilliqaApi.md#getzilliqaaddressdetails) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/addresses/{address} | Get Zilliqa Address Details
-*ZilliqaApi* | [**GetZilliqaBlockDetailsByBlockHash**](docs/ZilliqaApi.md#getzilliqablockdetailsbyblockhash) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/hash/{blockHash} | Get Zilliqa Block Details By Block Hash
-*ZilliqaApi* | [**GetZilliqaBlockDetailsByBlockHeight**](docs/ZilliqaApi.md#getzilliqablockdetailsbyblockheight) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/height/{blockHeight} | Get Zilliqa Block Details By Block Height
-*ZilliqaApi* | [**GetZilliqaTransactionDetailsByTransactionID**](docs/ZilliqaApi.md#getzilliqatransactiondetailsbytransactionid) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/transactions/{transactionHash} | Get Zilliqa Transaction Details by Transaction ID
-*ZilliqaApi* | [**ListZilliqaTransactionsByAddress**](docs/ZilliqaApi.md#listzilliqatransactionsbyaddress) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/addresses/{address}/transactions | List Zilliqa Transactions by Address
-*ZilliqaApi* | [**ListZilliqaTransactionsByBlockHash**](docs/ZilliqaApi.md#listzilliqatransactionsbyblockhash) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/hash/{blockHash}/transactions | List Zilliqa Transactions By Block Hash
-*ZilliqaApi* | [**ListZilliqaTransactionsByBlockHeight**](docs/ZilliqaApi.md#listzilliqatransactionsbyblockheight) | **Get** /blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/height/{blockHeight}/transactions | List Zilliqa Transactions By Block Height
+*XRPRippleApi* | [**GetLatestMinedXRPRippleBlock**](docs/XRPRippleApi.md#getlatestminedxrprippleblock) | **Get** /blockchain-data/xrp-specific/{network}/blocks/last | Get Latest Mined XRP (Ripple) Block
+*XRPRippleApi* | [**GetXRPRippleAddressDetails**](docs/XRPRippleApi.md#getxrprippleaddressdetails) | **Get** /blockchain-data/xrp-specific/{network}/addresses/{address} | Get XRP (Ripple) Address Details
+*XRPRippleApi* | [**GetXRPRippleBlockDetailsByBlockHash**](docs/XRPRippleApi.md#getxrprippleblockdetailsbyblockhash) | **Get** /blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash} | Get XRP (Ripple) Block Details By Block Hash
+*XRPRippleApi* | [**GetXRPRippleBlockDetailsByBlockHeight**](docs/XRPRippleApi.md#getxrprippleblockdetailsbyblockheight) | **Get** /blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight} | Get XRP (Ripple) Block Details By Block Height
+*XRPRippleApi* | [**GetXRPRippleTransactionDetailsByTransactionID**](docs/XRPRippleApi.md#getxrprippletransactiondetailsbytransactionid) | **Get** /blockchain-data/xrp-specific/{network}/transactions/{transactionHash} | Get XRP (Ripple) Transaction Details By Transaction ID
+*XRPRippleApi* | [**ListXRPRippleTransactionsByAddress**](docs/XRPRippleApi.md#listxrprippletransactionsbyaddress) | **Get** /blockchain-data/xrp-specific/{network}/addresses/{address}/transactions | List XRP (Ripple) Transactions by Address
+*XRPRippleApi* | [**ListXRPRippleTransactionsByBlockHash**](docs/XRPRippleApi.md#listxrprippletransactionsbyblockhash) | **Get** /blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}/transactions | List XRP (Ripple) Transactions By Block Hash
+*XRPRippleApi* | [**ListXRPRippleTransactionsByBlockHeight**](docs/XRPRippleApi.md#listxrprippletransactionsbyblockheight) | **Get** /blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}/transactions | List XRP (Ripple) Transactions By Block Height
+*ZilliqaApi* | [**GetLatestMinedZilliqaBlock**](docs/ZilliqaApi.md#getlatestminedzilliqablock) | **Get** /blockchain-data/zilliqa-specific/{network}/blocks/last | Get Latest Mined Zilliqa Block
+*ZilliqaApi* | [**GetZilliqaAddressDetails**](docs/ZilliqaApi.md#getzilliqaaddressdetails) | **Get** /blockchain-data/zilliqa-specific/{network}/addresses/{address} | Get Zilliqa Address Details
+*ZilliqaApi* | [**GetZilliqaBlockDetailsByBlockHash**](docs/ZilliqaApi.md#getzilliqablockdetailsbyblockhash) | **Get** /blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash} | Get Zilliqa Block Details By Block Hash
+*ZilliqaApi* | [**GetZilliqaBlockDetailsByBlockHeight**](docs/ZilliqaApi.md#getzilliqablockdetailsbyblockheight) | **Get** /blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight} | Get Zilliqa Block Details By Block Height
+*ZilliqaApi* | [**GetZilliqaTransactionDetailsByTransactionID**](docs/ZilliqaApi.md#getzilliqatransactiondetailsbytransactionid) | **Get** /blockchain-data/zilliqa-specific/{network}/transactions/{transactionHash} | Get Zilliqa Transaction Details by Transaction ID
+*ZilliqaApi* | [**ListZilliqaTransactionsByAddress**](docs/ZilliqaApi.md#listzilliqatransactionsbyaddress) | **Get** /blockchain-data/zilliqa-specific/{network}/addresses/{address}/transactions | List Zilliqa Transactions by Address
+*ZilliqaApi* | [**ListZilliqaTransactionsByBlockHash**](docs/ZilliqaApi.md#listzilliqatransactionsbyblockhash) | **Get** /blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash}/transactions | List Zilliqa Transactions By Block Hash
+*ZilliqaApi* | [**ListZilliqaTransactionsByBlockHeight**](docs/ZilliqaApi.md#listzilliqatransactionsbyblockheight) | **Get** /blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight}/transactions | List Zilliqa Transactions By Block Height
 
 
 ## Documentation For Models
@@ -411,9 +411,12 @@ Class | Method | HTTP request | Description
  - [GetUnconfirmedOmniTransactionByTransactionIDTxidRI](docs/GetUnconfirmedOmniTransactionByTransactionIDTxidRI.md)
  - [GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients](docs/GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients.md)
  - [GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders](docs/GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders.md)
- - [GetWalletDetailsR](docs/GetWalletDetailsR.md)
- - [GetWalletDetailsRData](docs/GetWalletDetailsRData.md)
- - [GetWalletDetailsRI](docs/GetWalletDetailsRI.md)
+ - [GetWalletAssetDetailsR](docs/GetWalletAssetDetailsR.md)
+ - [GetWalletAssetDetailsRData](docs/GetWalletAssetDetailsRData.md)
+ - [GetWalletAssetDetailsRI](docs/GetWalletAssetDetailsRI.md)
+ - [GetWalletAssetDetailsRIConfirmedBalance](docs/GetWalletAssetDetailsRIConfirmedBalance.md)
+ - [GetWalletAssetDetailsRIRecievedConfirmedAmount](docs/GetWalletAssetDetailsRIRecievedConfirmedAmount.md)
+ - [GetWalletAssetDetailsRISentConfirmedAmount](docs/GetWalletAssetDetailsRISentConfirmedAmount.md)
  - [GetXRPRippleAddressDetailsR](docs/GetXRPRippleAddressDetailsR.md)
  - [GetXRPRippleAddressDetailsRData](docs/GetXRPRippleAddressDetailsRData.md)
  - [GetXRPRippleAddressDetailsRI](docs/GetXRPRippleAddressDetailsRI.md)
@@ -743,6 +746,17 @@ Class | Method | HTTP request | Description
  - [TransactionMinedData](docs/TransactionMinedData.md)
  - [TransactionMinedDataItem](docs/TransactionMinedDataItem.md)
  - [TransactionMinedDataItemMinedInBlock](docs/TransactionMinedDataItemMinedInBlock.md)
+ - [TransactionRequestApprove](docs/TransactionRequestApprove.md)
+ - [TransactionRequestApproveData](docs/TransactionRequestApproveData.md)
+ - [TransactionRequestApproveDataItem](docs/TransactionRequestApproveDataItem.md)
+ - [TransactionRequestBroadcasted](docs/TransactionRequestBroadcasted.md)
+ - [TransactionRequestBroadcastedData](docs/TransactionRequestBroadcastedData.md)
+ - [TransactionRequestBroadcastedDataItem](docs/TransactionRequestBroadcastedDataItem.md)
+ - [TransactionRequestMined](docs/TransactionRequestMined.md)
+ - [TransactionRequestMinedData](docs/TransactionRequestMinedData.md)
+ - [TransactionRequestReject](docs/TransactionRequestReject.md)
+ - [TransactionRequestRejectData](docs/TransactionRequestRejectData.md)
+ - [TransactionRequestRejectDataItem](docs/TransactionRequestRejectDataItem.md)
  - [UnexpectedServerError](docs/UnexpectedServerError.md)
  - [UnexpectedServerErrorError](docs/UnexpectedServerErrorError.md)
  - [UnsupportedMediaType](docs/UnsupportedMediaType.md)

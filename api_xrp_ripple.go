@@ -80,7 +80,7 @@ func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatest
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/xrp-specific/xrp/{network}/blocks/last"
+	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/blocks/last"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -312,7 +312,7 @@ func (a *XRPRippleApiService) GetXRPRippleAddressDetailsExecute(r ApiGetXRPRippl
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/xrp-specific/xrp/{network}/addresses/{address}"
+	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/addresses/{address}"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
 
@@ -535,7 +535,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGe
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/xrp-specific/xrp/{network}/blocks/hash/{blockHash}"
+	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", _neturl.PathEscape(parameterToString(r.blockHash, "")), -1)
 
@@ -768,7 +768,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r Api
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/xrp-specific/xrp/{network}/blocks/height/{blockHeight}"
+	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", _neturl.PathEscape(parameterToString(r.blockHeight, "")), -1)
 
@@ -1001,7 +1001,7 @@ func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionIDExecu
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/xrp-specific/xrp/{network}/transactions/{transactionHash}"
+	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/transactions/{transactionHash}"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"transactionHash"+"}", _neturl.PathEscape(parameterToString(r.transactionHash, "")), -1)
 
@@ -1211,6 +1211,8 @@ func (r ApiListXRPRippleTransactionsByAddressRequest) Execute() (ListXRPRippleTr
  * This endpoint will list XRP transactions by a attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
+
+{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\",  are test networks.
  * @param address Represents the public address, which is a compressed and shortened form of a public key.
@@ -1244,7 +1246,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressExecute(r ApiLis
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/xrp-specific/xrp/{network}/addresses/{address}/transactions"
+	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/addresses/{address}/transactions"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
 
@@ -1450,6 +1452,8 @@ func (r ApiListXRPRippleTransactionsByBlockHashRequest) Execute() (ListXRPRipple
  * This endpoint will list transactions by an attribute `blockHash`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
+
+{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param blockHash Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
@@ -1483,7 +1487,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiL
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/xrp-specific/xrp/{network}/blocks/hash/{blockHash}/transactions"
+	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}/transactions"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", _neturl.PathEscape(parameterToString(r.blockHash, "")), -1)
 
@@ -1689,6 +1693,8 @@ func (r ApiListXRPRippleTransactionsByBlockHeightRequest) Execute() (ListXRPRipp
  * This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
+
+{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param blockHeight
@@ -1722,7 +1728,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeightExecute(r Ap
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/xrp-specific/xrp/{network}/blocks/height/{blockHeight}/transactions"
+	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}/transactions"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", _neturl.PathEscape(parameterToString(r.blockHeight, "")), -1)
 

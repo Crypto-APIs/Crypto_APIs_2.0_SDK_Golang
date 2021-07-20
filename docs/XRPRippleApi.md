@@ -4,14 +4,14 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetLatestMinedXRPRippleBlock**](XRPRippleApi.md#GetLatestMinedXRPRippleBlock) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/last | Get Latest Mined XRP (Ripple) Block
-[**GetXRPRippleAddressDetails**](XRPRippleApi.md#GetXRPRippleAddressDetails) | **Get** /blockchain-data/xrp-specific/xrp/{network}/addresses/{address} | Get XRP (Ripple) Address Details
-[**GetXRPRippleBlockDetailsByBlockHash**](XRPRippleApi.md#GetXRPRippleBlockDetailsByBlockHash) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/hash/{blockHash} | Get XRP (Ripple) Block Details By Block Hash
-[**GetXRPRippleBlockDetailsByBlockHeight**](XRPRippleApi.md#GetXRPRippleBlockDetailsByBlockHeight) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/height/{blockHeight} | Get XRP (Ripple) Block Details By Block Height
-[**GetXRPRippleTransactionDetailsByTransactionID**](XRPRippleApi.md#GetXRPRippleTransactionDetailsByTransactionID) | **Get** /blockchain-data/xrp-specific/xrp/{network}/transactions/{transactionHash} | Get XRP (Ripple) Transaction Details By Transaction ID
-[**ListXRPRippleTransactionsByAddress**](XRPRippleApi.md#ListXRPRippleTransactionsByAddress) | **Get** /blockchain-data/xrp-specific/xrp/{network}/addresses/{address}/transactions | List XRP (Ripple) Transactions by Address
-[**ListXRPRippleTransactionsByBlockHash**](XRPRippleApi.md#ListXRPRippleTransactionsByBlockHash) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/hash/{blockHash}/transactions | List XRP (Ripple) Transactions By Block Hash
-[**ListXRPRippleTransactionsByBlockHeight**](XRPRippleApi.md#ListXRPRippleTransactionsByBlockHeight) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/height/{blockHeight}/transactions | List XRP (Ripple) Transactions By Block Height
+[**GetLatestMinedXRPRippleBlock**](XRPRippleApi.md#GetLatestMinedXRPRippleBlock) | **Get** /blockchain-data/xrp-specific/{network}/blocks/last | Get Latest Mined XRP (Ripple) Block
+[**GetXRPRippleAddressDetails**](XRPRippleApi.md#GetXRPRippleAddressDetails) | **Get** /blockchain-data/xrp-specific/{network}/addresses/{address} | Get XRP (Ripple) Address Details
+[**GetXRPRippleBlockDetailsByBlockHash**](XRPRippleApi.md#GetXRPRippleBlockDetailsByBlockHash) | **Get** /blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash} | Get XRP (Ripple) Block Details By Block Hash
+[**GetXRPRippleBlockDetailsByBlockHeight**](XRPRippleApi.md#GetXRPRippleBlockDetailsByBlockHeight) | **Get** /blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight} | Get XRP (Ripple) Block Details By Block Height
+[**GetXRPRippleTransactionDetailsByTransactionID**](XRPRippleApi.md#GetXRPRippleTransactionDetailsByTransactionID) | **Get** /blockchain-data/xrp-specific/{network}/transactions/{transactionHash} | Get XRP (Ripple) Transaction Details By Transaction ID
+[**ListXRPRippleTransactionsByAddress**](XRPRippleApi.md#ListXRPRippleTransactionsByAddress) | **Get** /blockchain-data/xrp-specific/{network}/addresses/{address}/transactions | List XRP (Ripple) Transactions by Address
+[**ListXRPRippleTransactionsByBlockHash**](XRPRippleApi.md#ListXRPRippleTransactionsByBlockHash) | **Get** /blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}/transactions | List XRP (Ripple) Transactions By Block Hash
+[**ListXRPRippleTransactionsByBlockHeight**](XRPRippleApi.md#ListXRPRippleTransactionsByBlockHeight) | **Get** /blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}/transactions | List XRP (Ripple) Transactions By Block Height
 
 
 

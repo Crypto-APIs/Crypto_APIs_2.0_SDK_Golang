@@ -4,17 +4,17 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetWalletDetails**](InformativeApi.md#GetWalletDetails) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network} | Get Wallet Details
+[**GetWalletAssetDetails**](InformativeApi.md#GetWalletAssetDetails) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network} | Get Wallet Asset Details
 [**ListReceivingAddresses**](InformativeApi.md#ListReceivingAddresses) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses | List Receiving Addresses
 [**ListSupportedTokens**](InformativeApi.md#ListSupportedTokens) | **Get** /wallet-as-a-service/info/{blockchain}/{network}/supported-tokens | List Supported Tokens
 
 
 
-## GetWalletDetails
+## GetWalletAssetDetails
 
-> GetWalletDetailsR GetWalletDetails(ctx, blockchain, network, walletId).Context(context).Execute()
+> GetWalletAssetDetailsR GetWalletAssetDetails(ctx, blockchain, network, walletId).Context(context).Execute()
 
-Get Wallet Details
+Get Wallet Asset Details
 
 
 
@@ -31,20 +31,20 @@ import (
 )
 
 func main() {
-    blockchain := "ethereum" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. (default to "bitcoin")
-    network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks. (default to "mainnet")
+    blockchain := "ethereum" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network := "mainnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     walletId := "60c9d9921c38030006675ff6" // string | Defines the unique ID of the Wallet.
     context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.InformativeApi.GetWalletDetails(context.Background(), blockchain, network, walletId).Context(context).Execute()
+    resp, r, err := api_client.InformativeApi.GetWalletAssetDetails(context.Background(), blockchain, network, walletId).Context(context).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `InformativeApi.GetWalletDetails``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `InformativeApi.GetWalletAssetDetails``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetWalletDetails`: GetWalletDetailsR
-    fmt.Fprintf(os.Stdout, "Response from `InformativeApi.GetWalletDetails`: %v\n", resp)
+    // response from `GetWalletAssetDetails`: GetWalletAssetDetailsR
+    fmt.Fprintf(os.Stdout, "Response from `InformativeApi.GetWalletAssetDetails`: %v\n", resp)
 }
 ```
 
@@ -54,13 +54,13 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**blockchain** | **string** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [default to &quot;bitcoin&quot;]
-**network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. | [default to &quot;mainnet&quot;]
+**blockchain** | **string** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+**network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. | 
 **walletId** | **string** | Defines the unique ID of the Wallet. | 
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiGetWalletDetailsRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiGetWalletAssetDetailsRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetWalletDetailsR**](GetWalletDetailsR.md)
+[**GetWalletAssetDetailsR**](GetWalletAssetDetailsR.md)
 
 ### Authorization
 

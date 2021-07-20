@@ -15,33 +15,33 @@ import (
 	"encoding/json"
 )
 
-// GetWalletDetailsRData struct for GetWalletDetailsRData
-type GetWalletDetailsRData struct {
-	Item GetWalletDetailsRI `json:"item"`
+// GetWalletAssetDetailsRData struct for GetWalletAssetDetailsRData
+type GetWalletAssetDetailsRData struct {
+	Item GetWalletAssetDetailsRI `json:"item"`
 }
 
-// NewGetWalletDetailsRData instantiates a new GetWalletDetailsRData object
+// NewGetWalletAssetDetailsRData instantiates a new GetWalletAssetDetailsRData object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetWalletDetailsRData(item GetWalletDetailsRI) *GetWalletDetailsRData {
-	this := GetWalletDetailsRData{}
+func NewGetWalletAssetDetailsRData(item GetWalletAssetDetailsRI) *GetWalletAssetDetailsRData {
+	this := GetWalletAssetDetailsRData{}
 	this.Item = item
 	return &this
 }
 
-// NewGetWalletDetailsRDataWithDefaults instantiates a new GetWalletDetailsRData object
+// NewGetWalletAssetDetailsRDataWithDefaults instantiates a new GetWalletAssetDetailsRData object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewGetWalletDetailsRDataWithDefaults() *GetWalletDetailsRData {
-	this := GetWalletDetailsRData{}
+func NewGetWalletAssetDetailsRDataWithDefaults() *GetWalletAssetDetailsRData {
+	this := GetWalletAssetDetailsRData{}
 	return &this
 }
 
 // GetItem returns the Item field value
-func (o *GetWalletDetailsRData) GetItem() GetWalletDetailsRI {
+func (o *GetWalletAssetDetailsRData) GetItem() GetWalletAssetDetailsRI {
 	if o == nil {
-		var ret GetWalletDetailsRI
+		var ret GetWalletAssetDetailsRI
 		return ret
 	}
 
@@ -50,7 +50,7 @@ func (o *GetWalletDetailsRData) GetItem() GetWalletDetailsRI {
 
 // GetItemOk returns a tuple with the Item field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletDetailsRData) GetItemOk() (*GetWalletDetailsRI, bool) {
+func (o *GetWalletAssetDetailsRData) GetItemOk() (*GetWalletAssetDetailsRI, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -58,11 +58,11 @@ func (o *GetWalletDetailsRData) GetItemOk() (*GetWalletDetailsRI, bool) {
 }
 
 // SetItem sets field value
-func (o *GetWalletDetailsRData) SetItem(v GetWalletDetailsRI) {
+func (o *GetWalletAssetDetailsRData) SetItem(v GetWalletAssetDetailsRI) {
 	o.Item = v
 }
 
-func (o GetWalletDetailsRData) MarshalJSON() ([]byte, error) {
+func (o GetWalletAssetDetailsRData) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["item"] = o.Item
@@ -70,38 +70,38 @@ func (o GetWalletDetailsRData) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableGetWalletDetailsRData struct {
-	value *GetWalletDetailsRData
+type NullableGetWalletAssetDetailsRData struct {
+	value *GetWalletAssetDetailsRData
 	isSet bool
 }
 
-func (v NullableGetWalletDetailsRData) Get() *GetWalletDetailsRData {
+func (v NullableGetWalletAssetDetailsRData) Get() *GetWalletAssetDetailsRData {
 	return v.value
 }
 
-func (v *NullableGetWalletDetailsRData) Set(val *GetWalletDetailsRData) {
+func (v *NullableGetWalletAssetDetailsRData) Set(val *GetWalletAssetDetailsRData) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableGetWalletDetailsRData) IsSet() bool {
+func (v NullableGetWalletAssetDetailsRData) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableGetWalletDetailsRData) Unset() {
+func (v *NullableGetWalletAssetDetailsRData) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableGetWalletDetailsRData(val *GetWalletDetailsRData) *NullableGetWalletDetailsRData {
-	return &NullableGetWalletDetailsRData{value: val, isSet: true}
+func NewNullableGetWalletAssetDetailsRData(val *GetWalletAssetDetailsRData) *NullableGetWalletAssetDetailsRData {
+	return &NullableGetWalletAssetDetailsRData{value: val, isSet: true}
 }
 
-func (v NullableGetWalletDetailsRData) MarshalJSON() ([]byte, error) {
+func (v NullableGetWalletAssetDetailsRData) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableGetWalletDetailsRData) UnmarshalJSON(src []byte) error {
+func (v *NullableGetWalletAssetDetailsRData) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

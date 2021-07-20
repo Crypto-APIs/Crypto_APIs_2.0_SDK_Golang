@@ -78,7 +78,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/last"
+	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/blocks/last"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -308,7 +308,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/zilliqa/{network}/addresses/{address}"
+	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/addresses/{address}"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
 
@@ -529,7 +529,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/hash/{blockHash}"
+	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash}"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", _neturl.PathEscape(parameterToString(r.blockHash, "")), -1)
 
@@ -760,7 +760,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/height/{blockHeight}"
+	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight}"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", _neturl.PathEscape(parameterToString(r.blockHeight, "")), -1)
 
@@ -991,7 +991,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/zilliqa/{network}/transactions/{transactionHash}"
+	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/transactions/{transactionHash}"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"transactionHash"+"}", _neturl.PathEscape(parameterToString(r.transactionHash, "")), -1)
 
@@ -1234,7 +1234,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/zilliqa/{network}/addresses/{address}/transactions"
+	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/addresses/{address}/transactions"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
 
@@ -1473,7 +1473,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/hash/{blockHash}/transactions"
+	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash}/transactions"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", _neturl.PathEscape(parameterToString(r.blockHash, "")), -1)
 
@@ -1712,7 +1712,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/zilliqa/{network}/blocks/height/{blockHeight}/transactions"
+	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight}/transactions"
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", _neturl.PathEscape(parameterToString(r.blockHeight, "")), -1)
 
