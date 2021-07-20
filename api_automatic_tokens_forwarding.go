@@ -34,19 +34,19 @@ type ApiAddTokensToExistingFromAddressRequest struct {
 	blockchain string
 	network string
 	context *string
-	addTokensToExistingFromAddressRequestBody *AddTokensToExistingFromAddressRequestBody
+	addTokensToExistingFromAddressRB *AddTokensToExistingFromAddressRB
 }
 
 func (r ApiAddTokensToExistingFromAddressRequest) Context(context string) ApiAddTokensToExistingFromAddressRequest {
 	r.context = &context
 	return r
 }
-func (r ApiAddTokensToExistingFromAddressRequest) AddTokensToExistingFromAddressRequestBody(addTokensToExistingFromAddressRequestBody AddTokensToExistingFromAddressRequestBody) ApiAddTokensToExistingFromAddressRequest {
-	r.addTokensToExistingFromAddressRequestBody = &addTokensToExistingFromAddressRequestBody
+func (r ApiAddTokensToExistingFromAddressRequest) AddTokensToExistingFromAddressRB(addTokensToExistingFromAddressRB AddTokensToExistingFromAddressRB) ApiAddTokensToExistingFromAddressRequest {
+	r.addTokensToExistingFromAddressRB = &addTokensToExistingFromAddressRB
 	return r
 }
 
-func (r ApiAddTokensToExistingFromAddressRequest) Execute() (AddTokensToExistingFromAddressResponse, *_nethttp.Response, error) {
+func (r ApiAddTokensToExistingFromAddressRequest) Execute() (AddTokensToExistingFromAddressR, *_nethttp.Response, error) {
 	return r.ApiService.AddTokensToExistingFromAddressExecute(r)
 }
 
@@ -79,16 +79,16 @@ func (a *AutomaticTokensForwardingApiService) AddTokensToExistingFromAddress(ctx
 
 /*
  * Execute executes the request
- * @return AddTokensToExistingFromAddressResponse
+ * @return AddTokensToExistingFromAddressR
  */
-func (a *AutomaticTokensForwardingApiService) AddTokensToExistingFromAddressExecute(r ApiAddTokensToExistingFromAddressRequest) (AddTokensToExistingFromAddressResponse, *_nethttp.Response, error) {
+func (a *AutomaticTokensForwardingApiService) AddTokensToExistingFromAddressExecute(r ApiAddTokensToExistingFromAddressRequest) (AddTokensToExistingFromAddressR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  AddTokensToExistingFromAddressResponse
+		localVarReturnValue  AddTokensToExistingFromAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutomaticTokensForwardingApiService.AddTokensToExistingFromAddress")
@@ -125,7 +125,7 @@ func (a *AutomaticTokensForwardingApiService) AddTokensToExistingFromAddressExec
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.addTokensToExistingFromAddressRequestBody
+	localVarPostBody = r.addTokensToExistingFromAddressRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -282,19 +282,19 @@ type ApiCreateAutomaticTokensForwardingRequest struct {
 	blockchain string
 	network string
 	context *string
-	createAutomaticTokensForwardingRequestBody *CreateAutomaticTokensForwardingRequestBody
+	createAutomaticTokensForwardingRB *CreateAutomaticTokensForwardingRB
 }
 
 func (r ApiCreateAutomaticTokensForwardingRequest) Context(context string) ApiCreateAutomaticTokensForwardingRequest {
 	r.context = &context
 	return r
 }
-func (r ApiCreateAutomaticTokensForwardingRequest) CreateAutomaticTokensForwardingRequestBody(createAutomaticTokensForwardingRequestBody CreateAutomaticTokensForwardingRequestBody) ApiCreateAutomaticTokensForwardingRequest {
-	r.createAutomaticTokensForwardingRequestBody = &createAutomaticTokensForwardingRequestBody
+func (r ApiCreateAutomaticTokensForwardingRequest) CreateAutomaticTokensForwardingRB(createAutomaticTokensForwardingRB CreateAutomaticTokensForwardingRB) ApiCreateAutomaticTokensForwardingRequest {
+	r.createAutomaticTokensForwardingRB = &createAutomaticTokensForwardingRB
 	return r
 }
 
-func (r ApiCreateAutomaticTokensForwardingRequest) Execute() (CreateAutomaticTokensForwardingResponse, *_nethttp.Response, error) {
+func (r ApiCreateAutomaticTokensForwardingRequest) Execute() (CreateAutomaticTokensForwardingR, *_nethttp.Response, error) {
 	return r.ApiService.CreateAutomaticTokensForwardingExecute(r)
 }
 
@@ -329,16 +329,16 @@ func (a *AutomaticTokensForwardingApiService) CreateAutomaticTokensForwarding(ct
 
 /*
  * Execute executes the request
- * @return CreateAutomaticTokensForwardingResponse
+ * @return CreateAutomaticTokensForwardingR
  */
-func (a *AutomaticTokensForwardingApiService) CreateAutomaticTokensForwardingExecute(r ApiCreateAutomaticTokensForwardingRequest) (CreateAutomaticTokensForwardingResponse, *_nethttp.Response, error) {
+func (a *AutomaticTokensForwardingApiService) CreateAutomaticTokensForwardingExecute(r ApiCreateAutomaticTokensForwardingRequest) (CreateAutomaticTokensForwardingR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  CreateAutomaticTokensForwardingResponse
+		localVarReturnValue  CreateAutomaticTokensForwardingR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutomaticTokensForwardingApiService.CreateAutomaticTokensForwarding")
@@ -375,7 +375,7 @@ func (a *AutomaticTokensForwardingApiService) CreateAutomaticTokensForwardingExe
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createAutomaticTokensForwardingRequestBody
+	localVarPostBody = r.createAutomaticTokensForwardingRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -540,7 +540,7 @@ func (r ApiDeleteAutomaticTokensForwardingRequest) Context(context string) ApiDe
 	return r
 }
 
-func (r ApiDeleteAutomaticTokensForwardingRequest) Execute() (DeleteAutomaticTokensForwardingResponse, *_nethttp.Response, error) {
+func (r ApiDeleteAutomaticTokensForwardingRequest) Execute() (DeleteAutomaticTokensForwardingR, *_nethttp.Response, error) {
 	return r.ApiService.DeleteAutomaticTokensForwardingExecute(r)
 }
 
@@ -571,16 +571,16 @@ func (a *AutomaticTokensForwardingApiService) DeleteAutomaticTokensForwarding(ct
 
 /*
  * Execute executes the request
- * @return DeleteAutomaticTokensForwardingResponse
+ * @return DeleteAutomaticTokensForwardingR
  */
-func (a *AutomaticTokensForwardingApiService) DeleteAutomaticTokensForwardingExecute(r ApiDeleteAutomaticTokensForwardingRequest) (DeleteAutomaticTokensForwardingResponse, *_nethttp.Response, error) {
+func (a *AutomaticTokensForwardingApiService) DeleteAutomaticTokensForwardingExecute(r ApiDeleteAutomaticTokensForwardingRequest) (DeleteAutomaticTokensForwardingR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  DeleteAutomaticTokensForwardingResponse
+		localVarReturnValue  DeleteAutomaticTokensForwardingR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutomaticTokensForwardingApiService.DeleteAutomaticTokensForwarding")
@@ -780,7 +780,7 @@ func (r ApiGetFeeAddressDetailsRequest) Context(context string) ApiGetFeeAddress
 	return r
 }
 
-func (r ApiGetFeeAddressDetailsRequest) Execute() (GetFeeAddressDetailsResponse, *_nethttp.Response, error) {
+func (r ApiGetFeeAddressDetailsRequest) Execute() (GetFeeAddressDetailsR, *_nethttp.Response, error) {
 	return r.ApiService.GetFeeAddressDetailsExecute(r)
 }
 
@@ -803,16 +803,16 @@ func (a *AutomaticTokensForwardingApiService) GetFeeAddressDetails(ctx _context.
 
 /*
  * Execute executes the request
- * @return GetFeeAddressDetailsResponse
+ * @return GetFeeAddressDetailsR
  */
-func (a *AutomaticTokensForwardingApiService) GetFeeAddressDetailsExecute(r ApiGetFeeAddressDetailsRequest) (GetFeeAddressDetailsResponse, *_nethttp.Response, error) {
+func (a *AutomaticTokensForwardingApiService) GetFeeAddressDetailsExecute(r ApiGetFeeAddressDetailsRequest) (GetFeeAddressDetailsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GetFeeAddressDetailsResponse
+		localVarReturnValue  GetFeeAddressDetailsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutomaticTokensForwardingApiService.GetFeeAddressDetails")
@@ -1021,7 +1021,7 @@ func (r ApiListTokensForwardingAutomationsRequest) Offset(offset int32) ApiListT
 	return r
 }
 
-func (r ApiListTokensForwardingAutomationsRequest) Execute() (ListTokensForwardingAutomationsResponse, *_nethttp.Response, error) {
+func (r ApiListTokensForwardingAutomationsRequest) Execute() (ListTokensForwardingAutomationsR, *_nethttp.Response, error) {
 	return r.ApiService.ListTokensForwardingAutomationsExecute(r)
 }
 
@@ -1050,16 +1050,16 @@ func (a *AutomaticTokensForwardingApiService) ListTokensForwardingAutomations(ct
 
 /*
  * Execute executes the request
- * @return ListTokensForwardingAutomationsResponse
+ * @return ListTokensForwardingAutomationsR
  */
-func (a *AutomaticTokensForwardingApiService) ListTokensForwardingAutomationsExecute(r ApiListTokensForwardingAutomationsRequest) (ListTokensForwardingAutomationsResponse, *_nethttp.Response, error) {
+func (a *AutomaticTokensForwardingApiService) ListTokensForwardingAutomationsExecute(r ApiListTokensForwardingAutomationsRequest) (ListTokensForwardingAutomationsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListTokensForwardingAutomationsResponse
+		localVarReturnValue  ListTokensForwardingAutomationsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutomaticTokensForwardingApiService.ListTokensForwardingAutomations")

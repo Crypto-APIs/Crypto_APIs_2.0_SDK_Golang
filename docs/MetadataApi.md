@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ListSupportedAssets
 
-> ListSupportedAssetsResponse ListSupportedAssets(ctx).Context(context).AssetType(assetType).Limit(limit).Offset(offset).Execute()
+> ListSupportedAssetsR ListSupportedAssets(ctx).Context(context).AssetType(assetType).Limit(limit).Offset(offset).Execute()
 
 List Supported Assets
 
@@ -41,7 +41,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MetadataApi.ListSupportedAssets``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListSupportedAssets`: ListSupportedAssetsResponse
+    // response from `ListSupportedAssets`: ListSupportedAssetsR
     fmt.Fprintf(os.Stdout, "Response from `MetadataApi.ListSupportedAssets`: %v\n", resp)
 }
 ```
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListSupportedAssetsResponse**](ListSupportedAssetsResponse.md)
+[**ListSupportedAssetsR**](ListSupportedAssetsR.md)
 
 ### Authorization
 

@@ -42,7 +42,7 @@ func (r ApiGetOmniTransactionDetailsByTransactionIDTxidRequest) Context(context 
 	return r
 }
 
-func (r ApiGetOmniTransactionDetailsByTransactionIDTxidRequest) Execute() (GetOmniTransactionDetailsByTransactionIDTxidResponse, *_nethttp.Response, error) {
+func (r ApiGetOmniTransactionDetailsByTransactionIDTxidRequest) Execute() (GetOmniTransactionDetailsByTransactionIDTxidR, *_nethttp.Response, error) {
 	return r.ApiService.GetOmniTransactionDetailsByTransactionIDTxidExecute(r)
 }
 
@@ -67,16 +67,16 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxid(ctx _
 
 /*
  * Execute executes the request
- * @return GetOmniTransactionDetailsByTransactionIDTxidResponse
+ * @return GetOmniTransactionDetailsByTransactionIDTxidR
  */
-func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecute(r ApiGetOmniTransactionDetailsByTransactionIDTxidRequest) (GetOmniTransactionDetailsByTransactionIDTxidResponse, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecute(r ApiGetOmniTransactionDetailsByTransactionIDTxidRequest) (GetOmniTransactionDetailsByTransactionIDTxidR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GetOmniTransactionDetailsByTransactionIDTxidResponse
+		localVarReturnValue  GetOmniTransactionDetailsByTransactionIDTxidR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.GetOmniTransactionDetailsByTransactionIDTxid")
@@ -277,7 +277,7 @@ func (r ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest) Context(cont
 	return r
 }
 
-func (r ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest) Execute() (GetUnconfirmedOmniTransactionByTransactionIDTxidResponse, *_nethttp.Response, error) {
+func (r ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest) Execute() (GetUnconfirmedOmniTransactionByTransactionIDTxidR, *_nethttp.Response, error) {
 	return r.ApiService.GetUnconfirmedOmniTransactionByTransactionIDTxidExecute(r)
 }
 
@@ -304,16 +304,16 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxid(c
 
 /*
  * Execute executes the request
- * @return GetUnconfirmedOmniTransactionByTransactionIDTxidResponse
+ * @return GetUnconfirmedOmniTransactionByTransactionIDTxidR
  */
-func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidExecute(r ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest) (GetUnconfirmedOmniTransactionByTransactionIDTxidResponse, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidExecute(r ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest) (GetUnconfirmedOmniTransactionByTransactionIDTxidR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GetUnconfirmedOmniTransactionByTransactionIDTxidResponse
+		localVarReturnValue  GetUnconfirmedOmniTransactionByTransactionIDTxidR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.GetUnconfirmedOmniTransactionByTransactionIDTxid")
@@ -514,7 +514,7 @@ func (r ApiListOmniTokensByAddressRequest) Context(context string) ApiListOmniTo
 	return r
 }
 
-func (r ApiListOmniTokensByAddressRequest) Execute() (ListOmniTokensByAddressResponse, *_nethttp.Response, error) {
+func (r ApiListOmniTokensByAddressRequest) Execute() (ListOmniTokensByAddressR, *_nethttp.Response, error) {
 	return r.ApiService.ListOmniTokensByAddressExecute(r)
 }
 
@@ -539,16 +539,16 @@ func (a *OmniLayerApiService) ListOmniTokensByAddress(ctx _context.Context, netw
 
 /*
  * Execute executes the request
- * @return ListOmniTokensByAddressResponse
+ * @return ListOmniTokensByAddressR
  */
-func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokensByAddressRequest) (ListOmniTokensByAddressResponse, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokensByAddressRequest) (ListOmniTokensByAddressR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListOmniTokensByAddressResponse
+		localVarReturnValue  ListOmniTokensByAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.ListOmniTokensByAddress")
@@ -749,7 +749,7 @@ func (r ApiListOmniTransactionsByAddressRequest) Offset(offset int32) ApiListOmn
 	return r
 }
 
-func (r ApiListOmniTransactionsByAddressRequest) Execute() (ListOmniTransactionsByAddressResponse, *_nethttp.Response, error) {
+func (r ApiListOmniTransactionsByAddressRequest) Execute() (ListOmniTransactionsByAddressR, *_nethttp.Response, error) {
 	return r.ApiService.ListOmniTransactionsByAddressExecute(r)
 }
 
@@ -774,16 +774,16 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddress(ctx _context.Context
 
 /*
  * Execute executes the request
- * @return ListOmniTransactionsByAddressResponse
+ * @return ListOmniTransactionsByAddressR
  */
-func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmniTransactionsByAddressRequest) (ListOmniTransactionsByAddressResponse, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmniTransactionsByAddressRequest) (ListOmniTransactionsByAddressR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListOmniTransactionsByAddressResponse
+		localVarReturnValue  ListOmniTransactionsByAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.ListOmniTransactionsByAddress")
@@ -990,7 +990,7 @@ func (r ApiListOmniTransactionsByBlockHashRequest) Offset(offset int32) ApiListO
 	return r
 }
 
-func (r ApiListOmniTransactionsByBlockHashRequest) Execute() (ListOmniTransactionsByBlockHashResponse, *_nethttp.Response, error) {
+func (r ApiListOmniTransactionsByBlockHashRequest) Execute() (ListOmniTransactionsByBlockHashR, *_nethttp.Response, error) {
 	return r.ApiService.ListOmniTransactionsByBlockHashExecute(r)
 }
 
@@ -1015,16 +1015,16 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHash(ctx _context.Conte
 
 /*
  * Execute executes the request
- * @return ListOmniTransactionsByBlockHashResponse
+ * @return ListOmniTransactionsByBlockHashR
  */
-func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOmniTransactionsByBlockHashRequest) (ListOmniTransactionsByBlockHashResponse, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOmniTransactionsByBlockHashRequest) (ListOmniTransactionsByBlockHashR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListOmniTransactionsByBlockHashResponse
+		localVarReturnValue  ListOmniTransactionsByBlockHashR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.ListOmniTransactionsByBlockHash")
@@ -1231,7 +1231,7 @@ func (r ApiListOmniTransactionsByBlockHeightRequest) Offset(offset int32) ApiLis
 	return r
 }
 
-func (r ApiListOmniTransactionsByBlockHeightRequest) Execute() (ListOmniTransactionsByBlockHeightResponse, *_nethttp.Response, error) {
+func (r ApiListOmniTransactionsByBlockHeightRequest) Execute() (ListOmniTransactionsByBlockHeightR, *_nethttp.Response, error) {
 	return r.ApiService.ListOmniTransactionsByBlockHeightExecute(r)
 }
 
@@ -1256,16 +1256,16 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeight(ctx _context.Con
 
 /*
  * Execute executes the request
- * @return ListOmniTransactionsByBlockHeightResponse
+ * @return ListOmniTransactionsByBlockHeightR
  */
-func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiListOmniTransactionsByBlockHeightRequest) (ListOmniTransactionsByBlockHeightResponse, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiListOmniTransactionsByBlockHeightRequest) (ListOmniTransactionsByBlockHeightR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListOmniTransactionsByBlockHeightResponse
+		localVarReturnValue  ListOmniTransactionsByBlockHeightR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.ListOmniTransactionsByBlockHeight")
@@ -1472,7 +1472,7 @@ func (r ApiListUnconfirmedOmniTransactionsByAddressRequest) Offset(offset int32)
 	return r
 }
 
-func (r ApiListUnconfirmedOmniTransactionsByAddressRequest) Execute() (ListUnconfirmedOmniTransactionsByAddressResponse, *_nethttp.Response, error) {
+func (r ApiListUnconfirmedOmniTransactionsByAddressRequest) Execute() (ListUnconfirmedOmniTransactionsByAddressR, *_nethttp.Response, error) {
 	return r.ApiService.ListUnconfirmedOmniTransactionsByAddressExecute(r)
 }
 
@@ -1499,16 +1499,16 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddress(ctx _cont
 
 /*
  * Execute executes the request
- * @return ListUnconfirmedOmniTransactionsByAddressResponse
+ * @return ListUnconfirmedOmniTransactionsByAddressR
  */
-func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r ApiListUnconfirmedOmniTransactionsByAddressRequest) (ListUnconfirmedOmniTransactionsByAddressResponse, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r ApiListUnconfirmedOmniTransactionsByAddressRequest) (ListUnconfirmedOmniTransactionsByAddressR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListUnconfirmedOmniTransactionsByAddressResponse
+		localVarReturnValue  ListUnconfirmedOmniTransactionsByAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.ListUnconfirmedOmniTransactionsByAddress")
@@ -1715,7 +1715,7 @@ func (r ApiListUnconfirmedOmniTransactionsByPropertyIDRequest) Offset(offset int
 	return r
 }
 
-func (r ApiListUnconfirmedOmniTransactionsByPropertyIDRequest) Execute() (ListUnconfirmedOmniTransactionsByPropertyIDResponse, *_nethttp.Response, error) {
+func (r ApiListUnconfirmedOmniTransactionsByPropertyIDRequest) Execute() (ListUnconfirmedOmniTransactionsByPropertyIDR, *_nethttp.Response, error) {
 	return r.ApiService.ListUnconfirmedOmniTransactionsByPropertyIDExecute(r)
 }
 
@@ -1742,16 +1742,16 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyID(ctx _c
 
 /*
  * Execute executes the request
- * @return ListUnconfirmedOmniTransactionsByPropertyIDResponse
+ * @return ListUnconfirmedOmniTransactionsByPropertyIDR
  */
-func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute(r ApiListUnconfirmedOmniTransactionsByPropertyIDRequest) (ListUnconfirmedOmniTransactionsByPropertyIDResponse, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute(r ApiListUnconfirmedOmniTransactionsByPropertyIDRequest) (ListUnconfirmedOmniTransactionsByPropertyIDR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListUnconfirmedOmniTransactionsByPropertyIDResponse
+		localVarReturnValue  ListUnconfirmedOmniTransactionsByPropertyIDR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.ListUnconfirmedOmniTransactionsByPropertyID")

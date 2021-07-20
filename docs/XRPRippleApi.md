@@ -4,19 +4,20 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetLatestMinedXRPRippleBlock**](XRPRippleApi.md#GetLatestMinedXRPRippleBlock) | **Get** /blockchain-data/xrp/{network}/blocks/last | Get Latest Mined XRP (Ripple) Block
-[**GetXRPRippleAddressDetails**](XRPRippleApi.md#GetXRPRippleAddressDetails) | **Get** /blockchain-data/xrp/{network}/addresses/{address} | Get XRP (Ripple) Address Details
-[**GetXRPRippleBlockDetailsByBlockHash**](XRPRippleApi.md#GetXRPRippleBlockDetailsByBlockHash) | **Get** /blockchain-data/xrp/{network}/blocks/hash/{blockHash} | Get XRP (Ripple) Block Details By Block Hash
-[**GetXRPRippleBlockDetailsByBlockHeight**](XRPRippleApi.md#GetXRPRippleBlockDetailsByBlockHeight) | **Get** /blockchain-data/xrp/{network}/blocks/height/{height} | Get XRP (Ripple) Block Details By Block Height
-[**GetXRPRippleTransactionDetailsByTransactionID**](XRPRippleApi.md#GetXRPRippleTransactionDetailsByTransactionID) | **Get** /blockchain-data/xrp/{network}/transactions/{transactionHash} | Get XRP (Ripple) Transaction Details By Transaction ID
-[**ListXRPRippleTransactionsByAddress**](XRPRippleApi.md#ListXRPRippleTransactionsByAddress) | **Get** /blockchain-data/xrp/{network}/addresses/{address}/transactions | List XRP (Ripple) Transactions by Address
-[**ListXRPRippleTransactionsByBlockHash**](XRPRippleApi.md#ListXRPRippleTransactionsByBlockHash) | **Get** /blockchain-data/xrp/{network}/blocks/hash/{blockHash}/transactions | List XRP (Ripple) Transactions By Block Hash
+[**GetLatestMinedXRPRippleBlock**](XRPRippleApi.md#GetLatestMinedXRPRippleBlock) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/last | Get Latest Mined XRP (Ripple) Block
+[**GetXRPRippleAddressDetails**](XRPRippleApi.md#GetXRPRippleAddressDetails) | **Get** /blockchain-data/xrp-specific/xrp/{network}/addresses/{address} | Get XRP (Ripple) Address Details
+[**GetXRPRippleBlockDetailsByBlockHash**](XRPRippleApi.md#GetXRPRippleBlockDetailsByBlockHash) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/hash/{blockHash} | Get XRP (Ripple) Block Details By Block Hash
+[**GetXRPRippleBlockDetailsByBlockHeight**](XRPRippleApi.md#GetXRPRippleBlockDetailsByBlockHeight) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/height/{blockHeight} | Get XRP (Ripple) Block Details By Block Height
+[**GetXRPRippleTransactionDetailsByTransactionID**](XRPRippleApi.md#GetXRPRippleTransactionDetailsByTransactionID) | **Get** /blockchain-data/xrp-specific/xrp/{network}/transactions/{transactionHash} | Get XRP (Ripple) Transaction Details By Transaction ID
+[**ListXRPRippleTransactionsByAddress**](XRPRippleApi.md#ListXRPRippleTransactionsByAddress) | **Get** /blockchain-data/xrp-specific/xrp/{network}/addresses/{address}/transactions | List XRP (Ripple) Transactions by Address
+[**ListXRPRippleTransactionsByBlockHash**](XRPRippleApi.md#ListXRPRippleTransactionsByBlockHash) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/hash/{blockHash}/transactions | List XRP (Ripple) Transactions By Block Hash
+[**ListXRPRippleTransactionsByBlockHeight**](XRPRippleApi.md#ListXRPRippleTransactionsByBlockHeight) | **Get** /blockchain-data/xrp-specific/xrp/{network}/blocks/height/{blockHeight}/transactions | List XRP (Ripple) Transactions By Block Height
 
 
 
 ## GetLatestMinedXRPRippleBlock
 
-> GetLatestMinedXRPRippleBlockResponse GetLatestMinedXRPRippleBlock(ctx, network).Context(context).Execute()
+> GetLatestMinedXRPRippleBlockR GetLatestMinedXRPRippleBlock(ctx, network).Context(context).Execute()
 
 Get Latest Mined XRP (Ripple) Block
 
@@ -45,7 +46,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `XRPRippleApi.GetLatestMinedXRPRippleBlock``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetLatestMinedXRPRippleBlock`: GetLatestMinedXRPRippleBlockResponse
+    // response from `GetLatestMinedXRPRippleBlock`: GetLatestMinedXRPRippleBlockR
     fmt.Fprintf(os.Stdout, "Response from `XRPRippleApi.GetLatestMinedXRPRippleBlock`: %v\n", resp)
 }
 ```
@@ -70,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetLatestMinedXRPRippleBlockResponse**](GetLatestMinedXRPRippleBlockResponse.md)
+[**GetLatestMinedXRPRippleBlockR**](GetLatestMinedXRPRippleBlockR.md)
 
 ### Authorization
 
@@ -88,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## GetXRPRippleAddressDetails
 
-> GetXRPRippleAddressDetailsResponse GetXRPRippleAddressDetails(ctx, network, address).Context(context).Execute()
+> GetXRPRippleAddressDetailsR GetXRPRippleAddressDetails(ctx, network, address).Context(context).Execute()
 
 Get XRP (Ripple) Address Details
 
@@ -118,7 +119,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `XRPRippleApi.GetXRPRippleAddressDetails``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetXRPRippleAddressDetails`: GetXRPRippleAddressDetailsResponse
+    // response from `GetXRPRippleAddressDetails`: GetXRPRippleAddressDetailsR
     fmt.Fprintf(os.Stdout, "Response from `XRPRippleApi.GetXRPRippleAddressDetails`: %v\n", resp)
 }
 ```
@@ -145,7 +146,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetXRPRippleAddressDetailsResponse**](GetXRPRippleAddressDetailsResponse.md)
+[**GetXRPRippleAddressDetailsR**](GetXRPRippleAddressDetailsR.md)
 
 ### Authorization
 
@@ -163,7 +164,7 @@ Name | Type | Description  | Notes
 
 ## GetXRPRippleBlockDetailsByBlockHash
 
-> GetXRPRippleBlockDetailsByBlockHashResponse GetXRPRippleBlockDetailsByBlockHash(ctx, network, blockHash).Context(context).Execute()
+> GetXRPRippleBlockDetailsByBlockHashR GetXRPRippleBlockDetailsByBlockHash(ctx, network, blockHash).Context(context).Execute()
 
 Get XRP (Ripple) Block Details By Block Hash
 
@@ -193,7 +194,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `XRPRippleApi.GetXRPRippleBlockDetailsByBlockHash``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetXRPRippleBlockDetailsByBlockHash`: GetXRPRippleBlockDetailsByBlockHashResponse
+    // response from `GetXRPRippleBlockDetailsByBlockHash`: GetXRPRippleBlockDetailsByBlockHashR
     fmt.Fprintf(os.Stdout, "Response from `XRPRippleApi.GetXRPRippleBlockDetailsByBlockHash`: %v\n", resp)
 }
 ```
@@ -220,7 +221,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetXRPRippleBlockDetailsByBlockHashResponse**](GetXRPRippleBlockDetailsByBlockHashResponse.md)
+[**GetXRPRippleBlockDetailsByBlockHashR**](GetXRPRippleBlockDetailsByBlockHashR.md)
 
 ### Authorization
 
@@ -238,7 +239,7 @@ Name | Type | Description  | Notes
 
 ## GetXRPRippleBlockDetailsByBlockHeight
 
-> GetXRPRippleBlockDetailsByBlockHeightResponse GetXRPRippleBlockDetailsByBlockHeight(ctx, network, height).Context(context).Execute()
+> GetXRPRippleBlockDetailsByBlockHeightR GetXRPRippleBlockDetailsByBlockHeight(ctx, network, blockHeight).Context(context).Execute()
 
 Get XRP (Ripple) Block Details By Block Height
 
@@ -258,17 +259,17 @@ import (
 
 func main() {
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\",  are test networks.
-    height := "15886156" // string | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
+    blockHeight := "15886156" // string | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
     context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.XRPRippleApi.GetXRPRippleBlockDetailsByBlockHeight(context.Background(), network, height).Context(context).Execute()
+    resp, r, err := api_client.XRPRippleApi.GetXRPRippleBlockDetailsByBlockHeight(context.Background(), network, blockHeight).Context(context).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `XRPRippleApi.GetXRPRippleBlockDetailsByBlockHeight``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetXRPRippleBlockDetailsByBlockHeight`: GetXRPRippleBlockDetailsByBlockHeightResponse
+    // response from `GetXRPRippleBlockDetailsByBlockHeight`: GetXRPRippleBlockDetailsByBlockHeightR
     fmt.Fprintf(os.Stdout, "Response from `XRPRippleApi.GetXRPRippleBlockDetailsByBlockHeight`: %v\n", resp)
 }
 ```
@@ -280,7 +281,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;,  are test networks. | 
-**height** | **string** | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \&quot;Genesis block\&quot;. | 
+**blockHeight** | **string** | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \&quot;Genesis block\&quot;. | 
 
 ### Other Parameters
 
@@ -295,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetXRPRippleBlockDetailsByBlockHeightResponse**](GetXRPRippleBlockDetailsByBlockHeightResponse.md)
+[**GetXRPRippleBlockDetailsByBlockHeightR**](GetXRPRippleBlockDetailsByBlockHeightR.md)
 
 ### Authorization
 
@@ -313,7 +314,7 @@ Name | Type | Description  | Notes
 
 ## GetXRPRippleTransactionDetailsByTransactionID
 
-> GetXRPRippleTransactionDetailsByTransactionIDResponse GetXRPRippleTransactionDetailsByTransactionID(ctx, network, transactionHash).Context(context).Execute()
+> GetXRPRippleTransactionDetailsByTransactionIDR GetXRPRippleTransactionDetailsByTransactionID(ctx, network, transactionHash).Context(context).Execute()
 
 Get XRP (Ripple) Transaction Details By Transaction ID
 
@@ -343,7 +344,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `XRPRippleApi.GetXRPRippleTransactionDetailsByTransactionID``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetXRPRippleTransactionDetailsByTransactionID`: GetXRPRippleTransactionDetailsByTransactionIDResponse
+    // response from `GetXRPRippleTransactionDetailsByTransactionID`: GetXRPRippleTransactionDetailsByTransactionIDR
     fmt.Fprintf(os.Stdout, "Response from `XRPRippleApi.GetXRPRippleTransactionDetailsByTransactionID`: %v\n", resp)
 }
 ```
@@ -370,7 +371,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetXRPRippleTransactionDetailsByTransactionIDResponse**](GetXRPRippleTransactionDetailsByTransactionIDResponse.md)
+[**GetXRPRippleTransactionDetailsByTransactionIDR**](GetXRPRippleTransactionDetailsByTransactionIDR.md)
 
 ### Authorization
 
@@ -388,7 +389,7 @@ Name | Type | Description  | Notes
 
 ## ListXRPRippleTransactionsByAddress
 
-> ListXRPRippleTransactionsByAddressResponse ListXRPRippleTransactionsByAddress(ctx, network, address).Context(context).Limit(limit).Offset(offset).Execute()
+> ListXRPRippleTransactionsByAddressR ListXRPRippleTransactionsByAddress(ctx, network, address).Context(context).Limit(limit).Offset(offset).Execute()
 
 List XRP (Ripple) Transactions by Address
 
@@ -420,7 +421,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `XRPRippleApi.ListXRPRippleTransactionsByAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListXRPRippleTransactionsByAddress`: ListXRPRippleTransactionsByAddressResponse
+    // response from `ListXRPRippleTransactionsByAddress`: ListXRPRippleTransactionsByAddressR
     fmt.Fprintf(os.Stdout, "Response from `XRPRippleApi.ListXRPRippleTransactionsByAddress`: %v\n", resp)
 }
 ```
@@ -449,7 +450,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListXRPRippleTransactionsByAddressResponse**](ListXRPRippleTransactionsByAddressResponse.md)
+[**ListXRPRippleTransactionsByAddressR**](ListXRPRippleTransactionsByAddressR.md)
 
 ### Authorization
 
@@ -467,7 +468,7 @@ Name | Type | Description  | Notes
 
 ## ListXRPRippleTransactionsByBlockHash
 
-> ListXRPRippleTransactionsByBlockHashResponse ListXRPRippleTransactionsByBlockHash(ctx, network, blockHash).Context(context).Limit(limit).Offset(offset).Execute()
+> ListXRPRippleTransactionsByBlockHashR ListXRPRippleTransactionsByBlockHash(ctx, network, blockHash).Context(context).Limit(limit).Offset(offset).Execute()
 
 List XRP (Ripple) Transactions By Block Hash
 
@@ -499,7 +500,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `XRPRippleApi.ListXRPRippleTransactionsByBlockHash``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListXRPRippleTransactionsByBlockHash`: ListXRPRippleTransactionsByBlockHashResponse
+    // response from `ListXRPRippleTransactionsByBlockHash`: ListXRPRippleTransactionsByBlockHashR
     fmt.Fprintf(os.Stdout, "Response from `XRPRippleApi.ListXRPRippleTransactionsByBlockHash`: %v\n", resp)
 }
 ```
@@ -528,7 +529,86 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListXRPRippleTransactionsByBlockHashResponse**](ListXRPRippleTransactionsByBlockHashResponse.md)
+[**ListXRPRippleTransactionsByBlockHashR**](ListXRPRippleTransactionsByBlockHashR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListXRPRippleTransactionsByBlockHeight
+
+> ListXRPRippleTransactionsByBlockHeightR ListXRPRippleTransactionsByBlockHeight(ctx, network, blockHeight).Context(context).Limit(limit).Offset(offset).Execute()
+
+List XRP (Ripple) Transactions By Block Height
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+    blockHeight := int32(15971358) // int32 | 
+    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    limit := int32(50) // int32 | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset := int32(10) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.XRPRippleApi.ListXRPRippleTransactionsByBlockHeight(context.Background(), network, blockHeight).Context(context).Limit(limit).Offset(offset).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `XRPRippleApi.ListXRPRippleTransactionsByBlockHeight``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListXRPRippleTransactionsByBlockHeight`: ListXRPRippleTransactionsByBlockHeightR
+    fmt.Fprintf(os.Stdout, "Response from `XRPRippleApi.ListXRPRippleTransactionsByBlockHeight`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. | 
+**blockHeight** | **int32** |  | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListXRPRippleTransactionsByBlockHeightRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
+ **limit** | **int32** | Defines how many items should be returned in the response per page basis. | [default to 50]
+ **offset** | **int32** | The starting index of the response items, i.e. where the response should start listing the returned items. | [default to 0]
+
+### Return type
+
+[**ListXRPRippleTransactionsByBlockHeightR**](ListXRPRippleTransactionsByBlockHeightR.md)
 
 ### Authorization
 

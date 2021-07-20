@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## GetOmniTransactionDetailsByTransactionIDTxid
 
-> GetOmniTransactionDetailsByTransactionIDTxidResponse GetOmniTransactionDetailsByTransactionIDTxid(ctx, network, blockchain, transactionId).Context(context).Execute()
+> GetOmniTransactionDetailsByTransactionIDTxidR GetOmniTransactionDetailsByTransactionIDTxid(ctx, network, blockchain, transactionId).Context(context).Execute()
 
 Get Omni Transaction Details By Transaction ID (Txid)
 
@@ -48,7 +48,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `OmniLayerApi.GetOmniTransactionDetailsByTransactionIDTxid``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetOmniTransactionDetailsByTransactionIDTxid`: GetOmniTransactionDetailsByTransactionIDTxidResponse
+    // response from `GetOmniTransactionDetailsByTransactionIDTxid`: GetOmniTransactionDetailsByTransactionIDTxidR
     fmt.Fprintf(os.Stdout, "Response from `OmniLayerApi.GetOmniTransactionDetailsByTransactionIDTxid`: %v\n", resp)
 }
 ```
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetOmniTransactionDetailsByTransactionIDTxidResponse**](GetOmniTransactionDetailsByTransactionIDTxidResponse.md)
+[**GetOmniTransactionDetailsByTransactionIDTxidR**](GetOmniTransactionDetailsByTransactionIDTxidR.md)
 
 ### Authorization
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 
 ## GetUnconfirmedOmniTransactionByTransactionIDTxid
 
-> GetUnconfirmedOmniTransactionByTransactionIDTxidResponse GetUnconfirmedOmniTransactionByTransactionIDTxid(ctx, network, blockchain, transactionId).Context(context).Execute()
+> GetUnconfirmedOmniTransactionByTransactionIDTxidR GetUnconfirmedOmniTransactionByTransactionIDTxid(ctx, network, blockchain, transactionId).Context(context).Execute()
 
 Get Unconfirmed Omni Transaction By Transaction ID (Txid)
 
@@ -126,7 +126,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `OmniLayerApi.GetUnconfirmedOmniTransactionByTransactionIDTxid``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetUnconfirmedOmniTransactionByTransactionIDTxid`: GetUnconfirmedOmniTransactionByTransactionIDTxidResponse
+    // response from `GetUnconfirmedOmniTransactionByTransactionIDTxid`: GetUnconfirmedOmniTransactionByTransactionIDTxidR
     fmt.Fprintf(os.Stdout, "Response from `OmniLayerApi.GetUnconfirmedOmniTransactionByTransactionIDTxid`: %v\n", resp)
 }
 ```
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetUnconfirmedOmniTransactionByTransactionIDTxidResponse**](GetUnconfirmedOmniTransactionByTransactionIDTxidResponse.md)
+[**GetUnconfirmedOmniTransactionByTransactionIDTxidR**](GetUnconfirmedOmniTransactionByTransactionIDTxidR.md)
 
 ### Authorization
 
@@ -173,7 +173,7 @@ Name | Type | Description  | Notes
 
 ## ListOmniTokensByAddress
 
-> ListOmniTokensByAddressResponse ListOmniTokensByAddress(ctx, network, blockchain, address).Context(context).Execute()
+> ListOmniTokensByAddressR ListOmniTokensByAddress(ctx, network, blockchain, address).Context(context).Execute()
 
 List Omni Tokens By Address
 
@@ -204,7 +204,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `OmniLayerApi.ListOmniTokensByAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListOmniTokensByAddress`: ListOmniTokensByAddressResponse
+    // response from `ListOmniTokensByAddress`: ListOmniTokensByAddressR
     fmt.Fprintf(os.Stdout, "Response from `OmniLayerApi.ListOmniTokensByAddress`: %v\n", resp)
 }
 ```
@@ -233,7 +233,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListOmniTokensByAddressResponse**](ListOmniTokensByAddressResponse.md)
+[**ListOmniTokensByAddressR**](ListOmniTokensByAddressR.md)
 
 ### Authorization
 
@@ -251,7 +251,7 @@ Name | Type | Description  | Notes
 
 ## ListOmniTransactionsByAddress
 
-> ListOmniTransactionsByAddressResponse ListOmniTransactionsByAddress(ctx, network, blockchain, address).Context(context).Limit(limit).Offset(offset).Execute()
+> ListOmniTransactionsByAddressR ListOmniTransactionsByAddress(ctx, network, blockchain, address).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Omni Transactions By Address
 
@@ -284,7 +284,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `OmniLayerApi.ListOmniTransactionsByAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListOmniTransactionsByAddress`: ListOmniTransactionsByAddressResponse
+    // response from `ListOmniTransactionsByAddress`: ListOmniTransactionsByAddressR
     fmt.Fprintf(os.Stdout, "Response from `OmniLayerApi.ListOmniTransactionsByAddress`: %v\n", resp)
 }
 ```
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListOmniTransactionsByAddressResponse**](ListOmniTransactionsByAddressResponse.md)
+[**ListOmniTransactionsByAddressR**](ListOmniTransactionsByAddressR.md)
 
 ### Authorization
 
@@ -333,7 +333,7 @@ Name | Type | Description  | Notes
 
 ## ListOmniTransactionsByBlockHash
 
-> ListOmniTransactionsByBlockHashResponse ListOmniTransactionsByBlockHash(ctx, network, blockchain, blockHash).Context(context).Limit(limit).Offset(offset).Execute()
+> ListOmniTransactionsByBlockHashR ListOmniTransactionsByBlockHash(ctx, network, blockchain, blockHash).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Omni Transactions By Block Hash
 
@@ -366,7 +366,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `OmniLayerApi.ListOmniTransactionsByBlockHash``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListOmniTransactionsByBlockHash`: ListOmniTransactionsByBlockHashResponse
+    // response from `ListOmniTransactionsByBlockHash`: ListOmniTransactionsByBlockHashR
     fmt.Fprintf(os.Stdout, "Response from `OmniLayerApi.ListOmniTransactionsByBlockHash`: %v\n", resp)
 }
 ```
@@ -397,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListOmniTransactionsByBlockHashResponse**](ListOmniTransactionsByBlockHashResponse.md)
+[**ListOmniTransactionsByBlockHashR**](ListOmniTransactionsByBlockHashR.md)
 
 ### Authorization
 
@@ -415,7 +415,7 @@ Name | Type | Description  | Notes
 
 ## ListOmniTransactionsByBlockHeight
 
-> ListOmniTransactionsByBlockHeightResponse ListOmniTransactionsByBlockHeight(ctx, network, blockchain, blockHeight).Context(context).Limit(limit).Offset(offset).Execute()
+> ListOmniTransactionsByBlockHeightR ListOmniTransactionsByBlockHeight(ctx, network, blockchain, blockHeight).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Omni Transactions By Block Height
 
@@ -448,7 +448,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `OmniLayerApi.ListOmniTransactionsByBlockHeight``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListOmniTransactionsByBlockHeight`: ListOmniTransactionsByBlockHeightResponse
+    // response from `ListOmniTransactionsByBlockHeight`: ListOmniTransactionsByBlockHeightR
     fmt.Fprintf(os.Stdout, "Response from `OmniLayerApi.ListOmniTransactionsByBlockHeight`: %v\n", resp)
 }
 ```
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListOmniTransactionsByBlockHeightResponse**](ListOmniTransactionsByBlockHeightResponse.md)
+[**ListOmniTransactionsByBlockHeightR**](ListOmniTransactionsByBlockHeightR.md)
 
 ### Authorization
 
@@ -497,7 +497,7 @@ Name | Type | Description  | Notes
 
 ## ListUnconfirmedOmniTransactionsByAddress
 
-> ListUnconfirmedOmniTransactionsByAddressResponse ListUnconfirmedOmniTransactionsByAddress(ctx, network, blockchain, address).Context(context).Limit(limit).Offset(offset).Execute()
+> ListUnconfirmedOmniTransactionsByAddressR ListUnconfirmedOmniTransactionsByAddress(ctx, network, blockchain, address).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Unconfirmed Omni Transactions By Address
 
@@ -530,7 +530,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `OmniLayerApi.ListUnconfirmedOmniTransactionsByAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListUnconfirmedOmniTransactionsByAddress`: ListUnconfirmedOmniTransactionsByAddressResponse
+    // response from `ListUnconfirmedOmniTransactionsByAddress`: ListUnconfirmedOmniTransactionsByAddressR
     fmt.Fprintf(os.Stdout, "Response from `OmniLayerApi.ListUnconfirmedOmniTransactionsByAddress`: %v\n", resp)
 }
 ```
@@ -561,7 +561,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListUnconfirmedOmniTransactionsByAddressResponse**](ListUnconfirmedOmniTransactionsByAddressResponse.md)
+[**ListUnconfirmedOmniTransactionsByAddressR**](ListUnconfirmedOmniTransactionsByAddressR.md)
 
 ### Authorization
 
@@ -579,7 +579,7 @@ Name | Type | Description  | Notes
 
 ## ListUnconfirmedOmniTransactionsByPropertyID
 
-> ListUnconfirmedOmniTransactionsByPropertyIDResponse ListUnconfirmedOmniTransactionsByPropertyID(ctx, network, blockchain, propertyId).Context(context).Limit(limit).Offset(offset).Execute()
+> ListUnconfirmedOmniTransactionsByPropertyIDR ListUnconfirmedOmniTransactionsByPropertyID(ctx, network, blockchain, propertyId).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Unconfirmed Omni Transactions By Property ID
 
@@ -612,7 +612,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `OmniLayerApi.ListUnconfirmedOmniTransactionsByPropertyID``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListUnconfirmedOmniTransactionsByPropertyID`: ListUnconfirmedOmniTransactionsByPropertyIDResponse
+    // response from `ListUnconfirmedOmniTransactionsByPropertyID`: ListUnconfirmedOmniTransactionsByPropertyIDR
     fmt.Fprintf(os.Stdout, "Response from `OmniLayerApi.ListUnconfirmedOmniTransactionsByPropertyID`: %v\n", resp)
 }
 ```
@@ -643,7 +643,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListUnconfirmedOmniTransactionsByPropertyIDResponse**](ListUnconfirmedOmniTransactionsByPropertyIDResponse.md)
+[**ListUnconfirmedOmniTransactionsByPropertyIDR**](ListUnconfirmedOmniTransactionsByPropertyIDR.md)
 
 ### Authorization
 

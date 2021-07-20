@@ -34,14 +34,19 @@ type ApiGetExchangeRateByAssetSymbolsRequest struct {
 	fromAssetSymbol string
 	toAssetSymbol string
 	context *string
+	calculationTimestamp *int32
 }
 
 func (r ApiGetExchangeRateByAssetSymbolsRequest) Context(context string) ApiGetExchangeRateByAssetSymbolsRequest {
 	r.context = &context
 	return r
 }
+func (r ApiGetExchangeRateByAssetSymbolsRequest) CalculationTimestamp(calculationTimestamp int32) ApiGetExchangeRateByAssetSymbolsRequest {
+	r.calculationTimestamp = &calculationTimestamp
+	return r
+}
 
-func (r ApiGetExchangeRateByAssetSymbolsRequest) Execute() (GetExchangeRateByAssetSymbolsResponse, *_nethttp.Response, error) {
+func (r ApiGetExchangeRateByAssetSymbolsRequest) Execute() (GetExchangeRateByAssetSymbolsR, *_nethttp.Response, error) {
 	return r.ApiService.GetExchangeRateByAssetSymbolsExecute(r)
 }
 
@@ -64,16 +69,16 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbols(ctx _context.Con
 
 /*
  * Execute executes the request
- * @return GetExchangeRateByAssetSymbolsResponse
+ * @return GetExchangeRateByAssetSymbolsR
  */
-func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetExchangeRateByAssetSymbolsRequest) (GetExchangeRateByAssetSymbolsResponse, *_nethttp.Response, error) {
+func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetExchangeRateByAssetSymbolsRequest) (GetExchangeRateByAssetSymbolsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GetExchangeRateByAssetSymbolsResponse
+		localVarReturnValue  GetExchangeRateByAssetSymbolsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExchangeRatesApiService.GetExchangeRateByAssetSymbols")
@@ -91,6 +96,9 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	if r.calculationTimestamp != nil {
+		localVarQueryParams.Add("calculationTimestamp", parameterToString(*r.calculationTimestamp, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -255,14 +263,19 @@ type ApiGetExchangeRateByAssetsIDsRequest struct {
 	fromAssetId string
 	toAssetId string
 	context *string
+	calculationTimestamp *int32
 }
 
 func (r ApiGetExchangeRateByAssetsIDsRequest) Context(context string) ApiGetExchangeRateByAssetsIDsRequest {
 	r.context = &context
 	return r
 }
+func (r ApiGetExchangeRateByAssetsIDsRequest) CalculationTimestamp(calculationTimestamp int32) ApiGetExchangeRateByAssetsIDsRequest {
+	r.calculationTimestamp = &calculationTimestamp
+	return r
+}
 
-func (r ApiGetExchangeRateByAssetsIDsRequest) Execute() (GetExchangeRateByAssetsIDsResponse, *_nethttp.Response, error) {
+func (r ApiGetExchangeRateByAssetsIDsRequest) Execute() (GetExchangeRateByAssetsIDsR, *_nethttp.Response, error) {
 	return r.ApiService.GetExchangeRateByAssetsIDsExecute(r)
 }
 
@@ -285,16 +298,16 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDs(ctx _context.Contex
 
 /*
  * Execute executes the request
- * @return GetExchangeRateByAssetsIDsResponse
+ * @return GetExchangeRateByAssetsIDsR
  */
-func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExchangeRateByAssetsIDsRequest) (GetExchangeRateByAssetsIDsResponse, *_nethttp.Response, error) {
+func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExchangeRateByAssetsIDsRequest) (GetExchangeRateByAssetsIDsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GetExchangeRateByAssetsIDsResponse
+		localVarReturnValue  GetExchangeRateByAssetsIDsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExchangeRatesApiService.GetExchangeRateByAssetsIDs")
@@ -312,6 +325,9 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	if r.calculationTimestamp != nil {
+		localVarQueryParams.Add("calculationTimestamp", parameterToString(*r.calculationTimestamp, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

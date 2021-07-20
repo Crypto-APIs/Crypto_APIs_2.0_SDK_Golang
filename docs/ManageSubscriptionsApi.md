@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## DeleteBlockchainEventSubscription
 
-> DeleteBlockchainEventSubscriptionResponse DeleteBlockchainEventSubscription(ctx, blockchain, network, referenceId).Context(context).Execute()
+> DeleteBlockchainEventSubscriptionR DeleteBlockchainEventSubscription(ctx, blockchain, network, referenceId).Context(context).Execute()
 
 Delete Blockchain Event Subscription
 
@@ -42,7 +42,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ManageSubscriptionsApi.DeleteBlockchainEventSubscription``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DeleteBlockchainEventSubscription`: DeleteBlockchainEventSubscriptionResponse
+    // response from `DeleteBlockchainEventSubscription`: DeleteBlockchainEventSubscriptionR
     fmt.Fprintf(os.Stdout, "Response from `ManageSubscriptionsApi.DeleteBlockchainEventSubscription`: %v\n", resp)
 }
 ```
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteBlockchainEventSubscriptionResponse**](DeleteBlockchainEventSubscriptionResponse.md)
+[**DeleteBlockchainEventSubscriptionR**](DeleteBlockchainEventSubscriptionR.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## ListBlockchainEventsSubscriptions
 
-> ListBlockchainEventsSubscriptionsResponse ListBlockchainEventsSubscriptions(ctx, blockchain, network).Context(context).Limit(limit).Offset(offset).Execute()
+> ListBlockchainEventsSubscriptionsR ListBlockchainEventsSubscriptions(ctx, blockchain, network).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Blockchain Events Subscriptions
 
@@ -121,7 +121,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `ManageSubscriptionsApi.ListBlockchainEventsSubscriptions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListBlockchainEventsSubscriptions`: ListBlockchainEventsSubscriptionsResponse
+    // response from `ListBlockchainEventsSubscriptions`: ListBlockchainEventsSubscriptionsR
     fmt.Fprintf(os.Stdout, "Response from `ManageSubscriptionsApi.ListBlockchainEventsSubscriptions`: %v\n", resp)
 }
 ```
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListBlockchainEventsSubscriptionsResponse**](ListBlockchainEventsSubscriptionsResponse.md)
+[**ListBlockchainEventsSubscriptionsR**](ListBlockchainEventsSubscriptionsR.md)
 
 ### Authorization
 

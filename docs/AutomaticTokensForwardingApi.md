@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## AddTokensToExistingFromAddress
 
-> AddTokensToExistingFromAddressResponse AddTokensToExistingFromAddress(ctx, blockchain, network).Context(context).AddTokensToExistingFromAddressRequestBody(addTokensToExistingFromAddressRequestBody).Execute()
+> AddTokensToExistingFromAddressR AddTokensToExistingFromAddress(ctx, blockchain, network).Context(context).AddTokensToExistingFromAddressRB(addTokensToExistingFromAddressRB).Execute()
 
 Add Tokens To Existing fromAddress
 
@@ -36,16 +36,16 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Network
     context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    addTokensToExistingFromAddressRequestBody := *openapiclient.NewAddTokensToExistingFromAddressRequestBody(*openapiclient.NewAddTokensToExistingFromAddressRequestBodyData(*openapiclient.NewAddTokensToExistingFromAddressRequestBodyDataItem("https://example.com", int32(3), "standard", "mizRduUBKEbJ6uzYJUegPh78gEGgM3WjAr", "0.00001", "mnumE76iEKN47bUsdni85oped5D1fRwKWi", openapiclient.AddTokensToExistingFromAddressRequestBodyTokenData{AddTokensToExistingFromAddressRequestBodyTokenDataBitcoinOmniToken: openapiclient.NewAddTokensToExistingFromAddressRequestBodyTokenDataBitcoinOmniToken(int32(2))}))) // AddTokensToExistingFromAddressRequestBody |  (optional)
+    addTokensToExistingFromAddressRB := *openapiclient.NewAddTokensToExistingFromAddressRB(*openapiclient.NewAddTokensToExistingFromAddressRBData(*openapiclient.NewAddTokensToExistingFromAddressRBDataItem("https://example.com", int32(3), "standard", "mizRduUBKEbJ6uzYJUegPh78gEGgM3WjAr", "0.00001", "mnumE76iEKN47bUsdni85oped5D1fRwKWi", openapiclient.AddTokensToExistingFromAddressRBTokenData{AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken: openapiclient.NewAddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken(int32(2))}))) // AddTokensToExistingFromAddressRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AutomaticTokensForwardingApi.AddTokensToExistingFromAddress(context.Background(), blockchain, network).Context(context).AddTokensToExistingFromAddressRequestBody(addTokensToExistingFromAddressRequestBody).Execute()
+    resp, r, err := api_client.AutomaticTokensForwardingApi.AddTokensToExistingFromAddress(context.Background(), blockchain, network).Context(context).AddTokensToExistingFromAddressRB(addTokensToExistingFromAddressRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutomaticTokensForwardingApi.AddTokensToExistingFromAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `AddTokensToExistingFromAddress`: AddTokensToExistingFromAddressResponse
+    // response from `AddTokensToExistingFromAddress`: AddTokensToExistingFromAddressR
     fmt.Fprintf(os.Stdout, "Response from `AutomaticTokensForwardingApi.AddTokensToExistingFromAddress`: %v\n", resp)
 }
 ```
@@ -69,11 +69,11 @@ Name | Type | Description  | Notes
 
 
  **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
- **addTokensToExistingFromAddressRequestBody** | [**AddTokensToExistingFromAddressRequestBody**](AddTokensToExistingFromAddressRequestBody.md) |  | 
+ **addTokensToExistingFromAddressRB** | [**AddTokensToExistingFromAddressRB**](AddTokensToExistingFromAddressRB.md) |  | 
 
 ### Return type
 
-[**AddTokensToExistingFromAddressResponse**](AddTokensToExistingFromAddressResponse.md)
+[**AddTokensToExistingFromAddressR**](AddTokensToExistingFromAddressR.md)
 
 ### Authorization
 
@@ -91,7 +91,7 @@ Name | Type | Description  | Notes
 
 ## CreateAutomaticTokensForwarding
 
-> CreateAutomaticTokensForwardingResponse CreateAutomaticTokensForwarding(ctx, blockchain, network).Context(context).CreateAutomaticTokensForwardingRequestBody(createAutomaticTokensForwardingRequestBody).Execute()
+> CreateAutomaticTokensForwardingR CreateAutomaticTokensForwarding(ctx, blockchain, network).Context(context).CreateAutomaticTokensForwardingRB(createAutomaticTokensForwardingRB).Execute()
 
 Create Automatic Tokens Forwarding
 
@@ -113,16 +113,16 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    createAutomaticTokensForwardingRequestBody := *openapiclient.NewCreateAutomaticTokensForwardingRequestBody(*openapiclient.NewCreateAutomaticTokensForwardingRequestBodyData(*openapiclient.NewCreateAutomaticTokensForwardingRequestBodyDataItem("https://example.com", "3", "FeePriority_example", "0.00002", "tb1q54j7qcu7kgsrx87yn0r9zjdvsxrnvxg4qua2z6", openapiclient.CreateAutomaticTokensForwardingRequestBodyTokenData{CreateAutomaticTokensForwardingRequestBodyTokenDataBitcoinOmniToken: openapiclient.NewCreateAutomaticTokensForwardingRequestBodyTokenDataBitcoinOmniToken(int32(31))}))) // CreateAutomaticTokensForwardingRequestBody |  (optional)
+    createAutomaticTokensForwardingRB := *openapiclient.NewCreateAutomaticTokensForwardingRB(*openapiclient.NewCreateAutomaticTokensForwardingRBData(*openapiclient.NewCreateAutomaticTokensForwardingRBDataItem("https://example.com", "3", "standard", "0.00002", "tb1q54j7qcu7kgsrx87yn0r9zjdvsxrnvxg4qua2z6", openapiclient.CreateAutomaticTokensForwardingRBTokenData{CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken: openapiclient.NewCreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken(int32(31))}))) // CreateAutomaticTokensForwardingRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AutomaticTokensForwardingApi.CreateAutomaticTokensForwarding(context.Background(), blockchain, network).Context(context).CreateAutomaticTokensForwardingRequestBody(createAutomaticTokensForwardingRequestBody).Execute()
+    resp, r, err := api_client.AutomaticTokensForwardingApi.CreateAutomaticTokensForwarding(context.Background(), blockchain, network).Context(context).CreateAutomaticTokensForwardingRB(createAutomaticTokensForwardingRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutomaticTokensForwardingApi.CreateAutomaticTokensForwarding``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateAutomaticTokensForwarding`: CreateAutomaticTokensForwardingResponse
+    // response from `CreateAutomaticTokensForwarding`: CreateAutomaticTokensForwardingR
     fmt.Fprintf(os.Stdout, "Response from `AutomaticTokensForwardingApi.CreateAutomaticTokensForwarding`: %v\n", resp)
 }
 ```
@@ -146,11 +146,11 @@ Name | Type | Description  | Notes
 
 
  **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
- **createAutomaticTokensForwardingRequestBody** | [**CreateAutomaticTokensForwardingRequestBody**](CreateAutomaticTokensForwardingRequestBody.md) |  | 
+ **createAutomaticTokensForwardingRB** | [**CreateAutomaticTokensForwardingRB**](CreateAutomaticTokensForwardingRB.md) |  | 
 
 ### Return type
 
-[**CreateAutomaticTokensForwardingResponse**](CreateAutomaticTokensForwardingResponse.md)
+[**CreateAutomaticTokensForwardingR**](CreateAutomaticTokensForwardingR.md)
 
 ### Authorization
 
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ## DeleteAutomaticTokensForwarding
 
-> DeleteAutomaticTokensForwardingResponse DeleteAutomaticTokensForwarding(ctx, blockchain, network, referenceId).Context(context).Execute()
+> DeleteAutomaticTokensForwardingR DeleteAutomaticTokensForwarding(ctx, blockchain, network, referenceId).Context(context).Execute()
 
 Delete Automatic Tokens Forwarding
 
@@ -199,7 +199,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AutomaticTokensForwardingApi.DeleteAutomaticTokensForwarding``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DeleteAutomaticTokensForwarding`: DeleteAutomaticTokensForwardingResponse
+    // response from `DeleteAutomaticTokensForwarding`: DeleteAutomaticTokensForwardingR
     fmt.Fprintf(os.Stdout, "Response from `AutomaticTokensForwardingApi.DeleteAutomaticTokensForwarding`: %v\n", resp)
 }
 ```
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAutomaticTokensForwardingResponse**](DeleteAutomaticTokensForwardingResponse.md)
+[**DeleteAutomaticTokensForwardingR**](DeleteAutomaticTokensForwardingR.md)
 
 ### Authorization
 
@@ -246,7 +246,7 @@ Name | Type | Description  | Notes
 
 ## GetFeeAddressDetails
 
-> GetFeeAddressDetailsResponse GetFeeAddressDetails(ctx, blockchain, network).Context(context).Execute()
+> GetFeeAddressDetailsR GetFeeAddressDetails(ctx, blockchain, network).Context(context).Execute()
 
 Get Fee Address Details
 
@@ -276,7 +276,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AutomaticTokensForwardingApi.GetFeeAddressDetails``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetFeeAddressDetails`: GetFeeAddressDetailsResponse
+    // response from `GetFeeAddressDetails`: GetFeeAddressDetailsR
     fmt.Fprintf(os.Stdout, "Response from `AutomaticTokensForwardingApi.GetFeeAddressDetails`: %v\n", resp)
 }
 ```
@@ -303,7 +303,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFeeAddressDetailsResponse**](GetFeeAddressDetailsResponse.md)
+[**GetFeeAddressDetailsR**](GetFeeAddressDetailsR.md)
 
 ### Authorization
 
@@ -321,7 +321,7 @@ Name | Type | Description  | Notes
 
 ## ListTokensForwardingAutomations
 
-> ListTokensForwardingAutomationsResponse ListTokensForwardingAutomations(ctx, blockchain, network).Context(context).Limit(limit).Offset(offset).Execute()
+> ListTokensForwardingAutomationsR ListTokensForwardingAutomations(ctx, blockchain, network).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Tokens Forwarding Automations
 
@@ -353,7 +353,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AutomaticTokensForwardingApi.ListTokensForwardingAutomations``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListTokensForwardingAutomations`: ListTokensForwardingAutomationsResponse
+    // response from `ListTokensForwardingAutomations`: ListTokensForwardingAutomationsR
     fmt.Fprintf(os.Stdout, "Response from `AutomaticTokensForwardingApi.ListTokensForwardingAutomations`: %v\n", resp)
 }
 ```
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListTokensForwardingAutomationsResponse**](ListTokensForwardingAutomationsResponse.md)
+[**ListTokensForwardingAutomationsR**](ListTokensForwardingAutomationsR.md)
 
 ### Authorization
 

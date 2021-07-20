@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## ValidateAddress
 
-> ValidateAddressResponse ValidateAddress(ctx, blockchain, network).Context(context).ValidateAddressRequestBody(validateAddressRequestBody).Execute()
+> ValidateAddressR ValidateAddress(ctx, blockchain, network).Context(context).ValidateAddressRB(validateAddressRB).Execute()
 
 Validate Address
 
@@ -32,16 +32,16 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    validateAddressRequestBody := *openapiclient.NewValidateAddressRequestBody(*openapiclient.NewValidateAddressRequestBodyData(*openapiclient.NewValidateAddressRequestBodyDataItem("mho4jHBcrNCncKt38trJahXakuaBnS7LK5"))) // ValidateAddressRequestBody |  (optional)
+    validateAddressRB := *openapiclient.NewValidateAddressRB(*openapiclient.NewValidateAddressRBData(*openapiclient.NewValidateAddressRBDataItem("mho4jHBcrNCncKt38trJahXakuaBnS7LK5"))) // ValidateAddressRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ValidatingApi.ValidateAddress(context.Background(), blockchain, network).Context(context).ValidateAddressRequestBody(validateAddressRequestBody).Execute()
+    resp, r, err := api_client.ValidatingApi.ValidateAddress(context.Background(), blockchain, network).Context(context).ValidateAddressRB(validateAddressRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ValidatingApi.ValidateAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ValidateAddress`: ValidateAddressResponse
+    // response from `ValidateAddress`: ValidateAddressR
     fmt.Fprintf(os.Stdout, "Response from `ValidatingApi.ValidateAddress`: %v\n", resp)
 }
 ```
@@ -65,11 +65,11 @@ Name | Type | Description  | Notes
 
 
  **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
- **validateAddressRequestBody** | [**ValidateAddressRequestBody**](ValidateAddressRequestBody.md) |  | 
+ **validateAddressRB** | [**ValidateAddressRB**](ValidateAddressRB.md) |  | 
 
 ### Return type
 
-[**ValidateAddressResponse**](ValidateAddressResponse.md)
+[**ValidateAddressR**](ValidateAddressR.md)
 
 ### Authorization
 

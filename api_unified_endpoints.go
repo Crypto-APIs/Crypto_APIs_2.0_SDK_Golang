@@ -42,7 +42,7 @@ func (r ApiGetAddressDetailsRequest) Context(context string) ApiGetAddressDetail
 	return r
 }
 
-func (r ApiGetAddressDetailsRequest) Execute() (GetAddressDetailsResponse, *_nethttp.Response, error) {
+func (r ApiGetAddressDetailsRequest) Execute() (GetAddressDetailsR, *_nethttp.Response, error) {
 	return r.ApiService.GetAddressDetailsExecute(r)
 }
 
@@ -67,16 +67,16 @@ func (a *UnifiedEndpointsApiService) GetAddressDetails(ctx _context.Context, blo
 
 /*
  * Execute executes the request
- * @return GetAddressDetailsResponse
+ * @return GetAddressDetailsR
  */
-func (a *UnifiedEndpointsApiService) GetAddressDetailsExecute(r ApiGetAddressDetailsRequest) (GetAddressDetailsResponse, *_nethttp.Response, error) {
+func (a *UnifiedEndpointsApiService) GetAddressDetailsExecute(r ApiGetAddressDetailsRequest) (GetAddressDetailsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GetAddressDetailsResponse
+		localVarReturnValue  GetAddressDetailsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnifiedEndpointsApiService.GetAddressDetails")
@@ -267,7 +267,7 @@ func (r ApiGetBlockDetailsByBlockHashRequest) Context(context string) ApiGetBloc
 	return r
 }
 
-func (r ApiGetBlockDetailsByBlockHashRequest) Execute() (GetBlockDetailsByBlockHashResponse, *_nethttp.Response, error) {
+func (r ApiGetBlockDetailsByBlockHashRequest) Execute() (GetBlockDetailsByBlockHashR, *_nethttp.Response, error) {
 	return r.ApiService.GetBlockDetailsByBlockHashExecute(r)
 }
 
@@ -294,16 +294,16 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHash(ctx _context.Con
 
 /*
  * Execute executes the request
- * @return GetBlockDetailsByBlockHashResponse
+ * @return GetBlockDetailsByBlockHashR
  */
-func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHashExecute(r ApiGetBlockDetailsByBlockHashRequest) (GetBlockDetailsByBlockHashResponse, *_nethttp.Response, error) {
+func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHashExecute(r ApiGetBlockDetailsByBlockHashRequest) (GetBlockDetailsByBlockHashR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GetBlockDetailsByBlockHashResponse
+		localVarReturnValue  GetBlockDetailsByBlockHashR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnifiedEndpointsApiService.GetBlockDetailsByBlockHash")
@@ -504,7 +504,7 @@ func (r ApiGetBlockDetailsByBlockHeightRequest) Context(context string) ApiGetBl
 	return r
 }
 
-func (r ApiGetBlockDetailsByBlockHeightRequest) Execute() (GetBlockDetailsByBlockHeightResponse, *_nethttp.Response, error) {
+func (r ApiGetBlockDetailsByBlockHeightRequest) Execute() (GetBlockDetailsByBlockHeightR, *_nethttp.Response, error) {
 	return r.ApiService.GetBlockDetailsByBlockHeightExecute(r)
 }
 
@@ -531,16 +531,16 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHeight(ctx _context.C
 
 /*
  * Execute executes the request
- * @return GetBlockDetailsByBlockHeightResponse
+ * @return GetBlockDetailsByBlockHeightR
  */
-func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHeightExecute(r ApiGetBlockDetailsByBlockHeightRequest) (GetBlockDetailsByBlockHeightResponse, *_nethttp.Response, error) {
+func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHeightExecute(r ApiGetBlockDetailsByBlockHeightRequest) (GetBlockDetailsByBlockHeightR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GetBlockDetailsByBlockHeightResponse
+		localVarReturnValue  GetBlockDetailsByBlockHeightR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnifiedEndpointsApiService.GetBlockDetailsByBlockHeight")
@@ -740,7 +740,7 @@ func (r ApiGetFeeRecommendationsRequest) Context(context string) ApiGetFeeRecomm
 	return r
 }
 
-func (r ApiGetFeeRecommendationsRequest) Execute() (GetFeeRecommendationsResponse, *_nethttp.Response, error) {
+func (r ApiGetFeeRecommendationsRequest) Execute() (GetFeeRecommendationsR, *_nethttp.Response, error) {
 	return r.ApiService.GetFeeRecommendationsExecute(r)
 }
 
@@ -763,16 +763,16 @@ func (a *UnifiedEndpointsApiService) GetFeeRecommendations(ctx _context.Context,
 
 /*
  * Execute executes the request
- * @return GetFeeRecommendationsResponse
+ * @return GetFeeRecommendationsR
  */
-func (a *UnifiedEndpointsApiService) GetFeeRecommendationsExecute(r ApiGetFeeRecommendationsRequest) (GetFeeRecommendationsResponse, *_nethttp.Response, error) {
+func (a *UnifiedEndpointsApiService) GetFeeRecommendationsExecute(r ApiGetFeeRecommendationsRequest) (GetFeeRecommendationsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GetFeeRecommendationsResponse
+		localVarReturnValue  GetFeeRecommendationsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnifiedEndpointsApiService.GetFeeRecommendations")
@@ -971,7 +971,7 @@ func (r ApiGetLatestMinedBlockRequest) Context(context string) ApiGetLatestMined
 	return r
 }
 
-func (r ApiGetLatestMinedBlockRequest) Execute() (GetLatestMinedBlockResponse, *_nethttp.Response, error) {
+func (r ApiGetLatestMinedBlockRequest) Execute() (GetLatestMinedBlockR, *_nethttp.Response, error) {
 	return r.ApiService.GetLatestMinedBlockExecute(r)
 }
 
@@ -996,16 +996,16 @@ func (a *UnifiedEndpointsApiService) GetLatestMinedBlock(ctx _context.Context, b
 
 /*
  * Execute executes the request
- * @return GetLatestMinedBlockResponse
+ * @return GetLatestMinedBlockR
  */
-func (a *UnifiedEndpointsApiService) GetLatestMinedBlockExecute(r ApiGetLatestMinedBlockRequest) (GetLatestMinedBlockResponse, *_nethttp.Response, error) {
+func (a *UnifiedEndpointsApiService) GetLatestMinedBlockExecute(r ApiGetLatestMinedBlockRequest) (GetLatestMinedBlockR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GetLatestMinedBlockResponse
+		localVarReturnValue  GetLatestMinedBlockR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnifiedEndpointsApiService.GetLatestMinedBlock")
@@ -1205,7 +1205,7 @@ func (r ApiGetTransactionDetailsByTransactionIDRequest) Context(context string) 
 	return r
 }
 
-func (r ApiGetTransactionDetailsByTransactionIDRequest) Execute() (GetTransactionDetailsByTransactionIDResponse, *_nethttp.Response, error) {
+func (r ApiGetTransactionDetailsByTransactionIDRequest) Execute() (GetTransactionDetailsByTransactionIDR, *_nethttp.Response, error) {
 	return r.ApiService.GetTransactionDetailsByTransactionIDExecute(r)
 }
 
@@ -1230,16 +1230,16 @@ func (a *UnifiedEndpointsApiService) GetTransactionDetailsByTransactionID(ctx _c
 
 /*
  * Execute executes the request
- * @return GetTransactionDetailsByTransactionIDResponse
+ * @return GetTransactionDetailsByTransactionIDR
  */
-func (a *UnifiedEndpointsApiService) GetTransactionDetailsByTransactionIDExecute(r ApiGetTransactionDetailsByTransactionIDRequest) (GetTransactionDetailsByTransactionIDResponse, *_nethttp.Response, error) {
+func (a *UnifiedEndpointsApiService) GetTransactionDetailsByTransactionIDExecute(r ApiGetTransactionDetailsByTransactionIDRequest) (GetTransactionDetailsByTransactionIDR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GetTransactionDetailsByTransactionIDResponse
+		localVarReturnValue  GetTransactionDetailsByTransactionIDR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnifiedEndpointsApiService.GetTransactionDetailsByTransactionID")
@@ -1450,7 +1450,7 @@ func (r ApiListTransactionsByAddressRequest) Offset(offset int32) ApiListTransac
 	return r
 }
 
-func (r ApiListTransactionsByAddressRequest) Execute() (ListTransactionsByAddressResponse, *_nethttp.Response, error) {
+func (r ApiListTransactionsByAddressRequest) Execute() (ListTransactionsByAddressR, *_nethttp.Response, error) {
 	return r.ApiService.ListTransactionsByAddressExecute(r)
 }
 
@@ -1475,16 +1475,16 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByAddress(ctx _context.Cont
 
 /*
  * Execute executes the request
- * @return ListTransactionsByAddressResponse
+ * @return ListTransactionsByAddressR
  */
-func (a *UnifiedEndpointsApiService) ListTransactionsByAddressExecute(r ApiListTransactionsByAddressRequest) (ListTransactionsByAddressResponse, *_nethttp.Response, error) {
+func (a *UnifiedEndpointsApiService) ListTransactionsByAddressExecute(r ApiListTransactionsByAddressRequest) (ListTransactionsByAddressR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListTransactionsByAddressResponse
+		localVarReturnValue  ListTransactionsByAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnifiedEndpointsApiService.ListTransactionsByAddress")
@@ -1691,7 +1691,7 @@ func (r ApiListTransactionsByBlockHashRequest) Offset(offset int32) ApiListTrans
 	return r
 }
 
-func (r ApiListTransactionsByBlockHashRequest) Execute() (ListTransactionsByBlockHashResponse, *_nethttp.Response, error) {
+func (r ApiListTransactionsByBlockHashRequest) Execute() (ListTransactionsByBlockHashR, *_nethttp.Response, error) {
 	return r.ApiService.ListTransactionsByBlockHashExecute(r)
 }
 
@@ -1716,16 +1716,16 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHash(ctx _context.Co
 
 /*
  * Execute executes the request
- * @return ListTransactionsByBlockHashResponse
+ * @return ListTransactionsByBlockHashR
  */
-func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHashExecute(r ApiListTransactionsByBlockHashRequest) (ListTransactionsByBlockHashResponse, *_nethttp.Response, error) {
+func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHashExecute(r ApiListTransactionsByBlockHashRequest) (ListTransactionsByBlockHashR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListTransactionsByBlockHashResponse
+		localVarReturnValue  ListTransactionsByBlockHashR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnifiedEndpointsApiService.ListTransactionsByBlockHash")
@@ -1932,7 +1932,7 @@ func (r ApiListTransactionsByBlockHeightRequest) Offset(offset int32) ApiListTra
 	return r
 }
 
-func (r ApiListTransactionsByBlockHeightRequest) Execute() (ListTransactionsByBlockHeightResponse, *_nethttp.Response, error) {
+func (r ApiListTransactionsByBlockHeightRequest) Execute() (ListTransactionsByBlockHeightR, *_nethttp.Response, error) {
 	return r.ApiService.ListTransactionsByBlockHeightExecute(r)
 }
 
@@ -1957,16 +1957,16 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHeight(ctx _context.
 
 /*
  * Execute executes the request
- * @return ListTransactionsByBlockHeightResponse
+ * @return ListTransactionsByBlockHeightR
  */
-func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHeightExecute(r ApiListTransactionsByBlockHeightRequest) (ListTransactionsByBlockHeightResponse, *_nethttp.Response, error) {
+func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHeightExecute(r ApiListTransactionsByBlockHeightRequest) (ListTransactionsByBlockHeightR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListTransactionsByBlockHeightResponse
+		localVarReturnValue  ListTransactionsByBlockHeightR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnifiedEndpointsApiService.ListTransactionsByBlockHeight")

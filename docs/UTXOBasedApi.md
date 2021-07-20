@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## GetHDWalletXPubYPubZPubDetails
 
-> GetHDWalletxPubYPubZPubDetailsResponse GetHDWalletXPubYPubZPubDetails(ctx, blockchain, extendedPublicKey, network).Context(context).Derivation(derivation).Execute()
+> GetHDWalletXPubYPubZPubDetailsR GetHDWalletXPubYPubZPubDetails(ctx, blockchain, extendedPublicKey, network).Context(context).Derivation(derivation).Execute()
 
 Get HD Wallet (xPub, yPub, zPub) Details
 
@@ -44,7 +44,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UTXOBasedApi.GetHDWalletXPubYPubZPubDetails``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetHDWalletXPubYPubZPubDetails`: GetHDWalletxPubYPubZPubDetailsResponse
+    // response from `GetHDWalletXPubYPubZPubDetails`: GetHDWalletXPubYPubZPubDetailsR
     fmt.Fprintf(os.Stdout, "Response from `UTXOBasedApi.GetHDWalletXPubYPubZPubDetails`: %v\n", resp)
 }
 ```
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetHDWalletxPubYPubZPubDetailsResponse**](GetHDWalletxPubYPubZPubDetailsResponse.md)
+[**GetHDWalletXPubYPubZPubDetailsR**](GetHDWalletXPubYPubZPubDetailsR.md)
 
 ### Authorization
 
@@ -92,7 +92,7 @@ Name | Type | Description  | Notes
 
 ## ListHDWalletXPubYPubZPubTransactions
 
-> ListHDWalletxPubYPubZPubTransactionsResponse ListHDWalletXPubYPubZPubTransactions(ctx, blockchain, extendedPublicKey, network).Context(context).Derivation(derivation).Limit(limit).Offset(offset).Execute()
+> ListHDWalletXPubYPubZPubTransactionsR ListHDWalletXPubYPubZPubTransactions(ctx, blockchain, extendedPublicKey, network).Context(context).Derivation(derivation).Limit(limit).Offset(offset).Execute()
 
 List HD Wallet (xPub, yPub, zPub) Transactions
 
@@ -126,7 +126,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UTXOBasedApi.ListHDWalletXPubYPubZPubTransactions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListHDWalletXPubYPubZPubTransactions`: ListHDWalletxPubYPubZPubTransactionsResponse
+    // response from `ListHDWalletXPubYPubZPubTransactions`: ListHDWalletXPubYPubZPubTransactionsR
     fmt.Fprintf(os.Stdout, "Response from `UTXOBasedApi.ListHDWalletXPubYPubZPubTransactions`: %v\n", resp)
 }
 ```
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListHDWalletxPubYPubZPubTransactionsResponse**](ListHDWalletxPubYPubZPubTransactionsResponse.md)
+[**ListHDWalletXPubYPubZPubTransactionsR**](ListHDWalletXPubYPubZPubTransactionsR.md)
 
 ### Authorization
 
@@ -176,7 +176,7 @@ Name | Type | Description  | Notes
 
 ## SyncHDWalletXPubYPubZPub
 
-> SyncHDWalletxPubYPubZPubResponse SyncHDWalletXPubYPubZPub(ctx, blockchain, network).Context(context).SyncHDWalletxPubYPubZPubRequestBody(syncHDWalletxPubYPubZPubRequestBody).Execute()
+> SyncHDWalletXPubYPubZPubR SyncHDWalletXPubYPubZPub(ctx, blockchain, network).Context(context).SyncHDWalletXPubYPubZPubRB(syncHDWalletXPubYPubZPubRB).Execute()
 
 Sync HD Wallet (xPub, yPub, zPub)
 
@@ -198,16 +198,16 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    syncHDWalletxPubYPubZPubRequestBody := *openapiclient.NewSyncHDWalletxPubYPubZPubRequestBody(*openapiclient.NewSyncHDWalletxPubYPubZPubRequestBodyData(*openapiclient.NewSyncHDWalletxPubYPubZPubRequestBodyDataItem("upub5Ei6bRNneqozk6smK7dvtXHC5PjUyEL4ynCfMKvjznLcXi9DQaikETzQjHvJC43XexMvQs64jxB1njMjCHpRZ4xQWAmv3ge9cVtjfsHmbvQ"))) // SyncHDWalletxPubYPubZPubRequestBody |  (optional)
+    syncHDWalletXPubYPubZPubRB := *openapiclient.NewSyncHDWalletXPubYPubZPubRB(*openapiclient.NewSyncHDWalletXPubYPubZPubRBData(*openapiclient.NewSyncHDWalletXPubYPubZPubRBDataItem("upub5Ei6bRNneqozk6smK7dvtXHC5PjUyEL4ynCfMKvjznLcXi9DQaikETzQjHvJC43XexMvQs64jxB1njMjCHpRZ4xQWAmv3ge9cVtjfsHmbvQ"))) // SyncHDWalletXPubYPubZPubRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.UTXOBasedApi.SyncHDWalletXPubYPubZPub(context.Background(), blockchain, network).Context(context).SyncHDWalletxPubYPubZPubRequestBody(syncHDWalletxPubYPubZPubRequestBody).Execute()
+    resp, r, err := api_client.UTXOBasedApi.SyncHDWalletXPubYPubZPub(context.Background(), blockchain, network).Context(context).SyncHDWalletXPubYPubZPubRB(syncHDWalletXPubYPubZPubRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `UTXOBasedApi.SyncHDWalletXPubYPubZPub``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `SyncHDWalletXPubYPubZPub`: SyncHDWalletxPubYPubZPubResponse
+    // response from `SyncHDWalletXPubYPubZPub`: SyncHDWalletXPubYPubZPubR
     fmt.Fprintf(os.Stdout, "Response from `UTXOBasedApi.SyncHDWalletXPubYPubZPub`: %v\n", resp)
 }
 ```
@@ -231,11 +231,11 @@ Name | Type | Description  | Notes
 
 
  **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
- **syncHDWalletxPubYPubZPubRequestBody** | [**SyncHDWalletxPubYPubZPubRequestBody**](SyncHDWalletxPubYPubZPubRequestBody.md) |  | 
+ **syncHDWalletXPubYPubZPubRB** | [**SyncHDWalletXPubYPubZPubRB**](SyncHDWalletXPubYPubZPubRB.md) |  | 
 
 ### Return type
 
-[**SyncHDWalletxPubYPubZPubResponse**](SyncHDWalletxPubYPubZPubResponse.md)
+[**SyncHDWalletXPubYPubZPubR**](SyncHDWalletXPubYPubZPubR.md)
 
 ### Authorization
 

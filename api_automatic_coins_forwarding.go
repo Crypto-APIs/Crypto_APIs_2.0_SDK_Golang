@@ -34,19 +34,19 @@ type ApiCreateAutomaticCoinsForwardingRequest struct {
 	blockchain string
 	network string
 	context *string
-	createAutomaticCoinsForwardingRequestBody *CreateAutomaticCoinsForwardingRequestBody
+	createAutomaticCoinsForwardingRB *CreateAutomaticCoinsForwardingRB
 }
 
 func (r ApiCreateAutomaticCoinsForwardingRequest) Context(context string) ApiCreateAutomaticCoinsForwardingRequest {
 	r.context = &context
 	return r
 }
-func (r ApiCreateAutomaticCoinsForwardingRequest) CreateAutomaticCoinsForwardingRequestBody(createAutomaticCoinsForwardingRequestBody CreateAutomaticCoinsForwardingRequestBody) ApiCreateAutomaticCoinsForwardingRequest {
-	r.createAutomaticCoinsForwardingRequestBody = &createAutomaticCoinsForwardingRequestBody
+func (r ApiCreateAutomaticCoinsForwardingRequest) CreateAutomaticCoinsForwardingRB(createAutomaticCoinsForwardingRB CreateAutomaticCoinsForwardingRB) ApiCreateAutomaticCoinsForwardingRequest {
+	r.createAutomaticCoinsForwardingRB = &createAutomaticCoinsForwardingRB
 	return r
 }
 
-func (r ApiCreateAutomaticCoinsForwardingRequest) Execute() (CreateAutomaticCoinsForwardingResponse, *_nethttp.Response, error) {
+func (r ApiCreateAutomaticCoinsForwardingRequest) Execute() (CreateAutomaticCoinsForwardingR, *_nethttp.Response, error) {
 	return r.ApiService.CreateAutomaticCoinsForwardingExecute(r)
 }
 
@@ -81,16 +81,16 @@ func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwarding(ctx 
 
 /*
  * Execute executes the request
- * @return CreateAutomaticCoinsForwardingResponse
+ * @return CreateAutomaticCoinsForwardingR
  */
-func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwardingExecute(r ApiCreateAutomaticCoinsForwardingRequest) (CreateAutomaticCoinsForwardingResponse, *_nethttp.Response, error) {
+func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwardingExecute(r ApiCreateAutomaticCoinsForwardingRequest) (CreateAutomaticCoinsForwardingR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  CreateAutomaticCoinsForwardingResponse
+		localVarReturnValue  CreateAutomaticCoinsForwardingR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutomaticCoinsForwardingApiService.CreateAutomaticCoinsForwarding")
@@ -127,7 +127,7 @@ func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwardingExecu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createAutomaticCoinsForwardingRequestBody
+	localVarPostBody = r.createAutomaticCoinsForwardingRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -292,7 +292,7 @@ func (r ApiDeleteAutomaticCoinsForwardingRequest) Context(context string) ApiDel
 	return r
 }
 
-func (r ApiDeleteAutomaticCoinsForwardingRequest) Execute() (DeleteAutomaticCoinsForwardingResponse, *_nethttp.Response, error) {
+func (r ApiDeleteAutomaticCoinsForwardingRequest) Execute() (DeleteAutomaticCoinsForwardingR, *_nethttp.Response, error) {
 	return r.ApiService.DeleteAutomaticCoinsForwardingExecute(r)
 }
 
@@ -323,16 +323,16 @@ func (a *AutomaticCoinsForwardingApiService) DeleteAutomaticCoinsForwarding(ctx 
 
 /*
  * Execute executes the request
- * @return DeleteAutomaticCoinsForwardingResponse
+ * @return DeleteAutomaticCoinsForwardingR
  */
-func (a *AutomaticCoinsForwardingApiService) DeleteAutomaticCoinsForwardingExecute(r ApiDeleteAutomaticCoinsForwardingRequest) (DeleteAutomaticCoinsForwardingResponse, *_nethttp.Response, error) {
+func (a *AutomaticCoinsForwardingApiService) DeleteAutomaticCoinsForwardingExecute(r ApiDeleteAutomaticCoinsForwardingRequest) (DeleteAutomaticCoinsForwardingR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  DeleteAutomaticCoinsForwardingResponse
+		localVarReturnValue  DeleteAutomaticCoinsForwardingR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutomaticCoinsForwardingApiService.DeleteAutomaticCoinsForwarding")
@@ -542,7 +542,7 @@ func (r ApiListCoinsForwardingAutomationsRequest) Offset(offset int32) ApiListCo
 	return r
 }
 
-func (r ApiListCoinsForwardingAutomationsRequest) Execute() (ListCoinsForwardingAutomationsResponse, *_nethttp.Response, error) {
+func (r ApiListCoinsForwardingAutomationsRequest) Execute() (ListCoinsForwardingAutomationsR, *_nethttp.Response, error) {
 	return r.ApiService.ListCoinsForwardingAutomationsExecute(r)
 }
 
@@ -571,16 +571,16 @@ func (a *AutomaticCoinsForwardingApiService) ListCoinsForwardingAutomations(ctx 
 
 /*
  * Execute executes the request
- * @return ListCoinsForwardingAutomationsResponse
+ * @return ListCoinsForwardingAutomationsR
  */
-func (a *AutomaticCoinsForwardingApiService) ListCoinsForwardingAutomationsExecute(r ApiListCoinsForwardingAutomationsRequest) (ListCoinsForwardingAutomationsResponse, *_nethttp.Response, error) {
+func (a *AutomaticCoinsForwardingApiService) ListCoinsForwardingAutomationsExecute(r ApiListCoinsForwardingAutomationsRequest) (ListCoinsForwardingAutomationsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListCoinsForwardingAutomationsResponse
+		localVarReturnValue  ListCoinsForwardingAutomationsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutomaticCoinsForwardingApiService.ListCoinsForwardingAutomations")

@@ -34,19 +34,19 @@ type ApiValidateAddressRequest struct {
 	blockchain string
 	network string
 	context *string
-	validateAddressRequestBody *ValidateAddressRequestBody
+	validateAddressRB *ValidateAddressRB
 }
 
 func (r ApiValidateAddressRequest) Context(context string) ApiValidateAddressRequest {
 	r.context = &context
 	return r
 }
-func (r ApiValidateAddressRequest) ValidateAddressRequestBody(validateAddressRequestBody ValidateAddressRequestBody) ApiValidateAddressRequest {
-	r.validateAddressRequestBody = &validateAddressRequestBody
+func (r ApiValidateAddressRequest) ValidateAddressRB(validateAddressRB ValidateAddressRB) ApiValidateAddressRequest {
+	r.validateAddressRB = &validateAddressRB
 	return r
 }
 
-func (r ApiValidateAddressRequest) Execute() (ValidateAddressResponse, *_nethttp.Response, error) {
+func (r ApiValidateAddressRequest) Execute() (ValidateAddressR, *_nethttp.Response, error) {
 	return r.ApiService.ValidateAddressExecute(r)
 }
 
@@ -69,16 +69,16 @@ func (a *ValidatingApiService) ValidateAddress(ctx _context.Context, blockchain 
 
 /*
  * Execute executes the request
- * @return ValidateAddressResponse
+ * @return ValidateAddressR
  */
-func (a *ValidatingApiService) ValidateAddressExecute(r ApiValidateAddressRequest) (ValidateAddressResponse, *_nethttp.Response, error) {
+func (a *ValidatingApiService) ValidateAddressExecute(r ApiValidateAddressRequest) (ValidateAddressR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ValidateAddressResponse
+		localVarReturnValue  ValidateAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ValidatingApiService.ValidateAddress")
@@ -115,7 +115,7 @@ func (a *ValidatingApiService) ValidateAddressExecute(r ApiValidateAddressReques
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.validateAddressRequestBody
+	localVarPostBody = r.validateAddressRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

@@ -19,6 +19,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"io/ioutil"
 	"log"
 	"mime/multipart"
 	"net/http"
@@ -57,9 +58,13 @@ type APIClient struct {
 
 	CreateSubscriptionsForApi *CreateSubscriptionsForApiService
 
-	DefaultApi *DefaultApiService
-
 	ExchangeRatesApi *ExchangeRatesApiService
+
+	GeneratingApi *GeneratingApiService
+
+	InformativeApi *InformativeApiService
+
+	InternalApi *InternalApiService
 
 	ManageSubscriptionsApi *ManageSubscriptionsApiService
 
@@ -69,6 +74,8 @@ type APIClient struct {
 
 	TokensApi *TokensApiService
 
+	TransactionsApi *TransactionsApiService
+
 	UTXOBasedApi *UTXOBasedApiService
 
 	UnifiedEndpointsApi *UnifiedEndpointsApiService
@@ -76,6 +83,8 @@ type APIClient struct {
 	ValidatingApi *ValidatingApiService
 
 	XRPRippleApi *XRPRippleApiService
+
+	ZilliqaApi *ZilliqaApiService
 }
 
 type service struct {
@@ -98,16 +107,20 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AutomaticCoinsForwardingApi = (*AutomaticCoinsForwardingApiService)(&c.common)
 	c.AutomaticTokensForwardingApi = (*AutomaticTokensForwardingApiService)(&c.common)
 	c.CreateSubscriptionsForApi = (*CreateSubscriptionsForApiService)(&c.common)
-	c.DefaultApi = (*DefaultApiService)(&c.common)
 	c.ExchangeRatesApi = (*ExchangeRatesApiService)(&c.common)
+	c.GeneratingApi = (*GeneratingApiService)(&c.common)
+	c.InformativeApi = (*InformativeApiService)(&c.common)
+	c.InternalApi = (*InternalApiService)(&c.common)
 	c.ManageSubscriptionsApi = (*ManageSubscriptionsApiService)(&c.common)
 	c.MetadataApi = (*MetadataApiService)(&c.common)
 	c.OmniLayerApi = (*OmniLayerApiService)(&c.common)
 	c.TokensApi = (*TokensApiService)(&c.common)
+	c.TransactionsApi = (*TransactionsApiService)(&c.common)
 	c.UTXOBasedApi = (*UTXOBasedApiService)(&c.common)
 	c.UnifiedEndpointsApi = (*UnifiedEndpointsApiService)(&c.common)
 	c.ValidatingApi = (*ValidatingApiService)(&c.common)
 	c.XRPRippleApi = (*XRPRippleApiService)(&c.common)
+	c.ZilliqaApi = (*ZilliqaApiService)(&c.common)
 
 	return c
 }
@@ -398,6 +411,15 @@ func (c *APIClient) decode(v interface{}, b []byte, contentType string) (err err
 	if s, ok := v.(*string); ok {
 		*s = string(b)
 		return nil
+	}
+	if f, ok := v.(**os.File); ok {
+		*f, err = ioutil.TempFile("", "HttpClientFile")
+		if err != nil {
+			return
+		}
+		_, err = (*f).Write(b)
+		_, err = (*f).Seek(0, io.SeekStart)
+		return
 	}
 	if xmlCheck.MatchString(contentType) {
 		if err = xml.Unmarshal(b, v); err != nil {

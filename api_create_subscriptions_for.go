@@ -34,19 +34,19 @@ type ApiMinedTransactionRequest struct {
 	blockchain string
 	network string
 	context *string
-	minedTransactionRequestBody *MinedTransactionRequestBody
+	minedTransactionRB *MinedTransactionRB
 }
 
 func (r ApiMinedTransactionRequest) Context(context string) ApiMinedTransactionRequest {
 	r.context = &context
 	return r
 }
-func (r ApiMinedTransactionRequest) MinedTransactionRequestBody(minedTransactionRequestBody MinedTransactionRequestBody) ApiMinedTransactionRequest {
-	r.minedTransactionRequestBody = &minedTransactionRequestBody
+func (r ApiMinedTransactionRequest) MinedTransactionRB(minedTransactionRB MinedTransactionRB) ApiMinedTransactionRequest {
+	r.minedTransactionRB = &minedTransactionRB
 	return r
 }
 
-func (r ApiMinedTransactionRequest) Execute() (MinedTransactionResponse, *_nethttp.Response, error) {
+func (r ApiMinedTransactionRequest) Execute() (MinedTransactionR, *_nethttp.Response, error) {
 	return r.ApiService.MinedTransactionExecute(r)
 }
 
@@ -75,16 +75,16 @@ func (a *CreateSubscriptionsForApiService) MinedTransaction(ctx _context.Context
 
 /*
  * Execute executes the request
- * @return MinedTransactionResponse
+ * @return MinedTransactionR
  */
-func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTransactionRequest) (MinedTransactionResponse, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTransactionRequest) (MinedTransactionR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  MinedTransactionResponse
+		localVarReturnValue  MinedTransactionR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.MinedTransaction")
@@ -121,7 +121,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.minedTransactionRequestBody
+	localVarPostBody = r.minedTransactionRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -268,19 +268,19 @@ type ApiNewBlockRequest struct {
 	blockchain string
 	network string
 	context *string
-	newBlockRequestBody *NewBlockRequestBody
+	newBlockRB *NewBlockRB
 }
 
 func (r ApiNewBlockRequest) Context(context string) ApiNewBlockRequest {
 	r.context = &context
 	return r
 }
-func (r ApiNewBlockRequest) NewBlockRequestBody(newBlockRequestBody NewBlockRequestBody) ApiNewBlockRequest {
-	r.newBlockRequestBody = &newBlockRequestBody
+func (r ApiNewBlockRequest) NewBlockRB(newBlockRB NewBlockRB) ApiNewBlockRequest {
+	r.newBlockRB = &newBlockRB
 	return r
 }
 
-func (r ApiNewBlockRequest) Execute() (NewBlockResponse, *_nethttp.Response, error) {
+func (r ApiNewBlockRequest) Execute() (NewBlockR, *_nethttp.Response, error) {
 	return r.ApiService.NewBlockExecute(r)
 }
 
@@ -309,16 +309,16 @@ func (a *CreateSubscriptionsForApiService) NewBlock(ctx _context.Context, blockc
 
 /*
  * Execute executes the request
- * @return NewBlockResponse
+ * @return NewBlockR
  */
-func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest) (NewBlockResponse, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest) (NewBlockR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  NewBlockResponse
+		localVarReturnValue  NewBlockR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewBlock")
@@ -355,7 +355,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.newBlockRequestBody
+	localVarPostBody = r.newBlockRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -502,19 +502,19 @@ type ApiNewConfirmedCoinsTransactionsRequest struct {
 	blockchain string
 	network string
 	context *string
-	newConfirmedCoinsTransactionsRequestBody *NewConfirmedCoinsTransactionsRequestBody
+	newConfirmedCoinsTransactionsRB *NewConfirmedCoinsTransactionsRB
 }
 
 func (r ApiNewConfirmedCoinsTransactionsRequest) Context(context string) ApiNewConfirmedCoinsTransactionsRequest {
 	r.context = &context
 	return r
 }
-func (r ApiNewConfirmedCoinsTransactionsRequest) NewConfirmedCoinsTransactionsRequestBody(newConfirmedCoinsTransactionsRequestBody NewConfirmedCoinsTransactionsRequestBody) ApiNewConfirmedCoinsTransactionsRequest {
-	r.newConfirmedCoinsTransactionsRequestBody = &newConfirmedCoinsTransactionsRequestBody
+func (r ApiNewConfirmedCoinsTransactionsRequest) NewConfirmedCoinsTransactionsRB(newConfirmedCoinsTransactionsRB NewConfirmedCoinsTransactionsRB) ApiNewConfirmedCoinsTransactionsRequest {
+	r.newConfirmedCoinsTransactionsRB = &newConfirmedCoinsTransactionsRB
 	return r
 }
 
-func (r ApiNewConfirmedCoinsTransactionsRequest) Execute() (NewConfirmedCoinsTransactionsResponse, *_nethttp.Response, error) {
+func (r ApiNewConfirmedCoinsTransactionsRequest) Execute() (NewConfirmedCoinsTransactionsR, *_nethttp.Response, error) {
 	return r.ApiService.NewConfirmedCoinsTransactionsExecute(r)
 }
 
@@ -543,16 +543,16 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactions(ctx _co
 
 /*
  * Execute executes the request
- * @return NewConfirmedCoinsTransactionsResponse
+ * @return NewConfirmedCoinsTransactionsR
  */
-func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(r ApiNewConfirmedCoinsTransactionsRequest) (NewConfirmedCoinsTransactionsResponse, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(r ApiNewConfirmedCoinsTransactionsRequest) (NewConfirmedCoinsTransactionsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  NewConfirmedCoinsTransactionsResponse
+		localVarReturnValue  NewConfirmedCoinsTransactionsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewConfirmedCoinsTransactions")
@@ -589,7 +589,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.newConfirmedCoinsTransactionsRequestBody
+	localVarPostBody = r.newConfirmedCoinsTransactionsRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -736,19 +736,19 @@ type ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest struct {
 	blockchain string
 	network string
 	context *string
-	newConfirmedCoinsTransactionsAndEachConfirmationRequestBody *NewConfirmedCoinsTransactionsAndEachConfirmationRequestBody
+	newConfirmedCoinsTransactionsAndEachConfirmationRB *NewConfirmedCoinsTransactionsAndEachConfirmationRB
 }
 
 func (r ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest) Context(context string) ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest {
 	r.context = &context
 	return r
 }
-func (r ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest) NewConfirmedCoinsTransactionsAndEachConfirmationRequestBody(newConfirmedCoinsTransactionsAndEachConfirmationRequestBody NewConfirmedCoinsTransactionsAndEachConfirmationRequestBody) ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest {
-	r.newConfirmedCoinsTransactionsAndEachConfirmationRequestBody = &newConfirmedCoinsTransactionsAndEachConfirmationRequestBody
+func (r ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest) NewConfirmedCoinsTransactionsAndEachConfirmationRB(newConfirmedCoinsTransactionsAndEachConfirmationRB NewConfirmedCoinsTransactionsAndEachConfirmationRB) ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest {
+	r.newConfirmedCoinsTransactionsAndEachConfirmationRB = &newConfirmedCoinsTransactionsAndEachConfirmationRB
 	return r
 }
 
-func (r ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest) Execute() (NewConfirmedCoinsTransactionsAndEachConfirmationResponse, *_nethttp.Response, error) {
+func (r ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest) Execute() (NewConfirmedCoinsTransactionsAndEachConfirmationR, *_nethttp.Response, error) {
 	return r.ApiService.NewConfirmedCoinsTransactionsAndEachConfirmationExecute(r)
 }
 
@@ -777,16 +777,16 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 
 /*
  * Execute executes the request
- * @return NewConfirmedCoinsTransactionsAndEachConfirmationResponse
+ * @return NewConfirmedCoinsTransactionsAndEachConfirmationR
  */
-func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachConfirmationExecute(r ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest) (NewConfirmedCoinsTransactionsAndEachConfirmationResponse, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachConfirmationExecute(r ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest) (NewConfirmedCoinsTransactionsAndEachConfirmationR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  NewConfirmedCoinsTransactionsAndEachConfirmationResponse
+		localVarReturnValue  NewConfirmedCoinsTransactionsAndEachConfirmationR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewConfirmedCoinsTransactionsAndEachConfirmation")
@@ -823,7 +823,475 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.newConfirmedCoinsTransactionsAndEachConfirmationRequestBody
+	localVarPostBody = r.newConfirmedCoinsTransactionsAndEachConfirmationRB
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidPagination
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v InvalidApiKey
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v InsufficientCredits
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v BlockchainEventsCallbacksLimitReached
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v AlreadyExists
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v UnsupportedMediaType
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v InvalidRequestBodyStructure
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v RequestLimitReached
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v UnexpectedServerError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiNewConfirmedInternalTransactionsRequest struct {
+	ctx _context.Context
+	ApiService *CreateSubscriptionsForApiService
+	blockchain string
+	network string
+	context *string
+	newConfirmedInternalTransactionsRB *NewConfirmedInternalTransactionsRB
+}
+
+func (r ApiNewConfirmedInternalTransactionsRequest) Context(context string) ApiNewConfirmedInternalTransactionsRequest {
+	r.context = &context
+	return r
+}
+func (r ApiNewConfirmedInternalTransactionsRequest) NewConfirmedInternalTransactionsRB(newConfirmedInternalTransactionsRB NewConfirmedInternalTransactionsRB) ApiNewConfirmedInternalTransactionsRequest {
+	r.newConfirmedInternalTransactionsRB = &newConfirmedInternalTransactionsRB
+	return r
+}
+
+func (r ApiNewConfirmedInternalTransactionsRequest) Execute() (NewConfirmedInternalTransactionsR, *_nethttp.Response, error) {
+	return r.ApiService.NewConfirmedInternalTransactionsExecute(r)
+}
+
+/*
+ * NewConfirmedInternalTransactions New confirmed internal transactions
+ * Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new confirmed internal transactions. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs.
+
+Being confirmed means that the transactions are verified by miners and added to the next block.
+
+{note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}
+
+{warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+ * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+ * @return ApiNewConfirmedInternalTransactionsRequest
+ */
+func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactions(ctx _context.Context, blockchain string, network string) ApiNewConfirmedInternalTransactionsRequest {
+	return ApiNewConfirmedInternalTransactionsRequest{
+		ApiService: a,
+		ctx: ctx,
+		blockchain: blockchain,
+		network: network,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return NewConfirmedInternalTransactionsR
+ */
+func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecute(r ApiNewConfirmedInternalTransactionsRequest) (NewConfirmedInternalTransactionsR, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  NewConfirmedInternalTransactionsR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewConfirmedInternalTransactions")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed"
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.newConfirmedInternalTransactionsRB
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidPagination
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v InvalidApiKey
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v InsufficientCredits
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v BlockchainEventsCallbacksLimitReached
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v AlreadyExists
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v UnsupportedMediaType
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v InvalidRequestBodyStructure
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v RequestLimitReached
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v UnexpectedServerError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest struct {
+	ctx _context.Context
+	ApiService *CreateSubscriptionsForApiService
+	blockchain string
+	network string
+	context *string
+	newConfirmedInternalTransactionsAndEachConfirmationRB *NewConfirmedInternalTransactionsAndEachConfirmationRB
+}
+
+func (r ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest) Context(context string) ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest {
+	r.context = &context
+	return r
+}
+func (r ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest) NewConfirmedInternalTransactionsAndEachConfirmationRB(newConfirmedInternalTransactionsAndEachConfirmationRB NewConfirmedInternalTransactionsAndEachConfirmationRB) ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest {
+	r.newConfirmedInternalTransactionsAndEachConfirmationRB = &newConfirmedInternalTransactionsAndEachConfirmationRB
+	return r
+}
+
+func (r ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest) Execute() (NewConfirmedInternalTransactionsAndEachConfirmationR, *_nethttp.Response, error) {
+	return r.ApiService.NewConfirmedInternalTransactionsAndEachConfirmationExecute(r)
+}
+
+/*
+ * NewConfirmedInternalTransactionsAndEachConfirmation New confirmed internal transactions and each confirmation
+ * Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new confirmed internal transactions. Includes also a response at each confirmation the transaction receives until the specified confirmations limit is reached. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs. 
+
+Being confirmed means that the transactions are verified by miners and added to the next block.
+
+{note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}
+
+{warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+ * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+ * @return ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest
+ */
+func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEachConfirmation(ctx _context.Context, blockchain string, network string) ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest {
+	return ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest{
+		ApiService: a,
+		ctx: ctx,
+		blockchain: blockchain,
+		network: network,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return NewConfirmedInternalTransactionsAndEachConfirmationR
+ */
+func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEachConfirmationExecute(r ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest) (NewConfirmedInternalTransactionsAndEachConfirmationR, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  NewConfirmedInternalTransactionsAndEachConfirmationR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewConfirmedInternalTransactionsAndEachConfirmation")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed-each-confirmation"
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.newConfirmedInternalTransactionsAndEachConfirmationRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -970,19 +1438,19 @@ type ApiNewConfirmedTokensTransactionsRequest struct {
 	blockchain string
 	network string
 	context *string
-	newConfirmedTokensTransactionsRequestBody *NewConfirmedTokensTransactionsRequestBody
+	newConfirmedTokensTransactionsRB *NewConfirmedTokensTransactionsRB
 }
 
 func (r ApiNewConfirmedTokensTransactionsRequest) Context(context string) ApiNewConfirmedTokensTransactionsRequest {
 	r.context = &context
 	return r
 }
-func (r ApiNewConfirmedTokensTransactionsRequest) NewConfirmedTokensTransactionsRequestBody(newConfirmedTokensTransactionsRequestBody NewConfirmedTokensTransactionsRequestBody) ApiNewConfirmedTokensTransactionsRequest {
-	r.newConfirmedTokensTransactionsRequestBody = &newConfirmedTokensTransactionsRequestBody
+func (r ApiNewConfirmedTokensTransactionsRequest) NewConfirmedTokensTransactionsRB(newConfirmedTokensTransactionsRB NewConfirmedTokensTransactionsRB) ApiNewConfirmedTokensTransactionsRequest {
+	r.newConfirmedTokensTransactionsRB = &newConfirmedTokensTransactionsRB
 	return r
 }
 
-func (r ApiNewConfirmedTokensTransactionsRequest) Execute() (NewConfirmedTokensTransactionsResponse, *_nethttp.Response, error) {
+func (r ApiNewConfirmedTokensTransactionsRequest) Execute() (NewConfirmedTokensTransactionsR, *_nethttp.Response, error) {
 	return r.ApiService.NewConfirmedTokensTransactionsExecute(r)
 }
 
@@ -1011,16 +1479,16 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactions(ctx _c
 
 /*
  * Execute executes the request
- * @return NewConfirmedTokensTransactionsResponse
+ * @return NewConfirmedTokensTransactionsR
  */
-func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute(r ApiNewConfirmedTokensTransactionsRequest) (NewConfirmedTokensTransactionsResponse, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute(r ApiNewConfirmedTokensTransactionsRequest) (NewConfirmedTokensTransactionsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  NewConfirmedTokensTransactionsResponse
+		localVarReturnValue  NewConfirmedTokensTransactionsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewConfirmedTokensTransactions")
@@ -1057,7 +1525,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.newConfirmedTokensTransactionsRequestBody
+	localVarPostBody = r.newConfirmedTokensTransactionsRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1204,19 +1672,19 @@ type ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest struct {
 	blockchain string
 	network string
 	context *string
-	newConfirmedTokensTransactionsAndEachConfirmationRequestBody *NewConfirmedTokensTransactionsAndEachConfirmationRequestBody
+	newConfirmedTokensTransactionsAndEachConfirmationRB *NewConfirmedTokensTransactionsAndEachConfirmationRB
 }
 
 func (r ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest) Context(context string) ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest {
 	r.context = &context
 	return r
 }
-func (r ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest) NewConfirmedTokensTransactionsAndEachConfirmationRequestBody(newConfirmedTokensTransactionsAndEachConfirmationRequestBody NewConfirmedTokensTransactionsAndEachConfirmationRequestBody) ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest {
-	r.newConfirmedTokensTransactionsAndEachConfirmationRequestBody = &newConfirmedTokensTransactionsAndEachConfirmationRequestBody
+func (r ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest) NewConfirmedTokensTransactionsAndEachConfirmationRB(newConfirmedTokensTransactionsAndEachConfirmationRB NewConfirmedTokensTransactionsAndEachConfirmationRB) ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest {
+	r.newConfirmedTokensTransactionsAndEachConfirmationRB = &newConfirmedTokensTransactionsAndEachConfirmationRB
 	return r
 }
 
-func (r ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest) Execute() (NewConfirmedTokensTransactionsAndEachConfirmationResponse, *_nethttp.Response, error) {
+func (r ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest) Execute() (NewConfirmedTokensTransactionsAndEachConfirmationR, *_nethttp.Response, error) {
 	return r.ApiService.NewConfirmedTokensTransactionsAndEachConfirmationExecute(r)
 }
 
@@ -1245,16 +1713,16 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 
 /*
  * Execute executes the request
- * @return NewConfirmedTokensTransactionsAndEachConfirmationResponse
+ * @return NewConfirmedTokensTransactionsAndEachConfirmationR
  */
-func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEachConfirmationExecute(r ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest) (NewConfirmedTokensTransactionsAndEachConfirmationResponse, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEachConfirmationExecute(r ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest) (NewConfirmedTokensTransactionsAndEachConfirmationR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  NewConfirmedTokensTransactionsAndEachConfirmationResponse
+		localVarReturnValue  NewConfirmedTokensTransactionsAndEachConfirmationR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewConfirmedTokensTransactionsAndEachConfirmation")
@@ -1291,7 +1759,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.newConfirmedTokensTransactionsAndEachConfirmationRequestBody
+	localVarPostBody = r.newConfirmedTokensTransactionsAndEachConfirmationRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1438,19 +1906,19 @@ type ApiNewUnconfirmedCoinsTransactionsRequest struct {
 	blockchain string
 	network string
 	context *string
-	newUnconfirmedCoinsTransactionsRequestBody *NewUnconfirmedCoinsTransactionsRequestBody
+	newUnconfirmedCoinsTransactionsRB *NewUnconfirmedCoinsTransactionsRB
 }
 
 func (r ApiNewUnconfirmedCoinsTransactionsRequest) Context(context string) ApiNewUnconfirmedCoinsTransactionsRequest {
 	r.context = &context
 	return r
 }
-func (r ApiNewUnconfirmedCoinsTransactionsRequest) NewUnconfirmedCoinsTransactionsRequestBody(newUnconfirmedCoinsTransactionsRequestBody NewUnconfirmedCoinsTransactionsRequestBody) ApiNewUnconfirmedCoinsTransactionsRequest {
-	r.newUnconfirmedCoinsTransactionsRequestBody = &newUnconfirmedCoinsTransactionsRequestBody
+func (r ApiNewUnconfirmedCoinsTransactionsRequest) NewUnconfirmedCoinsTransactionsRB(newUnconfirmedCoinsTransactionsRB NewUnconfirmedCoinsTransactionsRB) ApiNewUnconfirmedCoinsTransactionsRequest {
+	r.newUnconfirmedCoinsTransactionsRB = &newUnconfirmedCoinsTransactionsRB
 	return r
 }
 
-func (r ApiNewUnconfirmedCoinsTransactionsRequest) Execute() (NewUnconfirmedCoinsTransactionsResponse, *_nethttp.Response, error) {
+func (r ApiNewUnconfirmedCoinsTransactionsRequest) Execute() (NewUnconfirmedCoinsTransactionsR, *_nethttp.Response, error) {
 	return r.ApiService.NewUnconfirmedCoinsTransactionsExecute(r)
 }
 
@@ -1459,6 +1927,8 @@ func (r ApiNewUnconfirmedCoinsTransactionsRequest) Execute() (NewUnconfirmedCoin
  * Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new unconfirmed coins transactions for the user. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs. The information is returned per specified address.
 
 Unconfirmed coins transactions remain in the mempool (memory pool) until they are confirmed by miners and added to the next block. Sometimes spikes in transaction activity can cause delays in confirmations.
+
+{warning}We cannot guarantee at 100% that webhooks for unconfirmed transactions will always be received. Some may **not get received** due to the possibility of some nodes not being updated with that information. This can occur in networks with low activity and/or not many nodes, e.g. Testnet networks and rarely Mainnets.{/warning}
 
 {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}
 
@@ -1481,16 +1951,16 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactions(ctx _
 
 /*
  * Execute executes the request
- * @return NewUnconfirmedCoinsTransactionsResponse
+ * @return NewUnconfirmedCoinsTransactionsR
  */
-func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecute(r ApiNewUnconfirmedCoinsTransactionsRequest) (NewUnconfirmedCoinsTransactionsResponse, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecute(r ApiNewUnconfirmedCoinsTransactionsRequest) (NewUnconfirmedCoinsTransactionsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  NewUnconfirmedCoinsTransactionsResponse
+		localVarReturnValue  NewUnconfirmedCoinsTransactionsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewUnconfirmedCoinsTransactions")
@@ -1527,7 +1997,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.newUnconfirmedCoinsTransactionsRequestBody
+	localVarPostBody = r.newUnconfirmedCoinsTransactionsRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -1674,19 +2144,19 @@ type ApiNewUnconfirmedTokensTransactionsRequest struct {
 	blockchain string
 	network string
 	context *string
-	newUnconfirmedTokensTransactionsRequestBody *NewUnconfirmedTokensTransactionsRequestBody
+	newUnconfirmedTokensTransactionsRB *NewUnconfirmedTokensTransactionsRB
 }
 
 func (r ApiNewUnconfirmedTokensTransactionsRequest) Context(context string) ApiNewUnconfirmedTokensTransactionsRequest {
 	r.context = &context
 	return r
 }
-func (r ApiNewUnconfirmedTokensTransactionsRequest) NewUnconfirmedTokensTransactionsRequestBody(newUnconfirmedTokensTransactionsRequestBody NewUnconfirmedTokensTransactionsRequestBody) ApiNewUnconfirmedTokensTransactionsRequest {
-	r.newUnconfirmedTokensTransactionsRequestBody = &newUnconfirmedTokensTransactionsRequestBody
+func (r ApiNewUnconfirmedTokensTransactionsRequest) NewUnconfirmedTokensTransactionsRB(newUnconfirmedTokensTransactionsRB NewUnconfirmedTokensTransactionsRB) ApiNewUnconfirmedTokensTransactionsRequest {
+	r.newUnconfirmedTokensTransactionsRB = &newUnconfirmedTokensTransactionsRB
 	return r
 }
 
-func (r ApiNewUnconfirmedTokensTransactionsRequest) Execute() (NewUnconfirmedTokensTransactionsResponse, *_nethttp.Response, error) {
+func (r ApiNewUnconfirmedTokensTransactionsRequest) Execute() (NewUnconfirmedTokensTransactionsR, *_nethttp.Response, error) {
 	return r.ApiService.NewUnconfirmedTokensTransactionsExecute(r)
 }
 
@@ -1695,6 +2165,8 @@ func (r ApiNewUnconfirmedTokensTransactionsRequest) Execute() (NewUnconfirmedTok
  * Through this endpoint customers can create callback subscriptions for a specific event. In this case the event is when there are new unconfirmed tokens transactions for the user. By creating this subscription the user will be notified by Crypto APIs 2.0 when that event occurs. The information is returned per specified address.
 
 Unconfirmed tokens transactions remain in the mempool (memory pool) until they are confirmed by miners and added to the next block. Sometimes spikes in transaction activity can cause delays in confirmations.
+
+{warning}We cannot guarantee at 100% that webhooks for unconfirmed transactions will always be received. Some may **not get received** due to the possibility of some nodes not being updated with that information. This can occur in networks with low activity and/or not many nodes, e.g. Testnet networks and rarely Mainnets.{/warning}
 
 {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}
 
@@ -1717,16 +2189,16 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactions(ctx 
 
 /*
  * Execute executes the request
- * @return NewUnconfirmedTokensTransactionsResponse
+ * @return NewUnconfirmedTokensTransactionsR
  */
-func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecute(r ApiNewUnconfirmedTokensTransactionsRequest) (NewUnconfirmedTokensTransactionsResponse, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecute(r ApiNewUnconfirmedTokensTransactionsRequest) (NewUnconfirmedTokensTransactionsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  NewUnconfirmedTokensTransactionsResponse
+		localVarReturnValue  NewUnconfirmedTokensTransactionsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewUnconfirmedTokensTransactions")
@@ -1763,7 +2235,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.newUnconfirmedTokensTransactionsRequestBody
+	localVarPostBody = r.newUnconfirmedTokensTransactionsRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

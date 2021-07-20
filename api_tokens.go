@@ -28,6 +28,233 @@ var (
 // TokensApiService TokensApi service
 type TokensApiService service
 
+type ApiGetContractDetailsByAddressRequest struct {
+	ctx _context.Context
+	ApiService *TokensApiService
+	blockchain string
+	network string
+	contractAddress string
+	context *string
+}
+
+func (r ApiGetContractDetailsByAddressRequest) Context(context string) ApiGetContractDetailsByAddressRequest {
+	r.context = &context
+	return r
+}
+
+func (r ApiGetContractDetailsByAddressRequest) Execute() (GetContractDetailsByAddressR, *_nethttp.Response, error) {
+	return r.ApiService.GetContractDetailsByAddressExecute(r)
+}
+
+/*
+ * GetContractDetailsByAddress Get Contract Details by Address
+ * Though this endpoint customers can obtain information about a smart contract and its details. This can be done by the `address` parameter, i.e. the address of the smart contract.
+
+{note}This address is **not** the same as the smart contract creator address.{/note}
+ * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+ * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+ * @param contractAddress Defines the specific address of the contract.
+ * @return ApiGetContractDetailsByAddressRequest
+ */
+func (a *TokensApiService) GetContractDetailsByAddress(ctx _context.Context, blockchain string, network string, contractAddress string) ApiGetContractDetailsByAddressRequest {
+	return ApiGetContractDetailsByAddressRequest{
+		ApiService: a,
+		ctx: ctx,
+		blockchain: blockchain,
+		network: network,
+		contractAddress: contractAddress,
+	}
+}
+
+/*
+ * Execute executes the request
+ * @return GetContractDetailsByAddressR
+ */
+func (a *TokensApiService) GetContractDetailsByAddressExecute(r ApiGetContractDetailsByAddressRequest) (GetContractDetailsByAddressR, *_nethttp.Response, error) {
+	var (
+		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarPostBody     interface{}
+		localVarFormFileName string
+		localVarFileName     string
+		localVarFileBytes    []byte
+		localVarReturnValue  GetContractDetailsByAddressR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.GetContractDetailsByAddress")
+	if err != nil {
+		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/addresses/{contractAddress}/contract"
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"contractAddress"+"}", _neturl.PathEscape(parameterToString(r.contractAddress, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := _neturl.Values{}
+	localVarFormParams := _neturl.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InvalidPagination
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v InvalidApiKey
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v InsufficientCredits
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v FeatureMainnetsNotAllowedForPlan
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v InvalidData
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v UnsupportedMediaType
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v InvalidRequestBodyStructure
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v RequestLimitReached
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v UnexpectedServerError
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiListTokensByAddressRequest struct {
 	ctx _context.Context
 	ApiService *TokensApiService
@@ -52,7 +279,7 @@ func (r ApiListTokensByAddressRequest) Offset(offset int32) ApiListTokensByAddre
 	return r
 }
 
-func (r ApiListTokensByAddressRequest) Execute() (ListTokensByAddressResponse, *_nethttp.Response, error) {
+func (r ApiListTokensByAddressRequest) Execute() (ListTokensByAddressR, *_nethttp.Response, error) {
 	return r.ApiService.ListTokensByAddressExecute(r)
 }
 
@@ -77,16 +304,16 @@ func (a *TokensApiService) ListTokensByAddress(ctx _context.Context, blockchain 
 
 /*
  * Execute executes the request
- * @return ListTokensByAddressResponse
+ * @return ListTokensByAddressR
  */
-func (a *TokensApiService) ListTokensByAddressExecute(r ApiListTokensByAddressRequest) (ListTokensByAddressResponse, *_nethttp.Response, error) {
+func (a *TokensApiService) ListTokensByAddressExecute(r ApiListTokensByAddressRequest) (ListTokensByAddressR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListTokensByAddressResponse
+		localVarReturnValue  ListTokensByAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.ListTokensByAddress")
@@ -293,7 +520,7 @@ func (r ApiListTokensTransfersByAddressRequest) Offset(offset int32) ApiListToke
 	return r
 }
 
-func (r ApiListTokensTransfersByAddressRequest) Execute() (ListTokensTransfersByAddressResponse, *_nethttp.Response, error) {
+func (r ApiListTokensTransfersByAddressRequest) Execute() (ListTokensTransfersByAddressR, *_nethttp.Response, error) {
 	return r.ApiService.ListTokensTransfersByAddressExecute(r)
 }
 
@@ -320,16 +547,16 @@ func (a *TokensApiService) ListTokensTransfersByAddress(ctx _context.Context, bl
 
 /*
  * Execute executes the request
- * @return ListTokensTransfersByAddressResponse
+ * @return ListTokensTransfersByAddressR
  */
-func (a *TokensApiService) ListTokensTransfersByAddressExecute(r ApiListTokensTransfersByAddressRequest) (ListTokensTransfersByAddressResponse, *_nethttp.Response, error) {
+func (a *TokensApiService) ListTokensTransfersByAddressExecute(r ApiListTokensTransfersByAddressRequest) (ListTokensTransfersByAddressR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListTokensTransfersByAddressResponse
+		localVarReturnValue  ListTokensTransfersByAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.ListTokensTransfersByAddress")
@@ -536,7 +763,7 @@ func (r ApiListTokensTransfersByTransactionHashRequest) Offset(offset int32) Api
 	return r
 }
 
-func (r ApiListTokensTransfersByTransactionHashRequest) Execute() (ListTokensTransfersByTransactionHashResponse, *_nethttp.Response, error) {
+func (r ApiListTokensTransfersByTransactionHashRequest) Execute() (ListTokensTransfersByTransactionHashR, *_nethttp.Response, error) {
 	return r.ApiService.ListTokensTransfersByTransactionHashExecute(r)
 }
 
@@ -563,16 +790,16 @@ func (a *TokensApiService) ListTokensTransfersByTransactionHash(ctx _context.Con
 
 /*
  * Execute executes the request
- * @return ListTokensTransfersByTransactionHashResponse
+ * @return ListTokensTransfersByTransactionHashR
  */
-func (a *TokensApiService) ListTokensTransfersByTransactionHashExecute(r ApiListTokensTransfersByTransactionHashRequest) (ListTokensTransfersByTransactionHashResponse, *_nethttp.Response, error) {
+func (a *TokensApiService) ListTokensTransfersByTransactionHashExecute(r ApiListTokensTransfersByTransactionHashRequest) (ListTokensTransfersByTransactionHashR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListTokensTransfersByTransactionHashResponse
+		localVarReturnValue  ListTokensTransfersByTransactionHashR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TokensApiService.ListTokensTransfersByTransactionHash")

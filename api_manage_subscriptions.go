@@ -42,7 +42,7 @@ func (r ApiDeleteBlockchainEventSubscriptionRequest) Context(context string) Api
 	return r
 }
 
-func (r ApiDeleteBlockchainEventSubscriptionRequest) Execute() (DeleteBlockchainEventSubscriptionResponse, *_nethttp.Response, error) {
+func (r ApiDeleteBlockchainEventSubscriptionRequest) Execute() (DeleteBlockchainEventSubscriptionR, *_nethttp.Response, error) {
 	return r.ApiService.DeleteBlockchainEventSubscriptionExecute(r)
 }
 
@@ -73,16 +73,16 @@ func (a *ManageSubscriptionsApiService) DeleteBlockchainEventSubscription(ctx _c
 
 /*
  * Execute executes the request
- * @return DeleteBlockchainEventSubscriptionResponse
+ * @return DeleteBlockchainEventSubscriptionR
  */
-func (a *ManageSubscriptionsApiService) DeleteBlockchainEventSubscriptionExecute(r ApiDeleteBlockchainEventSubscriptionRequest) (DeleteBlockchainEventSubscriptionResponse, *_nethttp.Response, error) {
+func (a *ManageSubscriptionsApiService) DeleteBlockchainEventSubscriptionExecute(r ApiDeleteBlockchainEventSubscriptionRequest) (DeleteBlockchainEventSubscriptionR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodDelete
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  DeleteBlockchainEventSubscriptionResponse
+		localVarReturnValue  DeleteBlockchainEventSubscriptionR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ManageSubscriptionsApiService.DeleteBlockchainEventSubscription")
@@ -292,7 +292,7 @@ func (r ApiListBlockchainEventsSubscriptionsRequest) Offset(offset int32) ApiLis
 	return r
 }
 
-func (r ApiListBlockchainEventsSubscriptionsRequest) Execute() (ListBlockchainEventsSubscriptionsResponse, *_nethttp.Response, error) {
+func (r ApiListBlockchainEventsSubscriptionsRequest) Execute() (ListBlockchainEventsSubscriptionsR, *_nethttp.Response, error) {
 	return r.ApiService.ListBlockchainEventsSubscriptionsExecute(r)
 }
 
@@ -321,16 +321,16 @@ func (a *ManageSubscriptionsApiService) ListBlockchainEventsSubscriptions(ctx _c
 
 /*
  * Execute executes the request
- * @return ListBlockchainEventsSubscriptionsResponse
+ * @return ListBlockchainEventsSubscriptionsR
  */
-func (a *ManageSubscriptionsApiService) ListBlockchainEventsSubscriptionsExecute(r ApiListBlockchainEventsSubscriptionsRequest) (ListBlockchainEventsSubscriptionsResponse, *_nethttp.Response, error) {
+func (a *ManageSubscriptionsApiService) ListBlockchainEventsSubscriptionsExecute(r ApiListBlockchainEventsSubscriptionsRequest) (ListBlockchainEventsSubscriptionsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListBlockchainEventsSubscriptionsResponse
+		localVarReturnValue  ListBlockchainEventsSubscriptionsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ManageSubscriptionsApiService.ListBlockchainEventsSubscriptions")

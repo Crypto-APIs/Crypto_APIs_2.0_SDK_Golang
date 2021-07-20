@@ -53,7 +53,7 @@ func (r ApiListSupportedAssetsRequest) Offset(offset int32) ApiListSupportedAsse
 	return r
 }
 
-func (r ApiListSupportedAssetsRequest) Execute() (ListSupportedAssetsResponse, *_nethttp.Response, error) {
+func (r ApiListSupportedAssetsRequest) Execute() (ListSupportedAssetsR, *_nethttp.Response, error) {
 	return r.ApiService.ListSupportedAssetsExecute(r)
 }
 
@@ -72,16 +72,16 @@ func (a *MetadataApiService) ListSupportedAssets(ctx _context.Context) ApiListSu
 
 /*
  * Execute executes the request
- * @return ListSupportedAssetsResponse
+ * @return ListSupportedAssetsR
  */
-func (a *MetadataApiService) ListSupportedAssetsExecute(r ApiListSupportedAssetsRequest) (ListSupportedAssetsResponse, *_nethttp.Response, error) {
+func (a *MetadataApiService) ListSupportedAssetsExecute(r ApiListSupportedAssetsRequest) (ListSupportedAssetsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListSupportedAssetsResponse
+		localVarReturnValue  ListSupportedAssetsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MetadataApiService.ListSupportedAssets")

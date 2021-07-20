@@ -4,15 +4,94 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**GetContractDetailsByAddress**](TokensApi.md#GetContractDetailsByAddress) | **Get** /blockchain-data/{blockchain}/{network}/addresses/{contractAddress}/contract | Get Contract Details by Address
 [**ListTokensByAddress**](TokensApi.md#ListTokensByAddress) | **Get** /blockchain-data/{blockchain}/{network}/addresses/{address}/tokens | List Tokens By Address
 [**ListTokensTransfersByAddress**](TokensApi.md#ListTokensTransfersByAddress) | **Get** /blockchain-data/{blockchain}/{network}/addresses/{address}/tokens-transfers | List Tokens Transfers By Address
 [**ListTokensTransfersByTransactionHash**](TokensApi.md#ListTokensTransfersByTransactionHash) | **Get** /blockchain-data/{blockchain}/{network}/transactions/{transactionHash}/tokens-transfers | List Tokens Transfers By Transaction Hash
 
 
 
+## GetContractDetailsByAddress
+
+> GetContractDetailsByAddressR GetContractDetailsByAddress(ctx, blockchain, network, contractAddress).Context(context).Execute()
+
+Get Contract Details by Address
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    blockchain := "ethereum" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. (default to "ethereum")
+    network := "ropsten" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+    contractAddress := "0x7495fede000c8a3b77eeae09cf70fa94cd2d53f5" // string | Defines the specific address of the contract.
+    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.TokensApi.GetContractDetailsByAddress(context.Background(), blockchain, network, contractAddress).Context(context).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.GetContractDetailsByAddress``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetContractDetailsByAddress`: GetContractDetailsByAddressR
+    fmt.Fprintf(os.Stdout, "Response from `TokensApi.GetContractDetailsByAddress`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**blockchain** | **string** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [default to &quot;ethereum&quot;]
+**network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. | 
+**contractAddress** | **string** | Defines the specific address of the contract. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetContractDetailsByAddressRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
+
+### Return type
+
+[**GetContractDetailsByAddressR**](GetContractDetailsByAddressR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ListTokensByAddress
 
-> ListTokensByAddressResponse ListTokensByAddress(ctx, blockchain, network, address).Context(context).Limit(limit).Offset(offset).Execute()
+> ListTokensByAddressR ListTokensByAddress(ctx, blockchain, network, address).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Tokens By Address
 
@@ -45,7 +124,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.ListTokensByAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListTokensByAddress`: ListTokensByAddressResponse
+    // response from `ListTokensByAddress`: ListTokensByAddressR
     fmt.Fprintf(os.Stdout, "Response from `TokensApi.ListTokensByAddress`: %v\n", resp)
 }
 ```
@@ -76,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListTokensByAddressResponse**](ListTokensByAddressResponse.md)
+[**ListTokensByAddressR**](ListTokensByAddressR.md)
 
 ### Authorization
 
@@ -94,7 +173,7 @@ Name | Type | Description  | Notes
 
 ## ListTokensTransfersByAddress
 
-> ListTokensTransfersByAddressResponse ListTokensTransfersByAddress(ctx, blockchain, network, address).Context(context).Limit(limit).Offset(offset).Execute()
+> ListTokensTransfersByAddressR ListTokensTransfersByAddress(ctx, blockchain, network, address).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Tokens Transfers By Address
 
@@ -127,7 +206,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.ListTokensTransfersByAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListTokensTransfersByAddress`: ListTokensTransfersByAddressResponse
+    // response from `ListTokensTransfersByAddress`: ListTokensTransfersByAddressR
     fmt.Fprintf(os.Stdout, "Response from `TokensApi.ListTokensTransfersByAddress`: %v\n", resp)
 }
 ```
@@ -158,7 +237,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListTokensTransfersByAddressResponse**](ListTokensTransfersByAddressResponse.md)
+[**ListTokensTransfersByAddressR**](ListTokensTransfersByAddressR.md)
 
 ### Authorization
 
@@ -176,7 +255,7 @@ Name | Type | Description  | Notes
 
 ## ListTokensTransfersByTransactionHash
 
-> ListTokensTransfersByTransactionHashResponse ListTokensTransfersByTransactionHash(ctx, blockchain, network, transactionHash).Context(context).Limit(limit).Offset(offset).Execute()
+> ListTokensTransfersByTransactionHashR ListTokensTransfersByTransactionHash(ctx, blockchain, network, transactionHash).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Tokens Transfers By Transaction Hash
 
@@ -209,7 +288,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `TokensApi.ListTokensTransfersByTransactionHash``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListTokensTransfersByTransactionHash`: ListTokensTransfersByTransactionHashResponse
+    // response from `ListTokensTransfersByTransactionHash`: ListTokensTransfersByTransactionHashR
     fmt.Fprintf(os.Stdout, "Response from `TokensApi.ListTokensTransfersByTransactionHash`: %v\n", resp)
 }
 ```
@@ -240,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListTokensTransfersByTransactionHashResponse**](ListTokensTransfersByTransactionHashResponse.md)
+[**ListTokensTransfersByTransactionHashR**](ListTokensTransfersByTransactionHashR.md)
 
 ### Authorization
 

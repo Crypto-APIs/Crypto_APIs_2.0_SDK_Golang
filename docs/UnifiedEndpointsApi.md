@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## GetAddressDetails
 
-> GetAddressDetailsResponse GetAddressDetails(ctx, blockchain, network, address).Context(context).Execute()
+> GetAddressDetailsR GetAddressDetails(ctx, blockchain, network, address).Context(context).Execute()
 
 Get Address Details
 
@@ -49,7 +49,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UnifiedEndpointsApi.GetAddressDetails``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetAddressDetails`: GetAddressDetailsResponse
+    // response from `GetAddressDetails`: GetAddressDetailsR
     fmt.Fprintf(os.Stdout, "Response from `UnifiedEndpointsApi.GetAddressDetails`: %v\n", resp)
 }
 ```
@@ -78,7 +78,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetAddressDetailsResponse**](GetAddressDetailsResponse.md)
+[**GetAddressDetailsR**](GetAddressDetailsR.md)
 
 ### Authorization
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 
 ## GetBlockDetailsByBlockHash
 
-> GetBlockDetailsByBlockHashResponse GetBlockDetailsByBlockHash(ctx, blockchain, network, blockHash).Context(context).Execute()
+> GetBlockDetailsByBlockHashR GetBlockDetailsByBlockHash(ctx, blockchain, network, blockHash).Context(context).Execute()
 
 Get Block Details By Block Hash
 
@@ -127,7 +127,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UnifiedEndpointsApi.GetBlockDetailsByBlockHash``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetBlockDetailsByBlockHash`: GetBlockDetailsByBlockHashResponse
+    // response from `GetBlockDetailsByBlockHash`: GetBlockDetailsByBlockHashR
     fmt.Fprintf(os.Stdout, "Response from `UnifiedEndpointsApi.GetBlockDetailsByBlockHash`: %v\n", resp)
 }
 ```
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetBlockDetailsByBlockHashResponse**](GetBlockDetailsByBlockHashResponse.md)
+[**GetBlockDetailsByBlockHashR**](GetBlockDetailsByBlockHashR.md)
 
 ### Authorization
 
@@ -174,7 +174,7 @@ Name | Type | Description  | Notes
 
 ## GetBlockDetailsByBlockHeight
 
-> GetBlockDetailsByBlockHeightResponse GetBlockDetailsByBlockHeight(ctx, blockchain, network, height).Context(context).Execute()
+> GetBlockDetailsByBlockHeightR GetBlockDetailsByBlockHeight(ctx, blockchain, network, height).Context(context).Execute()
 
 Get Block Details By Block Height
 
@@ -205,7 +205,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UnifiedEndpointsApi.GetBlockDetailsByBlockHeight``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetBlockDetailsByBlockHeight`: GetBlockDetailsByBlockHeightResponse
+    // response from `GetBlockDetailsByBlockHeight`: GetBlockDetailsByBlockHeightR
     fmt.Fprintf(os.Stdout, "Response from `UnifiedEndpointsApi.GetBlockDetailsByBlockHeight`: %v\n", resp)
 }
 ```
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetBlockDetailsByBlockHeightResponse**](GetBlockDetailsByBlockHeightResponse.md)
+[**GetBlockDetailsByBlockHeightR**](GetBlockDetailsByBlockHeightR.md)
 
 ### Authorization
 
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ## GetFeeRecommendations
 
-> GetFeeRecommendationsResponse GetFeeRecommendations(ctx, blockchain, network).Context(context).Execute()
+> GetFeeRecommendationsR GetFeeRecommendations(ctx, blockchain, network).Context(context).Execute()
 
 Get Fee Recommendations
 
@@ -282,7 +282,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UnifiedEndpointsApi.GetFeeRecommendations``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetFeeRecommendations`: GetFeeRecommendationsResponse
+    // response from `GetFeeRecommendations`: GetFeeRecommendationsR
     fmt.Fprintf(os.Stdout, "Response from `UnifiedEndpointsApi.GetFeeRecommendations`: %v\n", resp)
 }
 ```
@@ -309,7 +309,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetFeeRecommendationsResponse**](GetFeeRecommendationsResponse.md)
+[**GetFeeRecommendationsR**](GetFeeRecommendationsR.md)
 
 ### Authorization
 
@@ -327,7 +327,7 @@ Name | Type | Description  | Notes
 
 ## GetLatestMinedBlock
 
-> GetLatestMinedBlockResponse GetLatestMinedBlock(ctx, blockchain, network).Context(context).Execute()
+> GetLatestMinedBlockR GetLatestMinedBlock(ctx, blockchain, network).Context(context).Execute()
 
 Get Latest Mined Block
 
@@ -357,7 +357,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UnifiedEndpointsApi.GetLatestMinedBlock``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetLatestMinedBlock`: GetLatestMinedBlockResponse
+    // response from `GetLatestMinedBlock`: GetLatestMinedBlockR
     fmt.Fprintf(os.Stdout, "Response from `UnifiedEndpointsApi.GetLatestMinedBlock`: %v\n", resp)
 }
 ```
@@ -384,7 +384,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetLatestMinedBlockResponse**](GetLatestMinedBlockResponse.md)
+[**GetLatestMinedBlockR**](GetLatestMinedBlockR.md)
 
 ### Authorization
 
@@ -402,7 +402,7 @@ Name | Type | Description  | Notes
 
 ## GetTransactionDetailsByTransactionID
 
-> GetTransactionDetailsByTransactionIDResponse GetTransactionDetailsByTransactionID(ctx, blockchain, network, transactionId).Context(context).Execute()
+> GetTransactionDetailsByTransactionIDR GetTransactionDetailsByTransactionID(ctx, blockchain, network, transactionId).Context(context).Execute()
 
 Get Transaction Details By Transaction ID
 
@@ -433,7 +433,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UnifiedEndpointsApi.GetTransactionDetailsByTransactionID``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `GetTransactionDetailsByTransactionID`: GetTransactionDetailsByTransactionIDResponse
+    // response from `GetTransactionDetailsByTransactionID`: GetTransactionDetailsByTransactionIDR
     fmt.Fprintf(os.Stdout, "Response from `UnifiedEndpointsApi.GetTransactionDetailsByTransactionID`: %v\n", resp)
 }
 ```
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**GetTransactionDetailsByTransactionIDResponse**](GetTransactionDetailsByTransactionIDResponse.md)
+[**GetTransactionDetailsByTransactionIDR**](GetTransactionDetailsByTransactionIDR.md)
 
 ### Authorization
 
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 
 ## ListTransactionsByAddress
 
-> ListTransactionsByAddressResponse ListTransactionsByAddress(ctx, blockchain, network, address).Context(context).Limit(limit).Offset(offset).Execute()
+> ListTransactionsByAddressR ListTransactionsByAddress(ctx, blockchain, network, address).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Transactions By Address
 
@@ -513,7 +513,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UnifiedEndpointsApi.ListTransactionsByAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListTransactionsByAddress`: ListTransactionsByAddressResponse
+    // response from `ListTransactionsByAddress`: ListTransactionsByAddressR
     fmt.Fprintf(os.Stdout, "Response from `UnifiedEndpointsApi.ListTransactionsByAddress`: %v\n", resp)
 }
 ```
@@ -544,7 +544,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListTransactionsByAddressResponse**](ListTransactionsByAddressResponse.md)
+[**ListTransactionsByAddressR**](ListTransactionsByAddressR.md)
 
 ### Authorization
 
@@ -562,7 +562,7 @@ Name | Type | Description  | Notes
 
 ## ListTransactionsByBlockHash
 
-> ListTransactionsByBlockHashResponse ListTransactionsByBlockHash(ctx, blockchain, network, blockHash).Context(context).Limit(limit).Offset(offset).Execute()
+> ListTransactionsByBlockHashR ListTransactionsByBlockHash(ctx, blockchain, network, blockHash).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Transactions by Block Hash
 
@@ -595,7 +595,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UnifiedEndpointsApi.ListTransactionsByBlockHash``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListTransactionsByBlockHash`: ListTransactionsByBlockHashResponse
+    // response from `ListTransactionsByBlockHash`: ListTransactionsByBlockHashR
     fmt.Fprintf(os.Stdout, "Response from `UnifiedEndpointsApi.ListTransactionsByBlockHash`: %v\n", resp)
 }
 ```
@@ -626,7 +626,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListTransactionsByBlockHashResponse**](ListTransactionsByBlockHashResponse.md)
+[**ListTransactionsByBlockHashR**](ListTransactionsByBlockHashR.md)
 
 ### Authorization
 
@@ -644,7 +644,7 @@ Name | Type | Description  | Notes
 
 ## ListTransactionsByBlockHeight
 
-> ListTransactionsByBlockHeightResponse ListTransactionsByBlockHeight(ctx, blockchain, network, height).Context(context).Limit(limit).Offset(offset).Execute()
+> ListTransactionsByBlockHeightR ListTransactionsByBlockHeight(ctx, blockchain, network, height).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Transactions by Block Height
 
@@ -677,7 +677,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `UnifiedEndpointsApi.ListTransactionsByBlockHeight``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListTransactionsByBlockHeight`: ListTransactionsByBlockHeightResponse
+    // response from `ListTransactionsByBlockHeight`: ListTransactionsByBlockHeightR
     fmt.Fprintf(os.Stdout, "Response from `UnifiedEndpointsApi.ListTransactionsByBlockHeight`: %v\n", resp)
 }
 ```
@@ -708,7 +708,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListTransactionsByBlockHeightResponse**](ListTransactionsByBlockHeightResponse.md)
+[**ListTransactionsByBlockHeightR**](ListTransactionsByBlockHeightR.md)
 
 ### Authorization
 

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## CreateAutomaticCoinsForwarding
 
-> CreateAutomaticCoinsForwardingResponse CreateAutomaticCoinsForwarding(ctx, blockchain, network).Context(context).CreateAutomaticCoinsForwardingRequestBody(createAutomaticCoinsForwardingRequestBody).Execute()
+> CreateAutomaticCoinsForwardingR CreateAutomaticCoinsForwarding(ctx, blockchain, network).Context(context).CreateAutomaticCoinsForwardingRB(createAutomaticCoinsForwardingRB).Execute()
 
 Create Automatic Coins Forwarding
 
@@ -34,16 +34,16 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    createAutomaticCoinsForwardingRequestBody := *openapiclient.NewCreateAutomaticCoinsForwardingRequestBody(*openapiclient.NewCreateAutomaticCoinsForwardingRequestBodyData(*openapiclient.NewCreateAutomaticCoinsForwardingRequestBodyDataItem("yourSecretString", "https://example.com", int32(3), "FeePriority_example", "0.0002", "mzYijhgmzZrmuB7wBDazRKirnChKyow4M3"))) // CreateAutomaticCoinsForwardingRequestBody |  (optional)
+    createAutomaticCoinsForwardingRB := *openapiclient.NewCreateAutomaticCoinsForwardingRB(*openapiclient.NewCreateAutomaticCoinsForwardingRBData(*openapiclient.NewCreateAutomaticCoinsForwardingRBDataItem("yourSecretString", "https://example.com", int32(3), "standard", "0.0002", "mzYijhgmzZrmuB7wBDazRKirnChKyow4M3"))) // CreateAutomaticCoinsForwardingRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AutomaticCoinsForwardingApi.CreateAutomaticCoinsForwarding(context.Background(), blockchain, network).Context(context).CreateAutomaticCoinsForwardingRequestBody(createAutomaticCoinsForwardingRequestBody).Execute()
+    resp, r, err := api_client.AutomaticCoinsForwardingApi.CreateAutomaticCoinsForwarding(context.Background(), blockchain, network).Context(context).CreateAutomaticCoinsForwardingRB(createAutomaticCoinsForwardingRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutomaticCoinsForwardingApi.CreateAutomaticCoinsForwarding``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateAutomaticCoinsForwarding`: CreateAutomaticCoinsForwardingResponse
+    // response from `CreateAutomaticCoinsForwarding`: CreateAutomaticCoinsForwardingR
     fmt.Fprintf(os.Stdout, "Response from `AutomaticCoinsForwardingApi.CreateAutomaticCoinsForwarding`: %v\n", resp)
 }
 ```
@@ -67,11 +67,11 @@ Name | Type | Description  | Notes
 
 
  **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
- **createAutomaticCoinsForwardingRequestBody** | [**CreateAutomaticCoinsForwardingRequestBody**](CreateAutomaticCoinsForwardingRequestBody.md) |  | 
+ **createAutomaticCoinsForwardingRB** | [**CreateAutomaticCoinsForwardingRB**](CreateAutomaticCoinsForwardingRB.md) |  | 
 
 ### Return type
 
-[**CreateAutomaticCoinsForwardingResponse**](CreateAutomaticCoinsForwardingResponse.md)
+[**CreateAutomaticCoinsForwardingR**](CreateAutomaticCoinsForwardingR.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ Name | Type | Description  | Notes
 
 ## DeleteAutomaticCoinsForwarding
 
-> DeleteAutomaticCoinsForwardingResponse DeleteAutomaticCoinsForwarding(ctx, blockchain, network, referenceId).Context(context).Execute()
+> DeleteAutomaticCoinsForwardingR DeleteAutomaticCoinsForwarding(ctx, blockchain, network, referenceId).Context(context).Execute()
 
 Delete Automatic Coins Forwarding
 
@@ -120,7 +120,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AutomaticCoinsForwardingApi.DeleteAutomaticCoinsForwarding``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `DeleteAutomaticCoinsForwarding`: DeleteAutomaticCoinsForwardingResponse
+    // response from `DeleteAutomaticCoinsForwarding`: DeleteAutomaticCoinsForwardingR
     fmt.Fprintf(os.Stdout, "Response from `AutomaticCoinsForwardingApi.DeleteAutomaticCoinsForwarding`: %v\n", resp)
 }
 ```
@@ -149,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeleteAutomaticCoinsForwardingResponse**](DeleteAutomaticCoinsForwardingResponse.md)
+[**DeleteAutomaticCoinsForwardingR**](DeleteAutomaticCoinsForwardingR.md)
 
 ### Authorization
 
@@ -167,7 +167,7 @@ Name | Type | Description  | Notes
 
 ## ListCoinsForwardingAutomations
 
-> ListCoinsForwardingAutomationsResponse ListCoinsForwardingAutomations(ctx, blockchain, network).Context(context).Limit(limit).Offset(offset).Execute()
+> ListCoinsForwardingAutomationsR ListCoinsForwardingAutomations(ctx, blockchain, network).Context(context).Limit(limit).Offset(offset).Execute()
 
 List Coins Forwarding Automations
 
@@ -199,7 +199,7 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `AutomaticCoinsForwardingApi.ListCoinsForwardingAutomations``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListCoinsForwardingAutomations`: ListCoinsForwardingAutomationsResponse
+    // response from `ListCoinsForwardingAutomations`: ListCoinsForwardingAutomationsR
     fmt.Fprintf(os.Stdout, "Response from `AutomaticCoinsForwardingApi.ListCoinsForwardingAutomations`: %v\n", resp)
 }
 ```
@@ -228,7 +228,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListCoinsForwardingAutomationsResponse**](ListCoinsForwardingAutomationsResponse.md)
+[**ListCoinsForwardingAutomationsR**](ListCoinsForwardingAutomationsR.md)
 
 ### Authorization
 

@@ -47,7 +47,7 @@ func (r ApiGetHDWalletXPubYPubZPubDetailsRequest) Derivation(derivation string) 
 	return r
 }
 
-func (r ApiGetHDWalletXPubYPubZPubDetailsRequest) Execute() (GetHDWalletxPubYPubZPubDetailsResponse, *_nethttp.Response, error) {
+func (r ApiGetHDWalletXPubYPubZPubDetailsRequest) Execute() (GetHDWalletXPubYPubZPubDetailsR, *_nethttp.Response, error) {
 	return r.ApiService.GetHDWalletXPubYPubZPubDetailsExecute(r)
 }
 
@@ -72,16 +72,16 @@ func (a *UTXOBasedApiService) GetHDWalletXPubYPubZPubDetails(ctx _context.Contex
 
 /*
  * Execute executes the request
- * @return GetHDWalletxPubYPubZPubDetailsResponse
+ * @return GetHDWalletXPubYPubZPubDetailsR
  */
-func (a *UTXOBasedApiService) GetHDWalletXPubYPubZPubDetailsExecute(r ApiGetHDWalletXPubYPubZPubDetailsRequest) (GetHDWalletxPubYPubZPubDetailsResponse, *_nethttp.Response, error) {
+func (a *UTXOBasedApiService) GetHDWalletXPubYPubZPubDetailsExecute(r ApiGetHDWalletXPubYPubZPubDetailsRequest) (GetHDWalletXPubYPubZPubDetailsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GetHDWalletxPubYPubZPubDetailsResponse
+		localVarReturnValue  GetHDWalletXPubYPubZPubDetailsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UTXOBasedApiService.GetHDWalletXPubYPubZPubDetails")
@@ -290,7 +290,7 @@ func (r ApiListHDWalletXPubYPubZPubTransactionsRequest) Offset(offset int32) Api
 	return r
 }
 
-func (r ApiListHDWalletXPubYPubZPubTransactionsRequest) Execute() (ListHDWalletxPubYPubZPubTransactionsResponse, *_nethttp.Response, error) {
+func (r ApiListHDWalletXPubYPubZPubTransactionsRequest) Execute() (ListHDWalletXPubYPubZPubTransactionsR, *_nethttp.Response, error) {
 	return r.ApiService.ListHDWalletXPubYPubZPubTransactionsExecute(r)
 }
 
@@ -315,16 +315,16 @@ func (a *UTXOBasedApiService) ListHDWalletXPubYPubZPubTransactions(ctx _context.
 
 /*
  * Execute executes the request
- * @return ListHDWalletxPubYPubZPubTransactionsResponse
+ * @return ListHDWalletXPubYPubZPubTransactionsR
  */
-func (a *UTXOBasedApiService) ListHDWalletXPubYPubZPubTransactionsExecute(r ApiListHDWalletXPubYPubZPubTransactionsRequest) (ListHDWalletxPubYPubZPubTransactionsResponse, *_nethttp.Response, error) {
+func (a *UTXOBasedApiService) ListHDWalletXPubYPubZPubTransactionsExecute(r ApiListHDWalletXPubYPubZPubTransactionsRequest) (ListHDWalletXPubYPubZPubTransactionsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListHDWalletxPubYPubZPubTransactionsResponse
+		localVarReturnValue  ListHDWalletXPubYPubZPubTransactionsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UTXOBasedApiService.ListHDWalletXPubYPubZPubTransactions")
@@ -516,19 +516,19 @@ type ApiSyncHDWalletXPubYPubZPubRequest struct {
 	blockchain string
 	network string
 	context *string
-	syncHDWalletxPubYPubZPubRequestBody *SyncHDWalletxPubYPubZPubRequestBody
+	syncHDWalletXPubYPubZPubRB *SyncHDWalletXPubYPubZPubRB
 }
 
 func (r ApiSyncHDWalletXPubYPubZPubRequest) Context(context string) ApiSyncHDWalletXPubYPubZPubRequest {
 	r.context = &context
 	return r
 }
-func (r ApiSyncHDWalletXPubYPubZPubRequest) SyncHDWalletxPubYPubZPubRequestBody(syncHDWalletxPubYPubZPubRequestBody SyncHDWalletxPubYPubZPubRequestBody) ApiSyncHDWalletXPubYPubZPubRequest {
-	r.syncHDWalletxPubYPubZPubRequestBody = &syncHDWalletxPubYPubZPubRequestBody
+func (r ApiSyncHDWalletXPubYPubZPubRequest) SyncHDWalletXPubYPubZPubRB(syncHDWalletXPubYPubZPubRB SyncHDWalletXPubYPubZPubRB) ApiSyncHDWalletXPubYPubZPubRequest {
+	r.syncHDWalletXPubYPubZPubRB = &syncHDWalletXPubYPubZPubRB
 	return r
 }
 
-func (r ApiSyncHDWalletXPubYPubZPubRequest) Execute() (SyncHDWalletxPubYPubZPubResponse, *_nethttp.Response, error) {
+func (r ApiSyncHDWalletXPubYPubZPubRequest) Execute() (SyncHDWalletXPubYPubZPubR, *_nethttp.Response, error) {
 	return r.ApiService.SyncHDWalletXPubYPubZPubExecute(r)
 }
 
@@ -551,16 +551,16 @@ func (a *UTXOBasedApiService) SyncHDWalletXPubYPubZPub(ctx _context.Context, blo
 
 /*
  * Execute executes the request
- * @return SyncHDWalletxPubYPubZPubResponse
+ * @return SyncHDWalletXPubYPubZPubR
  */
-func (a *UTXOBasedApiService) SyncHDWalletXPubYPubZPubExecute(r ApiSyncHDWalletXPubYPubZPubRequest) (SyncHDWalletxPubYPubZPubResponse, *_nethttp.Response, error) {
+func (a *UTXOBasedApiService) SyncHDWalletXPubYPubZPubExecute(r ApiSyncHDWalletXPubYPubZPubRequest) (SyncHDWalletXPubYPubZPubR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  SyncHDWalletxPubYPubZPubResponse
+		localVarReturnValue  SyncHDWalletXPubYPubZPubR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UTXOBasedApiService.SyncHDWalletXPubYPubZPub")
@@ -597,7 +597,7 @@ func (a *UTXOBasedApiService) SyncHDWalletXPubYPubZPubExecute(r ApiSyncHDWalletX
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.syncHDWalletxPubYPubZPubRequestBody
+	localVarPostBody = r.syncHDWalletXPubYPubZPubRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

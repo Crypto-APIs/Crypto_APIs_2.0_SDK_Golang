@@ -32,8 +32,10 @@ type ApiListAssetsDetailsRequest struct {
 	ApiService *AssetsApiService
 	context *string
 	assetType *string
+	cryptoType *string
 	limit *int32
 	offset *int32
+	waasEnabled *bool
 }
 
 func (r ApiListAssetsDetailsRequest) Context(context string) ApiListAssetsDetailsRequest {
@@ -44,6 +46,10 @@ func (r ApiListAssetsDetailsRequest) AssetType(assetType string) ApiListAssetsDe
 	r.assetType = &assetType
 	return r
 }
+func (r ApiListAssetsDetailsRequest) CryptoType(cryptoType string) ApiListAssetsDetailsRequest {
+	r.cryptoType = &cryptoType
+	return r
+}
 func (r ApiListAssetsDetailsRequest) Limit(limit int32) ApiListAssetsDetailsRequest {
 	r.limit = &limit
 	return r
@@ -52,8 +58,12 @@ func (r ApiListAssetsDetailsRequest) Offset(offset int32) ApiListAssetsDetailsRe
 	r.offset = &offset
 	return r
 }
+func (r ApiListAssetsDetailsRequest) WaasEnabled(waasEnabled bool) ApiListAssetsDetailsRequest {
+	r.waasEnabled = &waasEnabled
+	return r
+}
 
-func (r ApiListAssetsDetailsRequest) Execute() (ListAssetsDetailsResponse, *_nethttp.Response, error) {
+func (r ApiListAssetsDetailsRequest) Execute() (ListAssetsDetailsR, *_nethttp.Response, error) {
 	return r.ApiService.ListAssetsDetailsExecute(r)
 }
 
@@ -74,16 +84,16 @@ func (a *AssetsApiService) ListAssetsDetails(ctx _context.Context) ApiListAssets
 
 /*
  * Execute executes the request
- * @return ListAssetsDetailsResponse
+ * @return ListAssetsDetailsR
  */
-func (a *AssetsApiService) ListAssetsDetailsExecute(r ApiListAssetsDetailsRequest) (ListAssetsDetailsResponse, *_nethttp.Response, error) {
+func (a *AssetsApiService) ListAssetsDetailsExecute(r ApiListAssetsDetailsRequest) (ListAssetsDetailsR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListAssetsDetailsResponse
+		localVarReturnValue  ListAssetsDetailsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.ListAssetsDetails")
@@ -103,11 +113,17 @@ func (a *AssetsApiService) ListAssetsDetailsExecute(r ApiListAssetsDetailsReques
 	if r.assetType != nil {
 		localVarQueryParams.Add("assetType", parameterToString(*r.assetType, ""))
 	}
+	if r.cryptoType != nil {
+		localVarQueryParams.Add("cryptoType", parameterToString(*r.cryptoType, ""))
+	}
 	if r.limit != nil {
 		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
 	}
 	if r.offset != nil {
 		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+	}
+	if r.waasEnabled != nil {
+		localVarQueryParams.Add("waasEnabled", parameterToString(*r.waasEnabled, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
