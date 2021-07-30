@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AdditionalData** | **string** | Represents any additional data that may be needed. | 
 **Index** | **int32** | Represents the index position of the transaction in the block. | 
 **MinedInBlockHash** | **string** | Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
 **MinedInBlockHeight** | **int32** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
@@ -24,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewListXRPRippleTransactionsByAddressRI
 
-`func NewListXRPRippleTransactionsByAddressRI(additionalData string, index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, senders []GetXRPRippleTransactionDetailsByTransactionIDRISenders, sequence int32, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByAddressRIFee, offer ListXRPRippleTransactionsByAddressRIOffer, receive ListXRPRippleTransactionsByAddressRIReceive, value ListXRPRippleTransactionsByAddressRIValue, ) *ListXRPRippleTransactionsByAddressRI`
+`func NewListXRPRippleTransactionsByAddressRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, senders []GetXRPRippleTransactionDetailsByTransactionIDRISenders, sequence int32, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByAddressRIFee, offer ListXRPRippleTransactionsByAddressRIOffer, receive ListXRPRippleTransactionsByAddressRIReceive, value ListXRPRippleTransactionsByAddressRIValue, ) *ListXRPRippleTransactionsByAddressRI`
 
 NewListXRPRippleTransactionsByAddressRI instantiates a new ListXRPRippleTransactionsByAddressRI object
 This constructor will assign default values to properties that have it defined,
@@ -38,26 +37,6 @@ will change when the set of required properties is changed
 NewListXRPRippleTransactionsByAddressRIWithDefaults instantiates a new ListXRPRippleTransactionsByAddressRI object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### GetAdditionalData
-
-`func (o *ListXRPRippleTransactionsByAddressRI) GetAdditionalData() string`
-
-GetAdditionalData returns the AdditionalData field if non-nil, zero value otherwise.
-
-### GetAdditionalDataOk
-
-`func (o *ListXRPRippleTransactionsByAddressRI) GetAdditionalDataOk() (*string, bool)`
-
-GetAdditionalDataOk returns a tuple with the AdditionalData field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetAdditionalData
-
-`func (o *ListXRPRippleTransactionsByAddressRI) SetAdditionalData(v string)`
-
-SetAdditionalData sets AdditionalData field to given value.
-
 
 ### GetIndex
 

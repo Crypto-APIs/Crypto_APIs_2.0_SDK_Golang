@@ -15,14 +15,21 @@ import (
 	"encoding/json"
 )
 
-// TransactionRequestBroadcastedDataItem struct for TransactionRequestBroadcastedDataItem
+// TransactionRequestBroadcastedDataItem Defines an `item` as one result.
 type TransactionRequestBroadcastedDataItem struct {
+	// Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
 	Blockchain string `json:"blockchain"`
+	// Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
 	Network string `json:"network"`
-	RequiredApproves int32 `json:"requiredApproves"`
-	RequiredRejects int32 `json:"requiredRejects"`
-	CurrentApproves int32 `json:"currentApproves"`
-	CurrentRejects int32 `json:"currentRejects"`
+	// The required number of approvals needed to approve the transaction.
+	RequiredApprovals int32 `json:"requiredApprovals"`
+	// The required number of rejections needed to reject the transaction.
+	RequiredRejections int32 `json:"requiredRejections"`
+	// The current number of approvals given for the transaction.
+	CurrentApprovals int32 `json:"currentApprovals"`
+	// The current number of rejections given for the transaction.
+	CurrentRejections int32 `json:"currentRejections"`
+	// Defines the unique ID of the specific transaction, i.e. its identification number.
 	TransactionId string `json:"transactionId"`
 }
 
@@ -30,14 +37,14 @@ type TransactionRequestBroadcastedDataItem struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewTransactionRequestBroadcastedDataItem(blockchain string, network string, requiredApproves int32, requiredRejects int32, currentApproves int32, currentRejects int32, transactionId string) *TransactionRequestBroadcastedDataItem {
+func NewTransactionRequestBroadcastedDataItem(blockchain string, network string, requiredApprovals int32, requiredRejections int32, currentApprovals int32, currentRejections int32, transactionId string) *TransactionRequestBroadcastedDataItem {
 	this := TransactionRequestBroadcastedDataItem{}
 	this.Blockchain = blockchain
 	this.Network = network
-	this.RequiredApproves = requiredApproves
-	this.RequiredRejects = requiredRejects
-	this.CurrentApproves = currentApproves
-	this.CurrentRejects = currentRejects
+	this.RequiredApprovals = requiredApprovals
+	this.RequiredRejections = requiredRejections
+	this.CurrentApprovals = currentApprovals
+	this.CurrentRejections = currentRejections
 	this.TransactionId = transactionId
 	return &this
 }
@@ -98,100 +105,100 @@ func (o *TransactionRequestBroadcastedDataItem) SetNetwork(v string) {
 	o.Network = v
 }
 
-// GetRequiredApproves returns the RequiredApproves field value
-func (o *TransactionRequestBroadcastedDataItem) GetRequiredApproves() int32 {
+// GetRequiredApprovals returns the RequiredApprovals field value
+func (o *TransactionRequestBroadcastedDataItem) GetRequiredApprovals() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.RequiredApproves
+	return o.RequiredApprovals
 }
 
-// GetRequiredApprovesOk returns a tuple with the RequiredApproves field value
+// GetRequiredApprovalsOk returns a tuple with the RequiredApprovals field value
 // and a boolean to check if the value has been set.
-func (o *TransactionRequestBroadcastedDataItem) GetRequiredApprovesOk() (*int32, bool) {
+func (o *TransactionRequestBroadcastedDataItem) GetRequiredApprovalsOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.RequiredApproves, true
+	return &o.RequiredApprovals, true
 }
 
-// SetRequiredApproves sets field value
-func (o *TransactionRequestBroadcastedDataItem) SetRequiredApproves(v int32) {
-	o.RequiredApproves = v
+// SetRequiredApprovals sets field value
+func (o *TransactionRequestBroadcastedDataItem) SetRequiredApprovals(v int32) {
+	o.RequiredApprovals = v
 }
 
-// GetRequiredRejects returns the RequiredRejects field value
-func (o *TransactionRequestBroadcastedDataItem) GetRequiredRejects() int32 {
+// GetRequiredRejections returns the RequiredRejections field value
+func (o *TransactionRequestBroadcastedDataItem) GetRequiredRejections() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.RequiredRejects
+	return o.RequiredRejections
 }
 
-// GetRequiredRejectsOk returns a tuple with the RequiredRejects field value
+// GetRequiredRejectionsOk returns a tuple with the RequiredRejections field value
 // and a boolean to check if the value has been set.
-func (o *TransactionRequestBroadcastedDataItem) GetRequiredRejectsOk() (*int32, bool) {
+func (o *TransactionRequestBroadcastedDataItem) GetRequiredRejectionsOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.RequiredRejects, true
+	return &o.RequiredRejections, true
 }
 
-// SetRequiredRejects sets field value
-func (o *TransactionRequestBroadcastedDataItem) SetRequiredRejects(v int32) {
-	o.RequiredRejects = v
+// SetRequiredRejections sets field value
+func (o *TransactionRequestBroadcastedDataItem) SetRequiredRejections(v int32) {
+	o.RequiredRejections = v
 }
 
-// GetCurrentApproves returns the CurrentApproves field value
-func (o *TransactionRequestBroadcastedDataItem) GetCurrentApproves() int32 {
+// GetCurrentApprovals returns the CurrentApprovals field value
+func (o *TransactionRequestBroadcastedDataItem) GetCurrentApprovals() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.CurrentApproves
+	return o.CurrentApprovals
 }
 
-// GetCurrentApprovesOk returns a tuple with the CurrentApproves field value
+// GetCurrentApprovalsOk returns a tuple with the CurrentApprovals field value
 // and a boolean to check if the value has been set.
-func (o *TransactionRequestBroadcastedDataItem) GetCurrentApprovesOk() (*int32, bool) {
+func (o *TransactionRequestBroadcastedDataItem) GetCurrentApprovalsOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.CurrentApproves, true
+	return &o.CurrentApprovals, true
 }
 
-// SetCurrentApproves sets field value
-func (o *TransactionRequestBroadcastedDataItem) SetCurrentApproves(v int32) {
-	o.CurrentApproves = v
+// SetCurrentApprovals sets field value
+func (o *TransactionRequestBroadcastedDataItem) SetCurrentApprovals(v int32) {
+	o.CurrentApprovals = v
 }
 
-// GetCurrentRejects returns the CurrentRejects field value
-func (o *TransactionRequestBroadcastedDataItem) GetCurrentRejects() int32 {
+// GetCurrentRejections returns the CurrentRejections field value
+func (o *TransactionRequestBroadcastedDataItem) GetCurrentRejections() int32 {
 	if o == nil {
 		var ret int32
 		return ret
 	}
 
-	return o.CurrentRejects
+	return o.CurrentRejections
 }
 
-// GetCurrentRejectsOk returns a tuple with the CurrentRejects field value
+// GetCurrentRejectionsOk returns a tuple with the CurrentRejections field value
 // and a boolean to check if the value has been set.
-func (o *TransactionRequestBroadcastedDataItem) GetCurrentRejectsOk() (*int32, bool) {
+func (o *TransactionRequestBroadcastedDataItem) GetCurrentRejectionsOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.CurrentRejects, true
+	return &o.CurrentRejections, true
 }
 
-// SetCurrentRejects sets field value
-func (o *TransactionRequestBroadcastedDataItem) SetCurrentRejects(v int32) {
-	o.CurrentRejects = v
+// SetCurrentRejections sets field value
+func (o *TransactionRequestBroadcastedDataItem) SetCurrentRejections(v int32) {
+	o.CurrentRejections = v
 }
 
 // GetTransactionId returns the TransactionId field value
@@ -227,16 +234,16 @@ func (o TransactionRequestBroadcastedDataItem) MarshalJSON() ([]byte, error) {
 		toSerialize["network"] = o.Network
 	}
 	if true {
-		toSerialize["requiredApproves"] = o.RequiredApproves
+		toSerialize["requiredApprovals"] = o.RequiredApprovals
 	}
 	if true {
-		toSerialize["requiredRejects"] = o.RequiredRejects
+		toSerialize["requiredRejections"] = o.RequiredRejections
 	}
 	if true {
-		toSerialize["currentApproves"] = o.CurrentApproves
+		toSerialize["currentApprovals"] = o.CurrentApprovals
 	}
 	if true {
-		toSerialize["currentRejects"] = o.CurrentRejects
+		toSerialize["currentRejections"] = o.CurrentRejections
 	}
 	if true {
 		toSerialize["transactionId"] = o.TransactionId

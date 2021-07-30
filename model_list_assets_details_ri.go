@@ -31,14 +31,14 @@ type ListAssetsDetailsRI struct {
 	LatestRate ListAssetsDetailsRILatestRate `json:"latestRate"`
 	// Asset`s unique slug string in Crypto APIs listings
 	Slug *string `json:"slug,omitempty"`
-	SpecificData ListAssetsDetailsRISpecificData `json:"specificData"`
+	SpecificData ListAssetsDetailsRIS `json:"specificData"`
 }
 
 // NewListAssetsDetailsRI instantiates a new ListAssetsDetailsRI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListAssetsDetailsRI(assetId string, assetLogo ListAssetsDetailsRIAssetLogo, assetName string, assetOriginalSymbol string, assetSymbol string, assetType string, latestRate ListAssetsDetailsRILatestRate, specificData ListAssetsDetailsRISpecificData) *ListAssetsDetailsRI {
+func NewListAssetsDetailsRI(assetId string, assetLogo ListAssetsDetailsRIAssetLogo, assetName string, assetOriginalSymbol string, assetSymbol string, assetType string, latestRate ListAssetsDetailsRILatestRate, specificData ListAssetsDetailsRIS) *ListAssetsDetailsRI {
 	this := ListAssetsDetailsRI{}
 	this.AssetId = assetId
 	this.AssetLogo = assetLogo
@@ -260,9 +260,9 @@ func (o *ListAssetsDetailsRI) SetSlug(v string) {
 }
 
 // GetSpecificData returns the SpecificData field value
-func (o *ListAssetsDetailsRI) GetSpecificData() ListAssetsDetailsRISpecificData {
+func (o *ListAssetsDetailsRI) GetSpecificData() ListAssetsDetailsRIS {
 	if o == nil {
-		var ret ListAssetsDetailsRISpecificData
+		var ret ListAssetsDetailsRIS
 		return ret
 	}
 
@@ -271,7 +271,7 @@ func (o *ListAssetsDetailsRI) GetSpecificData() ListAssetsDetailsRISpecificData 
 
 // GetSpecificDataOk returns a tuple with the SpecificData field value
 // and a boolean to check if the value has been set.
-func (o *ListAssetsDetailsRI) GetSpecificDataOk() (*ListAssetsDetailsRISpecificData, bool) {
+func (o *ListAssetsDetailsRI) GetSpecificDataOk() (*ListAssetsDetailsRIS, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -279,7 +279,7 @@ func (o *ListAssetsDetailsRI) GetSpecificDataOk() (*ListAssetsDetailsRISpecificD
 }
 
 // SetSpecificData sets field value
-func (o *ListAssetsDetailsRI) SetSpecificData(v ListAssetsDetailsRISpecificData) {
+func (o *ListAssetsDetailsRI) SetSpecificData(v ListAssetsDetailsRIS) {
 	o.SpecificData = v
 }
 

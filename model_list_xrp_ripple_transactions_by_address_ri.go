@@ -17,8 +17,6 @@ import (
 
 // ListXRPRippleTransactionsByAddressRI struct for ListXRPRippleTransactionsByAddressRI
 type ListXRPRippleTransactionsByAddressRI struct {
-	// Represents any additional data that may be needed.
-	AdditionalData string `json:"additionalData"`
 	// Represents the index position of the transaction in the block.
 	Index int32 `json:"index"`
 	// Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
@@ -49,9 +47,8 @@ type ListXRPRippleTransactionsByAddressRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListXRPRippleTransactionsByAddressRI(additionalData string, index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, senders []GetXRPRippleTransactionDetailsByTransactionIDRISenders, sequence int32, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByAddressRIFee, offer ListXRPRippleTransactionsByAddressRIOffer, receive ListXRPRippleTransactionsByAddressRIReceive, value ListXRPRippleTransactionsByAddressRIValue) *ListXRPRippleTransactionsByAddressRI {
+func NewListXRPRippleTransactionsByAddressRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, senders []GetXRPRippleTransactionDetailsByTransactionIDRISenders, sequence int32, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByAddressRIFee, offer ListXRPRippleTransactionsByAddressRIOffer, receive ListXRPRippleTransactionsByAddressRIReceive, value ListXRPRippleTransactionsByAddressRIValue) *ListXRPRippleTransactionsByAddressRI {
 	this := ListXRPRippleTransactionsByAddressRI{}
-	this.AdditionalData = additionalData
 	this.Index = index
 	this.MinedInBlockHash = minedInBlockHash
 	this.MinedInBlockHeight = minedInBlockHeight
@@ -75,30 +72,6 @@ func NewListXRPRippleTransactionsByAddressRI(additionalData string, index int32,
 func NewListXRPRippleTransactionsByAddressRIWithDefaults() *ListXRPRippleTransactionsByAddressRI {
 	this := ListXRPRippleTransactionsByAddressRI{}
 	return &this
-}
-
-// GetAdditionalData returns the AdditionalData field value
-func (o *ListXRPRippleTransactionsByAddressRI) GetAdditionalData() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.AdditionalData
-}
-
-// GetAdditionalDataOk returns a tuple with the AdditionalData field value
-// and a boolean to check if the value has been set.
-func (o *ListXRPRippleTransactionsByAddressRI) GetAdditionalDataOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.AdditionalData, true
-}
-
-// SetAdditionalData sets field value
-func (o *ListXRPRippleTransactionsByAddressRI) SetAdditionalData(v string) {
-	o.AdditionalData = v
 }
 
 // GetIndex returns the Index field value
@@ -439,9 +412,6 @@ func (o *ListXRPRippleTransactionsByAddressRI) SetValue(v ListXRPRippleTransacti
 
 func (o ListXRPRippleTransactionsByAddressRI) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["additionalData"] = o.AdditionalData
-	}
 	if true {
 		toSerialize["index"] = o.Index
 	}

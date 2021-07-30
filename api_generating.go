@@ -28,40 +28,40 @@ var (
 // GeneratingApiService GeneratingApi service
 type GeneratingApiService service
 
-type ApiGenerateReceivingAddressRequest struct {
+type ApiGenerateDepositAddressRequest struct {
 	ctx _context.Context
 	ApiService *GeneratingApiService
 	blockchain string
 	network string
 	walletId string
 	context *string
-	generateReceivingAddressRB *GenerateReceivingAddressRB
+	generateDepositAddressRB *GenerateDepositAddressRB
 }
 
-func (r ApiGenerateReceivingAddressRequest) Context(context string) ApiGenerateReceivingAddressRequest {
+func (r ApiGenerateDepositAddressRequest) Context(context string) ApiGenerateDepositAddressRequest {
 	r.context = &context
 	return r
 }
-func (r ApiGenerateReceivingAddressRequest) GenerateReceivingAddressRB(generateReceivingAddressRB GenerateReceivingAddressRB) ApiGenerateReceivingAddressRequest {
-	r.generateReceivingAddressRB = &generateReceivingAddressRB
+func (r ApiGenerateDepositAddressRequest) GenerateDepositAddressRB(generateDepositAddressRB GenerateDepositAddressRB) ApiGenerateDepositAddressRequest {
+	r.generateDepositAddressRB = &generateDepositAddressRB
 	return r
 }
 
-func (r ApiGenerateReceivingAddressRequest) Execute() (GenerateReceivingAddressR, *_nethttp.Response, error) {
-	return r.ApiService.GenerateReceivingAddressExecute(r)
+func (r ApiGenerateDepositAddressRequest) Execute() (GenerateDepositAddressR, *_nethttp.Response, error) {
+	return r.ApiService.GenerateDepositAddressExecute(r)
 }
 
 /*
- * GenerateReceivingAddress Generate Receiving Address
+ * GenerateDepositAddress Generate Deposit Address
  * Through this endpoint customers can generate a new Receiving/Deposit Addresses into their Wallet.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param walletId Represents the unique ID of the specific Wallet.
- * @return ApiGenerateReceivingAddressRequest
+ * @return ApiGenerateDepositAddressRequest
  */
-func (a *GeneratingApiService) GenerateReceivingAddress(ctx _context.Context, blockchain string, network string, walletId string) ApiGenerateReceivingAddressRequest {
-	return ApiGenerateReceivingAddressRequest{
+func (a *GeneratingApiService) GenerateDepositAddress(ctx _context.Context, blockchain string, network string, walletId string) ApiGenerateDepositAddressRequest {
+	return ApiGenerateDepositAddressRequest{
 		ApiService: a,
 		ctx: ctx,
 		blockchain: blockchain,
@@ -72,19 +72,19 @@ func (a *GeneratingApiService) GenerateReceivingAddress(ctx _context.Context, bl
 
 /*
  * Execute executes the request
- * @return GenerateReceivingAddressR
+ * @return GenerateDepositAddressR
  */
-func (a *GeneratingApiService) GenerateReceivingAddressExecute(r ApiGenerateReceivingAddressRequest) (GenerateReceivingAddressR, *_nethttp.Response, error) {
+func (a *GeneratingApiService) GenerateDepositAddressExecute(r ApiGenerateDepositAddressRequest) (GenerateDepositAddressR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  GenerateReceivingAddressR
+		localVarReturnValue  GenerateDepositAddressR
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GeneratingApiService.GenerateReceivingAddress")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GeneratingApiService.GenerateDepositAddress")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -119,7 +119,7 @@ func (a *GeneratingApiService) GenerateReceivingAddressExecute(r ApiGenerateRece
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.generateReceivingAddressRB
+	localVarPostBody = r.generateDepositAddressRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

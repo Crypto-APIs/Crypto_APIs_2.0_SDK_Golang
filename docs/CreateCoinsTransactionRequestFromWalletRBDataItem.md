@@ -4,14 +4,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Destinations** | [**[]CreateCoinsTransactionRequestFromWalletRBDataItemDestinations**](CreateCoinsTransactionRequestFromWalletRBDataItemDestinations.md) | Defines the destination of the transaction, whether it is incoming or outgoing. | 
+**CallbackSecretKey** | Pointer to **string** | Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. | [optional] 
+**CallbackUrl** | Pointer to **string** | Verified URL for sending callbacks | [optional] 
 **FeePriority** | **string** | Represents the fee priority of the automation, whether it is \&quot;slow\&quot;, \&quot;standard\&quot; or \&quot;fast\&quot;. | 
+**Recipients** | [**[]CreateCoinsTransactionRequestFromWalletRBDataItemRecipients**](CreateCoinsTransactionRequestFromWalletRBDataItemRecipients.md) | Defines the destination of the transaction, whether it is incoming or outgoing. | 
 
 ## Methods
 
 ### NewCreateCoinsTransactionRequestFromWalletRBDataItem
 
-`func NewCreateCoinsTransactionRequestFromWalletRBDataItem(destinations []CreateCoinsTransactionRequestFromWalletRBDataItemDestinations, feePriority string, ) *CreateCoinsTransactionRequestFromWalletRBDataItem`
+`func NewCreateCoinsTransactionRequestFromWalletRBDataItem(feePriority string, recipients []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients, ) *CreateCoinsTransactionRequestFromWalletRBDataItem`
 
 NewCreateCoinsTransactionRequestFromWalletRBDataItem instantiates a new CreateCoinsTransactionRequestFromWalletRBDataItem object
 This constructor will assign default values to properties that have it defined,
@@ -26,25 +28,55 @@ NewCreateCoinsTransactionRequestFromWalletRBDataItemWithDefaults instantiates a 
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
-### GetDestinations
+### GetCallbackSecretKey
 
-`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetDestinations() []CreateCoinsTransactionRequestFromWalletRBDataItemDestinations`
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetCallbackSecretKey() string`
 
-GetDestinations returns the Destinations field if non-nil, zero value otherwise.
+GetCallbackSecretKey returns the CallbackSecretKey field if non-nil, zero value otherwise.
 
-### GetDestinationsOk
+### GetCallbackSecretKeyOk
 
-`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetDestinationsOk() (*[]CreateCoinsTransactionRequestFromWalletRBDataItemDestinations, bool)`
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetCallbackSecretKeyOk() (*string, bool)`
 
-GetDestinationsOk returns a tuple with the Destinations field if it's non-nil, zero value otherwise
+GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetDestinations
+### SetCallbackSecretKey
 
-`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetDestinations(v []CreateCoinsTransactionRequestFromWalletRBDataItemDestinations)`
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetCallbackSecretKey(v string)`
 
-SetDestinations sets Destinations field to given value.
+SetCallbackSecretKey sets CallbackSecretKey field to given value.
 
+### HasCallbackSecretKey
+
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) HasCallbackSecretKey() bool`
+
+HasCallbackSecretKey returns a boolean if a field has been set.
+
+### GetCallbackUrl
+
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetCallbackUrl() string`
+
+GetCallbackUrl returns the CallbackUrl field if non-nil, zero value otherwise.
+
+### GetCallbackUrlOk
+
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetCallbackUrlOk() (*string, bool)`
+
+GetCallbackUrlOk returns a tuple with the CallbackUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCallbackUrl
+
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetCallbackUrl(v string)`
+
+SetCallbackUrl sets CallbackUrl field to given value.
+
+### HasCallbackUrl
+
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) HasCallbackUrl() bool`
+
+HasCallbackUrl returns a boolean if a field has been set.
 
 ### GetFeePriority
 
@@ -64,6 +96,26 @@ and a boolean to check if the value has been set.
 `func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetFeePriority(v string)`
 
 SetFeePriority sets FeePriority field to given value.
+
+
+### GetRecipients
+
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipients() []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients`
+
+GetRecipients returns the Recipients field if non-nil, zero value otherwise.
+
+### GetRecipientsOk
+
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipientsOk() (*[]CreateCoinsTransactionRequestFromWalletRBDataItemRecipients, bool)`
+
+GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecipients
+
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetRecipients(v []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients)`
+
+SetRecipients sets Recipients field to given value.
 
 
 

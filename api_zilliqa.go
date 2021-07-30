@@ -1199,8 +1199,6 @@ func (r ApiListZilliqaTransactionsByAddressRequest) Execute() (ListZilliqaTransa
 /*
  * ListZilliqaTransactionsByAddress List Zilliqa Transactions by Address
  * Through this endpoint customers can list transactions on the Zilliqa blockchain by the address parameter.
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param address Defines the specific address of the sender.
@@ -1438,8 +1436,6 @@ func (r ApiListZilliqaTransactionsByBlockHashRequest) Execute() (ListZilliqaTran
 /*
  * ListZilliqaTransactionsByBlockHash List Zilliqa Transactions By Block Hash
  * Through this endpoint customers can list transactions on the Zilliqa blockchain by the block hash parameter.
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param blockHash Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
@@ -1677,8 +1673,6 @@ func (r ApiListZilliqaTransactionsByBlockHeightRequest) Execute() (ListZilliqaTr
 /*
  * ListZilliqaTransactionsByBlockHeight List Zilliqa Transactions By Block Height
  * Through this endpoint customers can list transactions on the Zilliqa blockchain by the block height parameter.
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param blockHeight Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".

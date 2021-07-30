@@ -22,9 +22,9 @@ type GetAddressDetailsRI struct {
 	ConfirmedBalance GetAddressDetailsRIConfirmedBalance `json:"confirmedBalance"`
 	TotalReceived GetAddressDetailsRITotalReceived `json:"totalReceived"`
 	TotalSpent GetAddressDetailsRITotalSpent `json:"totalSpent"`
-	// Defines the count of all confirmed incoming transactions from the address for coins. This applies to **coins** only, **not** to tokens transfers e.g. for Ethereum.
+	// Numeric representation of the received transaction count of the address
 	IncomingTransactionsCount int32 `json:"incomingTransactionsCount"`
-	// Defines the count of all confirmed outgoing transactions from the address for coins. This applies to **coins** only, **not** to tokens transfers e.g. for Ethereum.
+	// Numeric representation of the sent transaction count of the address
 	OutgoingTransactionsCount int32 `json:"outgoingTransactionsCount"`
 }
 

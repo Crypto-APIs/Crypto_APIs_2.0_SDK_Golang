@@ -19,7 +19,6 @@ import (
 type GetAddressDetailsRITotalSpent struct {
 	// Defines the total amount of all spent by this address coins, based on confirmed transactions.
 	Amount string `json:"amount"`
-	// Defines the unit of the spent amount, e.g. BTC, ETH, XRP.
 	Unit string `json:"unit"`
 }
 

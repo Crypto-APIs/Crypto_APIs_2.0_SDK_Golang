@@ -801,13 +801,15 @@ tags:
     \ verified.\r\n\r\nTo see more information on Callbacks and how they operate,\
     \ please see our dedicated [documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks)."
   name: Manage Subscriptions
-- description: Validate HD Wallets (xPub, yPub, zPub) through these endpoints.
-  name: Validating
+- description: Crypto APIs 2.0 useful features and tools for blockchain and crypto
+    operations. Users can utilize these endpoints to validate addresses, broadcast
+    transactions and more.
+  name: Features
 - description: We support ERC-20, ERC-721 standards on Ethereum and Omni Layer on
     Bitcoin. You can see the full list on [our website](https://cryptoapis.io/).
   name: Tokens
 - description: This section represents only endpoints related to XRP (Ripple) blockchain
-    protocol.
+    protocol, relating to obtaining information on transactions, addresses and blocks.
   name: XRP (Ripple)
 - description: This section represents only endpoints related to Omni Layer  exchanges.
   name: Omni Layer
@@ -988,14 +990,15 @@ paths:
       summary: Get Address Details
       tags:
       - Unified Endpoints
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/omni/addresses/{address}:
     get:
-      description: "Through this endpoint the customer can receive basic information\
-        \ about a given Omni address based on confirmed/synced blocks only. In the\
-        \ case where there are any incoming or outgoing **unconfirmed** transactions\
-        \ for the specific address, they **will not** be counted or calculated here.\r\
-        \n\r\n{note}Please note that listing data from the same type will apply pagination\
-        \ on the results.{/note}"
+      description: Through this endpoint the customer can receive basic information
+        about a given Omni address based on confirmed/synced blocks only. In the case
+        where there are any incoming or outgoing **unconfirmed** transactions for
+        the specific address, they **will not** be counted or calculated here.
       operationId: List Omni Tokens By Address
       parameters:
       - description: Represents the name of the blockchain network used; blockchain
@@ -1131,6 +1134,9 @@ paths:
       summary: List Omni Tokens By Address
       tags:
       - Omni Layer
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/xrp-specific/{network}/addresses/{address}:
     get:
       description: "Through this endpoint the customer can receive basic information\
@@ -1258,6 +1264,9 @@ paths:
       summary: Get XRP (Ripple) Address Details
       tags:
       - XRP (Ripple)
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/zilliqa-specific/{network}/addresses/{address}:
     get:
       description: Through this endpoint customers can obtain information address
@@ -1379,6 +1388,9 @@ paths:
       summary: Get Zilliqa Address Details
       tags:
       - Zilliqa
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/transactions/{transactionId}:
     get:
       description: Through this endpoint customers can obtain details about a transaction
@@ -1539,12 +1551,14 @@ paths:
       summary: Get Transaction Details By Transaction ID
       tags:
       - Unified Endpoints
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/omni/addresses/{address}/transactions:
     get:
-      description: "This endpoint will list Omni transactions by an attribute `address`.\
-        \ The transactions listed will detail additional information such as hash,\
-        \ height, time of creation in Unix timestamp, etc.\r\n\r\n{note}Please note\
-        \ that listing data from the same type will apply pagination on the results.{/note}"
+      description: This endpoint will list Omni transactions by an attribute `address`.
+        The transactions listed will detail additional information such as hash, height,
+        time of creation in Unix timestamp, etc.
       operationId: List Omni Transactions By Address
       parameters:
       - description: Represents the name of the blockchain network used; blockchain
@@ -1708,6 +1722,9 @@ paths:
       summary: List Omni Transactions By Address
       tags:
       - Omni Layer
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/xrp-specific/{network}/transactions/{transactionHash}:
     get:
       description: "Through this endpoint customers can obtain details about a XRP\
@@ -1842,13 +1859,15 @@ paths:
       summary: Get XRP (Ripple) Transaction Details By Transaction ID
       tags:
       - XRP (Ripple)
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: false
   /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses:
     get:
-      description: "Through this endpoint customers can pull a list of Deposit Addresses\
-        \ they have already generated. Deposit addresses are listed with their specific\
-        \ details such as unique ID.\r\n\r\n{note}Please note that listing data from\
-        \ the same type will apply pagination on the results.{/note}"
-      operationId: List Receiving Addresses
+      description: "Through this endpoint customers can pull a list of Deposit/Receiving\
+        \ Addresses they have already generated.\r\n\r\n{note}Please note that listing\
+        \ data from the same type will apply pagination on the results.{/note}"
+      operationId: List Deposit Addresses
       parameters:
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
           Bitcoin, etc.
@@ -1917,7 +1936,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ListReceivingAddressesR'
+                $ref: '#/components/schemas/ListDepositAddressesR'
           description: The request has been successful.
         "400":
           content:
@@ -1989,13 +2008,16 @@ paths:
           description: An unexpected server error has occurred, we are working to
             fix this. Please try again later and in case it occurs again please report
             it to our team via email.
-      summary: List Receiving Addresses
+      summary: List Deposit Addresses
       tags:
       - Informative
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
     post:
       description: Through this endpoint customers can generate a new Receiving/Deposit
         Addresses into their Wallet.
-      operationId: Generate Receiving Address
+      operationId: Generate Deposit Address
       parameters:
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
           Bitcoin, etc.
@@ -2063,13 +2085,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/GenerateReceivingAddressRB'
+              $ref: '#/components/schemas/GenerateDepositAddressRB'
       responses:
         "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GenerateReceivingAddressR'
+                $ref: '#/components/schemas/GenerateDepositAddressR'
           description: The resource has been successfully created.
         "400":
           content:
@@ -2142,9 +2164,12 @@ paths:
           description: An unexpected server error has occurred, we are working to
             fix this. Please try again later and in case it occurs again please report
             it to our team via email.
-      summary: Generate Receiving Address
+      summary: Generate Deposit Address
       tags:
       - Generating
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/zilliqa-specific/{network}/transactions/{transactionHash}:
     get:
       description: Through this endpoint customers can obtain transaction details
@@ -2273,12 +2298,14 @@ paths:
       summary: Get Zilliqa Transaction Details by Transaction ID
       tags:
       - Zilliqa
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/addresses/{address}/transactions:
     get:
-      description: "This endpoint will list transactions by an attribute `address`.\
-        \ The transactions listed will detail additional information such as hash,\
-        \ height, time of creation in Unix timestamp, etc.\r\n\r\n{note}Please note\
-        \ that listing data from the same type will apply pagination on the results.{/note}"
+      description: This endpoint will list transactions by an attribute `address`.
+        The transactions listed will detail additional information such as hash, height,
+        time of creation in Unix timestamp, etc.
       operationId: List Transactions By Address
       parameters:
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
@@ -2451,13 +2478,15 @@ paths:
       summary: List Transactions By Address
       tags:
       - Unified Endpoints
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/xrp-specific/{network}/addresses/{address}/transactions:
     get:
       description: "This endpoint will list XRP transactions by a attribute `address`.\
         \ The transactions listed will detail additional information such as hash,\
         \ height, time of creation in Unix timestamp, etc.\r\n\r\nSince XRP is a different\
-        \ blockchain than Bitcoin and Ethereum, it isn't unified.\r\n\r\n{note}Please\
-        \ note that listing data from the same type will apply pagination on the results.{/note}"
+        \ blockchain than Bitcoin and Ethereum, it isn't unified."
       operationId: List XRP (Ripple) Transactions by Address
       parameters:
       - description: Represents the name of the blockchain network used; blockchain
@@ -2532,6 +2561,35 @@ paths:
           example: 10
           type: integer
         style: form
+      - example: payment
+        explode: true
+        in: query
+        name: transactionType
+        required: false
+        schema:
+          enum:
+          - account-set
+          - account-delete
+          - check-cancel
+          - check-cash
+          - check-create
+          - deposit-preauth
+          - escrow-cancel
+          - escrow-create
+          - escrow-finish
+          - offer-cancel
+          - offer-create
+          - payment
+          - payment-channel-claim
+          - payment-channel-create
+          - payment-channel-fund
+          - set-regular-key
+          - signer-list-set
+          - ticket-create
+          - trust-set
+          example: payment
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -2605,14 +2663,16 @@ paths:
       summary: List XRP (Ripple) Transactions by Address
       tags:
       - XRP (Ripple)
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/{blockchain}/{network}/omni/address-transactions-unconfirmed/{address}:
     get:
       description: "This endpoint will list unconfirmed Omni transactions by an attribute\
         \ `address`. The transactions listed will detail additional information such\
         \ as hash, height, time of creation in Unix timestamp, etc.\r\n\r\nUnconfirmed\
         \ transactions are usually put in the Mempool and await verification so that\
-        \ they can be added to a block.\r\n\r\n{note}Please note that listing data\
-        \ from the same type will apply pagination on the results.{/note}"
+        \ they can be added to a block."
       operationId: List Unconfirmed Omni Transactions By Address
       parameters:
       - description: Represents the name of the blockchain network used; blockchain
@@ -2776,8 +2836,87 @@ paths:
       summary: List Unconfirmed Omni Transactions By Address
       tags:
       - Omni Layer
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/transaction-requests:
     post:
+      callbacks:
+        TRANSACTION_REQUEST_APPROVAL:
+          '{$request.BODY#/callbackUrl':
+            post:
+              operationId: tRANSACTION_REQUEST_APPROVAL_request_BODYCallbackUrlPost
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/TransactionRequestApproval'
+                required: true
+              responses:
+                "200":
+                  description: A Webhook request expects a response with status code
+                    200 (OK) or it will retry the request.
+              x-callback-request: true
+        TRANSACTION_REQUEST_REJECTION:
+          '{$request.BODY#/callbackUrl':
+            post:
+              operationId: tRANSACTION_REQUEST_REJECTION_request_BODYCallbackUrlPost
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/TransactionRequestRejection'
+                required: true
+              responses:
+                "200":
+                  description: A Webhook request expects a response with status code
+                    200 (OK) or it will retry the request.
+              x-callback-request: true
+        TRANSACTION_REQUEST_BROADCASTED:
+          '{$request.BODY#/callbackUrl':
+            post:
+              operationId: tRANSACTION_REQUEST_BROADCASTED_request_BODYCallbackUrlPost
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/TransactionRequestBroadcasted'
+                required: true
+              responses:
+                "200":
+                  description: A Webhook request expects a response with status code
+                    200 (OK) or it will retry the request.
+              x-callback-request: true
+        TRANSACTION_REQUEST_MINED:
+          '{$request.BODY#/callbackUrl':
+            post:
+              operationId: tRANSACTION_REQUEST_MINED_request_BODYCallbackUrlPost
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/TransactionRequestMined'
+                required: true
+              responses:
+                "200":
+                  description: A Webhook request expects a response with status code
+                    200 (OK) or it will retry the request.
+              x-callback-request: true
+        TRANSACTION_REQUEST_FAIL:
+          '{$request.BODY#/callbackUrl':
+            post:
+              operationId: tRANSACTION_REQUEST_FAIL_request_BODYCallbackUrlPost
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/TransactionRequestFail'
+                required: true
+              responses:
+                "200":
+                  description: A Webhook request expects a response with status code
+                    200 (OK) or it will retry the request.
+              x-callback-request: true
       description: Through this endpoint users can create a new single transaction
         request from one address to another.
       operationId: Create Coins Transaction Request from Address
@@ -2855,12 +2994,12 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateCoinsTransactionRequestFromAddressRB'
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateCoinsTransactionRequestFromAddressR'
-          description: The request has been successful.
+          description: The resource has been successfully created.
         "400":
           content:
             application/json:
@@ -2929,11 +3068,13 @@ paths:
       summary: Create Coins Transaction Request from Address
       tags:
       - Transactions
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/zilliqa-specific/{network}/addresses/{address}/transactions:
     get:
-      description: "Through this endpoint customers can list transactions on the Zilliqa\
-        \ blockchain by the address parameter.\r\n\r\n{note}Please note that listing\
-        \ data from the same type will apply pagination on the results.{/note}"
+      description: Through this endpoint customers can list transactions on the Zilliqa
+        blockchain by the address parameter.
       operationId: List Zilliqa Transactions by Address
       parameters:
       - description: Represents the name of the blockchain network used; blockchain
@@ -3079,12 +3220,14 @@ paths:
       summary: List Zilliqa Transactions by Address
       tags:
       - Zilliqa
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/{blockchain}/{network}/blocks/hash/{blockHash}/transactions:
     get:
-      description: "This endpoint will list transactions by an attribute `transactionHash`.\
-        \ The transactions listed will detail additional information such as addresses,\
-        \ height, time of creation in Unix timestamp, etc.\r\n\r\n{note}Please note\
-        \ that listing data from the same type will apply pagination on the results.{/note}"
+      description: This endpoint will list transactions by an attribute `transactionHash`.
+        The transactions listed will detail additional information such as addresses,
+        height, time of creation in Unix timestamp, etc.
       operationId: List Transactions by Block Hash
       parameters:
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
@@ -3259,14 +3402,15 @@ paths:
       summary: List Transactions by Block Hash
       tags:
       - Unified Endpoints
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}/transactions:
     get:
       description: "This endpoint will list transactions by an attribute `blockHash`.\
         \ The transactions listed will detail additional information such as hash,\
         \ addresses, time of creation in Unix timestamp, etc.\r\n\r\nSince XRP is\
-        \ a different blockchain than Bitcoin and Ethereum, it isn't unified.\r\n\r\
-        \n{note}Please note that listing data from the same type will apply pagination\
-        \ on the results.{/note}"
+        \ a different blockchain than Bitcoin and Ethereum, it isn't unified."
       operationId: List XRP (Ripple) Transactions By Block Hash
       parameters:
       - description: Represents the name of the blockchain network used; blockchain
@@ -3416,6 +3560,9 @@ paths:
       summary: List XRP (Ripple) Transactions By Block Hash
       tags:
       - XRP (Ripple)
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/{blockchain}/{network}/omni/transactions-unconfirmed/{transactionId}:
     get:
       description: "Through this endpoint customers can obtain information on unconfirmed\
@@ -3567,8 +3714,87 @@ paths:
       summary: Get Unconfirmed Omni Transaction By Transaction ID (Txid)
       tags:
       - Omni Layer
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/transaction-requests:
     post:
+      callbacks:
+        TRANSACTION_REQUEST_APPROVAL:
+          '{$request.BODY#/callbackUrl':
+            post:
+              operationId: tRANSACTION_REQUEST_APPROVAL_request_BODYCallbackUrlPost
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/TransactionRequestApproval'
+                required: true
+              responses:
+                "200":
+                  description: A Webhook request expects a response with status code
+                    200 (OK) or it will retry the request.
+              x-callback-request: true
+        TRANSACTION_REQUEST_REJECTION:
+          '{$request.BODY#/callbackUrl':
+            post:
+              operationId: tRANSACTION_REQUEST_REJECTION_request_BODYCallbackUrlPost
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/TransactionRequestRejection'
+                required: true
+              responses:
+                "200":
+                  description: A Webhook request expects a response with status code
+                    200 (OK) or it will retry the request.
+              x-callback-request: true
+        TRANSACTION_REQUEST_BROADCASTED:
+          '{$request.BODY#/callbackUrl':
+            post:
+              operationId: tRANSACTION_REQUEST_BROADCASTED_request_BODYCallbackUrlPost
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/TransactionRequestBroadcasted'
+                required: true
+              responses:
+                "200":
+                  description: A Webhook request expects a response with status code
+                    200 (OK) or it will retry the request.
+              x-callback-request: true
+        TRANSACTION_REQUEST_MINED:
+          '{$request.BODY#/callbackUrl':
+            post:
+              operationId: tRANSACTION_REQUEST_MINED_request_BODYCallbackUrlPost
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/TransactionRequestMined'
+                required: true
+              responses:
+                "200":
+                  description: A Webhook request expects a response with status code
+                    200 (OK) or it will retry the request.
+              x-callback-request: true
+        TRANSACTION_REQUEST_FAIL:
+          '{$request.BODY#/callbackUrl':
+            post:
+              operationId: tRANSACTION_REQUEST_FAIL_request_BODYCallbackUrlPost
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/TransactionRequestFail'
+                required: true
+              responses:
+                "200":
+                  description: A Webhook request expects a response with status code
+                    200 (OK) or it will retry the request.
+              x-callback-request: true
       description: "Through this endpoint users can create a new transaction request\
         \ from the entire Wallet instead from just a specific address. This endpoint\
         \ can generate transactions from multiple to multiple addresses.\r\n\r\n{warning}This\
@@ -3646,12 +3872,12 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateCoinsTransactionRequestFromWalletRB'
       responses:
-        "200":
+        "201":
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/CreateCoinsTransactionRequestFromWalletR'
-          description: The request has been successful.
+          description: The resource has been successfully created.
         "400":
           content:
             application/json:
@@ -3720,11 +3946,13 @@ paths:
       summary: Create Coins Transaction Request from Wallet
       tags:
       - Transactions
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash}/transactions:
     get:
-      description: "Through this endpoint customers can list transactions on the Zilliqa\
-        \ blockchain by the block hash parameter.\r\n\r\n{note}Please note that listing\
-        \ data from the same type will apply pagination on the results.{/note}"
+      description: Through this endpoint customers can list transactions on the Zilliqa
+        blockchain by the block hash parameter.
       operationId: List Zilliqa Transactions By Block Hash
       parameters:
       - description: Represents the name of the blockchain network used; blockchain
@@ -3874,11 +4102,13 @@ paths:
       summary: List Zilliqa Transactions By Block Hash
       tags:
       - Zilliqa
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight}/transactions:
     get:
-      description: "Through this endpoint customers can list transactions on the Zilliqa\
-        \ blockchain by the block height parameter.\r\n\r\n{note}Please note that\
-        \ listing data from the same type will apply pagination on the results.{/note}"
+      description: Through this endpoint customers can list transactions on the Zilliqa
+        blockchain by the block height parameter.
       operationId: List Zilliqa Transactions By Block Height
       parameters:
       - description: Represents the name of the blockchain network used; blockchain
@@ -4028,14 +4258,15 @@ paths:
       summary: List Zilliqa Transactions By Block Height
       tags:
       - Zilliqa
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}/transactions:
     get:
       description: "This endpoint will list transactions by an attribute `blockHeight`.\
         \ The transactions listed will detail additional information such as hash,\
         \ addresses, time of creation in Unix timestamp, etc.\r\n\r\nSince XRP is\
-        \ a different blockchain than Bitcoin and Ethereum, it isn't unified.\r\n\r\
-        \n{note}Please note that listing data from the same type will apply pagination\
-        \ on the results.{/note}"
+        \ a different blockchain than Bitcoin and Ethereum, it isn't unified."
       operationId: List XRP (Ripple) Transactions By Block Height
       parameters:
       - description: Represents the name of the blockchain network used; blockchain
@@ -4179,12 +4410,14 @@ paths:
       summary: List XRP (Ripple) Transactions By Block Height
       tags:
       - XRP (Ripple)
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/{blockchain}/{network}/blocks/height/{height}/transactions:
     get:
-      description: "This endpoint will list transactions by an attribute `blockHeight`.\
-        \ The transactions listed will detail additional information such as hash,\
-        \ addresses, time of creation in Unix timestamp, etc.\r\n\r\n{note}Please\
-        \ note that listing data from the same type will apply pagination on the results.{/note}"
+      description: This endpoint will list transactions by an attribute `blockHeight`.
+        The transactions listed will detail additional information such as hash, addresses,
+        time of creation in Unix timestamp, etc.
       operationId: List Transactions by Block Height
       parameters:
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
@@ -4365,6 +4598,9 @@ paths:
       summary: List Transactions by Block Height
       tags:
       - Unified Endpoints
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/{blockchain}/{network}/blocks/height/{height}:
     get:
       description: "Through this endpoint customers can obtain basic information about\
@@ -4525,6 +4761,9 @@ paths:
       summary: Get Block Details By Block Height
       tags:
       - Unified Endpoints
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}:
     get:
       description: "Through this endpoint customers can obtain basic information about\
@@ -4660,14 +4899,16 @@ paths:
       summary: Get XRP (Ripple) Block Details By Block Height
       tags:
       - XRP (Ripple)
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/omni/properties/{propertyId}/transactions:
     get:
       description: "This endpoint will list unconfirmed Omni transactions by an attribute\
         \ `propertyId`. The transactions listed will detail additional information\
         \ such as hash, height, time of creation in Unix timestamp, etc.\r\n\r\nUnconfirmed\
         \ transactions are usually put in the Mempool and await verification so that\
-        \ they can be added to a block.\r\n\r\n{note}Please note that listing data\
-        \ from the same type will apply pagination on the results.{/note}"
+        \ they can be added to a block."
       operationId: List Unconfirmed Omni Transactions By Property ID
       parameters:
       - description: Represents the name of the blockchain network used; blockchain
@@ -4829,6 +5070,9 @@ paths:
       summary: List Unconfirmed Omni Transactions By Property ID
       tags:
       - Omni Layer
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight}:
     get:
       description: Through this endpoint customers can obtain block details from the
@@ -4960,33 +5204,36 @@ paths:
       summary: Get Zilliqa Block Details By Block Height
       tags:
       - Zilliqa
-  /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/token-transaction-requests:
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
+  /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/token-transaction-requests:
     post:
       callbacks:
-        TRANSACTION_REQUEST_APPROVE:
-          '{$request.BODY#/transactionRequestApprove':
+        TRANSACTION_REQUEST_APPROVAL:
+          '{$request.BODY#/callbackUrl':
             post:
-              operationId: tRANSACTION_REQUEST_APPROVE_request_BODYTransactionRequestApprovePost
+              operationId: tRANSACTION_REQUEST_APPROVAL_request_BODYCallbackUrlPost
               requestBody:
                 content:
                   application/json:
                     schema:
-                      $ref: '#/components/schemas/TransactionRequestApprove'
+                      $ref: '#/components/schemas/TransactionRequestApproval'
                 required: true
               responses:
                 "200":
                   description: A Webhook request expects a response with status code
                     200 (OK) or it will retry the request.
               x-callback-request: true
-        TRANSACTION_REQUEST_REJECT:
-          '{$request.BODY#/transactionRequestReject':
+        TRANSACTION_REQUEST_REJECTION:
+          '{$request.BODY#/callbackUrl':
             post:
-              operationId: tRANSACTION_REQUEST_REJECT_request_BODYTransactionRequestRejectPost
+              operationId: tRANSACTION_REQUEST_REJECTION_request_BODYCallbackUrlPost
               requestBody:
                 content:
                   application/json:
                     schema:
-                      $ref: '#/components/schemas/TransactionRequestReject'
+                      $ref: '#/components/schemas/TransactionRequestRejection'
                 required: true
               responses:
                 "200":
@@ -4994,9 +5241,9 @@ paths:
                     200 (OK) or it will retry the request.
               x-callback-request: true
         TRANSACTION_REQUEST_BROADCASTED:
-          '{$request.BODY#/transactionRequestBroadcasted':
+          '{$request.BODY#/callbackUrl':
             post:
-              operationId: tRANSACTION_REQUEST_BROADCASTED_request_BODYTransactionRequestBroadcastedPost
+              operationId: tRANSACTION_REQUEST_BROADCASTED_request_BODYCallbackUrlPost
               requestBody:
                 content:
                   application/json:
@@ -5009,9 +5256,9 @@ paths:
                     200 (OK) or it will retry the request.
               x-callback-request: true
         TRANSACTION_REQUEST_MINED:
-          '{$request.BODY#/transactionRequestMined':
+          '{$request.BODY#/callbackUrl':
             post:
-              operationId: tRANSACTION_REQUEST_MINED_request_BODYTransactionRequestMinedPost
+              operationId: tRANSACTION_REQUEST_MINED_request_BODYCallbackUrlPost
               requestBody:
                 content:
                   application/json:
@@ -5023,22 +5270,32 @@ paths:
                   description: A Webhook request expects a response with status code
                     200 (OK) or it will retry the request.
               x-callback-request: true
+        TRANSACTION_REQUEST_FAIL:
+          '{$request.BODY#/callbackUrl':
+            post:
+              operationId: tRANSACTION_REQUEST_FAIL_request_BODYCallbackUrlPost
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/TransactionRequestFail'
+                required: true
+              responses:
+                "200":
+                  description: A Webhook request expects a response with status code
+                    200 (OK) or it will retry the request.
+              x-callback-request: true
       description: "Through this endpoint users can make a single token transaction.\r\
         \n\r\n{warning}This applies only to **fungible** tokens, **not** NFTs (non-fungible\
-        \ tokens).{/warning}"
+        \ tokens).{/warning}\r\n\r\n{note}To have an operational callback subscription,\
+        \ you need to first verify a domain for the Callback URL. Please see more\
+        \ information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}\r\
+        \n\r\n{warning}Crypto APIs will notify the user **only when** the event occurs.\
+        \ There are cases when the specific event doesn't happen at all, or takes\
+        \ a long time to do so. A callback notification **will not** be sent if the\
+        \ event does not or cannot occur, or will take long time to occur.{/warning}"
       operationId: Create Tokens Transaction Request from Address
       parameters:
-      - description: Defines the specific source address for the transaction.
-        example: 0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5
-        explode: false
-        in: path
-        name: address
-        required: true
-        schema:
-          description: Defines the specific source address for the transaction.
-          example: 0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5
-          type: string
-        style: simple
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
           Bitcoin, etc.
         example: ethereum
@@ -5071,7 +5328,17 @@ paths:
             like "testnet", "ropsten", "rinkeby" are test networks.
           enum:
           - mainnet
-          - ropsten
+          type: string
+        style: simple
+      - description: Defines the specific source address for the transaction.
+        example: 0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5
+        explode: false
+        in: path
+        name: senderAddress
+        required: true
+        schema:
+          description: Defines the specific source address for the transaction.
+          example: 0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5
           type: string
         style: simple
       - description: Defines the unique ID of the Wallet.
@@ -5176,6 +5443,9 @@ paths:
       summary: Create Tokens Transaction Request from Address
       tags:
       - Transactions
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/blocks/hash/{blockHash}:
     get:
       description: "Through this endpoint customers can obtain basic information about\
@@ -5335,6 +5605,9 @@ paths:
       summary: Get Block Details By Block Hash
       tags:
       - Unified Endpoints
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}:
     get:
       description: "Through this endpoint customers can obtain basic information about\
@@ -5470,6 +5743,9 @@ paths:
       summary: Get XRP (Ripple) Block Details By Block Hash
       tags:
       - XRP (Ripple)
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/omni/transactions/{transactionId}:
     get:
       description: Through this endpoint customers can obtain details about an Omni
@@ -5619,6 +5895,9 @@ paths:
       summary: Get Omni Transaction Details By Transaction ID (Txid)
       tags:
       - Omni Layer
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash}:
     get:
       description: Through this endpoint customers can obtain block details from the
@@ -5750,11 +6029,13 @@ paths:
       summary: Get Zilliqa Block Details By Block Hash
       tags:
       - Zilliqa
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /wallet-as-a-service/info/{blockchain}/{network}/supported-tokens:
     get:
-      description: "Through this endpoint customers can obtain information on multiple\
-        \ tokens at once. \r\n\r\n{note}Please note that listing data from the same\
-        \ type will apply pagination on the results.{/note}"
+      description: Through this endpoint customers can obtain information on multiple
+        tokens at once.
       operationId: List Supported Tokens
       parameters:
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
@@ -5769,13 +6050,7 @@ paths:
             Bitcoin, etc.
           enum:
           - bitcoin
-          - bitcoin-cash
-          - litecoin
-          - dogecoin
-          - dash
           - ethereum
-          - ethereum-classic
-          - xrp
           example: bitcoin
           type: string
         style: simple
@@ -5796,9 +6071,6 @@ paths:
           enum:
           - mainnet
           - testnet
-          - ropsten
-          - rinkeby
-          - mordor
           example: testnet
           type: string
         style: simple
@@ -5915,6 +6187,9 @@ paths:
       summary: List Supported Tokens
       tags:
       - Informative
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}:
     get:
       description: Through this endpoint customers can obtain details about a specific
@@ -6063,6 +6338,9 @@ paths:
       summary: Get Wallet Asset Details
       tags:
       - Informative
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/blocks/last:
     get:
       description: "Through this endpoint customers can fetch the last mined block\
@@ -6207,12 +6485,14 @@ paths:
       summary: Get Latest Mined Block
       tags:
       - Unified Endpoints
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/omni/blocks/height/{blockHeight}/transactions:
     get:
-      description: "This endpoint will list Omni transactions by an attribute `blockHeight`.\
-        \ The transactions listed will detail additional information such as hash,\
-        \ addresses, time of creation in Unix timestamp, etc.\r\n\r\n{note}Please\
-        \ note that listing data from the same type will apply pagination on the results.{/note}"
+      description: This endpoint will list Omni transactions by an attribute `blockHeight`.
+        The transactions listed will detail additional information such as hash, addresses,
+        time of creation in Unix timestamp, etc.
       operationId: List Omni Transactions By Block Height
       parameters:
       - description: Represents the name of the blockchain network used; blockchain
@@ -6378,6 +6658,9 @@ paths:
       summary: List Omni Transactions By Block Height
       tags:
       - Omni Layer
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/xrp-specific/{network}/blocks/last:
     get:
       description: "Through this endpoint customers can fetch the last mined XRP block\
@@ -6497,6 +6780,9 @@ paths:
       summary: Get Latest Mined XRP (Ripple) Block
       tags:
       - XRP (Ripple)
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/zilliqa-specific/{network}/blocks/last:
     get:
       description: Through this endpoint users can obtain information on the latest
@@ -6614,6 +6900,9 @@ paths:
       summary: Get Latest Mined Zilliqa Block
       tags:
       - Zilliqa
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/hd/sync:
     post:
       description: HD wallets usually have a lot of addresses and transactions, getting
@@ -6751,12 +7040,14 @@ paths:
       summary: Sync HD Wallet (xPub, yPub, zPub)
       tags:
       - UTXO Based
+      x-cost: 100
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/omni/blocks/hash/{blockHash}/transactions:
     get:
-      description: "This endpoint will list Omni transactions by an attribute `transactionHash`.\
-        \ The transactions listed will detail additional information such as addresses,\
-        \ height, time of creation in Unix timestamp, etc.\r\n\r\n{note}Please note\
-        \ that listing data from the same type will apply pagination on the results.{/note}"
+      description: This endpoint will list Omni transactions by an attribute `transactionHash`.
+        The transactions listed will detail additional information such as addresses,
+        height, time of creation in Unix timestamp, etc.
       operationId: List Omni Transactions By Block Hash
       parameters:
       - description: Represents the name of the blockchain network used; blockchain
@@ -6922,6 +7213,9 @@ paths:
       summary: List Omni Transactions By Block Hash
       tags:
       - Omni Layer
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/{blockchain}/{network}/hd/{extendedPublicKey}/details:
     get:
       description: HD wallet details is useful endpoint to get the most important
@@ -7086,14 +7380,16 @@ paths:
       summary: Get HD Wallet (xPub, yPub, zPub) Details
       tags:
       - UTXO Based
+      x-cost: 100
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/transactions/{transactionHash}/internal:
     get:
       description: "Through this endpoint customers can list internal transactions\
         \ along with their details by a specific attribute `transactionHash`, which\
         \ is the parent transaction's Hash.\r\n\r\nAn internal transaction is the\
         \ result of a smart contract being triggered by an EOA or a subsequent contract\
-        \ call.\r\n\r\n{note}Please note that listing data from the same type will\
-        \ apply pagination on the results.{/note}"
+        \ call."
       operationId: List Internal Transaction Details by Transaction Hash
       parameters:
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
@@ -7258,10 +7554,12 @@ paths:
       summary: List Internal Transaction Details by Transaction Hash
       tags:
       - internal
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/{blockchain}/{network}/hd/{extendedPublicKey}/transactions:
     get:
-      description: "This endpoint will list HD Wallet transactions.\r\n\r\n{note}Please\
-        \ note that listing data from the same type will apply pagination on the results.{/note}"
+      description: This endpoint will list HD Wallet transactions.
       operationId: List HD Wallet (xPub, yPub, zPub) Transactions
       parameters:
       - description: Represents the specific blockchain.
@@ -7438,6 +7736,9 @@ paths:
       summary: List HD Wallet (xPub, yPub, zPub) Transactions
       tags:
       - UTXO Based
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/{blockchain}/{network}/transactions/{transactionHash}/internal/{operationId}:
     get:
       description: "Through this endpoint customers can obtain detailed information\
@@ -7601,6 +7902,9 @@ paths:
       summary: Get Internal Transaction by Transaction Hash and Operation Id
       tags:
       - internal
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/mempool/fees:
     get:
       description: Through this endpoint customers can obtain fee recommendations.
@@ -7745,14 +8049,16 @@ paths:
       summary: Get Fee Recommendations
       tags:
       - Unified Endpoints
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-data/{blockchain}/{network}/transactions/{transactionHash}/tokens-transfers:
     get:
       description: "Through this endpoint customers can obtain a list with token transfers\
         \ by the `transactionHash` attribute. Token transfers may include information\
         \ such as addresses of the sender and recipient, token name, token symbol,\
         \ etc.\r\n\r\n{note}This refers only to transfers done for **tokens** not\
-        \ coins.{/note}\r\n\r\n{note}Please note that listing data from the same type\
-        \ will apply pagination on the results.{/note}"
+        \ coins.{/note}"
       operationId: List Tokens Transfers By Transaction Hash
       parameters:
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
@@ -7919,14 +8225,15 @@ paths:
       summary: List Tokens Transfers By Transaction Hash
       tags:
       - Tokens
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/{blockchain}/{network}/addresses/{address}/tokens-transfers:
     get:
       description: "Through this endpoint customers can obtain a list with token transfers\
         \ by the `address` attribute. Token transfers may include information such\
         \ as addresses of the sender and recipient, token name, token symbol, etc.\r\
-        \n\r\n{note}This refers only to transfers done for **tokens** not coins.{/note}\r\
-        \n\r\n{note}Please note that listing data from the same type will apply pagination\
-        \ on the results.{/note}"
+        \n\r\n{note}This refers only to transfers done for **tokens** not coins.{/note}"
       operationId: List Tokens Transfers By Address
       parameters:
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
@@ -8091,12 +8398,14 @@ paths:
       summary: List Tokens Transfers By Address
       tags:
       - Tokens
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/{blockchain}/{network}/addresses/{address}/tokens:
     get:
-      description: "Through this endpoint customers can obtain token data by providing\
-        \ an attribute - `address`.  The information that can be returned can include\
-        \ the contract address, the token symbol, type and balance.\r\n\r\n{note}Please\
-        \ note that listing data from the same type will apply pagination on the results.{/note}"
+      description: Through this endpoint customers can obtain token data by providing
+        an attribute - `address`.  The information that can be returned can include
+        the contract address, the token symbol, type and balance.
       operationId: List Tokens By Address
       parameters:
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
@@ -8261,6 +8570,9 @@ paths:
       summary: List Tokens By Address
       tags:
       - Tokens
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-data/{blockchain}/{network}/addresses/{contractAddress}/contract:
     get:
       description: "Though this endpoint customers can obtain information about a\
@@ -8402,6 +8714,9 @@ paths:
       summary: Get Contract Details by Address
       tags:
       - Tokens
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-unconfirmed:
     post:
       callbacks:
@@ -8456,14 +8771,12 @@ paths:
             Bitcoin, etc.
           enum:
           - bitcoin
-          - bitcoin-cash
           - litecoin
+          - bitcoin-cash
           - dogecoin
           - dash
           - ethereum
           - ethereum-classic
-          - xrp
-          - zilliqa
           example: bitcoin
           type: string
         style: simple
@@ -8487,7 +8800,6 @@ paths:
           - ropsten
           - rinkeby
           - mordor
-          - kotti
           example: testnet
           type: string
         style: simple
@@ -8582,6 +8894,9 @@ paths:
       summary: New unconfirmed coins transactions
       tags:
       - Create Subscriptions for
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-events/{blockchain}/{network}/subscriptions/address-tokens-transactions-unconfirmed:
     post:
       callbacks:
@@ -8636,14 +8951,7 @@ paths:
             Bitcoin, etc.
           enum:
           - bitcoin
-          - bitcoin-cash
-          - litecoin
-          - dogecoin
-          - dash
           - ethereum
-          - ethereum-classic
-          - xrp
-          - zilliqa
           example: bitcoin
           type: string
         style: simple
@@ -8666,8 +8974,6 @@ paths:
           - testnet
           - ropsten
           - rinkeby
-          - mordor
-          - kotti
           example: testnet
           type: string
         style: simple
@@ -8762,6 +9068,9 @@ paths:
       summary: New unconfirmed tokens transactions
       tags:
       - Create Subscriptions for
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-confirmed:
     post:
       callbacks:
@@ -8933,6 +9242,9 @@ paths:
       summary: New confirmed coins transactions
       tags:
       - Create Subscriptions for
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-events/{blockchain}/{network}/subscriptions/address-tokens-transactions-confirmed:
     post:
       callbacks:
@@ -8979,14 +9291,7 @@ paths:
             Bitcoin, etc.
           enum:
           - bitcoin
-          - bitcoin-cash
-          - litecoin
-          - dogecoin
-          - dash
           - ethereum
-          - ethereum-classic
-          - xrp
-          - zilliqa
           example: bitcoin
           type: string
         style: simple
@@ -9009,8 +9314,6 @@ paths:
           - testnet
           - ropsten
           - rinkeby
-          - mordor
-          - kotti
           example: testnet
           type: string
         style: simple
@@ -9105,6 +9408,9 @@ paths:
       summary: New confirmed tokens transactions
       tags:
       - Create Subscriptions for
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-events/{blockchain}/{network}/subscriptions/address-tokens-transactions-confirmed-each-confirmation:
     post:
       callbacks:
@@ -9153,14 +9459,7 @@ paths:
             Bitcoin, etc.
           enum:
           - bitcoin
-          - bitcoin-cash
-          - litecoin
-          - dogecoin
-          - dash
           - ethereum
-          - ethereum-classic
-          - xrp
-          - zilliqa
           example: bitcoin
           type: string
         style: simple
@@ -9183,8 +9482,6 @@ paths:
           - testnet
           - ropsten
           - rinkeby
-          - mordor
-          - kotti
           example: testnet
           type: string
         style: simple
@@ -9279,6 +9576,9 @@ paths:
       summary: New confirmed tokens transactions and each confirmation
       tags:
       - Create Subscriptions for
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-confirmed-each-confirmation:
     post:
       callbacks:
@@ -9453,6 +9753,9 @@ paths:
       summary: New confirmed coins transactions and each confirmation
       tags:
       - Create Subscriptions for
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-events/{blockchain}/{network}/subscriptions/transaction-mined:
     post:
       callbacks:
@@ -9623,6 +9926,9 @@ paths:
       summary: Mined transaction
       tags:
       - Create Subscriptions for
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-events/{blockchain}/{network}/subscriptions/block-mined:
     post:
       callbacks:
@@ -9795,6 +10101,9 @@ paths:
       summary: New Block
       tags:
       - Create Subscriptions for
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-events/{blockchain}/{network}/subscriptions:
     get:
       description: "Through this endpoint the customer can obtain a list of their\
@@ -9803,13 +10112,7 @@ paths:
         \ user to subscribe for one/a few/all and receive callback notifications when\
         \ the specific event occurs.\r\n\r\n{note}To have an operational callback\
         \ subscription, you need to first verify a domain for the Callback URL. Please\
-        \ see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}\r\
-        \n\r\n{warning}Crypto APIs will notify the user **only when** the event occurs.\
-        \ There are cases when the specific event doesn't happen at all, or takes\
-        \ a long time to do so. A callback notification **will not** be sent if the\
-        \ event does not or cannot occur, or will take long time to occur.{/warning}\r\
-        \n\r\n{note}Please note that listing data from the same type will apply pagination\
-        \ on the results.{/note}"
+        \ see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}"
       operationId: List Blockchain Events Subscriptions
       parameters:
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
@@ -9972,6 +10275,9 @@ paths:
       summary: List Blockchain Events Subscriptions
       tags:
       - Manage Subscriptions
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /blockchain-events/{blockchain}/{network}/subscriptions/{referenceId}:
     delete:
       description: "Through this endpoint the customer can delete blockchain event\
@@ -10138,6 +10444,9 @@ paths:
       summary: Delete Blockchain Event Subscription
       tags:
       - Manage Subscriptions
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed:
     post:
       callbacks:
@@ -10308,6 +10617,9 @@ paths:
       summary: New confirmed internal transactions
       tags:
       - Create Subscriptions for
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed-each-confirmation:
     post:
       callbacks:
@@ -10479,6 +10791,9 @@ paths:
       summary: New confirmed internal transactions and each confirmation
       tags:
       - Create Subscriptions for
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-automations/{blockchain}/{network}/coins-forwarding/automations:
     get:
       description: "Through this endpoint customers can list all of their **coins**\
@@ -10487,10 +10802,8 @@ paths:
         \ and specifying the amount that can be transferred between addresses. \r\n\
         \r\nA `feePriority` will be returned which represents the fee priority of\
         \ the automation whether it is \"SLOW\", \"STANDARD\" OR \"FAST\".\r\n\r\n\
-        {warning}The subscription will work for all incoming transactions until it\
-        \ is deleted. There is no need to do that for every transaction.{/warning}\r\
-        \n\r\n{note}Please note that listing data from the same type will apply pagination\
-        \ on the results.{/note}"
+        {warning}The subscription will work for all transactions until it is deleted.\
+        \ There is no need to do that for every transaction.{/warning}"
       operationId: List Coins Forwarding Automations
       parameters:
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
@@ -10656,6 +10969,9 @@ paths:
       summary: List Coins Forwarding Automations
       tags:
       - Automatic Coins Forwarding
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
     post:
       callbacks:
         COINS_FORWARDING_SUCCESS:
@@ -10847,6 +11163,9 @@ paths:
       summary: Create Automatic Coins Forwarding
       tags:
       - Automatic Coins Forwarding
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-automations/{blockchain}/{network}/coins-forwarding/automations/{referenceId}:
     delete:
       description: "Through this endpoint customers can delete a forwarding function\
@@ -11006,6 +11325,9 @@ paths:
       summary: Delete Automatic Coins Forwarding
       tags:
       - Automatic Coins Forwarding
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-automations/{blockchain}/{network}/tokens-forwarding/automations:
     get:
       description: "Through this endpoint customers can list all of their **tokens**\
@@ -11014,10 +11336,8 @@ paths:
         \ and specifying the amount that can be transferred between addresses. \r\n\
         \r\nA `feePriority` will be returned which represents the fee priority of\
         \ the automation whether it is \"SLOW\", \"STANDARD\" OR \"FAST\". \r\n\r\n\
-        {warning}The subscription will work for all incoming transactions until it\
-        \ is deleted. There is no need to do that for every transaction.{/warning}\r\
-        \n\r\n{note}Please note that listing data from the same type will apply pagination\
-        \ on the results.{/note}"
+        {warning}The subscription will work for all transactions until it is deleted.\
+        \ There is no need to do that for every transaction.{/warning}"
       operationId: List Tokens Forwarding Automations
       parameters:
       - description: Represents the specific blockchain protocol name, e.g. Ethereum,
@@ -11177,6 +11497,9 @@ paths:
       summary: List Tokens Forwarding Automations
       tags:
       - Automatic Tokens Forwarding
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
     post:
       callbacks:
         TOKENS_FORWARDING_SUCCESS:
@@ -11362,6 +11685,9 @@ paths:
       summary: Create Automatic Tokens Forwarding
       tags:
       - Automatic Tokens Forwarding
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-automations/{blockchain}/{network}/tokens-forwarding/automations/add-token:
     post:
       callbacks:
@@ -11543,6 +11869,9 @@ paths:
       summary: Add Tokens To Existing fromAddress
       tags:
       - Automatic Tokens Forwarding
+      x-cost: 5
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-automations/{blockchain}/{network}/tokens-forwarding/fee-addresses:
     get:
       description: Through this endpoint customers can obtain details about a fee
@@ -11680,6 +12009,9 @@ paths:
       summary: Get Fee Address Details
       tags:
       - Automatic Tokens Forwarding
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-automations/{blockchain}/{network}/tokens-forwarding/automations/{referenceId}:
     delete:
       description: "Through this endpoint customers can delete a forwarding function\
@@ -11834,6 +12166,9 @@ paths:
       summary: Delete Automatic Tokens Forwarding
       tags:
       - Automatic Tokens Forwarding
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: false
   /blockchain-tools/{blockchain}/{network}/addresses/validate:
     post:
       description: This endpoint checks user public addresses whether they are valid
@@ -11859,6 +12194,7 @@ paths:
           - ethereum
           - ethereum-classic
           - xrp
+          - zilliqa
           example: bitcoin
           type: string
         style: simple
@@ -11942,7 +12278,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/InvalidData'
-          description: Invalid data
+          description: The data provided seems to be invalid.
         "415":
           content:
             application/json:
@@ -11975,14 +12311,196 @@ paths:
             it to our team via email.
       summary: Validate Address
       tags:
-      - Validating
+      - Features
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: false
+  /blockchain-tools/{blockchain}/{network}/transactions/broadcast:
+    post:
+      callbacks:
+        BROADCAST_TRANSACTION_SUCCESS:
+          '{$request.BODY#/callbackUrl':
+            post:
+              operationId: bROADCAST_TRANSACTION_SUCCESS_request_BODYCallbackUrlPost
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/BroadcastTransactionSuccess'
+                required: true
+              responses:
+                "200":
+                  description: A Webhook request expects a response with status code
+                    200 (OK) or it will retry the request.
+              x-callback-request: true
+        BROADCAST_TRANSACTION_FAIL:
+          '{$request.BODY#/callbackUrl':
+            post:
+              operationId: bROADCAST_TRANSACTION_FAIL_request_BODYCallbackUrlPost
+              requestBody:
+                content:
+                  application/json:
+                    schema:
+                      $ref: '#/components/schemas/BroadcastTransactionFail'
+                required: true
+              responses:
+                "200":
+                  description: A Webhook request expects a response with status code
+                    200 (OK) or it will retry the request.
+              x-callback-request: true
+      description: Through this endpoint customers can broadcast transactions that
+        have been already signed locally. Instead of using a node for broadcasting
+        a signed transaction users can use this endpoint. We then keep the user posted
+        about the status by sending you a callback with a success or failure status.
+      operationId: Broadcast Locally Signed Transaction
+      parameters:
+      - description: Represents the specific blockchain protocol name, e.g. Ethereum,
+          Bitcoin, etc.
+        example: bitcoin
+        explode: false
+        in: path
+        name: blockchain
+        required: true
+        schema:
+          description: Represents the specific blockchain protocol name, e.g. Ethereum,
+            Bitcoin, etc.
+          enum:
+          - bitcoin
+          - bitcoin-cash
+          - litecoin
+          - dogecoin
+          - dash
+          - ethereum
+          - ethereum-classic
+          example: bitcoin
+          type: string
+        style: simple
+      - description: Represents the name of the blockchain network used; blockchain
+          networks are usually identical as technology and software, but they differ
+          in data, e.g. - "mainnet" is the live network with actual data while networks
+          like "testnet", "ropsten", "rinkeby" are test networks.
+        explode: false
+        in: path
+        name: network
+        required: true
+        schema:
+          description: Represents the name of the blockchain network used; blockchain
+            networks are usually identical as technology and software, but they differ
+            in data, e.g. - "mainnet" is the live network with actual data while networks
+            like "testnet", "ropsten", "rinkeby" are test networks.
+          enum:
+          - mainnet
+          - testnet
+          - ropsten
+          - rinkeby
+          - mordor
+          type: string
+        style: simple
+      - description: In batch situations the user can use the context to correlate
+          responses with requests. This property is present regardless of whether
+          the response was successful or returned as an error. `context` is specified
+          by the user.
+        explode: true
+        in: query
+        name: context
+        required: false
+        schema:
+          type: string
+        style: form
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BroadcastLocallySignedTransactionRB'
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BroadcastLocallySignedTransactionR'
+          description: The resource has been successfully created.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidPagination'
+          description: The pagination attributes that have been used are invalid.
+            Please check the Documentation to see details on pagination.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidApiKey'
+          description: The provided API key is invalid. Please, generate a new one
+            from your Dashboard.
+        "402":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsufficientCredits'
+          description: You have insufficient credits. Please upgrade your plan from
+            your Dashboard or contact our team via email.
+        "403":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeatureMainnetsNotAllowedForPlan'
+          description: Mainnets access is not available for your current subscription
+            plan, please upgrade your plan to be able to use it.
+        "404":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFound'
+          description: The specified resource has not been found.
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlreadyExists'
+          description: The specified resource already exists.
+        "415":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnsupportedMediaType'
+          description: The selected Media Type is unavailable. The Content-Type header
+            should be 'application/json'.
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InvalidRequestBodyStructure'
+          description: 'Your request body for POST requests must have a structure
+            of { data: { item: [...properties] } }'
+        "429":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestLimitReached'
+          description: The request limit has been reached. There can be maximum {requests}
+            requests per {seconds} second(s) made. Please contact our team via email
+            if you need more or upgrade your plan.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnexpectedServerError'
+          description: An unexpected server error has occurred, we are working to
+            fix this. Please try again later and in case it occurs again please report
+            it to our team via email.
+      summary: Broadcast Locally Signed Transaction
+      tags:
+      - Features
+      x-cost: 10
+      x-charge-count: 1
+      x-is-list: false
   /market-data/assets/supported:
     get:
-      description: "This endpoint will return a list of supported assets. The asset\
-        \ could be a cryptocurrency or FIAT assets that we support. Each asset has\
-        \ a unique identifier - `assetId` and a unique symbol in the form of a string,\
-        \ e.g. \"BTC\".\r\n\r\n{note}Please note that listing data from the same type\
-        \ will apply pagination on the results.{/note}"
+      description: This endpoint will return a list of supported assets. The asset
+        could be a cryptocurrency or FIAT assets that we support. Each asset has a
+        unique identifier - `assetId` and a unique symbol in the form of a string,
+        e.g. "BTC".
       operationId: List Supported Assets
       parameters:
       - description: In batch situations the user can use the context to correlate
@@ -12114,6 +12632,9 @@ paths:
       summary: List Supported Assets
       tags:
       - Metadata
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
   /market-data/exchange-rates/by-symbols/{fromAssetSymbol}/{toAssetSymbol}:
     get:
       description: Through this endpoint customers can obtain exchange rates by asset
@@ -12243,6 +12764,9 @@ paths:
       summary: Get Exchange Rate By Asset Symbols
       tags:
       - Exchange Rates
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: false
   /market-data/exchange-rates/by-asset-ids/{fromAssetId}/{toAssetId}:
     get:
       description: Through this endpoint customers can obtain exchange rates by asset
@@ -12372,6 +12896,9 @@ paths:
       summary: Get Exchange Rate By Assets IDs
       tags:
       - Exchange Rates
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: false
   /market-data/assets/details:
     get:
       description: "This endpoint will return details on a requested asset. The asset\
@@ -12379,8 +12906,7 @@ paths:
         \ a unique identifier - `assetId` and a unique symbol in the form of a string,\
         \ e.g. \"BTC\".\r\n\r\nThe details returned could include information on the\
         \ latest rate and rate fluctuation of different periods of time - 24 hours,\
-        \ a week, one hour, the encoding of the logo, and more.\r\n\r\n{note}Please\
-        \ note that listing data from the same type will apply pagination on the results.{/note}"
+        \ a week, one hour, the encoding of the logo, and more."
       operationId: List Assets Details
       parameters:
       - description: In batch situations the user can use the context to correlate
@@ -12537,9 +13063,12 @@ paths:
       summary: List Assets Details
       tags:
       - Assets
+      x-cost: 1
+      x-charge-count: 1
+      x-is-list: true
 components:
   schemas:
-    GenerateReceivingAddressRB:
+    GenerateDepositAddressRB:
       example:
         data:
           item:
@@ -12553,7 +13082,7 @@ components:
             by the user.
           type: string
         data:
-          $ref: '#/components/schemas/GenerateReceivingAddressRB_data'
+          $ref: '#/components/schemas/GenerateDepositAddressRB_data'
       required:
       - data
       type: object
@@ -12563,7 +13092,9 @@ components:
           item:
             feePriority: slow
             amount: "0.2"
-            toAddress: 0xc065b539490f81b6c297c37b1925c3be2f190732
+            callbackSecretKey: yourSecretString
+            callbackUrl: https://example.com
+            recipientAddress: 0xc065b539490f81b6c297c37b1925c3be2f190732
         context: context
       properties:
         context:
@@ -12582,11 +13113,13 @@ components:
         data:
           item:
             feePriority: standard
-            destinations:
+            recipients:
             - amount: "0.125"
               address: 0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5
             - amount: "0.125"
               address: 0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5
+            callbackSecretKey: yourSecretKey
+            callbackUrl: https://example.com
         context: context
       properties:
         context:
@@ -12606,8 +13139,9 @@ components:
           item:
             feePriority: standard
             amount: "0.2"
-            callbackUrl: http://example.com
-            toAddress: 0xc065b539490f81b6c297c37b1925c3be2f190732
+            callbackSecretKey: yourSecretString
+            callbackUrl: https://example.com
+            recipientAddress: 0xc065b539490f81b6c297c37b1925c3be2f190732
             tokenIdentifier: "1"
         context: context
       properties:
@@ -12622,7 +13156,7 @@ components:
       required:
       - data
       type: object
-    CreateTokensTransactionRequestFromAddressRITokenTypeSpecificDataBitcoinOmniToken:
+    CreateTokensTransactionRequestFromAddressRISB:
       description: Bitcoin Omni Token
       properties:
         propertyId:
@@ -12632,7 +13166,7 @@ components:
       required:
       - propertyId
       type: object
-    CreateTokensTransactionRequestFromAddressRITokenTypeSpecificDataEthereumErc20Token:
+    CreateTokensTransactionRequestFromAddressRISE:
       description: Ethereum Erc20 Token
       properties:
         contractAddress:
@@ -12643,12 +13177,12 @@ components:
       required:
       - contractAddress
       type: object
-    CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData:
+    CreateTokensTransactionRequestFromAddressRIS:
       description: Represents the specific token data which depends on its type -
         if it is a Coin or Token.
       oneOf:
-      - $ref: '#/components/schemas/CreateTokensTransactionRequestFromAddressRITokenTypeSpecificDataBitcoinOmniToken'
-      - $ref: '#/components/schemas/CreateTokensTransactionRequestFromAddressRITokenTypeSpecificDataEthereumErc20Token'
+      - $ref: '#/components/schemas/CreateTokensTransactionRequestFromAddressRISB'
+      - $ref: '#/components/schemas/CreateTokensTransactionRequestFromAddressRISE'
       type: object
     SyncHDWalletXPubYPubZPubRB:
       example:
@@ -13022,7 +13556,27 @@ components:
       required:
       - data
       type: object
-    ListAssetsDetailsRISpecificDataCryptoTypeData:
+    BroadcastLocallySignedTransactionRB:
+      example:
+        data:
+          item:
+            signedTransactionHex: 0xf86a22827d00831e8480941b85a43e2e7f52e766ddfdfa2b901c42cb1201be8801b27f33b807c0008029a084ccbf02b27e0842fb1eda7a187a5589c3759be0e969e0ca989dc469a5e5e394a02e111e1156b197f1de4c1d9ba4af26e50665ea6d617d05b3e4047da12b915e69
+            callbackSecretKey: yourSecretString
+            callbackUrl: https://example.com
+        context: context
+      properties:
+        context:
+          description: In batch situations the user can use the context to correlate
+            responses with requests. This property is present regardless of whether
+            the response was successful or returned as an error. `context` is specified
+            by the user.
+          type: string
+        data:
+          $ref: '#/components/schemas/BroadcastLocallySignedTransactionRB_data'
+      required:
+      - data
+      type: object
+    ListAssetsDetailsRISC:
       description: Crypto Type Data
       properties:
         "1HourPriceChangeInPercentage":
@@ -13077,25 +13631,25 @@ components:
       - marketCapInUSD
       - maxSupply
       type: object
-    ListAssetsDetailsRISpecificData:
+    ListAssetsDetailsRIS:
       description: Represents a specific asset's data depending on its type (whether
         it is "crypto" or "fiat").
       oneOf:
-      - $ref: '#/components/schemas/ListAssetsDetailsRISpecificDataCryptoTypeData'
+      - $ref: '#/components/schemas/ListAssetsDetailsRISC'
       type: object
     GetAddressDetailsRI:
       example:
         confirmedBalance:
           amount: "3.5"
-          unit: BTC
+          unit: unit
         totalSpent:
           amount: "2.1"
-          unit: BTC
-        incomingTransactionsCount: 2
+          unit: unit
+        incomingTransactionsCount: 1
         totalReceived:
           amount: "5.6"
-          unit: BTC
-        outgoingTransactionsCount: 1
+          unit: unit
+        outgoingTransactionsCount: 2
         transactionsCount: 3
       properties:
         transactionsCount:
@@ -13114,16 +13668,14 @@ components:
         totalSpent:
           $ref: '#/components/schemas/GetAddressDetailsRI_totalSpent'
         incomingTransactionsCount:
-          description: Defines the count of all confirmed incoming transactions from
-            the address for coins. This applies to **coins** only, **not** to tokens
-            transfers e.g. for Ethereum.
-          example: 2
+          description: Numeric representation of the received transaction count of
+            the address
+          example: 1
           type: integer
         outgoingTransactionsCount:
-          description: Defines the count of all confirmed outgoing transactions from
-            the address for coins. This applies to **coins** only, **not** to tokens
-            transfers e.g. for Ethereum.
-          example: 1
+          description: Numeric representation of the sent transaction count of the
+            address
+          example: 2
           type: integer
       required:
       - confirmedBalance
@@ -13140,15 +13692,15 @@ components:
           item:
             confirmedBalance:
               amount: "3.5"
-              unit: BTC
+              unit: unit
             totalSpent:
               amount: "2.1"
-              unit: BTC
-            incomingTransactionsCount: 2
+              unit: unit
+            incomingTransactionsCount: 1
             totalReceived:
               amount: "5.6"
-              unit: BTC
-            outgoingTransactionsCount: 1
+              unit: unit
+            outgoingTransactionsCount: 2
             transactionsCount: 3
         requestId: 601c1710034ed6d407996b30
         context: You can add any text here
@@ -14509,7 +15061,7 @@ components:
       - error
       - requestId
       type: object
-    GenerateReceivingAddressRI:
+    GenerateDepositAddressRI:
       example:
         address: 0xe2b5f5e885a268e4b6faae53f99a663f3bb3e036
         createdTimestamp: 1624028267
@@ -14534,7 +15086,7 @@ components:
       - createdTimestamp
       - label
       type: object
-    GenerateReceivingAddressR:
+    GenerateDepositAddressR:
       example:
         apiVersion: "2.0"
         data:
@@ -14562,7 +15114,7 @@ components:
           example: You can add any text here
           type: string
         data:
-          $ref: '#/components/schemas/GenerateReceivingAddressR_data'
+          $ref: '#/components/schemas/GenerateDepositAddressR_data'
       required:
       - apiVersion
       - data
@@ -15110,9 +15662,6 @@ components:
       type: object
     ListXRPRippleTransactionsByAddressRI:
       properties:
-        additionalData:
-          description: Represents any additional data that may be needed.
-          type: string
         index:
           description: Represents the index position of the transaction in the block.
           example: 3
@@ -15147,6 +15696,7 @@ components:
           type: integer
         status:
           description: Defines the status of the transaction.
+          example: tesSUCCESS
           type: string
         timestamp:
           description: Defines the exact date/time in Unix Timestamp when this transaction
@@ -15159,6 +15709,7 @@ components:
           type: string
         type:
           description: Specifies the type of the transaction.
+          example: OfferCreate
           type: string
         fee:
           $ref: '#/components/schemas/ListXRPRippleTransactionsByAddressRI_fee'
@@ -15169,7 +15720,6 @@ components:
         value:
           $ref: '#/components/schemas/ListXRPRippleTransactionsByAddressRI_value'
       required:
-      - additionalData
       - fee
       - index
       - minedInBlockHash
@@ -15337,9 +15887,21 @@ components:
           address: 0x1316bea88fb7cd4ccc4a57e2f9f4f43d1a86ee59
         - amount: "0.0023"
           address: 0x1316bea88fb7cd4ccc4a57e2f9f4f43d1a86ee59
+        callbackSecretKey: yourSecretString
+        callbackUrl: https://example.com
         senders:
           address: 0x8798d11a96a2822ae60275f3a0798a2542912a10
       properties:
+        callbackSecretKey:
+          description: Represents the Secret Key value provided by the customer. This
+            field is used for security purposes during the callback notification,
+            in order to prove the sender of the callback as Crypto APIs.
+          example: yourSecretString
+          type: string
+        callbackUrl:
+          description: Verified URL for sending callbacks
+          example: https://example.com
+          type: string
         feePriority:
           description: Represents the fee priority of the automation, whether it is
             "slow", "standard" or "fast".
@@ -15391,6 +15953,8 @@ components:
               address: 0x1316bea88fb7cd4ccc4a57e2f9f4f43d1a86ee59
             - amount: "0.0023"
               address: 0x1316bea88fb7cd4ccc4a57e2f9f4f43d1a86ee59
+            callbackSecretKey: yourSecretString
+            callbackUrl: https://example.com
             senders:
               address: 0x8798d11a96a2822ae60275f3a0798a2542912a10
         requestId: 601c1710034ed6d407996b30
@@ -16193,7 +16757,19 @@ components:
           address: mmd963W1fECjLyaDCHcioSCZYHkRwjkhtr
         - amount: "0.00123"
           address: mmd963W1fECjLyaDCHcioSCZYHkRwjkhtr
+        callbackSecretKey: yourSecretKey
+        callbackUrl: https://example.com
       properties:
+        callbackSecretKey:
+          description: Represents the Secret Key value provided by the customer. This
+            field is used for security purposes during the callback notification,
+            in order to prove the sender of the callback as Crypto APIs.
+          example: yourSecretKey
+          type: string
+        callbackUrl:
+          description: Verified URL for sending callbacks
+          example: https://example.com
+          type: string
         feePriority:
           description: Represents the fee priority of the automation, whether it is
             "slow", "standard" or "fast".
@@ -16249,6 +16825,8 @@ components:
               address: mmd963W1fECjLyaDCHcioSCZYHkRwjkhtr
             - amount: "0.00123"
               address: mmd963W1fECjLyaDCHcioSCZYHkRwjkhtr
+            callbackSecretKey: yourSecretKey
+            callbackUrl: https://example.com
         requestId: 601c1710034ed6d407996b30
         context: You can add any text here
       properties:
@@ -17708,7 +18286,7 @@ components:
       - data
       - requestId
       type: object
-    ListReceivingAddressesRI:
+    ListDepositAddressesRI:
       properties:
         address:
           description: Specifies the specific address's unique string value.
@@ -17729,7 +18307,7 @@ components:
       - createdTimestamp
       - label
       type: object
-    ListReceivingAddressesR:
+    ListDepositAddressesR:
       example:
         apiVersion: "2.0"
         data:
@@ -17757,7 +18335,7 @@ components:
           example: You can add any text here
           type: string
         data:
-          $ref: '#/components/schemas/ListReceivingAddressesR_data'
+          $ref: '#/components/schemas/ListDepositAddressesR_data'
       required:
       - apiVersion
       - data
@@ -17925,8 +18503,20 @@ components:
       example:
         feePriority: fast
         recipients: 0x1316bea88fb7cd4ccc4a57e2f9f4f43d1a86ee59
+        callbackSecretKey: yourSecretString
+        callbackUrl: https://example.com
         senders: 0x8798d11a96a2822ae60275f3a0798a2542912a10
       properties:
+        callbackSecretKey:
+          description: Represents the Secret Key value provided by the customer. This
+            field is used for security purposes during the callback notification,
+            in order to prove the sender of the callback as Crypto APIs.
+          example: yourSecretString
+          type: string
+        callbackUrl:
+          description: Verified URL for sending callbacks
+          example: https://example.com
+          type: string
         feePriority:
           description: Represents the fee priority of the automation, whether it is
             "slow", "standard" or "fast".
@@ -17945,8 +18535,10 @@ components:
         senders:
           $ref: '#/components/schemas/CreateTokensTransactionRequestFromAddressRI_senders'
         tokenTypeSpecificData:
-          $ref: '#/components/schemas/CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData'
+          $ref: '#/components/schemas/CreateTokensTransactionRequestFromAddressRIS'
       required:
+      - callbackSecretKey
+      - callbackUrl
       - feePriority
       - recipients
       - senders
@@ -17959,6 +18551,8 @@ components:
           item:
             feePriority: fast
             recipients: 0x1316bea88fb7cd4ccc4a57e2f9f4f43d1a86ee59
+            callbackSecretKey: yourSecretString
+            callbackUrl: https://example.com
             senders: 0x8798d11a96a2822ae60275f3a0798a2542912a10
         requestId: 601c1710034ed6d407996b30
         context: You can add any text here
@@ -23257,6 +23851,51 @@ components:
       - data
       - requestId
       type: object
+    BroadcastLocallySignedTransactionRI:
+      example:
+        transactionId: 347d96855d41b77f1e23048fff11c18e9fe699ee69b0b402338f34189734e0a2
+      properties:
+        transactionId:
+          description: Represents the unique identifier of a transaction, i.e. it
+            could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction
+            `hash` in Ethereum blockchain.
+          example: 347d96855d41b77f1e23048fff11c18e9fe699ee69b0b402338f34189734e0a2
+          type: string
+      required:
+      - transactionId
+      type: object
+    BroadcastLocallySignedTransactionR:
+      example:
+        apiVersion: "2.0"
+        data:
+          item:
+            transactionId: 347d96855d41b77f1e23048fff11c18e9fe699ee69b0b402338f34189734e0a2
+        requestId: 601c1710034ed6d407996b30
+        context: You can add any text here
+      properties:
+        apiVersion:
+          description: Specifies the version of the API that incorporates this endpoint.
+          example: "2.0"
+          type: string
+        requestId:
+          description: Defines the ID of the request. The `requestId` is generated
+            by Crypto APIs and it's unique for every request.
+          example: 601c1710034ed6d407996b30
+          type: string
+        context:
+          description: In batch situations the user can use the context to correlate
+            responses with requests. This property is present regardless of whether
+            the response was successful or returned as an error. `context` is specified
+            by the user.
+          example: You can add any text here
+          type: string
+        data:
+          $ref: '#/components/schemas/BroadcastLocallySignedTransactionR_data'
+      required:
+      - apiVersion
+      - data
+      - requestId
+      type: object
     ListSupportedAssetsRI:
       properties:
         assetId:
@@ -23552,7 +24191,7 @@ components:
           example: tether
           type: string
         specificData:
-          $ref: '#/components/schemas/ListAssetsDetailsRISpecificData'
+          $ref: '#/components/schemas/ListAssetsDetailsRIS'
       required:
       - assetId
       - assetLogo
@@ -23597,19 +24236,19 @@ components:
       - data
       - requestId
       type: object
-    TransactionRequestApprove:
+    TransactionRequestApproval:
       example:
         apiVersion: "2.0"
         data:
           product: Wallet As A Service
           item:
-            requiredApproves: 2
+            requiredApprovals: 2
+            currentRejections: 0
             blockchain: bitcoin
-            requiredRejects: 2
-            currentApproves: 0
-            currentRejects: 0
+            requiredRejections: 2
             network: testnet
-          event: TRANSACTION_REQUEST_APPROVE
+            currentApprovals: 1
+          event: TRANSACTION_REQUEST_APPROVAL
         idempotencyKey: e55bf7a4a7188855f1c27541a6c387d04cc3b22ee34d1304b0e6ecad61c9906c
         referenceId: 6038d09050653d1f0e40584c
       properties:
@@ -23631,26 +24270,26 @@ components:
           example: e55bf7a4a7188855f1c27541a6c387d04cc3b22ee34d1304b0e6ecad61c9906c
           type: string
         data:
-          $ref: '#/components/schemas/TransactionRequestApprove_data'
+          $ref: '#/components/schemas/TransactionRequestApproval_data'
       required:
       - apiVersion
       - data
       - idempotencyKey
       - referenceId
       type: object
-    TransactionRequestReject:
+    TransactionRequestRejection:
       example:
         apiVersion: "2.0"
         data:
           product: Wallet As A Service
           item:
-            requiredApproves: 2
+            requiredApprovals: 2
+            currentRejections: 2
             blockchain: bitcoin
-            requiredRejects: 2
-            currentApproves: 0
-            currentRejects: 1
+            requiredRejections: 2
             network: testnet
-          event: TRANSACTION_REQUEST_REJECT
+            currentApprovals: 0
+          event: TRANSACTION_REQUEST_REJECTION
         idempotencyKey: e55bf7a4a7188855f1c27541a6c387d04cc3b22ee34d1304b0e6ecad61c9906c
         referenceId: 6038d09050653d1f0e40584c
       properties:
@@ -23672,7 +24311,7 @@ components:
           example: e55bf7a4a7188855f1c27541a6c387d04cc3b22ee34d1304b0e6ecad61c9906c
           type: string
         data:
-          $ref: '#/components/schemas/TransactionRequestReject_data'
+          $ref: '#/components/schemas/TransactionRequestRejection_data'
       required:
       - apiVersion
       - data
@@ -23685,13 +24324,13 @@ components:
         data:
           product: Wallet As A Service
           item:
-            requiredApproves: 2
-            blockchain: bitcoin
-            requiredRejects: 2
-            currentApproves: 0
-            currentRejects: 0
+            requiredApprovals: 5
+            currentRejections: 1
+            blockchain: Bitcoin/Ethereum (whichever applicable)
+            requiredRejections: 2
             transactionId: 4e78f606bc42534744e223f54b85d5bbd54a3949f54eb8fac31d73028c286e31
-            network: testnet
+            network: Testnet/Mainnet (whichever applicable)
+            currentApprovals: 2
           event: TRANSACTION_REQUEST_BROADCASTED
         idempotencyKey: e55bf7a4a7188855f1c27541a6c387d04cc3b22ee34d1304b0e6ecad61c9906c
         referenceId: 6038d09050653d1f0e40584c
@@ -23727,13 +24366,13 @@ components:
         data:
           product: Wallet As A Service
           item:
-            requiredApproves: 2
-            blockchain: bitcoin
-            requiredRejects: 2
-            currentApproves: 0
-            currentRejects: 0
+            requiredApprovals: 5
+            currentRejections: 1
+            blockchain: Bitcoin/Ethereum (whichever applicable)
+            requiredRejections: 2
             transactionId: 4e78f606bc42534744e223f54b85d5bbd54a3949f54eb8fac31d73028c286e31
-            network: testnet
+            network: Testnet/Mainnet (whichever applicable)
+            currentApprovals: 2
           event: TRANSACTION_REQUEST_MINED
         idempotencyKey: e55bf7a4a7188855f1c27541a6c387d04cc3b22ee34d1304b0e6ecad61c9906c
         referenceId: 6038d09050653d1f0e40584c
@@ -23757,6 +24396,48 @@ components:
           type: string
         data:
           $ref: '#/components/schemas/TransactionRequestMined_data'
+      required:
+      - apiVersion
+      - data
+      - idempotencyKey
+      - referenceId
+      type: object
+    TransactionRequestFail:
+      example:
+        apiVersion: "2.0"
+        data:
+          product: Wallet As A Service
+          item:
+            requiredApprovals: 2
+            currentRejections: 0
+            blockchain: bitcoin
+            requiredRejections: 2
+            errorMessage: Transaction_Request_Failed
+            network: testnet
+            currentApprovals: 0
+          event: TRANSACTION_REQUEST_FAIL
+        idempotencyKey: e55bf7a4a7188855f1c27541a6c387d04cc3b22ee34d1304b0e6ecad61c9906c
+        referenceId: 6038d09050653d1f0e40584c
+      properties:
+        apiVersion:
+          description: Specifies the version of the API that incorporates this endpoint.
+          example: "2.0"
+          type: string
+        referenceId:
+          description: Represents a unique identifier that serves as reference to
+            the specific request which prompts a callback, e.g. Blockchain Events
+            Subscription, Blockchain Automation, etc.
+          example: 6038d09050653d1f0e40584c
+          type: string
+        idempotencyKey:
+          description: Specifies a unique ID generated by the system and attached
+            to each callback. It is used by the server to recognize consecutive requests
+            with the same data with the purpose not to perform the same operation
+            twice.
+          example: e55bf7a4a7188855f1c27541a6c387d04cc3b22ee34d1304b0e6ecad61c9906c
+          type: string
+        data:
+          $ref: '#/components/schemas/TransactionRequestFail_data'
       required:
       - apiVersion
       - data
@@ -24660,7 +25341,84 @@ components:
       - idempotencyKey
       - referenceId
       type: object
-    GenerateReceivingAddressRB_data_item:
+    BroadcastTransactionSuccess:
+      example:
+        apiVersion: "2.0"
+        data:
+          product: Blockchain Tools
+          item:
+            blockchain: Bitcoin/Ethereum (whichever applicable)
+            transactionId: 347d96855d41b77f1e23048fff11c18e9fe699ee69b0b402338f34189734e0a2
+            network: Testnet/Mainnet (whichever applicable)
+          event: BROADCAST_TRANSACTION_SUCCESS
+        idempotencyKey: e55bf7a4a7188855f1c27541a6c387d04cc3b22ee34d1304b0e6ecad61c9906c
+        referenceId: 6038d09050653d1f0e40584c
+      properties:
+        apiVersion:
+          description: Specifies the version of the API that incorporates this endpoint.
+          example: "2.0"
+          type: string
+        referenceId:
+          description: Represents a unique identifier that serves as reference to
+            the specific request which prompts a callback, e.g. Blockchain Events
+            Subscription, Blockchain Automation, etc.
+          example: 6038d09050653d1f0e40584c
+          type: string
+        idempotencyKey:
+          description: Specifies a unique ID generated by the system and attached
+            to each callback. It is used by the server to recognize consecutive requests
+            with the same data with the purpose not to perform the same operation
+            twice.
+          example: e55bf7a4a7188855f1c27541a6c387d04cc3b22ee34d1304b0e6ecad61c9906c
+          type: string
+        data:
+          $ref: '#/components/schemas/BroadcastTransactionSuccess_data'
+      required:
+      - apiVersion
+      - data
+      - idempotencyKey
+      - referenceId
+      type: object
+    BroadcastTransactionFail:
+      example:
+        apiVersion: "2.0"
+        data:
+          product: Blockchain Tools
+          item:
+            blockchain: Bitcoin/Ethereum (whichever applicable)
+            errorMessage: Transaction already in block chain
+            transactionId: d83c75dd0f73425a1a85023ba25bc7ff47333c823a0ea19fac28d4abe59fd612
+            network: Testnet/Mainnet (whichever applicable)
+          event: BROADCAST_TRANSACTION_FAIL
+        idempotencyKey: e55bf7a4a7188855f1c27541a6c387d04cc3b22ee34d1304b0e6ecad61c9906c
+        referenceId: 6038d09050653d1f0e40584c
+      properties:
+        apiVersion:
+          description: Specifies the version of the API that incorporates this endpoint.
+          example: "2.0"
+          type: string
+        referenceId:
+          description: Represents a unique identifier that serves as reference to
+            the specific request which prompts a callback, e.g. Blockchain Events
+            Subscription, Blockchain Automation, etc.
+          example: 6038d09050653d1f0e40584c
+          type: string
+        idempotencyKey:
+          description: Specifies a unique ID generated by the system and attached
+            to each callback. It is used by the server to recognize consecutive requests
+            with the same data with the purpose not to perform the same operation
+            twice.
+          example: e55bf7a4a7188855f1c27541a6c387d04cc3b22ee34d1304b0e6ecad61c9906c
+          type: string
+        data:
+          $ref: '#/components/schemas/BroadcastTransactionFail_data'
+      required:
+      - apiVersion
+      - data
+      - idempotencyKey
+      - referenceId
+      type: object
+    GenerateDepositAddressRB_data_item:
       example:
         label: yourLabelStringHere
       properties:
@@ -24672,13 +25430,13 @@ components:
       required:
       - label
       type: object
-    GenerateReceivingAddressRB_data:
+    GenerateDepositAddressRB_data:
       example:
         item:
           label: yourLabelStringHere
       properties:
         item:
-          $ref: '#/components/schemas/GenerateReceivingAddressRB_data_item'
+          $ref: '#/components/schemas/GenerateDepositAddressRB_data_item'
       required:
       - item
       type: object
@@ -24686,11 +25444,23 @@ components:
       example:
         feePriority: slow
         amount: "0.2"
-        toAddress: 0xc065b539490f81b6c297c37b1925c3be2f190732
+        callbackSecretKey: yourSecretString
+        callbackUrl: https://example.com
+        recipientAddress: 0xc065b539490f81b6c297c37b1925c3be2f190732
       properties:
         amount:
           description: Represents the specific amount of the transaction.
           example: "0.2"
+          type: string
+        callbackSecretKey:
+          description: Represents the Secret Key value provided by the customer. This
+            field is used for security purposes during the callback notification,
+            in order to prove the sender of the callback as Crypto APIs.
+          example: yourSecretString
+          type: string
+        callbackUrl:
+          description: Verified URL for sending callbacks
+          example: https://example.com
           type: string
         feePriority:
           description: Represents the fee priority of the automation, whether it is
@@ -24701,34 +25471,36 @@ components:
           - fast
           example: slow
           type: string
-        toAddress:
+        recipientAddress:
           description: Defines the specific recipient address for the transaction.
           example: 0xc065b539490f81b6c297c37b1925c3be2f190732
           type: string
       required:
       - amount
       - feePriority
-      - toAddress
+      - recipientAddress
       type: object
     CreateCoinsTransactionRequestFromAddressRB_data:
       example:
         item:
           feePriority: slow
           amount: "0.2"
-          toAddress: 0xc065b539490f81b6c297c37b1925c3be2f190732
+          callbackSecretKey: yourSecretString
+          callbackUrl: https://example.com
+          recipientAddress: 0xc065b539490f81b6c297c37b1925c3be2f190732
       properties:
         item:
           $ref: '#/components/schemas/CreateCoinsTransactionRequestFromAddressRB_data_item'
       required:
       - item
       type: object
-    CreateCoinsTransactionRequestFromWalletRB_data_item_destinations:
+    CreateCoinsTransactionRequestFromWalletRB_data_item_recipients:
       example:
         amount: "0.125"
         address: 0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5
       properties:
         address:
-          description: Defines the specific destination address.
+          description: Defines the specific recipient/destination address.
           example: 0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5
           type: string
         amount:
@@ -24742,18 +25514,24 @@ components:
     CreateCoinsTransactionRequestFromWalletRB_data_item:
       example:
         feePriority: standard
-        destinations:
+        recipients:
         - amount: "0.125"
           address: 0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5
         - amount: "0.125"
           address: 0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5
+        callbackSecretKey: yourSecretKey
+        callbackUrl: https://example.com
       properties:
-        destinations:
-          description: Defines the destination of the transaction, whether it is incoming
-            or outgoing.
-          items:
-            $ref: '#/components/schemas/CreateCoinsTransactionRequestFromWalletRB_data_item_destinations'
-          type: array
+        callbackSecretKey:
+          description: Represents the Secret Key value provided by the customer. This
+            field is used for security purposes during the callback notification,
+            in order to prove the sender of the callback as Crypto APIs.
+          example: yourSecretKey
+          type: string
+        callbackUrl:
+          description: Verified URL for sending callbacks
+          example: https://example.com
+          type: string
         feePriority:
           description: Represents the fee priority of the automation, whether it is
             "slow", "standard" or "fast".
@@ -24763,19 +25541,27 @@ components:
           - fast
           example: standard
           type: string
+        recipients:
+          description: Defines the destination of the transaction, whether it is incoming
+            or outgoing.
+          items:
+            $ref: '#/components/schemas/CreateCoinsTransactionRequestFromWalletRB_data_item_recipients'
+          type: array
       required:
-      - destinations
       - feePriority
+      - recipients
       type: object
     CreateCoinsTransactionRequestFromWalletRB_data:
       example:
         item:
           feePriority: standard
-          destinations:
+          recipients:
           - amount: "0.125"
             address: 0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5
           - amount: "0.125"
             address: 0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5
+          callbackSecretKey: yourSecretKey
+          callbackUrl: https://example.com
       properties:
         item:
           $ref: '#/components/schemas/CreateCoinsTransactionRequestFromWalletRB_data_item'
@@ -24786,18 +25572,24 @@ components:
       example:
         feePriority: standard
         amount: "0.2"
-        callbackUrl: http://example.com
-        toAddress: 0xc065b539490f81b6c297c37b1925c3be2f190732
+        callbackSecretKey: yourSecretString
+        callbackUrl: https://example.com
+        recipientAddress: 0xc065b539490f81b6c297c37b1925c3be2f190732
         tokenIdentifier: "1"
       properties:
         amount:
           description: Represents the specific amount of the transaction.
           example: "0.2"
           type: string
+        callbackSecretKey:
+          description: Represents the Secret Key value provided by the customer. This
+            field is used for security purposes during the callback notification,
+            in order to prove the sender of the callback as Crypto APIs.
+          example: yourSecretString
+          type: string
         callbackUrl:
-          description: Represents the URL that is set by the customer where the callback
-            will be received at.
-          example: http://example.com
+          description: Verified URL for sending callbacks
+          example: https://example.com
           type: string
         feePriority:
           description: Represents the fee priority of the automation, whether it is
@@ -24808,7 +25600,7 @@ components:
           - fast
           example: standard
           type: string
-        toAddress:
+        recipientAddress:
           description: Defines the specific recipient address for the transaction.
           example: 0xc065b539490f81b6c297c37b1925c3be2f190732
           type: string
@@ -24821,7 +25613,7 @@ components:
       required:
       - amount
       - feePriority
-      - toAddress
+      - recipientAddress
       - tokenIdentifier
       type: object
     CreateTokensTransactionRequestFromAddressRB_data:
@@ -24829,8 +25621,9 @@ components:
         item:
           feePriority: standard
           amount: "0.2"
-          callbackUrl: http://example.com
-          toAddress: 0xc065b539490f81b6c297c37b1925c3be2f190732
+          callbackSecretKey: yourSecretString
+          callbackUrl: https://example.com
+          recipientAddress: 0xc065b539490f81b6c297c37b1925c3be2f190732
           tokenIdentifier: "1"
       properties:
         item:
@@ -25535,10 +26328,48 @@ components:
       required:
       - item
       type: object
+    BroadcastLocallySignedTransactionRB_data_item:
+      example:
+        signedTransactionHex: 0xf86a22827d00831e8480941b85a43e2e7f52e766ddfdfa2b901c42cb1201be8801b27f33b807c0008029a084ccbf02b27e0842fb1eda7a187a5589c3759be0e969e0ca989dc469a5e5e394a02e111e1156b197f1de4c1d9ba4af26e50665ea6d617d05b3e4047da12b915e69
+        callbackSecretKey: yourSecretString
+        callbackUrl: https://example.com
+      properties:
+        callbackSecretKey:
+          description: Represents the Secret Key value provided by the customer. This
+            field is used for security purposes during the callback notification,
+            in order to prove the sender of the callback as Crypto APIs.
+          example: yourSecretString
+          type: string
+        callbackUrl:
+          description: Represents the URL that is set by the customer where the callback
+            will be received at. The callback notification will be received only if
+            and when the event occurs.
+          example: https://example.com
+          type: string
+        signedTransactionHex:
+          description: Represents the signed transaction's specific hex.
+          example: 0xf86a22827d00831e8480941b85a43e2e7f52e766ddfdfa2b901c42cb1201be8801b27f33b807c0008029a084ccbf02b27e0842fb1eda7a187a5589c3759be0e969e0ca989dc469a5e5e394a02e111e1156b197f1de4c1d9ba4af26e50665ea6d617d05b3e4047da12b915e69
+          type: string
+      required:
+      - callbackUrl
+      - signedTransactionHex
+      type: object
+    BroadcastLocallySignedTransactionRB_data:
+      example:
+        item:
+          signedTransactionHex: 0xf86a22827d00831e8480941b85a43e2e7f52e766ddfdfa2b901c42cb1201be8801b27f33b807c0008029a084ccbf02b27e0842fb1eda7a187a5589c3759be0e969e0ca989dc469a5e5e394a02e111e1156b197f1de4c1d9ba4af26e50665ea6d617d05b3e4047da12b915e69
+          callbackSecretKey: yourSecretString
+          callbackUrl: https://example.com
+      properties:
+        item:
+          $ref: '#/components/schemas/BroadcastLocallySignedTransactionRB_data_item'
+      required:
+      - item
+      type: object
     GetAddressDetailsRI_confirmedBalance:
       example:
         amount: "3.5"
-        unit: BTC
+        unit: unit
       properties:
         amount:
           description: Defines the total balance of the address that is confirmed.
@@ -25546,9 +26377,6 @@ components:
           example: "3.5"
           type: string
         unit:
-          description: Defines the unit of the confirmed balance amount, e.g. BTC,
-            ETH, XRP.
-          example: BTC
           type: string
       required:
       - amount
@@ -25557,7 +26385,7 @@ components:
     GetAddressDetailsRI_totalReceived:
       example:
         amount: "5.6"
-        unit: BTC
+        unit: unit
       properties:
         amount:
           description: Defines the total amount of all coins received to the address,
@@ -25565,8 +26393,6 @@ components:
           example: "5.6"
           type: string
         unit:
-          description: Defines the unit of the received amount, e.g. BTC, ETH, XRP.
-          example: BTC
           type: string
       required:
       - amount
@@ -25575,7 +26401,7 @@ components:
     GetAddressDetailsRI_totalSpent:
       example:
         amount: "2.1"
-        unit: BTC
+        unit: unit
       properties:
         amount:
           description: Defines the total amount of all spent by this address coins,
@@ -25583,8 +26409,6 @@ components:
           example: "2.1"
           type: string
         unit:
-          description: Defines the unit of the spent amount, e.g. BTC, ETH, XRP.
-          example: BTC
           type: string
       required:
       - amount
@@ -25595,15 +26419,15 @@ components:
         item:
           confirmedBalance:
             amount: "3.5"
-            unit: BTC
+            unit: unit
           totalSpent:
             amount: "2.1"
-            unit: BTC
-          incomingTransactionsCount: 2
+            unit: unit
+          incomingTransactionsCount: 1
           totalReceived:
             amount: "5.6"
-            unit: BTC
-          outgoingTransactionsCount: 1
+            unit: unit
+          outgoingTransactionsCount: 2
           transactionsCount: 3
       properties:
         item:
@@ -26651,7 +27475,6 @@ components:
           example: "0.00016932"
           type: string
         unit:
-          description: Defines the unit of the fee amount, e.g. BTC, ETH, XRP.
           example: BTC
           type: string
       required:
@@ -26948,7 +27771,7 @@ components:
       - code
       - message
       type: object
-    GenerateReceivingAddressR_data:
+    GenerateDepositAddressR_data:
       example:
         item:
           address: 0xe2b5f5e885a268e4b6faae53f99a663f3bb3e036
@@ -26956,7 +27779,7 @@ components:
           label: yourLabelStringHere
       properties:
         item:
-          $ref: '#/components/schemas/GenerateReceivingAddressRI'
+          $ref: '#/components/schemas/GenerateDepositAddressRI'
       required:
       - item
       type: object
@@ -27708,6 +28531,8 @@ components:
             address: 0x1316bea88fb7cd4ccc4a57e2f9f4f43d1a86ee59
           - amount: "0.0023"
             address: 0x1316bea88fb7cd4ccc4a57e2f9f4f43d1a86ee59
+          callbackSecretKey: yourSecretString
+          callbackUrl: https://example.com
           senders:
             address: 0x8798d11a96a2822ae60275f3a0798a2542912a10
       properties:
@@ -28305,7 +29130,6 @@ components:
           example: "0.00016932"
           type: string
         unit:
-          description: Defines the unit of the fee amount, e.g. BTC, ETH, XRP.
           example: BTC
           type: string
       required:
@@ -28556,6 +29380,8 @@ components:
             address: mmd963W1fECjLyaDCHcioSCZYHkRwjkhtr
           - amount: "0.00123"
             address: mmd963W1fECjLyaDCHcioSCZYHkRwjkhtr
+          callbackSecretKey: yourSecretKey
+          callbackUrl: https://example.com
       properties:
         item:
           $ref: '#/components/schemas/CreateCoinsTransactionRequestFromWalletRI'
@@ -29257,7 +30083,7 @@ components:
       - offset
       - total
       type: object
-    ListReceivingAddressesR_data:
+    ListDepositAddressesR_data:
       example:
         total: 100
         offset: 0
@@ -29281,7 +30107,7 @@ components:
         items:
           example: []
           items:
-            $ref: '#/components/schemas/ListReceivingAddressesRI'
+            $ref: '#/components/schemas/ListDepositAddressesRI'
           type: array
       required:
       - items
@@ -29349,6 +30175,8 @@ components:
         item:
           feePriority: fast
           recipients: 0x1316bea88fb7cd4ccc4a57e2f9f4f43d1a86ee59
+          callbackSecretKey: yourSecretString
+          callbackUrl: https://example.com
           senders: 0x8798d11a96a2822ae60275f3a0798a2542912a10
       properties:
         item:
@@ -30715,6 +31543,16 @@ components:
       required:
       - item
       type: object
+    BroadcastLocallySignedTransactionR_data:
+      example:
+        item:
+          transactionId: 347d96855d41b77f1e23048fff11c18e9fe699ee69b0b402338f34189734e0a2
+      properties:
+        item:
+          $ref: '#/components/schemas/BroadcastLocallySignedTransactionRI'
+      required:
+      - item
+      type: object
     ListSupportedAssetsR_data:
       example:
         total: 100
@@ -30867,54 +31705,65 @@ components:
       - offset
       - total
       type: object
-    TransactionRequestApprove_data_item:
+    TransactionRequestApproval_data_item:
+      description: Defines an `item` as one result.
       example:
-        requiredApproves: 2
+        requiredApprovals: 2
+        currentRejections: 0
         blockchain: bitcoin
-        requiredRejects: 2
-        currentApproves: 0
-        currentRejects: 0
+        requiredRejections: 2
         network: testnet
+        currentApprovals: 1
       properties:
         blockchain:
+          description: Represents the specific blockchain protocol name, e.g. Ethereum,
+            Bitcoin, etc.
           example: bitcoin
           type: string
         network:
+          description: Represents the name of the blockchain network used; blockchain
+            networks are usually identical as technology and software, but they differ
+            in data, e.g. - "mainnet" is the live network with actual data while networks
+            like "testnet", "ropsten", "rinkeby" are test networks.
           example: testnet
           type: string
-        requiredApproves:
+        requiredApprovals:
+          description: The required number of approvals needed to approve the transaction.
           example: 2
           type: integer
-        requiredRejects:
+        requiredRejections:
+          description: The required number of rejections needed to reject the transaction.
           example: 2
           type: integer
-        currentApproves:
-          example: 0
+        currentApprovals:
+          description: The current number of approvals given for the transaction.
+          example: 1
           type: integer
-        currentRejects:
+        currentRejections:
+          description: The current number of rejections given for the transaction.
           example: 0
           type: integer
       required:
       - blockchain
-      - currentApproves
-      - currentRejects
+      - currentApprovals
+      - currentRejections
       - network
-      - requiredApproves
-      - requiredRejects
+      - requiredApprovals
+      - requiredRejections
       type: object
-    TransactionRequestApprove_data:
+    TransactionRequestApproval_data:
       description: Specifies all data, as attributes, included into the callback notification,
         which depends on the `event`.
       example:
         product: Wallet As A Service
         item:
-          requiredApproves: 2
+          requiredApprovals: 2
+          currentRejections: 0
           blockchain: bitcoin
-          requiredRejects: 2
-          currentApproves: 0
-          currentRejects: 0
+          requiredRejections: 2
           network: testnet
-        event: TRANSACTION_REQUEST_APPROVE
+          currentApprovals: 1
+        event: TRANSACTION_REQUEST_APPROVAL
       properties:
         product:
           description: Represents the Crypto APIs 2.0 product which sends the callback.
@@ -30923,63 +31772,74 @@ components:
         event:
           description: Defines the specific event, for which a callback subscription
             is set.
-          example: TRANSACTION_REQUEST_APPROVE
+          example: TRANSACTION_REQUEST_APPROVAL
           type: string
         item:
-          $ref: '#/components/schemas/TransactionRequestApprove_data_item'
+          $ref: '#/components/schemas/TransactionRequestApproval_data_item'
       required:
       - event
       - item
       - product
       type: object
-    TransactionRequestReject_data_item:
+    TransactionRequestRejection_data_item:
+      description: Defines an `item` as one result.
       example:
-        requiredApproves: 2
+        requiredApprovals: 2
+        currentRejections: 2
         blockchain: bitcoin
-        requiredRejects: 2
-        currentApproves: 0
-        currentRejects: 1
+        requiredRejections: 2
         network: testnet
+        currentApprovals: 0
       properties:
         blockchain:
+          description: Represents the specific blockchain protocol name, e.g. Ethereum,
+            Bitcoin, etc.
           example: bitcoin
           type: string
         network:
+          description: Represents the name of the blockchain network used; blockchain
+            networks are usually identical as technology and software, but they differ
+            in data, e.g. - "mainnet" is the live network with actual data while networks
+            like "testnet", "ropsten", "rinkeby" are test networks.
           example: testnet
           type: string
-        requiredApproves:
+        requiredApprovals:
+          description: The required number of approvals needed to approve the transaction.
           example: 2
           type: integer
-        requiredRejects:
+        requiredRejections:
+          description: The required number of rejections needed to reject the transaction.
           example: 2
           type: integer
-        currentApproves:
+        currentApprovals:
+          description: The current number of approvals given for the transaction.
           example: 0
           type: integer
-        currentRejects:
-          example: 1
+        currentRejections:
+          description: The current number of rejections given for the transaction.
+          example: 2
           type: integer
       required:
       - blockchain
-      - currentApproves
-      - currentRejects
+      - currentApprovals
+      - currentRejections
       - network
-      - requiredApproves
-      - requiredRejects
+      - requiredApprovals
+      - requiredRejections
       type: object
-    TransactionRequestReject_data:
+    TransactionRequestRejection_data:
       description: Specifies all data, as attributes, included into the callback notification,
         which depends on the `event`.
       example:
         product: Wallet As A Service
         item:
-          requiredApproves: 2
+          requiredApprovals: 2
+          currentRejections: 2
           blockchain: bitcoin
-          requiredRejects: 2
-          currentApproves: 0
-          currentRejects: 1
+          requiredRejections: 2
           network: testnet
-        event: TRANSACTION_REQUEST_REJECT
+          currentApprovals: 0
+        event: TRANSACTION_REQUEST_REJECTION
       properties:
         product:
           description: Represents the Crypto APIs 2.0 product which sends the callback.
@@ -30988,53 +31848,66 @@ components:
         event:
           description: Defines the specific event, for which a callback subscription
             is set.
-          example: TRANSACTION_REQUEST_REJECT
+          example: TRANSACTION_REQUEST_REJECTION
           type: string
         item:
-          $ref: '#/components/schemas/TransactionRequestReject_data_item'
+          $ref: '#/components/schemas/TransactionRequestRejection_data_item'
       required:
       - event
       - item
       - product
       type: object
     TransactionRequestBroadcasted_data_item:
+      description: Defines an `item` as one result.
       example:
-        requiredApproves: 2
-        blockchain: bitcoin
-        requiredRejects: 2
-        currentApproves: 0
-        currentRejects: 0
+        requiredApprovals: 5
+        currentRejections: 1
+        blockchain: Bitcoin/Ethereum (whichever applicable)
+        requiredRejections: 2
         transactionId: 4e78f606bc42534744e223f54b85d5bbd54a3949f54eb8fac31d73028c286e31
-        network: testnet
+        network: Testnet/Mainnet (whichever applicable)
+        currentApprovals: 2
       properties:
         blockchain:
-          example: bitcoin
+          description: Represents the specific blockchain protocol name, e.g. Ethereum,
+            Bitcoin, etc.
+          example: Bitcoin/Ethereum (whichever applicable)
           type: string
         network:
-          example: testnet
+          description: Represents the name of the blockchain network used; blockchain
+            networks are usually identical as technology and software, but they differ
+            in data, e.g. - "mainnet" is the live network with actual data while networks
+            like "testnet", "ropsten", "rinkeby" are test networks.
+          example: Testnet/Mainnet (whichever applicable)
           type: string
-        requiredApproves:
+        requiredApprovals:
+          description: The required number of approvals needed to approve the transaction.
+          example: 5
+          type: integer
+        requiredRejections:
+          description: The required number of rejections needed to reject the transaction.
           example: 2
           type: integer
-        requiredRejects:
+        currentApprovals:
+          description: The current number of approvals given for the transaction.
           example: 2
           type: integer
-        currentApproves:
-          example: 0
-          type: integer
-        currentRejects:
-          example: 0
+        currentRejections:
+          description: The current number of rejections given for the transaction.
+          example: 1
           type: integer
         transactionId:
+          description: Defines the unique ID of the specific transaction, i.e. its
+            identification number.
           example: 4e78f606bc42534744e223f54b85d5bbd54a3949f54eb8fac31d73028c286e31
           type: string
       required:
       - blockchain
-      - currentApproves
-      - currentRejects
+      - currentApprovals
+      - currentRejections
       - network
-      - requiredApproves
-      - requiredRejects
+      - requiredApprovals
+      - requiredRejections
       - transactionId
       type: object
     TransactionRequestBroadcasted_data:
@@ -31043,13 +31916,13 @@ components:
       example:
         product: Wallet As A Service
         item:
-          requiredApproves: 2
-          blockchain: bitcoin
-          requiredRejects: 2
-          currentApproves: 0
-          currentRejects: 0
+          requiredApprovals: 5
+          currentRejections: 1
+          blockchain: Bitcoin/Ethereum (whichever applicable)
+          requiredRejections: 2
           transactionId: 4e78f606bc42534744e223f54b85d5bbd54a3949f54eb8fac31d73028c286e31
-          network: testnet
+          network: Testnet/Mainnet (whichever applicable)
+          currentApprovals: 2
         event: TRANSACTION_REQUEST_BROADCASTED
       properties:
         product:
@@ -31074,13 +31947,13 @@ components:
       example:
         product: Wallet As A Service
         item:
-          requiredApproves: 2
-          blockchain: bitcoin
-          requiredRejects: 2
-          currentApproves: 0
-          currentRejects: 0
+          requiredApprovals: 5
+          currentRejections: 1
+          blockchain: Bitcoin/Ethereum (whichever applicable)
+          requiredRejections: 2
           transactionId: 4e78f606bc42534744e223f54b85d5bbd54a3949f54eb8fac31d73028c286e31
-          network: testnet
+          network: Testnet/Mainnet (whichever applicable)
+          currentApprovals: 2
         event: TRANSACTION_REQUEST_MINED
       properties:
         product:
@@ -31094,6 +31967,89 @@ components:
           type: string
         item:
           $ref: '#/components/schemas/TransactionRequestBroadcasted_data_item'
+      required:
+      - event
+      - item
+      - product
+      type: object
+    TransactionRequestFail_data_item:
+      description: Defines an `item` as one result.
+      example:
+        requiredApprovals: 2
+        currentRejections: 0
+        blockchain: bitcoin
+        requiredRejections: 2
+        errorMessage: Transaction_Request_Failed
+        network: testnet
+        currentApprovals: 0
+      properties:
+        blockchain:
+          description: Represents the specific blockchain protocol name, e.g. Ethereum,
+            Bitcoin, etc.
+          example: bitcoin
+          type: string
+        network:
+          description: Represents the name of the blockchain network used; blockchain
+            networks are usually identical as technology and software, but they differ
+            in data, e.g. - "mainnet" is the live network with actual data while networks
+            like "testnet", "ropsten", "rinkeby" are test networks.
+          example: testnet
+          type: string
+        requiredApprovals:
+          description: The required number of approvals needed to approve the transaction.
+          example: 2
+          type: integer
+        requiredRejections:
+          description: The required number of rejections needed to reject the transaction.
+          example: 2
+          type: integer
+        currentApprovals:
+          description: The current number of approvals given for the transaction.
+          example: 0
+          type: integer
+        currentRejections:
+          description: The current number of rejections given for the transaction.
+          example: 0
+          type: integer
+        errorMessage:
+          description: Represents the error message received for the transaction.
+          example: Transaction_Request_Failed
+          type: string
+      required:
+      - blockchain
+      - currentApprovals
+      - currentRejections
+      - errorMessage
+      - network
+      - requiredApprovals
+      - requiredRejections
+      type: object
+    TransactionRequestFail_data:
+      description: Specifies all data, as attributes, included into the callback notification,
+        which depends on the `event`.
+      example:
+        product: Wallet As A Service
+        item:
+          requiredApprovals: 2
+          currentRejections: 0
+          blockchain: bitcoin
+          requiredRejections: 2
+          errorMessage: Transaction_Request_Failed
+          network: testnet
+          currentApprovals: 0
+        event: TRANSACTION_REQUEST_FAIL
+      properties:
+        product:
+          description: Represents the Crypto APIs 2.0 product which sends the callback.
+          example: Wallet As A Service
+          type: string
+        event:
+          description: Defines the specific event, for which a callback subscription
+            is set.
+          example: TRANSACTION_REQUEST_FAIL
+          type: string
+        item:
+          $ref: '#/components/schemas/TransactionRequestFail_data_item'
       required:
       - event
       - item
@@ -32404,6 +33360,125 @@ components:
       - item
       - product
       type: object
+    BroadcastTransactionSuccess_data_item:
+      description: Defines an `item` as one result.
+      example:
+        blockchain: Bitcoin/Ethereum (whichever applicable)
+        transactionId: 347d96855d41b77f1e23048fff11c18e9fe699ee69b0b402338f34189734e0a2
+        network: Testnet/Mainnet (whichever applicable)
+      properties:
+        blockchain:
+          description: Represents the specific blockchain protocol name, e.g. Ethereum,
+            Bitcoin, etc.
+          example: Bitcoin/Ethereum (whichever applicable)
+          type: string
+        network:
+          description: Represents the name of the blockchain network used; blockchain
+            networks are usually identical as technology and software, but they differ
+            in data, e.g. - "mainnet" is the live network with actual data while networks
+            like "testnet", "ropsten", "rinkeby" are test networks.
+          example: Testnet/Mainnet (whichever applicable)
+          type: string
+        transactionId:
+          description: Defines the unique ID of the specific transaction, i.e. its
+            identification number.
+          example: 347d96855d41b77f1e23048fff11c18e9fe699ee69b0b402338f34189734e0a2
+          type: string
+      required:
+      - blockchain
+      - network
+      - transactionId
+      type: object
+    BroadcastTransactionSuccess_data:
+      description: Specifies all data, as attributes, included into the callback notification,
+        which depends on the `event`.
+      example:
+        product: Blockchain Tools
+        item:
+          blockchain: Bitcoin/Ethereum (whichever applicable)
+          transactionId: 347d96855d41b77f1e23048fff11c18e9fe699ee69b0b402338f34189734e0a2
+          network: Testnet/Mainnet (whichever applicable)
+        event: BROADCAST_TRANSACTION_SUCCESS
+      properties:
+        product:
+          description: Represents the Crypto APIs 2.0 product which sends the callback.
+          example: Blockchain Tools
+          type: string
+        event:
+          description: Defines the specific event, for which a callback subscription
+            is set.
+          example: BROADCAST_TRANSACTION_SUCCESS
+          type: string
+        item:
+          $ref: '#/components/schemas/BroadcastTransactionSuccess_data_item'
+      required:
+      - event
+      - item
+      - product
+      type: object
+    BroadcastTransactionFail_data_item:
+      description: Defines an `item` as one result.
+      example:
+        blockchain: Bitcoin/Ethereum (whichever applicable)
+        errorMessage: Transaction already in block chain
+        transactionId: d83c75dd0f73425a1a85023ba25bc7ff47333c823a0ea19fac28d4abe59fd612
+        network: Testnet/Mainnet (whichever applicable)
+      properties:
+        blockchain:
+          description: Represents the specific blockchain protocol name, e.g. Ethereum,
+            Bitcoin, etc.
+          example: Bitcoin/Ethereum (whichever applicable)
+          type: string
+        network:
+          description: Represents the name of the blockchain network used; blockchain
+            networks are usually identical as technology and software, but they differ
+            in data, e.g. - "mainnet" is the live network with actual data while networks
+            like "testnet", "ropsten", "rinkeby" are test networks.
+          example: Testnet/Mainnet (whichever applicable)
+          type: string
+        transactionId:
+          description: Defines the unique ID of the specific transaction, i.e. its
+            identification number.
+          example: d83c75dd0f73425a1a85023ba25bc7ff47333c823a0ea19fac28d4abe59fd612
+          type: string
+        errorMessage:
+          description: Represents the error message received for the transaction.
+          example: Transaction already in block chain
+          type: string
+      required:
+      - blockchain
+      - errorMessage
+      - network
+      - transactionId
+      type: object
+    BroadcastTransactionFail_data:
+      description: Specifies all data, as attributes, included into the callback notification,
+        which depends on the `event`.
+      example:
+        product: Blockchain Tools
+        item:
+          blockchain: Bitcoin/Ethereum (whichever applicable)
+          errorMessage: Transaction already in block chain
+          transactionId: d83c75dd0f73425a1a85023ba25bc7ff47333c823a0ea19fac28d4abe59fd612
+          network: Testnet/Mainnet (whichever applicable)
+        event: BROADCAST_TRANSACTION_FAIL
+      properties:
+        product:
+          description: Represents the Crypto APIs 2.0 product which sends the callback.
+          example: Blockchain Tools
+          type: string
+        event:
+          description: Defines the specific event, for which a callback subscription
+            is set.
+          example: BROADCAST_TRANSACTION_FAIL
+          type: string
+        item:
+          $ref: '#/components/schemas/BroadcastTransactionFail_data_item'
+      required:
+      - event
+      - item
+      - product
+      type: object
   securitySchemes:
     ApiKey:
       description: API Key
@@ -32453,7 +33528,7 @@ x-tagGroups:
   - Automatic Tokens Forwarding
 - name: Blockchain Tools
   tags:
-  - Validating
+  - Features
 - name: Market Data
   tags:
   - Metadata

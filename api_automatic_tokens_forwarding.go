@@ -1033,9 +1033,7 @@ Customers can set up automatic forwarding functions for tokens by setting a `fro
 
 A `feePriority` will be returned which represents the fee priority of the automation whether it is "SLOW", "STANDARD" OR "FAST". 
 
-{warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
+{warning}The subscription will work for all transactions until it is deleted. There is no need to do that for every transaction.{/warning}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.

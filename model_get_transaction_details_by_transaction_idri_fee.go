@@ -19,7 +19,6 @@ import (
 type GetTransactionDetailsByTransactionIDRIFee struct {
 	// Defines the amount of the transaction fee.
 	Amount string `json:"amount"`
-	// Defines the unit of the fee amount, e.g. BTC, ETH, XRP.
 	Unit string `json:"unit"`
 }
 

@@ -5,16 +5,17 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | **string** | Represents the specific amount of the transaction. | 
-**CallbackUrl** | Pointer to **string** | Represents the URL that is set by the customer where the callback will be received at. | [optional] 
+**CallbackSecretKey** | Pointer to **string** | Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. | [optional] 
+**CallbackUrl** | Pointer to **string** | Verified URL for sending callbacks | [optional] 
 **FeePriority** | **string** | Represents the fee priority of the automation, whether it is \&quot;slow\&quot;, \&quot;standard\&quot; or \&quot;fast\&quot;. | 
-**ToAddress** | **string** | Defines the specific recipient address for the transaction. | 
+**RecipientAddress** | **string** | Defines the specific recipient address for the transaction. | 
 **TokenIdentifier** | **string** | Defines the specific token identifier. For Bitcoin-based transactions it should be the &#x60;propertyId&#x60; and for Ethereum-based transactions - the &#x60;contract&#x60;. | 
 
 ## Methods
 
 ### NewCreateTokensTransactionRequestFromAddressRBDataItem
 
-`func NewCreateTokensTransactionRequestFromAddressRBDataItem(amount string, feePriority string, toAddress string, tokenIdentifier string, ) *CreateTokensTransactionRequestFromAddressRBDataItem`
+`func NewCreateTokensTransactionRequestFromAddressRBDataItem(amount string, feePriority string, recipientAddress string, tokenIdentifier string, ) *CreateTokensTransactionRequestFromAddressRBDataItem`
 
 NewCreateTokensTransactionRequestFromAddressRBDataItem instantiates a new CreateTokensTransactionRequestFromAddressRBDataItem object
 This constructor will assign default values to properties that have it defined,
@@ -48,6 +49,31 @@ and a boolean to check if the value has been set.
 
 SetAmount sets Amount field to given value.
 
+
+### GetCallbackSecretKey
+
+`func (o *CreateTokensTransactionRequestFromAddressRBDataItem) GetCallbackSecretKey() string`
+
+GetCallbackSecretKey returns the CallbackSecretKey field if non-nil, zero value otherwise.
+
+### GetCallbackSecretKeyOk
+
+`func (o *CreateTokensTransactionRequestFromAddressRBDataItem) GetCallbackSecretKeyOk() (*string, bool)`
+
+GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCallbackSecretKey
+
+`func (o *CreateTokensTransactionRequestFromAddressRBDataItem) SetCallbackSecretKey(v string)`
+
+SetCallbackSecretKey sets CallbackSecretKey field to given value.
+
+### HasCallbackSecretKey
+
+`func (o *CreateTokensTransactionRequestFromAddressRBDataItem) HasCallbackSecretKey() bool`
+
+HasCallbackSecretKey returns a boolean if a field has been set.
 
 ### GetCallbackUrl
 
@@ -94,24 +120,24 @@ and a boolean to check if the value has been set.
 SetFeePriority sets FeePriority field to given value.
 
 
-### GetToAddress
+### GetRecipientAddress
 
-`func (o *CreateTokensTransactionRequestFromAddressRBDataItem) GetToAddress() string`
+`func (o *CreateTokensTransactionRequestFromAddressRBDataItem) GetRecipientAddress() string`
 
-GetToAddress returns the ToAddress field if non-nil, zero value otherwise.
+GetRecipientAddress returns the RecipientAddress field if non-nil, zero value otherwise.
 
-### GetToAddressOk
+### GetRecipientAddressOk
 
-`func (o *CreateTokensTransactionRequestFromAddressRBDataItem) GetToAddressOk() (*string, bool)`
+`func (o *CreateTokensTransactionRequestFromAddressRBDataItem) GetRecipientAddressOk() (*string, bool)`
 
-GetToAddressOk returns a tuple with the ToAddress field if it's non-nil, zero value otherwise
+GetRecipientAddressOk returns a tuple with the RecipientAddress field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetToAddress
+### SetRecipientAddress
 
-`func (o *CreateTokensTransactionRequestFromAddressRBDataItem) SetToAddress(v string)`
+`func (o *CreateTokensTransactionRequestFromAddressRBDataItem) SetRecipientAddress(v string)`
 
-SetToAddress sets ToAddress field to given value.
+SetRecipientAddress sets RecipientAddress field to given value.
 
 
 ### GetTokenIdentifier

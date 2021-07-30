@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**CreateCoinsTransactionRequestFromAddress**](TransactionsApi.md#CreateCoinsTransactionRequestFromAddress) | **Post** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/transaction-requests | Create Coins Transaction Request from Address
 [**CreateCoinsTransactionRequestFromWallet**](TransactionsApi.md#CreateCoinsTransactionRequestFromWallet) | **Post** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/transaction-requests | Create Coins Transaction Request from Wallet
-[**CreateTokensTransactionRequestFromAddress**](TransactionsApi.md#CreateTokensTransactionRequestFromAddress) | **Post** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/token-transaction-requests | Create Tokens Transaction Request from Address
+[**CreateTokensTransactionRequestFromAddress**](TransactionsApi.md#CreateTokensTransactionRequestFromAddress) | **Post** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/token-transaction-requests | Create Tokens Transaction Request from Address
 
 
 
@@ -118,7 +118,7 @@ func main() {
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
     walletId := "609e221675d04500068718dc" // string | Represents the sender's specific and unique Wallet ID of the sender.
     context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    createCoinsTransactionRequestFromWalletRB := *openapiclient.NewCreateCoinsTransactionRequestFromWalletRB(*openapiclient.NewCreateCoinsTransactionRequestFromWalletRBData(*openapiclient.NewCreateCoinsTransactionRequestFromWalletRBDataItem([]openapiclient.CreateCoinsTransactionRequestFromWalletRBDataItemDestinations{*openapiclient.NewCreateCoinsTransactionRequestFromWalletRBDataItemDestinations("0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5", "0.125")}, "standard"))) // CreateCoinsTransactionRequestFromWalletRB |  (optional)
+    createCoinsTransactionRequestFromWalletRB := *openapiclient.NewCreateCoinsTransactionRequestFromWalletRB(*openapiclient.NewCreateCoinsTransactionRequestFromWalletRBData(*openapiclient.NewCreateCoinsTransactionRequestFromWalletRBDataItem("standard", []openapiclient.CreateCoinsTransactionRequestFromWalletRBDataItemRecipients{*openapiclient.NewCreateCoinsTransactionRequestFromWalletRBDataItemRecipients("0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5", "0.125")}))) // CreateCoinsTransactionRequestFromWalletRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
@@ -175,7 +175,7 @@ Name | Type | Description  | Notes
 
 ## CreateTokensTransactionRequestFromAddress
 
-> CreateTokensTransactionRequestFromAddressR CreateTokensTransactionRequestFromAddress(ctx, address, blockchain, network, walletId).Context(context).CreateTokensTransactionRequestFromAddressRB(createTokensTransactionRequestFromAddressRB).Execute()
+> CreateTokensTransactionRequestFromAddressR CreateTokensTransactionRequestFromAddress(ctx, blockchain, network, senderAddress, walletId).Context(context).CreateTokensTransactionRequestFromAddressRB(createTokensTransactionRequestFromAddressRB).Execute()
 
 Create Tokens Transaction Request from Address
 
@@ -194,16 +194,16 @@ import (
 )
 
 func main() {
-    address := "0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5" // string | Defines the specific source address for the transaction.
     blockchain := "ethereum" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. (default to "ethereum")
     network := "network_example" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks. (default to "mainnet")
+    senderAddress := "0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5" // string | Defines the specific source address for the transaction.
     walletId := "609e221675d04500068718dc" // string | Defines the unique ID of the Wallet.
     context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     createTokensTransactionRequestFromAddressRB := *openapiclient.NewCreateTokensTransactionRequestFromAddressRB(*openapiclient.NewCreateTokensTransactionRequestFromAddressRBData(*openapiclient.NewCreateTokensTransactionRequestFromAddressRBDataItem("0.2", "standard", "0xc065b539490f81b6c297c37b1925c3be2f190732", "1"))) // CreateTokensTransactionRequestFromAddressRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TransactionsApi.CreateTokensTransactionRequestFromAddress(context.Background(), address, blockchain, network, walletId).Context(context).CreateTokensTransactionRequestFromAddressRB(createTokensTransactionRequestFromAddressRB).Execute()
+    resp, r, err := api_client.TransactionsApi.CreateTokensTransactionRequestFromAddress(context.Background(), blockchain, network, senderAddress, walletId).Context(context).CreateTokensTransactionRequestFromAddressRB(createTokensTransactionRequestFromAddressRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `TransactionsApi.CreateTokensTransactionRequestFromAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -219,9 +219,9 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**address** | **string** | Defines the specific source address for the transaction. | 
 **blockchain** | **string** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | [default to &quot;ethereum&quot;]
 **network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. | [default to &quot;mainnet&quot;]
+**senderAddress** | **string** | Defines the specific source address for the transaction. | 
 **walletId** | **string** | Defines the unique ID of the Wallet. | 
 
 ### Other Parameters

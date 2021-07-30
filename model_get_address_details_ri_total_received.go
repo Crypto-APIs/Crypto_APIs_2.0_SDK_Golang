@@ -19,7 +19,6 @@ import (
 type GetAddressDetailsRITotalReceived struct {
 	// Defines the total amount of all coins received to the address, based on confirmed transactions.
 	Amount string `json:"amount"`
-	// Defines the unit of the received amount, e.g. BTC, ETH, XRP.
 	Unit string `json:"unit"`
 }
 

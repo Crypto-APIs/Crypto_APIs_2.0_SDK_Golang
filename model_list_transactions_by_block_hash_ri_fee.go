@@ -19,7 +19,6 @@ import (
 type ListTransactionsByBlockHashRIFee struct {
 	// Represents the fee amount.
 	Amount string `json:"amount"`
-	// Defines the unit of the fee amount, e.g. BTC, ETH, XRP.
 	Unit string `json:"unit"`
 }
 

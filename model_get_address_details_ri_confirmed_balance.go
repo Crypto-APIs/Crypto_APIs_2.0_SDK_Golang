@@ -19,7 +19,6 @@ import (
 type GetAddressDetailsRIConfirmedBalance struct {
 	// Defines the total balance of the address that is confirmed. It doesn't include unconfirmed transactions.
 	Amount string `json:"amount"`
-	// Defines the unit of the confirmed balance amount, e.g. BTC, ETH, XRP.
 	Unit string `json:"unit"`
 }
 

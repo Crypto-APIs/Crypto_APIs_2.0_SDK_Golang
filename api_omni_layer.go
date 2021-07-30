@@ -521,8 +521,6 @@ func (r ApiListOmniTokensByAddressRequest) Execute() (ListOmniTokensByAddressR, 
 /*
  * ListOmniTokensByAddress List Omni Tokens By Address
  * Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
@@ -758,8 +756,6 @@ func (r ApiListOmniTransactionsByAddressRequest) Execute() (ListOmniTransactions
 /*
  * ListOmniTransactionsByAddress List Omni Transactions By Address
  * This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
@@ -1001,8 +997,6 @@ func (r ApiListOmniTransactionsByBlockHashRequest) Execute() (ListOmniTransactio
 /*
  * ListOmniTransactionsByBlockHash List Omni Transactions By Block Hash
  * This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
@@ -1244,8 +1238,6 @@ func (r ApiListOmniTransactionsByBlockHeightRequest) Execute() (ListOmniTransact
 /*
  * ListOmniTransactionsByBlockHeight List Omni Transactions By Block Height
  * This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
@@ -1489,8 +1481,6 @@ func (r ApiListUnconfirmedOmniTransactionsByAddressRequest) Execute() (ListUncon
  * This endpoint will list unconfirmed Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
 
 Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
@@ -1734,8 +1724,6 @@ func (r ApiListUnconfirmedOmniTransactionsByPropertyIDRequest) Execute() (ListUn
  * This endpoint will list unconfirmed Omni transactions by an attribute `propertyId`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
 
 Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.

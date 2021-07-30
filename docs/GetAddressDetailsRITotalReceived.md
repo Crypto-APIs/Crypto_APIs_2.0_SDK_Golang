@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | **string** | Defines the total amount of all coins received to the address, based on confirmed transactions. | 
-**Unit** | **string** | Defines the unit of the received amount, e.g. BTC, ETH, XRP. | 
+**Unit** | **string** |  | 
 
 ## Methods
 

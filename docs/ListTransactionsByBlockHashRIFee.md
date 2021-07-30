@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | **string** | Represents the fee amount. | 
-**Unit** | **string** | Defines the unit of the fee amount, e.g. BTC, ETH, XRP. | 
+**Unit** | **string** |  | 
 
 ## Methods
 

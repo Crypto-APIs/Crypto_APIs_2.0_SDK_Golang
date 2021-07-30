@@ -5,14 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | **string** | Represents the specific amount of the transaction. | 
+**CallbackSecretKey** | Pointer to **string** | Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. | [optional] 
+**CallbackUrl** | Pointer to **string** | Verified URL for sending callbacks | [optional] 
 **FeePriority** | **string** | Represents the fee priority of the automation, whether it is \&quot;slow\&quot;, \&quot;standard\&quot; or \&quot;fast\&quot;. | 
-**ToAddress** | **string** | Defines the specific recipient address for the transaction. | 
+**RecipientAddress** | **string** | Defines the specific recipient address for the transaction. | 
 
 ## Methods
 
 ### NewCreateCoinsTransactionRequestFromAddressRBDataItem
 
-`func NewCreateCoinsTransactionRequestFromAddressRBDataItem(amount string, feePriority string, toAddress string, ) *CreateCoinsTransactionRequestFromAddressRBDataItem`
+`func NewCreateCoinsTransactionRequestFromAddressRBDataItem(amount string, feePriority string, recipientAddress string, ) *CreateCoinsTransactionRequestFromAddressRBDataItem`
 
 NewCreateCoinsTransactionRequestFromAddressRBDataItem instantiates a new CreateCoinsTransactionRequestFromAddressRBDataItem object
 This constructor will assign default values to properties that have it defined,
@@ -47,6 +49,56 @@ and a boolean to check if the value has been set.
 SetAmount sets Amount field to given value.
 
 
+### GetCallbackSecretKey
+
+`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetCallbackSecretKey() string`
+
+GetCallbackSecretKey returns the CallbackSecretKey field if non-nil, zero value otherwise.
+
+### GetCallbackSecretKeyOk
+
+`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetCallbackSecretKeyOk() (*string, bool)`
+
+GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCallbackSecretKey
+
+`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) SetCallbackSecretKey(v string)`
+
+SetCallbackSecretKey sets CallbackSecretKey field to given value.
+
+### HasCallbackSecretKey
+
+`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) HasCallbackSecretKey() bool`
+
+HasCallbackSecretKey returns a boolean if a field has been set.
+
+### GetCallbackUrl
+
+`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetCallbackUrl() string`
+
+GetCallbackUrl returns the CallbackUrl field if non-nil, zero value otherwise.
+
+### GetCallbackUrlOk
+
+`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetCallbackUrlOk() (*string, bool)`
+
+GetCallbackUrlOk returns a tuple with the CallbackUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCallbackUrl
+
+`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) SetCallbackUrl(v string)`
+
+SetCallbackUrl sets CallbackUrl field to given value.
+
+### HasCallbackUrl
+
+`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) HasCallbackUrl() bool`
+
+HasCallbackUrl returns a boolean if a field has been set.
+
 ### GetFeePriority
 
 `func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetFeePriority() string`
@@ -67,24 +119,24 @@ and a boolean to check if the value has been set.
 SetFeePriority sets FeePriority field to given value.
 
 
-### GetToAddress
+### GetRecipientAddress
 
-`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetToAddress() string`
+`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetRecipientAddress() string`
 
-GetToAddress returns the ToAddress field if non-nil, zero value otherwise.
+GetRecipientAddress returns the RecipientAddress field if non-nil, zero value otherwise.
 
-### GetToAddressOk
+### GetRecipientAddressOk
 
-`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetToAddressOk() (*string, bool)`
+`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetRecipientAddressOk() (*string, bool)`
 
-GetToAddressOk returns a tuple with the ToAddress field if it's non-nil, zero value otherwise
+GetRecipientAddressOk returns a tuple with the RecipientAddress field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetToAddress
+### SetRecipientAddress
 
-`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) SetToAddress(v string)`
+`func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) SetRecipientAddress(v string)`
 
-SetToAddress sets ToAddress field to given value.
+SetRecipientAddress sets RecipientAddress field to given value.
 
 
 

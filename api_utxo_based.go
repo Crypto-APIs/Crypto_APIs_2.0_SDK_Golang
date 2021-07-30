@@ -297,8 +297,6 @@ func (r ApiListHDWalletXPubYPubZPubTransactionsRequest) Execute() (ListHDWalletX
 /*
  * ListHDWalletXPubYPubZPubTransactions List HD Wallet (xPub, yPub, zPub) Transactions
  * This endpoint will list HD Wallet transactions.
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param blockchain Represents the specific blockchain.
  * @param extendedPublicKey Defines the master public key (xPub) of the account.

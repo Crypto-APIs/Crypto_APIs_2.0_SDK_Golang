@@ -389,7 +389,7 @@ Name | Type | Description  | Notes
 
 ## ListXRPRippleTransactionsByAddress
 
-> ListXRPRippleTransactionsByAddressR ListXRPRippleTransactionsByAddress(ctx, network, address).Context(context).Limit(limit).Offset(offset).Execute()
+> ListXRPRippleTransactionsByAddressR ListXRPRippleTransactionsByAddress(ctx, network, address).Context(context).Limit(limit).Offset(offset).TransactionType(transactionType).Execute()
 
 List XRP (Ripple) Transactions by Address
 
@@ -413,10 +413,11 @@ func main() {
     context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit := int32(50) // int32 | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
     offset := int32(10) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
+    transactionType := "payment" // string |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.XRPRippleApi.ListXRPRippleTransactionsByAddress(context.Background(), network, address).Context(context).Limit(limit).Offset(offset).Execute()
+    resp, r, err := api_client.XRPRippleApi.ListXRPRippleTransactionsByAddress(context.Background(), network, address).Context(context).Limit(limit).Offset(offset).TransactionType(transactionType).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `XRPRippleApi.ListXRPRippleTransactionsByAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -447,6 +448,7 @@ Name | Type | Description  | Notes
  **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
  **limit** | **int32** | Defines how many items should be returned in the response per page basis. | [default to 50]
  **offset** | **int32** | The starting index of the response items, i.e. where the response should start listing the returned items. | [default to 0]
+ **transactionType** | **string** |  | 
 
 ### Return type
 

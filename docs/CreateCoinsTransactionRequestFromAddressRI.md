@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**CallbackSecretKey** | Pointer to **string** | Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. | [optional] 
+**CallbackUrl** | Pointer to **string** | Verified URL for sending callbacks | [optional] 
 **FeePriority** | **string** | Represents the fee priority of the automation, whether it is \&quot;slow\&quot;, \&quot;standard\&quot; or \&quot;fast\&quot;. | 
 **Recipients** | [**[]CreateCoinsTransactionRequestFromAddressRIRecipients**](CreateCoinsTransactionRequestFromAddressRIRecipients.md) | Defines the destination for the transaction, i.e. the recipient(s). | 
 **Senders** | [**CreateCoinsTransactionRequestFromAddressRISenders**](CreateCoinsTransactionRequestFromAddressRISenders.md) |  | 
@@ -27,6 +29,56 @@ will change when the set of required properties is changed
 NewCreateCoinsTransactionRequestFromAddressRIWithDefaults instantiates a new CreateCoinsTransactionRequestFromAddressRI object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetCallbackSecretKey
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) GetCallbackSecretKey() string`
+
+GetCallbackSecretKey returns the CallbackSecretKey field if non-nil, zero value otherwise.
+
+### GetCallbackSecretKeyOk
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) GetCallbackSecretKeyOk() (*string, bool)`
+
+GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCallbackSecretKey
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) SetCallbackSecretKey(v string)`
+
+SetCallbackSecretKey sets CallbackSecretKey field to given value.
+
+### HasCallbackSecretKey
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) HasCallbackSecretKey() bool`
+
+HasCallbackSecretKey returns a boolean if a field has been set.
+
+### GetCallbackUrl
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) GetCallbackUrl() string`
+
+GetCallbackUrl returns the CallbackUrl field if non-nil, zero value otherwise.
+
+### GetCallbackUrlOk
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) GetCallbackUrlOk() (*string, bool)`
+
+GetCallbackUrlOk returns a tuple with the CallbackUrl field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCallbackUrl
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) SetCallbackUrl(v string)`
+
+SetCallbackUrl sets CallbackUrl field to given value.
+
+### HasCallbackUrl
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) HasCallbackUrl() bool`
+
+HasCallbackUrl returns a boolean if a field has been set.
 
 ### GetFeePriority
 

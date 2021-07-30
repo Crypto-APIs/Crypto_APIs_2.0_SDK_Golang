@@ -501,9 +501,9 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 type ApiCreateTokensTransactionRequestFromAddressRequest struct {
 	ctx _context.Context
 	ApiService *TransactionsApiService
-	address string
 	blockchain string
 	network string
+	senderAddress string
 	walletId string
 	context *string
 	createTokensTransactionRequestFromAddressRB *CreateTokensTransactionRequestFromAddressRB
@@ -527,20 +527,24 @@ func (r ApiCreateTokensTransactionRequestFromAddressRequest) Execute() (CreateTo
  * Through this endpoint users can make a single token transaction.
 
 {warning}This applies only to **fungible** tokens, **not** NFTs (non-fungible tokens).{/warning}
+
+{note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}
+
+{warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param address Defines the specific source address for the transaction.
  * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
+ * @param senderAddress Defines the specific source address for the transaction.
  * @param walletId Defines the unique ID of the Wallet.
  * @return ApiCreateTokensTransactionRequestFromAddressRequest
  */
-func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddress(ctx _context.Context, address string, blockchain string, network string, walletId string) ApiCreateTokensTransactionRequestFromAddressRequest {
+func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddress(ctx _context.Context, blockchain string, network string, senderAddress string, walletId string) ApiCreateTokensTransactionRequestFromAddressRequest {
 	return ApiCreateTokensTransactionRequestFromAddressRequest{
 		ApiService: a,
 		ctx: ctx,
-		address: address,
 		blockchain: blockchain,
 		network: network,
+		senderAddress: senderAddress,
 		walletId: walletId,
 	}
 }
@@ -564,10 +568,10 @@ func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddressExecut
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/token-transaction-requests"
-	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
+	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/token-transaction-requests"
 	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"senderAddress"+"}", _neturl.PathEscape(parameterToString(r.senderAddress, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", _neturl.PathEscape(parameterToString(r.walletId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

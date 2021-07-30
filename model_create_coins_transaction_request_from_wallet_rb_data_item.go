@@ -17,20 +17,24 @@ import (
 
 // CreateCoinsTransactionRequestFromWalletRBDataItem struct for CreateCoinsTransactionRequestFromWalletRBDataItem
 type CreateCoinsTransactionRequestFromWalletRBDataItem struct {
-	// Defines the destination of the transaction, whether it is incoming or outgoing.
-	Destinations []CreateCoinsTransactionRequestFromWalletRBDataItemDestinations `json:"destinations"`
+	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.
+	CallbackSecretKey *string `json:"callbackSecretKey,omitempty"`
+	// Verified URL for sending callbacks
+	CallbackUrl *string `json:"callbackUrl,omitempty"`
 	// Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
 	FeePriority string `json:"feePriority"`
+	// Defines the destination of the transaction, whether it is incoming or outgoing.
+	Recipients []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients `json:"recipients"`
 }
 
 // NewCreateCoinsTransactionRequestFromWalletRBDataItem instantiates a new CreateCoinsTransactionRequestFromWalletRBDataItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateCoinsTransactionRequestFromWalletRBDataItem(destinations []CreateCoinsTransactionRequestFromWalletRBDataItemDestinations, feePriority string) *CreateCoinsTransactionRequestFromWalletRBDataItem {
+func NewCreateCoinsTransactionRequestFromWalletRBDataItem(feePriority string, recipients []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients) *CreateCoinsTransactionRequestFromWalletRBDataItem {
 	this := CreateCoinsTransactionRequestFromWalletRBDataItem{}
-	this.Destinations = destinations
 	this.FeePriority = feePriority
+	this.Recipients = recipients
 	return &this
 }
 
@@ -42,28 +46,68 @@ func NewCreateCoinsTransactionRequestFromWalletRBDataItemWithDefaults() *CreateC
 	return &this
 }
 
-// GetDestinations returns the Destinations field value
-func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetDestinations() []CreateCoinsTransactionRequestFromWalletRBDataItemDestinations {
-	if o == nil {
-		var ret []CreateCoinsTransactionRequestFromWalletRBDataItemDestinations
+// GetCallbackSecretKey returns the CallbackSecretKey field value if set, zero value otherwise.
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetCallbackSecretKey() string {
+	if o == nil || o.CallbackSecretKey == nil {
+		var ret string
 		return ret
 	}
-
-	return o.Destinations
+	return *o.CallbackSecretKey
 }
 
-// GetDestinationsOk returns a tuple with the Destinations field value
+// GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetDestinationsOk() (*[]CreateCoinsTransactionRequestFromWalletRBDataItemDestinations, bool) {
-	if o == nil  {
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetCallbackSecretKeyOk() (*string, bool) {
+	if o == nil || o.CallbackSecretKey == nil {
 		return nil, false
 	}
-	return &o.Destinations, true
+	return o.CallbackSecretKey, true
 }
 
-// SetDestinations sets field value
-func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetDestinations(v []CreateCoinsTransactionRequestFromWalletRBDataItemDestinations) {
-	o.Destinations = v
+// HasCallbackSecretKey returns a boolean if a field has been set.
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) HasCallbackSecretKey() bool {
+	if o != nil && o.CallbackSecretKey != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCallbackSecretKey gets a reference to the given string and assigns it to the CallbackSecretKey field.
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetCallbackSecretKey(v string) {
+	o.CallbackSecretKey = &v
+}
+
+// GetCallbackUrl returns the CallbackUrl field value if set, zero value otherwise.
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetCallbackUrl() string {
+	if o == nil || o.CallbackUrl == nil {
+		var ret string
+		return ret
+	}
+	return *o.CallbackUrl
+}
+
+// GetCallbackUrlOk returns a tuple with the CallbackUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetCallbackUrlOk() (*string, bool) {
+	if o == nil || o.CallbackUrl == nil {
+		return nil, false
+	}
+	return o.CallbackUrl, true
+}
+
+// HasCallbackUrl returns a boolean if a field has been set.
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) HasCallbackUrl() bool {
+	if o != nil && o.CallbackUrl != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCallbackUrl gets a reference to the given string and assigns it to the CallbackUrl field.
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetCallbackUrl(v string) {
+	o.CallbackUrl = &v
 }
 
 // GetFeePriority returns the FeePriority field value
@@ -90,13 +134,43 @@ func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetFeePriority(v str
 	o.FeePriority = v
 }
 
+// GetRecipients returns the Recipients field value
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipients() []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients {
+	if o == nil {
+		var ret []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients
+		return ret
+	}
+
+	return o.Recipients
+}
+
+// GetRecipientsOk returns a tuple with the Recipients field value
+// and a boolean to check if the value has been set.
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipientsOk() (*[]CreateCoinsTransactionRequestFromWalletRBDataItemRecipients, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Recipients, true
+}
+
+// SetRecipients sets field value
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetRecipients(v []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients) {
+	o.Recipients = v
+}
+
 func (o CreateCoinsTransactionRequestFromWalletRBDataItem) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
-		toSerialize["destinations"] = o.Destinations
+	if o.CallbackSecretKey != nil {
+		toSerialize["callbackSecretKey"] = o.CallbackSecretKey
+	}
+	if o.CallbackUrl != nil {
+		toSerialize["callbackUrl"] = o.CallbackUrl
 	}
 	if true {
 		toSerialize["feePriority"] = o.FeePriority
+	}
+	if true {
+		toSerialize["recipients"] = o.Recipients
 	}
 	return json.Marshal(toSerialize)
 }

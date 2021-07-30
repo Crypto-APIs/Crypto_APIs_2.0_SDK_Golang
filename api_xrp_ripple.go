@@ -1187,6 +1187,7 @@ type ApiListXRPRippleTransactionsByAddressRequest struct {
 	context *string
 	limit *int32
 	offset *int32
+	transactionType *string
 }
 
 func (r ApiListXRPRippleTransactionsByAddressRequest) Context(context string) ApiListXRPRippleTransactionsByAddressRequest {
@@ -1201,6 +1202,10 @@ func (r ApiListXRPRippleTransactionsByAddressRequest) Offset(offset int32) ApiLi
 	r.offset = &offset
 	return r
 }
+func (r ApiListXRPRippleTransactionsByAddressRequest) TransactionType(transactionType string) ApiListXRPRippleTransactionsByAddressRequest {
+	r.transactionType = &transactionType
+	return r
+}
 
 func (r ApiListXRPRippleTransactionsByAddressRequest) Execute() (ListXRPRippleTransactionsByAddressR, *_nethttp.Response, error) {
 	return r.ApiService.ListXRPRippleTransactionsByAddressExecute(r)
@@ -1211,8 +1216,6 @@ func (r ApiListXRPRippleTransactionsByAddressRequest) Execute() (ListXRPRippleTr
  * This endpoint will list XRP transactions by a attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\",  are test networks.
  * @param address Represents the public address, which is a compressed and shortened form of a public key.
@@ -1262,6 +1265,9 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressExecute(r ApiLis
 	}
 	if r.offset != nil {
 		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+	}
+	if r.transactionType != nil {
+		localVarQueryParams.Add("transactionType", parameterToString(*r.transactionType, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -1452,8 +1458,6 @@ func (r ApiListXRPRippleTransactionsByBlockHashRequest) Execute() (ListXRPRipple
  * This endpoint will list transactions by an attribute `blockHash`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param blockHash Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
@@ -1693,8 +1697,6 @@ func (r ApiListXRPRippleTransactionsByBlockHeightRequest) Execute() (ListXRPRipp
  * This endpoint will list transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param blockHeight

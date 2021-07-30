@@ -5,7 +5,7 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetWalletAssetDetails**](InformativeApi.md#GetWalletAssetDetails) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network} | Get Wallet Asset Details
-[**ListReceivingAddresses**](InformativeApi.md#ListReceivingAddresses) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses | List Receiving Addresses
+[**ListDepositAddresses**](InformativeApi.md#ListDepositAddresses) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses | List Deposit Addresses
 [**ListSupportedTokens**](InformativeApi.md#ListSupportedTokens) | **Get** /wallet-as-a-service/info/{blockchain}/{network}/supported-tokens | List Supported Tokens
 
 
@@ -88,11 +88,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## ListReceivingAddresses
+## ListDepositAddresses
 
-> ListReceivingAddressesR ListReceivingAddresses(ctx, blockchain, network, walletId).Context(context).Execute()
+> ListDepositAddressesR ListDepositAddresses(ctx, blockchain, network, walletId).Context(context).Execute()
 
-List Receiving Addresses
+List Deposit Addresses
 
 
 
@@ -116,13 +116,13 @@ func main() {
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.InformativeApi.ListReceivingAddresses(context.Background(), blockchain, network, walletId).Context(context).Execute()
+    resp, r, err := api_client.InformativeApi.ListDepositAddresses(context.Background(), blockchain, network, walletId).Context(context).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `InformativeApi.ListReceivingAddresses``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `InformativeApi.ListDepositAddresses``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `ListReceivingAddresses`: ListReceivingAddressesR
-    fmt.Fprintf(os.Stdout, "Response from `InformativeApi.ListReceivingAddresses`: %v\n", resp)
+    // response from `ListDepositAddresses`: ListDepositAddressesR
+    fmt.Fprintf(os.Stdout, "Response from `InformativeApi.ListDepositAddresses`: %v\n", resp)
 }
 ```
 
@@ -138,7 +138,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiListReceivingAddressesRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiListDepositAddressesRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ListReceivingAddressesR**](ListReceivingAddressesR.md)
+[**ListDepositAddressesR**](ListDepositAddressesR.md)
 
 ### Authorization
 

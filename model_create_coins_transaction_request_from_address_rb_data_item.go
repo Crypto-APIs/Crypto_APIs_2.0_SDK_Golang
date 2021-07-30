@@ -19,21 +19,25 @@ import (
 type CreateCoinsTransactionRequestFromAddressRBDataItem struct {
 	// Represents the specific amount of the transaction.
 	Amount string `json:"amount"`
+	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.
+	CallbackSecretKey *string `json:"callbackSecretKey,omitempty"`
+	// Verified URL for sending callbacks
+	CallbackUrl *string `json:"callbackUrl,omitempty"`
 	// Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
 	FeePriority string `json:"feePriority"`
 	// Defines the specific recipient address for the transaction.
-	ToAddress string `json:"toAddress"`
+	RecipientAddress string `json:"recipientAddress"`
 }
 
 // NewCreateCoinsTransactionRequestFromAddressRBDataItem instantiates a new CreateCoinsTransactionRequestFromAddressRBDataItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateCoinsTransactionRequestFromAddressRBDataItem(amount string, feePriority string, toAddress string) *CreateCoinsTransactionRequestFromAddressRBDataItem {
+func NewCreateCoinsTransactionRequestFromAddressRBDataItem(amount string, feePriority string, recipientAddress string) *CreateCoinsTransactionRequestFromAddressRBDataItem {
 	this := CreateCoinsTransactionRequestFromAddressRBDataItem{}
 	this.Amount = amount
 	this.FeePriority = feePriority
-	this.ToAddress = toAddress
+	this.RecipientAddress = recipientAddress
 	return &this
 }
 
@@ -69,6 +73,70 @@ func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) SetAmount(v string)
 	o.Amount = v
 }
 
+// GetCallbackSecretKey returns the CallbackSecretKey field value if set, zero value otherwise.
+func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetCallbackSecretKey() string {
+	if o == nil || o.CallbackSecretKey == nil {
+		var ret string
+		return ret
+	}
+	return *o.CallbackSecretKey
+}
+
+// GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetCallbackSecretKeyOk() (*string, bool) {
+	if o == nil || o.CallbackSecretKey == nil {
+		return nil, false
+	}
+	return o.CallbackSecretKey, true
+}
+
+// HasCallbackSecretKey returns a boolean if a field has been set.
+func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) HasCallbackSecretKey() bool {
+	if o != nil && o.CallbackSecretKey != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCallbackSecretKey gets a reference to the given string and assigns it to the CallbackSecretKey field.
+func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) SetCallbackSecretKey(v string) {
+	o.CallbackSecretKey = &v
+}
+
+// GetCallbackUrl returns the CallbackUrl field value if set, zero value otherwise.
+func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetCallbackUrl() string {
+	if o == nil || o.CallbackUrl == nil {
+		var ret string
+		return ret
+	}
+	return *o.CallbackUrl
+}
+
+// GetCallbackUrlOk returns a tuple with the CallbackUrl field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetCallbackUrlOk() (*string, bool) {
+	if o == nil || o.CallbackUrl == nil {
+		return nil, false
+	}
+	return o.CallbackUrl, true
+}
+
+// HasCallbackUrl returns a boolean if a field has been set.
+func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) HasCallbackUrl() bool {
+	if o != nil && o.CallbackUrl != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCallbackUrl gets a reference to the given string and assigns it to the CallbackUrl field.
+func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) SetCallbackUrl(v string) {
+	o.CallbackUrl = &v
+}
+
 // GetFeePriority returns the FeePriority field value
 func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetFeePriority() string {
 	if o == nil {
@@ -93,28 +161,28 @@ func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) SetFeePriority(v st
 	o.FeePriority = v
 }
 
-// GetToAddress returns the ToAddress field value
-func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetToAddress() string {
+// GetRecipientAddress returns the RecipientAddress field value
+func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetRecipientAddress() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.ToAddress
+	return o.RecipientAddress
 }
 
-// GetToAddressOk returns a tuple with the ToAddress field value
+// GetRecipientAddressOk returns a tuple with the RecipientAddress field value
 // and a boolean to check if the value has been set.
-func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetToAddressOk() (*string, bool) {
+func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) GetRecipientAddressOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.ToAddress, true
+	return &o.RecipientAddress, true
 }
 
-// SetToAddress sets field value
-func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) SetToAddress(v string) {
-	o.ToAddress = v
+// SetRecipientAddress sets field value
+func (o *CreateCoinsTransactionRequestFromAddressRBDataItem) SetRecipientAddress(v string) {
+	o.RecipientAddress = v
 }
 
 func (o CreateCoinsTransactionRequestFromAddressRBDataItem) MarshalJSON() ([]byte, error) {
@@ -122,11 +190,17 @@ func (o CreateCoinsTransactionRequestFromAddressRBDataItem) MarshalJSON() ([]byt
 	if true {
 		toSerialize["amount"] = o.Amount
 	}
+	if o.CallbackSecretKey != nil {
+		toSerialize["callbackSecretKey"] = o.CallbackSecretKey
+	}
+	if o.CallbackUrl != nil {
+		toSerialize["callbackUrl"] = o.CallbackUrl
+	}
 	if true {
 		toSerialize["feePriority"] = o.FeePriority
 	}
 	if true {
-		toSerialize["toAddress"] = o.ToAddress
+		toSerialize["recipientAddress"] = o.RecipientAddress
 	}
 	return json.Marshal(toSerialize)
 }

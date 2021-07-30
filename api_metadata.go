@@ -60,8 +60,6 @@ func (r ApiListSupportedAssetsRequest) Execute() (ListSupportedAssetsR, *_nethtt
 /*
  * ListSupportedAssets List Supported Assets
  * This endpoint will return a list of supported assets. The asset could be a cryptocurrency or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. "BTC".
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @return ApiListSupportedAssetsRequest
  */

@@ -263,7 +263,7 @@ func (a *InformativeApiService) GetWalletAssetDetailsExecute(r ApiGetWalletAsset
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListReceivingAddressesRequest struct {
+type ApiListDepositAddressesRequest struct {
 	ctx _context.Context
 	ApiService *InformativeApiService
 	blockchain string
@@ -272,28 +272,28 @@ type ApiListReceivingAddressesRequest struct {
 	context *string
 }
 
-func (r ApiListReceivingAddressesRequest) Context(context string) ApiListReceivingAddressesRequest {
+func (r ApiListDepositAddressesRequest) Context(context string) ApiListDepositAddressesRequest {
 	r.context = &context
 	return r
 }
 
-func (r ApiListReceivingAddressesRequest) Execute() (ListReceivingAddressesR, *_nethttp.Response, error) {
-	return r.ApiService.ListReceivingAddressesExecute(r)
+func (r ApiListDepositAddressesRequest) Execute() (ListDepositAddressesR, *_nethttp.Response, error) {
+	return r.ApiService.ListDepositAddressesExecute(r)
 }
 
 /*
- * ListReceivingAddresses List Receiving Addresses
- * Through this endpoint customers can pull a list of Deposit Addresses they have already generated. Deposit addresses are listed with their specific details such as unique ID.
+ * ListDepositAddresses List Deposit Addresses
+ * Through this endpoint customers can pull a list of Deposit/Receiving Addresses they have already generated.
 
 {note}Please note that listing data from the same type will apply pagination on the results.{/note}
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.
  * @param walletId Represents the unique ID of the specific Wallet.
- * @return ApiListReceivingAddressesRequest
+ * @return ApiListDepositAddressesRequest
  */
-func (a *InformativeApiService) ListReceivingAddresses(ctx _context.Context, blockchain string, network string, walletId string) ApiListReceivingAddressesRequest {
-	return ApiListReceivingAddressesRequest{
+func (a *InformativeApiService) ListDepositAddresses(ctx _context.Context, blockchain string, network string, walletId string) ApiListDepositAddressesRequest {
+	return ApiListDepositAddressesRequest{
 		ApiService: a,
 		ctx: ctx,
 		blockchain: blockchain,
@@ -304,19 +304,19 @@ func (a *InformativeApiService) ListReceivingAddresses(ctx _context.Context, blo
 
 /*
  * Execute executes the request
- * @return ListReceivingAddressesR
+ * @return ListDepositAddressesR
  */
-func (a *InformativeApiService) ListReceivingAddressesExecute(r ApiListReceivingAddressesRequest) (ListReceivingAddressesR, *_nethttp.Response, error) {
+func (a *InformativeApiService) ListDepositAddressesExecute(r ApiListDepositAddressesRequest) (ListDepositAddressesR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
 		localVarFormFileName string
 		localVarFileName     string
 		localVarFileBytes    []byte
-		localVarReturnValue  ListReceivingAddressesR
+		localVarReturnValue  ListDepositAddressesR
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InformativeApiService.ListReceivingAddresses")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InformativeApiService.ListDepositAddresses")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -529,9 +529,7 @@ func (r ApiListSupportedTokensRequest) Execute() (ListSupportedTokensR, *_nethtt
 
 /*
  * ListSupportedTokens List Supported Tokens
- * Through this endpoint customers can obtain information on multiple tokens at once. 
-
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
+ * Through this endpoint customers can obtain information on multiple tokens at once.
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  * @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  * @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\", \"rinkeby\" are test networks.

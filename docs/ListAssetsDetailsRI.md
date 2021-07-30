@@ -12,13 +12,13 @@ Name | Type | Description | Notes
 **AssetType** | **string** | Defines the type of the supported asset. This could be either \&quot;crypto\&quot; or \&quot;fiat\&quot;. | 
 **LatestRate** | [**ListAssetsDetailsRILatestRate**](ListAssetsDetailsRILatestRate.md) |  | 
 **Slug** | Pointer to **string** | Asset&#x60;s unique slug string in Crypto APIs listings | [optional] 
-**SpecificData** | [**ListAssetsDetailsRISpecificData**](ListAssetsDetailsRISpecificData.md) |  | 
+**SpecificData** | [**ListAssetsDetailsRIS**](ListAssetsDetailsRIS.md) |  | 
 
 ## Methods
 
 ### NewListAssetsDetailsRI
 
-`func NewListAssetsDetailsRI(assetId string, assetLogo ListAssetsDetailsRIAssetLogo, assetName string, assetOriginalSymbol string, assetSymbol string, assetType string, latestRate ListAssetsDetailsRILatestRate, specificData ListAssetsDetailsRISpecificData, ) *ListAssetsDetailsRI`
+`func NewListAssetsDetailsRI(assetId string, assetLogo ListAssetsDetailsRIAssetLogo, assetName string, assetOriginalSymbol string, assetSymbol string, assetType string, latestRate ListAssetsDetailsRILatestRate, specificData ListAssetsDetailsRIS, ) *ListAssetsDetailsRI`
 
 NewListAssetsDetailsRI instantiates a new ListAssetsDetailsRI object
 This constructor will assign default values to properties that have it defined,
@@ -200,20 +200,20 @@ HasSlug returns a boolean if a field has been set.
 
 ### GetSpecificData
 
-`func (o *ListAssetsDetailsRI) GetSpecificData() ListAssetsDetailsRISpecificData`
+`func (o *ListAssetsDetailsRI) GetSpecificData() ListAssetsDetailsRIS`
 
 GetSpecificData returns the SpecificData field if non-nil, zero value otherwise.
 
 ### GetSpecificDataOk
 
-`func (o *ListAssetsDetailsRI) GetSpecificDataOk() (*ListAssetsDetailsRISpecificData, bool)`
+`func (o *ListAssetsDetailsRI) GetSpecificDataOk() (*ListAssetsDetailsRIS, bool)`
 
 GetSpecificDataOk returns a tuple with the SpecificData field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSpecificData
 
-`func (o *ListAssetsDetailsRI) SetSpecificData(v ListAssetsDetailsRISpecificData)`
+`func (o *ListAssetsDetailsRI) SetSpecificData(v ListAssetsDetailsRIS)`
 
 SetSpecificData sets SpecificData field to given value.
 

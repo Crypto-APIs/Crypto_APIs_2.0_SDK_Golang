@@ -60,6 +60,8 @@ type APIClient struct {
 
 	ExchangeRatesApi *ExchangeRatesApiService
 
+	FeaturesApi *FeaturesApiService
+
 	GeneratingApi *GeneratingApiService
 
 	InformativeApi *InformativeApiService
@@ -79,8 +81,6 @@ type APIClient struct {
 	UTXOBasedApi *UTXOBasedApiService
 
 	UnifiedEndpointsApi *UnifiedEndpointsApiService
-
-	ValidatingApi *ValidatingApiService
 
 	XRPRippleApi *XRPRippleApiService
 
@@ -108,6 +108,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AutomaticTokensForwardingApi = (*AutomaticTokensForwardingApiService)(&c.common)
 	c.CreateSubscriptionsForApi = (*CreateSubscriptionsForApiService)(&c.common)
 	c.ExchangeRatesApi = (*ExchangeRatesApiService)(&c.common)
+	c.FeaturesApi = (*FeaturesApiService)(&c.common)
 	c.GeneratingApi = (*GeneratingApiService)(&c.common)
 	c.InformativeApi = (*InformativeApiService)(&c.common)
 	c.InternalApi = (*InternalApiService)(&c.common)
@@ -118,7 +119,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.TransactionsApi = (*TransactionsApiService)(&c.common)
 	c.UTXOBasedApi = (*UTXOBasedApiService)(&c.common)
 	c.UnifiedEndpointsApi = (*UnifiedEndpointsApiService)(&c.common)
-	c.ValidatingApi = (*ValidatingApiService)(&c.common)
 	c.XRPRippleApi = (*XRPRippleApiService)(&c.common)
 	c.ZilliqaApi = (*ZilliqaApiService)(&c.common)
 

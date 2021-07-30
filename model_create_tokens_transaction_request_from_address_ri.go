@@ -17,20 +17,26 @@ import (
 
 // CreateTokensTransactionRequestFromAddressRI struct for CreateTokensTransactionRequestFromAddressRI
 type CreateTokensTransactionRequestFromAddressRI struct {
+	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs.
+	CallbackSecretKey string `json:"callbackSecretKey"`
+	// Verified URL for sending callbacks
+	CallbackUrl string `json:"callbackUrl"`
 	// Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
 	FeePriority string `json:"feePriority"`
 	// Defines the destination for the transaction, i.e. the recipient(s).
 	Recipients []CreateTokensTransactionRequestFromAddressRIRecipients `json:"recipients"`
 	Senders CreateTokensTransactionRequestFromAddressRISenders `json:"senders"`
-	TokenTypeSpecificData CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData `json:"tokenTypeSpecificData"`
+	TokenTypeSpecificData CreateTokensTransactionRequestFromAddressRIS `json:"tokenTypeSpecificData"`
 }
 
 // NewCreateTokensTransactionRequestFromAddressRI instantiates a new CreateTokensTransactionRequestFromAddressRI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateTokensTransactionRequestFromAddressRI(feePriority string, recipients []CreateTokensTransactionRequestFromAddressRIRecipients, senders CreateTokensTransactionRequestFromAddressRISenders, tokenTypeSpecificData CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData) *CreateTokensTransactionRequestFromAddressRI {
+func NewCreateTokensTransactionRequestFromAddressRI(callbackSecretKey string, callbackUrl string, feePriority string, recipients []CreateTokensTransactionRequestFromAddressRIRecipients, senders CreateTokensTransactionRequestFromAddressRISenders, tokenTypeSpecificData CreateTokensTransactionRequestFromAddressRIS) *CreateTokensTransactionRequestFromAddressRI {
 	this := CreateTokensTransactionRequestFromAddressRI{}
+	this.CallbackSecretKey = callbackSecretKey
+	this.CallbackUrl = callbackUrl
 	this.FeePriority = feePriority
 	this.Recipients = recipients
 	this.Senders = senders
@@ -44,6 +50,54 @@ func NewCreateTokensTransactionRequestFromAddressRI(feePriority string, recipien
 func NewCreateTokensTransactionRequestFromAddressRIWithDefaults() *CreateTokensTransactionRequestFromAddressRI {
 	this := CreateTokensTransactionRequestFromAddressRI{}
 	return &this
+}
+
+// GetCallbackSecretKey returns the CallbackSecretKey field value
+func (o *CreateTokensTransactionRequestFromAddressRI) GetCallbackSecretKey() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CallbackSecretKey
+}
+
+// GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field value
+// and a boolean to check if the value has been set.
+func (o *CreateTokensTransactionRequestFromAddressRI) GetCallbackSecretKeyOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.CallbackSecretKey, true
+}
+
+// SetCallbackSecretKey sets field value
+func (o *CreateTokensTransactionRequestFromAddressRI) SetCallbackSecretKey(v string) {
+	o.CallbackSecretKey = v
+}
+
+// GetCallbackUrl returns the CallbackUrl field value
+func (o *CreateTokensTransactionRequestFromAddressRI) GetCallbackUrl() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.CallbackUrl
+}
+
+// GetCallbackUrlOk returns a tuple with the CallbackUrl field value
+// and a boolean to check if the value has been set.
+func (o *CreateTokensTransactionRequestFromAddressRI) GetCallbackUrlOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.CallbackUrl, true
+}
+
+// SetCallbackUrl sets field value
+func (o *CreateTokensTransactionRequestFromAddressRI) SetCallbackUrl(v string) {
+	o.CallbackUrl = v
 }
 
 // GetFeePriority returns the FeePriority field value
@@ -119,9 +173,9 @@ func (o *CreateTokensTransactionRequestFromAddressRI) SetSenders(v CreateTokensT
 }
 
 // GetTokenTypeSpecificData returns the TokenTypeSpecificData field value
-func (o *CreateTokensTransactionRequestFromAddressRI) GetTokenTypeSpecificData() CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData {
+func (o *CreateTokensTransactionRequestFromAddressRI) GetTokenTypeSpecificData() CreateTokensTransactionRequestFromAddressRIS {
 	if o == nil {
-		var ret CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData
+		var ret CreateTokensTransactionRequestFromAddressRIS
 		return ret
 	}
 
@@ -130,7 +184,7 @@ func (o *CreateTokensTransactionRequestFromAddressRI) GetTokenTypeSpecificData()
 
 // GetTokenTypeSpecificDataOk returns a tuple with the TokenTypeSpecificData field value
 // and a boolean to check if the value has been set.
-func (o *CreateTokensTransactionRequestFromAddressRI) GetTokenTypeSpecificDataOk() (*CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData, bool) {
+func (o *CreateTokensTransactionRequestFromAddressRI) GetTokenTypeSpecificDataOk() (*CreateTokensTransactionRequestFromAddressRIS, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -138,12 +192,18 @@ func (o *CreateTokensTransactionRequestFromAddressRI) GetTokenTypeSpecificDataOk
 }
 
 // SetTokenTypeSpecificData sets field value
-func (o *CreateTokensTransactionRequestFromAddressRI) SetTokenTypeSpecificData(v CreateTokensTransactionRequestFromAddressRITokenTypeSpecificData) {
+func (o *CreateTokensTransactionRequestFromAddressRI) SetTokenTypeSpecificData(v CreateTokensTransactionRequestFromAddressRIS) {
 	o.TokenTypeSpecificData = v
 }
 
 func (o CreateTokensTransactionRequestFromAddressRI) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["callbackSecretKey"] = o.CallbackSecretKey
+	}
+	if true {
+		toSerialize["callbackUrl"] = o.CallbackUrl
+	}
 	if true {
 		toSerialize["feePriority"] = o.FeePriority
 	}

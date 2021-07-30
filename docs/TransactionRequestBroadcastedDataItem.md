@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Blockchain** | **string** |  | 
-**Network** | **string** |  | 
-**RequiredApproves** | **int32** |  | 
-**RequiredRejects** | **int32** |  | 
-**CurrentApproves** | **int32** |  | 
-**CurrentRejects** | **int32** |  | 
-**TransactionId** | **string** |  | 
+**Blockchain** | **string** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+**Network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. | 
+**RequiredApprovals** | **int32** | The required number of approvals needed to approve the transaction. | 
+**RequiredRejections** | **int32** | The required number of rejections needed to reject the transaction. | 
+**CurrentApprovals** | **int32** | The current number of approvals given for the transaction. | 
+**CurrentRejections** | **int32** | The current number of rejections given for the transaction. | 
+**TransactionId** | **string** | Defines the unique ID of the specific transaction, i.e. its identification number. | 
 
 ## Methods
 
 ### NewTransactionRequestBroadcastedDataItem
 
-`func NewTransactionRequestBroadcastedDataItem(blockchain string, network string, requiredApproves int32, requiredRejects int32, currentApproves int32, currentRejects int32, transactionId string, ) *TransactionRequestBroadcastedDataItem`
+`func NewTransactionRequestBroadcastedDataItem(blockchain string, network string, requiredApprovals int32, requiredRejections int32, currentApprovals int32, currentRejections int32, transactionId string, ) *TransactionRequestBroadcastedDataItem`
 
 NewTransactionRequestBroadcastedDataItem instantiates a new TransactionRequestBroadcastedDataItem object
 This constructor will assign default values to properties that have it defined,
@@ -71,84 +71,84 @@ and a boolean to check if the value has been set.
 SetNetwork sets Network field to given value.
 
 
-### GetRequiredApproves
+### GetRequiredApprovals
 
-`func (o *TransactionRequestBroadcastedDataItem) GetRequiredApproves() int32`
+`func (o *TransactionRequestBroadcastedDataItem) GetRequiredApprovals() int32`
 
-GetRequiredApproves returns the RequiredApproves field if non-nil, zero value otherwise.
+GetRequiredApprovals returns the RequiredApprovals field if non-nil, zero value otherwise.
 
-### GetRequiredApprovesOk
+### GetRequiredApprovalsOk
 
-`func (o *TransactionRequestBroadcastedDataItem) GetRequiredApprovesOk() (*int32, bool)`
+`func (o *TransactionRequestBroadcastedDataItem) GetRequiredApprovalsOk() (*int32, bool)`
 
-GetRequiredApprovesOk returns a tuple with the RequiredApproves field if it's non-nil, zero value otherwise
+GetRequiredApprovalsOk returns a tuple with the RequiredApprovals field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRequiredApproves
+### SetRequiredApprovals
 
-`func (o *TransactionRequestBroadcastedDataItem) SetRequiredApproves(v int32)`
+`func (o *TransactionRequestBroadcastedDataItem) SetRequiredApprovals(v int32)`
 
-SetRequiredApproves sets RequiredApproves field to given value.
+SetRequiredApprovals sets RequiredApprovals field to given value.
 
 
-### GetRequiredRejects
+### GetRequiredRejections
 
-`func (o *TransactionRequestBroadcastedDataItem) GetRequiredRejects() int32`
+`func (o *TransactionRequestBroadcastedDataItem) GetRequiredRejections() int32`
 
-GetRequiredRejects returns the RequiredRejects field if non-nil, zero value otherwise.
+GetRequiredRejections returns the RequiredRejections field if non-nil, zero value otherwise.
 
-### GetRequiredRejectsOk
+### GetRequiredRejectionsOk
 
-`func (o *TransactionRequestBroadcastedDataItem) GetRequiredRejectsOk() (*int32, bool)`
+`func (o *TransactionRequestBroadcastedDataItem) GetRequiredRejectionsOk() (*int32, bool)`
 
-GetRequiredRejectsOk returns a tuple with the RequiredRejects field if it's non-nil, zero value otherwise
+GetRequiredRejectionsOk returns a tuple with the RequiredRejections field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetRequiredRejects
+### SetRequiredRejections
 
-`func (o *TransactionRequestBroadcastedDataItem) SetRequiredRejects(v int32)`
+`func (o *TransactionRequestBroadcastedDataItem) SetRequiredRejections(v int32)`
 
-SetRequiredRejects sets RequiredRejects field to given value.
+SetRequiredRejections sets RequiredRejections field to given value.
 
 
-### GetCurrentApproves
+### GetCurrentApprovals
 
-`func (o *TransactionRequestBroadcastedDataItem) GetCurrentApproves() int32`
+`func (o *TransactionRequestBroadcastedDataItem) GetCurrentApprovals() int32`
 
-GetCurrentApproves returns the CurrentApproves field if non-nil, zero value otherwise.
+GetCurrentApprovals returns the CurrentApprovals field if non-nil, zero value otherwise.
 
-### GetCurrentApprovesOk
+### GetCurrentApprovalsOk
 
-`func (o *TransactionRequestBroadcastedDataItem) GetCurrentApprovesOk() (*int32, bool)`
+`func (o *TransactionRequestBroadcastedDataItem) GetCurrentApprovalsOk() (*int32, bool)`
 
-GetCurrentApprovesOk returns a tuple with the CurrentApproves field if it's non-nil, zero value otherwise
+GetCurrentApprovalsOk returns a tuple with the CurrentApprovals field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCurrentApproves
+### SetCurrentApprovals
 
-`func (o *TransactionRequestBroadcastedDataItem) SetCurrentApproves(v int32)`
+`func (o *TransactionRequestBroadcastedDataItem) SetCurrentApprovals(v int32)`
 
-SetCurrentApproves sets CurrentApproves field to given value.
+SetCurrentApprovals sets CurrentApprovals field to given value.
 
 
-### GetCurrentRejects
+### GetCurrentRejections
 
-`func (o *TransactionRequestBroadcastedDataItem) GetCurrentRejects() int32`
+`func (o *TransactionRequestBroadcastedDataItem) GetCurrentRejections() int32`
 
-GetCurrentRejects returns the CurrentRejects field if non-nil, zero value otherwise.
+GetCurrentRejections returns the CurrentRejections field if non-nil, zero value otherwise.
 
-### GetCurrentRejectsOk
+### GetCurrentRejectionsOk
 
-`func (o *TransactionRequestBroadcastedDataItem) GetCurrentRejectsOk() (*int32, bool)`
+`func (o *TransactionRequestBroadcastedDataItem) GetCurrentRejectionsOk() (*int32, bool)`
 
-GetCurrentRejectsOk returns a tuple with the CurrentRejects field if it's non-nil, zero value otherwise
+GetCurrentRejectionsOk returns a tuple with the CurrentRejections field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetCurrentRejects
+### SetCurrentRejections
 
-`func (o *TransactionRequestBroadcastedDataItem) SetCurrentRejects(v int32)`
+`func (o *TransactionRequestBroadcastedDataItem) SetCurrentRejections(v int32)`
 
-SetCurrentRejects sets CurrentRejects field to given value.
+SetCurrentRejections sets CurrentRejections field to given value.
 
 
 ### GetTransactionId
