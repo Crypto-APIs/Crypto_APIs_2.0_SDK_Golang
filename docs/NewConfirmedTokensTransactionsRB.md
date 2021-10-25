@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Context** | Pointer to **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | [optional] 
-**Data** | [**NewUnconfirmedTokensTransactionsRBData**](NewUnconfirmedTokensTransactionsRBData.md) |  | 
+**Data** | [**NewConfirmedTokensTransactionsRBData**](NewConfirmedTokensTransactionsRBData.md) |  | 
 
 ## Methods
 
 ### NewNewConfirmedTokensTransactionsRB
 
-`func NewNewConfirmedTokensTransactionsRB(data NewUnconfirmedTokensTransactionsRBData, ) *NewConfirmedTokensTransactionsRB`
+`func NewNewConfirmedTokensTransactionsRB(data NewConfirmedTokensTransactionsRBData, ) *NewConfirmedTokensTransactionsRB`
 
 NewNewConfirmedTokensTransactionsRB instantiates a new NewConfirmedTokensTransactionsRB object
 This constructor will assign default values to properties that have it defined,
@@ -53,20 +53,20 @@ HasContext returns a boolean if a field has been set.
 
 ### GetData
 
-`func (o *NewConfirmedTokensTransactionsRB) GetData() NewUnconfirmedTokensTransactionsRBData`
+`func (o *NewConfirmedTokensTransactionsRB) GetData() NewConfirmedTokensTransactionsRBData`
 
 GetData returns the Data field if non-nil, zero value otherwise.
 
 ### GetDataOk
 
-`func (o *NewConfirmedTokensTransactionsRB) GetDataOk() (*NewUnconfirmedTokensTransactionsRBData, bool)`
+`func (o *NewConfirmedTokensTransactionsRB) GetDataOk() (*NewConfirmedTokensTransactionsRBData, bool)`
 
 GetDataOk returns a tuple with the Data field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetData
 
-`func (o *NewConfirmedTokensTransactionsRB) SetData(v NewUnconfirmedTokensTransactionsRBData)`
+`func (o *NewConfirmedTokensTransactionsRB) SetData(v NewConfirmedTokensTransactionsRBData)`
 
 SetData sets Data field to given value.
 

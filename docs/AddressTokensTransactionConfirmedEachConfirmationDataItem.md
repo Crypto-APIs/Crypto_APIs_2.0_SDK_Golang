@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Blockchain** | **string** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
-**Network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;, \&quot;rinkeby\&quot; are test networks. | 
+**Network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot;,  are test networks. | 
 **Address** | **string** | Defines the specific address to which the transaction has been sent. | 
-**MinedInBlock** | [**AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock**](AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock.md) |  | 
+**MinedInBlock** | [**AddressTokensTransactionConfirmedDataItemMinedInBlock**](AddressTokensTransactionConfirmedDataItemMinedInBlock.md) |  | 
 **TransactionId** | **string** | Defines the unique ID of the specific transaction, i.e. its identification number. | 
 **CurrentConfirmations** | **int32** | Defines the number of currently received confirmations for the transaction. | 
 **TargetConfirmations** | **int32** | Defines the number of confirmation transactions requested as callbacks, i.e. the system can notify till the n-th confirmation. | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewAddressTokensTransactionConfirmedEachConfirmationDataItem
 
-`func NewAddressTokensTransactionConfirmedEachConfirmationDataItem(blockchain string, network string, address string, minedInBlock AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock, transactionId string, currentConfirmations int32, targetConfirmations int32, tokenType string, token AddressTokensTransactionConfirmedEachConfirmationToken, direction string, ) *AddressTokensTransactionConfirmedEachConfirmationDataItem`
+`func NewAddressTokensTransactionConfirmedEachConfirmationDataItem(blockchain string, network string, address string, minedInBlock AddressTokensTransactionConfirmedDataItemMinedInBlock, transactionId string, currentConfirmations int32, targetConfirmations int32, tokenType string, token AddressTokensTransactionConfirmedEachConfirmationToken, direction string, ) *AddressTokensTransactionConfirmedEachConfirmationDataItem`
 
 NewAddressTokensTransactionConfirmedEachConfirmationDataItem instantiates a new AddressTokensTransactionConfirmedEachConfirmationDataItem object
 This constructor will assign default values to properties that have it defined,
@@ -96,20 +96,20 @@ SetAddress sets Address field to given value.
 
 ### GetMinedInBlock
 
-`func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetMinedInBlock() AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock`
+`func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetMinedInBlock() AddressTokensTransactionConfirmedDataItemMinedInBlock`
 
 GetMinedInBlock returns the MinedInBlock field if non-nil, zero value otherwise.
 
 ### GetMinedInBlockOk
 
-`func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetMinedInBlockOk() (*AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock, bool)`
+`func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetMinedInBlockOk() (*AddressTokensTransactionConfirmedDataItemMinedInBlock, bool)`
 
 GetMinedInBlockOk returns a tuple with the MinedInBlock field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMinedInBlock
 
-`func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) SetMinedInBlock(v AddressTokensTransactionConfirmedEachConfirmationDataItemMinedInBlock)`
+`func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) SetMinedInBlock(v AddressTokensTransactionConfirmedDataItemMinedInBlock)`
 
 SetMinedInBlock sets MinedInBlock field to given value.
 

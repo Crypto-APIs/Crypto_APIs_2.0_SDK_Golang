@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | **string** | Defines the total amount of all coins received to the address, based on confirmed transactions. | 
-**Unit** | **string** |  | 
+**Unit** | **string** | Represents the unit of the total received amount. | 
 
 ## Methods
 

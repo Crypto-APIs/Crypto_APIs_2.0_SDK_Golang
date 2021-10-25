@@ -10,20 +10,19 @@ Name | Type | Description | Notes
 **Version** | **int32** | Represents transaction version number. | 
 **Vin** | [**[]GetTransactionDetailsByTransactionIDRIBSD2Vin**](GetTransactionDetailsByTransactionIDRIBSD2Vin.md) | Represents the transaction inputs. | 
 **Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSD2Vout**](GetTransactionDetailsByTransactionIDRIBSD2Vout.md) | Represents the transaction outputs. | 
-**Vsize** | **int32** | Represents the virtual size of this transaction. | 
-**Contract** | **string** | Represents the specific transaction contract. | 
+**Contract** | **string** | Represents the specific transaction contract | 
 **GasLimit** | **string** | Represents the amount of gas used by this specific transaction alone. | 
-**GasPrice** | [**GetTransactionDetailsByTransactionIDRIBSECGasPrice**](GetTransactionDetailsByTransactionIDRIBSECGasPrice.md) |  | 
-**GasUsed** | **string** | Represents the exact unit of gas that was used for the transaction. | 
+**GasPrice** | [**GetTransactionDetailsByTransactionIDRIBSBSCGasPrice**](GetTransactionDetailsByTransactionIDRIBSBSCGasPrice.md) |  | 
+**GasUsed** | **string** | Defines the unit of the gas price amount, e.g. BTC, ETH, XRP. | 
 **InputData** | **string** | Represents additional information that is required for the transaction. | 
-**Nonce** | **string** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender&#39;s address. | 
+**Nonce** | **int32** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender&#39;s address. | 
 **TransactionStatus** | **string** | Represents the status of this transaction. | 
 
 ## Methods
 
 ### NewGetTransactionDetailsByTransactionIDRIBS
 
-`func NewGetTransactionDetailsByTransactionIDRIBS(locktime int32, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSD2Vin, vout []GetTransactionDetailsByTransactionIDRIBSD2Vout, vsize int32, contract string, gasLimit string, gasPrice GetTransactionDetailsByTransactionIDRIBSECGasPrice, gasUsed string, inputData string, nonce string, transactionStatus string, ) *GetTransactionDetailsByTransactionIDRIBS`
+`func NewGetTransactionDetailsByTransactionIDRIBS(locktime int32, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSD2Vin, vout []GetTransactionDetailsByTransactionIDRIBSD2Vout, contract string, gasLimit string, gasPrice GetTransactionDetailsByTransactionIDRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32, transactionStatus string, ) *GetTransactionDetailsByTransactionIDRIBS`
 
 NewGetTransactionDetailsByTransactionIDRIBS instantiates a new GetTransactionDetailsByTransactionIDRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -158,26 +157,6 @@ and a boolean to check if the value has been set.
 SetVout sets Vout field to given value.
 
 
-### GetVsize
-
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVsize() int32`
-
-GetVsize returns the Vsize field if non-nil, zero value otherwise.
-
-### GetVsizeOk
-
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVsizeOk() (*int32, bool)`
-
-GetVsizeOk returns a tuple with the Vsize field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVsize
-
-`func (o *GetTransactionDetailsByTransactionIDRIBS) SetVsize(v int32)`
-
-SetVsize sets Vsize field to given value.
-
-
 ### GetContract
 
 `func (o *GetTransactionDetailsByTransactionIDRIBS) GetContract() string`
@@ -220,20 +199,20 @@ SetGasLimit sets GasLimit field to given value.
 
 ### GetGasPrice
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetGasPrice() GetTransactionDetailsByTransactionIDRIBSECGasPrice`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetGasPrice() GetTransactionDetailsByTransactionIDRIBSBSCGasPrice`
 
 GetGasPrice returns the GasPrice field if non-nil, zero value otherwise.
 
 ### GetGasPriceOk
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetGasPriceOk() (*GetTransactionDetailsByTransactionIDRIBSECGasPrice, bool)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetGasPriceOk() (*GetTransactionDetailsByTransactionIDRIBSBSCGasPrice, bool)`
 
 GetGasPriceOk returns a tuple with the GasPrice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGasPrice
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) SetGasPrice(v GetTransactionDetailsByTransactionIDRIBSECGasPrice)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) SetGasPrice(v GetTransactionDetailsByTransactionIDRIBSBSCGasPrice)`
 
 SetGasPrice sets GasPrice field to given value.
 
@@ -280,20 +259,20 @@ SetInputData sets InputData field to given value.
 
 ### GetNonce
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetNonce() string`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetNonce() int32`
 
 GetNonce returns the Nonce field if non-nil, zero value otherwise.
 
 ### GetNonceOk
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetNonceOk() (*string, bool)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetNonceOk() (*int32, bool)`
 
 GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNonce
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) SetNonce(v string)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) SetNonce(v int32)`
 
 SetNonce sets Nonce field to given value.
 

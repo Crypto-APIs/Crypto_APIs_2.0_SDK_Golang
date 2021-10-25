@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | **string** |  | 
-**Unit** | **string** |  | 
+**Amount** | **string** | Specifies the amount of the confirmed balance. | 
+**Unit** | **string** | Specifies the unit of the amount of the confirmed balance. | 
 
 ## Methods
 

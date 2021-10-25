@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | **string** | Defines the amount of the transaction fee. | 
-**Unit** | **string** |  | 
+**Unit** | **string** | Defines the unit of the fee amount, e.g. BTC, ETH, XRP. | 
 
 ## Methods
 

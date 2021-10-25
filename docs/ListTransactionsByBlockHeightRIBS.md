@@ -7,23 +7,32 @@ Name | Type | Description | Notes
 **Locktime** | **int32** | Represents the time at which a particular transaction can be added to the blockchain. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
-**Version** | **int32** | Represents the total size of this transaction. | 
-**Vin** | [**[]ListTransactionsByBlockHashRIBSBCVin**](ListTransactionsByBlockHashRIBSBCVin.md) | Represents the transaction inputs. | 
-**Vout** | [**[]ListTransactionsByBlockHashRIBSBCVout**](ListTransactionsByBlockHashRIBSBCVout.md) | Represents the transaction outputs. | 
+**Version** | **int32** | Represents the transaction version number. | 
+**Vin** | [**[]ListTransactionsByBlockHeightRIBSZVin**](ListTransactionsByBlockHeightRIBSZVin.md) | Object Array representation of transaction inputs | 
+**Vout** | [**[]ListTransactionsByBlockHeightRIBSZVout**](ListTransactionsByBlockHeightRIBSZVout.md) | Object Array representation of transaction outputs | 
 **Contract** | **string** | Represents the specific transaction contract. | 
 **GasLimit** | **string** | Represents the amount of gas used by this specific transaction alone. | 
-**GasPrice** | [**ListTransactionsByBlockHeightRIBSECGasPrice**](ListTransactionsByBlockHeightRIBSECGasPrice.md) |  | 
+**GasPrice** | [**ListTransactionsByBlockHeightRIBSBSCGasPrice**](ListTransactionsByBlockHeightRIBSBSCGasPrice.md) |  | 
 **GasUsed** | **string** | Represents the exact unit of gas that was used for the transaction. | 
 **InputData** | **string** | Represents additional information that is required for the transaction. | 
-**Nonce** | **string** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender&#39;s address. | 
-**TransactionStatus** | **string** | Represents the status of this transaction. | 
-**Vsize** | **int32** | Represents the virtual size of this transaction. | 
+**Nonce** | **int32** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender&#39;s address. | 
+**TransactionStatus** | **string** | Represents the status of this transaction | 
+**BindingSig** | **string** | It is used to enforce balance of Spend and Output transfers, in order to prevent their replay across transactions. | 
+**ExpiryHeight** | **int32** | Represents a block height after which the transaction will expire. | 
+**JoinSplitPubKey** | **string** | Represents an encoding of a JoinSplitSig public validating key. | 
+**JoinSplitSig** | **string** | Is used to sign transactions that contain at least one JoinSplit description. | 
+**Overwintered** | **bool** | \&quot;Overwinter\&quot; is the network upgrade for the Zcash blockchain. | 
+**VJoinSplit** | [**[]ListTransactionsByBlockHeightRIBSZVJoinSplit**](ListTransactionsByBlockHeightRIBSZVJoinSplit.md) | Represents a sequence of JoinSplit descriptions using BCTV14 proofs. | 
+**VShieldedOutput** | [**[]ListTransactionsByBlockHeightRIBSZVShieldedOutput**](ListTransactionsByBlockHeightRIBSZVShieldedOutput.md) | Object Array representation of transaction output descriptions | 
+**VShieldedSpend** | [**[]ListConfirmedTransactionsByAddressRIBSZVShieldedSpend**](ListConfirmedTransactionsByAddressRIBSZVShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
+**ValueBalance** | **string** | Defines the transaction value balance. | 
+**VersionGroupId** | **string** | Represents the transaction version group ID. | 
 
 ## Methods
 
 ### NewListTransactionsByBlockHeightRIBS
 
-`func NewListTransactionsByBlockHeightRIBS(locktime int32, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHashRIBSBCVin, vout []ListTransactionsByBlockHashRIBSBCVout, contract string, gasLimit string, gasPrice ListTransactionsByBlockHeightRIBSECGasPrice, gasUsed string, inputData string, nonce string, transactionStatus string, vsize int32, ) *ListTransactionsByBlockHeightRIBS`
+`func NewListTransactionsByBlockHeightRIBS(locktime int32, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHeightRIBSZVin, vout []ListTransactionsByBlockHeightRIBSZVout, contract string, gasLimit string, gasPrice ListTransactionsByBlockHeightRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []ListTransactionsByBlockHeightRIBSZVJoinSplit, vShieldedOutput []ListTransactionsByBlockHeightRIBSZVShieldedOutput, vShieldedSpend []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, valueBalance string, versionGroupId string, ) *ListTransactionsByBlockHeightRIBS`
 
 NewListTransactionsByBlockHeightRIBS instantiates a new ListTransactionsByBlockHeightRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -120,40 +129,40 @@ SetVersion sets Version field to given value.
 
 ### GetVin
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetVin() []ListTransactionsByBlockHashRIBSBCVin`
+`func (o *ListTransactionsByBlockHeightRIBS) GetVin() []ListTransactionsByBlockHeightRIBSZVin`
 
 GetVin returns the Vin field if non-nil, zero value otherwise.
 
 ### GetVinOk
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetVinOk() (*[]ListTransactionsByBlockHashRIBSBCVin, bool)`
+`func (o *ListTransactionsByBlockHeightRIBS) GetVinOk() (*[]ListTransactionsByBlockHeightRIBSZVin, bool)`
 
 GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVin
 
-`func (o *ListTransactionsByBlockHeightRIBS) SetVin(v []ListTransactionsByBlockHashRIBSBCVin)`
+`func (o *ListTransactionsByBlockHeightRIBS) SetVin(v []ListTransactionsByBlockHeightRIBSZVin)`
 
 SetVin sets Vin field to given value.
 
 
 ### GetVout
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetVout() []ListTransactionsByBlockHashRIBSBCVout`
+`func (o *ListTransactionsByBlockHeightRIBS) GetVout() []ListTransactionsByBlockHeightRIBSZVout`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetVoutOk() (*[]ListTransactionsByBlockHashRIBSBCVout, bool)`
+`func (o *ListTransactionsByBlockHeightRIBS) GetVoutOk() (*[]ListTransactionsByBlockHeightRIBSZVout, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *ListTransactionsByBlockHeightRIBS) SetVout(v []ListTransactionsByBlockHashRIBSBCVout)`
+`func (o *ListTransactionsByBlockHeightRIBS) SetVout(v []ListTransactionsByBlockHeightRIBSZVout)`
 
 SetVout sets Vout field to given value.
 
@@ -200,20 +209,20 @@ SetGasLimit sets GasLimit field to given value.
 
 ### GetGasPrice
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetGasPrice() ListTransactionsByBlockHeightRIBSECGasPrice`
+`func (o *ListTransactionsByBlockHeightRIBS) GetGasPrice() ListTransactionsByBlockHeightRIBSBSCGasPrice`
 
 GetGasPrice returns the GasPrice field if non-nil, zero value otherwise.
 
 ### GetGasPriceOk
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetGasPriceOk() (*ListTransactionsByBlockHeightRIBSECGasPrice, bool)`
+`func (o *ListTransactionsByBlockHeightRIBS) GetGasPriceOk() (*ListTransactionsByBlockHeightRIBSBSCGasPrice, bool)`
 
 GetGasPriceOk returns a tuple with the GasPrice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGasPrice
 
-`func (o *ListTransactionsByBlockHeightRIBS) SetGasPrice(v ListTransactionsByBlockHeightRIBSECGasPrice)`
+`func (o *ListTransactionsByBlockHeightRIBS) SetGasPrice(v ListTransactionsByBlockHeightRIBSBSCGasPrice)`
 
 SetGasPrice sets GasPrice field to given value.
 
@@ -260,20 +269,20 @@ SetInputData sets InputData field to given value.
 
 ### GetNonce
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetNonce() string`
+`func (o *ListTransactionsByBlockHeightRIBS) GetNonce() int32`
 
 GetNonce returns the Nonce field if non-nil, zero value otherwise.
 
 ### GetNonceOk
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetNonceOk() (*string, bool)`
+`func (o *ListTransactionsByBlockHeightRIBS) GetNonceOk() (*int32, bool)`
 
 GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNonce
 
-`func (o *ListTransactionsByBlockHeightRIBS) SetNonce(v string)`
+`func (o *ListTransactionsByBlockHeightRIBS) SetNonce(v int32)`
 
 SetNonce sets Nonce field to given value.
 
@@ -298,24 +307,204 @@ and a boolean to check if the value has been set.
 SetTransactionStatus sets TransactionStatus field to given value.
 
 
-### GetVsize
+### GetBindingSig
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetVsize() int32`
+`func (o *ListTransactionsByBlockHeightRIBS) GetBindingSig() string`
 
-GetVsize returns the Vsize field if non-nil, zero value otherwise.
+GetBindingSig returns the BindingSig field if non-nil, zero value otherwise.
 
-### GetVsizeOk
+### GetBindingSigOk
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetVsizeOk() (*int32, bool)`
+`func (o *ListTransactionsByBlockHeightRIBS) GetBindingSigOk() (*string, bool)`
 
-GetVsizeOk returns a tuple with the Vsize field if it's non-nil, zero value otherwise
+GetBindingSigOk returns a tuple with the BindingSig field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetVsize
+### SetBindingSig
 
-`func (o *ListTransactionsByBlockHeightRIBS) SetVsize(v int32)`
+`func (o *ListTransactionsByBlockHeightRIBS) SetBindingSig(v string)`
 
-SetVsize sets Vsize field to given value.
+SetBindingSig sets BindingSig field to given value.
+
+
+### GetExpiryHeight
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetExpiryHeight() int32`
+
+GetExpiryHeight returns the ExpiryHeight field if non-nil, zero value otherwise.
+
+### GetExpiryHeightOk
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetExpiryHeightOk() (*int32, bool)`
+
+GetExpiryHeightOk returns a tuple with the ExpiryHeight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExpiryHeight
+
+`func (o *ListTransactionsByBlockHeightRIBS) SetExpiryHeight(v int32)`
+
+SetExpiryHeight sets ExpiryHeight field to given value.
+
+
+### GetJoinSplitPubKey
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetJoinSplitPubKey() string`
+
+GetJoinSplitPubKey returns the JoinSplitPubKey field if non-nil, zero value otherwise.
+
+### GetJoinSplitPubKeyOk
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetJoinSplitPubKeyOk() (*string, bool)`
+
+GetJoinSplitPubKeyOk returns a tuple with the JoinSplitPubKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetJoinSplitPubKey
+
+`func (o *ListTransactionsByBlockHeightRIBS) SetJoinSplitPubKey(v string)`
+
+SetJoinSplitPubKey sets JoinSplitPubKey field to given value.
+
+
+### GetJoinSplitSig
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetJoinSplitSig() string`
+
+GetJoinSplitSig returns the JoinSplitSig field if non-nil, zero value otherwise.
+
+### GetJoinSplitSigOk
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetJoinSplitSigOk() (*string, bool)`
+
+GetJoinSplitSigOk returns a tuple with the JoinSplitSig field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetJoinSplitSig
+
+`func (o *ListTransactionsByBlockHeightRIBS) SetJoinSplitSig(v string)`
+
+SetJoinSplitSig sets JoinSplitSig field to given value.
+
+
+### GetOverwintered
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetOverwintered() bool`
+
+GetOverwintered returns the Overwintered field if non-nil, zero value otherwise.
+
+### GetOverwinteredOk
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetOverwinteredOk() (*bool, bool)`
+
+GetOverwinteredOk returns a tuple with the Overwintered field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetOverwintered
+
+`func (o *ListTransactionsByBlockHeightRIBS) SetOverwintered(v bool)`
+
+SetOverwintered sets Overwintered field to given value.
+
+
+### GetVJoinSplit
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetVJoinSplit() []ListTransactionsByBlockHeightRIBSZVJoinSplit`
+
+GetVJoinSplit returns the VJoinSplit field if non-nil, zero value otherwise.
+
+### GetVJoinSplitOk
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetVJoinSplitOk() (*[]ListTransactionsByBlockHeightRIBSZVJoinSplit, bool)`
+
+GetVJoinSplitOk returns a tuple with the VJoinSplit field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVJoinSplit
+
+`func (o *ListTransactionsByBlockHeightRIBS) SetVJoinSplit(v []ListTransactionsByBlockHeightRIBSZVJoinSplit)`
+
+SetVJoinSplit sets VJoinSplit field to given value.
+
+
+### GetVShieldedOutput
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetVShieldedOutput() []ListTransactionsByBlockHeightRIBSZVShieldedOutput`
+
+GetVShieldedOutput returns the VShieldedOutput field if non-nil, zero value otherwise.
+
+### GetVShieldedOutputOk
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetVShieldedOutputOk() (*[]ListTransactionsByBlockHeightRIBSZVShieldedOutput, bool)`
+
+GetVShieldedOutputOk returns a tuple with the VShieldedOutput field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVShieldedOutput
+
+`func (o *ListTransactionsByBlockHeightRIBS) SetVShieldedOutput(v []ListTransactionsByBlockHeightRIBSZVShieldedOutput)`
+
+SetVShieldedOutput sets VShieldedOutput field to given value.
+
+
+### GetVShieldedSpend
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetVShieldedSpend() []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend`
+
+GetVShieldedSpend returns the VShieldedSpend field if non-nil, zero value otherwise.
+
+### GetVShieldedSpendOk
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetVShieldedSpendOk() (*[]ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, bool)`
+
+GetVShieldedSpendOk returns a tuple with the VShieldedSpend field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVShieldedSpend
+
+`func (o *ListTransactionsByBlockHeightRIBS) SetVShieldedSpend(v []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend)`
+
+SetVShieldedSpend sets VShieldedSpend field to given value.
+
+
+### GetValueBalance
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetValueBalance() string`
+
+GetValueBalance returns the ValueBalance field if non-nil, zero value otherwise.
+
+### GetValueBalanceOk
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetValueBalanceOk() (*string, bool)`
+
+GetValueBalanceOk returns a tuple with the ValueBalance field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetValueBalance
+
+`func (o *ListTransactionsByBlockHeightRIBS) SetValueBalance(v string)`
+
+SetValueBalance sets ValueBalance field to given value.
+
+
+### GetVersionGroupId
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetVersionGroupId() string`
+
+GetVersionGroupId returns the VersionGroupId field if non-nil, zero value otherwise.
+
+### GetVersionGroupIdOk
+
+`func (o *ListTransactionsByBlockHeightRIBS) GetVersionGroupIdOk() (*string, bool)`
+
+GetVersionGroupIdOk returns a tuple with the VersionGroupId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersionGroupId
+
+`func (o *ListTransactionsByBlockHeightRIBS) SetVersionGroupId(v string)`
+
+SetVersionGroupId sets VersionGroupId field to given value.
 
 
 

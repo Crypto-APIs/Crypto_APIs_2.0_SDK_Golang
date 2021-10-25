@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Difficulty** | **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
-**Nonce** | **int32** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
+**Nonce** | **string** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
 **Size** | **int32** | Represents the total size of the block in Bytes. | 
 **Bits** | **string** | Represents a specific sub-unit of Dash. Bits have two-decimal precision. | 
 **Chainwork** | **string** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewGetBlockDetailsByBlockHashRIBSD2
 
-`func NewGetBlockDetailsByBlockHashRIBSD2(difficulty string, nonce int32, size int32, bits string, chainwork string, merkleRoot string, version int32, versionHex string, ) *GetBlockDetailsByBlockHashRIBSD2`
+`func NewGetBlockDetailsByBlockHashRIBSD2(difficulty string, nonce string, size int32, bits string, chainwork string, merkleRoot string, version int32, versionHex string, ) *GetBlockDetailsByBlockHashRIBSD2`
 
 NewGetBlockDetailsByBlockHashRIBSD2 instantiates a new GetBlockDetailsByBlockHashRIBSD2 object
 This constructor will assign default values to properties that have it defined,
@@ -54,20 +54,20 @@ SetDifficulty sets Difficulty field to given value.
 
 ### GetNonce
 
-`func (o *GetBlockDetailsByBlockHashRIBSD2) GetNonce() int32`
+`func (o *GetBlockDetailsByBlockHashRIBSD2) GetNonce() string`
 
 GetNonce returns the Nonce field if non-nil, zero value otherwise.
 
 ### GetNonceOk
 
-`func (o *GetBlockDetailsByBlockHashRIBSD2) GetNonceOk() (*int32, bool)`
+`func (o *GetBlockDetailsByBlockHashRIBSD2) GetNonceOk() (*string, bool)`
 
 GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNonce
 
-`func (o *GetBlockDetailsByBlockHashRIBSD2) SetNonce(v int32)`
+`func (o *GetBlockDetailsByBlockHashRIBSD2) SetNonce(v string)`
 
 SetNonce sets Nonce field to given value.
 

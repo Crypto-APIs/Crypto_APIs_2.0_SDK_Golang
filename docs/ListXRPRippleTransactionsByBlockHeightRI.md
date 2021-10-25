@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdditionalData** | Pointer to **string** |  | [optional] 
+**DestinationTag** | Pointer to **int32** |  | [optional] 
 **Index** | **int32** |  | 
 **MinedInBlockHash** | **string** |  | 
 **Recipients** | [**[]ListXRPRippleTransactionsByBlockHeightRIRecipients**](ListXRPRippleTransactionsByBlockHeightRIRecipients.md) | Object Array representation of transaction receivers | 
@@ -62,6 +63,31 @@ SetAdditionalData sets AdditionalData field to given value.
 `func (o *ListXRPRippleTransactionsByBlockHeightRI) HasAdditionalData() bool`
 
 HasAdditionalData returns a boolean if a field has been set.
+
+### GetDestinationTag
+
+`func (o *ListXRPRippleTransactionsByBlockHeightRI) GetDestinationTag() int32`
+
+GetDestinationTag returns the DestinationTag field if non-nil, zero value otherwise.
+
+### GetDestinationTagOk
+
+`func (o *ListXRPRippleTransactionsByBlockHeightRI) GetDestinationTagOk() (*int32, bool)`
+
+GetDestinationTagOk returns a tuple with the DestinationTag field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDestinationTag
+
+`func (o *ListXRPRippleTransactionsByBlockHeightRI) SetDestinationTag(v int32)`
+
+SetDestinationTag sets DestinationTag field to given value.
+
+### HasDestinationTag
+
+`func (o *ListXRPRippleTransactionsByBlockHeightRI) HasDestinationTag() bool`
+
+HasDestinationTag returns a boolean if a field has been set.
 
 ### GetIndex
 

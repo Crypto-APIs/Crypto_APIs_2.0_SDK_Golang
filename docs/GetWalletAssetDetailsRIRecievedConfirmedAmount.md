@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | **string** |  | 
-**Unit** | **string** |  | 
+**Amount** | **string** | Specifies the confirmed amount that has been received. | 
+**Unit** | **string** | Specifies the unit of the confirmed amount that has been received. | 
 
 ## Methods
 

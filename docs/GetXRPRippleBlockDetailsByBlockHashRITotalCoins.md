@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | **string** |  | 
-**Unit** | **string** |  | 
+**Amount** | **string** | Defines the amount of the total coins. | 
+**Unit** | **string** | Defines the unit of the total coins. | 
 
 ## Methods
 

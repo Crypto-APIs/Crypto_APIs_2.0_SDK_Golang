@@ -6,16 +6,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Locktime** | **int32** | Represents the time at which a particular transaction can be added to the blockchain. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
+**VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Represents transaction version number. | 
 **Vin** | [**[]ListTransactionsByBlockHeightRIBSLVin**](ListTransactionsByBlockHeightRIBSLVin.md) | Represents the transaction inputs. | 
 **Vout** | [**[]ListTransactionsByBlockHeightRIBSLVout**](ListTransactionsByBlockHeightRIBSLVout.md) | Represents the transaction outputs. | 
-**Vsize** | **int32** | Represents the virtual size of this transaction. | 
 
 ## Methods
 
 ### NewListTransactionsByBlockHeightRIBSL
 
-`func NewListTransactionsByBlockHeightRIBSL(locktime int32, size int32, version int32, vin []ListTransactionsByBlockHeightRIBSLVin, vout []ListTransactionsByBlockHeightRIBSLVout, vsize int32, ) *ListTransactionsByBlockHeightRIBSL`
+`func NewListTransactionsByBlockHeightRIBSL(locktime int32, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHeightRIBSLVin, vout []ListTransactionsByBlockHeightRIBSLVout, ) *ListTransactionsByBlockHeightRIBSL`
 
 NewListTransactionsByBlockHeightRIBSL instantiates a new ListTransactionsByBlockHeightRIBSL object
 This constructor will assign default values to properties that have it defined,
@@ -68,6 +68,26 @@ and a boolean to check if the value has been set.
 `func (o *ListTransactionsByBlockHeightRIBSL) SetSize(v int32)`
 
 SetSize sets Size field to given value.
+
+
+### GetVSize
+
+`func (o *ListTransactionsByBlockHeightRIBSL) GetVSize() int32`
+
+GetVSize returns the VSize field if non-nil, zero value otherwise.
+
+### GetVSizeOk
+
+`func (o *ListTransactionsByBlockHeightRIBSL) GetVSizeOk() (*int32, bool)`
+
+GetVSizeOk returns a tuple with the VSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVSize
+
+`func (o *ListTransactionsByBlockHeightRIBSL) SetVSize(v int32)`
+
+SetVSize sets VSize field to given value.
 
 
 ### GetVersion
@@ -128,26 +148,6 @@ and a boolean to check if the value has been set.
 `func (o *ListTransactionsByBlockHeightRIBSL) SetVout(v []ListTransactionsByBlockHeightRIBSLVout)`
 
 SetVout sets Vout field to given value.
-
-
-### GetVsize
-
-`func (o *ListTransactionsByBlockHeightRIBSL) GetVsize() int32`
-
-GetVsize returns the Vsize field if non-nil, zero value otherwise.
-
-### GetVsizeOk
-
-`func (o *ListTransactionsByBlockHeightRIBSL) GetVsizeOk() (*int32, bool)`
-
-GetVsizeOk returns a tuple with the Vsize field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetVsize
-
-`func (o *ListTransactionsByBlockHeightRIBSL) SetVsize(v int32)`
-
-SetVsize sets Vsize field to given value.
 
 
 

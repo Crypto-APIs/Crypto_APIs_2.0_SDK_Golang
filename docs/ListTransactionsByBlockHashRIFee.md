@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | **string** | Represents the fee amount. | 
-**Unit** | **string** |  | 
+**Unit** | **string** | Defines the specific unit of the fee. | 
 
 ## Methods
 

@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**DestinationTag** | Pointer to **int32** |  | [optional] 
 **Index** | **int32** | Represents the index position of the transaction in the block. | 
 **MinedInBlockHash** | **string** | Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
 **MinedInBlockHeight** | **int32** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
@@ -37,6 +38,31 @@ will change when the set of required properties is changed
 NewListXRPRippleTransactionsByAddressRIWithDefaults instantiates a new ListXRPRippleTransactionsByAddressRI object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetDestinationTag
+
+`func (o *ListXRPRippleTransactionsByAddressRI) GetDestinationTag() int32`
+
+GetDestinationTag returns the DestinationTag field if non-nil, zero value otherwise.
+
+### GetDestinationTagOk
+
+`func (o *ListXRPRippleTransactionsByAddressRI) GetDestinationTagOk() (*int32, bool)`
+
+GetDestinationTagOk returns a tuple with the DestinationTag field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDestinationTag
+
+`func (o *ListXRPRippleTransactionsByAddressRI) SetDestinationTag(v int32)`
+
+SetDestinationTag sets DestinationTag field to given value.
+
+### HasDestinationTag
+
+`func (o *ListXRPRippleTransactionsByAddressRI) HasDestinationTag() bool`
+
+HasDestinationTag returns a boolean if a field has been set.
 
 ### GetIndex
 

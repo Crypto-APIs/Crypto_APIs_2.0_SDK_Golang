@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Difficulty** | **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
-**Nonce** | **int32** | Represents a random value that can be adjusted to satisfy the Proof of Work | 
+**Nonce** | **string** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
 **Size** | **int32** | Represents the total size of the block in Bytes. | 
-**Bits** | **string** | Represents a specific sub-unit of Dash. Bits have two-decimal precision. | 
+**Bits** | **string** | A sub-unit of BTC equal to 0.000001 BTC, or 100 Satoshi, and is the same as microbitcoin (μBTC). Bits have two-decimal precision | 
 **Chainwork** | **string** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | 
 **MerkleRoot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
 **Version** | **int32** | Represents the version of the specific block on the blockchain. | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewGetBlockDetailsByBlockHeightRIBSD2
 
-`func NewGetBlockDetailsByBlockHeightRIBSD2(difficulty string, nonce int32, size int32, bits string, chainwork string, merkleRoot string, version int32, versionHex string, ) *GetBlockDetailsByBlockHeightRIBSD2`
+`func NewGetBlockDetailsByBlockHeightRIBSD2(difficulty string, nonce string, size int32, bits string, chainwork string, merkleRoot string, version int32, versionHex string, ) *GetBlockDetailsByBlockHeightRIBSD2`
 
 NewGetBlockDetailsByBlockHeightRIBSD2 instantiates a new GetBlockDetailsByBlockHeightRIBSD2 object
 This constructor will assign default values to properties that have it defined,
@@ -54,20 +54,20 @@ SetDifficulty sets Difficulty field to given value.
 
 ### GetNonce
 
-`func (o *GetBlockDetailsByBlockHeightRIBSD2) GetNonce() int32`
+`func (o *GetBlockDetailsByBlockHeightRIBSD2) GetNonce() string`
 
 GetNonce returns the Nonce field if non-nil, zero value otherwise.
 
 ### GetNonceOk
 
-`func (o *GetBlockDetailsByBlockHeightRIBSD2) GetNonceOk() (*int32, bool)`
+`func (o *GetBlockDetailsByBlockHeightRIBSD2) GetNonceOk() (*string, bool)`
 
 GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNonce
 
-`func (o *GetBlockDetailsByBlockHeightRIBSD2) SetNonce(v int32)`
+`func (o *GetBlockDetailsByBlockHeightRIBSD2) SetNonce(v string)`
 
 SetNonce sets Nonce field to given value.
 

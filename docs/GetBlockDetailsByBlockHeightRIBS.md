@@ -5,27 +5,28 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Difficulty** | **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
-**Nonce** | **int32** | Represents a random value that can be adjusted to satisfy the Proof of Work | 
+**Nonce** | **string** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
 **Size** | **int32** | Represents the total size of the block in Bytes. | 
-**Bits** | **string** | Represents a specific sub-unit of Dash. Bits have two-decimal precision. | 
+**Bits** | **string** | Represents a specific sub-unit of Zcash. Bits have two-decimal precision | 
 **Chainwork** | **string** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | 
 **MerkleRoot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
 **StrippedSize** | **int32** | Defines the numeric representation of the block size excluding the witness data. | 
-**Version** | **int32** | Represents the version of the specific block on the blockchain. | 
+**Version** | **int32** | Represents the block version number. | 
 **VersionHex** | **string** | Is the hexadecimal string representation of the block&#39;s version. | 
-**Weight** | **int32** | Represents a measurement to compare the size of different transactions to each other in proportion to the block size limit. | 
+**Weight** | **int32** | Represents a measurement to compare the size of different transactions to each other in proportion to the block size limi | 
 **ExtraData** | **string** | Represents any data that can be included by the miner in the block. | 
 **GasLimit** | **string** | Defines the total gas limit of all transactions in the block. | 
 **GasUsed** | **string** | Represents the total amount of gas used by all transactions in this block. | 
 **MinedInSeconds** | **int32** | Specifies the amount of time required for the block to be mined in seconds. | 
 **Sha3Uncles** | **string** | Defines the combined hash of all uncles for a given parent. | 
 **TotalDifficulty** | **string** | Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block. | 
+**Merkleroot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
 
 ## Methods
 
 ### NewGetBlockDetailsByBlockHeightRIBS
 
-`func NewGetBlockDetailsByBlockHeightRIBS(difficulty string, nonce int32, size int32, bits string, chainwork string, merkleRoot string, strippedSize int32, version int32, versionHex string, weight int32, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, totalDifficulty string, ) *GetBlockDetailsByBlockHeightRIBS`
+`func NewGetBlockDetailsByBlockHeightRIBS(difficulty string, nonce string, size int32, bits string, chainwork string, merkleRoot string, strippedSize int32, version int32, versionHex string, weight int32, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, totalDifficulty string, merkleroot string, ) *GetBlockDetailsByBlockHeightRIBS`
 
 NewGetBlockDetailsByBlockHeightRIBS instantiates a new GetBlockDetailsByBlockHeightRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -62,20 +63,20 @@ SetDifficulty sets Difficulty field to given value.
 
 ### GetNonce
 
-`func (o *GetBlockDetailsByBlockHeightRIBS) GetNonce() int32`
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetNonce() string`
 
 GetNonce returns the Nonce field if non-nil, zero value otherwise.
 
 ### GetNonceOk
 
-`func (o *GetBlockDetailsByBlockHeightRIBS) GetNonceOk() (*int32, bool)`
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetNonceOk() (*string, bool)`
 
 GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNonce
 
-`func (o *GetBlockDetailsByBlockHeightRIBS) SetNonce(v int32)`
+`func (o *GetBlockDetailsByBlockHeightRIBS) SetNonce(v string)`
 
 SetNonce sets Nonce field to given value.
 
@@ -358,6 +359,26 @@ and a boolean to check if the value has been set.
 `func (o *GetBlockDetailsByBlockHeightRIBS) SetTotalDifficulty(v string)`
 
 SetTotalDifficulty sets TotalDifficulty field to given value.
+
+
+### GetMerkleroot
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetMerkleroot() string`
+
+GetMerkleroot returns the Merkleroot field if non-nil, zero value otherwise.
+
+### GetMerklerootOk
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetMerklerootOk() (*string, bool)`
+
+GetMerklerootOk returns a tuple with the Merkleroot field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMerkleroot
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) SetMerkleroot(v string)`
+
+SetMerkleroot sets Merkleroot field to given value.
 
 
 

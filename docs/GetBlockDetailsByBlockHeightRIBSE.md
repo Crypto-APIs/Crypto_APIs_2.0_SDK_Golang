@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Difficulty** | **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
-**Nonce** | **int32** | Represents a random value that can be adjusted to satisfy the Proof of Work | 
+**Nonce** | **string** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
 **Size** | **int32** | Represents the total size of the block in Bytes. | 
 **ExtraData** | **string** | Represents any data that can be included by the miner in the block. | 
 **GasLimit** | **string** | Defines the total gas limit of all transactions in the block. | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewGetBlockDetailsByBlockHeightRIBSE
 
-`func NewGetBlockDetailsByBlockHeightRIBSE(difficulty string, nonce int32, size int32, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, totalDifficulty string, ) *GetBlockDetailsByBlockHeightRIBSE`
+`func NewGetBlockDetailsByBlockHeightRIBSE(difficulty string, nonce string, size int32, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, totalDifficulty string, ) *GetBlockDetailsByBlockHeightRIBSE`
 
 NewGetBlockDetailsByBlockHeightRIBSE instantiates a new GetBlockDetailsByBlockHeightRIBSE object
 This constructor will assign default values to properties that have it defined,
@@ -55,20 +55,20 @@ SetDifficulty sets Difficulty field to given value.
 
 ### GetNonce
 
-`func (o *GetBlockDetailsByBlockHeightRIBSE) GetNonce() int32`
+`func (o *GetBlockDetailsByBlockHeightRIBSE) GetNonce() string`
 
 GetNonce returns the Nonce field if non-nil, zero value otherwise.
 
 ### GetNonceOk
 
-`func (o *GetBlockDetailsByBlockHeightRIBSE) GetNonceOk() (*int32, bool)`
+`func (o *GetBlockDetailsByBlockHeightRIBSE) GetNonceOk() (*string, bool)`
 
 GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNonce
 
-`func (o *GetBlockDetailsByBlockHeightRIBSE) SetNonce(v int32)`
+`func (o *GetBlockDetailsByBlockHeightRIBSE) SetNonce(v string)`
 
 SetNonce sets Nonce field to given value.
 

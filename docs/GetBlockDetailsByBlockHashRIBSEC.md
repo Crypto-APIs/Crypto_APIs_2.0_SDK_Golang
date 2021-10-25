@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Difficulty** | **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
-**Nonce** | **int32** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
+**Nonce** | **string** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
 **Size** | **int32** | Represents the total size of the block in Bytes. | 
 **ExtraData** | **string** | Represents any data that can be included by the miner in the block. | 
 **GasLimit** | **string** | Defines the total gas limit of all transactions in the block. | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewGetBlockDetailsByBlockHashRIBSEC
 
-`func NewGetBlockDetailsByBlockHashRIBSEC(difficulty string, nonce int32, size int32, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, totalDifficulty string, uncles []string, ) *GetBlockDetailsByBlockHashRIBSEC`
+`func NewGetBlockDetailsByBlockHashRIBSEC(difficulty string, nonce string, size int32, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, totalDifficulty string, uncles []string, ) *GetBlockDetailsByBlockHashRIBSEC`
 
 NewGetBlockDetailsByBlockHashRIBSEC instantiates a new GetBlockDetailsByBlockHashRIBSEC object
 This constructor will assign default values to properties that have it defined,
@@ -56,20 +56,20 @@ SetDifficulty sets Difficulty field to given value.
 
 ### GetNonce
 
-`func (o *GetBlockDetailsByBlockHashRIBSEC) GetNonce() int32`
+`func (o *GetBlockDetailsByBlockHashRIBSEC) GetNonce() string`
 
 GetNonce returns the Nonce field if non-nil, zero value otherwise.
 
 ### GetNonceOk
 
-`func (o *GetBlockDetailsByBlockHashRIBSEC) GetNonceOk() (*int32, bool)`
+`func (o *GetBlockDetailsByBlockHashRIBSEC) GetNonceOk() (*string, bool)`
 
 GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNonce
 
-`func (o *GetBlockDetailsByBlockHashRIBSEC) SetNonce(v int32)`
+`func (o *GetBlockDetailsByBlockHashRIBSEC) SetNonce(v string)`
 
 SetNonce sets Nonce field to given value.
 

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CallbackUrl** | **string** | Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. | 
-**ConfirmationsCount** | **string** | Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block. | 
-**CreatedTimestamp** | **string** | Defines the specific time/date when the automatic forwarding was created in Unix Timestamp. | 
+**ConfirmationsCount** | **int32** | Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block. | 
+**CreatedTimestamp** | **int32** | Defines the specific time/date when the automatic forwarding was created in Unix Timestamp. | 
 **FeePriority** | **string** | Represents the fee priority of the automation, whether it is \&quot;SLOW\&quot;, \&quot;STANDARD\&quot; or \&quot;FAST\&quot;. | 
 **FromAddress** | **string** | Represents the hash of the address that forwards the currency. | 
 **MinimumTransferAmount** | **string** | Represents the minimum transfer amount of the currency in the &#x60;fromAddress&#x60; that can be allowed for an automatic forwarding. | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewDeleteAutomaticCoinsForwardingRI
 
-`func NewDeleteAutomaticCoinsForwardingRI(callbackUrl string, confirmationsCount string, createdTimestamp string, feePriority string, fromAddress string, minimumTransferAmount string, referenceId string, toAddress string, ) *DeleteAutomaticCoinsForwardingRI`
+`func NewDeleteAutomaticCoinsForwardingRI(callbackUrl string, confirmationsCount int32, createdTimestamp int32, feePriority string, fromAddress string, minimumTransferAmount string, referenceId string, toAddress string, ) *DeleteAutomaticCoinsForwardingRI`
 
 NewDeleteAutomaticCoinsForwardingRI instantiates a new DeleteAutomaticCoinsForwardingRI object
 This constructor will assign default values to properties that have it defined,
@@ -54,40 +54,40 @@ SetCallbackUrl sets CallbackUrl field to given value.
 
 ### GetConfirmationsCount
 
-`func (o *DeleteAutomaticCoinsForwardingRI) GetConfirmationsCount() string`
+`func (o *DeleteAutomaticCoinsForwardingRI) GetConfirmationsCount() int32`
 
 GetConfirmationsCount returns the ConfirmationsCount field if non-nil, zero value otherwise.
 
 ### GetConfirmationsCountOk
 
-`func (o *DeleteAutomaticCoinsForwardingRI) GetConfirmationsCountOk() (*string, bool)`
+`func (o *DeleteAutomaticCoinsForwardingRI) GetConfirmationsCountOk() (*int32, bool)`
 
 GetConfirmationsCountOk returns a tuple with the ConfirmationsCount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfirmationsCount
 
-`func (o *DeleteAutomaticCoinsForwardingRI) SetConfirmationsCount(v string)`
+`func (o *DeleteAutomaticCoinsForwardingRI) SetConfirmationsCount(v int32)`
 
 SetConfirmationsCount sets ConfirmationsCount field to given value.
 
 
 ### GetCreatedTimestamp
 
-`func (o *DeleteAutomaticCoinsForwardingRI) GetCreatedTimestamp() string`
+`func (o *DeleteAutomaticCoinsForwardingRI) GetCreatedTimestamp() int32`
 
 GetCreatedTimestamp returns the CreatedTimestamp field if non-nil, zero value otherwise.
 
 ### GetCreatedTimestampOk
 
-`func (o *DeleteAutomaticCoinsForwardingRI) GetCreatedTimestampOk() (*string, bool)`
+`func (o *DeleteAutomaticCoinsForwardingRI) GetCreatedTimestampOk() (*int32, bool)`
 
 GetCreatedTimestampOk returns a tuple with the CreatedTimestamp field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCreatedTimestamp
 
-`func (o *DeleteAutomaticCoinsForwardingRI) SetCreatedTimestamp(v string)`
+`func (o *DeleteAutomaticCoinsForwardingRI) SetCreatedTimestamp(v int32)`
 
 SetCreatedTimestamp sets CreatedTimestamp field to given value.
 
