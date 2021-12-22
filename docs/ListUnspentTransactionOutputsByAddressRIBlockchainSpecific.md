@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **JoinSplitSig** | **string** | Is used to sign transactions that contain at least one JoinSplit description. | 
 **Overwintered** | **bool** | \&quot;Overwinter\&quot; is the network upgrade for the Zcash blockchain. | 
 **VJoinSplit** | Pointer to [**[]ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVJoinSplit**](ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVJoinSplit.md) | Represents a sequence of JoinSplit descriptions using BCTV14 proofs. | [optional] 
-**VShieldedOutput** | Pointer to [**[]ListConfirmedTransactionsByAddressRIBSZVShieldedOutput**](ListConfirmedTransactionsByAddressRIBSZVShieldedOutput.md) | Object Array representation of transaction output descriptions | [optional] 
+**VShieldedOutput** | Pointer to [**[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput**](GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput.md) | Object Array representation of transaction output descriptions | [optional] 
 **VShieldedSpend** | [**[]ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVShieldedSpend**](ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
 **ValueBalance** | **string** | Defines the transaction value balance. | 
 **VersionGroupId** | **string** | Represents the transaction version group ID. | 
@@ -182,20 +182,20 @@ HasVJoinSplit returns a boolean if a field has been set.
 
 ### GetVShieldedOutput
 
-`func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) GetVShieldedOutput() []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput`
+`func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) GetVShieldedOutput() []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput`
 
 GetVShieldedOutput returns the VShieldedOutput field if non-nil, zero value otherwise.
 
 ### GetVShieldedOutputOk
 
-`func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) GetVShieldedOutputOk() (*[]ListConfirmedTransactionsByAddressRIBSZVShieldedOutput, bool)`
+`func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) GetVShieldedOutputOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, bool)`
 
 GetVShieldedOutputOk returns a tuple with the VShieldedOutput field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVShieldedOutput
 
-`func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) SetVShieldedOutput(v []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput)`
+`func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) SetVShieldedOutput(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput)`
 
 SetVShieldedOutput sets VShieldedOutput field to given value.
 

@@ -21,6 +21,8 @@ type NewConfirmedTokensTransactionsAndEachConfirmationRI struct {
 	Address string `json:"address"`
 	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
 	CallbackUrl string `json:"callbackUrl"`
+	// Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
+	ConfirmationsCount *int32 `json:"confirmationsCount,omitempty"`
 	// Defines the specific time/date when the subscription was created in Unix Timestamp.
 	CreatedTimestamp int32 `json:"createdTimestamp"`
 	// Defines the type of the specific event available for the customer to subscribe to for callback notification.
@@ -97,6 +99,38 @@ func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetCallbackUrlOk()
 // SetCallbackUrl sets field value
 func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) SetCallbackUrl(v string) {
 	o.CallbackUrl = v
+}
+
+// GetConfirmationsCount returns the ConfirmationsCount field value if set, zero value otherwise.
+func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetConfirmationsCount() int32 {
+	if o == nil || o.ConfirmationsCount == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ConfirmationsCount
+}
+
+// GetConfirmationsCountOk returns a tuple with the ConfirmationsCount field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetConfirmationsCountOk() (*int32, bool) {
+	if o == nil || o.ConfirmationsCount == nil {
+		return nil, false
+	}
+	return o.ConfirmationsCount, true
+}
+
+// HasConfirmationsCount returns a boolean if a field has been set.
+func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) HasConfirmationsCount() bool {
+	if o != nil && o.ConfirmationsCount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetConfirmationsCount gets a reference to the given int32 and assigns it to the ConfirmationsCount field.
+func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) SetConfirmationsCount(v int32) {
+	o.ConfirmationsCount = &v
 }
 
 // GetCreatedTimestamp returns the CreatedTimestamp field value
@@ -178,6 +212,9 @@ func (o NewConfirmedTokensTransactionsAndEachConfirmationRI) MarshalJSON() ([]by
 	}
 	if true {
 		toSerialize["callbackUrl"] = o.CallbackUrl
+	}
+	if o.ConfirmationsCount != nil {
+		toSerialize["confirmationsCount"] = o.ConfirmationsCount
 	}
 	if true {
 		toSerialize["createdTimestamp"] = o.CreatedTimestamp

@@ -82,9 +82,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  MinedTransactionR
 	)
 
@@ -137,7 +135,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -160,7 +158,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40064
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -170,7 +168,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40164
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -180,7 +178,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -190,7 +188,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v BlockchainEventsCallbacksLimitReached
+			var v InlineResponse40364
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -200,7 +198,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v AlreadyExists
+			var v InlineResponse40912
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -210,7 +208,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -220,7 +218,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -230,7 +228,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -240,7 +238,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -317,9 +315,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  NewBlockR
 	)
 
@@ -372,7 +368,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -395,7 +391,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40065
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -405,7 +401,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40165
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -415,7 +411,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -425,7 +421,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v BlockchainEventsCallbacksLimitReached
+			var v InlineResponse40365
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -435,7 +431,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v AlreadyExists
+			var v InlineResponse40913
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -445,7 +441,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -455,7 +451,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -465,7 +461,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -475,7 +471,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -554,9 +550,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  NewConfirmedCoinsTransactionsR
 	)
 
@@ -609,7 +603,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -632,7 +626,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40060
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -642,7 +636,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40160
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -652,7 +646,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -662,7 +656,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v BlockchainEventsCallbacksLimitReached
+			var v InlineResponse40360
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -672,7 +666,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v AlreadyExists
+			var v InlineResponse4098
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -682,7 +676,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -692,7 +686,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -702,7 +696,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -712,7 +706,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -791,9 +785,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  NewConfirmedCoinsTransactionsAndEachConfirmationR
 	)
 
@@ -846,7 +838,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -869,7 +861,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40063
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -879,7 +871,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40163
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -889,7 +881,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -899,7 +891,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v BlockchainEventsCallbacksLimitReached
+			var v InlineResponse40363
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -909,7 +901,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v AlreadyExists
+			var v InlineResponse40911
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -919,7 +911,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -929,7 +921,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -939,7 +931,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -949,7 +941,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1026,9 +1018,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  NewConfirmedInternalTransactionsR
 	)
 
@@ -1081,7 +1071,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1104,7 +1094,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40073
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1114,7 +1104,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40173
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1124,7 +1114,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1134,7 +1124,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v BlockchainEventsCallbacksLimitReached
+			var v InlineResponse40373
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1144,7 +1134,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v AlreadyExists
+			var v InlineResponse40914
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1154,7 +1144,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1164,7 +1154,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1174,7 +1164,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1184,7 +1174,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1261,9 +1251,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  NewConfirmedInternalTransactionsAndEachConfirmationR
 	)
 
@@ -1316,7 +1304,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1339,7 +1327,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40074
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1349,7 +1337,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40174
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1359,7 +1347,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1369,7 +1357,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v BlockchainEventsCallbacksLimitReached
+			var v InlineResponse40374
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1379,7 +1367,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v AlreadyExists
+			var v InlineResponse40915
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1389,7 +1377,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1399,7 +1387,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1409,7 +1397,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1419,7 +1407,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1496,9 +1484,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  NewConfirmedTokensTransactionsR
 	)
 
@@ -1551,7 +1537,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1574,7 +1560,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40061
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1584,7 +1570,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40161
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1594,7 +1580,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1604,7 +1590,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v BlockchainEventsCallbacksLimitReached
+			var v InlineResponse40361
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1614,7 +1600,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v AlreadyExists
+			var v InlineResponse4099
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1624,7 +1610,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1634,7 +1620,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1644,7 +1630,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1654,7 +1640,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1731,9 +1717,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  NewConfirmedTokensTransactionsAndEachConfirmationR
 	)
 
@@ -1786,7 +1770,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1809,7 +1793,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40062
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1819,7 +1803,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40162
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1829,7 +1813,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1839,7 +1823,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v BlockchainEventsCallbacksLimitReached
+			var v InlineResponse40362
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1849,7 +1833,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v AlreadyExists
+			var v InlineResponse40910
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1859,7 +1843,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1869,7 +1853,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1879,7 +1863,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1889,7 +1873,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1972,9 +1956,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  NewUnconfirmedCoinsTransactionsR
 	)
 
@@ -2027,7 +2009,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2050,7 +2032,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40058
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2060,7 +2042,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40158
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2070,7 +2052,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2080,7 +2062,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v BlockchainEventsCallbacksLimitReached
+			var v InlineResponse40358
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2090,7 +2072,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v AlreadyExists
+			var v InlineResponse4096
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2100,7 +2082,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2110,7 +2092,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2120,7 +2102,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2130,7 +2112,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2211,9 +2193,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  NewUnconfirmedTokensTransactionsR
 	)
 
@@ -2266,7 +2246,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -2289,7 +2269,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40059
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2299,7 +2279,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40159
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2309,7 +2289,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2319,7 +2299,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v BlockchainEventsCallbacksLimitReached
+			var v InlineResponse40359
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2329,7 +2309,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v AlreadyExists
+			var v InlineResponse4097
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2339,7 +2319,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2349,7 +2329,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2359,7 +2339,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2369,7 +2349,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

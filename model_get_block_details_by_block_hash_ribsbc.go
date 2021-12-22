@@ -28,7 +28,7 @@ type GetBlockDetailsByBlockHashRIBSBC struct {
 	// Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
 	Chainwork string `json:"chainwork"`
 	// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
-	Merkleroot string `json:"merkleroot"`
+	MerkleRoot string `json:"merkleRoot"`
 	// Represents the version of the specific block on the blockchain.
 	Version int32 `json:"version"`
 	// Is the hexadecimal string representation of the block's version.
@@ -39,14 +39,14 @@ type GetBlockDetailsByBlockHashRIBSBC struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetBlockDetailsByBlockHashRIBSBC(difficulty string, nonce string, size int32, bits string, chainwork string, merkleroot string, version int32, versionHex string) *GetBlockDetailsByBlockHashRIBSBC {
+func NewGetBlockDetailsByBlockHashRIBSBC(difficulty string, nonce string, size int32, bits string, chainwork string, merkleRoot string, version int32, versionHex string) *GetBlockDetailsByBlockHashRIBSBC {
 	this := GetBlockDetailsByBlockHashRIBSBC{}
 	this.Difficulty = difficulty
 	this.Nonce = nonce
 	this.Size = size
 	this.Bits = bits
 	this.Chainwork = chainwork
-	this.Merkleroot = merkleroot
+	this.MerkleRoot = merkleRoot
 	this.Version = version
 	this.VersionHex = versionHex
 	return &this
@@ -180,28 +180,28 @@ func (o *GetBlockDetailsByBlockHashRIBSBC) SetChainwork(v string) {
 	o.Chainwork = v
 }
 
-// GetMerkleroot returns the Merkleroot field value
-func (o *GetBlockDetailsByBlockHashRIBSBC) GetMerkleroot() string {
+// GetMerkleRoot returns the MerkleRoot field value
+func (o *GetBlockDetailsByBlockHashRIBSBC) GetMerkleRoot() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Merkleroot
+	return o.MerkleRoot
 }
 
-// GetMerklerootOk returns a tuple with the Merkleroot field value
+// GetMerkleRootOk returns a tuple with the MerkleRoot field value
 // and a boolean to check if the value has been set.
-func (o *GetBlockDetailsByBlockHashRIBSBC) GetMerklerootOk() (*string, bool) {
+func (o *GetBlockDetailsByBlockHashRIBSBC) GetMerkleRootOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Merkleroot, true
+	return &o.MerkleRoot, true
 }
 
-// SetMerkleroot sets field value
-func (o *GetBlockDetailsByBlockHashRIBSBC) SetMerkleroot(v string) {
-	o.Merkleroot = v
+// SetMerkleRoot sets field value
+func (o *GetBlockDetailsByBlockHashRIBSBC) SetMerkleRoot(v string) {
+	o.MerkleRoot = v
 }
 
 // GetVersion returns the Version field value
@@ -270,7 +270,7 @@ func (o GetBlockDetailsByBlockHashRIBSBC) MarshalJSON() ([]byte, error) {
 		toSerialize["chainwork"] = o.Chainwork
 	}
 	if true {
-		toSerialize["merkleroot"] = o.Merkleroot
+		toSerialize["merkleRoot"] = o.MerkleRoot
 	}
 	if true {
 		toSerialize["version"] = o.Version

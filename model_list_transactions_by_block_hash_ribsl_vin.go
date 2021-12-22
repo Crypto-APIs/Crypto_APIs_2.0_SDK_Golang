@@ -20,7 +20,7 @@ type ListTransactionsByBlockHashRIBSLVin struct {
 	Addresses []string `json:"addresses"`
 	// Represents the coinbase hex.
 	Coinbase *string `json:"coinbase,omitempty"`
-	ScriptSig GetTransactionDetailsByTransactionIDRIBSLScriptSig `json:"scriptSig"`
+	ScriptSig ListTransactionsByBlockHashRIBSLScriptSig `json:"scriptSig"`
 	// Represents the script sequence number.
 	Sequence string `json:"sequence"`
 	// Represents the reference transaction identifier.
@@ -36,7 +36,7 @@ type ListTransactionsByBlockHashRIBSLVin struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListTransactionsByBlockHashRIBSLVin(addresses []string, scriptSig GetTransactionDetailsByTransactionIDRIBSLScriptSig, sequence string, txid string, txinwitness []string, value string, vout int32) *ListTransactionsByBlockHashRIBSLVin {
+func NewListTransactionsByBlockHashRIBSLVin(addresses []string, scriptSig ListTransactionsByBlockHashRIBSLScriptSig, sequence string, txid string, txinwitness []string, value string, vout int32) *ListTransactionsByBlockHashRIBSLVin {
 	this := ListTransactionsByBlockHashRIBSLVin{}
 	this.Addresses = addresses
 	this.ScriptSig = scriptSig
@@ -113,9 +113,9 @@ func (o *ListTransactionsByBlockHashRIBSLVin) SetCoinbase(v string) {
 }
 
 // GetScriptSig returns the ScriptSig field value
-func (o *ListTransactionsByBlockHashRIBSLVin) GetScriptSig() GetTransactionDetailsByTransactionIDRIBSLScriptSig {
+func (o *ListTransactionsByBlockHashRIBSLVin) GetScriptSig() ListTransactionsByBlockHashRIBSLScriptSig {
 	if o == nil {
-		var ret GetTransactionDetailsByTransactionIDRIBSLScriptSig
+		var ret ListTransactionsByBlockHashRIBSLScriptSig
 		return ret
 	}
 
@@ -124,7 +124,7 @@ func (o *ListTransactionsByBlockHashRIBSLVin) GetScriptSig() GetTransactionDetai
 
 // GetScriptSigOk returns a tuple with the ScriptSig field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSLVin) GetScriptSigOk() (*GetTransactionDetailsByTransactionIDRIBSLScriptSig, bool) {
+func (o *ListTransactionsByBlockHashRIBSLVin) GetScriptSigOk() (*ListTransactionsByBlockHashRIBSLScriptSig, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -132,7 +132,7 @@ func (o *ListTransactionsByBlockHashRIBSLVin) GetScriptSigOk() (*GetTransactionD
 }
 
 // SetScriptSig sets field value
-func (o *ListTransactionsByBlockHashRIBSLVin) SetScriptSig(v GetTransactionDetailsByTransactionIDRIBSLScriptSig) {
+func (o *ListTransactionsByBlockHashRIBSLVin) SetScriptSig(v ListTransactionsByBlockHashRIBSLScriptSig) {
 	o.ScriptSig = v
 }
 

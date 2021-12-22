@@ -68,9 +68,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  GetLatestMinedZilliqaBlockR
 	)
 
@@ -120,7 +118,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -143,7 +141,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40040
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -153,7 +151,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40140
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -163,7 +161,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -173,7 +171,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40340
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -183,7 +181,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v BlockchainDataBlockNotFound
+			var v InlineResponse4042
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -193,7 +191,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -203,7 +201,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -213,7 +211,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -223,7 +221,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -233,7 +231,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -299,9 +297,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  GetZilliqaAddressDetailsR
 	)
 
@@ -352,7 +348,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -375,7 +371,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse4003
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -385,7 +381,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse4013
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -395,7 +391,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -405,7 +401,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse4033
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -415,7 +411,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -425,7 +421,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -435,7 +431,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -445,7 +441,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -455,7 +451,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -521,9 +517,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  GetZilliqaBlockDetailsByBlockHashR
 	)
 
@@ -574,7 +568,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -597,7 +591,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40033
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -607,7 +601,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40133
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -617,7 +611,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -627,7 +621,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40333
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -637,7 +631,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v BlockchainDataBlockNotFound
+			var v InlineResponse4042
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -647,7 +641,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -657,7 +651,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -667,7 +661,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -677,7 +671,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -687,7 +681,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -753,9 +747,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  GetZilliqaBlockDetailsByBlockHeightR
 	)
 
@@ -806,7 +798,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -829,7 +821,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40029
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -839,7 +831,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40129
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -849,7 +841,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -859,7 +851,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40329
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -869,7 +861,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v BlockchainDataBlockNotFound
+			var v InlineResponse4042
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -879,7 +871,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -889,7 +881,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -899,7 +891,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -909,7 +901,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -919,7 +911,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -985,9 +977,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  GetZilliqaTransactionDetailsByTransactionIDR
 	)
 
@@ -1038,7 +1028,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1061,7 +1051,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse4009
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1071,7 +1061,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse4019
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1081,7 +1071,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1091,7 +1081,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse4039
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1101,7 +1091,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v BlockchainDataTransactionNotFound
+			var v InlineResponse404
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1111,7 +1101,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1121,7 +1111,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1131,7 +1121,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1141,7 +1131,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1151,7 +1141,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1229,9 +1219,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  ListZilliqaTransactionsByAddressR
 	)
 
@@ -1288,7 +1276,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1311,7 +1299,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40014
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1321,7 +1309,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40114
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1331,7 +1319,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1341,7 +1329,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40314
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1351,7 +1339,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1361,7 +1349,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1371,7 +1359,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1381,7 +1369,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1391,7 +1379,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1469,9 +1457,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  ListZilliqaTransactionsByBlockHashR
 	)
 
@@ -1528,7 +1514,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1551,7 +1537,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40021
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1561,7 +1547,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40121
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1571,7 +1557,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1581,7 +1567,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40321
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1591,7 +1577,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1601,7 +1587,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1611,7 +1597,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1621,7 +1607,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1631,7 +1617,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1709,9 +1695,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  ListZilliqaTransactionsByBlockHeightR
 	)
 
@@ -1768,7 +1752,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1791,7 +1775,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40022
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1801,7 +1785,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40122
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1811,7 +1795,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1821,7 +1805,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40322
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1831,7 +1815,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1841,7 +1825,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1851,7 +1835,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1861,7 +1845,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1871,7 +1855,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

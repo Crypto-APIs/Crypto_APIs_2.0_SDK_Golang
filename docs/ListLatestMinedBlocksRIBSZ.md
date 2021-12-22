@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Difficulty** | **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
 **DsBlock** | **int32** | Represents the Directory Service block which contains metadata about the miners who participate in the consensus protocol. | 
 **DsDifficulty** | **string** | Defines how difficult it is to mine the dsBlocks. | 
 **DsLeader** | **string** | Represents a part of the DS Committee which leads the consensus protocol for the epoch. | 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewListLatestMinedBlocksRIBSZ
 
-`func NewListLatestMinedBlocksRIBSZ(dsBlock int32, dsDifficulty string, dsLeader string, gasLimit int32, gasUsed int32, microBlocks []string, ) *ListLatestMinedBlocksRIBSZ`
+`func NewListLatestMinedBlocksRIBSZ(difficulty string, dsBlock int32, dsDifficulty string, dsLeader string, gasLimit int32, gasUsed int32, microBlocks []string, ) *ListLatestMinedBlocksRIBSZ`
 
 NewListLatestMinedBlocksRIBSZ instantiates a new ListLatestMinedBlocksRIBSZ object
 This constructor will assign default values to properties that have it defined,
@@ -29,6 +30,26 @@ will change when the set of required properties is changed
 NewListLatestMinedBlocksRIBSZWithDefaults instantiates a new ListLatestMinedBlocksRIBSZ object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetDifficulty
+
+`func (o *ListLatestMinedBlocksRIBSZ) GetDifficulty() string`
+
+GetDifficulty returns the Difficulty field if non-nil, zero value otherwise.
+
+### GetDifficultyOk
+
+`func (o *ListLatestMinedBlocksRIBSZ) GetDifficultyOk() (*string, bool)`
+
+GetDifficultyOk returns a tuple with the Difficulty field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDifficulty
+
+`func (o *ListLatestMinedBlocksRIBSZ) SetDifficulty(v string)`
+
+SetDifficulty sets Difficulty field to given value.
+
 
 ### GetDsBlock
 

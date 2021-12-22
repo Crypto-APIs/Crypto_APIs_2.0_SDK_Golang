@@ -27,8 +27,14 @@ type ListLatestMinedBlocksRIBSE struct {
 	GasUsed string `json:"gasUsed"`
 	// Specifies the amount of time required for the block to be mined in seconds.
 	MinedInSeconds int32 `json:"minedInSeconds"`
+	// Represents a random value that can be adjusted to satisfy the proof of work
+	Nonce string `json:"nonce"`
 	// Defines the combined hash of all uncles for a given parent.
 	Sha3Uncles string `json:"sha3Uncles"`
+	// Represents the total size of the block in Bytes.
+	Size int32 `json:"size"`
+	// Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block.
+	TotalDifficulty string `json:"totalDifficulty"`
 	Uncles []string `json:"uncles"`
 }
 
@@ -36,14 +42,17 @@ type ListLatestMinedBlocksRIBSE struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListLatestMinedBlocksRIBSE(difficulty string, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, uncles []string) *ListLatestMinedBlocksRIBSE {
+func NewListLatestMinedBlocksRIBSE(difficulty string, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, nonce string, sha3Uncles string, size int32, totalDifficulty string, uncles []string) *ListLatestMinedBlocksRIBSE {
 	this := ListLatestMinedBlocksRIBSE{}
 	this.Difficulty = difficulty
 	this.ExtraData = extraData
 	this.GasLimit = gasLimit
 	this.GasUsed = gasUsed
 	this.MinedInSeconds = minedInSeconds
+	this.Nonce = nonce
 	this.Sha3Uncles = sha3Uncles
+	this.Size = size
+	this.TotalDifficulty = totalDifficulty
 	this.Uncles = uncles
 	return &this
 }
@@ -176,6 +185,30 @@ func (o *ListLatestMinedBlocksRIBSE) SetMinedInSeconds(v int32) {
 	o.MinedInSeconds = v
 }
 
+// GetNonce returns the Nonce field value
+func (o *ListLatestMinedBlocksRIBSE) GetNonce() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Nonce
+}
+
+// GetNonceOk returns a tuple with the Nonce field value
+// and a boolean to check if the value has been set.
+func (o *ListLatestMinedBlocksRIBSE) GetNonceOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Nonce, true
+}
+
+// SetNonce sets field value
+func (o *ListLatestMinedBlocksRIBSE) SetNonce(v string) {
+	o.Nonce = v
+}
+
 // GetSha3Uncles returns the Sha3Uncles field value
 func (o *ListLatestMinedBlocksRIBSE) GetSha3Uncles() string {
 	if o == nil {
@@ -198,6 +231,54 @@ func (o *ListLatestMinedBlocksRIBSE) GetSha3UnclesOk() (*string, bool) {
 // SetSha3Uncles sets field value
 func (o *ListLatestMinedBlocksRIBSE) SetSha3Uncles(v string) {
 	o.Sha3Uncles = v
+}
+
+// GetSize returns the Size field value
+func (o *ListLatestMinedBlocksRIBSE) GetSize() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Size
+}
+
+// GetSizeOk returns a tuple with the Size field value
+// and a boolean to check if the value has been set.
+func (o *ListLatestMinedBlocksRIBSE) GetSizeOk() (*int32, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Size, true
+}
+
+// SetSize sets field value
+func (o *ListLatestMinedBlocksRIBSE) SetSize(v int32) {
+	o.Size = v
+}
+
+// GetTotalDifficulty returns the TotalDifficulty field value
+func (o *ListLatestMinedBlocksRIBSE) GetTotalDifficulty() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TotalDifficulty
+}
+
+// GetTotalDifficultyOk returns a tuple with the TotalDifficulty field value
+// and a boolean to check if the value has been set.
+func (o *ListLatestMinedBlocksRIBSE) GetTotalDifficultyOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.TotalDifficulty, true
+}
+
+// SetTotalDifficulty sets field value
+func (o *ListLatestMinedBlocksRIBSE) SetTotalDifficulty(v string) {
+	o.TotalDifficulty = v
 }
 
 // GetUncles returns the Uncles field value
@@ -242,7 +323,16 @@ func (o ListLatestMinedBlocksRIBSE) MarshalJSON() ([]byte, error) {
 		toSerialize["minedInSeconds"] = o.MinedInSeconds
 	}
 	if true {
+		toSerialize["nonce"] = o.Nonce
+	}
+	if true {
 		toSerialize["sha3Uncles"] = o.Sha3Uncles
+	}
+	if true {
+		toSerialize["size"] = o.Size
+	}
+	if true {
+		toSerialize["totalDifficulty"] = o.TotalDifficulty
 	}
 	if true {
 		toSerialize["uncles"] = o.Uncles

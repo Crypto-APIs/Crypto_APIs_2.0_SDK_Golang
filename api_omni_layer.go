@@ -74,9 +74,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  GetOmniTransactionDetailsByTransactionIDTxidR
 	)
 
@@ -128,7 +126,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -151,7 +149,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40032
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -161,7 +159,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40132
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -171,7 +169,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -181,7 +179,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40332
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -191,7 +189,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v BlockchainDataTransactionNotFound
+			var v InlineResponse404
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -201,7 +199,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -211,7 +209,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -221,7 +219,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -231,7 +229,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -241,7 +239,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -312,9 +310,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  GetUnconfirmedOmniTransactionByTransactionIDTxidR
 	)
 
@@ -366,7 +362,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -389,7 +385,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40019
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -399,7 +395,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40119
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -409,7 +405,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -419,7 +415,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40319
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -429,7 +425,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v BlockchainDataTransactionNotFound
+			var v InlineResponse404
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -439,7 +435,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -449,7 +445,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -459,7 +455,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -469,7 +465,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -479,7 +475,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -548,9 +544,7 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  ListOmniTokensByAddressR
 	)
 
@@ -602,7 +596,7 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -625,7 +619,7 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse4001
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -635,7 +629,7 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse4011
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -645,7 +639,7 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -655,7 +649,7 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse4031
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -665,7 +659,7 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -675,7 +669,7 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -685,7 +679,7 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -695,7 +689,7 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -705,7 +699,7 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -786,9 +780,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  ListOmniTransactionsByAddressR
 	)
 
@@ -846,7 +838,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -869,7 +861,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse4005
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -879,7 +871,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse4015
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -889,7 +881,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -899,7 +891,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse4035
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -909,7 +901,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -919,7 +911,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -929,7 +921,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -939,7 +931,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -949,7 +941,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1030,9 +1022,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  ListOmniTransactionsByBlockHashR
 	)
 
@@ -1090,7 +1080,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1113,7 +1103,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40044
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1123,7 +1113,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40144
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1133,7 +1123,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1143,7 +1133,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40344
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1153,7 +1143,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1163,7 +1153,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1173,7 +1163,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1183,7 +1173,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1193,7 +1183,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1274,9 +1264,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  ListOmniTransactionsByBlockHeightR
 	)
 
@@ -1334,7 +1322,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1357,7 +1345,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40038
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1367,7 +1355,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40138
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1377,7 +1365,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1387,7 +1375,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40338
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1397,7 +1385,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1407,7 +1395,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1417,7 +1405,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1427,7 +1415,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1437,7 +1425,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1520,9 +1508,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  ListUnconfirmedOmniTransactionsByAddressR
 	)
 
@@ -1580,7 +1566,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1603,7 +1589,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40012
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1613,7 +1599,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40112
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1623,7 +1609,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1633,7 +1619,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40312
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1643,7 +1629,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1653,7 +1639,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1663,7 +1649,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1673,7 +1659,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1683,7 +1669,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1766,9 +1752,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  ListUnconfirmedOmniTransactionsByPropertyIDR
 	)
 
@@ -1826,7 +1810,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -1849,7 +1833,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40028
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1859,7 +1843,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40128
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1869,7 +1853,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1879,7 +1863,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40328
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1889,7 +1873,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1899,7 +1883,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1909,7 +1893,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1919,7 +1903,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1929,7 +1913,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

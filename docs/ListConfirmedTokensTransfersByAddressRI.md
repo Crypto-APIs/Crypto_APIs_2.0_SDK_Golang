@@ -9,10 +9,11 @@ Name | Type | Description | Notes
 **RecipientAddress** | **string** | Defines the address to which the recipient receives the transferred tokens. | 
 **SenderAddress** | **string** | Defines the address from which the sender transfers tokens. | 
 **TokenDecimals** | **int32** | Defines the decimals of the token, i.e. the number of digits that come after the decimal coma of the token. | 
+**TokenId** | Pointer to **string** | Represents the unique token identifier. | [optional] 
 **TokenName** | **string** | Defines the token&#39;s name as a string. | 
 **TokenSymbol** | **string** | Defines the token symbol by which the token contract is known. It is usually 3-4 characters in length. | 
 **TokenType** | **string** | Defines the specific token type. | 
-**TokensAmount** | **string** | Defines the token amount of the transfer. | 
+**TokensAmount** | Pointer to **string** | Defines the token amount of the transfer. | [optional] 
 **TransactionHash** | **string** | Represents the hash of the transaction, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
 **TransactionTimestamp** | **int32** | Defines the specific time/date when the transaction was created in Unix Timestamp. | 
 
@@ -20,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewListConfirmedTokensTransfersByAddressRI
 
-`func NewListConfirmedTokensTransfersByAddressRI(contractAddress string, minedInBlockHeight int32, recipientAddress string, senderAddress string, tokenDecimals int32, tokenName string, tokenSymbol string, tokenType string, tokensAmount string, transactionHash string, transactionTimestamp int32, ) *ListConfirmedTokensTransfersByAddressRI`
+`func NewListConfirmedTokensTransfersByAddressRI(contractAddress string, minedInBlockHeight int32, recipientAddress string, senderAddress string, tokenDecimals int32, tokenName string, tokenSymbol string, tokenType string, transactionHash string, transactionTimestamp int32, ) *ListConfirmedTokensTransfersByAddressRI`
 
 NewListConfirmedTokensTransfersByAddressRI instantiates a new ListConfirmedTokensTransfersByAddressRI object
 This constructor will assign default values to properties that have it defined,
@@ -135,6 +136,31 @@ and a boolean to check if the value has been set.
 SetTokenDecimals sets TokenDecimals field to given value.
 
 
+### GetTokenId
+
+`func (o *ListConfirmedTokensTransfersByAddressRI) GetTokenId() string`
+
+GetTokenId returns the TokenId field if non-nil, zero value otherwise.
+
+### GetTokenIdOk
+
+`func (o *ListConfirmedTokensTransfersByAddressRI) GetTokenIdOk() (*string, bool)`
+
+GetTokenIdOk returns a tuple with the TokenId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTokenId
+
+`func (o *ListConfirmedTokensTransfersByAddressRI) SetTokenId(v string)`
+
+SetTokenId sets TokenId field to given value.
+
+### HasTokenId
+
+`func (o *ListConfirmedTokensTransfersByAddressRI) HasTokenId() bool`
+
+HasTokenId returns a boolean if a field has been set.
+
 ### GetTokenName
 
 `func (o *ListConfirmedTokensTransfersByAddressRI) GetTokenName() string`
@@ -214,6 +240,11 @@ and a boolean to check if the value has been set.
 
 SetTokensAmount sets TokensAmount field to given value.
 
+### HasTokensAmount
+
+`func (o *ListConfirmedTokensTransfersByAddressRI) HasTokensAmount() bool`
+
+HasTokensAmount returns a boolean if a field has been set.
 
 ### GetTransactionHash
 

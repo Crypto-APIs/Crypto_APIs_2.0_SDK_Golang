@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Represents the transaction&#39;s version number. | 
 **Vin** | [**[]ListAllUnconfirmedTransactionsRIBSLVin**](ListAllUnconfirmedTransactionsRIBSLVin.md) | Represents the transaction inputs. | 
-**Vout** | [**[]ListAllUnconfirmedTransactionsRIBSLVout**](ListAllUnconfirmedTransactionsRIBSLVout.md) | Represents the transaction outputs. | 
+**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSLVout**](GetTransactionDetailsByTransactionIDRIBSLVout.md) | Represents the transaction outputs. | 
 
 ## Methods
 
 ### NewListAllUnconfirmedTransactionsRIBSL
 
-`func NewListAllUnconfirmedTransactionsRIBSL(locktime int32, size int32, vSize int32, version int32, vin []ListAllUnconfirmedTransactionsRIBSLVin, vout []ListAllUnconfirmedTransactionsRIBSLVout, ) *ListAllUnconfirmedTransactionsRIBSL`
+`func NewListAllUnconfirmedTransactionsRIBSL(locktime int32, size int32, vSize int32, version int32, vin []ListAllUnconfirmedTransactionsRIBSLVin, vout []GetTransactionDetailsByTransactionIDRIBSLVout, ) *ListAllUnconfirmedTransactionsRIBSL`
 
 NewListAllUnconfirmedTransactionsRIBSL instantiates a new ListAllUnconfirmedTransactionsRIBSL object
 This constructor will assign default values to properties that have it defined,
@@ -132,20 +132,20 @@ SetVin sets Vin field to given value.
 
 ### GetVout
 
-`func (o *ListAllUnconfirmedTransactionsRIBSL) GetVout() []ListAllUnconfirmedTransactionsRIBSLVout`
+`func (o *ListAllUnconfirmedTransactionsRIBSL) GetVout() []GetTransactionDetailsByTransactionIDRIBSLVout`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *ListAllUnconfirmedTransactionsRIBSL) GetVoutOk() (*[]ListAllUnconfirmedTransactionsRIBSLVout, bool)`
+`func (o *ListAllUnconfirmedTransactionsRIBSL) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSLVout, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *ListAllUnconfirmedTransactionsRIBSL) SetVout(v []ListAllUnconfirmedTransactionsRIBSLVout)`
+`func (o *ListAllUnconfirmedTransactionsRIBSL) SetVout(v []GetTransactionDetailsByTransactionIDRIBSLVout)`
 
 SetVout sets Vout field to given value.
 

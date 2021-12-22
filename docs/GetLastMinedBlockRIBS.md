@@ -21,13 +21,12 @@ Name | Type | Description | Notes
 **Sha3Uncles** | **string** | Defines the combined hash of all uncles for a given parent. | 
 **TotalDifficulty** | **string** | Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block | 
 **Uncles** | **[]string** |  | 
-**Merkleroot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
 
 ## Methods
 
 ### NewGetLastMinedBlockRIBS
 
-`func NewGetLastMinedBlockRIBS(difficulty string, nonce string, size int32, bits string, chainwork string, merkleRoot string, strippedSize int32, version int32, versionHex string, weight int32, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, totalDifficulty string, uncles []string, merkleroot string, ) *GetLastMinedBlockRIBS`
+`func NewGetLastMinedBlockRIBS(difficulty string, nonce string, size int32, bits string, chainwork string, merkleRoot string, strippedSize int32, version int32, versionHex string, weight int32, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, totalDifficulty string, uncles []string, ) *GetLastMinedBlockRIBS`
 
 NewGetLastMinedBlockRIBS instantiates a new GetLastMinedBlockRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -380,26 +379,6 @@ and a boolean to check if the value has been set.
 `func (o *GetLastMinedBlockRIBS) SetUncles(v []string)`
 
 SetUncles sets Uncles field to given value.
-
-
-### GetMerkleroot
-
-`func (o *GetLastMinedBlockRIBS) GetMerkleroot() string`
-
-GetMerkleroot returns the Merkleroot field if non-nil, zero value otherwise.
-
-### GetMerklerootOk
-
-`func (o *GetLastMinedBlockRIBS) GetMerklerootOk() (*string, bool)`
-
-GetMerklerootOk returns a tuple with the Merkleroot field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMerkleroot
-
-`func (o *GetLastMinedBlockRIBS) SetMerkleroot(v string)`
-
-SetMerkleroot sets Merkleroot field to given value.
 
 
 

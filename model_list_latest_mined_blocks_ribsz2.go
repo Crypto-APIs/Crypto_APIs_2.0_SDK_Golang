@@ -21,8 +21,10 @@ type ListLatestMinedBlocksRIBSZ2 struct {
 	Bits string `json:"bits"`
 	// Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
 	Chainwork string `json:"chainwork"`
+	// Represents a mathematical value of how hard it is to find a valid hash for this block.
+	Difficulty string `json:"difficulty"`
 	// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
-	Merkleroot string `json:"merkleroot"`
+	MerkleRoot string `json:"merkleRoot"`
 	// Represents a random value that can be adjusted to satisfy the proof of work
 	Nonce string `json:"nonce"`
 	// Represents the total size of the block in Bytes.
@@ -35,11 +37,12 @@ type ListLatestMinedBlocksRIBSZ2 struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListLatestMinedBlocksRIBSZ2(bits string, chainwork string, merkleroot string, nonce string, size int32, version int32) *ListLatestMinedBlocksRIBSZ2 {
+func NewListLatestMinedBlocksRIBSZ2(bits string, chainwork string, difficulty string, merkleRoot string, nonce string, size int32, version int32) *ListLatestMinedBlocksRIBSZ2 {
 	this := ListLatestMinedBlocksRIBSZ2{}
 	this.Bits = bits
 	this.Chainwork = chainwork
-	this.Merkleroot = merkleroot
+	this.Difficulty = difficulty
+	this.MerkleRoot = merkleRoot
 	this.Nonce = nonce
 	this.Size = size
 	this.Version = version
@@ -102,28 +105,52 @@ func (o *ListLatestMinedBlocksRIBSZ2) SetChainwork(v string) {
 	o.Chainwork = v
 }
 
-// GetMerkleroot returns the Merkleroot field value
-func (o *ListLatestMinedBlocksRIBSZ2) GetMerkleroot() string {
+// GetDifficulty returns the Difficulty field value
+func (o *ListLatestMinedBlocksRIBSZ2) GetDifficulty() string {
 	if o == nil {
 		var ret string
 		return ret
 	}
 
-	return o.Merkleroot
+	return o.Difficulty
 }
 
-// GetMerklerootOk returns a tuple with the Merkleroot field value
+// GetDifficultyOk returns a tuple with the Difficulty field value
 // and a boolean to check if the value has been set.
-func (o *ListLatestMinedBlocksRIBSZ2) GetMerklerootOk() (*string, bool) {
+func (o *ListLatestMinedBlocksRIBSZ2) GetDifficultyOk() (*string, bool) {
 	if o == nil  {
 		return nil, false
 	}
-	return &o.Merkleroot, true
+	return &o.Difficulty, true
 }
 
-// SetMerkleroot sets field value
-func (o *ListLatestMinedBlocksRIBSZ2) SetMerkleroot(v string) {
-	o.Merkleroot = v
+// SetDifficulty sets field value
+func (o *ListLatestMinedBlocksRIBSZ2) SetDifficulty(v string) {
+	o.Difficulty = v
+}
+
+// GetMerkleRoot returns the MerkleRoot field value
+func (o *ListLatestMinedBlocksRIBSZ2) GetMerkleRoot() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.MerkleRoot
+}
+
+// GetMerkleRootOk returns a tuple with the MerkleRoot field value
+// and a boolean to check if the value has been set.
+func (o *ListLatestMinedBlocksRIBSZ2) GetMerkleRootOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.MerkleRoot, true
+}
+
+// SetMerkleRoot sets field value
+func (o *ListLatestMinedBlocksRIBSZ2) SetMerkleRoot(v string) {
+	o.MerkleRoot = v
 }
 
 // GetNonce returns the Nonce field value
@@ -207,7 +234,10 @@ func (o ListLatestMinedBlocksRIBSZ2) MarshalJSON() ([]byte, error) {
 		toSerialize["chainwork"] = o.Chainwork
 	}
 	if true {
-		toSerialize["merkleroot"] = o.Merkleroot
+		toSerialize["difficulty"] = o.Difficulty
+	}
+	if true {
+		toSerialize["merkleRoot"] = o.MerkleRoot
 	}
 	if true {
 		toSerialize["nonce"] = o.Nonce

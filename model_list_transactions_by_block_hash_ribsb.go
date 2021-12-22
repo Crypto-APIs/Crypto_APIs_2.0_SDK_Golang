@@ -28,14 +28,14 @@ type ListTransactionsByBlockHashRIBSB struct {
 	// Represents the transaction inputs.
 	Vin []ListTransactionsByBlockHashRIBSBVin `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []GetTransactionDetailsByTransactionIDRIBSBVout `json:"vout"`
+	Vout []ListTransactionsByBlockHashRIBSBVout `json:"vout"`
 }
 
 // NewListTransactionsByBlockHashRIBSB instantiates a new ListTransactionsByBlockHashRIBSB object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListTransactionsByBlockHashRIBSB(locktime int32, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHashRIBSBVin, vout []GetTransactionDetailsByTransactionIDRIBSBVout) *ListTransactionsByBlockHashRIBSB {
+func NewListTransactionsByBlockHashRIBSB(locktime int32, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHashRIBSBVin, vout []ListTransactionsByBlockHashRIBSBVout) *ListTransactionsByBlockHashRIBSB {
 	this := ListTransactionsByBlockHashRIBSB{}
 	this.Locktime = locktime
 	this.Size = size
@@ -175,9 +175,9 @@ func (o *ListTransactionsByBlockHashRIBSB) SetVin(v []ListTransactionsByBlockHas
 }
 
 // GetVout returns the Vout field value
-func (o *ListTransactionsByBlockHashRIBSB) GetVout() []GetTransactionDetailsByTransactionIDRIBSBVout {
+func (o *ListTransactionsByBlockHashRIBSB) GetVout() []ListTransactionsByBlockHashRIBSBVout {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSBVout
+		var ret []ListTransactionsByBlockHashRIBSBVout
 		return ret
 	}
 
@@ -186,7 +186,7 @@ func (o *ListTransactionsByBlockHashRIBSB) GetVout() []GetTransactionDetailsByTr
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSB) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSBVout, bool) {
+func (o *ListTransactionsByBlockHashRIBSB) GetVoutOk() (*[]ListTransactionsByBlockHashRIBSBVout, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -194,7 +194,7 @@ func (o *ListTransactionsByBlockHashRIBSB) GetVoutOk() (*[]GetTransactionDetails
 }
 
 // SetVout sets field value
-func (o *ListTransactionsByBlockHashRIBSB) SetVout(v []GetTransactionDetailsByTransactionIDRIBSBVout) {
+func (o *ListTransactionsByBlockHashRIBSB) SetVout(v []ListTransactionsByBlockHashRIBSBVout) {
 	o.Vout = v
 }
 

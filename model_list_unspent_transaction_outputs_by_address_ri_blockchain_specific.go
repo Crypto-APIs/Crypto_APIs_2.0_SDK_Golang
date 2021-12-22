@@ -32,7 +32,7 @@ type ListUnspentTransactionOutputsByAddressRIBlockchainSpecific struct {
 	// Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
 	VJoinSplit *[]ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVJoinSplit `json:"vJoinSplit,omitempty"`
 	// Object Array representation of transaction output descriptions
-	VShieldedOutput *[]ListConfirmedTransactionsByAddressRIBSZVShieldedOutput `json:"vShieldedOutput,omitempty"`
+	VShieldedOutput *[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput `json:"vShieldedOutput,omitempty"`
 	// Object Array representation of transaction spend descriptions
 	VShieldedSpend []ListUnspentTransactionOutputsByAddressRIBlockchainSpecificVShieldedSpend `json:"vShieldedSpend"`
 	// Defines the transaction value balance.
@@ -244,9 +244,9 @@ func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) SetVJoinSpl
 }
 
 // GetVShieldedOutput returns the VShieldedOutput field value if set, zero value otherwise.
-func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) GetVShieldedOutput() []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput {
+func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) GetVShieldedOutput() []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput {
 	if o == nil || o.VShieldedOutput == nil {
-		var ret []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput
+		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
 		return ret
 	}
 	return *o.VShieldedOutput
@@ -254,7 +254,7 @@ func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) GetVShielde
 
 // GetVShieldedOutputOk returns a tuple with the VShieldedOutput field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) GetVShieldedOutputOk() (*[]ListConfirmedTransactionsByAddressRIBSZVShieldedOutput, bool) {
+func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) GetVShieldedOutputOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, bool) {
 	if o == nil || o.VShieldedOutput == nil {
 		return nil, false
 	}
@@ -270,8 +270,8 @@ func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) HasVShielde
 	return false
 }
 
-// SetVShieldedOutput gets a reference to the given []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput and assigns it to the VShieldedOutput field.
-func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) SetVShieldedOutput(v []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput) {
+// SetVShieldedOutput gets a reference to the given []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput and assigns it to the VShieldedOutput field.
+func (o *ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) SetVShieldedOutput(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) {
 	o.VShieldedOutput = &v
 }
 

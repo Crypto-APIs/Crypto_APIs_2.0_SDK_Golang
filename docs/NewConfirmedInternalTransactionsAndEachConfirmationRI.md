@@ -12,13 +12,12 @@ Name | Type | Description | Notes
 **EventType** | **string** | Defines the type of the specific event available for the customer to subscribe to for callback notification. | 
 **IsActive** | **bool** | Defines whether the subscription is active or not. Set as boolean. | 
 **ReferenceId** | **string** | Represents a unique ID used to reference the specific callback subscription. | 
-**TransactionId** | **string** | Represents the unique identification string that defines the transaction. | 
 
 ## Methods
 
 ### NewNewConfirmedInternalTransactionsAndEachConfirmationRI
 
-`func NewNewConfirmedInternalTransactionsAndEachConfirmationRI(address string, callbackSecretKey string, callbackUrl string, confirmationsCount int32, createdTimestamp int32, eventType string, isActive bool, referenceId string, transactionId string, ) *NewConfirmedInternalTransactionsAndEachConfirmationRI`
+`func NewNewConfirmedInternalTransactionsAndEachConfirmationRI(address string, callbackSecretKey string, callbackUrl string, confirmationsCount int32, createdTimestamp int32, eventType string, isActive bool, referenceId string, ) *NewConfirmedInternalTransactionsAndEachConfirmationRI`
 
 NewNewConfirmedInternalTransactionsAndEachConfirmationRI instantiates a new NewConfirmedInternalTransactionsAndEachConfirmationRI object
 This constructor will assign default values to properties that have it defined,
@@ -191,26 +190,6 @@ and a boolean to check if the value has been set.
 `func (o *NewConfirmedInternalTransactionsAndEachConfirmationRI) SetReferenceId(v string)`
 
 SetReferenceId sets ReferenceId field to given value.
-
-
-### GetTransactionId
-
-`func (o *NewConfirmedInternalTransactionsAndEachConfirmationRI) GetTransactionId() string`
-
-GetTransactionId returns the TransactionId field if non-nil, zero value otherwise.
-
-### GetTransactionIdOk
-
-`func (o *NewConfirmedInternalTransactionsAndEachConfirmationRI) GetTransactionIdOk() (*string, bool)`
-
-GetTransactionIdOk returns a tuple with the TransactionId field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTransactionId
-
-`func (o *NewConfirmedInternalTransactionsAndEachConfirmationRI) SetTransactionId(v string)`
-
-SetTransactionId sets TransactionId field to given value.
 
 
 

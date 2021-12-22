@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **GasPrice** | [**GetTransactionDetailsByTransactionIDRIBSECGasPrice**](GetTransactionDetailsByTransactionIDRIBSECGasPrice.md) |  | 
 **GasUsed** | **string** | Represents the exact unit of gas that was used for the transaction. | 
 **InputData** | **string** | Represents additional information that is required for the transaction. | 
-**Nonce** | **string** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender&#39;s address. | 
+**Nonce** | **int32** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender&#39;s address. | 
 
 ## Methods
 
 ### NewGetTransactionDetailsByTransactionIDRIBSEC
 
-`func NewGetTransactionDetailsByTransactionIDRIBSEC(contract string, gasLimit string, gasPrice GetTransactionDetailsByTransactionIDRIBSECGasPrice, gasUsed string, inputData string, nonce string, ) *GetTransactionDetailsByTransactionIDRIBSEC`
+`func NewGetTransactionDetailsByTransactionIDRIBSEC(contract string, gasLimit string, gasPrice GetTransactionDetailsByTransactionIDRIBSECGasPrice, gasUsed string, inputData string, nonce int32, ) *GetTransactionDetailsByTransactionIDRIBSEC`
 
 NewGetTransactionDetailsByTransactionIDRIBSEC instantiates a new GetTransactionDetailsByTransactionIDRIBSEC object
 This constructor will assign default values to properties that have it defined,
@@ -132,20 +132,20 @@ SetInputData sets InputData field to given value.
 
 ### GetNonce
 
-`func (o *GetTransactionDetailsByTransactionIDRIBSEC) GetNonce() string`
+`func (o *GetTransactionDetailsByTransactionIDRIBSEC) GetNonce() int32`
 
 GetNonce returns the Nonce field if non-nil, zero value otherwise.
 
 ### GetNonceOk
 
-`func (o *GetTransactionDetailsByTransactionIDRIBSEC) GetNonceOk() (*string, bool)`
+`func (o *GetTransactionDetailsByTransactionIDRIBSEC) GetNonceOk() (*int32, bool)`
 
 GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNonce
 
-`func (o *GetTransactionDetailsByTransactionIDRIBSEC) SetNonce(v string)`
+`func (o *GetTransactionDetailsByTransactionIDRIBSEC) SetNonce(v int32)`
 
 SetNonce sets Nonce field to given value.
 

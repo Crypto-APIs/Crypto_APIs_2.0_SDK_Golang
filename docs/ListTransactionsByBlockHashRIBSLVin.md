@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Addresses** | **[]string** |  | 
 **Coinbase** | Pointer to **string** | Represents the coinbase hex. | [optional] 
-**ScriptSig** | [**GetTransactionDetailsByTransactionIDRIBSLScriptSig**](GetTransactionDetailsByTransactionIDRIBSLScriptSig.md) |  | 
+**ScriptSig** | [**ListTransactionsByBlockHashRIBSLScriptSig**](ListTransactionsByBlockHashRIBSLScriptSig.md) |  | 
 **Sequence** | **string** | Represents the script sequence number. | 
 **Txid** | **string** | Represents the reference transaction identifier. | 
 **Txinwitness** | **[]string** |  | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewListTransactionsByBlockHashRIBSLVin
 
-`func NewListTransactionsByBlockHashRIBSLVin(addresses []string, scriptSig GetTransactionDetailsByTransactionIDRIBSLScriptSig, sequence string, txid string, txinwitness []string, value string, vout int32, ) *ListTransactionsByBlockHashRIBSLVin`
+`func NewListTransactionsByBlockHashRIBSLVin(addresses []string, scriptSig ListTransactionsByBlockHashRIBSLScriptSig, sequence string, txid string, txinwitness []string, value string, vout int32, ) *ListTransactionsByBlockHashRIBSLVin`
 
 NewListTransactionsByBlockHashRIBSLVin instantiates a new ListTransactionsByBlockHashRIBSLVin object
 This constructor will assign default values to properties that have it defined,
@@ -79,20 +79,20 @@ HasCoinbase returns a boolean if a field has been set.
 
 ### GetScriptSig
 
-`func (o *ListTransactionsByBlockHashRIBSLVin) GetScriptSig() GetTransactionDetailsByTransactionIDRIBSLScriptSig`
+`func (o *ListTransactionsByBlockHashRIBSLVin) GetScriptSig() ListTransactionsByBlockHashRIBSLScriptSig`
 
 GetScriptSig returns the ScriptSig field if non-nil, zero value otherwise.
 
 ### GetScriptSigOk
 
-`func (o *ListTransactionsByBlockHashRIBSLVin) GetScriptSigOk() (*GetTransactionDetailsByTransactionIDRIBSLScriptSig, bool)`
+`func (o *ListTransactionsByBlockHashRIBSLVin) GetScriptSigOk() (*ListTransactionsByBlockHashRIBSLScriptSig, bool)`
 
 GetScriptSigOk returns a tuple with the ScriptSig field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScriptSig
 
-`func (o *ListTransactionsByBlockHashRIBSLVin) SetScriptSig(v GetTransactionDetailsByTransactionIDRIBSLScriptSig)`
+`func (o *ListTransactionsByBlockHashRIBSLVin) SetScriptSig(v ListTransactionsByBlockHashRIBSLScriptSig)`
 
 SetScriptSig sets ScriptSig field to given value.
 

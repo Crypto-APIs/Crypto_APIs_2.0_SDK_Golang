@@ -77,9 +77,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  GetExchangeRateByAssetSymbolsR
 	)
 
@@ -133,7 +131,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -156,7 +154,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40087
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -166,7 +164,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40187
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -176,7 +174,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -186,7 +184,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40387
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -196,7 +194,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -206,7 +204,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -216,7 +214,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CouldNotCalculateRateForPair
+			var v InlineResponse4224
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -226,7 +224,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -236,7 +234,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -308,9 +306,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 	var (
 		localVarHTTPMethod   = _nethttp.MethodGet
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  GetExchangeRateByAssetsIDsR
 	)
 
@@ -364,7 +360,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -387,7 +383,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40088
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -397,7 +393,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40188
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -407,7 +403,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -417,7 +413,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40388
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -427,7 +423,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InvalidData
+			var v InlineResponse409
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -437,7 +433,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -447,7 +443,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v CouldNotCalculateRateForPair
+			var v InlineResponse4225
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -457,7 +453,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -467,7 +463,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

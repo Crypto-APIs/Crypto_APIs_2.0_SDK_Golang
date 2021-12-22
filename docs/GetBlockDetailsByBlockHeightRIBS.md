@@ -20,13 +20,12 @@ Name | Type | Description | Notes
 **MinedInSeconds** | **int32** | Specifies the amount of time required for the block to be mined in seconds. | 
 **Sha3Uncles** | **string** | Defines the combined hash of all uncles for a given parent. | 
 **TotalDifficulty** | **string** | Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block. | 
-**Merkleroot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
 
 ## Methods
 
 ### NewGetBlockDetailsByBlockHeightRIBS
 
-`func NewGetBlockDetailsByBlockHeightRIBS(difficulty string, nonce string, size int32, bits string, chainwork string, merkleRoot string, strippedSize int32, version int32, versionHex string, weight int32, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, totalDifficulty string, merkleroot string, ) *GetBlockDetailsByBlockHeightRIBS`
+`func NewGetBlockDetailsByBlockHeightRIBS(difficulty string, nonce string, size int32, bits string, chainwork string, merkleRoot string, strippedSize int32, version int32, versionHex string, weight int32, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, totalDifficulty string, ) *GetBlockDetailsByBlockHeightRIBS`
 
 NewGetBlockDetailsByBlockHeightRIBS instantiates a new GetBlockDetailsByBlockHeightRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -359,26 +358,6 @@ and a boolean to check if the value has been set.
 `func (o *GetBlockDetailsByBlockHeightRIBS) SetTotalDifficulty(v string)`
 
 SetTotalDifficulty sets TotalDifficulty field to given value.
-
-
-### GetMerkleroot
-
-`func (o *GetBlockDetailsByBlockHeightRIBS) GetMerkleroot() string`
-
-GetMerkleroot returns the Merkleroot field if non-nil, zero value otherwise.
-
-### GetMerklerootOk
-
-`func (o *GetBlockDetailsByBlockHeightRIBS) GetMerklerootOk() (*string, bool)`
-
-GetMerklerootOk returns a tuple with the Merkleroot field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMerkleroot
-
-`func (o *GetBlockDetailsByBlockHeightRIBS) SetMerkleroot(v string)`
-
-SetMerkleroot sets Merkleroot field to given value.
 
 
 

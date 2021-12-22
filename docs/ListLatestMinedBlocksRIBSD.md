@@ -6,7 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bits** | **string** | Represents a specific sub-unit of Dash. Bits have two-decimal precision. | 
 **Chainwork** | **string** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | 
+**Difficulty** | **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
 **MerkleRoot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
+**Nonce** | **int32** | Represents a random value that can be adjusted to satisfy the proof of work | 
+**Size** | **int32** | Represents the total size of the block in Bytes. | 
 **Version** | **int32** | Represents the version of the specific block on the blockchain. | 
 **VersionHex** | **string** | Is the hexadecimal string representation of the block&#39;s version. | 
 
@@ -14,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewListLatestMinedBlocksRIBSD
 
-`func NewListLatestMinedBlocksRIBSD(bits string, chainwork string, merkleRoot string, version int32, versionHex string, ) *ListLatestMinedBlocksRIBSD`
+`func NewListLatestMinedBlocksRIBSD(bits string, chainwork string, difficulty string, merkleRoot string, nonce int32, size int32, version int32, versionHex string, ) *ListLatestMinedBlocksRIBSD`
 
 NewListLatestMinedBlocksRIBSD instantiates a new ListLatestMinedBlocksRIBSD object
 This constructor will assign default values to properties that have it defined,
@@ -69,6 +72,26 @@ and a boolean to check if the value has been set.
 SetChainwork sets Chainwork field to given value.
 
 
+### GetDifficulty
+
+`func (o *ListLatestMinedBlocksRIBSD) GetDifficulty() string`
+
+GetDifficulty returns the Difficulty field if non-nil, zero value otherwise.
+
+### GetDifficultyOk
+
+`func (o *ListLatestMinedBlocksRIBSD) GetDifficultyOk() (*string, bool)`
+
+GetDifficultyOk returns a tuple with the Difficulty field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDifficulty
+
+`func (o *ListLatestMinedBlocksRIBSD) SetDifficulty(v string)`
+
+SetDifficulty sets Difficulty field to given value.
+
+
 ### GetMerkleRoot
 
 `func (o *ListLatestMinedBlocksRIBSD) GetMerkleRoot() string`
@@ -87,6 +110,46 @@ and a boolean to check if the value has been set.
 `func (o *ListLatestMinedBlocksRIBSD) SetMerkleRoot(v string)`
 
 SetMerkleRoot sets MerkleRoot field to given value.
+
+
+### GetNonce
+
+`func (o *ListLatestMinedBlocksRIBSD) GetNonce() int32`
+
+GetNonce returns the Nonce field if non-nil, zero value otherwise.
+
+### GetNonceOk
+
+`func (o *ListLatestMinedBlocksRIBSD) GetNonceOk() (*int32, bool)`
+
+GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNonce
+
+`func (o *ListLatestMinedBlocksRIBSD) SetNonce(v int32)`
+
+SetNonce sets Nonce field to given value.
+
+
+### GetSize
+
+`func (o *ListLatestMinedBlocksRIBSD) GetSize() int32`
+
+GetSize returns the Size field if non-nil, zero value otherwise.
+
+### GetSizeOk
+
+`func (o *ListLatestMinedBlocksRIBSD) GetSizeOk() (*int32, bool)`
+
+GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSize
+
+`func (o *ListLatestMinedBlocksRIBSD) SetSize(v int32)`
+
+SetSize sets Size field to given value.
 
 
 ### GetVersion

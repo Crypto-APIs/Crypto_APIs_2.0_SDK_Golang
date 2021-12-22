@@ -23,8 +23,6 @@ type NewConfirmedTokensTransactionsRI struct {
 	CallbackSecretKey string `json:"callbackSecretKey"`
 	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
 	CallbackUrl string `json:"callbackUrl"`
-	// Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
-	ConfirmationsCount string `json:"confirmationsCount"`
 	// Defines the specific time/date when the subscription was created in Unix Timestamp.
 	CreatedTimestamp int32 `json:"createdTimestamp"`
 	// Defines the type of the specific event available for the customer to subscribe to for callback notification.
@@ -33,25 +31,21 @@ type NewConfirmedTokensTransactionsRI struct {
 	IsActive bool `json:"isActive"`
 	// Represents a unique ID used to reference the specific callback subscription.
 	ReferenceId string `json:"referenceId"`
-	// Represents the unique identification string that defines the transaction.
-	TransactionId string `json:"transactionId"`
 }
 
 // NewNewConfirmedTokensTransactionsRI instantiates a new NewConfirmedTokensTransactionsRI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNewConfirmedTokensTransactionsRI(address string, callbackSecretKey string, callbackUrl string, confirmationsCount string, createdTimestamp int32, eventType string, isActive bool, referenceId string, transactionId string) *NewConfirmedTokensTransactionsRI {
+func NewNewConfirmedTokensTransactionsRI(address string, callbackSecretKey string, callbackUrl string, createdTimestamp int32, eventType string, isActive bool, referenceId string) *NewConfirmedTokensTransactionsRI {
 	this := NewConfirmedTokensTransactionsRI{}
 	this.Address = address
 	this.CallbackSecretKey = callbackSecretKey
 	this.CallbackUrl = callbackUrl
-	this.ConfirmationsCount = confirmationsCount
 	this.CreatedTimestamp = createdTimestamp
 	this.EventType = eventType
 	this.IsActive = isActive
 	this.ReferenceId = referenceId
-	this.TransactionId = transactionId
 	return &this
 }
 
@@ -133,30 +127,6 @@ func (o *NewConfirmedTokensTransactionsRI) GetCallbackUrlOk() (*string, bool) {
 // SetCallbackUrl sets field value
 func (o *NewConfirmedTokensTransactionsRI) SetCallbackUrl(v string) {
 	o.CallbackUrl = v
-}
-
-// GetConfirmationsCount returns the ConfirmationsCount field value
-func (o *NewConfirmedTokensTransactionsRI) GetConfirmationsCount() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.ConfirmationsCount
-}
-
-// GetConfirmationsCountOk returns a tuple with the ConfirmationsCount field value
-// and a boolean to check if the value has been set.
-func (o *NewConfirmedTokensTransactionsRI) GetConfirmationsCountOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.ConfirmationsCount, true
-}
-
-// SetConfirmationsCount sets field value
-func (o *NewConfirmedTokensTransactionsRI) SetConfirmationsCount(v string) {
-	o.ConfirmationsCount = v
 }
 
 // GetCreatedTimestamp returns the CreatedTimestamp field value
@@ -255,30 +225,6 @@ func (o *NewConfirmedTokensTransactionsRI) SetReferenceId(v string) {
 	o.ReferenceId = v
 }
 
-// GetTransactionId returns the TransactionId field value
-func (o *NewConfirmedTokensTransactionsRI) GetTransactionId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.TransactionId
-}
-
-// GetTransactionIdOk returns a tuple with the TransactionId field value
-// and a boolean to check if the value has been set.
-func (o *NewConfirmedTokensTransactionsRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.TransactionId, true
-}
-
-// SetTransactionId sets field value
-func (o *NewConfirmedTokensTransactionsRI) SetTransactionId(v string) {
-	o.TransactionId = v
-}
-
 func (o NewConfirmedTokensTransactionsRI) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -291,9 +237,6 @@ func (o NewConfirmedTokensTransactionsRI) MarshalJSON() ([]byte, error) {
 		toSerialize["callbackUrl"] = o.CallbackUrl
 	}
 	if true {
-		toSerialize["confirmationsCount"] = o.ConfirmationsCount
-	}
-	if true {
 		toSerialize["createdTimestamp"] = o.CreatedTimestamp
 	}
 	if true {
@@ -304,9 +247,6 @@ func (o NewConfirmedTokensTransactionsRI) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["referenceId"] = o.ReferenceId
-	}
-	if true {
-		toSerialize["transactionId"] = o.TransactionId
 	}
 	return json.Marshal(toSerialize)
 }

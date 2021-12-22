@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Size** | **int32** | Represents the total size of the block in Bytes. | 
 **Bits** | **string** | A sub-unit of BTC equal to 0.000001 BTC, or 100 Satoshi, and is the same as microbitcoin (μBTC). Bits have two-decimal precision. | 
 **Chainwork** | **string** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | 
-**Merkleroot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
+**MerkleRoot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
 **Version** | **int32** | Represents the version of the specific block on the blockchain. | 
 **VersionHex** | **string** | Is the hexadecimal string representation of the block&#39;s version. | 
 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewGetBlockDetailsByBlockHashRIBSBC
 
-`func NewGetBlockDetailsByBlockHashRIBSBC(difficulty string, nonce string, size int32, bits string, chainwork string, merkleroot string, version int32, versionHex string, ) *GetBlockDetailsByBlockHashRIBSBC`
+`func NewGetBlockDetailsByBlockHashRIBSBC(difficulty string, nonce string, size int32, bits string, chainwork string, merkleRoot string, version int32, versionHex string, ) *GetBlockDetailsByBlockHashRIBSBC`
 
 NewGetBlockDetailsByBlockHashRIBSBC instantiates a new GetBlockDetailsByBlockHashRIBSBC object
 This constructor will assign default values to properties that have it defined,
@@ -132,24 +132,24 @@ and a boolean to check if the value has been set.
 SetChainwork sets Chainwork field to given value.
 
 
-### GetMerkleroot
+### GetMerkleRoot
 
-`func (o *GetBlockDetailsByBlockHashRIBSBC) GetMerkleroot() string`
+`func (o *GetBlockDetailsByBlockHashRIBSBC) GetMerkleRoot() string`
 
-GetMerkleroot returns the Merkleroot field if non-nil, zero value otherwise.
+GetMerkleRoot returns the MerkleRoot field if non-nil, zero value otherwise.
 
-### GetMerklerootOk
+### GetMerkleRootOk
 
-`func (o *GetBlockDetailsByBlockHashRIBSBC) GetMerklerootOk() (*string, bool)`
+`func (o *GetBlockDetailsByBlockHashRIBSBC) GetMerkleRootOk() (*string, bool)`
 
-GetMerklerootOk returns a tuple with the Merkleroot field if it's non-nil, zero value otherwise
+GetMerkleRootOk returns a tuple with the MerkleRoot field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMerkleroot
+### SetMerkleRoot
 
-`func (o *GetBlockDetailsByBlockHashRIBSBC) SetMerkleroot(v string)`
+`func (o *GetBlockDetailsByBlockHashRIBSBC) SetMerkleRoot(v string)`
 
-SetMerkleroot sets Merkleroot field to given value.
+SetMerkleRoot sets MerkleRoot field to given value.
 
 
 ### GetVersion

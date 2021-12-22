@@ -27,8 +27,8 @@ type ListLatestMinedBlocksRI struct {
 	Timestamp int32 `json:"timestamp"`
 	// Represents the total number of all transactions as part of this block.
 	TransactionsCount int32 `json:"transactionsCount"`
-	TotalCoins GetLatestMinedXRPRippleBlockRITotalCoins `json:"totalCoins"`
-	TotalFees GetLatestMinedXRPRippleBlockRITotalFees `json:"totalFees"`
+	TotalCoins ListLatestMinedBlocksRITotalCoins `json:"totalCoins"`
+	TotalFees ListLatestMinedBlocksRITotalFees `json:"totalFees"`
 	BlockchainSpecific ListLatestMinedBlocksRIBS `json:"blockchainSpecific"`
 }
 
@@ -36,7 +36,7 @@ type ListLatestMinedBlocksRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListLatestMinedBlocksRI(hash string, height int32, previousBlockHash string, timestamp int32, transactionsCount int32, totalCoins GetLatestMinedXRPRippleBlockRITotalCoins, totalFees GetLatestMinedXRPRippleBlockRITotalFees, blockchainSpecific ListLatestMinedBlocksRIBS) *ListLatestMinedBlocksRI {
+func NewListLatestMinedBlocksRI(hash string, height int32, previousBlockHash string, timestamp int32, transactionsCount int32, totalCoins ListLatestMinedBlocksRITotalCoins, totalFees ListLatestMinedBlocksRITotalFees, blockchainSpecific ListLatestMinedBlocksRIBS) *ListLatestMinedBlocksRI {
 	this := ListLatestMinedBlocksRI{}
 	this.Hash = hash
 	this.Height = height
@@ -178,9 +178,9 @@ func (o *ListLatestMinedBlocksRI) SetTransactionsCount(v int32) {
 }
 
 // GetTotalCoins returns the TotalCoins field value
-func (o *ListLatestMinedBlocksRI) GetTotalCoins() GetLatestMinedXRPRippleBlockRITotalCoins {
+func (o *ListLatestMinedBlocksRI) GetTotalCoins() ListLatestMinedBlocksRITotalCoins {
 	if o == nil {
-		var ret GetLatestMinedXRPRippleBlockRITotalCoins
+		var ret ListLatestMinedBlocksRITotalCoins
 		return ret
 	}
 
@@ -189,7 +189,7 @@ func (o *ListLatestMinedBlocksRI) GetTotalCoins() GetLatestMinedXRPRippleBlockRI
 
 // GetTotalCoinsOk returns a tuple with the TotalCoins field value
 // and a boolean to check if the value has been set.
-func (o *ListLatestMinedBlocksRI) GetTotalCoinsOk() (*GetLatestMinedXRPRippleBlockRITotalCoins, bool) {
+func (o *ListLatestMinedBlocksRI) GetTotalCoinsOk() (*ListLatestMinedBlocksRITotalCoins, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -197,14 +197,14 @@ func (o *ListLatestMinedBlocksRI) GetTotalCoinsOk() (*GetLatestMinedXRPRippleBlo
 }
 
 // SetTotalCoins sets field value
-func (o *ListLatestMinedBlocksRI) SetTotalCoins(v GetLatestMinedXRPRippleBlockRITotalCoins) {
+func (o *ListLatestMinedBlocksRI) SetTotalCoins(v ListLatestMinedBlocksRITotalCoins) {
 	o.TotalCoins = v
 }
 
 // GetTotalFees returns the TotalFees field value
-func (o *ListLatestMinedBlocksRI) GetTotalFees() GetLatestMinedXRPRippleBlockRITotalFees {
+func (o *ListLatestMinedBlocksRI) GetTotalFees() ListLatestMinedBlocksRITotalFees {
 	if o == nil {
-		var ret GetLatestMinedXRPRippleBlockRITotalFees
+		var ret ListLatestMinedBlocksRITotalFees
 		return ret
 	}
 
@@ -213,7 +213,7 @@ func (o *ListLatestMinedBlocksRI) GetTotalFees() GetLatestMinedXRPRippleBlockRIT
 
 // GetTotalFeesOk returns a tuple with the TotalFees field value
 // and a boolean to check if the value has been set.
-func (o *ListLatestMinedBlocksRI) GetTotalFeesOk() (*GetLatestMinedXRPRippleBlockRITotalFees, bool) {
+func (o *ListLatestMinedBlocksRI) GetTotalFeesOk() (*ListLatestMinedBlocksRITotalFees, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -221,7 +221,7 @@ func (o *ListLatestMinedBlocksRI) GetTotalFeesOk() (*GetLatestMinedXRPRippleBloc
 }
 
 // SetTotalFees sets field value
-func (o *ListLatestMinedBlocksRI) SetTotalFees(v GetLatestMinedXRPRippleBlockRITotalFees) {
+func (o *ListLatestMinedBlocksRI) SetTotalFees(v ListLatestMinedBlocksRITotalFees) {
 	o.TotalFees = v
 }
 

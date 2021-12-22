@@ -20,7 +20,7 @@ type GetTransactionDetailsByTransactionIDRI struct {
 	// Represents the index position of the transaction in the specific block.
 	Index int32 `json:"index"`
 	// Represents the state of the transaction whether it is confirmed or not confirmed.
-	IsConfirmed string `json:"isConfirmed"`
+	IsConfirmed bool `json:"isConfirmed"`
 	// Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
 	MinedInBlockHash *string `json:"minedInBlockHash,omitempty"`
 	// Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
@@ -43,7 +43,7 @@ type GetTransactionDetailsByTransactionIDRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDRI(index int32, isConfirmed string, recipients []GetTransactionDetailsByTransactionIDRIRecipients, senders []GetTransactionDetailsByTransactionIDRISenders, timestamp int32, transactionHash string, transactionId string, fee GetTransactionDetailsByTransactionIDRIFee, blockchainSpecific GetTransactionDetailsByTransactionIDRIBS) *GetTransactionDetailsByTransactionIDRI {
+func NewGetTransactionDetailsByTransactionIDRI(index int32, isConfirmed bool, recipients []GetTransactionDetailsByTransactionIDRIRecipients, senders []GetTransactionDetailsByTransactionIDRISenders, timestamp int32, transactionHash string, transactionId string, fee GetTransactionDetailsByTransactionIDRIFee, blockchainSpecific GetTransactionDetailsByTransactionIDRIBS) *GetTransactionDetailsByTransactionIDRI {
 	this := GetTransactionDetailsByTransactionIDRI{}
 	this.Index = index
 	this.IsConfirmed = isConfirmed
@@ -90,9 +90,9 @@ func (o *GetTransactionDetailsByTransactionIDRI) SetIndex(v int32) {
 }
 
 // GetIsConfirmed returns the IsConfirmed field value
-func (o *GetTransactionDetailsByTransactionIDRI) GetIsConfirmed() string {
+func (o *GetTransactionDetailsByTransactionIDRI) GetIsConfirmed() bool {
 	if o == nil {
-		var ret string
+		var ret bool
 		return ret
 	}
 
@@ -101,7 +101,7 @@ func (o *GetTransactionDetailsByTransactionIDRI) GetIsConfirmed() string {
 
 // GetIsConfirmedOk returns a tuple with the IsConfirmed field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDRI) GetIsConfirmedOk() (*string, bool) {
+func (o *GetTransactionDetailsByTransactionIDRI) GetIsConfirmedOk() (*bool, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -109,7 +109,7 @@ func (o *GetTransactionDetailsByTransactionIDRI) GetIsConfirmedOk() (*string, bo
 }
 
 // SetIsConfirmed sets field value
-func (o *GetTransactionDetailsByTransactionIDRI) SetIsConfirmed(v string) {
+func (o *GetTransactionDetailsByTransactionIDRI) SetIsConfirmed(v bool) {
 	o.IsConfirmed = v
 }
 

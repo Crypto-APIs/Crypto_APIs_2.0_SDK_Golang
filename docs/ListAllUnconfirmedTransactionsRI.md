@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **Recipients** | [**[]ListUnconfirmedTransactionsByAddressRIRecipients**](ListUnconfirmedTransactionsByAddressRIRecipients.md) | Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
 **Senders** | [**[]ListUnconfirmedTransactionsByAddressRISenders**](ListUnconfirmedTransactionsByAddressRISenders.md) | Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
 **Timestamp** | **int32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
+**TransactionHash** | **string** | String representation of the transaction hash | 
 **TransactionId** | **string** | Represents the unique identifier of a transaction, i.e. it could be &#x60;transactionId&#x60; in UTXO-based protocols like Bitcoin, and transaction &#x60;hash&#x60; in Ethereum blockchain. | 
 **BlockchainSpecific** | [**ListAllUnconfirmedTransactionsRIBS**](ListAllUnconfirmedTransactionsRIBS.md) |  | 
 
@@ -14,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewListAllUnconfirmedTransactionsRI
 
-`func NewListAllUnconfirmedTransactionsRI(recipients []ListUnconfirmedTransactionsByAddressRIRecipients, senders []ListUnconfirmedTransactionsByAddressRISenders, timestamp int32, transactionId string, blockchainSpecific ListAllUnconfirmedTransactionsRIBS, ) *ListAllUnconfirmedTransactionsRI`
+`func NewListAllUnconfirmedTransactionsRI(recipients []ListUnconfirmedTransactionsByAddressRIRecipients, senders []ListUnconfirmedTransactionsByAddressRISenders, timestamp int32, transactionHash string, transactionId string, blockchainSpecific ListAllUnconfirmedTransactionsRIBS, ) *ListAllUnconfirmedTransactionsRI`
 
 NewListAllUnconfirmedTransactionsRI instantiates a new ListAllUnconfirmedTransactionsRI object
 This constructor will assign default values to properties that have it defined,
@@ -87,6 +88,26 @@ and a boolean to check if the value has been set.
 `func (o *ListAllUnconfirmedTransactionsRI) SetTimestamp(v int32)`
 
 SetTimestamp sets Timestamp field to given value.
+
+
+### GetTransactionHash
+
+`func (o *ListAllUnconfirmedTransactionsRI) GetTransactionHash() string`
+
+GetTransactionHash returns the TransactionHash field if non-nil, zero value otherwise.
+
+### GetTransactionHashOk
+
+`func (o *ListAllUnconfirmedTransactionsRI) GetTransactionHashOk() (*string, bool)`
+
+GetTransactionHashOk returns a tuple with the TransactionHash field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransactionHash
+
+`func (o *ListAllUnconfirmedTransactionsRI) SetTransactionHash(v string)`
+
+SetTransactionHash sets TransactionHash field to given value.
 
 
 ### GetTransactionId

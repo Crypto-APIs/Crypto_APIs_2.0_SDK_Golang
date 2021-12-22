@@ -17,9 +17,9 @@ import (
 
 // GetTransactionDetailsByTransactionIDRIFee struct for GetTransactionDetailsByTransactionIDRIFee
 type GetTransactionDetailsByTransactionIDRIFee struct {
-	// Defines the amount of the transaction fee.
+	// When isConfirmed is True - Defines the amount of the transaction fee  When isConfirmed is False - For ETH-based blockchains this attribute represents the max fee value.
 	Amount string `json:"amount"`
-	// Defines the unit of the fee amount, e.g. BTC, ETH, XRP.
+	// Defines the fee unit.
 	Unit string `json:"unit"`
 }
 

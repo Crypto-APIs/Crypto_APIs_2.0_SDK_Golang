@@ -33,15 +33,13 @@ type NewConfirmedCoinsTransactionsAndEachConfirmationRI struct {
 	IsActive bool `json:"isActive"`
 	// Represents a unique ID used to reference the specific callback subscription.
 	ReferenceId string `json:"referenceId"`
-	// Represents the unique identification string that defines the transaction.
-	TransactionId string `json:"transactionId"`
 }
 
 // NewNewConfirmedCoinsTransactionsAndEachConfirmationRI instantiates a new NewConfirmedCoinsTransactionsAndEachConfirmationRI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNewConfirmedCoinsTransactionsAndEachConfirmationRI(address string, callbackSecretKey string, callbackUrl string, confirmationsCount int32, createdTimestamp int32, eventType string, isActive bool, referenceId string, transactionId string) *NewConfirmedCoinsTransactionsAndEachConfirmationRI {
+func NewNewConfirmedCoinsTransactionsAndEachConfirmationRI(address string, callbackSecretKey string, callbackUrl string, confirmationsCount int32, createdTimestamp int32, eventType string, isActive bool, referenceId string) *NewConfirmedCoinsTransactionsAndEachConfirmationRI {
 	this := NewConfirmedCoinsTransactionsAndEachConfirmationRI{}
 	this.Address = address
 	this.CallbackSecretKey = callbackSecretKey
@@ -51,7 +49,6 @@ func NewNewConfirmedCoinsTransactionsAndEachConfirmationRI(address string, callb
 	this.EventType = eventType
 	this.IsActive = isActive
 	this.ReferenceId = referenceId
-	this.TransactionId = transactionId
 	return &this
 }
 
@@ -255,30 +252,6 @@ func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) SetReferenceId(v st
 	o.ReferenceId = v
 }
 
-// GetTransactionId returns the TransactionId field value
-func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetTransactionId() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.TransactionId
-}
-
-// GetTransactionIdOk returns a tuple with the TransactionId field value
-// and a boolean to check if the value has been set.
-func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.TransactionId, true
-}
-
-// SetTransactionId sets field value
-func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) SetTransactionId(v string) {
-	o.TransactionId = v
-}
-
 func (o NewConfirmedCoinsTransactionsAndEachConfirmationRI) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -304,9 +277,6 @@ func (o NewConfirmedCoinsTransactionsAndEachConfirmationRI) MarshalJSON() ([]byt
 	}
 	if true {
 		toSerialize["referenceId"] = o.ReferenceId
-	}
-	if true {
-		toSerialize["transactionId"] = o.TransactionId
 	}
 	return json.Marshal(toSerialize)
 }

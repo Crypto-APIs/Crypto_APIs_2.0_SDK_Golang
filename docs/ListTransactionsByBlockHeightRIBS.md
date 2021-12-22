@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 **Overwintered** | **bool** | \&quot;Overwinter\&quot; is the network upgrade for the Zcash blockchain. | 
 **VJoinSplit** | [**[]ListTransactionsByBlockHeightRIBSZVJoinSplit**](ListTransactionsByBlockHeightRIBSZVJoinSplit.md) | Represents a sequence of JoinSplit descriptions using BCTV14 proofs. | 
 **VShieldedOutput** | [**[]ListTransactionsByBlockHeightRIBSZVShieldedOutput**](ListTransactionsByBlockHeightRIBSZVShieldedOutput.md) | Object Array representation of transaction output descriptions | 
-**VShieldedSpend** | [**[]ListConfirmedTransactionsByAddressRIBSZVShieldedSpend**](ListConfirmedTransactionsByAddressRIBSZVShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
+**VShieldedSpend** | [**[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend**](GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
 **ValueBalance** | **string** | Defines the transaction value balance. | 
 **VersionGroupId** | **string** | Represents the transaction version group ID. | 
 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewListTransactionsByBlockHeightRIBS
 
-`func NewListTransactionsByBlockHeightRIBS(locktime int32, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHeightRIBSZVin, vout []ListTransactionsByBlockHeightRIBSZVout, contract string, gasLimit string, gasPrice ListTransactionsByBlockHeightRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []ListTransactionsByBlockHeightRIBSZVJoinSplit, vShieldedOutput []ListTransactionsByBlockHeightRIBSZVShieldedOutput, vShieldedSpend []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, valueBalance string, versionGroupId string, ) *ListTransactionsByBlockHeightRIBS`
+`func NewListTransactionsByBlockHeightRIBS(locktime int32, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHeightRIBSZVin, vout []ListTransactionsByBlockHeightRIBSZVout, contract string, gasLimit string, gasPrice ListTransactionsByBlockHeightRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []ListTransactionsByBlockHeightRIBSZVJoinSplit, vShieldedOutput []ListTransactionsByBlockHeightRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, versionGroupId string, ) *ListTransactionsByBlockHeightRIBS`
 
 NewListTransactionsByBlockHeightRIBS instantiates a new ListTransactionsByBlockHeightRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -449,20 +449,20 @@ SetVShieldedOutput sets VShieldedOutput field to given value.
 
 ### GetVShieldedSpend
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetVShieldedSpend() []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend`
+`func (o *ListTransactionsByBlockHeightRIBS) GetVShieldedSpend() []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend`
 
 GetVShieldedSpend returns the VShieldedSpend field if non-nil, zero value otherwise.
 
 ### GetVShieldedSpendOk
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetVShieldedSpendOk() (*[]ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, bool)`
+`func (o *ListTransactionsByBlockHeightRIBS) GetVShieldedSpendOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, bool)`
 
 GetVShieldedSpendOk returns a tuple with the VShieldedSpend field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVShieldedSpend
 
-`func (o *ListTransactionsByBlockHeightRIBS) SetVShieldedSpend(v []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend)`
+`func (o *ListTransactionsByBlockHeightRIBS) SetVShieldedSpend(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend)`
 
 SetVShieldedSpend sets VShieldedSpend field to given value.
 

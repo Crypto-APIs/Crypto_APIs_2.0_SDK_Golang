@@ -26,6 +26,7 @@ type GetTransactionDetailsByTransactionIDRIBS struct {
 	GetTransactionDetailsByTransactionIDRIBSE *GetTransactionDetailsByTransactionIDRIBSE
 	GetTransactionDetailsByTransactionIDRIBSEC *GetTransactionDetailsByTransactionIDRIBSEC
 	GetTransactionDetailsByTransactionIDRIBSL *GetTransactionDetailsByTransactionIDRIBSL
+	GetTransactionDetailsByTransactionIDRIBSZ *GetTransactionDetailsByTransactionIDRIBSZ
 }
 
 // GetTransactionDetailsByTransactionIDRIBSBAsGetTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDRIBSB wrapped in GetTransactionDetailsByTransactionIDRIBS
@@ -66,6 +67,11 @@ func GetTransactionDetailsByTransactionIDRIBSECAsGetTransactionDetailsByTransact
 // GetTransactionDetailsByTransactionIDRIBSLAsGetTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDRIBSL wrapped in GetTransactionDetailsByTransactionIDRIBS
 func GetTransactionDetailsByTransactionIDRIBSLAsGetTransactionDetailsByTransactionIDRIBS(v *GetTransactionDetailsByTransactionIDRIBSL) GetTransactionDetailsByTransactionIDRIBS {
 	return GetTransactionDetailsByTransactionIDRIBS{ GetTransactionDetailsByTransactionIDRIBSL: v}
+}
+
+// GetTransactionDetailsByTransactionIDRIBSZAsGetTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDRIBSZ wrapped in GetTransactionDetailsByTransactionIDRIBS
+func GetTransactionDetailsByTransactionIDRIBSZAsGetTransactionDetailsByTransactionIDRIBS(v *GetTransactionDetailsByTransactionIDRIBSZ) GetTransactionDetailsByTransactionIDRIBS {
+	return GetTransactionDetailsByTransactionIDRIBS{ GetTransactionDetailsByTransactionIDRIBSZ: v}
 }
 
 
@@ -177,6 +183,19 @@ func (dst *GetTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []byte) 
 		dst.GetTransactionDetailsByTransactionIDRIBSL = nil
 	}
 
+	// try to unmarshal data into GetTransactionDetailsByTransactionIDRIBSZ
+	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDRIBSZ)
+	if err == nil {
+		jsonGetTransactionDetailsByTransactionIDRIBSZ, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDRIBSZ)
+		if string(jsonGetTransactionDetailsByTransactionIDRIBSZ) == "{}" { // empty struct
+			dst.GetTransactionDetailsByTransactionIDRIBSZ = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.GetTransactionDetailsByTransactionIDRIBSZ = nil
+	}
+
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.GetTransactionDetailsByTransactionIDRIBSB = nil
@@ -187,6 +206,7 @@ func (dst *GetTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []byte) 
 		dst.GetTransactionDetailsByTransactionIDRIBSE = nil
 		dst.GetTransactionDetailsByTransactionIDRIBSEC = nil
 		dst.GetTransactionDetailsByTransactionIDRIBSL = nil
+		dst.GetTransactionDetailsByTransactionIDRIBSZ = nil
 
 		return fmt.Errorf("Data matches more than one schema in oneOf(GetTransactionDetailsByTransactionIDRIBS)")
 	} else if match == 1 {
@@ -230,6 +250,10 @@ func (src GetTransactionDetailsByTransactionIDRIBS) MarshalJSON() ([]byte, error
 		return json.Marshal(&src.GetTransactionDetailsByTransactionIDRIBSL)
 	}
 
+	if src.GetTransactionDetailsByTransactionIDRIBSZ != nil {
+		return json.Marshal(&src.GetTransactionDetailsByTransactionIDRIBSZ)
+	}
+
 	return nil, nil // no data in oneOf schemas
 }
 
@@ -265,6 +289,10 @@ func (obj *GetTransactionDetailsByTransactionIDRIBS) GetActualInstance() (interf
 
 	if obj.GetTransactionDetailsByTransactionIDRIBSL != nil {
 		return obj.GetTransactionDetailsByTransactionIDRIBSL
+	}
+
+	if obj.GetTransactionDetailsByTransactionIDRIBSZ != nil {
+		return obj.GetTransactionDetailsByTransactionIDRIBSZ
 	}
 
 	// all schemas are nil

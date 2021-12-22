@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **CallbackSecretKey** | Pointer to **string** | Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security). | [optional] 
-**CallbackUrl** | **string** | Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. | 
+**CallbackUrl** | Pointer to **string** | Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. | [optional] 
 **SignedTransactionHex** | **string** | Represents the signed transaction&#39;s specific hex. | 
 
 ## Methods
 
 ### NewBroadcastLocallySignedTransactionRBDataItem
 
-`func NewBroadcastLocallySignedTransactionRBDataItem(callbackUrl string, signedTransactionHex string, ) *BroadcastLocallySignedTransactionRBDataItem`
+`func NewBroadcastLocallySignedTransactionRBDataItem(signedTransactionHex string, ) *BroadcastLocallySignedTransactionRBDataItem`
 
 NewBroadcastLocallySignedTransactionRBDataItem instantiates a new BroadcastLocallySignedTransactionRBDataItem object
 This constructor will assign default values to properties that have it defined,
@@ -71,6 +71,11 @@ and a boolean to check if the value has been set.
 
 SetCallbackUrl sets CallbackUrl field to given value.
 
+### HasCallbackUrl
+
+`func (o *BroadcastLocallySignedTransactionRBDataItem) HasCallbackUrl() bool`
+
+HasCallbackUrl returns a boolean if a field has been set.
 
 ### GetSignedTransactionHex
 

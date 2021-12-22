@@ -25,8 +25,6 @@ type ListWalletTransactionsRIValue struct {
 	ExchangeRateUnit string `json:"exchangeRateUnit"`
 	// Defines the unit of the transaction's amount.
 	Symbol string `json:"symbol"`
-	// Defines the token's identifier of the transaction's amount.
-	TokenIdentifier *string `json:"tokenIdentifier,omitempty"`
 }
 
 // NewListWalletTransactionsRIValue instantiates a new ListWalletTransactionsRIValue object
@@ -146,38 +144,6 @@ func (o *ListWalletTransactionsRIValue) SetSymbol(v string) {
 	o.Symbol = v
 }
 
-// GetTokenIdentifier returns the TokenIdentifier field value if set, zero value otherwise.
-func (o *ListWalletTransactionsRIValue) GetTokenIdentifier() string {
-	if o == nil || o.TokenIdentifier == nil {
-		var ret string
-		return ret
-	}
-	return *o.TokenIdentifier
-}
-
-// GetTokenIdentifierOk returns a tuple with the TokenIdentifier field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *ListWalletTransactionsRIValue) GetTokenIdentifierOk() (*string, bool) {
-	if o == nil || o.TokenIdentifier == nil {
-		return nil, false
-	}
-	return o.TokenIdentifier, true
-}
-
-// HasTokenIdentifier returns a boolean if a field has been set.
-func (o *ListWalletTransactionsRIValue) HasTokenIdentifier() bool {
-	if o != nil && o.TokenIdentifier != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTokenIdentifier gets a reference to the given string and assigns it to the TokenIdentifier field.
-func (o *ListWalletTransactionsRIValue) SetTokenIdentifier(v string) {
-	o.TokenIdentifier = &v
-}
-
 func (o ListWalletTransactionsRIValue) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -191,9 +157,6 @@ func (o ListWalletTransactionsRIValue) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["symbol"] = o.Symbol
-	}
-	if o.TokenIdentifier != nil {
-		toSerialize["tokenIdentifier"] = o.TokenIdentifier
 	}
 	return json.Marshal(toSerialize)
 }

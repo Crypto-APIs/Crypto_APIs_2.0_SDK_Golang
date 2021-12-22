@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Addresses** | **[]string** |  | 
 **Coinbase** | Pointer to **string** | Represents the coinbase hex. | [optional] 
 **ScriptSig** | [**GetTransactionDetailsByTransactionIDRIBSBScriptSig**](GetTransactionDetailsByTransactionIDRIBSBScriptSig.md) |  | 
-**Sequence** | **string** | Represents the script sequence number. | 
+**Sequence** | **int32** | Represents the script sequence number. | 
 **Txid** | Pointer to **string** | Represents the reference transaction identifier. | [optional] 
 **Txinwitness** | **[]string** |  | 
 **Value** | Pointer to **string** | Represents the sent/received amount. | [optional] 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewGetTransactionDetailsByTransactionIDRIBSBVin
 
-`func NewGetTransactionDetailsByTransactionIDRIBSBVin(addresses []string, scriptSig GetTransactionDetailsByTransactionIDRIBSBScriptSig, sequence string, txinwitness []string, ) *GetTransactionDetailsByTransactionIDRIBSBVin`
+`func NewGetTransactionDetailsByTransactionIDRIBSBVin(addresses []string, scriptSig GetTransactionDetailsByTransactionIDRIBSBScriptSig, sequence int32, txinwitness []string, ) *GetTransactionDetailsByTransactionIDRIBSBVin`
 
 NewGetTransactionDetailsByTransactionIDRIBSBVin instantiates a new GetTransactionDetailsByTransactionIDRIBSBVin object
 This constructor will assign default values to properties that have it defined,
@@ -99,20 +99,20 @@ SetScriptSig sets ScriptSig field to given value.
 
 ### GetSequence
 
-`func (o *GetTransactionDetailsByTransactionIDRIBSBVin) GetSequence() string`
+`func (o *GetTransactionDetailsByTransactionIDRIBSBVin) GetSequence() int32`
 
 GetSequence returns the Sequence field if non-nil, zero value otherwise.
 
 ### GetSequenceOk
 
-`func (o *GetTransactionDetailsByTransactionIDRIBSBVin) GetSequenceOk() (*string, bool)`
+`func (o *GetTransactionDetailsByTransactionIDRIBSBVin) GetSequenceOk() (*int32, bool)`
 
 GetSequenceOk returns a tuple with the Sequence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSequence
 
-`func (o *GetTransactionDetailsByTransactionIDRIBSBVin) SetSequence(v string)`
+`func (o *GetTransactionDetailsByTransactionIDRIBSBVin) SetSequence(v int32)`
 
 SetSequence sets Sequence field to given value.
 

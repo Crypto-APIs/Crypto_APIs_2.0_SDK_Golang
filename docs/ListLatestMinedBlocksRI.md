@@ -9,15 +9,15 @@ Name | Type | Description | Notes
 **PreviousBlockHash** | **string** | Represents the hash of the previous block, also known as the parent block. | 
 **Timestamp** | **int32** | Defines the exact date/time when this block was mined in Unix Timestamp. | 
 **TransactionsCount** | **int32** | Represents the total number of all transactions as part of this block. | 
-**TotalCoins** | [**GetLatestMinedXRPRippleBlockRITotalCoins**](GetLatestMinedXRPRippleBlockRITotalCoins.md) |  | 
-**TotalFees** | [**GetLatestMinedXRPRippleBlockRITotalFees**](GetLatestMinedXRPRippleBlockRITotalFees.md) |  | 
+**TotalCoins** | [**ListLatestMinedBlocksRITotalCoins**](ListLatestMinedBlocksRITotalCoins.md) |  | 
+**TotalFees** | [**ListLatestMinedBlocksRITotalFees**](ListLatestMinedBlocksRITotalFees.md) |  | 
 **BlockchainSpecific** | [**ListLatestMinedBlocksRIBS**](ListLatestMinedBlocksRIBS.md) |  | 
 
 ## Methods
 
 ### NewListLatestMinedBlocksRI
 
-`func NewListLatestMinedBlocksRI(hash string, height int32, previousBlockHash string, timestamp int32, transactionsCount int32, totalCoins GetLatestMinedXRPRippleBlockRITotalCoins, totalFees GetLatestMinedXRPRippleBlockRITotalFees, blockchainSpecific ListLatestMinedBlocksRIBS, ) *ListLatestMinedBlocksRI`
+`func NewListLatestMinedBlocksRI(hash string, height int32, previousBlockHash string, timestamp int32, transactionsCount int32, totalCoins ListLatestMinedBlocksRITotalCoins, totalFees ListLatestMinedBlocksRITotalFees, blockchainSpecific ListLatestMinedBlocksRIBS, ) *ListLatestMinedBlocksRI`
 
 NewListLatestMinedBlocksRI instantiates a new ListLatestMinedBlocksRI object
 This constructor will assign default values to properties that have it defined,
@@ -134,40 +134,40 @@ SetTransactionsCount sets TransactionsCount field to given value.
 
 ### GetTotalCoins
 
-`func (o *ListLatestMinedBlocksRI) GetTotalCoins() GetLatestMinedXRPRippleBlockRITotalCoins`
+`func (o *ListLatestMinedBlocksRI) GetTotalCoins() ListLatestMinedBlocksRITotalCoins`
 
 GetTotalCoins returns the TotalCoins field if non-nil, zero value otherwise.
 
 ### GetTotalCoinsOk
 
-`func (o *ListLatestMinedBlocksRI) GetTotalCoinsOk() (*GetLatestMinedXRPRippleBlockRITotalCoins, bool)`
+`func (o *ListLatestMinedBlocksRI) GetTotalCoinsOk() (*ListLatestMinedBlocksRITotalCoins, bool)`
 
 GetTotalCoinsOk returns a tuple with the TotalCoins field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTotalCoins
 
-`func (o *ListLatestMinedBlocksRI) SetTotalCoins(v GetLatestMinedXRPRippleBlockRITotalCoins)`
+`func (o *ListLatestMinedBlocksRI) SetTotalCoins(v ListLatestMinedBlocksRITotalCoins)`
 
 SetTotalCoins sets TotalCoins field to given value.
 
 
 ### GetTotalFees
 
-`func (o *ListLatestMinedBlocksRI) GetTotalFees() GetLatestMinedXRPRippleBlockRITotalFees`
+`func (o *ListLatestMinedBlocksRI) GetTotalFees() ListLatestMinedBlocksRITotalFees`
 
 GetTotalFees returns the TotalFees field if non-nil, zero value otherwise.
 
 ### GetTotalFeesOk
 
-`func (o *ListLatestMinedBlocksRI) GetTotalFeesOk() (*GetLatestMinedXRPRippleBlockRITotalFees, bool)`
+`func (o *ListLatestMinedBlocksRI) GetTotalFeesOk() (*ListLatestMinedBlocksRITotalFees, bool)`
 
 GetTotalFeesOk returns a tuple with the TotalFees field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTotalFees
 
-`func (o *ListLatestMinedBlocksRI) SetTotalFees(v GetLatestMinedXRPRippleBlockRITotalFees)`
+`func (o *ListLatestMinedBlocksRI) SetTotalFees(v ListLatestMinedBlocksRITotalFees)`
 
 SetTotalFees sets TotalFees field to given value.
 

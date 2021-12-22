@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Represents the transaction version number. | 
 **Vin** | [**[]ListTransactionsByBlockHashRIBSBVin**](ListTransactionsByBlockHashRIBSBVin.md) | Represents the transaction inputs. | 
-**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSBVout**](GetTransactionDetailsByTransactionIDRIBSBVout.md) | Represents the transaction outputs. | 
+**Vout** | [**[]ListTransactionsByBlockHashRIBSBVout**](ListTransactionsByBlockHashRIBSBVout.md) | Represents the transaction outputs. | 
 
 ## Methods
 
 ### NewListTransactionsByBlockHashRIBSB
 
-`func NewListTransactionsByBlockHashRIBSB(locktime int32, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHashRIBSBVin, vout []GetTransactionDetailsByTransactionIDRIBSBVout, ) *ListTransactionsByBlockHashRIBSB`
+`func NewListTransactionsByBlockHashRIBSB(locktime int32, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHashRIBSBVin, vout []ListTransactionsByBlockHashRIBSBVout, ) *ListTransactionsByBlockHashRIBSB`
 
 NewListTransactionsByBlockHashRIBSB instantiates a new ListTransactionsByBlockHashRIBSB object
 This constructor will assign default values to properties that have it defined,
@@ -132,20 +132,20 @@ SetVin sets Vin field to given value.
 
 ### GetVout
 
-`func (o *ListTransactionsByBlockHashRIBSB) GetVout() []GetTransactionDetailsByTransactionIDRIBSBVout`
+`func (o *ListTransactionsByBlockHashRIBSB) GetVout() []ListTransactionsByBlockHashRIBSBVout`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *ListTransactionsByBlockHashRIBSB) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSBVout, bool)`
+`func (o *ListTransactionsByBlockHashRIBSB) GetVoutOk() (*[]ListTransactionsByBlockHashRIBSBVout, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *ListTransactionsByBlockHashRIBSB) SetVout(v []GetTransactionDetailsByTransactionIDRIBSBVout)`
+`func (o *ListTransactionsByBlockHashRIBSB) SetVout(v []ListTransactionsByBlockHashRIBSBVout)`
 
 SetVout sets Vout field to given value.
 

@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Var1WeekPriceChangeInPercentage** | **string** | Represents the percentage of the asset&#39;s current price against the its price from 1 week ago. | 
 **Var24HoursPriceChangeInPercentage** | **string** | Represents the percentage of the asset&#39;s current price against the its price from 24 hours ago. | 
 **Var24HoursTradingVolume** | **string** | Represents the trading volume of the asset for the time frame of 24 hours. | 
-**AssetType** | **string** | Subtype of the crypto assets. Could be COIN or TOKEN | 
+**AssetType** | **string** | Represent a subtype of the crypto assets. Could be COIN or TOKEN. | 
 **CirculatingSupply** | **string** | Represents the amount of the asset that is circulating on the market and in public hands. | 
 **MarketCapInUSD** | **string** | Defines the total market value of the asset&#39;s circulating supply in USD. | 
 **MaxSupply** | **string** | Represents the maximum amount of all coins of a specific asset that will ever exist in its lifetime. | 

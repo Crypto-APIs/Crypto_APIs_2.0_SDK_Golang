@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetTransactionRequestDetails**](InformativeApi.md#GetTransactionRequestDetails) | **Get** /wallet-as-a-service/transactionRequests/{transactionRequestId} | Get Transaction Request Details
 [**GetWalletAssetDetails**](InformativeApi.md#GetWalletAssetDetails) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network} | Get Wallet Asset Details
+[**GetWalletTransactionDetailsByTransactionID**](InformativeApi.md#GetWalletTransactionDetailsByTransactionID) | **Get** /wallet-as-a-service/wallets/{blockchain}/{network}/transactions/{transactionId} | Get Wallet Transaction Details By Transaction ID
 [**ListDepositAddresses**](InformativeApi.md#ListDepositAddresses) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses | List Deposit Addresses
 [**ListSupportedTokens**](InformativeApi.md#ListSupportedTokens) | **Get** /wallet-as-a-service/info/{blockchain}/{network}/supported-tokens | List Supported Tokens
 [**ListWalletTransactions**](InformativeApi.md#ListWalletTransactions) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/transactions | List Wallet Transactions
@@ -147,6 +148,84 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetWalletAssetDetailsR**](GetWalletAssetDetailsR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## GetWalletTransactionDetailsByTransactionID
+
+> GetWalletTransactionDetailsByTransactionIDR GetWalletTransactionDetailsByTransactionID(ctx, blockchain, network, transactionId).Context(context).Execute()
+
+Get Wallet Transaction Details By Transaction ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    transactionId := "3e081861494aed897e589cdeab5d9e628d985e571ed1c19896d1aa698cce9d80" // string | Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
+    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    api_client := openapiclient.NewAPIClient(configuration)
+    resp, r, err := api_client.InformativeApi.GetWalletTransactionDetailsByTransactionID(context.Background(), blockchain, network, transactionId).Context(context).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `InformativeApi.GetWalletTransactionDetailsByTransactionID``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `GetWalletTransactionDetailsByTransactionID`: GetWalletTransactionDetailsByTransactionIDR
+    fmt.Fprintf(os.Stdout, "Response from `InformativeApi.GetWalletTransactionDetailsByTransactionID`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**blockchain** | **string** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+**network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+**transactionId** | **string** | Represents the unique identifier of a transaction, i.e. it could be &#x60;transactionId&#x60; in UTXO-based protocols like Bitcoin, and transaction &#x60;hash&#x60; in Ethereum blockchain. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiGetWalletTransactionDetailsByTransactionIDRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+
+ **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
+
+### Return type
+
+[**GetWalletTransactionDetailsByTransactionIDR**](GetWalletTransactionDetailsByTransactionIDR.md)
 
 ### Authorization
 
@@ -345,7 +424,7 @@ func main() {
     walletId := "60c9d9921c38030006675ff6" // string | Represents the unique ID of the specific Wallet.
     context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit := int32(50) // int32 | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
-    offset := int32(10) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
+    offset := int32(0) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)

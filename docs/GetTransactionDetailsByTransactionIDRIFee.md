@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | **string** | Defines the amount of the transaction fee. | 
-**Unit** | **string** | Defines the unit of the fee amount, e.g. BTC, ETH, XRP. | 
+**Amount** | **string** | When isConfirmed is True - Defines the amount of the transaction fee  When isConfirmed is False - For ETH-based blockchains this attribute represents the max fee value. | 
+**Unit** | **string** | Defines the fee unit. | 
 
 ## Methods
 

@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **ConvertedAmount** | **string** | Defines the converted amount of the transaction as a string. | 
 **ExchangeRateUnit** | **string** | Defines the exchange rate&#39;s unit. | 
 **Symbol** | **string** | Defines the unit of the transaction&#39;s amount. | 
-**TokenIdentifier** | Pointer to **string** | Defines the token&#39;s identifier of the transaction&#39;s amount. | [optional] 
 
 ## Methods
 
@@ -108,31 +107,6 @@ and a boolean to check if the value has been set.
 
 SetSymbol sets Symbol field to given value.
 
-
-### GetTokenIdentifier
-
-`func (o *ListWalletTransactionsRIValue) GetTokenIdentifier() string`
-
-GetTokenIdentifier returns the TokenIdentifier field if non-nil, zero value otherwise.
-
-### GetTokenIdentifierOk
-
-`func (o *ListWalletTransactionsRIValue) GetTokenIdentifierOk() (*string, bool)`
-
-GetTokenIdentifierOk returns a tuple with the TokenIdentifier field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTokenIdentifier
-
-`func (o *ListWalletTransactionsRIValue) SetTokenIdentifier(v string)`
-
-SetTokenIdentifier sets TokenIdentifier field to given value.
-
-### HasTokenIdentifier
-
-`func (o *ListWalletTransactionsRIValue) HasTokenIdentifier() bool`
-
-HasTokenIdentifier returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

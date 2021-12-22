@@ -29,7 +29,7 @@ type ListAssetsDetailsRI struct {
 	// Defines the type of the supported asset. This could be either \"crypto\" or \"fiat\".
 	AssetType string `json:"assetType"`
 	LatestRate ListAssetsDetailsRILatestRate `json:"latestRate"`
-	// Asset`s unique slug string in Crypto APIs listings
+	// Represents the asset`s unique slug string in Crypto APIs listings.
 	Slug *string `json:"slug,omitempty"`
 	SpecificData ListAssetsDetailsRIS `json:"specificData"`
 }

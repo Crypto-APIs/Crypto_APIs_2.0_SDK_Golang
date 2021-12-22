@@ -36,7 +36,7 @@ type ListTransactionsByBlockHeightRIBSZ struct {
 	// Object Array representation of transaction output descriptions
 	VShieldedOutput []ListTransactionsByBlockHeightRIBSZVShieldedOutput `json:"vShieldedOutput"`
 	// Object Array representation of transaction spend descriptions
-	VShieldedSpend []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend `json:"vShieldedSpend"`
+	VShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend `json:"vShieldedSpend"`
 	// Defines the transaction value balance.
 	ValueBalance string `json:"valueBalance"`
 	// Represents the transaction version number.
@@ -53,7 +53,7 @@ type ListTransactionsByBlockHeightRIBSZ struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListTransactionsByBlockHeightRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int32, overwintered bool, size int32, vJoinSplit []ListTransactionsByBlockHeightRIBSZVJoinSplit, vShieldedOutput []ListTransactionsByBlockHeightRIBSZVShieldedOutput, vShieldedSpend []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []ListTransactionsByBlockHeightRIBSZVin, vout []ListTransactionsByBlockHeightRIBSZVout) *ListTransactionsByBlockHeightRIBSZ {
+func NewListTransactionsByBlockHeightRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int32, overwintered bool, size int32, vJoinSplit []ListTransactionsByBlockHeightRIBSZVJoinSplit, vShieldedOutput []ListTransactionsByBlockHeightRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []ListTransactionsByBlockHeightRIBSZVin, vout []ListTransactionsByBlockHeightRIBSZVout) *ListTransactionsByBlockHeightRIBSZ {
 	this := ListTransactionsByBlockHeightRIBSZ{}
 	this.BindingSig = bindingSig
 	this.ExpiryHeight = expiryHeight
@@ -298,9 +298,9 @@ func (o *ListTransactionsByBlockHeightRIBSZ) SetVShieldedOutput(v []ListTransact
 }
 
 // GetVShieldedSpend returns the VShieldedSpend field value
-func (o *ListTransactionsByBlockHeightRIBSZ) GetVShieldedSpend() []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend {
+func (o *ListTransactionsByBlockHeightRIBSZ) GetVShieldedSpend() []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend {
 	if o == nil {
-		var ret []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend
+		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
 		return ret
 	}
 
@@ -309,7 +309,7 @@ func (o *ListTransactionsByBlockHeightRIBSZ) GetVShieldedSpend() []ListConfirmed
 
 // GetVShieldedSpendOk returns a tuple with the VShieldedSpend field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHeightRIBSZ) GetVShieldedSpendOk() (*[]ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, bool) {
+func (o *ListTransactionsByBlockHeightRIBSZ) GetVShieldedSpendOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -317,7 +317,7 @@ func (o *ListTransactionsByBlockHeightRIBSZ) GetVShieldedSpendOk() (*[]ListConfi
 }
 
 // SetVShieldedSpend sets field value
-func (o *ListTransactionsByBlockHeightRIBSZ) SetVShieldedSpend(v []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend) {
+func (o *ListTransactionsByBlockHeightRIBSZ) SetVShieldedSpend(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) {
 	o.VShieldedSpend = v
 }
 

@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Index** | **int32** | Represents the index position of the transaction in the specific block. | 
-**IsConfirmed** | **string** | Represents the state of the transaction whether it is confirmed or not confirmed. | 
+**IsConfirmed** | **bool** | Represents the state of the transaction whether it is confirmed or not confirmed. | 
 **MinedInBlockHash** | Pointer to **string** | Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | [optional] 
 **MinedInBlockHeight** | Pointer to **int32** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | [optional] 
 **Recipients** | [**[]GetTransactionDetailsByTransactionIDRIRecipients**](GetTransactionDetailsByTransactionIDRIRecipients.md) | Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewGetTransactionDetailsByTransactionIDRI
 
-`func NewGetTransactionDetailsByTransactionIDRI(index int32, isConfirmed string, recipients []GetTransactionDetailsByTransactionIDRIRecipients, senders []GetTransactionDetailsByTransactionIDRISenders, timestamp int32, transactionHash string, transactionId string, fee GetTransactionDetailsByTransactionIDRIFee, blockchainSpecific GetTransactionDetailsByTransactionIDRIBS, ) *GetTransactionDetailsByTransactionIDRI`
+`func NewGetTransactionDetailsByTransactionIDRI(index int32, isConfirmed bool, recipients []GetTransactionDetailsByTransactionIDRIRecipients, senders []GetTransactionDetailsByTransactionIDRISenders, timestamp int32, transactionHash string, transactionId string, fee GetTransactionDetailsByTransactionIDRIFee, blockchainSpecific GetTransactionDetailsByTransactionIDRIBS, ) *GetTransactionDetailsByTransactionIDRI`
 
 NewGetTransactionDetailsByTransactionIDRI instantiates a new GetTransactionDetailsByTransactionIDRI object
 This constructor will assign default values to properties that have it defined,
@@ -57,20 +57,20 @@ SetIndex sets Index field to given value.
 
 ### GetIsConfirmed
 
-`func (o *GetTransactionDetailsByTransactionIDRI) GetIsConfirmed() string`
+`func (o *GetTransactionDetailsByTransactionIDRI) GetIsConfirmed() bool`
 
 GetIsConfirmed returns the IsConfirmed field if non-nil, zero value otherwise.
 
 ### GetIsConfirmedOk
 
-`func (o *GetTransactionDetailsByTransactionIDRI) GetIsConfirmedOk() (*string, bool)`
+`func (o *GetTransactionDetailsByTransactionIDRI) GetIsConfirmedOk() (*bool, bool)`
 
 GetIsConfirmedOk returns a tuple with the IsConfirmed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIsConfirmed
 
-`func (o *GetTransactionDetailsByTransactionIDRI) SetIsConfirmed(v string)`
+`func (o *GetTransactionDetailsByTransactionIDRI) SetIsConfirmed(v bool)`
 
 SetIsConfirmed sets IsConfirmed field to given value.
 

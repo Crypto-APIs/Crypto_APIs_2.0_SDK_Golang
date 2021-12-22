@@ -27,6 +27,8 @@ type ListConfirmedTokensTransfersByAddressRI struct {
 	SenderAddress string `json:"senderAddress"`
 	// Defines the decimals of the token, i.e. the number of digits that come after the decimal coma of the token.
 	TokenDecimals int32 `json:"tokenDecimals"`
+	// Represents the unique token identifier.
+	TokenId *string `json:"tokenId,omitempty"`
 	// Defines the token's name as a string.
 	TokenName string `json:"tokenName"`
 	// Defines the token symbol by which the token contract is known. It is usually 3-4 characters in length.
@@ -34,7 +36,7 @@ type ListConfirmedTokensTransfersByAddressRI struct {
 	// Defines the specific token type.
 	TokenType string `json:"tokenType"`
 	// Defines the token amount of the transfer.
-	TokensAmount string `json:"tokensAmount"`
+	TokensAmount *string `json:"tokensAmount,omitempty"`
 	// Represents the hash of the transaction, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
 	TransactionHash string `json:"transactionHash"`
 	// Defines the specific time/date when the transaction was created in Unix Timestamp.
@@ -45,7 +47,7 @@ type ListConfirmedTokensTransfersByAddressRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListConfirmedTokensTransfersByAddressRI(contractAddress string, minedInBlockHeight int32, recipientAddress string, senderAddress string, tokenDecimals int32, tokenName string, tokenSymbol string, tokenType string, tokensAmount string, transactionHash string, transactionTimestamp int32) *ListConfirmedTokensTransfersByAddressRI {
+func NewListConfirmedTokensTransfersByAddressRI(contractAddress string, minedInBlockHeight int32, recipientAddress string, senderAddress string, tokenDecimals int32, tokenName string, tokenSymbol string, tokenType string, transactionHash string, transactionTimestamp int32) *ListConfirmedTokensTransfersByAddressRI {
 	this := ListConfirmedTokensTransfersByAddressRI{}
 	this.ContractAddress = contractAddress
 	this.MinedInBlockHeight = minedInBlockHeight
@@ -55,7 +57,6 @@ func NewListConfirmedTokensTransfersByAddressRI(contractAddress string, minedInB
 	this.TokenName = tokenName
 	this.TokenSymbol = tokenSymbol
 	this.TokenType = tokenType
-	this.TokensAmount = tokensAmount
 	this.TransactionHash = transactionHash
 	this.TransactionTimestamp = transactionTimestamp
 	return &this
@@ -189,6 +190,38 @@ func (o *ListConfirmedTokensTransfersByAddressRI) SetTokenDecimals(v int32) {
 	o.TokenDecimals = v
 }
 
+// GetTokenId returns the TokenId field value if set, zero value otherwise.
+func (o *ListConfirmedTokensTransfersByAddressRI) GetTokenId() string {
+	if o == nil || o.TokenId == nil {
+		var ret string
+		return ret
+	}
+	return *o.TokenId
+}
+
+// GetTokenIdOk returns a tuple with the TokenId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListConfirmedTokensTransfersByAddressRI) GetTokenIdOk() (*string, bool) {
+	if o == nil || o.TokenId == nil {
+		return nil, false
+	}
+	return o.TokenId, true
+}
+
+// HasTokenId returns a boolean if a field has been set.
+func (o *ListConfirmedTokensTransfersByAddressRI) HasTokenId() bool {
+	if o != nil && o.TokenId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTokenId gets a reference to the given string and assigns it to the TokenId field.
+func (o *ListConfirmedTokensTransfersByAddressRI) SetTokenId(v string) {
+	o.TokenId = &v
+}
+
 // GetTokenName returns the TokenName field value
 func (o *ListConfirmedTokensTransfersByAddressRI) GetTokenName() string {
 	if o == nil {
@@ -261,28 +294,36 @@ func (o *ListConfirmedTokensTransfersByAddressRI) SetTokenType(v string) {
 	o.TokenType = v
 }
 
-// GetTokensAmount returns the TokensAmount field value
+// GetTokensAmount returns the TokensAmount field value if set, zero value otherwise.
 func (o *ListConfirmedTokensTransfersByAddressRI) GetTokensAmount() string {
-	if o == nil {
+	if o == nil || o.TokensAmount == nil {
 		var ret string
 		return ret
 	}
-
-	return o.TokensAmount
+	return *o.TokensAmount
 }
 
-// GetTokensAmountOk returns a tuple with the TokensAmount field value
+// GetTokensAmountOk returns a tuple with the TokensAmount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListConfirmedTokensTransfersByAddressRI) GetTokensAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.TokensAmount == nil {
 		return nil, false
 	}
-	return &o.TokensAmount, true
+	return o.TokensAmount, true
 }
 
-// SetTokensAmount sets field value
+// HasTokensAmount returns a boolean if a field has been set.
+func (o *ListConfirmedTokensTransfersByAddressRI) HasTokensAmount() bool {
+	if o != nil && o.TokensAmount != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTokensAmount gets a reference to the given string and assigns it to the TokensAmount field.
 func (o *ListConfirmedTokensTransfersByAddressRI) SetTokensAmount(v string) {
-	o.TokensAmount = v
+	o.TokensAmount = &v
 }
 
 // GetTransactionHash returns the TransactionHash field value
@@ -350,6 +391,9 @@ func (o ListConfirmedTokensTransfersByAddressRI) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["tokenDecimals"] = o.TokenDecimals
 	}
+	if o.TokenId != nil {
+		toSerialize["tokenId"] = o.TokenId
+	}
 	if true {
 		toSerialize["tokenName"] = o.TokenName
 	}
@@ -359,7 +403,7 @@ func (o ListConfirmedTokensTransfersByAddressRI) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["tokenType"] = o.TokenType
 	}
-	if true {
+	if o.TokensAmount != nil {
 		toSerialize["tokensAmount"] = o.TokensAmount
 	}
 	if true {

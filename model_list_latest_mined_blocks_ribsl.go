@@ -21,8 +21,14 @@ type ListLatestMinedBlocksRIBSL struct {
 	Bits string `json:"bits"`
 	// Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
 	Chainwork string `json:"chainwork"`
+	// Represents a mathematical value of how hard it is to find a valid hash for this block.
+	Difficulty string `json:"difficulty"`
 	// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
 	MerkleRoot string `json:"merkleRoot"`
+	// Represents a random value that can be adjusted to satisfy the proof of work
+	Nonce int32 `json:"nonce"`
+	// Represents the total size of the block in Bytes.
+	Size int32 `json:"size"`
 	// Defines the numeric representation of the block size excluding the witness data.
 	StrippedSize int32 `json:"strippedSize"`
 	// Represents the version of the specific block on the blockchain.
@@ -37,11 +43,14 @@ type ListLatestMinedBlocksRIBSL struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListLatestMinedBlocksRIBSL(bits string, chainwork string, merkleRoot string, strippedSize int32, version int32, versionHex string, weight int32) *ListLatestMinedBlocksRIBSL {
+func NewListLatestMinedBlocksRIBSL(bits string, chainwork string, difficulty string, merkleRoot string, nonce int32, size int32, strippedSize int32, version int32, versionHex string, weight int32) *ListLatestMinedBlocksRIBSL {
 	this := ListLatestMinedBlocksRIBSL{}
 	this.Bits = bits
 	this.Chainwork = chainwork
+	this.Difficulty = difficulty
 	this.MerkleRoot = merkleRoot
+	this.Nonce = nonce
+	this.Size = size
 	this.StrippedSize = strippedSize
 	this.Version = version
 	this.VersionHex = versionHex
@@ -105,6 +114,30 @@ func (o *ListLatestMinedBlocksRIBSL) SetChainwork(v string) {
 	o.Chainwork = v
 }
 
+// GetDifficulty returns the Difficulty field value
+func (o *ListLatestMinedBlocksRIBSL) GetDifficulty() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Difficulty
+}
+
+// GetDifficultyOk returns a tuple with the Difficulty field value
+// and a boolean to check if the value has been set.
+func (o *ListLatestMinedBlocksRIBSL) GetDifficultyOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Difficulty, true
+}
+
+// SetDifficulty sets field value
+func (o *ListLatestMinedBlocksRIBSL) SetDifficulty(v string) {
+	o.Difficulty = v
+}
+
 // GetMerkleRoot returns the MerkleRoot field value
 func (o *ListLatestMinedBlocksRIBSL) GetMerkleRoot() string {
 	if o == nil {
@@ -127,6 +160,54 @@ func (o *ListLatestMinedBlocksRIBSL) GetMerkleRootOk() (*string, bool) {
 // SetMerkleRoot sets field value
 func (o *ListLatestMinedBlocksRIBSL) SetMerkleRoot(v string) {
 	o.MerkleRoot = v
+}
+
+// GetNonce returns the Nonce field value
+func (o *ListLatestMinedBlocksRIBSL) GetNonce() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Nonce
+}
+
+// GetNonceOk returns a tuple with the Nonce field value
+// and a boolean to check if the value has been set.
+func (o *ListLatestMinedBlocksRIBSL) GetNonceOk() (*int32, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Nonce, true
+}
+
+// SetNonce sets field value
+func (o *ListLatestMinedBlocksRIBSL) SetNonce(v int32) {
+	o.Nonce = v
+}
+
+// GetSize returns the Size field value
+func (o *ListLatestMinedBlocksRIBSL) GetSize() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Size
+}
+
+// GetSizeOk returns a tuple with the Size field value
+// and a boolean to check if the value has been set.
+func (o *ListLatestMinedBlocksRIBSL) GetSizeOk() (*int32, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Size, true
+}
+
+// SetSize sets field value
+func (o *ListLatestMinedBlocksRIBSL) SetSize(v int32) {
+	o.Size = v
 }
 
 // GetStrippedSize returns the StrippedSize field value
@@ -234,7 +315,16 @@ func (o ListLatestMinedBlocksRIBSL) MarshalJSON() ([]byte, error) {
 		toSerialize["chainwork"] = o.Chainwork
 	}
 	if true {
+		toSerialize["difficulty"] = o.Difficulty
+	}
+	if true {
 		toSerialize["merkleRoot"] = o.MerkleRoot
+	}
+	if true {
+		toSerialize["nonce"] = o.Nonce
+	}
+	if true {
+		toSerialize["size"] = o.Size
 	}
 	if true {
 		toSerialize["strippedSize"] = o.StrippedSize

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Size** | **int32** | Represents the total size of this transaction. | 
 **VJoinSplit** | [**[]ListTransactionsByBlockHeightRIBSZVJoinSplit**](ListTransactionsByBlockHeightRIBSZVJoinSplit.md) | Represents a sequence of JoinSplit descriptions using BCTV14 proofs. | 
 **VShieldedOutput** | [**[]ListTransactionsByBlockHeightRIBSZVShieldedOutput**](ListTransactionsByBlockHeightRIBSZVShieldedOutput.md) | Object Array representation of transaction output descriptions | 
-**VShieldedSpend** | [**[]ListConfirmedTransactionsByAddressRIBSZVShieldedSpend**](ListConfirmedTransactionsByAddressRIBSZVShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
+**VShieldedSpend** | [**[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend**](GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
 **ValueBalance** | **string** | Defines the transaction value balance. | 
 **Version** | **int32** | Represents the transaction version number. | 
 **VersionGroupId** | **string** | Represents the transaction version group ID. | 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewListTransactionsByBlockHeightRIBSZ
 
-`func NewListTransactionsByBlockHeightRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int32, overwintered bool, size int32, vJoinSplit []ListTransactionsByBlockHeightRIBSZVJoinSplit, vShieldedOutput []ListTransactionsByBlockHeightRIBSZVShieldedOutput, vShieldedSpend []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []ListTransactionsByBlockHeightRIBSZVin, vout []ListTransactionsByBlockHeightRIBSZVout, ) *ListTransactionsByBlockHeightRIBSZ`
+`func NewListTransactionsByBlockHeightRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int32, overwintered bool, size int32, vJoinSplit []ListTransactionsByBlockHeightRIBSZVJoinSplit, vShieldedOutput []ListTransactionsByBlockHeightRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []ListTransactionsByBlockHeightRIBSZVin, vout []ListTransactionsByBlockHeightRIBSZVout, ) *ListTransactionsByBlockHeightRIBSZ`
 
 NewListTransactionsByBlockHeightRIBSZ instantiates a new ListTransactionsByBlockHeightRIBSZ object
 This constructor will assign default values to properties that have it defined,
@@ -221,20 +221,20 @@ SetVShieldedOutput sets VShieldedOutput field to given value.
 
 ### GetVShieldedSpend
 
-`func (o *ListTransactionsByBlockHeightRIBSZ) GetVShieldedSpend() []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend`
+`func (o *ListTransactionsByBlockHeightRIBSZ) GetVShieldedSpend() []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend`
 
 GetVShieldedSpend returns the VShieldedSpend field if non-nil, zero value otherwise.
 
 ### GetVShieldedSpendOk
 
-`func (o *ListTransactionsByBlockHeightRIBSZ) GetVShieldedSpendOk() (*[]ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, bool)`
+`func (o *ListTransactionsByBlockHeightRIBSZ) GetVShieldedSpendOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, bool)`
 
 GetVShieldedSpendOk returns a tuple with the VShieldedSpend field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVShieldedSpend
 
-`func (o *ListTransactionsByBlockHeightRIBSZ) SetVShieldedSpend(v []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend)`
+`func (o *ListTransactionsByBlockHeightRIBSZ) SetVShieldedSpend(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend)`
 
 SetVShieldedSpend sets VShieldedSpend field to given value.
 

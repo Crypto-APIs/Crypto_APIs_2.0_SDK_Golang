@@ -19,15 +19,18 @@ import (
 type ListAllUnconfirmedTransactionsRIBSECFee struct {
 	// String representation of the fee value
 	Amount string `json:"amount"`
+	// Represents the fee unit.
+	Unit string `json:"unit"`
 }
 
 // NewListAllUnconfirmedTransactionsRIBSECFee instantiates a new ListAllUnconfirmedTransactionsRIBSECFee object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListAllUnconfirmedTransactionsRIBSECFee(amount string) *ListAllUnconfirmedTransactionsRIBSECFee {
+func NewListAllUnconfirmedTransactionsRIBSECFee(amount string, unit string) *ListAllUnconfirmedTransactionsRIBSECFee {
 	this := ListAllUnconfirmedTransactionsRIBSECFee{}
 	this.Amount = amount
+	this.Unit = unit
 	return &this
 }
 
@@ -63,10 +66,37 @@ func (o *ListAllUnconfirmedTransactionsRIBSECFee) SetAmount(v string) {
 	o.Amount = v
 }
 
+// GetUnit returns the Unit field value
+func (o *ListAllUnconfirmedTransactionsRIBSECFee) GetUnit() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Unit
+}
+
+// GetUnitOk returns a tuple with the Unit field value
+// and a boolean to check if the value has been set.
+func (o *ListAllUnconfirmedTransactionsRIBSECFee) GetUnitOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Unit, true
+}
+
+// SetUnit sets field value
+func (o *ListAllUnconfirmedTransactionsRIBSECFee) SetUnit(v string) {
+	o.Unit = v
+}
+
 func (o ListAllUnconfirmedTransactionsRIBSECFee) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["amount"] = o.Amount
+	}
+	if true {
+		toSerialize["unit"] = o.Unit
 	}
 	return json.Marshal(toSerialize)
 }

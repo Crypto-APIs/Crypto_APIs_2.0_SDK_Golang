@@ -12,19 +12,19 @@ Name | Type | Description | Notes
 **Overwintered** | **bool** | \&quot;Overwinter\&quot; is the network upgrade for the Zcash blockchain. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **VJoinSplit** | [**[]ListTransactionsByBlockHashRIBSZVJoinSplit**](ListTransactionsByBlockHashRIBSZVJoinSplit.md) | Represents a sequence of JoinSplit descriptions using BCTV14 proofs. | 
-**VShieldedOutput** | [**[]ListConfirmedTransactionsByAddressRIBSZVShieldedOutput**](ListConfirmedTransactionsByAddressRIBSZVShieldedOutput.md) | Object Array representation of transaction output descriptions | 
-**VShieldedSpend** | [**[]ListConfirmedTransactionsByAddressRIBSZVShieldedSpend**](ListConfirmedTransactionsByAddressRIBSZVShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
+**VShieldedOutput** | [**[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput**](GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput.md) | Object Array representation of transaction output descriptions | 
+**VShieldedSpend** | [**[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend**](GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
 **ValueBalance** | **string** | Defines the transaction value balance. | 
 **Version** | **int32** | Numeric representation of the transaction Represents the transaction version number. | 
 **VersionGroupId** | **string** | Represents the transaction version group ID. | 
 **Vin** | [**[]ListTransactionsByBlockHashRIBSZVin**](ListTransactionsByBlockHashRIBSZVin.md) | Object Array representation of transaction inputs | 
-**Vout** | [**[]ListConfirmedTransactionsByAddressRIBSZVout**](ListConfirmedTransactionsByAddressRIBSZVout.md) | Object Array representation of transaction outputs | 
+**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSZVout**](GetTransactionDetailsByTransactionIDRIBSZVout.md) | Object Array representation of transaction outputs | 
 
 ## Methods
 
 ### NewListTransactionsByBlockHashRIBSZ
 
-`func NewListTransactionsByBlockHashRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int32, overwintered bool, size int32, vJoinSplit []ListTransactionsByBlockHashRIBSZVJoinSplit, vShieldedOutput []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput, vShieldedSpend []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []ListTransactionsByBlockHashRIBSZVin, vout []ListConfirmedTransactionsByAddressRIBSZVout, ) *ListTransactionsByBlockHashRIBSZ`
+`func NewListTransactionsByBlockHashRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int32, overwintered bool, size int32, vJoinSplit []ListTransactionsByBlockHashRIBSZVJoinSplit, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []ListTransactionsByBlockHashRIBSZVin, vout []GetTransactionDetailsByTransactionIDRIBSZVout, ) *ListTransactionsByBlockHashRIBSZ`
 
 NewListTransactionsByBlockHashRIBSZ instantiates a new ListTransactionsByBlockHashRIBSZ object
 This constructor will assign default values to properties that have it defined,
@@ -201,40 +201,40 @@ SetVJoinSplit sets VJoinSplit field to given value.
 
 ### GetVShieldedOutput
 
-`func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedOutput() []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput`
+`func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedOutput() []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput`
 
 GetVShieldedOutput returns the VShieldedOutput field if non-nil, zero value otherwise.
 
 ### GetVShieldedOutputOk
 
-`func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedOutputOk() (*[]ListConfirmedTransactionsByAddressRIBSZVShieldedOutput, bool)`
+`func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedOutputOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, bool)`
 
 GetVShieldedOutputOk returns a tuple with the VShieldedOutput field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVShieldedOutput
 
-`func (o *ListTransactionsByBlockHashRIBSZ) SetVShieldedOutput(v []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput)`
+`func (o *ListTransactionsByBlockHashRIBSZ) SetVShieldedOutput(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput)`
 
 SetVShieldedOutput sets VShieldedOutput field to given value.
 
 
 ### GetVShieldedSpend
 
-`func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedSpend() []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend`
+`func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedSpend() []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend`
 
 GetVShieldedSpend returns the VShieldedSpend field if non-nil, zero value otherwise.
 
 ### GetVShieldedSpendOk
 
-`func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedSpendOk() (*[]ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, bool)`
+`func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedSpendOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, bool)`
 
 GetVShieldedSpendOk returns a tuple with the VShieldedSpend field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVShieldedSpend
 
-`func (o *ListTransactionsByBlockHashRIBSZ) SetVShieldedSpend(v []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend)`
+`func (o *ListTransactionsByBlockHashRIBSZ) SetVShieldedSpend(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend)`
 
 SetVShieldedSpend sets VShieldedSpend field to given value.
 
@@ -321,20 +321,20 @@ SetVin sets Vin field to given value.
 
 ### GetVout
 
-`func (o *ListTransactionsByBlockHashRIBSZ) GetVout() []ListConfirmedTransactionsByAddressRIBSZVout`
+`func (o *ListTransactionsByBlockHashRIBSZ) GetVout() []GetTransactionDetailsByTransactionIDRIBSZVout`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *ListTransactionsByBlockHashRIBSZ) GetVoutOk() (*[]ListConfirmedTransactionsByAddressRIBSZVout, bool)`
+`func (o *ListTransactionsByBlockHashRIBSZ) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVout, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *ListTransactionsByBlockHashRIBSZ) SetVout(v []ListConfirmedTransactionsByAddressRIBSZVout)`
+`func (o *ListTransactionsByBlockHashRIBSZ) SetVout(v []GetTransactionDetailsByTransactionIDRIBSZVout)`
 
 SetVout sets Vout field to given value.
 

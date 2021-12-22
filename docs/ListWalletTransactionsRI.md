@@ -6,6 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Direction** | **string** | Defines the direction of the transaction, e.g. incoming. | 
 **Fee** | [**ListWalletTransactionsRIFee**](ListWalletTransactionsRIFee.md) |  | 
+**FungibleTokens** | Pointer to [**[]ListWalletTransactionsRIFungibleTokens**](ListWalletTransactionsRIFungibleTokens.md) | Represents fungible tokens&#39;es detailed information | [optional] 
+**InternalTransactions** | Pointer to [**[]ListWalletTransactionsRIInternalTransactions**](ListWalletTransactionsRIInternalTransactions.md) |  | [optional] 
+**NonFungibleTokens** | Pointer to [**[]ListWalletTransactionsRINonFungibleTokens**](ListWalletTransactionsRINonFungibleTokens.md) | Represents non-fungible tokens&#39;es detailed information. | [optional] 
 **Recipients** | [**[]ListWalletTransactionsRIRecipients**](ListWalletTransactionsRIRecipients.md) | Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
 **Senders** | [**[]ListWalletTransactionsRISenders**](ListWalletTransactionsRISenders.md) | Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
 **Status** | **string** | Defines the status of the transaction, if it is confirmed or unconfirmed. | 
@@ -71,6 +74,81 @@ and a boolean to check if the value has been set.
 
 SetFee sets Fee field to given value.
 
+
+### GetFungibleTokens
+
+`func (o *ListWalletTransactionsRI) GetFungibleTokens() []ListWalletTransactionsRIFungibleTokens`
+
+GetFungibleTokens returns the FungibleTokens field if non-nil, zero value otherwise.
+
+### GetFungibleTokensOk
+
+`func (o *ListWalletTransactionsRI) GetFungibleTokensOk() (*[]ListWalletTransactionsRIFungibleTokens, bool)`
+
+GetFungibleTokensOk returns a tuple with the FungibleTokens field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFungibleTokens
+
+`func (o *ListWalletTransactionsRI) SetFungibleTokens(v []ListWalletTransactionsRIFungibleTokens)`
+
+SetFungibleTokens sets FungibleTokens field to given value.
+
+### HasFungibleTokens
+
+`func (o *ListWalletTransactionsRI) HasFungibleTokens() bool`
+
+HasFungibleTokens returns a boolean if a field has been set.
+
+### GetInternalTransactions
+
+`func (o *ListWalletTransactionsRI) GetInternalTransactions() []ListWalletTransactionsRIInternalTransactions`
+
+GetInternalTransactions returns the InternalTransactions field if non-nil, zero value otherwise.
+
+### GetInternalTransactionsOk
+
+`func (o *ListWalletTransactionsRI) GetInternalTransactionsOk() (*[]ListWalletTransactionsRIInternalTransactions, bool)`
+
+GetInternalTransactionsOk returns a tuple with the InternalTransactions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInternalTransactions
+
+`func (o *ListWalletTransactionsRI) SetInternalTransactions(v []ListWalletTransactionsRIInternalTransactions)`
+
+SetInternalTransactions sets InternalTransactions field to given value.
+
+### HasInternalTransactions
+
+`func (o *ListWalletTransactionsRI) HasInternalTransactions() bool`
+
+HasInternalTransactions returns a boolean if a field has been set.
+
+### GetNonFungibleTokens
+
+`func (o *ListWalletTransactionsRI) GetNonFungibleTokens() []ListWalletTransactionsRINonFungibleTokens`
+
+GetNonFungibleTokens returns the NonFungibleTokens field if non-nil, zero value otherwise.
+
+### GetNonFungibleTokensOk
+
+`func (o *ListWalletTransactionsRI) GetNonFungibleTokensOk() (*[]ListWalletTransactionsRINonFungibleTokens, bool)`
+
+GetNonFungibleTokensOk returns a tuple with the NonFungibleTokens field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNonFungibleTokens
+
+`func (o *ListWalletTransactionsRI) SetNonFungibleTokens(v []ListWalletTransactionsRINonFungibleTokens)`
+
+SetNonFungibleTokens sets NonFungibleTokens field to given value.
+
+### HasNonFungibleTokens
+
+`func (o *ListWalletTransactionsRI) HasNonFungibleTokens() bool`
+
+HasNonFungibleTokens returns a boolean if a field has been set.
 
 ### GetRecipients
 

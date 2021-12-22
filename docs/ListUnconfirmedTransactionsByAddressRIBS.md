@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Size** | **int32** | Represents the total size of this transaction. | 
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Defines the version of the transaction. | 
-**Vin** | [**[]ListUnconfirmedTransactionsByAddressRIBSZVin**](ListUnconfirmedTransactionsByAddressRIBSZVin.md) | Object Array representation of transaction inputs | 
-**Vout** | [**[]ListConfirmedTransactionsByAddressRIBSZVout**](ListConfirmedTransactionsByAddressRIBSZVout.md) | Object Array representation of transaction outputs | 
+**Vin** | [**[]GetTransactionDetailsByTransactionIDRIBSZVin**](GetTransactionDetailsByTransactionIDRIBSZVin.md) | Object Array representation of transaction inputs | 
+**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSZVout**](GetTransactionDetailsByTransactionIDRIBSZVout.md) | Object Array representation of transaction outputs | 
 **Fee** | [**ListUnconfirmedTransactionsByAddressRIBSECFee**](ListUnconfirmedTransactionsByAddressRIBSECFee.md) |  | 
 **GasLimit** | **string** | Represents the amount of gas used by this specific transaction alone. | 
 **GasPrice** | [**ListConfirmedTransactionsByAddressRIBSBSCGasPrice**](ListConfirmedTransactionsByAddressRIBSBSCGasPrice.md) |  | 
@@ -22,8 +22,8 @@ Name | Type | Description | Notes
 **JoinSplitSig** | **string** | Is used to sign transactions that contain at least one JoinSplit description. | 
 **Overwintered** | **bool** | \&quot;Overwinter\&quot; is the network upgrade for the Zcash blockchain. | 
 **VJoinSplit** | [**[]ListConfirmedTransactionsByAddressRIBSZVJoinSplit**](ListConfirmedTransactionsByAddressRIBSZVJoinSplit.md) | Represents a sequence of JoinSplit descriptions using BCTV14 proofs. | 
-**VShieldedOutput** | [**[]ListConfirmedTransactionsByAddressRIBSZVShieldedOutput**](ListConfirmedTransactionsByAddressRIBSZVShieldedOutput.md) | Object Array representation of transaction output descriptions | 
-**VShieldedSpend** | [**[]ListConfirmedTransactionsByAddressRIBSZVShieldedSpend**](ListConfirmedTransactionsByAddressRIBSZVShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
+**VShieldedOutput** | [**[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput**](GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput.md) | Object Array representation of transaction output descriptions | 
+**VShieldedSpend** | [**[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend**](GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
 **ValueBalance** | **string** | Defines the transaction value balance. | 
 **VersionGroupId** | **string** | Represents the transaction version group ID. | 
 
@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 ### NewListUnconfirmedTransactionsByAddressRIBS
 
-`func NewListUnconfirmedTransactionsByAddressRIBS(locktime int32, size int32, vSize int32, version int32, vin []ListUnconfirmedTransactionsByAddressRIBSZVin, vout []ListConfirmedTransactionsByAddressRIBSZVout, fee ListUnconfirmedTransactionsByAddressRIBSECFee, gasLimit string, gasPrice ListConfirmedTransactionsByAddressRIBSBSCGasPrice, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []ListConfirmedTransactionsByAddressRIBSZVJoinSplit, vShieldedOutput []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput, vShieldedSpend []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, valueBalance string, versionGroupId string, ) *ListUnconfirmedTransactionsByAddressRIBS`
+`func NewListUnconfirmedTransactionsByAddressRIBS(locktime int32, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSZVin, vout []GetTransactionDetailsByTransactionIDRIBSZVout, fee ListUnconfirmedTransactionsByAddressRIBSECFee, gasLimit string, gasPrice ListConfirmedTransactionsByAddressRIBSBSCGasPrice, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []ListConfirmedTransactionsByAddressRIBSZVJoinSplit, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, versionGroupId string, ) *ListUnconfirmedTransactionsByAddressRIBS`
 
 NewListUnconfirmedTransactionsByAddressRIBS instantiates a new ListUnconfirmedTransactionsByAddressRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -128,40 +128,40 @@ SetVersion sets Version field to given value.
 
 ### GetVin
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVin() []ListUnconfirmedTransactionsByAddressRIBSZVin`
+`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVin() []GetTransactionDetailsByTransactionIDRIBSZVin`
 
 GetVin returns the Vin field if non-nil, zero value otherwise.
 
 ### GetVinOk
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVinOk() (*[]ListUnconfirmedTransactionsByAddressRIBSZVin, bool)`
+`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVinOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVin, bool)`
 
 GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVin
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBS) SetVin(v []ListUnconfirmedTransactionsByAddressRIBSZVin)`
+`func (o *ListUnconfirmedTransactionsByAddressRIBS) SetVin(v []GetTransactionDetailsByTransactionIDRIBSZVin)`
 
 SetVin sets Vin field to given value.
 
 
 ### GetVout
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVout() []ListConfirmedTransactionsByAddressRIBSZVout`
+`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVout() []GetTransactionDetailsByTransactionIDRIBSZVout`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVoutOk() (*[]ListConfirmedTransactionsByAddressRIBSZVout, bool)`
+`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVout, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBS) SetVout(v []ListConfirmedTransactionsByAddressRIBSZVout)`
+`func (o *ListUnconfirmedTransactionsByAddressRIBS) SetVout(v []GetTransactionDetailsByTransactionIDRIBSZVout)`
 
 SetVout sets Vout field to given value.
 
@@ -408,40 +408,40 @@ SetVJoinSplit sets VJoinSplit field to given value.
 
 ### GetVShieldedOutput
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVShieldedOutput() []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput`
+`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVShieldedOutput() []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput`
 
 GetVShieldedOutput returns the VShieldedOutput field if non-nil, zero value otherwise.
 
 ### GetVShieldedOutputOk
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVShieldedOutputOk() (*[]ListConfirmedTransactionsByAddressRIBSZVShieldedOutput, bool)`
+`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVShieldedOutputOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, bool)`
 
 GetVShieldedOutputOk returns a tuple with the VShieldedOutput field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVShieldedOutput
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBS) SetVShieldedOutput(v []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput)`
+`func (o *ListUnconfirmedTransactionsByAddressRIBS) SetVShieldedOutput(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput)`
 
 SetVShieldedOutput sets VShieldedOutput field to given value.
 
 
 ### GetVShieldedSpend
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVShieldedSpend() []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend`
+`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVShieldedSpend() []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend`
 
 GetVShieldedSpend returns the VShieldedSpend field if non-nil, zero value otherwise.
 
 ### GetVShieldedSpendOk
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVShieldedSpendOk() (*[]ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, bool)`
+`func (o *ListUnconfirmedTransactionsByAddressRIBS) GetVShieldedSpendOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, bool)`
 
 GetVShieldedSpendOk returns a tuple with the VShieldedSpend field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVShieldedSpend
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBS) SetVShieldedSpend(v []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend)`
+`func (o *ListUnconfirmedTransactionsByAddressRIBS) SetVShieldedSpend(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend)`
 
 SetVShieldedSpend sets VShieldedSpend field to given value.
 

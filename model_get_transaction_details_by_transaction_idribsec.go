@@ -27,14 +27,14 @@ type GetTransactionDetailsByTransactionIDRIBSEC struct {
 	// Represents additional information that is required for the transaction.
 	InputData string `json:"inputData"`
 	// Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.
-	Nonce string `json:"nonce"`
+	Nonce int32 `json:"nonce"`
 }
 
 // NewGetTransactionDetailsByTransactionIDRIBSEC instantiates a new GetTransactionDetailsByTransactionIDRIBSEC object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDRIBSEC(contract string, gasLimit string, gasPrice GetTransactionDetailsByTransactionIDRIBSECGasPrice, gasUsed string, inputData string, nonce string) *GetTransactionDetailsByTransactionIDRIBSEC {
+func NewGetTransactionDetailsByTransactionIDRIBSEC(contract string, gasLimit string, gasPrice GetTransactionDetailsByTransactionIDRIBSECGasPrice, gasUsed string, inputData string, nonce int32) *GetTransactionDetailsByTransactionIDRIBSEC {
 	this := GetTransactionDetailsByTransactionIDRIBSEC{}
 	this.Contract = contract
 	this.GasLimit = gasLimit
@@ -174,9 +174,9 @@ func (o *GetTransactionDetailsByTransactionIDRIBSEC) SetInputData(v string) {
 }
 
 // GetNonce returns the Nonce field value
-func (o *GetTransactionDetailsByTransactionIDRIBSEC) GetNonce() string {
+func (o *GetTransactionDetailsByTransactionIDRIBSEC) GetNonce() int32 {
 	if o == nil {
-		var ret string
+		var ret int32
 		return ret
 	}
 
@@ -185,7 +185,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSEC) GetNonce() string {
 
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDRIBSEC) GetNonceOk() (*string, bool) {
+func (o *GetTransactionDetailsByTransactionIDRIBSEC) GetNonceOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -193,7 +193,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSEC) GetNonceOk() (*string, bool
 }
 
 // SetNonce sets field value
-func (o *GetTransactionDetailsByTransactionIDRIBSEC) SetNonce(v string) {
+func (o *GetTransactionDetailsByTransactionIDRIBSEC) SetNonce(v int32) {
 	o.Nonce = v
 }
 

@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Contract** | Pointer to **string** | Represents the specific transaction contract | [optional] 
+**Contract** | **string** | Represents the specific transaction contract | 
 **GasLimit** | **string** | Represents the amount of gas used by this specific transaction alone. | 
 **GasPrice** | [**GetTransactionDetailsByTransactionIDRIBSBSCGasPrice**](GetTransactionDetailsByTransactionIDRIBSBSCGasPrice.md) |  | 
 **GasUsed** | **string** | Defines the unit of the gas price amount, e.g. BTC, ETH, XRP. | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewGetTransactionDetailsByTransactionIDRIBSBSC
 
-`func NewGetTransactionDetailsByTransactionIDRIBSBSC(gasLimit string, gasPrice GetTransactionDetailsByTransactionIDRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32, ) *GetTransactionDetailsByTransactionIDRIBSBSC`
+`func NewGetTransactionDetailsByTransactionIDRIBSBSC(contract string, gasLimit string, gasPrice GetTransactionDetailsByTransactionIDRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32, ) *GetTransactionDetailsByTransactionIDRIBSBSC`
 
 NewGetTransactionDetailsByTransactionIDRIBSBSC instantiates a new GetTransactionDetailsByTransactionIDRIBSBSC object
 This constructor will assign default values to properties that have it defined,
@@ -49,11 +49,6 @@ and a boolean to check if the value has been set.
 
 SetContract sets Contract field to given value.
 
-### HasContract
-
-`func (o *GetTransactionDetailsByTransactionIDRIBSBSC) HasContract() bool`
-
-HasContract returns a boolean if a field has been set.
 
 ### GetGasLimit
 

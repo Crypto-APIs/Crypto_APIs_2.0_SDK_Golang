@@ -6,7 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bits** | **string** | Represents a specific sub-unit of Zcash. Bits have two-decimal precision | 
 **Chainwork** | **string** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | 
-**Merkleroot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
+**Difficulty** | **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
+**MerkleRoot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
 **Nonce** | **string** | Represents a random value that can be adjusted to satisfy the proof of work | 
 **Size** | **int32** | Represents the total size of the block in Bytes. | 
 **Version** | **int32** | Represents the transaction version number. | 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewListLatestMinedBlocksRIBSZ2
 
-`func NewListLatestMinedBlocksRIBSZ2(bits string, chainwork string, merkleroot string, nonce string, size int32, version int32, ) *ListLatestMinedBlocksRIBSZ2`
+`func NewListLatestMinedBlocksRIBSZ2(bits string, chainwork string, difficulty string, merkleRoot string, nonce string, size int32, version int32, ) *ListLatestMinedBlocksRIBSZ2`
 
 NewListLatestMinedBlocksRIBSZ2 instantiates a new ListLatestMinedBlocksRIBSZ2 object
 This constructor will assign default values to properties that have it defined,
@@ -70,24 +71,44 @@ and a boolean to check if the value has been set.
 SetChainwork sets Chainwork field to given value.
 
 
-### GetMerkleroot
+### GetDifficulty
 
-`func (o *ListLatestMinedBlocksRIBSZ2) GetMerkleroot() string`
+`func (o *ListLatestMinedBlocksRIBSZ2) GetDifficulty() string`
 
-GetMerkleroot returns the Merkleroot field if non-nil, zero value otherwise.
+GetDifficulty returns the Difficulty field if non-nil, zero value otherwise.
 
-### GetMerklerootOk
+### GetDifficultyOk
 
-`func (o *ListLatestMinedBlocksRIBSZ2) GetMerklerootOk() (*string, bool)`
+`func (o *ListLatestMinedBlocksRIBSZ2) GetDifficultyOk() (*string, bool)`
 
-GetMerklerootOk returns a tuple with the Merkleroot field if it's non-nil, zero value otherwise
+GetDifficultyOk returns a tuple with the Difficulty field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetMerkleroot
+### SetDifficulty
 
-`func (o *ListLatestMinedBlocksRIBSZ2) SetMerkleroot(v string)`
+`func (o *ListLatestMinedBlocksRIBSZ2) SetDifficulty(v string)`
 
-SetMerkleroot sets Merkleroot field to given value.
+SetDifficulty sets Difficulty field to given value.
+
+
+### GetMerkleRoot
+
+`func (o *ListLatestMinedBlocksRIBSZ2) GetMerkleRoot() string`
+
+GetMerkleRoot returns the MerkleRoot field if non-nil, zero value otherwise.
+
+### GetMerkleRootOk
+
+`func (o *ListLatestMinedBlocksRIBSZ2) GetMerkleRootOk() (*string, bool)`
+
+GetMerkleRootOk returns a tuple with the MerkleRoot field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMerkleRoot
+
+`func (o *ListLatestMinedBlocksRIBSZ2) SetMerkleRoot(v string)`
+
+SetMerkleRoot sets MerkleRoot field to given value.
 
 
 ### GetNonce

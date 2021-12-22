@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | **string** | Represents the address of the transaction, per which the result is returned. | 
 **CallbackUrl** | **string** | Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. | 
+**ConfirmationsCount** | Pointer to **int32** | Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block. | [optional] 
 **CreatedTimestamp** | **int32** | Defines the specific time/date when the subscription was created in Unix Timestamp. | 
 **EventType** | **string** | Defines the type of the specific event available for the customer to subscribe to for callback notification. | 
 **ReferenceId** | **string** | Represents a unique ID used to reference the specific callback subscription. | 
@@ -68,6 +69,31 @@ and a boolean to check if the value has been set.
 
 SetCallbackUrl sets CallbackUrl field to given value.
 
+
+### GetConfirmationsCount
+
+`func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetConfirmationsCount() int32`
+
+GetConfirmationsCount returns the ConfirmationsCount field if non-nil, zero value otherwise.
+
+### GetConfirmationsCountOk
+
+`func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetConfirmationsCountOk() (*int32, bool)`
+
+GetConfirmationsCountOk returns a tuple with the ConfirmationsCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfirmationsCount
+
+`func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) SetConfirmationsCount(v int32)`
+
+SetConfirmationsCount sets ConfirmationsCount field to given value.
+
+### HasConfirmationsCount
+
+`func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) HasConfirmationsCount() bool`
+
+HasConfirmationsCount returns a boolean if a field has been set.
 
 ### GetCreatedTimestamp
 

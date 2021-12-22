@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**CreateCoinsTransactionFromAddressForWholeAmount**](TransactionsApi.md#CreateCoinsTransactionFromAddressForWholeAmount) | **Post** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/all-transaction-requests | Create Coins Transaction From Address For Whole Amount
 [**CreateCoinsTransactionRequestFromAddress**](TransactionsApi.md#CreateCoinsTransactionRequestFromAddress) | **Post** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/transaction-requests | Create Coins Transaction Request from Address
 [**CreateCoinsTransactionRequestFromWallet**](TransactionsApi.md#CreateCoinsTransactionRequestFromWallet) | **Post** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/transaction-requests | Create Coins Transaction Request from Wallet
-[**CreateTokensTransactionRequestFromAddress**](TransactionsApi.md#CreateTokensTransactionRequestFromAddress) | **Post** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/token-transaction-requests | Create Tokens Transaction Request from Address
+[**CreateFungibleTokensTransactionRequestFromAddress**](TransactionsApi.md#CreateFungibleTokensTransactionRequestFromAddress) | **Post** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/token-transaction-requests | Create Fungible Tokens Transaction Request from Address
 
 
 
@@ -257,11 +257,11 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
-## CreateTokensTransactionRequestFromAddress
+## CreateFungibleTokensTransactionRequestFromAddress
 
-> CreateTokensTransactionRequestFromAddressR CreateTokensTransactionRequestFromAddress(ctx, blockchain, network, senderAddress, walletId).Context(context).CreateTokensTransactionRequestFromAddressRB(createTokensTransactionRequestFromAddressRB).Execute()
+> CreateFungibleTokensTransactionRequestFromAddressR CreateFungibleTokensTransactionRequestFromAddress(ctx, blockchain, network, senderAddress, walletId).Context(context).CreateFungibleTokensTransactionRequestFromAddressRB(createFungibleTokensTransactionRequestFromAddressRB).Execute()
 
-Create Tokens Transaction Request from Address
+Create Fungible Tokens Transaction Request from Address
 
 
 
@@ -283,17 +283,17 @@ func main() {
     senderAddress := "0x6f61e3c2fbb8c8be698bd0907ba6c04b62800fe5" // string | Defines the specific source address for the transaction.
     walletId := "609e221675d04500068718dc" // string | Defines the unique ID of the Wallet.
     context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    createTokensTransactionRequestFromAddressRB := *openapiclient.NewCreateTokensTransactionRequestFromAddressRB(*openapiclient.NewCreateTokensTransactionRequestFromAddressRBData(*openapiclient.NewCreateTokensTransactionRequestFromAddressRBDataItem("0.2", "standard", "0xc065b539490f81b6c297c37b1925c3be2f190732", "0xdac17f958d2ee523a2206206994597c13d831ec7"))) // CreateTokensTransactionRequestFromAddressRB |  (optional)
+    createFungibleTokensTransactionRequestFromAddressRB := *openapiclient.NewCreateFungibleTokensTransactionRequestFromAddressRB(*openapiclient.NewCreateFungibleTokensTransactionRequestFromAddressRBData(*openapiclient.NewCreateFungibleTokensTransactionRequestFromAddressRBDataItem("0.2", "standard", "0xc065b539490f81b6c297c37b1925c3be2f190732", "0xdac17f958d2ee523a2206206994597c13d831ec7"))) // CreateFungibleTokensTransactionRequestFromAddressRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.TransactionsApi.CreateTokensTransactionRequestFromAddress(context.Background(), blockchain, network, senderAddress, walletId).Context(context).CreateTokensTransactionRequestFromAddressRB(createTokensTransactionRequestFromAddressRB).Execute()
+    resp, r, err := api_client.TransactionsApi.CreateFungibleTokensTransactionRequestFromAddress(context.Background(), blockchain, network, senderAddress, walletId).Context(context).CreateFungibleTokensTransactionRequestFromAddressRB(createFungibleTokensTransactionRequestFromAddressRB).Execute()
     if err != nil {
-        fmt.Fprintf(os.Stderr, "Error when calling `TransactionsApi.CreateTokensTransactionRequestFromAddress``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Error when calling `TransactionsApi.CreateFungibleTokensTransactionRequestFromAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
-    // response from `CreateTokensTransactionRequestFromAddress`: CreateTokensTransactionRequestFromAddressR
-    fmt.Fprintf(os.Stdout, "Response from `TransactionsApi.CreateTokensTransactionRequestFromAddress`: %v\n", resp)
+    // response from `CreateFungibleTokensTransactionRequestFromAddress`: CreateFungibleTokensTransactionRequestFromAddressR
+    fmt.Fprintf(os.Stdout, "Response from `TransactionsApi.CreateFungibleTokensTransactionRequestFromAddress`: %v\n", resp)
 }
 ```
 
@@ -310,7 +310,7 @@ Name | Type | Description  | Notes
 
 ### Other Parameters
 
-Other parameters are passed through a pointer to a apiCreateTokensTransactionRequestFromAddressRequest struct via the builder pattern
+Other parameters are passed through a pointer to a apiCreateFungibleTokensTransactionRequestFromAddressRequest struct via the builder pattern
 
 
 Name | Type | Description  | Notes
@@ -320,11 +320,11 @@ Name | Type | Description  | Notes
 
 
  **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
- **createTokensTransactionRequestFromAddressRB** | [**CreateTokensTransactionRequestFromAddressRB**](CreateTokensTransactionRequestFromAddressRB.md) |  | 
+ **createFungibleTokensTransactionRequestFromAddressRB** | [**CreateFungibleTokensTransactionRequestFromAddressRB**](CreateFungibleTokensTransactionRequestFromAddressRB.md) |  | 
 
 ### Return type
 
-[**CreateTokensTransactionRequestFromAddressR**](CreateTokensTransactionRequestFromAddressR.md)
+[**CreateFungibleTokensTransactionRequestFromAddressR**](CreateFungibleTokensTransactionRequestFromAddressR.md)
 
 ### Authorization
 

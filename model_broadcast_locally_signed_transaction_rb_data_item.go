@@ -20,7 +20,7 @@ type BroadcastLocallySignedTransactionRBDataItem struct {
 	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
 	CallbackSecretKey *string `json:"callbackSecretKey,omitempty"`
 	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
-	CallbackUrl string `json:"callbackUrl"`
+	CallbackUrl *string `json:"callbackUrl,omitempty"`
 	// Represents the signed transaction's specific hex.
 	SignedTransactionHex string `json:"signedTransactionHex"`
 }
@@ -29,9 +29,8 @@ type BroadcastLocallySignedTransactionRBDataItem struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewBroadcastLocallySignedTransactionRBDataItem(callbackUrl string, signedTransactionHex string) *BroadcastLocallySignedTransactionRBDataItem {
+func NewBroadcastLocallySignedTransactionRBDataItem(signedTransactionHex string) *BroadcastLocallySignedTransactionRBDataItem {
 	this := BroadcastLocallySignedTransactionRBDataItem{}
-	this.CallbackUrl = callbackUrl
 	this.SignedTransactionHex = signedTransactionHex
 	return &this
 }
@@ -76,28 +75,36 @@ func (o *BroadcastLocallySignedTransactionRBDataItem) SetCallbackSecretKey(v str
 	o.CallbackSecretKey = &v
 }
 
-// GetCallbackUrl returns the CallbackUrl field value
+// GetCallbackUrl returns the CallbackUrl field value if set, zero value otherwise.
 func (o *BroadcastLocallySignedTransactionRBDataItem) GetCallbackUrl() string {
-	if o == nil {
+	if o == nil || o.CallbackUrl == nil {
 		var ret string
 		return ret
 	}
-
-	return o.CallbackUrl
+	return *o.CallbackUrl
 }
 
-// GetCallbackUrlOk returns a tuple with the CallbackUrl field value
+// GetCallbackUrlOk returns a tuple with the CallbackUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *BroadcastLocallySignedTransactionRBDataItem) GetCallbackUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.CallbackUrl == nil {
 		return nil, false
 	}
-	return &o.CallbackUrl, true
+	return o.CallbackUrl, true
 }
 
-// SetCallbackUrl sets field value
+// HasCallbackUrl returns a boolean if a field has been set.
+func (o *BroadcastLocallySignedTransactionRBDataItem) HasCallbackUrl() bool {
+	if o != nil && o.CallbackUrl != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCallbackUrl gets a reference to the given string and assigns it to the CallbackUrl field.
 func (o *BroadcastLocallySignedTransactionRBDataItem) SetCallbackUrl(v string) {
-	o.CallbackUrl = v
+	o.CallbackUrl = &v
 }
 
 // GetSignedTransactionHex returns the SignedTransactionHex field value
@@ -129,7 +136,7 @@ func (o BroadcastLocallySignedTransactionRBDataItem) MarshalJSON() ([]byte, erro
 	if o.CallbackSecretKey != nil {
 		toSerialize["callbackSecretKey"] = o.CallbackSecretKey
 	}
-	if true {
+	if o.CallbackUrl != nil {
 		toSerialize["callbackUrl"] = o.CallbackUrl
 	}
 	if true {

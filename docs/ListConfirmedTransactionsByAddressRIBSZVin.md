@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Addresses** | **[]string** |  | 
 **Coinbase** | **string** | Represents the coinbase hex. | 
-**ScriptSig** | [**ListConfirmedTransactionsByAddressRIBSZScriptSig**](ListConfirmedTransactionsByAddressRIBSZScriptSig.md) |  | 
+**ScriptSig** | [**GetTransactionDetailsByTransactionIDRIBSZScriptSig**](GetTransactionDetailsByTransactionIDRIBSZScriptSig.md) |  | 
 **Sequence** | **int32** | Represents the script sequence number. | 
 **Txid** | **string** | Represents the reference transaction identifier. | 
 **Txinwitness** | **[]string** |  | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewListConfirmedTransactionsByAddressRIBSZVin
 
-`func NewListConfirmedTransactionsByAddressRIBSZVin(addresses []string, coinbase string, scriptSig ListConfirmedTransactionsByAddressRIBSZScriptSig, sequence int32, txid string, txinwitness []string, value string, vout int32, ) *ListConfirmedTransactionsByAddressRIBSZVin`
+`func NewListConfirmedTransactionsByAddressRIBSZVin(addresses []string, coinbase string, scriptSig GetTransactionDetailsByTransactionIDRIBSZScriptSig, sequence int32, txid string, txinwitness []string, value string, vout int32, ) *ListConfirmedTransactionsByAddressRIBSZVin`
 
 NewListConfirmedTransactionsByAddressRIBSZVin instantiates a new ListConfirmedTransactionsByAddressRIBSZVin object
 This constructor will assign default values to properties that have it defined,
@@ -74,20 +74,20 @@ SetCoinbase sets Coinbase field to given value.
 
 ### GetScriptSig
 
-`func (o *ListConfirmedTransactionsByAddressRIBSZVin) GetScriptSig() ListConfirmedTransactionsByAddressRIBSZScriptSig`
+`func (o *ListConfirmedTransactionsByAddressRIBSZVin) GetScriptSig() GetTransactionDetailsByTransactionIDRIBSZScriptSig`
 
 GetScriptSig returns the ScriptSig field if non-nil, zero value otherwise.
 
 ### GetScriptSigOk
 
-`func (o *ListConfirmedTransactionsByAddressRIBSZVin) GetScriptSigOk() (*ListConfirmedTransactionsByAddressRIBSZScriptSig, bool)`
+`func (o *ListConfirmedTransactionsByAddressRIBSZVin) GetScriptSigOk() (*GetTransactionDetailsByTransactionIDRIBSZScriptSig, bool)`
 
 GetScriptSigOk returns a tuple with the ScriptSig field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetScriptSig
 
-`func (o *ListConfirmedTransactionsByAddressRIBSZVin) SetScriptSig(v ListConfirmedTransactionsByAddressRIBSZScriptSig)`
+`func (o *ListConfirmedTransactionsByAddressRIBSZVin) SetScriptSig(v GetTransactionDetailsByTransactionIDRIBSZScriptSig)`
 
 SetScriptSig sets ScriptSig field to given value.
 

@@ -18,7 +18,7 @@ import (
 // GetTransactionDetailsByTransactionIDRIBSBSC Binance Smart Chain
 type GetTransactionDetailsByTransactionIDRIBSBSC struct {
 	// Represents the specific transaction contract
-	Contract *string `json:"contract,omitempty"`
+	Contract string `json:"contract"`
 	// Represents the amount of gas used by this specific transaction alone.
 	GasLimit string `json:"gasLimit"`
 	GasPrice GetTransactionDetailsByTransactionIDRIBSBSCGasPrice `json:"gasPrice"`
@@ -34,8 +34,9 @@ type GetTransactionDetailsByTransactionIDRIBSBSC struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDRIBSBSC(gasLimit string, gasPrice GetTransactionDetailsByTransactionIDRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32) *GetTransactionDetailsByTransactionIDRIBSBSC {
+func NewGetTransactionDetailsByTransactionIDRIBSBSC(contract string, gasLimit string, gasPrice GetTransactionDetailsByTransactionIDRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32) *GetTransactionDetailsByTransactionIDRIBSBSC {
 	this := GetTransactionDetailsByTransactionIDRIBSBSC{}
+	this.Contract = contract
 	this.GasLimit = gasLimit
 	this.GasPrice = gasPrice
 	this.GasUsed = gasUsed
@@ -52,36 +53,28 @@ func NewGetTransactionDetailsByTransactionIDRIBSBSCWithDefaults() *GetTransactio
 	return &this
 }
 
-// GetContract returns the Contract field value if set, zero value otherwise.
+// GetContract returns the Contract field value
 func (o *GetTransactionDetailsByTransactionIDRIBSBSC) GetContract() string {
-	if o == nil || o.Contract == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Contract
+
+	return o.Contract
 }
 
-// GetContractOk returns a tuple with the Contract field value if set, nil otherwise
+// GetContractOk returns a tuple with the Contract field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSBSC) GetContractOk() (*string, bool) {
-	if o == nil || o.Contract == nil {
+	if o == nil  {
 		return nil, false
 	}
-	return o.Contract, true
+	return &o.Contract, true
 }
 
-// HasContract returns a boolean if a field has been set.
-func (o *GetTransactionDetailsByTransactionIDRIBSBSC) HasContract() bool {
-	if o != nil && o.Contract != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetContract gets a reference to the given string and assigns it to the Contract field.
+// SetContract sets field value
 func (o *GetTransactionDetailsByTransactionIDRIBSBSC) SetContract(v string) {
-	o.Contract = &v
+	o.Contract = v
 }
 
 // GetGasLimit returns the GasLimit field value
@@ -206,7 +199,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSBSC) SetNonce(v int32) {
 
 func (o GetTransactionDetailsByTransactionIDRIBSBSC) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Contract != nil {
+	if true {
 		toSerialize["contract"] = o.Contract
 	}
 	if true {

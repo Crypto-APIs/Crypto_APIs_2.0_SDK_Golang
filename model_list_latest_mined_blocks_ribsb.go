@@ -21,8 +21,14 @@ type ListLatestMinedBlocksRIBSB struct {
 	Bits string `json:"bits"`
 	// Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes.
 	Chainwork string `json:"chainwork"`
+	// Represents a mathematical value of how hard it is to find a valid hash for this block.
+	Difficulty *string `json:"difficulty,omitempty"`
 	// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
 	MerkleRoot string `json:"merkleRoot"`
+	// Represents a random value that can be adjusted to satisfy the proof of work
+	Nonce *int32 `json:"nonce,omitempty"`
+	// Represents the block size
+	Size *int32 `json:"size,omitempty"`
 	// Defines the numeric representation of the block size excluding the witness data.
 	StrippedSize int32 `json:"strippedSize"`
 	// Represents the version of the specific block on the blockchain.
@@ -105,6 +111,38 @@ func (o *ListLatestMinedBlocksRIBSB) SetChainwork(v string) {
 	o.Chainwork = v
 }
 
+// GetDifficulty returns the Difficulty field value if set, zero value otherwise.
+func (o *ListLatestMinedBlocksRIBSB) GetDifficulty() string {
+	if o == nil || o.Difficulty == nil {
+		var ret string
+		return ret
+	}
+	return *o.Difficulty
+}
+
+// GetDifficultyOk returns a tuple with the Difficulty field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListLatestMinedBlocksRIBSB) GetDifficultyOk() (*string, bool) {
+	if o == nil || o.Difficulty == nil {
+		return nil, false
+	}
+	return o.Difficulty, true
+}
+
+// HasDifficulty returns a boolean if a field has been set.
+func (o *ListLatestMinedBlocksRIBSB) HasDifficulty() bool {
+	if o != nil && o.Difficulty != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDifficulty gets a reference to the given string and assigns it to the Difficulty field.
+func (o *ListLatestMinedBlocksRIBSB) SetDifficulty(v string) {
+	o.Difficulty = &v
+}
+
 // GetMerkleRoot returns the MerkleRoot field value
 func (o *ListLatestMinedBlocksRIBSB) GetMerkleRoot() string {
 	if o == nil {
@@ -127,6 +165,70 @@ func (o *ListLatestMinedBlocksRIBSB) GetMerkleRootOk() (*string, bool) {
 // SetMerkleRoot sets field value
 func (o *ListLatestMinedBlocksRIBSB) SetMerkleRoot(v string) {
 	o.MerkleRoot = v
+}
+
+// GetNonce returns the Nonce field value if set, zero value otherwise.
+func (o *ListLatestMinedBlocksRIBSB) GetNonce() int32 {
+	if o == nil || o.Nonce == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Nonce
+}
+
+// GetNonceOk returns a tuple with the Nonce field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListLatestMinedBlocksRIBSB) GetNonceOk() (*int32, bool) {
+	if o == nil || o.Nonce == nil {
+		return nil, false
+	}
+	return o.Nonce, true
+}
+
+// HasNonce returns a boolean if a field has been set.
+func (o *ListLatestMinedBlocksRIBSB) HasNonce() bool {
+	if o != nil && o.Nonce != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNonce gets a reference to the given int32 and assigns it to the Nonce field.
+func (o *ListLatestMinedBlocksRIBSB) SetNonce(v int32) {
+	o.Nonce = &v
+}
+
+// GetSize returns the Size field value if set, zero value otherwise.
+func (o *ListLatestMinedBlocksRIBSB) GetSize() int32 {
+	if o == nil || o.Size == nil {
+		var ret int32
+		return ret
+	}
+	return *o.Size
+}
+
+// GetSizeOk returns a tuple with the Size field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListLatestMinedBlocksRIBSB) GetSizeOk() (*int32, bool) {
+	if o == nil || o.Size == nil {
+		return nil, false
+	}
+	return o.Size, true
+}
+
+// HasSize returns a boolean if a field has been set.
+func (o *ListLatestMinedBlocksRIBSB) HasSize() bool {
+	if o != nil && o.Size != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetSize gets a reference to the given int32 and assigns it to the Size field.
+func (o *ListLatestMinedBlocksRIBSB) SetSize(v int32) {
+	o.Size = &v
 }
 
 // GetStrippedSize returns the StrippedSize field value
@@ -233,8 +335,17 @@ func (o ListLatestMinedBlocksRIBSB) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["chainwork"] = o.Chainwork
 	}
+	if o.Difficulty != nil {
+		toSerialize["difficulty"] = o.Difficulty
+	}
 	if true {
 		toSerialize["merkleRoot"] = o.MerkleRoot
+	}
+	if o.Nonce != nil {
+		toSerialize["nonce"] = o.Nonce
+	}
+	if o.Size != nil {
+		toSerialize["size"] = o.Size
 	}
 	if true {
 		toSerialize["strippedSize"] = o.StrippedSize

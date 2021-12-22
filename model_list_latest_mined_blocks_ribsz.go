@@ -17,6 +17,8 @@ import (
 
 // ListLatestMinedBlocksRIBSZ Zilliqa
 type ListLatestMinedBlocksRIBSZ struct {
+	// Represents a mathematical value of how hard it is to find a valid hash for this block.
+	Difficulty string `json:"difficulty"`
 	// Represents the Directory Service block which contains metadata about the miners who participate in the consensus protocol.
 	DsBlock int32 `json:"dsBlock"`
 	// Defines how difficult it is to mine the dsBlocks.
@@ -34,8 +36,9 @@ type ListLatestMinedBlocksRIBSZ struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListLatestMinedBlocksRIBSZ(dsBlock int32, dsDifficulty string, dsLeader string, gasLimit int32, gasUsed int32, microBlocks []string) *ListLatestMinedBlocksRIBSZ {
+func NewListLatestMinedBlocksRIBSZ(difficulty string, dsBlock int32, dsDifficulty string, dsLeader string, gasLimit int32, gasUsed int32, microBlocks []string) *ListLatestMinedBlocksRIBSZ {
 	this := ListLatestMinedBlocksRIBSZ{}
+	this.Difficulty = difficulty
 	this.DsBlock = dsBlock
 	this.DsDifficulty = dsDifficulty
 	this.DsLeader = dsLeader
@@ -51,6 +54,30 @@ func NewListLatestMinedBlocksRIBSZ(dsBlock int32, dsDifficulty string, dsLeader 
 func NewListLatestMinedBlocksRIBSZWithDefaults() *ListLatestMinedBlocksRIBSZ {
 	this := ListLatestMinedBlocksRIBSZ{}
 	return &this
+}
+
+// GetDifficulty returns the Difficulty field value
+func (o *ListLatestMinedBlocksRIBSZ) GetDifficulty() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Difficulty
+}
+
+// GetDifficultyOk returns a tuple with the Difficulty field value
+// and a boolean to check if the value has been set.
+func (o *ListLatestMinedBlocksRIBSZ) GetDifficultyOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.Difficulty, true
+}
+
+// SetDifficulty sets field value
+func (o *ListLatestMinedBlocksRIBSZ) SetDifficulty(v string) {
+	o.Difficulty = v
 }
 
 // GetDsBlock returns the DsBlock field value
@@ -199,6 +226,9 @@ func (o *ListLatestMinedBlocksRIBSZ) SetMicroBlocks(v []string) {
 
 func (o ListLatestMinedBlocksRIBSZ) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["difficulty"] = o.Difficulty
+	}
 	if true {
 		toSerialize["dsBlock"] = o.DsBlock
 	}

@@ -6,7 +6,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bits** | **string** | Represents a specific sub-unit of Zcash. Bits have two-decimal precision | 
 **Chainwork** | **string** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | 
+**Difficulty** | **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
 **MerkleRoot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
+**Nonce** | **string** | Represents a random value that can be adjusted to satisfy the proof of work | 
+**Size** | **int32** | Represents the total size of the block in Bytes. | 
 **StrippedSize** | **int32** | Defines the numeric representation of the block size excluding the witness data. | 
 **Version** | **int32** | Represents the transaction version number. | 
 **VersionHex** | **string** | Is the hexadecimal string representation of the block&#39;s version. | 
@@ -18,20 +21,16 @@ Name | Type | Description | Notes
 **Sha3Uncles** | **string** | Defines the combined hash of all uncles for a given parent. | 
 **TotalDifficulty** | **string** | Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block | 
 **Uncles** | **[]string** |  | 
-**Difficulty** | **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
 **DsBlock** | **int32** | Represents the Directory Service block which contains metadata about the miners who participate in the consensus protocol. | 
 **DsDifficulty** | **string** | Defines how difficult it is to mine the dsBlocks. | 
 **DsLeader** | **string** | Represents a part of the DS Committee which leads the consensus protocol for the epoch. | 
 **MicroBlocks** | **[]string** |  | 
-**Merkleroot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
-**Nonce** | **string** | Represents a random value that can be adjusted to satisfy the proof of work | 
-**Size** | **int32** | Represents the total size of the block in Bytes. | 
 
 ## Methods
 
 ### NewListLatestMinedBlocksRIBS
 
-`func NewListLatestMinedBlocksRIBS(bits string, chainwork string, merkleRoot string, strippedSize int32, version int32, versionHex string, weight int32, extraData string, gasLimit int32, gasUsed int32, minedInSeconds int32, sha3Uncles string, totalDifficulty string, uncles []string, difficulty string, dsBlock int32, dsDifficulty string, dsLeader string, microBlocks []string, merkleroot string, nonce string, size int32, ) *ListLatestMinedBlocksRIBS`
+`func NewListLatestMinedBlocksRIBS(bits string, chainwork string, difficulty string, merkleRoot string, nonce string, size int32, strippedSize int32, version int32, versionHex string, weight int32, extraData string, gasLimit int32, gasUsed int32, minedInSeconds int32, sha3Uncles string, totalDifficulty string, uncles []string, dsBlock int32, dsDifficulty string, dsLeader string, microBlocks []string, ) *ListLatestMinedBlocksRIBS`
 
 NewListLatestMinedBlocksRIBS instantiates a new ListLatestMinedBlocksRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -86,6 +85,26 @@ and a boolean to check if the value has been set.
 SetChainwork sets Chainwork field to given value.
 
 
+### GetDifficulty
+
+`func (o *ListLatestMinedBlocksRIBS) GetDifficulty() string`
+
+GetDifficulty returns the Difficulty field if non-nil, zero value otherwise.
+
+### GetDifficultyOk
+
+`func (o *ListLatestMinedBlocksRIBS) GetDifficultyOk() (*string, bool)`
+
+GetDifficultyOk returns a tuple with the Difficulty field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDifficulty
+
+`func (o *ListLatestMinedBlocksRIBS) SetDifficulty(v string)`
+
+SetDifficulty sets Difficulty field to given value.
+
+
 ### GetMerkleRoot
 
 `func (o *ListLatestMinedBlocksRIBS) GetMerkleRoot() string`
@@ -104,6 +123,46 @@ and a boolean to check if the value has been set.
 `func (o *ListLatestMinedBlocksRIBS) SetMerkleRoot(v string)`
 
 SetMerkleRoot sets MerkleRoot field to given value.
+
+
+### GetNonce
+
+`func (o *ListLatestMinedBlocksRIBS) GetNonce() string`
+
+GetNonce returns the Nonce field if non-nil, zero value otherwise.
+
+### GetNonceOk
+
+`func (o *ListLatestMinedBlocksRIBS) GetNonceOk() (*string, bool)`
+
+GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNonce
+
+`func (o *ListLatestMinedBlocksRIBS) SetNonce(v string)`
+
+SetNonce sets Nonce field to given value.
+
+
+### GetSize
+
+`func (o *ListLatestMinedBlocksRIBS) GetSize() int32`
+
+GetSize returns the Size field if non-nil, zero value otherwise.
+
+### GetSizeOk
+
+`func (o *ListLatestMinedBlocksRIBS) GetSizeOk() (*int32, bool)`
+
+GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSize
+
+`func (o *ListLatestMinedBlocksRIBS) SetSize(v int32)`
+
+SetSize sets Size field to given value.
 
 
 ### GetStrippedSize
@@ -326,26 +385,6 @@ and a boolean to check if the value has been set.
 SetUncles sets Uncles field to given value.
 
 
-### GetDifficulty
-
-`func (o *ListLatestMinedBlocksRIBS) GetDifficulty() string`
-
-GetDifficulty returns the Difficulty field if non-nil, zero value otherwise.
-
-### GetDifficultyOk
-
-`func (o *ListLatestMinedBlocksRIBS) GetDifficultyOk() (*string, bool)`
-
-GetDifficultyOk returns a tuple with the Difficulty field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetDifficulty
-
-`func (o *ListLatestMinedBlocksRIBS) SetDifficulty(v string)`
-
-SetDifficulty sets Difficulty field to given value.
-
-
 ### GetDsBlock
 
 `func (o *ListLatestMinedBlocksRIBS) GetDsBlock() int32`
@@ -424,66 +463,6 @@ and a boolean to check if the value has been set.
 `func (o *ListLatestMinedBlocksRIBS) SetMicroBlocks(v []string)`
 
 SetMicroBlocks sets MicroBlocks field to given value.
-
-
-### GetMerkleroot
-
-`func (o *ListLatestMinedBlocksRIBS) GetMerkleroot() string`
-
-GetMerkleroot returns the Merkleroot field if non-nil, zero value otherwise.
-
-### GetMerklerootOk
-
-`func (o *ListLatestMinedBlocksRIBS) GetMerklerootOk() (*string, bool)`
-
-GetMerklerootOk returns a tuple with the Merkleroot field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetMerkleroot
-
-`func (o *ListLatestMinedBlocksRIBS) SetMerkleroot(v string)`
-
-SetMerkleroot sets Merkleroot field to given value.
-
-
-### GetNonce
-
-`func (o *ListLatestMinedBlocksRIBS) GetNonce() string`
-
-GetNonce returns the Nonce field if non-nil, zero value otherwise.
-
-### GetNonceOk
-
-`func (o *ListLatestMinedBlocksRIBS) GetNonceOk() (*string, bool)`
-
-GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNonce
-
-`func (o *ListLatestMinedBlocksRIBS) SetNonce(v string)`
-
-SetNonce sets Nonce field to given value.
-
-
-### GetSize
-
-`func (o *ListLatestMinedBlocksRIBS) GetSize() int32`
-
-GetSize returns the Size field if non-nil, zero value otherwise.
-
-### GetSizeOk
-
-`func (o *ListLatestMinedBlocksRIBS) GetSizeOk() (*int32, bool)`
-
-GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSize
-
-`func (o *ListLatestMinedBlocksRIBS) SetSize(v int32)`
-
-SetSize sets Size field to given value.
 
 
 

@@ -82,9 +82,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  CreateCoinsTransactionFromAddressForWholeAmountR
 	)
 
@@ -139,7 +137,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -162,7 +160,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40025
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -172,7 +170,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40125
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -182,7 +180,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -192,7 +190,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40325
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -202,7 +200,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v WalletAsAServiceAddressBalanceNotEnough
+			var v InlineResponse4093
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -212,7 +210,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -222,7 +220,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -232,7 +230,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -242,7 +240,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -319,9 +317,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  CreateCoinsTransactionRequestFromAddressR
 	)
 
@@ -376,7 +372,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -399,7 +395,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40020
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -409,7 +405,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40120
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -419,7 +415,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -429,7 +425,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40320
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -439,7 +435,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v WalletAsAServiceAddressBalanceNotEnough
+			var v InlineResponse4092
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -449,7 +445,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -459,7 +455,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -469,7 +465,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -479,7 +475,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -555,9 +551,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
+		formFiles            []formFile
 		localVarReturnValue  CreateCoinsTransactionRequestFromWalletR
 	)
 
@@ -611,7 +605,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -634,7 +628,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40013
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -644,7 +638,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40113
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -654,7 +648,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -664,7 +658,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40313
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -674,7 +668,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v WalletAsAServiceNoDepositAddressesFound
+			var v InlineResponse4091
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -684,7 +678,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -694,7 +688,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -704,7 +698,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -714,7 +708,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -737,7 +731,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiCreateTokensTransactionRequestFromAddressRequest struct {
+type ApiCreateFungibleTokensTransactionRequestFromAddressRequest struct {
 	ctx _context.Context
 	ApiService *TransactionsApiService
 	blockchain string
@@ -745,29 +739,27 @@ type ApiCreateTokensTransactionRequestFromAddressRequest struct {
 	senderAddress string
 	walletId string
 	context *string
-	createTokensTransactionRequestFromAddressRB *CreateTokensTransactionRequestFromAddressRB
+	createFungibleTokensTransactionRequestFromAddressRB *CreateFungibleTokensTransactionRequestFromAddressRB
 }
 
 // In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
-func (r ApiCreateTokensTransactionRequestFromAddressRequest) Context(context string) ApiCreateTokensTransactionRequestFromAddressRequest {
+func (r ApiCreateFungibleTokensTransactionRequestFromAddressRequest) Context(context string) ApiCreateFungibleTokensTransactionRequestFromAddressRequest {
 	r.context = &context
 	return r
 }
-func (r ApiCreateTokensTransactionRequestFromAddressRequest) CreateTokensTransactionRequestFromAddressRB(createTokensTransactionRequestFromAddressRB CreateTokensTransactionRequestFromAddressRB) ApiCreateTokensTransactionRequestFromAddressRequest {
-	r.createTokensTransactionRequestFromAddressRB = &createTokensTransactionRequestFromAddressRB
+func (r ApiCreateFungibleTokensTransactionRequestFromAddressRequest) CreateFungibleTokensTransactionRequestFromAddressRB(createFungibleTokensTransactionRequestFromAddressRB CreateFungibleTokensTransactionRequestFromAddressRB) ApiCreateFungibleTokensTransactionRequestFromAddressRequest {
+	r.createFungibleTokensTransactionRequestFromAddressRB = &createFungibleTokensTransactionRequestFromAddressRB
 	return r
 }
 
-func (r ApiCreateTokensTransactionRequestFromAddressRequest) Execute() (CreateTokensTransactionRequestFromAddressR, *_nethttp.Response, error) {
-	return r.ApiService.CreateTokensTransactionRequestFromAddressExecute(r)
+func (r ApiCreateFungibleTokensTransactionRequestFromAddressRequest) Execute() (CreateFungibleTokensTransactionRequestFromAddressR, *_nethttp.Response, error) {
+	return r.ApiService.CreateFungibleTokensTransactionRequestFromAddressExecute(r)
 }
 
 /*
-CreateTokensTransactionRequestFromAddress Create Tokens Transaction Request from Address
+CreateFungibleTokensTransactionRequestFromAddress Create Fungible Tokens Transaction Request from Address
 
 Through this endpoint users can make a single token transaction.
-
-{warning}This applies only to **fungible** tokens, **not** NFTs (non-fungible tokens).{/warning}
 
 {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}
 
@@ -778,10 +770,10 @@ Through this endpoint users can make a single token transaction.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param senderAddress Defines the specific source address for the transaction.
  @param walletId Defines the unique ID of the Wallet.
- @return ApiCreateTokensTransactionRequestFromAddressRequest
+ @return ApiCreateFungibleTokensTransactionRequestFromAddressRequest
 */
-func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddress(ctx _context.Context, blockchain string, network string, senderAddress string, walletId string) ApiCreateTokensTransactionRequestFromAddressRequest {
-	return ApiCreateTokensTransactionRequestFromAddressRequest{
+func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddress(ctx _context.Context, blockchain string, network string, senderAddress string, walletId string) ApiCreateFungibleTokensTransactionRequestFromAddressRequest {
+	return ApiCreateFungibleTokensTransactionRequestFromAddressRequest{
 		ApiService: a,
 		ctx: ctx,
 		blockchain: blockchain,
@@ -792,18 +784,16 @@ func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddress(ctx _
 }
 
 // Execute executes the request
-//  @return CreateTokensTransactionRequestFromAddressR
-func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddressExecute(r ApiCreateTokensTransactionRequestFromAddressRequest) (CreateTokensTransactionRequestFromAddressR, *_nethttp.Response, error) {
+//  @return CreateFungibleTokensTransactionRequestFromAddressR
+func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddressExecute(r ApiCreateFungibleTokensTransactionRequestFromAddressRequest) (CreateFungibleTokensTransactionRequestFromAddressR, *_nethttp.Response, error) {
 	var (
 		localVarHTTPMethod   = _nethttp.MethodPost
 		localVarPostBody     interface{}
-		localVarFormFileName string
-		localVarFileName     string
-		localVarFileBytes    []byte
-		localVarReturnValue  CreateTokensTransactionRequestFromAddressR
+		formFiles            []formFile
+		localVarReturnValue  CreateFungibleTokensTransactionRequestFromAddressR
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TransactionsApiService.CreateTokensTransactionRequestFromAddress")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TransactionsApiService.CreateFungibleTokensTransactionRequestFromAddress")
 	if err != nil {
 		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
 	}
@@ -839,7 +829,7 @@ func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddressExecut
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
 	// body params
-	localVarPostBody = r.createTokensTransactionRequestFromAddressRB
+	localVarPostBody = r.createFungibleTokensTransactionRequestFromAddressRB
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
@@ -854,7 +844,7 @@ func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddressExecut
 			}
 		}
 	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return localVarReturnValue, nil, err
 	}
@@ -877,7 +867,7 @@ func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddressExecut
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InvalidPagination
+			var v InlineResponse40036
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -887,7 +877,7 @@ func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddressExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InvalidApiKey
+			var v InlineResponse40136
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -897,7 +887,7 @@ func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddressExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InsufficientCredits
+			var v InlineResponse402
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -907,7 +897,7 @@ func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddressExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v FeatureMainnetsNotAllowedForPlan
+			var v InlineResponse40336
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -917,7 +907,7 @@ func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddressExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v WalletAsAServiceTokenNotSupported
+			var v InlineResponse4094
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -927,7 +917,7 @@ func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddressExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v UnsupportedMediaType
+			var v InlineResponse415
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -937,7 +927,7 @@ func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddressExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InvalidRequestBodyStructure
+			var v InlineResponse422
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -947,7 +937,7 @@ func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddressExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v RequestLimitReached
+			var v InlineResponse429
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -957,7 +947,7 @@ func (a *TransactionsApiService) CreateTokensTransactionRequestFromAddressExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v UnexpectedServerError
+			var v InlineResponse500
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

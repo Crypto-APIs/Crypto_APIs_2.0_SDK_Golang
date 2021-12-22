@@ -6,7 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConfirmedBalance** | [**GetWalletAssetDetailsRIConfirmedBalance**](GetWalletAssetDetailsRIConfirmedBalance.md) |  | 
 **DepositAddressesCount** | **int32** | Specifies the count of deposit addresses in the Wallet. | 
+**FungibleTokens** | [**[]GetWalletAssetDetailsRIFungibleTokens**](GetWalletAssetDetailsRIFungibleTokens.md) | Represents fungible tokens&#39;es detailed information | 
 **Name** | **string** | Defines the name of the Wallet given to it by the user. | 
+**NonFungibleTokens** | [**[]GetWalletAssetDetailsRINonFungibleTokens**](GetWalletAssetDetailsRINonFungibleTokens.md) | Represents non-fungible tokens&#39;es detailed information. | 
 **RecievedConfirmedAmount** | [**GetWalletAssetDetailsRIRecievedConfirmedAmount**](GetWalletAssetDetailsRIRecievedConfirmedAmount.md) |  | 
 **SentConfirmedAmount** | [**GetWalletAssetDetailsRISentConfirmedAmount**](GetWalletAssetDetailsRISentConfirmedAmount.md) |  | 
 
@@ -14,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewGetWalletAssetDetailsRI
 
-`func NewGetWalletAssetDetailsRI(confirmedBalance GetWalletAssetDetailsRIConfirmedBalance, depositAddressesCount int32, name string, recievedConfirmedAmount GetWalletAssetDetailsRIRecievedConfirmedAmount, sentConfirmedAmount GetWalletAssetDetailsRISentConfirmedAmount, ) *GetWalletAssetDetailsRI`
+`func NewGetWalletAssetDetailsRI(confirmedBalance GetWalletAssetDetailsRIConfirmedBalance, depositAddressesCount int32, fungibleTokens []GetWalletAssetDetailsRIFungibleTokens, name string, nonFungibleTokens []GetWalletAssetDetailsRINonFungibleTokens, recievedConfirmedAmount GetWalletAssetDetailsRIRecievedConfirmedAmount, sentConfirmedAmount GetWalletAssetDetailsRISentConfirmedAmount, ) *GetWalletAssetDetailsRI`
 
 NewGetWalletAssetDetailsRI instantiates a new GetWalletAssetDetailsRI object
 This constructor will assign default values to properties that have it defined,
@@ -69,6 +71,26 @@ and a boolean to check if the value has been set.
 SetDepositAddressesCount sets DepositAddressesCount field to given value.
 
 
+### GetFungibleTokens
+
+`func (o *GetWalletAssetDetailsRI) GetFungibleTokens() []GetWalletAssetDetailsRIFungibleTokens`
+
+GetFungibleTokens returns the FungibleTokens field if non-nil, zero value otherwise.
+
+### GetFungibleTokensOk
+
+`func (o *GetWalletAssetDetailsRI) GetFungibleTokensOk() (*[]GetWalletAssetDetailsRIFungibleTokens, bool)`
+
+GetFungibleTokensOk returns a tuple with the FungibleTokens field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFungibleTokens
+
+`func (o *GetWalletAssetDetailsRI) SetFungibleTokens(v []GetWalletAssetDetailsRIFungibleTokens)`
+
+SetFungibleTokens sets FungibleTokens field to given value.
+
+
 ### GetName
 
 `func (o *GetWalletAssetDetailsRI) GetName() string`
@@ -87,6 +109,26 @@ and a boolean to check if the value has been set.
 `func (o *GetWalletAssetDetailsRI) SetName(v string)`
 
 SetName sets Name field to given value.
+
+
+### GetNonFungibleTokens
+
+`func (o *GetWalletAssetDetailsRI) GetNonFungibleTokens() []GetWalletAssetDetailsRINonFungibleTokens`
+
+GetNonFungibleTokens returns the NonFungibleTokens field if non-nil, zero value otherwise.
+
+### GetNonFungibleTokensOk
+
+`func (o *GetWalletAssetDetailsRI) GetNonFungibleTokensOk() (*[]GetWalletAssetDetailsRINonFungibleTokens, bool)`
+
+GetNonFungibleTokensOk returns a tuple with the NonFungibleTokens field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNonFungibleTokens
+
+`func (o *GetWalletAssetDetailsRI) SetNonFungibleTokens(v []GetWalletAssetDetailsRINonFungibleTokens)`
+
+SetNonFungibleTokens sets NonFungibleTokens field to given value.
 
 
 ### GetRecievedConfirmedAmount

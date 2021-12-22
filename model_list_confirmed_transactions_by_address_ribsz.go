@@ -34,9 +34,9 @@ type ListConfirmedTransactionsByAddressRIBSZ struct {
 	// Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
 	VJoinSplit []ListConfirmedTransactionsByAddressRIBSZVJoinSplit `json:"vJoinSplit"`
 	// Object Array representation of transaction output descriptions
-	VShieldedOutput []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput `json:"vShieldedOutput"`
+	VShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput `json:"vShieldedOutput"`
 	// Object Array representation of transaction spend descriptions
-	VShieldedSpend []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend `json:"vShieldedSpend"`
+	VShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend `json:"vShieldedSpend"`
 	// Defines the transaction value balance.
 	ValueBalance string `json:"valueBalance"`
 	// Defines the version of the transaction.
@@ -46,14 +46,14 @@ type ListConfirmedTransactionsByAddressRIBSZ struct {
 	// Object Array representation of transaction inputs
 	Vin []ListConfirmedTransactionsByAddressRIBSZVin `json:"vin"`
 	// Object Array representation of transaction outputs
-	Vout []ListConfirmedTransactionsByAddressRIBSZVout `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDRIBSZVout `json:"vout"`
 }
 
 // NewListConfirmedTransactionsByAddressRIBSZ instantiates a new ListConfirmedTransactionsByAddressRIBSZ object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListConfirmedTransactionsByAddressRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int32, overwintered bool, size int32, vJoinSplit []ListConfirmedTransactionsByAddressRIBSZVJoinSplit, vShieldedOutput []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput, vShieldedSpend []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []ListConfirmedTransactionsByAddressRIBSZVin, vout []ListConfirmedTransactionsByAddressRIBSZVout) *ListConfirmedTransactionsByAddressRIBSZ {
+func NewListConfirmedTransactionsByAddressRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int32, overwintered bool, size int32, vJoinSplit []ListConfirmedTransactionsByAddressRIBSZVJoinSplit, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []ListConfirmedTransactionsByAddressRIBSZVin, vout []GetTransactionDetailsByTransactionIDRIBSZVout) *ListConfirmedTransactionsByAddressRIBSZ {
 	this := ListConfirmedTransactionsByAddressRIBSZ{}
 	this.BindingSig = bindingSig
 	this.ExpiryHeight = expiryHeight
@@ -274,9 +274,9 @@ func (o *ListConfirmedTransactionsByAddressRIBSZ) SetVJoinSplit(v []ListConfirme
 }
 
 // GetVShieldedOutput returns the VShieldedOutput field value
-func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVShieldedOutput() []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput {
+func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVShieldedOutput() []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput {
 	if o == nil {
-		var ret []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput
+		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
 		return ret
 	}
 
@@ -285,7 +285,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVShieldedOutput() []ListCon
 
 // GetVShieldedOutputOk returns a tuple with the VShieldedOutput field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVShieldedOutputOk() (*[]ListConfirmedTransactionsByAddressRIBSZVShieldedOutput, bool) {
+func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVShieldedOutputOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -293,14 +293,14 @@ func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVShieldedOutputOk() (*[]Lis
 }
 
 // SetVShieldedOutput sets field value
-func (o *ListConfirmedTransactionsByAddressRIBSZ) SetVShieldedOutput(v []ListConfirmedTransactionsByAddressRIBSZVShieldedOutput) {
+func (o *ListConfirmedTransactionsByAddressRIBSZ) SetVShieldedOutput(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) {
 	o.VShieldedOutput = v
 }
 
 // GetVShieldedSpend returns the VShieldedSpend field value
-func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVShieldedSpend() []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend {
+func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVShieldedSpend() []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend {
 	if o == nil {
-		var ret []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend
+		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
 		return ret
 	}
 
@@ -309,7 +309,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVShieldedSpend() []ListConf
 
 // GetVShieldedSpendOk returns a tuple with the VShieldedSpend field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVShieldedSpendOk() (*[]ListConfirmedTransactionsByAddressRIBSZVShieldedSpend, bool) {
+func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVShieldedSpendOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -317,7 +317,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVShieldedSpendOk() (*[]List
 }
 
 // SetVShieldedSpend sets field value
-func (o *ListConfirmedTransactionsByAddressRIBSZ) SetVShieldedSpend(v []ListConfirmedTransactionsByAddressRIBSZVShieldedSpend) {
+func (o *ListConfirmedTransactionsByAddressRIBSZ) SetVShieldedSpend(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) {
 	o.VShieldedSpend = v
 }
 
@@ -418,9 +418,9 @@ func (o *ListConfirmedTransactionsByAddressRIBSZ) SetVin(v []ListConfirmedTransa
 }
 
 // GetVout returns the Vout field value
-func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVout() []ListConfirmedTransactionsByAddressRIBSZVout {
+func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVout() []GetTransactionDetailsByTransactionIDRIBSZVout {
 	if o == nil {
-		var ret []ListConfirmedTransactionsByAddressRIBSZVout
+		var ret []GetTransactionDetailsByTransactionIDRIBSZVout
 		return ret
 	}
 
@@ -429,7 +429,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVout() []ListConfirmedTrans
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVoutOk() (*[]ListConfirmedTransactionsByAddressRIBSZVout, bool) {
+func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVout, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -437,7 +437,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSZ) GetVoutOk() (*[]ListConfirmedT
 }
 
 // SetVout sets field value
-func (o *ListConfirmedTransactionsByAddressRIBSZ) SetVout(v []ListConfirmedTransactionsByAddressRIBSZVout) {
+func (o *ListConfirmedTransactionsByAddressRIBSZ) SetVout(v []GetTransactionDetailsByTransactionIDRIBSZVout) {
 	o.Vout = v
 }
 

@@ -20,7 +20,7 @@ type ListConfirmedTransactionsByAddressRIBSZVin struct {
 	Addresses []string `json:"addresses"`
 	// Represents the coinbase hex.
 	Coinbase string `json:"coinbase"`
-	ScriptSig ListConfirmedTransactionsByAddressRIBSZScriptSig `json:"scriptSig"`
+	ScriptSig GetTransactionDetailsByTransactionIDRIBSZScriptSig `json:"scriptSig"`
 	// Represents the script sequence number.
 	Sequence int32 `json:"sequence"`
 	// Represents the reference transaction identifier.
@@ -36,7 +36,7 @@ type ListConfirmedTransactionsByAddressRIBSZVin struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListConfirmedTransactionsByAddressRIBSZVin(addresses []string, coinbase string, scriptSig ListConfirmedTransactionsByAddressRIBSZScriptSig, sequence int32, txid string, txinwitness []string, value string, vout int32) *ListConfirmedTransactionsByAddressRIBSZVin {
+func NewListConfirmedTransactionsByAddressRIBSZVin(addresses []string, coinbase string, scriptSig GetTransactionDetailsByTransactionIDRIBSZScriptSig, sequence int32, txid string, txinwitness []string, value string, vout int32) *ListConfirmedTransactionsByAddressRIBSZVin {
 	this := ListConfirmedTransactionsByAddressRIBSZVin{}
 	this.Addresses = addresses
 	this.Coinbase = coinbase
@@ -106,9 +106,9 @@ func (o *ListConfirmedTransactionsByAddressRIBSZVin) SetCoinbase(v string) {
 }
 
 // GetScriptSig returns the ScriptSig field value
-func (o *ListConfirmedTransactionsByAddressRIBSZVin) GetScriptSig() ListConfirmedTransactionsByAddressRIBSZScriptSig {
+func (o *ListConfirmedTransactionsByAddressRIBSZVin) GetScriptSig() GetTransactionDetailsByTransactionIDRIBSZScriptSig {
 	if o == nil {
-		var ret ListConfirmedTransactionsByAddressRIBSZScriptSig
+		var ret GetTransactionDetailsByTransactionIDRIBSZScriptSig
 		return ret
 	}
 
@@ -117,7 +117,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSZVin) GetScriptSig() ListConfirme
 
 // GetScriptSigOk returns a tuple with the ScriptSig field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressRIBSZVin) GetScriptSigOk() (*ListConfirmedTransactionsByAddressRIBSZScriptSig, bool) {
+func (o *ListConfirmedTransactionsByAddressRIBSZVin) GetScriptSigOk() (*GetTransactionDetailsByTransactionIDRIBSZScriptSig, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -125,7 +125,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSZVin) GetScriptSigOk() (*ListConf
 }
 
 // SetScriptSig sets field value
-func (o *ListConfirmedTransactionsByAddressRIBSZVin) SetScriptSig(v ListConfirmedTransactionsByAddressRIBSZScriptSig) {
+func (o *ListConfirmedTransactionsByAddressRIBSZVin) SetScriptSig(v GetTransactionDetailsByTransactionIDRIBSZScriptSig) {
 	o.ScriptSig = v
 }
 

@@ -20,6 +20,11 @@ type ListWalletTransactionsRI struct {
 	// Defines the direction of the transaction, e.g. incoming.
 	Direction string `json:"direction"`
 	Fee ListWalletTransactionsRIFee `json:"fee"`
+	// Represents fungible tokens'es detailed information
+	FungibleTokens *[]ListWalletTransactionsRIFungibleTokens `json:"fungibleTokens,omitempty"`
+	InternalTransactions *[]ListWalletTransactionsRIInternalTransactions `json:"internalTransactions,omitempty"`
+	// Represents non-fungible tokens'es detailed information.
+	NonFungibleTokens *[]ListWalletTransactionsRINonFungibleTokens `json:"nonFungibleTokens,omitempty"`
 	// Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
 	Recipients []ListWalletTransactionsRIRecipients `json:"recipients"`
 	// Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
@@ -104,6 +109,102 @@ func (o *ListWalletTransactionsRI) GetFeeOk() (*ListWalletTransactionsRIFee, boo
 // SetFee sets field value
 func (o *ListWalletTransactionsRI) SetFee(v ListWalletTransactionsRIFee) {
 	o.Fee = v
+}
+
+// GetFungibleTokens returns the FungibleTokens field value if set, zero value otherwise.
+func (o *ListWalletTransactionsRI) GetFungibleTokens() []ListWalletTransactionsRIFungibleTokens {
+	if o == nil || o.FungibleTokens == nil {
+		var ret []ListWalletTransactionsRIFungibleTokens
+		return ret
+	}
+	return *o.FungibleTokens
+}
+
+// GetFungibleTokensOk returns a tuple with the FungibleTokens field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListWalletTransactionsRI) GetFungibleTokensOk() (*[]ListWalletTransactionsRIFungibleTokens, bool) {
+	if o == nil || o.FungibleTokens == nil {
+		return nil, false
+	}
+	return o.FungibleTokens, true
+}
+
+// HasFungibleTokens returns a boolean if a field has been set.
+func (o *ListWalletTransactionsRI) HasFungibleTokens() bool {
+	if o != nil && o.FungibleTokens != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFungibleTokens gets a reference to the given []ListWalletTransactionsRIFungibleTokens and assigns it to the FungibleTokens field.
+func (o *ListWalletTransactionsRI) SetFungibleTokens(v []ListWalletTransactionsRIFungibleTokens) {
+	o.FungibleTokens = &v
+}
+
+// GetInternalTransactions returns the InternalTransactions field value if set, zero value otherwise.
+func (o *ListWalletTransactionsRI) GetInternalTransactions() []ListWalletTransactionsRIInternalTransactions {
+	if o == nil || o.InternalTransactions == nil {
+		var ret []ListWalletTransactionsRIInternalTransactions
+		return ret
+	}
+	return *o.InternalTransactions
+}
+
+// GetInternalTransactionsOk returns a tuple with the InternalTransactions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListWalletTransactionsRI) GetInternalTransactionsOk() (*[]ListWalletTransactionsRIInternalTransactions, bool) {
+	if o == nil || o.InternalTransactions == nil {
+		return nil, false
+	}
+	return o.InternalTransactions, true
+}
+
+// HasInternalTransactions returns a boolean if a field has been set.
+func (o *ListWalletTransactionsRI) HasInternalTransactions() bool {
+	if o != nil && o.InternalTransactions != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetInternalTransactions gets a reference to the given []ListWalletTransactionsRIInternalTransactions and assigns it to the InternalTransactions field.
+func (o *ListWalletTransactionsRI) SetInternalTransactions(v []ListWalletTransactionsRIInternalTransactions) {
+	o.InternalTransactions = &v
+}
+
+// GetNonFungibleTokens returns the NonFungibleTokens field value if set, zero value otherwise.
+func (o *ListWalletTransactionsRI) GetNonFungibleTokens() []ListWalletTransactionsRINonFungibleTokens {
+	if o == nil || o.NonFungibleTokens == nil {
+		var ret []ListWalletTransactionsRINonFungibleTokens
+		return ret
+	}
+	return *o.NonFungibleTokens
+}
+
+// GetNonFungibleTokensOk returns a tuple with the NonFungibleTokens field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListWalletTransactionsRI) GetNonFungibleTokensOk() (*[]ListWalletTransactionsRINonFungibleTokens, bool) {
+	if o == nil || o.NonFungibleTokens == nil {
+		return nil, false
+	}
+	return o.NonFungibleTokens, true
+}
+
+// HasNonFungibleTokens returns a boolean if a field has been set.
+func (o *ListWalletTransactionsRI) HasNonFungibleTokens() bool {
+	if o != nil && o.NonFungibleTokens != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetNonFungibleTokens gets a reference to the given []ListWalletTransactionsRINonFungibleTokens and assigns it to the NonFungibleTokens field.
+func (o *ListWalletTransactionsRI) SetNonFungibleTokens(v []ListWalletTransactionsRINonFungibleTokens) {
+	o.NonFungibleTokens = &v
 }
 
 // GetRecipients returns the Recipients field value
@@ -257,6 +358,15 @@ func (o ListWalletTransactionsRI) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["fee"] = o.Fee
+	}
+	if o.FungibleTokens != nil {
+		toSerialize["fungibleTokens"] = o.FungibleTokens
+	}
+	if o.InternalTransactions != nil {
+		toSerialize["internalTransactions"] = o.InternalTransactions
+	}
+	if o.NonFungibleTokens != nil {
+		toSerialize["nonFungibleTokens"] = o.NonFungibleTokens
 	}
 	if true {
 		toSerialize["recipients"] = o.Recipients

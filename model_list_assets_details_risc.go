@@ -25,7 +25,7 @@ type ListAssetsDetailsRISC struct {
 	Var24HoursPriceChangeInPercentage string `json:"24HoursPriceChangeInPercentage"`
 	// Represents the trading volume of the asset for the time frame of 24 hours.
 	Var24HoursTradingVolume string `json:"24HoursTradingVolume"`
-	// Subtype of the crypto assets. Could be COIN or TOKEN
+	// Represent a subtype of the crypto assets. Could be COIN or TOKEN.
 	AssetType string `json:"assetType"`
 	// Represents the amount of the asset that is circulating on the market and in public hands.
 	CirculatingSupply string `json:"circulatingSupply"`

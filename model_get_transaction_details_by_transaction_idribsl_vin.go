@@ -22,7 +22,7 @@ type GetTransactionDetailsByTransactionIDRIBSLVin struct {
 	Coinbase *string `json:"coinbase,omitempty"`
 	ScriptSig GetTransactionDetailsByTransactionIDRIBSLScriptSig `json:"scriptSig"`
 	// Represents the script sequence number.
-	Sequence string `json:"sequence"`
+	Sequence int32 `json:"sequence"`
 	// Represents the reference transaction identifier.
 	Txid *string `json:"txid,omitempty"`
 	Txinwitness []string `json:"txinwitness"`
@@ -36,7 +36,7 @@ type GetTransactionDetailsByTransactionIDRIBSLVin struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDRIBSLVin(addresses []string, scriptSig GetTransactionDetailsByTransactionIDRIBSLScriptSig, sequence string, txinwitness []string) *GetTransactionDetailsByTransactionIDRIBSLVin {
+func NewGetTransactionDetailsByTransactionIDRIBSLVin(addresses []string, scriptSig GetTransactionDetailsByTransactionIDRIBSLScriptSig, sequence int32, txinwitness []string) *GetTransactionDetailsByTransactionIDRIBSLVin {
 	this := GetTransactionDetailsByTransactionIDRIBSLVin{}
 	this.Addresses = addresses
 	this.ScriptSig = scriptSig
@@ -134,9 +134,9 @@ func (o *GetTransactionDetailsByTransactionIDRIBSLVin) SetScriptSig(v GetTransac
 }
 
 // GetSequence returns the Sequence field value
-func (o *GetTransactionDetailsByTransactionIDRIBSLVin) GetSequence() string {
+func (o *GetTransactionDetailsByTransactionIDRIBSLVin) GetSequence() int32 {
 	if o == nil {
-		var ret string
+		var ret int32
 		return ret
 	}
 
@@ -145,7 +145,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSLVin) GetSequence() string {
 
 // GetSequenceOk returns a tuple with the Sequence field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDRIBSLVin) GetSequenceOk() (*string, bool) {
+func (o *GetTransactionDetailsByTransactionIDRIBSLVin) GetSequenceOk() (*int32, bool) {
 	if o == nil  {
 		return nil, false
 	}
@@ -153,7 +153,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSLVin) GetSequenceOk() (*string,
 }
 
 // SetSequence sets field value
-func (o *GetTransactionDetailsByTransactionIDRIBSLVin) SetSequence(v string) {
+func (o *GetTransactionDetailsByTransactionIDRIBSLVin) SetSequence(v int32) {
 	o.Sequence = v
 }
 

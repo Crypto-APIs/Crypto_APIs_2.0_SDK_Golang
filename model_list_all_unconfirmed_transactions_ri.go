@@ -23,6 +23,8 @@ type ListAllUnconfirmedTransactionsRI struct {
 	Senders []ListUnconfirmedTransactionsByAddressRISenders `json:"senders"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
 	Timestamp int32 `json:"timestamp"`
+	// String representation of the transaction hash
+	TransactionHash string `json:"transactionHash"`
 	// Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
 	TransactionId string `json:"transactionId"`
 	BlockchainSpecific ListAllUnconfirmedTransactionsRIBS `json:"blockchainSpecific"`
@@ -32,11 +34,12 @@ type ListAllUnconfirmedTransactionsRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListAllUnconfirmedTransactionsRI(recipients []ListUnconfirmedTransactionsByAddressRIRecipients, senders []ListUnconfirmedTransactionsByAddressRISenders, timestamp int32, transactionId string, blockchainSpecific ListAllUnconfirmedTransactionsRIBS) *ListAllUnconfirmedTransactionsRI {
+func NewListAllUnconfirmedTransactionsRI(recipients []ListUnconfirmedTransactionsByAddressRIRecipients, senders []ListUnconfirmedTransactionsByAddressRISenders, timestamp int32, transactionHash string, transactionId string, blockchainSpecific ListAllUnconfirmedTransactionsRIBS) *ListAllUnconfirmedTransactionsRI {
 	this := ListAllUnconfirmedTransactionsRI{}
 	this.Recipients = recipients
 	this.Senders = senders
 	this.Timestamp = timestamp
+	this.TransactionHash = transactionHash
 	this.TransactionId = transactionId
 	this.BlockchainSpecific = blockchainSpecific
 	return &this
@@ -122,6 +125,30 @@ func (o *ListAllUnconfirmedTransactionsRI) SetTimestamp(v int32) {
 	o.Timestamp = v
 }
 
+// GetTransactionHash returns the TransactionHash field value
+func (o *ListAllUnconfirmedTransactionsRI) GetTransactionHash() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.TransactionHash
+}
+
+// GetTransactionHashOk returns a tuple with the TransactionHash field value
+// and a boolean to check if the value has been set.
+func (o *ListAllUnconfirmedTransactionsRI) GetTransactionHashOk() (*string, bool) {
+	if o == nil  {
+		return nil, false
+	}
+	return &o.TransactionHash, true
+}
+
+// SetTransactionHash sets field value
+func (o *ListAllUnconfirmedTransactionsRI) SetTransactionHash(v string) {
+	o.TransactionHash = v
+}
+
 // GetTransactionId returns the TransactionId field value
 func (o *ListAllUnconfirmedTransactionsRI) GetTransactionId() string {
 	if o == nil {
@@ -180,6 +207,9 @@ func (o ListAllUnconfirmedTransactionsRI) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["timestamp"] = o.Timestamp
+	}
+	if true {
+		toSerialize["transactionHash"] = o.TransactionHash
 	}
 	if true {
 		toSerialize["transactionId"] = o.TransactionId
