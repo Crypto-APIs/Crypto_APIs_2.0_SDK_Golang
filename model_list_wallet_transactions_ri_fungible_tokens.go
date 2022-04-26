@@ -76,7 +76,7 @@ func (o *ListWalletTransactionsRIFungibleTokens) GetAmount() string {
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRIFungibleTokens) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -100,7 +100,7 @@ func (o *ListWalletTransactionsRIFungibleTokens) GetConvertedAmount() string {
 // GetConvertedAmountOk returns a tuple with the ConvertedAmount field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRIFungibleTokens) GetConvertedAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConvertedAmount, true
@@ -124,7 +124,7 @@ func (o *ListWalletTransactionsRIFungibleTokens) GetExchangeRateUnit() string {
 // GetExchangeRateUnitOk returns a tuple with the ExchangeRateUnit field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRIFungibleTokens) GetExchangeRateUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExchangeRateUnit, true
@@ -148,7 +148,7 @@ func (o *ListWalletTransactionsRIFungibleTokens) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRIFungibleTokens) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -172,7 +172,7 @@ func (o *ListWalletTransactionsRIFungibleTokens) GetRecipient() string {
 // GetRecipientOk returns a tuple with the Recipient field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRIFungibleTokens) GetRecipientOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Recipient, true
@@ -196,7 +196,7 @@ func (o *ListWalletTransactionsRIFungibleTokens) GetSender() string {
 // GetSenderOk returns a tuple with the Sender field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRIFungibleTokens) GetSenderOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sender, true
@@ -220,7 +220,7 @@ func (o *ListWalletTransactionsRIFungibleTokens) GetSymbol() string {
 // GetSymbolOk returns a tuple with the Symbol field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRIFungibleTokens) GetSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Symbol, true
@@ -244,7 +244,7 @@ func (o *ListWalletTransactionsRIFungibleTokens) GetTokenDecimals() int32 {
 // GetTokenDecimalsOk returns a tuple with the TokenDecimals field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRIFungibleTokens) GetTokenDecimalsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenDecimals, true
@@ -268,7 +268,7 @@ func (o *ListWalletTransactionsRIFungibleTokens) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRIFungibleTokens) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true

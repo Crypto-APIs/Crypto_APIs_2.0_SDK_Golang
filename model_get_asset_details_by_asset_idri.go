@@ -72,7 +72,7 @@ func (o *GetAssetDetailsByAssetIDRI) GetAssetId() string {
 // GetAssetIdOk returns a tuple with the AssetId field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetIDRI) GetAssetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AssetId, true
@@ -96,7 +96,7 @@ func (o *GetAssetDetailsByAssetIDRI) GetAssetLogo() GetAssetDetailsByAssetIDRIAs
 // GetAssetLogoOk returns a tuple with the AssetLogo field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetIDRI) GetAssetLogoOk() (*GetAssetDetailsByAssetIDRIAssetLogo, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AssetLogo, true
@@ -120,7 +120,7 @@ func (o *GetAssetDetailsByAssetIDRI) GetAssetName() string {
 // GetAssetNameOk returns a tuple with the AssetName field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetIDRI) GetAssetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AssetName, true
@@ -144,7 +144,7 @@ func (o *GetAssetDetailsByAssetIDRI) GetAssetOriginalSymbol() string {
 // GetAssetOriginalSymbolOk returns a tuple with the AssetOriginalSymbol field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetIDRI) GetAssetOriginalSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AssetOriginalSymbol, true
@@ -168,7 +168,7 @@ func (o *GetAssetDetailsByAssetIDRI) GetAssetSymbol() string {
 // GetAssetSymbolOk returns a tuple with the AssetSymbol field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetIDRI) GetAssetSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AssetSymbol, true
@@ -192,7 +192,7 @@ func (o *GetAssetDetailsByAssetIDRI) GetAssetType() string {
 // GetAssetTypeOk returns a tuple with the AssetType field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetIDRI) GetAssetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AssetType, true
@@ -216,7 +216,7 @@ func (o *GetAssetDetailsByAssetIDRI) GetLatestRate() GetAssetDetailsByAssetIDRIL
 // GetLatestRateOk returns a tuple with the LatestRate field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetIDRI) GetLatestRateOk() (*GetAssetDetailsByAssetIDRILatestRate, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.LatestRate, true
@@ -272,7 +272,7 @@ func (o *GetAssetDetailsByAssetIDRI) GetSpecificData() GetAssetDetailsByAssetIDR
 // GetSpecificDataOk returns a tuple with the SpecificData field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetIDRI) GetSpecificDataOk() (*GetAssetDetailsByAssetIDRIS, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SpecificData, true

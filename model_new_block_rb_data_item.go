@@ -21,7 +21,7 @@ type NewBlockRBDataItem struct {
 	AllowDuplicates *bool `json:"allowDuplicates,omitempty"`
 	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
 	CallbackSecretKey *string `json:"callbackSecretKey,omitempty"`
-	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 	CallbackUrl string `json:"callbackUrl"`
 }
 
@@ -124,7 +124,7 @@ func (o *NewBlockRBDataItem) GetCallbackUrl() string {
 // GetCallbackUrlOk returns a tuple with the CallbackUrl field value
 // and a boolean to check if the value has been set.
 func (o *NewBlockRBDataItem) GetCallbackUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackUrl, true

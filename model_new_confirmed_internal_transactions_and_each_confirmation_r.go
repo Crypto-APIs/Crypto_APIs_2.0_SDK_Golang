@@ -59,7 +59,7 @@ func (o *NewConfirmedInternalTransactionsAndEachConfirmationR) GetApiVersion() s
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedInternalTransactionsAndEachConfirmationR) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *NewConfirmedInternalTransactionsAndEachConfirmationR) GetRequestId() st
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedInternalTransactionsAndEachConfirmationR) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -139,7 +139,7 @@ func (o *NewConfirmedInternalTransactionsAndEachConfirmationR) GetData() NewConf
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedInternalTransactionsAndEachConfirmationR) GetDataOk() (*NewConfirmedInternalTransactionsAndEachConfirmationRData, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Data, true

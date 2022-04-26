@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Locktime** | **int32** | Represents the time at which a particular transaction can be added to the blockchain. | 
+**Locktime** | **int64** | Represents the time at which a particular transaction can be added to the blockchain. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Represents the transaction version number. | 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewListTransactionsByBlockHeightRIBS
 
-`func NewListTransactionsByBlockHeightRIBS(locktime int32, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHeightRIBSZVin, vout []ListTransactionsByBlockHeightRIBSZVout, contract string, gasLimit string, gasPrice ListTransactionsByBlockHeightRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []ListTransactionsByBlockHeightRIBSZVJoinSplit, vShieldedOutput []ListTransactionsByBlockHeightRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, versionGroupId string, ) *ListTransactionsByBlockHeightRIBS`
+`func NewListTransactionsByBlockHeightRIBS(locktime int64, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHeightRIBSZVin, vout []ListTransactionsByBlockHeightRIBSZVout, contract string, gasLimit string, gasPrice ListTransactionsByBlockHeightRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []ListTransactionsByBlockHeightRIBSZVJoinSplit, vShieldedOutput []ListTransactionsByBlockHeightRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, versionGroupId string, ) *ListTransactionsByBlockHeightRIBS`
 
 NewListTransactionsByBlockHeightRIBS instantiates a new ListTransactionsByBlockHeightRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -49,20 +49,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetLocktime
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetLocktime() int32`
+`func (o *ListTransactionsByBlockHeightRIBS) GetLocktime() int64`
 
 GetLocktime returns the Locktime field if non-nil, zero value otherwise.
 
 ### GetLocktimeOk
 
-`func (o *ListTransactionsByBlockHeightRIBS) GetLocktimeOk() (*int32, bool)`
+`func (o *ListTransactionsByBlockHeightRIBS) GetLocktimeOk() (*int64, bool)`
 
 GetLocktimeOk returns a tuple with the Locktime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLocktime
 
-`func (o *ListTransactionsByBlockHeightRIBS) SetLocktime(v int32)`
+`func (o *ListTransactionsByBlockHeightRIBS) SetLocktime(v int64)`
 
 SetLocktime sets Locktime field to given value.
 

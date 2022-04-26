@@ -26,22 +26,30 @@ type BroadcastLocallySignedTransactionE403 struct {
 
 // BannedIpAddressAsBroadcastLocallySignedTransactionE403 is a convenience function that returns BannedIpAddress wrapped in BroadcastLocallySignedTransactionE403
 func BannedIpAddressAsBroadcastLocallySignedTransactionE403(v *BannedIpAddress) BroadcastLocallySignedTransactionE403 {
-	return BroadcastLocallySignedTransactionE403{ BannedIpAddress: v}
+	return BroadcastLocallySignedTransactionE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsBroadcastLocallySignedTransactionE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in BroadcastLocallySignedTransactionE403
 func EndpointNotAllowedForApiKeyAsBroadcastLocallySignedTransactionE403(v *EndpointNotAllowedForApiKey) BroadcastLocallySignedTransactionE403 {
-	return BroadcastLocallySignedTransactionE403{ EndpointNotAllowedForApiKey: v}
+	return BroadcastLocallySignedTransactionE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsBroadcastLocallySignedTransactionE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in BroadcastLocallySignedTransactionE403
 func EndpointNotAllowedForPlanAsBroadcastLocallySignedTransactionE403(v *EndpointNotAllowedForPlan) BroadcastLocallySignedTransactionE403 {
-	return BroadcastLocallySignedTransactionE403{ EndpointNotAllowedForPlan: v}
+	return BroadcastLocallySignedTransactionE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsBroadcastLocallySignedTransactionE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in BroadcastLocallySignedTransactionE403
 func FeatureMainnetsNotAllowedForPlanAsBroadcastLocallySignedTransactionE403(v *FeatureMainnetsNotAllowedForPlan) BroadcastLocallySignedTransactionE403 {
-	return BroadcastLocallySignedTransactionE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return BroadcastLocallySignedTransactionE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *BroadcastLocallySignedTransactionE403) UnmarshalJSON(data []byte) err
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *BroadcastLocallySignedTransactionE403) UnmarshalJSON(data []byte) err
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *BroadcastLocallySignedTransactionE403) UnmarshalJSON(data []byte) err
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *BroadcastLocallySignedTransactionE403) UnmarshalJSON(data []byte) err
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src BroadcastLocallySignedTransactionE403) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *BroadcastLocallySignedTransactionE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

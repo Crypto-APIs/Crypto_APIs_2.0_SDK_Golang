@@ -23,14 +23,14 @@ type InlineResponse40150 struct {
 	RequestId string `json:"requestId"`
 	// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.
 	Context *string `json:"context,omitempty"`
-	Error GetInternalTransactionByTransactionHashAndOperationIdE401 `json:"error"`
+	Error GetHDWalletXPubYPubZPubAssetsE401 `json:"error"`
 }
 
 // NewInlineResponse40150 instantiates a new InlineResponse40150 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse40150(apiVersion string, requestId string, error_ GetInternalTransactionByTransactionHashAndOperationIdE401) *InlineResponse40150 {
+func NewInlineResponse40150(apiVersion string, requestId string, error_ GetHDWalletXPubYPubZPubAssetsE401) *InlineResponse40150 {
 	this := InlineResponse40150{}
 	this.ApiVersion = apiVersion
 	this.RequestId = requestId
@@ -59,7 +59,7 @@ func (o *InlineResponse40150) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40150) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *InlineResponse40150) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40150) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -127,9 +127,9 @@ func (o *InlineResponse40150) SetContext(v string) {
 }
 
 // GetError returns the Error field value
-func (o *InlineResponse40150) GetError() GetInternalTransactionByTransactionHashAndOperationIdE401 {
+func (o *InlineResponse40150) GetError() GetHDWalletXPubYPubZPubAssetsE401 {
 	if o == nil {
-		var ret GetInternalTransactionByTransactionHashAndOperationIdE401
+		var ret GetHDWalletXPubYPubZPubAssetsE401
 		return ret
 	}
 
@@ -138,15 +138,15 @@ func (o *InlineResponse40150) GetError() GetInternalTransactionByTransactionHash
 
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse40150) GetErrorOk() (*GetInternalTransactionByTransactionHashAndOperationIdE401, bool) {
-	if o == nil  {
+func (o *InlineResponse40150) GetErrorOk() (*GetHDWalletXPubYPubZPubAssetsE401, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Error, true
 }
 
 // SetError sets field value
-func (o *InlineResponse40150) SetError(v GetInternalTransactionByTransactionHashAndOperationIdE401) {
+func (o *InlineResponse40150) SetError(v GetHDWalletXPubYPubZPubAssetsE401) {
 	o.Error = v
 }
 

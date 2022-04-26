@@ -69,7 +69,7 @@ func (o *ListTransactionsByBlockHashRIBSEC) GetContract() string {
 // GetContractOk returns a tuple with the Contract field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSEC) GetContractOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Contract, true
@@ -93,7 +93,7 @@ func (o *ListTransactionsByBlockHashRIBSEC) GetGasLimit() string {
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSEC) GetGasLimitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -117,7 +117,7 @@ func (o *ListTransactionsByBlockHashRIBSEC) GetGasPrice() ListTransactionsByBloc
 // GetGasPriceOk returns a tuple with the GasPrice field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSEC) GetGasPriceOk() (*ListTransactionsByBlockHashRIBSEGasPrice, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasPrice, true
@@ -141,7 +141,7 @@ func (o *ListTransactionsByBlockHashRIBSEC) GetGasUsed() string {
 // GetGasUsedOk returns a tuple with the GasUsed field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSEC) GetGasUsedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasUsed, true
@@ -165,7 +165,7 @@ func (o *ListTransactionsByBlockHashRIBSEC) GetInputData() string {
 // GetInputDataOk returns a tuple with the InputData field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSEC) GetInputDataOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.InputData, true
@@ -189,7 +189,7 @@ func (o *ListTransactionsByBlockHashRIBSEC) GetNonce() string {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSEC) GetNonceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -213,7 +213,7 @@ func (o *ListTransactionsByBlockHashRIBSEC) GetTransactionStatus() string {
 // GetTransactionStatusOk returns a tuple with the TransactionStatus field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSEC) GetTransactionStatusOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionStatus, true

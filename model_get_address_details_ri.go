@@ -22,9 +22,9 @@ type GetAddressDetailsRI struct {
 	ConfirmedBalance GetAddressDetailsRIConfirmedBalance `json:"confirmedBalance"`
 	TotalReceived GetAddressDetailsRITotalReceived `json:"totalReceived"`
 	TotalSpent GetAddressDetailsRITotalSpent `json:"totalSpent"`
-	// Defines the count of the incoming transactions.
+	// Defines the received transaction count to the address.
 	IncomingTransactionsCount int32 `json:"incomingTransactionsCount"`
-	// Defines the count of the outgoing transactions.
+	// Defines the sent transaction count from the address.
 	OutgoingTransactionsCount int32 `json:"outgoingTransactionsCount"`
 }
 
@@ -64,7 +64,7 @@ func (o *GetAddressDetailsRI) GetTransactionsCount() int32 {
 // GetTransactionsCountOk returns a tuple with the TransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsRI) GetTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionsCount, true
@@ -88,7 +88,7 @@ func (o *GetAddressDetailsRI) GetConfirmedBalance() GetAddressDetailsRIConfirmed
 // GetConfirmedBalanceOk returns a tuple with the ConfirmedBalance field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsRI) GetConfirmedBalanceOk() (*GetAddressDetailsRIConfirmedBalance, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConfirmedBalance, true
@@ -112,7 +112,7 @@ func (o *GetAddressDetailsRI) GetTotalReceived() GetAddressDetailsRITotalReceive
 // GetTotalReceivedOk returns a tuple with the TotalReceived field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsRI) GetTotalReceivedOk() (*GetAddressDetailsRITotalReceived, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalReceived, true
@@ -136,7 +136,7 @@ func (o *GetAddressDetailsRI) GetTotalSpent() GetAddressDetailsRITotalSpent {
 // GetTotalSpentOk returns a tuple with the TotalSpent field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsRI) GetTotalSpentOk() (*GetAddressDetailsRITotalSpent, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalSpent, true
@@ -160,7 +160,7 @@ func (o *GetAddressDetailsRI) GetIncomingTransactionsCount() int32 {
 // GetIncomingTransactionsCountOk returns a tuple with the IncomingTransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsRI) GetIncomingTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IncomingTransactionsCount, true
@@ -184,7 +184,7 @@ func (o *GetAddressDetailsRI) GetOutgoingTransactionsCount() int32 {
 // GetOutgoingTransactionsCountOk returns a tuple with the OutgoingTransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsRI) GetOutgoingTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OutgoingTransactionsCount, true

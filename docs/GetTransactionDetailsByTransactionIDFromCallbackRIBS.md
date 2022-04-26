@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Locktime** | **int32** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
+**Locktime** | **int64** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Defines the version of the transaction. | 
@@ -28,10 +28,10 @@ Name | Type | Description | Notes
 **ValueBalance** | **string** | String representation of the transaction value balance | 
 **VersionGroupId** | **string** | Represents the transaction version group ID | 
 **AdditionalData** | **string** | Represents additional data that may be needed. | 
-**DestinationTag** | Pointer to **int32** | Defines the destination tag value. | [optional] 
+**DestinationTag** | Pointer to **int64** | Defines the destination tag value. | [optional] 
 **Offer** | [**GetXRPRippleTransactionDetailsByTransactionIDRIOffer**](GetXRPRippleTransactionDetailsByTransactionIDRIOffer.md) |  | 
 **Receive** | [**GetXRPRippleTransactionDetailsByTransactionIDRIReceive**](GetXRPRippleTransactionDetailsByTransactionIDRIReceive.md) |  | 
-**Sequence** | **int32** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
+**Sequence** | **int64** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
 **Status** | **string** | Defines the status of the transaction. | 
 **Type** | **string** | Defines the type of the transaction. | 
 **Value** | [**GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue**](GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue.md) |  | 
@@ -40,7 +40,7 @@ Name | Type | Description | Notes
 
 ### NewGetTransactionDetailsByTransactionIDFromCallbackRIBS
 
-`func NewGetTransactionDetailsByTransactionIDFromCallbackRIBS(locktime int32, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSZVin, vout []GetTransactionDetailsByTransactionIDRIBSZVout, contract string, gasLimit int32, gasPrice GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice, gasUsed int32, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, versionGroupId string, additionalData string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, sequence int32, status string, type_ string, value GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue, ) *GetTransactionDetailsByTransactionIDFromCallbackRIBS`
+`func NewGetTransactionDetailsByTransactionIDFromCallbackRIBS(locktime int64, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSZVin, vout []GetTransactionDetailsByTransactionIDRIBSZVout, contract string, gasLimit int32, gasPrice GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice, gasUsed int32, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, versionGroupId string, additionalData string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, sequence int64, status string, type_ string, value GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue, ) *GetTransactionDetailsByTransactionIDFromCallbackRIBS`
 
 NewGetTransactionDetailsByTransactionIDFromCallbackRIBS instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -57,20 +57,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetLocktime
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetLocktime() int32`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetLocktime() int64`
 
 GetLocktime returns the Locktime field if non-nil, zero value otherwise.
 
 ### GetLocktimeOk
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetLocktimeOk() (*int32, bool)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetLocktimeOk() (*int64, bool)`
 
 GetLocktimeOk returns a tuple with the Locktime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLocktime
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetLocktime(v int32)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetLocktime(v int64)`
 
 SetLocktime sets Locktime field to given value.
 
@@ -537,20 +537,20 @@ SetAdditionalData sets AdditionalData field to given value.
 
 ### GetDestinationTag
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetDestinationTag() int32`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetDestinationTag() int64`
 
 GetDestinationTag returns the DestinationTag field if non-nil, zero value otherwise.
 
 ### GetDestinationTagOk
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetDestinationTagOk() (*int32, bool)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetDestinationTagOk() (*int64, bool)`
 
 GetDestinationTagOk returns a tuple with the DestinationTag field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDestinationTag
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetDestinationTag(v int32)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetDestinationTag(v int64)`
 
 SetDestinationTag sets DestinationTag field to given value.
 
@@ -602,20 +602,20 @@ SetReceive sets Receive field to given value.
 
 ### GetSequence
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetSequence() int32`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetSequence() int64`
 
 GetSequence returns the Sequence field if non-nil, zero value otherwise.
 
 ### GetSequenceOk
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetSequenceOk() (*int32, bool)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetSequenceOk() (*int64, bool)`
 
 GetSequenceOk returns a tuple with the Sequence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSequence
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetSequence(v int32)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetSequence(v int64)`
 
 SetSequence sets Sequence field to given value.
 

@@ -35,7 +35,7 @@ type GetBlockDetailsByBlockHashFromCallbackRIBSEC struct {
 	Size int32 `json:"size"`
 	// Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block.
 	TotalDifficulty string `json:"totalDifficulty"`
-	Uncles *[]string `json:"uncles,omitempty"`
+	Uncles []string `json:"uncles,omitempty"`
 }
 
 // NewGetBlockDetailsByBlockHashFromCallbackRIBSEC instantiates a new GetBlockDetailsByBlockHashFromCallbackRIBSEC object
@@ -77,7 +77,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetDifficulty() string {
 // GetDifficultyOk returns a tuple with the Difficulty field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Difficulty, true
@@ -101,7 +101,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetExtraData() string {
 // GetExtraDataOk returns a tuple with the ExtraData field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetExtraDataOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExtraData, true
@@ -125,7 +125,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetGasLimit() string {
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetGasLimitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -149,7 +149,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetGasUsed() string {
 // GetGasUsedOk returns a tuple with the GasUsed field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetGasUsedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasUsed, true
@@ -173,7 +173,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetMinedInSeconds() int32
 // GetMinedInSecondsOk returns a tuple with the MinedInSeconds field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetMinedInSecondsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInSeconds, true
@@ -197,7 +197,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetNonce() string {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetNonceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -221,7 +221,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetSha3Uncles() string {
 // GetSha3UnclesOk returns a tuple with the Sha3Uncles field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetSha3UnclesOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sha3Uncles, true
@@ -245,7 +245,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -269,7 +269,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetTotalDifficulty() stri
 // GetTotalDifficultyOk returns a tuple with the TotalDifficulty field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetTotalDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalDifficulty, true
@@ -286,12 +286,12 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetUncles() []string {
 		var ret []string
 		return ret
 	}
-	return *o.Uncles
+	return o.Uncles
 }
 
 // GetUnclesOk returns a tuple with the Uncles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetUnclesOk() (*[]string, bool) {
+func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) GetUnclesOk() ([]string, bool) {
 	if o == nil || o.Uncles == nil {
 		return nil, false
 	}
@@ -309,7 +309,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) HasUncles() bool {
 
 // SetUncles gets a reference to the given []string and assigns it to the Uncles field.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSEC) SetUncles(v []string) {
-	o.Uncles = &v
+	o.Uncles = v
 }
 
 func (o GetBlockDetailsByBlockHashFromCallbackRIBSEC) MarshalJSON() ([]byte, error) {

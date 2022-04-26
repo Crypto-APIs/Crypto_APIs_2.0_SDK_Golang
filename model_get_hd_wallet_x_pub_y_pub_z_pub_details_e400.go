@@ -29,37 +29,51 @@ type GetHDWalletXPubYPubZPubDetailsE400 struct {
 
 // InvalidBlockchainAsGetHDWalletXPubYPubZPubDetailsE400 is a convenience function that returns InvalidBlockchain wrapped in GetHDWalletXPubYPubZPubDetailsE400
 func InvalidBlockchainAsGetHDWalletXPubYPubZPubDetailsE400(v *InvalidBlockchain) GetHDWalletXPubYPubZPubDetailsE400 {
-	return GetHDWalletXPubYPubZPubDetailsE400{ InvalidBlockchain: v}
+	return GetHDWalletXPubYPubZPubDetailsE400{
+		InvalidBlockchain: v,
+	}
 }
 
 // InvalidNetworkAsGetHDWalletXPubYPubZPubDetailsE400 is a convenience function that returns InvalidNetwork wrapped in GetHDWalletXPubYPubZPubDetailsE400
 func InvalidNetworkAsGetHDWalletXPubYPubZPubDetailsE400(v *InvalidNetwork) GetHDWalletXPubYPubZPubDetailsE400 {
-	return GetHDWalletXPubYPubZPubDetailsE400{ InvalidNetwork: v}
+	return GetHDWalletXPubYPubZPubDetailsE400{
+		InvalidNetwork: v,
+	}
 }
 
 // InvalidPaginationAsGetHDWalletXPubYPubZPubDetailsE400 is a convenience function that returns InvalidPagination wrapped in GetHDWalletXPubYPubZPubDetailsE400
 func InvalidPaginationAsGetHDWalletXPubYPubZPubDetailsE400(v *InvalidPagination) GetHDWalletXPubYPubZPubDetailsE400 {
-	return GetHDWalletXPubYPubZPubDetailsE400{ InvalidPagination: v}
+	return GetHDWalletXPubYPubZPubDetailsE400{
+		InvalidPagination: v,
+	}
 }
 
 // InvalidXpubAsGetHDWalletXPubYPubZPubDetailsE400 is a convenience function that returns InvalidXpub wrapped in GetHDWalletXPubYPubZPubDetailsE400
 func InvalidXpubAsGetHDWalletXPubYPubZPubDetailsE400(v *InvalidXpub) GetHDWalletXPubYPubZPubDetailsE400 {
-	return GetHDWalletXPubYPubZPubDetailsE400{ InvalidXpub: v}
+	return GetHDWalletXPubYPubZPubDetailsE400{
+		InvalidXpub: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsGetHDWalletXPubYPubZPubDetailsE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in GetHDWalletXPubYPubZPubDetailsE400
 func LimitGreaterThanAllowedAsGetHDWalletXPubYPubZPubDetailsE400(v *LimitGreaterThanAllowed) GetHDWalletXPubYPubZPubDetailsE400 {
-	return GetHDWalletXPubYPubZPubDetailsE400{ LimitGreaterThanAllowed: v}
+	return GetHDWalletXPubYPubZPubDetailsE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsGetHDWalletXPubYPubZPubDetailsE400 is a convenience function that returns UriNotFound wrapped in GetHDWalletXPubYPubZPubDetailsE400
 func UriNotFoundAsGetHDWalletXPubYPubZPubDetailsE400(v *UriNotFound) GetHDWalletXPubYPubZPubDetailsE400 {
-	return GetHDWalletXPubYPubZPubDetailsE400{ UriNotFound: v}
+	return GetHDWalletXPubYPubZPubDetailsE400{
+		UriNotFound: v,
+	}
 }
 
 // XpubNotSyncedAsGetHDWalletXPubYPubZPubDetailsE400 is a convenience function that returns XpubNotSynced wrapped in GetHDWalletXPubYPubZPubDetailsE400
 func XpubNotSyncedAsGetHDWalletXPubYPubZPubDetailsE400(v *XpubNotSynced) GetHDWalletXPubYPubZPubDetailsE400 {
-	return GetHDWalletXPubYPubZPubDetailsE400{ XpubNotSynced: v}
+	return GetHDWalletXPubYPubZPubDetailsE400{
+		XpubNotSynced: v,
+	}
 }
 
 
@@ -68,7 +82,7 @@ func (dst *GetHDWalletXPubYPubZPubDetailsE400) UnmarshalJSON(data []byte) error 
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidBlockchain
-	err = json.Unmarshal(data, &dst.InvalidBlockchain)
+	err = newStrictDecoder(data).Decode(&dst.InvalidBlockchain)
 	if err == nil {
 		jsonInvalidBlockchain, _ := json.Marshal(dst.InvalidBlockchain)
 		if string(jsonInvalidBlockchain) == "{}" { // empty struct
@@ -81,7 +95,7 @@ func (dst *GetHDWalletXPubYPubZPubDetailsE400) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into InvalidNetwork
-	err = json.Unmarshal(data, &dst.InvalidNetwork)
+	err = newStrictDecoder(data).Decode(&dst.InvalidNetwork)
 	if err == nil {
 		jsonInvalidNetwork, _ := json.Marshal(dst.InvalidNetwork)
 		if string(jsonInvalidNetwork) == "{}" { // empty struct
@@ -94,7 +108,7 @@ func (dst *GetHDWalletXPubYPubZPubDetailsE400) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -107,7 +121,7 @@ func (dst *GetHDWalletXPubYPubZPubDetailsE400) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into InvalidXpub
-	err = json.Unmarshal(data, &dst.InvalidXpub)
+	err = newStrictDecoder(data).Decode(&dst.InvalidXpub)
 	if err == nil {
 		jsonInvalidXpub, _ := json.Marshal(dst.InvalidXpub)
 		if string(jsonInvalidXpub) == "{}" { // empty struct
@@ -120,7 +134,7 @@ func (dst *GetHDWalletXPubYPubZPubDetailsE400) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -133,7 +147,7 @@ func (dst *GetHDWalletXPubYPubZPubDetailsE400) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -146,7 +160,7 @@ func (dst *GetHDWalletXPubYPubZPubDetailsE400) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into XpubNotSynced
-	err = json.Unmarshal(data, &dst.XpubNotSynced)
+	err = newStrictDecoder(data).Decode(&dst.XpubNotSynced)
 	if err == nil {
 		jsonXpubNotSynced, _ := json.Marshal(dst.XpubNotSynced)
 		if string(jsonXpubNotSynced) == "{}" { // empty struct
@@ -211,6 +225,9 @@ func (src GetHDWalletXPubYPubZPubDetailsE400) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetHDWalletXPubYPubZPubDetailsE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidBlockchain != nil {
 		return obj.InvalidBlockchain
 	}

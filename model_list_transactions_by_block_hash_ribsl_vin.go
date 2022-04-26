@@ -68,11 +68,11 @@ func (o *ListTransactionsByBlockHashRIBSLVin) GetAddresses() []string {
 
 // GetAddressesOk returns a tuple with the Addresses field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSLVin) GetAddressesOk() (*[]string, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHashRIBSLVin) GetAddressesOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Addresses, true
+	return o.Addresses, true
 }
 
 // SetAddresses sets field value
@@ -125,7 +125,7 @@ func (o *ListTransactionsByBlockHashRIBSLVin) GetScriptSig() ListTransactionsByB
 // GetScriptSigOk returns a tuple with the ScriptSig field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSLVin) GetScriptSigOk() (*ListTransactionsByBlockHashRIBSLScriptSig, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ScriptSig, true
@@ -149,7 +149,7 @@ func (o *ListTransactionsByBlockHashRIBSLVin) GetSequence() string {
 // GetSequenceOk returns a tuple with the Sequence field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSLVin) GetSequenceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sequence, true
@@ -173,7 +173,7 @@ func (o *ListTransactionsByBlockHashRIBSLVin) GetTxid() string {
 // GetTxidOk returns a tuple with the Txid field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSLVin) GetTxidOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Txid, true
@@ -196,11 +196,11 @@ func (o *ListTransactionsByBlockHashRIBSLVin) GetTxinwitness() []string {
 
 // GetTxinwitnessOk returns a tuple with the Txinwitness field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSLVin) GetTxinwitnessOk() (*[]string, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHashRIBSLVin) GetTxinwitnessOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Txinwitness, true
+	return o.Txinwitness, true
 }
 
 // SetTxinwitness sets field value
@@ -221,7 +221,7 @@ func (o *ListTransactionsByBlockHashRIBSLVin) GetValue() string {
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSLVin) GetValueOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Value, true
@@ -245,7 +245,7 @@ func (o *ListTransactionsByBlockHashRIBSLVin) GetVout() int32 {
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSLVin) GetVoutOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Vout, true

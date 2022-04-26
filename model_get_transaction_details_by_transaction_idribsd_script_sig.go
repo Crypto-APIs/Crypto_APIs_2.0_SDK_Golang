@@ -58,7 +58,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSDScriptSig) GetAsm() string {
 // GetAsmOk returns a tuple with the Asm field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSDScriptSig) GetAsmOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Asm, true
@@ -82,7 +82,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSDScriptSig) GetHex() string {
 // GetHexOk returns a tuple with the Hex field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSDScriptSig) GetHexOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Hex, true
@@ -106,7 +106,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSDScriptSig) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSDScriptSig) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true

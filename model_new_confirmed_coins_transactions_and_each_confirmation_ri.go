@@ -21,7 +21,7 @@ type NewConfirmedCoinsTransactionsAndEachConfirmationRI struct {
 	Address string `json:"address"`
 	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
 	CallbackSecretKey string `json:"callbackSecretKey"`
-	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 	CallbackUrl string `json:"callbackUrl"`
 	// Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
 	ConfirmationsCount int32 `json:"confirmationsCount"`
@@ -73,7 +73,7 @@ func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetAddress() string
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -97,7 +97,7 @@ func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetCallbackSecretKe
 // GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetCallbackSecretKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackSecretKey, true
@@ -121,7 +121,7 @@ func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetCallbackUrl() st
 // GetCallbackUrlOk returns a tuple with the CallbackUrl field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetCallbackUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackUrl, true
@@ -145,7 +145,7 @@ func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetConfirmationsCou
 // GetConfirmationsCountOk returns a tuple with the ConfirmationsCount field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetConfirmationsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConfirmationsCount, true
@@ -169,7 +169,7 @@ func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetCreatedTimestamp
 // GetCreatedTimestampOk returns a tuple with the CreatedTimestamp field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetCreatedTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CreatedTimestamp, true
@@ -193,7 +193,7 @@ func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetEventType() stri
 // GetEventTypeOk returns a tuple with the EventType field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetEventTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EventType, true
@@ -217,7 +217,7 @@ func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetIsActive() bool 
 // GetIsActiveOk returns a tuple with the IsActive field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetIsActiveOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsActive, true
@@ -241,7 +241,7 @@ func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetReferenceId() st
 // GetReferenceIdOk returns a tuple with the ReferenceId field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedCoinsTransactionsAndEachConfirmationRI) GetReferenceIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ReferenceId, true

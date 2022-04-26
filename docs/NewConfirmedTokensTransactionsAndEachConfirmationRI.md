@@ -5,17 +5,19 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | **string** | Represents the address of the transaction, per which the result is returned. | 
-**CallbackUrl** | **string** | Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. | 
+**CallbackSecretKey** | Pointer to **string** | Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security). | [optional] 
+**CallbackUrl** | **string** | Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. &#x60;We support ONLY httpS type of protocol&#x60;. | 
 **ConfirmationsCount** | Pointer to **int32** | Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block. | [optional] 
 **CreatedTimestamp** | **int32** | Defines the specific time/date when the subscription was created in Unix Timestamp. | 
 **EventType** | **string** | Defines the type of the specific event available for the customer to subscribe to for callback notification. | 
+**IsActive** | **bool** | Defines whether the subscription is active or not. Set as boolean. | 
 **ReferenceId** | **string** | Represents a unique ID used to reference the specific callback subscription. | 
 
 ## Methods
 
 ### NewNewConfirmedTokensTransactionsAndEachConfirmationRI
 
-`func NewNewConfirmedTokensTransactionsAndEachConfirmationRI(address string, callbackUrl string, createdTimestamp int32, eventType string, referenceId string, ) *NewConfirmedTokensTransactionsAndEachConfirmationRI`
+`func NewNewConfirmedTokensTransactionsAndEachConfirmationRI(address string, callbackUrl string, createdTimestamp int32, eventType string, isActive bool, referenceId string, ) *NewConfirmedTokensTransactionsAndEachConfirmationRI`
 
 NewNewConfirmedTokensTransactionsAndEachConfirmationRI instantiates a new NewConfirmedTokensTransactionsAndEachConfirmationRI object
 This constructor will assign default values to properties that have it defined,
@@ -49,6 +51,31 @@ and a boolean to check if the value has been set.
 
 SetAddress sets Address field to given value.
 
+
+### GetCallbackSecretKey
+
+`func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetCallbackSecretKey() string`
+
+GetCallbackSecretKey returns the CallbackSecretKey field if non-nil, zero value otherwise.
+
+### GetCallbackSecretKeyOk
+
+`func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetCallbackSecretKeyOk() (*string, bool)`
+
+GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetCallbackSecretKey
+
+`func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) SetCallbackSecretKey(v string)`
+
+SetCallbackSecretKey sets CallbackSecretKey field to given value.
+
+### HasCallbackSecretKey
+
+`func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) HasCallbackSecretKey() bool`
+
+HasCallbackSecretKey returns a boolean if a field has been set.
 
 ### GetCallbackUrl
 
@@ -133,6 +160,26 @@ and a boolean to check if the value has been set.
 `func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) SetEventType(v string)`
 
 SetEventType sets EventType field to given value.
+
+
+### GetIsActive
+
+`func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetIsActive() bool`
+
+GetIsActive returns the IsActive field if non-nil, zero value otherwise.
+
+### GetIsActiveOk
+
+`func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetIsActiveOk() (*bool, bool)`
+
+GetIsActiveOk returns a tuple with the IsActive field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsActive
+
+`func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) SetIsActive(v bool)`
+
+SetIsActive sets IsActive field to given value.
 
 
 ### GetReferenceId

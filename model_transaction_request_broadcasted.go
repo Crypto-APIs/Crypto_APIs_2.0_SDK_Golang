@@ -60,7 +60,7 @@ func (o *TransactionRequestBroadcasted) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestBroadcasted) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -84,7 +84,7 @@ func (o *TransactionRequestBroadcasted) GetReferenceId() string {
 // GetReferenceIdOk returns a tuple with the ReferenceId field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestBroadcasted) GetReferenceIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ReferenceId, true
@@ -108,7 +108,7 @@ func (o *TransactionRequestBroadcasted) GetIdempotencyKey() string {
 // GetIdempotencyKeyOk returns a tuple with the IdempotencyKey field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestBroadcasted) GetIdempotencyKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IdempotencyKey, true
@@ -132,7 +132,7 @@ func (o *TransactionRequestBroadcasted) GetData() TransactionRequestBroadcastedD
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestBroadcasted) GetDataOk() (*TransactionRequestBroadcastedData, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Data, true

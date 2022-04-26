@@ -57,7 +57,7 @@ func (o *AddressInternalTransactionConfirmedEachConfirmationData) GetProduct() s
 // GetProductOk returns a tuple with the Product field value
 // and a boolean to check if the value has been set.
 func (o *AddressInternalTransactionConfirmedEachConfirmationData) GetProductOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Product, true
@@ -81,7 +81,7 @@ func (o *AddressInternalTransactionConfirmedEachConfirmationData) GetEvent() str
 // GetEventOk returns a tuple with the Event field value
 // and a boolean to check if the value has been set.
 func (o *AddressInternalTransactionConfirmedEachConfirmationData) GetEventOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Event, true
@@ -105,7 +105,7 @@ func (o *AddressInternalTransactionConfirmedEachConfirmationData) GetItem() Addr
 // GetItemOk returns a tuple with the Item field value
 // and a boolean to check if the value has been set.
 func (o *AddressInternalTransactionConfirmedEachConfirmationData) GetItemOk() (*AddressInternalTransactionConfirmedEachConfirmationDataItem, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Item, true

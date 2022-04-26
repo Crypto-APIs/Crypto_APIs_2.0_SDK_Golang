@@ -24,12 +24,16 @@ type NewConfirmedInternalTransactionsAndEachConfirmationE409 struct {
 
 // AlreadyExistsAsNewConfirmedInternalTransactionsAndEachConfirmationE409 is a convenience function that returns AlreadyExists wrapped in NewConfirmedInternalTransactionsAndEachConfirmationE409
 func AlreadyExistsAsNewConfirmedInternalTransactionsAndEachConfirmationE409(v *AlreadyExists) NewConfirmedInternalTransactionsAndEachConfirmationE409 {
-	return NewConfirmedInternalTransactionsAndEachConfirmationE409{ AlreadyExists: v}
+	return NewConfirmedInternalTransactionsAndEachConfirmationE409{
+		AlreadyExists: v,
+	}
 }
 
 // InvalidDataAsNewConfirmedInternalTransactionsAndEachConfirmationE409 is a convenience function that returns InvalidData wrapped in NewConfirmedInternalTransactionsAndEachConfirmationE409
 func InvalidDataAsNewConfirmedInternalTransactionsAndEachConfirmationE409(v *InvalidData) NewConfirmedInternalTransactionsAndEachConfirmationE409 {
-	return NewConfirmedInternalTransactionsAndEachConfirmationE409{ InvalidData: v}
+	return NewConfirmedInternalTransactionsAndEachConfirmationE409{
+		InvalidData: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *NewConfirmedInternalTransactionsAndEachConfirmationE409) UnmarshalJSO
 	var err error
 	match := 0
 	// try to unmarshal data into AlreadyExists
-	err = json.Unmarshal(data, &dst.AlreadyExists)
+	err = newStrictDecoder(data).Decode(&dst.AlreadyExists)
 	if err == nil {
 		jsonAlreadyExists, _ := json.Marshal(dst.AlreadyExists)
 		if string(jsonAlreadyExists) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *NewConfirmedInternalTransactionsAndEachConfirmationE409) UnmarshalJSO
 	}
 
 	// try to unmarshal data into InvalidData
-	err = json.Unmarshal(data, &dst.InvalidData)
+	err = newStrictDecoder(data).Decode(&dst.InvalidData)
 	if err == nil {
 		jsonInvalidData, _ := json.Marshal(dst.InvalidData)
 		if string(jsonInvalidData) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src NewConfirmedInternalTransactionsAndEachConfirmationE409) MarshalJSON()
 
 // Get the actual instance
 func (obj *NewConfirmedInternalTransactionsAndEachConfirmationE409) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.AlreadyExists != nil {
 		return obj.AlreadyExists
 	}

@@ -7,6 +7,8 @@ Method | HTTP request | Description
 [**GetTransactionRequestDetails**](InformativeApi.md#GetTransactionRequestDetails) | **Get** /wallet-as-a-service/transactionRequests/{transactionRequestId} | Get Transaction Request Details
 [**GetWalletAssetDetails**](InformativeApi.md#GetWalletAssetDetails) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network} | Get Wallet Asset Details
 [**GetWalletTransactionDetailsByTransactionID**](InformativeApi.md#GetWalletTransactionDetailsByTransactionID) | **Get** /wallet-as-a-service/wallets/{blockchain}/{network}/transactions/{transactionId} | Get Wallet Transaction Details By Transaction ID
+[**ListAllAssetsByWalletID**](InformativeApi.md#ListAllAssetsByWalletID) | **Get** /wallet-as-a-service/wallets/{walletId}/assets | List All Assets By Wallet ID
+[**ListAllAssetsFromAllWallets**](InformativeApi.md#ListAllAssetsFromAllWallets) | **Get** /wallet-as-a-service/wallets/all-assets | List All Assets From All Wallets
 [**ListDepositAddresses**](InformativeApi.md#ListDepositAddresses) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses | List Deposit Addresses
 [**ListSupportedTokens**](InformativeApi.md#ListSupportedTokens) | **Get** /wallet-as-a-service/info/{blockchain}/{network}/supported-tokens | List Supported Tokens
 [**ListWalletTransactions**](InformativeApi.md#ListWalletTransactions) | **Get** /wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/transactions | List Wallet Transactions
@@ -35,11 +37,11 @@ import (
 
 func main() {
     transactionRequestId := "6115126693397c0006f78eb4" // string | Represents the unique ID of the transaction request.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.InformativeApi.GetTransactionRequestDetails(context.Background(), transactionRequestId).Context(context).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InformativeApi.GetTransactionRequestDetails(context.Background(), transactionRequestId).Context(context).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `InformativeApi.GetTransactionRequestDetails``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -109,11 +111,11 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     walletId := "60c9d9921c38030006675ff6" // string | Defines the unique ID of the Wallet.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.InformativeApi.GetWalletAssetDetails(context.Background(), blockchain, network, walletId).Context(context).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InformativeApi.GetWalletAssetDetails(context.Background(), blockchain, network, walletId).Context(context).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `InformativeApi.GetWalletAssetDetails``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -187,11 +189,11 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     transactionId := "3e081861494aed897e589cdeab5d9e628d985e571ed1c19896d1aa698cce9d80" // string | Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.InformativeApi.GetWalletTransactionDetailsByTransactionID(context.Background(), blockchain, network, transactionId).Context(context).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InformativeApi.GetWalletTransactionDetailsByTransactionID(context.Background(), blockchain, network, transactionId).Context(context).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `InformativeApi.GetWalletTransactionDetailsByTransactionID``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -241,6 +243,148 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## ListAllAssetsByWalletID
+
+> ListAllAssetsByWalletIDR ListAllAssetsByWalletID(ctx, walletId).Context(context).Execute()
+
+List All Assets By Wallet ID
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    walletId := "60c9d9921c38030006675ff6" // string | Defines the unique ID of the Wallet.
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InformativeApi.ListAllAssetsByWalletID(context.Background(), walletId).Context(context).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `InformativeApi.ListAllAssetsByWalletID``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListAllAssetsByWalletID`: ListAllAssetsByWalletIDR
+    fmt.Fprintf(os.Stdout, "Response from `InformativeApi.ListAllAssetsByWalletID`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**walletId** | **string** | Defines the unique ID of the Wallet. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListAllAssetsByWalletIDRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+ **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
+
+### Return type
+
+[**ListAllAssetsByWalletIDR**](ListAllAssetsByWalletIDR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ListAllAssetsFromAllWallets
+
+> ListAllAssetsFromAllWalletsR ListAllAssetsFromAllWallets(ctx).Context(context).Limit(limit).Offset(offset).Execute()
+
+List All Assets From All Wallets
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    limit := int32(50) // int32 | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset := int32(0) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InformativeApi.ListAllAssetsFromAllWallets(context.Background()).Context(context).Limit(limit).Offset(offset).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `InformativeApi.ListAllAssetsFromAllWallets``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ListAllAssetsFromAllWallets`: ListAllAssetsFromAllWalletsR
+    fmt.Fprintf(os.Stdout, "Response from `InformativeApi.ListAllAssetsFromAllWallets`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiListAllAssetsFromAllWalletsRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
+ **limit** | **int32** | Defines how many items should be returned in the response per page basis. | [default to 50]
+ **offset** | **int32** | The starting index of the response items, i.e. where the response should start listing the returned items. | [default to 0]
+
+### Return type
+
+[**ListAllAssetsFromAllWalletsR**](ListAllAssetsFromAllWalletsR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## ListDepositAddresses
 
 > ListDepositAddressesR ListDepositAddresses(ctx, blockchain, network, walletId).Context(context).Execute()
@@ -265,11 +409,11 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     walletId := "60c9d9921c38030006675ff6" // string | Represents the unique ID of the specific Wallet.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.InformativeApi.ListDepositAddresses(context.Background(), blockchain, network, walletId).Context(context).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InformativeApi.ListDepositAddresses(context.Background(), blockchain, network, walletId).Context(context).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `InformativeApi.ListDepositAddresses``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -342,13 +486,13 @@ import (
 func main() {
     blockchain := "ethereum" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "ropsten" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit := int32(50) // int32 | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
-    offset := int32(10) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
+    offset := int32(0) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.InformativeApi.ListSupportedTokens(context.Background(), blockchain, network).Context(context).Limit(limit).Offset(offset).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InformativeApi.ListSupportedTokens(context.Background(), blockchain, network).Context(context).Limit(limit).Offset(offset).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `InformativeApi.ListSupportedTokens``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -422,13 +566,13 @@ func main() {
     blockchain := "ethereum" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "ropsten" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     walletId := "60c9d9921c38030006675ff6" // string | Represents the unique ID of the specific Wallet.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit := int32(50) // int32 | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
     offset := int32(0) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.InformativeApi.ListWalletTransactions(context.Background(), blockchain, network, walletId).Context(context).Limit(limit).Offset(offset).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.InformativeApi.ListWalletTransactions(context.Background(), blockchain, network, walletId).Context(context).Limit(limit).Offset(offset).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `InformativeApi.ListWalletTransactions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

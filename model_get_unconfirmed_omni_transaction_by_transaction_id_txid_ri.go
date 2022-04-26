@@ -87,7 +87,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetAmount() string 
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -111,7 +111,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetDivisible() bool
 // GetDivisibleOk returns a tuple with the Divisible field value
 // and a boolean to check if the value has been set.
 func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetDivisibleOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Divisible, true
@@ -135,7 +135,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetMined() bool {
 // GetMinedOk returns a tuple with the Mined field value
 // and a boolean to check if the value has been set.
 func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetMinedOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Mined, true
@@ -159,7 +159,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetPropertyId() int
 // GetPropertyIdOk returns a tuple with the PropertyId field value
 // and a boolean to check if the value has been set.
 func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetPropertyIdOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PropertyId, true
@@ -182,11 +182,11 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetRecipients() []G
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetRecipientsOk() (*[]GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients, bool) {
-	if o == nil  {
+func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetRecipientsOk() ([]GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -206,11 +206,11 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSenders() []GetU
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSendersOk() (*[]GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders, bool) {
-	if o == nil  {
+func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSendersOk() ([]GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Senders, true
+	return o.Senders, true
 }
 
 // SetSenders sets field value
@@ -231,7 +231,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSent() bool {
 // GetSentOk returns a tuple with the Sent field value
 // and a boolean to check if the value has been set.
 func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSentOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sent, true
@@ -255,7 +255,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetTimestamp() int3
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -279,7 +279,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetTransactionId() 
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -303,7 +303,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true
@@ -327,7 +327,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetTypeInt() int32 
 // GetTypeIntOk returns a tuple with the TypeInt field value
 // and a boolean to check if the value has been set.
 func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetTypeIntOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TypeInt, true
@@ -351,7 +351,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetVersion() int32 
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -375,7 +375,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetFee() ListUnconf
 // GetFeeOk returns a tuple with the Fee field value
 // and a boolean to check if the value has been set.
 func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetFeeOk() (*ListUnconfirmedOmniTransactionsByAddressRIFee, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fee, true

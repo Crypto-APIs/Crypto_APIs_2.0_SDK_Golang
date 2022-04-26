@@ -65,7 +65,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSE) GetFee() ListUnconfirmedTran
 // GetFeeOk returns a tuple with the Fee field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedTransactionsByAddressRIBSE) GetFeeOk() (*ListUnconfirmedTransactionsByAddressRIBSEFee, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fee, true
@@ -89,7 +89,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSE) GetGasLimit() string {
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedTransactionsByAddressRIBSE) GetGasLimitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -113,7 +113,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSE) GetGasPrice() ListConfirmedT
 // GetGasPriceOk returns a tuple with the GasPrice field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedTransactionsByAddressRIBSE) GetGasPriceOk() (*ListConfirmedTransactionsByAddressRIBSEGasPrice, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasPrice, true
@@ -137,7 +137,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSE) GetInputData() string {
 // GetInputDataOk returns a tuple with the InputData field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedTransactionsByAddressRIBSE) GetInputDataOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.InputData, true
@@ -161,7 +161,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSE) GetNonce() int32 {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedTransactionsByAddressRIBSE) GetNonceOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -185,7 +185,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSE) GetTransactionStatus() strin
 // GetTransactionStatusOk returns a tuple with the TransactionStatus field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedTransactionsByAddressRIBSE) GetTransactionStatusOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionStatus, true

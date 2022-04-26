@@ -69,7 +69,7 @@ func (o *ListDepositAddressesRI) GetAddress() string {
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRI) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -93,7 +93,7 @@ func (o *ListDepositAddressesRI) GetConfirmedBalance() ListDepositAddressesRICon
 // GetConfirmedBalanceOk returns a tuple with the ConfirmedBalance field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRI) GetConfirmedBalanceOk() (*ListDepositAddressesRIConfirmedBalance, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConfirmedBalance, true
@@ -117,7 +117,7 @@ func (o *ListDepositAddressesRI) GetCreatedTimestamp() int32 {
 // GetCreatedTimestampOk returns a tuple with the CreatedTimestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRI) GetCreatedTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CreatedTimestamp, true
@@ -140,11 +140,11 @@ func (o *ListDepositAddressesRI) GetFungibleTokens() []ListDepositAddressesRIFun
 
 // GetFungibleTokensOk returns a tuple with the FungibleTokens field value
 // and a boolean to check if the value has been set.
-func (o *ListDepositAddressesRI) GetFungibleTokensOk() (*[]ListDepositAddressesRIFungibleTokens, bool) {
-	if o == nil  {
+func (o *ListDepositAddressesRI) GetFungibleTokensOk() ([]ListDepositAddressesRIFungibleTokens, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.FungibleTokens, true
+	return o.FungibleTokens, true
 }
 
 // SetFungibleTokens sets field value
@@ -165,7 +165,7 @@ func (o *ListDepositAddressesRI) GetIndex() string {
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRI) GetIndexOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Index, true
@@ -189,7 +189,7 @@ func (o *ListDepositAddressesRI) GetLabel() string {
 // GetLabelOk returns a tuple with the Label field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRI) GetLabelOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Label, true
@@ -212,11 +212,11 @@ func (o *ListDepositAddressesRI) GetNonFungibleTokens() []ListDepositAddressesRI
 
 // GetNonFungibleTokensOk returns a tuple with the NonFungibleTokens field value
 // and a boolean to check if the value has been set.
-func (o *ListDepositAddressesRI) GetNonFungibleTokensOk() (*[]ListDepositAddressesRINonFungibleTokens, bool) {
-	if o == nil  {
+func (o *ListDepositAddressesRI) GetNonFungibleTokensOk() ([]ListDepositAddressesRINonFungibleTokens, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.NonFungibleTokens, true
+	return o.NonFungibleTokens, true
 }
 
 // SetNonFungibleTokens sets field value

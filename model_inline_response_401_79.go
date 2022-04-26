@@ -23,14 +23,14 @@ type InlineResponse40179 struct {
 	RequestId string `json:"requestId"`
 	// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.
 	Context *string `json:"context,omitempty"`
-	Error CreateAutomaticTokensForwardingE401 `json:"error"`
+	Error ListBlockchainEventsSubscriptionsE401 `json:"error"`
 }
 
 // NewInlineResponse40179 instantiates a new InlineResponse40179 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse40179(apiVersion string, requestId string, error_ CreateAutomaticTokensForwardingE401) *InlineResponse40179 {
+func NewInlineResponse40179(apiVersion string, requestId string, error_ ListBlockchainEventsSubscriptionsE401) *InlineResponse40179 {
 	this := InlineResponse40179{}
 	this.ApiVersion = apiVersion
 	this.RequestId = requestId
@@ -59,7 +59,7 @@ func (o *InlineResponse40179) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40179) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *InlineResponse40179) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40179) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -127,9 +127,9 @@ func (o *InlineResponse40179) SetContext(v string) {
 }
 
 // GetError returns the Error field value
-func (o *InlineResponse40179) GetError() CreateAutomaticTokensForwardingE401 {
+func (o *InlineResponse40179) GetError() ListBlockchainEventsSubscriptionsE401 {
 	if o == nil {
-		var ret CreateAutomaticTokensForwardingE401
+		var ret ListBlockchainEventsSubscriptionsE401
 		return ret
 	}
 
@@ -138,15 +138,15 @@ func (o *InlineResponse40179) GetError() CreateAutomaticTokensForwardingE401 {
 
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse40179) GetErrorOk() (*CreateAutomaticTokensForwardingE401, bool) {
-	if o == nil  {
+func (o *InlineResponse40179) GetErrorOk() (*ListBlockchainEventsSubscriptionsE401, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Error, true
 }
 
 // SetError sets field value
-func (o *InlineResponse40179) SetError(v CreateAutomaticTokensForwardingE401) {
+func (o *InlineResponse40179) SetError(v ListBlockchainEventsSubscriptionsE401) {
 	o.Error = v
 }
 

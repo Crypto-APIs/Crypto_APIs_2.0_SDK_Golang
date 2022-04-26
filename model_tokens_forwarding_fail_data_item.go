@@ -70,7 +70,7 @@ func (o *TokensForwardingFailDataItem) GetBlockchain() string {
 // GetBlockchainOk returns a tuple with the Blockchain field value
 // and a boolean to check if the value has been set.
 func (o *TokensForwardingFailDataItem) GetBlockchainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Blockchain, true
@@ -94,7 +94,7 @@ func (o *TokensForwardingFailDataItem) GetNetwork() string {
 // GetNetworkOk returns a tuple with the Network field value
 // and a boolean to check if the value has been set.
 func (o *TokensForwardingFailDataItem) GetNetworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Network, true
@@ -118,7 +118,7 @@ func (o *TokensForwardingFailDataItem) GetFromAddress() string {
 // GetFromAddressOk returns a tuple with the FromAddress field value
 // and a boolean to check if the value has been set.
 func (o *TokensForwardingFailDataItem) GetFromAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FromAddress, true
@@ -142,7 +142,7 @@ func (o *TokensForwardingFailDataItem) GetToAddress() string {
 // GetToAddressOk returns a tuple with the ToAddress field value
 // and a boolean to check if the value has been set.
 func (o *TokensForwardingFailDataItem) GetToAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ToAddress, true
@@ -166,7 +166,7 @@ func (o *TokensForwardingFailDataItem) GetTriggerTransactionId() string {
 // GetTriggerTransactionIdOk returns a tuple with the TriggerTransactionId field value
 // and a boolean to check if the value has been set.
 func (o *TokensForwardingFailDataItem) GetTriggerTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TriggerTransactionId, true
@@ -190,7 +190,7 @@ func (o *TokensForwardingFailDataItem) GetErrorCode() string {
 // GetErrorCodeOk returns a tuple with the ErrorCode field value
 // and a boolean to check if the value has been set.
 func (o *TokensForwardingFailDataItem) GetErrorCodeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ErrorCode, true
@@ -214,7 +214,7 @@ func (o *TokensForwardingFailDataItem) GetErrorMessage() string {
 // GetErrorMessageOk returns a tuple with the ErrorMessage field value
 // and a boolean to check if the value has been set.
 func (o *TokensForwardingFailDataItem) GetErrorMessageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ErrorMessage, true

@@ -25,18 +25,21 @@ type GetFeeRecommendationsRI struct {
 	Slow string `json:"slow"`
 	// Standard fee per byte calculated from unconfirmed transactions
 	Standard string `json:"standard"`
+	// Represents the fee cushion multiplier used to multiply the base fee.
+	FeeCushionMultiplier string `json:"feeCushionMultiplier"`
 }
 
 // NewGetFeeRecommendationsRI instantiates a new GetFeeRecommendationsRI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetFeeRecommendationsRI(unit string, fast string, slow string, standard string) *GetFeeRecommendationsRI {
+func NewGetFeeRecommendationsRI(unit string, fast string, slow string, standard string, feeCushionMultiplier string) *GetFeeRecommendationsRI {
 	this := GetFeeRecommendationsRI{}
 	this.Unit = unit
 	this.Fast = fast
 	this.Slow = slow
 	this.Standard = standard
+	this.FeeCushionMultiplier = feeCushionMultiplier
 	return &this
 }
 
@@ -61,7 +64,7 @@ func (o *GetFeeRecommendationsRI) GetUnit() string {
 // GetUnitOk returns a tuple with the Unit field value
 // and a boolean to check if the value has been set.
 func (o *GetFeeRecommendationsRI) GetUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Unit, true
@@ -85,7 +88,7 @@ func (o *GetFeeRecommendationsRI) GetFast() string {
 // GetFastOk returns a tuple with the Fast field value
 // and a boolean to check if the value has been set.
 func (o *GetFeeRecommendationsRI) GetFastOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fast, true
@@ -109,7 +112,7 @@ func (o *GetFeeRecommendationsRI) GetSlow() string {
 // GetSlowOk returns a tuple with the Slow field value
 // and a boolean to check if the value has been set.
 func (o *GetFeeRecommendationsRI) GetSlowOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Slow, true
@@ -133,7 +136,7 @@ func (o *GetFeeRecommendationsRI) GetStandard() string {
 // GetStandardOk returns a tuple with the Standard field value
 // and a boolean to check if the value has been set.
 func (o *GetFeeRecommendationsRI) GetStandardOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Standard, true
@@ -142,6 +145,30 @@ func (o *GetFeeRecommendationsRI) GetStandardOk() (*string, bool) {
 // SetStandard sets field value
 func (o *GetFeeRecommendationsRI) SetStandard(v string) {
 	o.Standard = v
+}
+
+// GetFeeCushionMultiplier returns the FeeCushionMultiplier field value
+func (o *GetFeeRecommendationsRI) GetFeeCushionMultiplier() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.FeeCushionMultiplier
+}
+
+// GetFeeCushionMultiplierOk returns a tuple with the FeeCushionMultiplier field value
+// and a boolean to check if the value has been set.
+func (o *GetFeeRecommendationsRI) GetFeeCushionMultiplierOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.FeeCushionMultiplier, true
+}
+
+// SetFeeCushionMultiplier sets field value
+func (o *GetFeeRecommendationsRI) SetFeeCushionMultiplier(v string) {
+	o.FeeCushionMultiplier = v
 }
 
 func (o GetFeeRecommendationsRI) MarshalJSON() ([]byte, error) {
@@ -157,6 +184,9 @@ func (o GetFeeRecommendationsRI) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["standard"] = o.Standard
+	}
+	if true {
+		toSerialize["feeCushionMultiplier"] = o.FeeCushionMultiplier
 	}
 	return json.Marshal(toSerialize)
 }

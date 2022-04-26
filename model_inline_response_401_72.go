@@ -23,14 +23,14 @@ type InlineResponse40172 struct {
 	RequestId string `json:"requestId"`
 	// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.
 	Context *string `json:"context,omitempty"`
-	Error GetBlockDetailsByBlockHeightFromCallbackE401 `json:"error"`
+	Error NewUnconfirmedTokensTransactionsE401 `json:"error"`
 }
 
 // NewInlineResponse40172 instantiates a new InlineResponse40172 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse40172(apiVersion string, requestId string, error_ GetBlockDetailsByBlockHeightFromCallbackE401) *InlineResponse40172 {
+func NewInlineResponse40172(apiVersion string, requestId string, error_ NewUnconfirmedTokensTransactionsE401) *InlineResponse40172 {
 	this := InlineResponse40172{}
 	this.ApiVersion = apiVersion
 	this.RequestId = requestId
@@ -59,7 +59,7 @@ func (o *InlineResponse40172) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40172) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *InlineResponse40172) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40172) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -127,9 +127,9 @@ func (o *InlineResponse40172) SetContext(v string) {
 }
 
 // GetError returns the Error field value
-func (o *InlineResponse40172) GetError() GetBlockDetailsByBlockHeightFromCallbackE401 {
+func (o *InlineResponse40172) GetError() NewUnconfirmedTokensTransactionsE401 {
 	if o == nil {
-		var ret GetBlockDetailsByBlockHeightFromCallbackE401
+		var ret NewUnconfirmedTokensTransactionsE401
 		return ret
 	}
 
@@ -138,15 +138,15 @@ func (o *InlineResponse40172) GetError() GetBlockDetailsByBlockHeightFromCallbac
 
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse40172) GetErrorOk() (*GetBlockDetailsByBlockHeightFromCallbackE401, bool) {
-	if o == nil  {
+func (o *InlineResponse40172) GetErrorOk() (*NewUnconfirmedTokensTransactionsE401, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Error, true
 }
 
 // SetError sets field value
-func (o *InlineResponse40172) SetError(v GetBlockDetailsByBlockHeightFromCallbackE401) {
+func (o *InlineResponse40172) SetError(v NewUnconfirmedTokensTransactionsE401) {
 	o.Error = v
 }
 

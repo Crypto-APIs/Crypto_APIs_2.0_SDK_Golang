@@ -24,12 +24,16 @@ type GetLatestMinedXRPRippleBlockE401 struct {
 
 // InvalidApiKeyAsGetLatestMinedXRPRippleBlockE401 is a convenience function that returns InvalidApiKey wrapped in GetLatestMinedXRPRippleBlockE401
 func InvalidApiKeyAsGetLatestMinedXRPRippleBlockE401(v *InvalidApiKey) GetLatestMinedXRPRippleBlockE401 {
-	return GetLatestMinedXRPRippleBlockE401{ InvalidApiKey: v}
+	return GetLatestMinedXRPRippleBlockE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsGetLatestMinedXRPRippleBlockE401 is a convenience function that returns MissingApiKey wrapped in GetLatestMinedXRPRippleBlockE401
 func MissingApiKeyAsGetLatestMinedXRPRippleBlockE401(v *MissingApiKey) GetLatestMinedXRPRippleBlockE401 {
-	return GetLatestMinedXRPRippleBlockE401{ MissingApiKey: v}
+	return GetLatestMinedXRPRippleBlockE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *GetLatestMinedXRPRippleBlockE401) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *GetLatestMinedXRPRippleBlockE401) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src GetLatestMinedXRPRippleBlockE401) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetLatestMinedXRPRippleBlockE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

@@ -13,23 +13,19 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // AssetsApiService AssetsApi service
 type AssetsApiService service
 
 type ApiGetAssetDetailsByAssetIDRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *AssetsApiService
 	assetId string
 	context *string
@@ -41,7 +37,7 @@ func (r ApiGetAssetDetailsByAssetIDRequest) Context(context string) ApiGetAssetD
 	return r
 }
 
-func (r ApiGetAssetDetailsByAssetIDRequest) Execute() (GetAssetDetailsByAssetIDR, *_nethttp.Response, error) {
+func (r ApiGetAssetDetailsByAssetIDRequest) Execute() (*GetAssetDetailsByAssetIDR, *http.Response, error) {
 	return r.ApiService.GetAssetDetailsByAssetIDExecute(r)
 }
 
@@ -52,11 +48,11 @@ Through this endpoint users can obtain information on assets by `assetId`.
 
 The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param assetId Defines the unique ID of the specific asset.
  @return ApiGetAssetDetailsByAssetIDRequest
 */
-func (a *AssetsApiService) GetAssetDetailsByAssetID(ctx _context.Context, assetId string) ApiGetAssetDetailsByAssetIDRequest {
+func (a *AssetsApiService) GetAssetDetailsByAssetID(ctx context.Context, assetId string) ApiGetAssetDetailsByAssetIDRequest {
 	return ApiGetAssetDetailsByAssetIDRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -66,25 +62,25 @@ func (a *AssetsApiService) GetAssetDetailsByAssetID(ctx _context.Context, assetI
 
 // Execute executes the request
 //  @return GetAssetDetailsByAssetIDR
-func (a *AssetsApiService) GetAssetDetailsByAssetIDExecute(r ApiGetAssetDetailsByAssetIDRequest) (GetAssetDetailsByAssetIDR, *_nethttp.Response, error) {
+func (a *AssetsApiService) GetAssetDetailsByAssetIDExecute(r ApiGetAssetDetailsByAssetIDRequest) (*GetAssetDetailsByAssetIDR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetAssetDetailsByAssetIDR
+		localVarReturnValue  *GetAssetDetailsByAssetIDR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.GetAssetDetailsByAssetID")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/market-data/assets/assetId/{assetId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"assetId"+"}", _neturl.PathEscape(parameterToString(r.assetId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"assetId"+"}", url.PathEscape(parameterToString(r.assetId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -130,20 +126,20 @@ func (a *AssetsApiService) GetAssetDetailsByAssetIDExecute(r ApiGetAssetDetailsB
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40090
+			var v InlineResponse400109
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -153,7 +149,7 @@ func (a *AssetsApiService) GetAssetDetailsByAssetIDExecute(r ApiGetAssetDetailsB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40190
+			var v InlineResponse401109
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -173,7 +169,7 @@ func (a *AssetsApiService) GetAssetDetailsByAssetIDExecute(r ApiGetAssetDetailsB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40390
+			var v InlineResponse403109
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -236,7 +232,7 @@ func (a *AssetsApiService) GetAssetDetailsByAssetIDExecute(r ApiGetAssetDetailsB
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -247,7 +243,7 @@ func (a *AssetsApiService) GetAssetDetailsByAssetIDExecute(r ApiGetAssetDetailsB
 }
 
 type ApiGetAssetDetailsByAssetSymbolRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *AssetsApiService
 	assetSymbol string
 	context *string
@@ -259,7 +255,7 @@ func (r ApiGetAssetDetailsByAssetSymbolRequest) Context(context string) ApiGetAs
 	return r
 }
 
-func (r ApiGetAssetDetailsByAssetSymbolRequest) Execute() (GetAssetDetailsByAssetSymbolR, *_nethttp.Response, error) {
+func (r ApiGetAssetDetailsByAssetSymbolRequest) Execute() (*GetAssetDetailsByAssetSymbolR, *http.Response, error) {
 	return r.ApiService.GetAssetDetailsByAssetSymbolExecute(r)
 }
 
@@ -270,11 +266,11 @@ Through this endpoint users can obtain information on assets by asset symbol.
 
 The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param assetSymbol Specifies the asset's unique symbol in the Crypto APIs listings.
  @return ApiGetAssetDetailsByAssetSymbolRequest
 */
-func (a *AssetsApiService) GetAssetDetailsByAssetSymbol(ctx _context.Context, assetSymbol string) ApiGetAssetDetailsByAssetSymbolRequest {
+func (a *AssetsApiService) GetAssetDetailsByAssetSymbol(ctx context.Context, assetSymbol string) ApiGetAssetDetailsByAssetSymbolRequest {
 	return ApiGetAssetDetailsByAssetSymbolRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -284,25 +280,25 @@ func (a *AssetsApiService) GetAssetDetailsByAssetSymbol(ctx _context.Context, as
 
 // Execute executes the request
 //  @return GetAssetDetailsByAssetSymbolR
-func (a *AssetsApiService) GetAssetDetailsByAssetSymbolExecute(r ApiGetAssetDetailsByAssetSymbolRequest) (GetAssetDetailsByAssetSymbolR, *_nethttp.Response, error) {
+func (a *AssetsApiService) GetAssetDetailsByAssetSymbolExecute(r ApiGetAssetDetailsByAssetSymbolRequest) (*GetAssetDetailsByAssetSymbolR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetAssetDetailsByAssetSymbolR
+		localVarReturnValue  *GetAssetDetailsByAssetSymbolR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.GetAssetDetailsByAssetSymbol")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/market-data/assets/{assetSymbol}"
-	localVarPath = strings.Replace(localVarPath, "{"+"assetSymbol"+"}", _neturl.PathEscape(parameterToString(r.assetSymbol, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"assetSymbol"+"}", url.PathEscape(parameterToString(r.assetSymbol, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -348,20 +344,20 @@ func (a *AssetsApiService) GetAssetDetailsByAssetSymbolExecute(r ApiGetAssetDeta
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40091
+			var v InlineResponse400110
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -371,7 +367,7 @@ func (a *AssetsApiService) GetAssetDetailsByAssetSymbolExecute(r ApiGetAssetDeta
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40191
+			var v InlineResponse401110
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -391,7 +387,7 @@ func (a *AssetsApiService) GetAssetDetailsByAssetSymbolExecute(r ApiGetAssetDeta
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40391
+			var v InlineResponse403110
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -454,7 +450,7 @@ func (a *AssetsApiService) GetAssetDetailsByAssetSymbolExecute(r ApiGetAssetDeta
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -465,7 +461,7 @@ func (a *AssetsApiService) GetAssetDetailsByAssetSymbolExecute(r ApiGetAssetDeta
 }
 
 type ApiListAssetsDetailsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *AssetsApiService
 	context *string
 	assetType *string
@@ -480,33 +476,38 @@ func (r ApiListAssetsDetailsRequest) Context(context string) ApiListAssetsDetail
 	r.context = &context
 	return r
 }
+
 // Defines the type of the supported asset. This could be either \&quot;crypto\&quot; or \&quot;fiat\&quot;.
 func (r ApiListAssetsDetailsRequest) AssetType(assetType string) ApiListAssetsDetailsRequest {
 	r.assetType = &assetType
 	return r
 }
+
 // Subtype of the crypto assets. Could be COIN or TOKEN
 func (r ApiListAssetsDetailsRequest) CryptoType(cryptoType string) ApiListAssetsDetailsRequest {
 	r.cryptoType = &cryptoType
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListAssetsDetailsRequest) Limit(limit int32) ApiListAssetsDetailsRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListAssetsDetailsRequest) Offset(offset int32) ApiListAssetsDetailsRequest {
 	r.offset = &offset
 	return r
 }
+
 // Show only if WaaS is/not enabled
 func (r ApiListAssetsDetailsRequest) WaasEnabled(waasEnabled bool) ApiListAssetsDetailsRequest {
 	r.waasEnabled = &waasEnabled
 	return r
 }
 
-func (r ApiListAssetsDetailsRequest) Execute() (ListAssetsDetailsR, *_nethttp.Response, error) {
+func (r ApiListAssetsDetailsRequest) Execute() (*ListAssetsDetailsR, *http.Response, error) {
 	return r.ApiService.ListAssetsDetailsExecute(r)
 }
 
@@ -517,10 +518,10 @@ This endpoint will return a list of details on assets. These could be cryptocurr
 
 The details returned could include information on the latest rate and rate fluctuation of different periods of time - 24 hours, a week, one hour, the encoding of the logo, and more.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListAssetsDetailsRequest
 */
-func (a *AssetsApiService) ListAssetsDetails(ctx _context.Context) ApiListAssetsDetailsRequest {
+func (a *AssetsApiService) ListAssetsDetails(ctx context.Context) ApiListAssetsDetailsRequest {
 	return ApiListAssetsDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -529,24 +530,24 @@ func (a *AssetsApiService) ListAssetsDetails(ctx _context.Context) ApiListAssets
 
 // Execute executes the request
 //  @return ListAssetsDetailsR
-func (a *AssetsApiService) ListAssetsDetailsExecute(r ApiListAssetsDetailsRequest) (ListAssetsDetailsR, *_nethttp.Response, error) {
+func (a *AssetsApiService) ListAssetsDetailsExecute(r ApiListAssetsDetailsRequest) (*ListAssetsDetailsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListAssetsDetailsR
+		localVarReturnValue  *ListAssetsDetailsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AssetsApiService.ListAssetsDetails")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/market-data/assets/details"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -607,20 +608,20 @@ func (a *AssetsApiService) ListAssetsDetailsExecute(r ApiListAssetsDetailsReques
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40089
+			var v InlineResponse400108
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -630,7 +631,7 @@ func (a *AssetsApiService) ListAssetsDetailsExecute(r ApiListAssetsDetailsReques
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40189
+			var v InlineResponse401108
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -650,7 +651,7 @@ func (a *AssetsApiService) ListAssetsDetailsExecute(r ApiListAssetsDetailsReques
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40389
+			var v InlineResponse403108
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -713,7 +714,7 @@ func (a *AssetsApiService) ListAssetsDetailsExecute(r ApiListAssetsDetailsReques
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

@@ -31,47 +31,65 @@ type ListTransactionsByBlockHashRIBS struct {
 
 // ListTransactionsByBlockHashRIBSBAsListTransactionsByBlockHashRIBS is a convenience function that returns ListTransactionsByBlockHashRIBSB wrapped in ListTransactionsByBlockHashRIBS
 func ListTransactionsByBlockHashRIBSBAsListTransactionsByBlockHashRIBS(v *ListTransactionsByBlockHashRIBSB) ListTransactionsByBlockHashRIBS {
-	return ListTransactionsByBlockHashRIBS{ ListTransactionsByBlockHashRIBSB: v}
+	return ListTransactionsByBlockHashRIBS{
+		ListTransactionsByBlockHashRIBSB: v,
+	}
 }
 
 // ListTransactionsByBlockHashRIBSBCAsListTransactionsByBlockHashRIBS is a convenience function that returns ListTransactionsByBlockHashRIBSBC wrapped in ListTransactionsByBlockHashRIBS
 func ListTransactionsByBlockHashRIBSBCAsListTransactionsByBlockHashRIBS(v *ListTransactionsByBlockHashRIBSBC) ListTransactionsByBlockHashRIBS {
-	return ListTransactionsByBlockHashRIBS{ ListTransactionsByBlockHashRIBSBC: v}
+	return ListTransactionsByBlockHashRIBS{
+		ListTransactionsByBlockHashRIBSBC: v,
+	}
 }
 
 // ListTransactionsByBlockHashRIBSBSCAsListTransactionsByBlockHashRIBS is a convenience function that returns ListTransactionsByBlockHashRIBSBSC wrapped in ListTransactionsByBlockHashRIBS
 func ListTransactionsByBlockHashRIBSBSCAsListTransactionsByBlockHashRIBS(v *ListTransactionsByBlockHashRIBSBSC) ListTransactionsByBlockHashRIBS {
-	return ListTransactionsByBlockHashRIBS{ ListTransactionsByBlockHashRIBSBSC: v}
+	return ListTransactionsByBlockHashRIBS{
+		ListTransactionsByBlockHashRIBSBSC: v,
+	}
 }
 
 // ListTransactionsByBlockHashRIBSDAsListTransactionsByBlockHashRIBS is a convenience function that returns ListTransactionsByBlockHashRIBSD wrapped in ListTransactionsByBlockHashRIBS
 func ListTransactionsByBlockHashRIBSDAsListTransactionsByBlockHashRIBS(v *ListTransactionsByBlockHashRIBSD) ListTransactionsByBlockHashRIBS {
-	return ListTransactionsByBlockHashRIBS{ ListTransactionsByBlockHashRIBSD: v}
+	return ListTransactionsByBlockHashRIBS{
+		ListTransactionsByBlockHashRIBSD: v,
+	}
 }
 
 // ListTransactionsByBlockHashRIBSD2AsListTransactionsByBlockHashRIBS is a convenience function that returns ListTransactionsByBlockHashRIBSD2 wrapped in ListTransactionsByBlockHashRIBS
 func ListTransactionsByBlockHashRIBSD2AsListTransactionsByBlockHashRIBS(v *ListTransactionsByBlockHashRIBSD2) ListTransactionsByBlockHashRIBS {
-	return ListTransactionsByBlockHashRIBS{ ListTransactionsByBlockHashRIBSD2: v}
+	return ListTransactionsByBlockHashRIBS{
+		ListTransactionsByBlockHashRIBSD2: v,
+	}
 }
 
 // ListTransactionsByBlockHashRIBSEAsListTransactionsByBlockHashRIBS is a convenience function that returns ListTransactionsByBlockHashRIBSE wrapped in ListTransactionsByBlockHashRIBS
 func ListTransactionsByBlockHashRIBSEAsListTransactionsByBlockHashRIBS(v *ListTransactionsByBlockHashRIBSE) ListTransactionsByBlockHashRIBS {
-	return ListTransactionsByBlockHashRIBS{ ListTransactionsByBlockHashRIBSE: v}
+	return ListTransactionsByBlockHashRIBS{
+		ListTransactionsByBlockHashRIBSE: v,
+	}
 }
 
 // ListTransactionsByBlockHashRIBSECAsListTransactionsByBlockHashRIBS is a convenience function that returns ListTransactionsByBlockHashRIBSEC wrapped in ListTransactionsByBlockHashRIBS
 func ListTransactionsByBlockHashRIBSECAsListTransactionsByBlockHashRIBS(v *ListTransactionsByBlockHashRIBSEC) ListTransactionsByBlockHashRIBS {
-	return ListTransactionsByBlockHashRIBS{ ListTransactionsByBlockHashRIBSEC: v}
+	return ListTransactionsByBlockHashRIBS{
+		ListTransactionsByBlockHashRIBSEC: v,
+	}
 }
 
 // ListTransactionsByBlockHashRIBSLAsListTransactionsByBlockHashRIBS is a convenience function that returns ListTransactionsByBlockHashRIBSL wrapped in ListTransactionsByBlockHashRIBS
 func ListTransactionsByBlockHashRIBSLAsListTransactionsByBlockHashRIBS(v *ListTransactionsByBlockHashRIBSL) ListTransactionsByBlockHashRIBS {
-	return ListTransactionsByBlockHashRIBS{ ListTransactionsByBlockHashRIBSL: v}
+	return ListTransactionsByBlockHashRIBS{
+		ListTransactionsByBlockHashRIBSL: v,
+	}
 }
 
 // ListTransactionsByBlockHashRIBSZAsListTransactionsByBlockHashRIBS is a convenience function that returns ListTransactionsByBlockHashRIBSZ wrapped in ListTransactionsByBlockHashRIBS
 func ListTransactionsByBlockHashRIBSZAsListTransactionsByBlockHashRIBS(v *ListTransactionsByBlockHashRIBSZ) ListTransactionsByBlockHashRIBS {
-	return ListTransactionsByBlockHashRIBS{ ListTransactionsByBlockHashRIBSZ: v}
+	return ListTransactionsByBlockHashRIBS{
+		ListTransactionsByBlockHashRIBSZ: v,
+	}
 }
 
 
@@ -80,7 +98,7 @@ func (dst *ListTransactionsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into ListTransactionsByBlockHashRIBSB
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHashRIBSB)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHashRIBSB)
 	if err == nil {
 		jsonListTransactionsByBlockHashRIBSB, _ := json.Marshal(dst.ListTransactionsByBlockHashRIBSB)
 		if string(jsonListTransactionsByBlockHashRIBSB) == "{}" { // empty struct
@@ -93,7 +111,7 @@ func (dst *ListTransactionsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHashRIBSBC
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHashRIBSBC)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHashRIBSBC)
 	if err == nil {
 		jsonListTransactionsByBlockHashRIBSBC, _ := json.Marshal(dst.ListTransactionsByBlockHashRIBSBC)
 		if string(jsonListTransactionsByBlockHashRIBSBC) == "{}" { // empty struct
@@ -106,7 +124,7 @@ func (dst *ListTransactionsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHashRIBSBSC
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHashRIBSBSC)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHashRIBSBSC)
 	if err == nil {
 		jsonListTransactionsByBlockHashRIBSBSC, _ := json.Marshal(dst.ListTransactionsByBlockHashRIBSBSC)
 		if string(jsonListTransactionsByBlockHashRIBSBSC) == "{}" { // empty struct
@@ -119,7 +137,7 @@ func (dst *ListTransactionsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHashRIBSD
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHashRIBSD)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHashRIBSD)
 	if err == nil {
 		jsonListTransactionsByBlockHashRIBSD, _ := json.Marshal(dst.ListTransactionsByBlockHashRIBSD)
 		if string(jsonListTransactionsByBlockHashRIBSD) == "{}" { // empty struct
@@ -132,7 +150,7 @@ func (dst *ListTransactionsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHashRIBSD2
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHashRIBSD2)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHashRIBSD2)
 	if err == nil {
 		jsonListTransactionsByBlockHashRIBSD2, _ := json.Marshal(dst.ListTransactionsByBlockHashRIBSD2)
 		if string(jsonListTransactionsByBlockHashRIBSD2) == "{}" { // empty struct
@@ -145,7 +163,7 @@ func (dst *ListTransactionsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHashRIBSE
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHashRIBSE)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHashRIBSE)
 	if err == nil {
 		jsonListTransactionsByBlockHashRIBSE, _ := json.Marshal(dst.ListTransactionsByBlockHashRIBSE)
 		if string(jsonListTransactionsByBlockHashRIBSE) == "{}" { // empty struct
@@ -158,7 +176,7 @@ func (dst *ListTransactionsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHashRIBSEC
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHashRIBSEC)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHashRIBSEC)
 	if err == nil {
 		jsonListTransactionsByBlockHashRIBSEC, _ := json.Marshal(dst.ListTransactionsByBlockHashRIBSEC)
 		if string(jsonListTransactionsByBlockHashRIBSEC) == "{}" { // empty struct
@@ -171,7 +189,7 @@ func (dst *ListTransactionsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHashRIBSL
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHashRIBSL)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHashRIBSL)
 	if err == nil {
 		jsonListTransactionsByBlockHashRIBSL, _ := json.Marshal(dst.ListTransactionsByBlockHashRIBSL)
 		if string(jsonListTransactionsByBlockHashRIBSL) == "{}" { // empty struct
@@ -184,7 +202,7 @@ func (dst *ListTransactionsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHashRIBSZ
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHashRIBSZ)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHashRIBSZ)
 	if err == nil {
 		jsonListTransactionsByBlockHashRIBSZ, _ := json.Marshal(dst.ListTransactionsByBlockHashRIBSZ)
 		if string(jsonListTransactionsByBlockHashRIBSZ) == "{}" { // empty struct
@@ -259,6 +277,9 @@ func (src ListTransactionsByBlockHashRIBS) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *ListTransactionsByBlockHashRIBS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.ListTransactionsByBlockHashRIBSB != nil {
 		return obj.ListTransactionsByBlockHashRIBSB
 	}

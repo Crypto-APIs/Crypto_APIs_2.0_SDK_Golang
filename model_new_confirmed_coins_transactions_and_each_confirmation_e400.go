@@ -25,17 +25,23 @@ type NewConfirmedCoinsTransactionsAndEachConfirmationE400 struct {
 
 // InvalidPaginationAsNewConfirmedCoinsTransactionsAndEachConfirmationE400 is a convenience function that returns InvalidPagination wrapped in NewConfirmedCoinsTransactionsAndEachConfirmationE400
 func InvalidPaginationAsNewConfirmedCoinsTransactionsAndEachConfirmationE400(v *InvalidPagination) NewConfirmedCoinsTransactionsAndEachConfirmationE400 {
-	return NewConfirmedCoinsTransactionsAndEachConfirmationE400{ InvalidPagination: v}
+	return NewConfirmedCoinsTransactionsAndEachConfirmationE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsNewConfirmedCoinsTransactionsAndEachConfirmationE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in NewConfirmedCoinsTransactionsAndEachConfirmationE400
 func LimitGreaterThanAllowedAsNewConfirmedCoinsTransactionsAndEachConfirmationE400(v *LimitGreaterThanAllowed) NewConfirmedCoinsTransactionsAndEachConfirmationE400 {
-	return NewConfirmedCoinsTransactionsAndEachConfirmationE400{ LimitGreaterThanAllowed: v}
+	return NewConfirmedCoinsTransactionsAndEachConfirmationE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsNewConfirmedCoinsTransactionsAndEachConfirmationE400 is a convenience function that returns UriNotFound wrapped in NewConfirmedCoinsTransactionsAndEachConfirmationE400
 func UriNotFoundAsNewConfirmedCoinsTransactionsAndEachConfirmationE400(v *UriNotFound) NewConfirmedCoinsTransactionsAndEachConfirmationE400 {
-	return NewConfirmedCoinsTransactionsAndEachConfirmationE400{ UriNotFound: v}
+	return NewConfirmedCoinsTransactionsAndEachConfirmationE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *NewConfirmedCoinsTransactionsAndEachConfirmationE400) UnmarshalJSON(d
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *NewConfirmedCoinsTransactionsAndEachConfirmationE400) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *NewConfirmedCoinsTransactionsAndEachConfirmationE400) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src NewConfirmedCoinsTransactionsAndEachConfirmationE400) MarshalJSON() ([
 
 // Get the actual instance
 func (obj *NewConfirmedCoinsTransactionsAndEachConfirmationE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

@@ -13,23 +13,19 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // CallbackDataApiService CallbackDataApi service
 type CallbackDataApiService service
 
 type ApiGetAddressDetailsFromCallbackRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CallbackDataApiService
 	blockchain string
 	network string
@@ -43,7 +39,7 @@ func (r ApiGetAddressDetailsFromCallbackRequest) Context(context string) ApiGetA
 	return r
 }
 
-func (r ApiGetAddressDetailsFromCallbackRequest) Execute() (GetAddressDetailsFromCallbackR, *_nethttp.Response, error) {
+func (r ApiGetAddressDetailsFromCallbackRequest) Execute() (*GetAddressDetailsFromCallbackR, *http.Response, error) {
 	return r.ApiService.GetAddressDetailsFromCallbackExecute(r)
 }
 
@@ -52,13 +48,13 @@ GetAddressDetailsFromCallback Get Address Details From Callback
 
 This endpoint creates a shortcut to obtain information from Blockchain data by going through Blockchain Events and a specific Event Subscription. It provides data for a specific address from the Event it takes part in only if the address already exists in the blockchain events subscriptions. It applies only for Events related to that customer.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param address Represents the public address, which is a compressed and shortened form of a public key.
  @return ApiGetAddressDetailsFromCallbackRequest
 */
-func (a *CallbackDataApiService) GetAddressDetailsFromCallback(ctx _context.Context, blockchain string, network string, address string) ApiGetAddressDetailsFromCallbackRequest {
+func (a *CallbackDataApiService) GetAddressDetailsFromCallback(ctx context.Context, blockchain string, network string, address string) ApiGetAddressDetailsFromCallbackRequest {
 	return ApiGetAddressDetailsFromCallbackRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -70,27 +66,27 @@ func (a *CallbackDataApiService) GetAddressDetailsFromCallback(ctx _context.Cont
 
 // Execute executes the request
 //  @return GetAddressDetailsFromCallbackR
-func (a *CallbackDataApiService) GetAddressDetailsFromCallbackExecute(r ApiGetAddressDetailsFromCallbackRequest) (GetAddressDetailsFromCallbackR, *_nethttp.Response, error) {
+func (a *CallbackDataApiService) GetAddressDetailsFromCallbackExecute(r ApiGetAddressDetailsFromCallbackRequest) (*GetAddressDetailsFromCallbackR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetAddressDetailsFromCallbackR
+		localVarReturnValue  *GetAddressDetailsFromCallbackR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CallbackDataApiService.GetAddressDetailsFromCallback")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/addresses/{address}"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -136,20 +132,20 @@ func (a *CallbackDataApiService) GetAddressDetailsFromCallbackExecute(r ApiGetAd
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40069
+			var v InlineResponse40083
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -159,7 +155,7 @@ func (a *CallbackDataApiService) GetAddressDetailsFromCallbackExecute(r ApiGetAd
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40169
+			var v InlineResponse40183
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -179,7 +175,7 @@ func (a *CallbackDataApiService) GetAddressDetailsFromCallbackExecute(r ApiGetAd
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40369
+			var v InlineResponse40383
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -252,7 +248,7 @@ func (a *CallbackDataApiService) GetAddressDetailsFromCallbackExecute(r ApiGetAd
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -263,7 +259,7 @@ func (a *CallbackDataApiService) GetAddressDetailsFromCallbackExecute(r ApiGetAd
 }
 
 type ApiGetBlockDetailsByBlockHashFromCallbackRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CallbackDataApiService
 	blockchain string
 	network string
@@ -277,7 +273,7 @@ func (r ApiGetBlockDetailsByBlockHashFromCallbackRequest) Context(context string
 	return r
 }
 
-func (r ApiGetBlockDetailsByBlockHashFromCallbackRequest) Execute() (GetBlockDetailsByBlockHashFromCallbackR, *_nethttp.Response, error) {
+func (r ApiGetBlockDetailsByBlockHashFromCallbackRequest) Execute() (*GetBlockDetailsByBlockHashFromCallbackR, *http.Response, error) {
 	return r.ApiService.GetBlockDetailsByBlockHashFromCallbackExecute(r)
 }
 
@@ -286,13 +282,13 @@ GetBlockDetailsByBlockHashFromCallback Get Block Details By Block Hash From Call
 
 This endpoint creates a shortcut to obtain information from Blockchain data by going through Blockchain Events and a specific Event Subscription. It provides data for a specific block by providing the `blockHash` attribute from the Event it takes part in and after making check that the customer in question does have a subscription for this block. It applies only for Events related to that user.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockHash Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
  @return ApiGetBlockDetailsByBlockHashFromCallbackRequest
 */
-func (a *CallbackDataApiService) GetBlockDetailsByBlockHashFromCallback(ctx _context.Context, blockchain string, network string, blockHash string) ApiGetBlockDetailsByBlockHashFromCallbackRequest {
+func (a *CallbackDataApiService) GetBlockDetailsByBlockHashFromCallback(ctx context.Context, blockchain string, network string, blockHash string) ApiGetBlockDetailsByBlockHashFromCallbackRequest {
 	return ApiGetBlockDetailsByBlockHashFromCallbackRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -304,27 +300,27 @@ func (a *CallbackDataApiService) GetBlockDetailsByBlockHashFromCallback(ctx _con
 
 // Execute executes the request
 //  @return GetBlockDetailsByBlockHashFromCallbackR
-func (a *CallbackDataApiService) GetBlockDetailsByBlockHashFromCallbackExecute(r ApiGetBlockDetailsByBlockHashFromCallbackRequest) (GetBlockDetailsByBlockHashFromCallbackR, *_nethttp.Response, error) {
+func (a *CallbackDataApiService) GetBlockDetailsByBlockHashFromCallbackExecute(r ApiGetBlockDetailsByBlockHashFromCallbackRequest) (*GetBlockDetailsByBlockHashFromCallbackR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetBlockDetailsByBlockHashFromCallbackR
+		localVarReturnValue  *GetBlockDetailsByBlockHashFromCallbackR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CallbackDataApiService.GetBlockDetailsByBlockHashFromCallback")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockcain-events/{blockchain}/{network}/blocks/hash/{blockHash}"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", _neturl.PathEscape(parameterToString(r.blockHash, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", url.PathEscape(parameterToString(r.blockHash, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -370,20 +366,20 @@ func (a *CallbackDataApiService) GetBlockDetailsByBlockHashFromCallbackExecute(r
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40071
+			var v InlineResponse40085
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -393,7 +389,7 @@ func (a *CallbackDataApiService) GetBlockDetailsByBlockHashFromCallbackExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40171
+			var v InlineResponse40185
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -413,7 +409,7 @@ func (a *CallbackDataApiService) GetBlockDetailsByBlockHashFromCallbackExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40371
+			var v InlineResponse40385
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -486,7 +482,7 @@ func (a *CallbackDataApiService) GetBlockDetailsByBlockHashFromCallbackExecute(r
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -497,7 +493,7 @@ func (a *CallbackDataApiService) GetBlockDetailsByBlockHashFromCallbackExecute(r
 }
 
 type ApiGetBlockDetailsByBlockHeightFromCallbackRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CallbackDataApiService
 	blockchain string
 	network string
@@ -511,7 +507,7 @@ func (r ApiGetBlockDetailsByBlockHeightFromCallbackRequest) Context(context stri
 	return r
 }
 
-func (r ApiGetBlockDetailsByBlockHeightFromCallbackRequest) Execute() (GetBlockDetailsByBlockHeightFromCallbackR, *_nethttp.Response, error) {
+func (r ApiGetBlockDetailsByBlockHeightFromCallbackRequest) Execute() (*GetBlockDetailsByBlockHeightFromCallbackR, *http.Response, error) {
 	return r.ApiService.GetBlockDetailsByBlockHeightFromCallbackExecute(r)
 }
 
@@ -520,13 +516,13 @@ GetBlockDetailsByBlockHeightFromCallback Get Block Details By Block Height From 
 
 This endpoint creates a shortcut to obtain information from Blockchain data by going through Blockchain Events and a specific Event Subscription. It provides data for the specific Block by providing the `blockHeight` attribute from the Event it takes part in. It applies only for Events related to that user.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockHeight Numeric representation of the block height
  @return ApiGetBlockDetailsByBlockHeightFromCallbackRequest
 */
-func (a *CallbackDataApiService) GetBlockDetailsByBlockHeightFromCallback(ctx _context.Context, blockchain string, network string, blockHeight string) ApiGetBlockDetailsByBlockHeightFromCallbackRequest {
+func (a *CallbackDataApiService) GetBlockDetailsByBlockHeightFromCallback(ctx context.Context, blockchain string, network string, blockHeight string) ApiGetBlockDetailsByBlockHeightFromCallbackRequest {
 	return ApiGetBlockDetailsByBlockHeightFromCallbackRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -538,27 +534,27 @@ func (a *CallbackDataApiService) GetBlockDetailsByBlockHeightFromCallback(ctx _c
 
 // Execute executes the request
 //  @return GetBlockDetailsByBlockHeightFromCallbackR
-func (a *CallbackDataApiService) GetBlockDetailsByBlockHeightFromCallbackExecute(r ApiGetBlockDetailsByBlockHeightFromCallbackRequest) (GetBlockDetailsByBlockHeightFromCallbackR, *_nethttp.Response, error) {
+func (a *CallbackDataApiService) GetBlockDetailsByBlockHeightFromCallbackExecute(r ApiGetBlockDetailsByBlockHeightFromCallbackRequest) (*GetBlockDetailsByBlockHeightFromCallbackR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetBlockDetailsByBlockHeightFromCallbackR
+		localVarReturnValue  *GetBlockDetailsByBlockHeightFromCallbackR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CallbackDataApiService.GetBlockDetailsByBlockHeightFromCallback")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockcain-events/{blockchain}/{network}/blocks/height/{blockHeight}"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", _neturl.PathEscape(parameterToString(r.blockHeight, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", url.PathEscape(parameterToString(r.blockHeight, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -604,20 +600,20 @@ func (a *CallbackDataApiService) GetBlockDetailsByBlockHeightFromCallbackExecute
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40072
+			var v InlineResponse40086
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -627,7 +623,7 @@ func (a *CallbackDataApiService) GetBlockDetailsByBlockHeightFromCallbackExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40172
+			var v InlineResponse40186
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -647,7 +643,7 @@ func (a *CallbackDataApiService) GetBlockDetailsByBlockHeightFromCallbackExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40372
+			var v InlineResponse40386
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -720,7 +716,7 @@ func (a *CallbackDataApiService) GetBlockDetailsByBlockHeightFromCallbackExecute
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -731,7 +727,7 @@ func (a *CallbackDataApiService) GetBlockDetailsByBlockHeightFromCallbackExecute
 }
 
 type ApiGetTransactionDetailsByTransactionIDFromCallbackRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CallbackDataApiService
 	blockchain string
 	network string
@@ -745,7 +741,7 @@ func (r ApiGetTransactionDetailsByTransactionIDFromCallbackRequest) Context(cont
 	return r
 }
 
-func (r ApiGetTransactionDetailsByTransactionIDFromCallbackRequest) Execute() (GetTransactionDetailsByTransactionIDFromCallbackR, *_nethttp.Response, error) {
+func (r ApiGetTransactionDetailsByTransactionIDFromCallbackRequest) Execute() (*GetTransactionDetailsByTransactionIDFromCallbackR, *http.Response, error) {
 	return r.ApiService.GetTransactionDetailsByTransactionIDFromCallbackExecute(r)
 }
 
@@ -754,13 +750,13 @@ GetTransactionDetailsByTransactionIDFromCallback Get Transaction Details By Tran
 
 This endpoint creates a shortcut to obtain information from Blockchain data by going through Blockchain Events and a specific Event Subscription. It provides data for a specific transaction from the Event it takes part in by providing the `transactionId` attribute. It applies only for Events related to that user.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param transactionId String identifier of the transaction
  @return ApiGetTransactionDetailsByTransactionIDFromCallbackRequest
 */
-func (a *CallbackDataApiService) GetTransactionDetailsByTransactionIDFromCallback(ctx _context.Context, blockchain string, network string, transactionId string) ApiGetTransactionDetailsByTransactionIDFromCallbackRequest {
+func (a *CallbackDataApiService) GetTransactionDetailsByTransactionIDFromCallback(ctx context.Context, blockchain string, network string, transactionId string) ApiGetTransactionDetailsByTransactionIDFromCallbackRequest {
 	return ApiGetTransactionDetailsByTransactionIDFromCallbackRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -772,27 +768,27 @@ func (a *CallbackDataApiService) GetTransactionDetailsByTransactionIDFromCallbac
 
 // Execute executes the request
 //  @return GetTransactionDetailsByTransactionIDFromCallbackR
-func (a *CallbackDataApiService) GetTransactionDetailsByTransactionIDFromCallbackExecute(r ApiGetTransactionDetailsByTransactionIDFromCallbackRequest) (GetTransactionDetailsByTransactionIDFromCallbackR, *_nethttp.Response, error) {
+func (a *CallbackDataApiService) GetTransactionDetailsByTransactionIDFromCallbackExecute(r ApiGetTransactionDetailsByTransactionIDFromCallbackRequest) (*GetTransactionDetailsByTransactionIDFromCallbackR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetTransactionDetailsByTransactionIDFromCallbackR
+		localVarReturnValue  *GetTransactionDetailsByTransactionIDFromCallbackR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CallbackDataApiService.GetTransactionDetailsByTransactionIDFromCallback")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/transactions/{transactionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"transactionId"+"}", _neturl.PathEscape(parameterToString(r.transactionId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"transactionId"+"}", url.PathEscape(parameterToString(r.transactionId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -838,20 +834,20 @@ func (a *CallbackDataApiService) GetTransactionDetailsByTransactionIDFromCallbac
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40070
+			var v InlineResponse40084
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -861,7 +857,7 @@ func (a *CallbackDataApiService) GetTransactionDetailsByTransactionIDFromCallbac
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40170
+			var v InlineResponse40184
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -881,7 +877,7 @@ func (a *CallbackDataApiService) GetTransactionDetailsByTransactionIDFromCallbac
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40370
+			var v InlineResponse40384
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -954,7 +950,7 @@ func (a *CallbackDataApiService) GetTransactionDetailsByTransactionIDFromCallbac
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

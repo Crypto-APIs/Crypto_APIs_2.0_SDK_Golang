@@ -75,7 +75,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetIndex() int32 {
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
 func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetIndexOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Index, true
@@ -99,7 +99,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHash() string {
 // GetMinedInBlockHashOk returns a tuple with the MinedInBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHash, true
@@ -123,7 +123,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHeight() int32 {
 // GetMinedInBlockHeightOk returns a tuple with the MinedInBlockHeight field value
 // and a boolean to check if the value has been set.
 func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHeight, true
@@ -146,11 +146,11 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetRecipients() []ListHDWalletX
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetRecipientsOk() (*[]ListHDWalletXPubYPubZPubTransactionsRIRecipients, bool) {
-	if o == nil  {
+func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetRecipientsOk() ([]ListHDWalletXPubYPubZPubTransactionsRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -170,11 +170,11 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetSenders() []ListHDWalletXPub
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetSendersOk() (*[]ListHDWalletXPubYPubZPubTransactionsRISenders, bool) {
-	if o == nil  {
+func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetSendersOk() ([]ListHDWalletXPubYPubZPubTransactionsRISenders, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Senders, true
+	return o.Senders, true
 }
 
 // SetSenders sets field value
@@ -195,7 +195,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -219,7 +219,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetTransactionHash() string {
 // GetTransactionHashOk returns a tuple with the TransactionHash field value
 // and a boolean to check if the value has been set.
 func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetTransactionHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionHash, true
@@ -243,7 +243,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetTransactionId() string {
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -267,7 +267,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetFee() ListHDWalletXPubYPubZP
 // GetFeeOk returns a tuple with the Fee field value
 // and a boolean to check if the value has been set.
 func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetFeeOk() (*ListHDWalletXPubYPubZPubTransactionsRIFee, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fee, true

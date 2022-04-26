@@ -22,10 +22,10 @@ type GetWalletTransactionDetailsByTransactionIDRIBSDVin struct {
 	Coinbase *string `json:"coinbase,omitempty"`
 	ScriptSig GetWalletTransactionDetailsByTransactionIDRIBSDScriptSig `json:"scriptSig"`
 	// Represents the script sequence number.
-	Sequence int32 `json:"sequence"`
+	Sequence int64 `json:"sequence"`
 	// Represents the reference transaction identifier.
 	Txid *string `json:"txid,omitempty"`
-	Txinwitness *[]string `json:"txinwitness,omitempty"`
+	Txinwitness []string `json:"txinwitness,omitempty"`
 	// Represents the sent/received amount.
 	Value string `json:"value"`
 	// It refers to the index of the output address of this transaction. The index starts from 0.
@@ -36,7 +36,7 @@ type GetWalletTransactionDetailsByTransactionIDRIBSDVin struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetWalletTransactionDetailsByTransactionIDRIBSDVin(addresses []string, scriptSig GetWalletTransactionDetailsByTransactionIDRIBSDScriptSig, sequence int32, value string) *GetWalletTransactionDetailsByTransactionIDRIBSDVin {
+func NewGetWalletTransactionDetailsByTransactionIDRIBSDVin(addresses []string, scriptSig GetWalletTransactionDetailsByTransactionIDRIBSDScriptSig, sequence int64, value string) *GetWalletTransactionDetailsByTransactionIDRIBSDVin {
 	this := GetWalletTransactionDetailsByTransactionIDRIBSDVin{}
 	this.Addresses = addresses
 	this.ScriptSig = scriptSig
@@ -65,11 +65,11 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetAddresses() []st
 
 // GetAddressesOk returns a tuple with the Addresses field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetAddressesOk() (*[]string, bool) {
-	if o == nil  {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetAddressesOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Addresses, true
+	return o.Addresses, true
 }
 
 // SetAddresses sets field value
@@ -122,7 +122,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetScriptSig() GetW
 // GetScriptSigOk returns a tuple with the ScriptSig field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetScriptSigOk() (*GetWalletTransactionDetailsByTransactionIDRIBSDScriptSig, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ScriptSig, true
@@ -134,9 +134,9 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) SetScriptSig(v GetW
 }
 
 // GetSequence returns the Sequence field value
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetSequence() int32 {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetSequence() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -145,15 +145,15 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetSequence() int32
 
 // GetSequenceOk returns a tuple with the Sequence field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetSequenceOk() (*int32, bool) {
-	if o == nil  {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetSequenceOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sequence, true
 }
 
 // SetSequence sets field value
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) SetSequence(v int32) {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) SetSequence(v int64) {
 	o.Sequence = v
 }
 
@@ -195,12 +195,12 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetTxinwitness() []
 		var ret []string
 		return ret
 	}
-	return *o.Txinwitness
+	return o.Txinwitness
 }
 
 // GetTxinwitnessOk returns a tuple with the Txinwitness field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetTxinwitnessOk() (*[]string, bool) {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetTxinwitnessOk() ([]string, bool) {
 	if o == nil || o.Txinwitness == nil {
 		return nil, false
 	}
@@ -218,7 +218,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) HasTxinwitness() bo
 
 // SetTxinwitness gets a reference to the given []string and assigns it to the Txinwitness field.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) SetTxinwitness(v []string) {
-	o.Txinwitness = &v
+	o.Txinwitness = v
 }
 
 // GetValue returns the Value field value
@@ -234,7 +234,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetValue() string {
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetValueOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Value, true

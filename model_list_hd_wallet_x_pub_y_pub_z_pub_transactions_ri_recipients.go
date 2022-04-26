@@ -58,7 +58,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRIRecipients) GetAddress() string {
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *ListHDWalletXPubYPubZPubTransactionsRIRecipients) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -82,7 +82,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRIRecipients) GetAmount() string {
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *ListHDWalletXPubYPubZPubTransactionsRIRecipients) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -106,7 +106,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRIRecipients) GetIsMember() bool {
 // GetIsMemberOk returns a tuple with the IsMember field value
 // and a boolean to check if the value has been set.
 func (o *ListHDWalletXPubYPubZPubTransactionsRIRecipients) GetIsMemberOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsMember, true

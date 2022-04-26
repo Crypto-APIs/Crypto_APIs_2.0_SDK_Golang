@@ -78,7 +78,7 @@ func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetBlockchain
 // GetBlockchainOk returns a tuple with the Blockchain field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetBlockchainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Blockchain, true
@@ -102,7 +102,7 @@ func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetNetwork() 
 // GetNetworkOk returns a tuple with the Network field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetNetworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Network, true
@@ -126,7 +126,7 @@ func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetAddress() 
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -150,7 +150,7 @@ func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetMinedInBlo
 // GetMinedInBlockOk returns a tuple with the MinedInBlock field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetMinedInBlockOk() (*AddressCoinsTransactionConfirmedEachConfirmationDataItemMinedInBlock, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlock, true
@@ -174,7 +174,7 @@ func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetTransactio
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -198,7 +198,7 @@ func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetCurrentCon
 // GetCurrentConfirmationsOk returns a tuple with the CurrentConfirmations field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetCurrentConfirmationsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CurrentConfirmations, true
@@ -222,7 +222,7 @@ func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetTargetConf
 // GetTargetConfirmationsOk returns a tuple with the TargetConfirmations field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetTargetConfirmationsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TargetConfirmations, true
@@ -246,7 +246,7 @@ func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetAmount() s
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -270,7 +270,7 @@ func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetUnit() str
 // GetUnitOk returns a tuple with the Unit field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Unit, true
@@ -294,7 +294,7 @@ func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetDirection(
 // GetDirectionOk returns a tuple with the Direction field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItem) GetDirectionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Direction, true

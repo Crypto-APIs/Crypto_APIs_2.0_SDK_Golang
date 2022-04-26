@@ -24,12 +24,16 @@ type AddTokensToExistingFromAddressRITS struct {
 
 // AddTokensToExistingFromAddressRITSBOTAsAddTokensToExistingFromAddressRITS is a convenience function that returns AddTokensToExistingFromAddressRITSBOT wrapped in AddTokensToExistingFromAddressRITS
 func AddTokensToExistingFromAddressRITSBOTAsAddTokensToExistingFromAddressRITS(v *AddTokensToExistingFromAddressRITSBOT) AddTokensToExistingFromAddressRITS {
-	return AddTokensToExistingFromAddressRITS{ AddTokensToExistingFromAddressRITSBOT: v}
+	return AddTokensToExistingFromAddressRITS{
+		AddTokensToExistingFromAddressRITSBOT: v,
+	}
 }
 
 // AddTokensToExistingFromAddressRITSETAsAddTokensToExistingFromAddressRITS is a convenience function that returns AddTokensToExistingFromAddressRITSET wrapped in AddTokensToExistingFromAddressRITS
 func AddTokensToExistingFromAddressRITSETAsAddTokensToExistingFromAddressRITS(v *AddTokensToExistingFromAddressRITSET) AddTokensToExistingFromAddressRITS {
-	return AddTokensToExistingFromAddressRITS{ AddTokensToExistingFromAddressRITSET: v}
+	return AddTokensToExistingFromAddressRITS{
+		AddTokensToExistingFromAddressRITSET: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *AddTokensToExistingFromAddressRITS) UnmarshalJSON(data []byte) error 
 	var err error
 	match := 0
 	// try to unmarshal data into AddTokensToExistingFromAddressRITSBOT
-	err = json.Unmarshal(data, &dst.AddTokensToExistingFromAddressRITSBOT)
+	err = newStrictDecoder(data).Decode(&dst.AddTokensToExistingFromAddressRITSBOT)
 	if err == nil {
 		jsonAddTokensToExistingFromAddressRITSBOT, _ := json.Marshal(dst.AddTokensToExistingFromAddressRITSBOT)
 		if string(jsonAddTokensToExistingFromAddressRITSBOT) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *AddTokensToExistingFromAddressRITS) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into AddTokensToExistingFromAddressRITSET
-	err = json.Unmarshal(data, &dst.AddTokensToExistingFromAddressRITSET)
+	err = newStrictDecoder(data).Decode(&dst.AddTokensToExistingFromAddressRITSET)
 	if err == nil {
 		jsonAddTokensToExistingFromAddressRITSET, _ := json.Marshal(dst.AddTokensToExistingFromAddressRITSET)
 		if string(jsonAddTokensToExistingFromAddressRITSET) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src AddTokensToExistingFromAddressRITS) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *AddTokensToExistingFromAddressRITS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.AddTokensToExistingFromAddressRITSBOT != nil {
 		return obj.AddTokensToExistingFromAddressRITSBOT
 	}

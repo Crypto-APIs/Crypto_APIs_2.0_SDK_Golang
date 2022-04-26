@@ -69,7 +69,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetDifficulty() string {
 // GetDifficultyOk returns a tuple with the Difficulty field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Difficulty, true
@@ -93,7 +93,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetDsBlock() int32 {
 // GetDsBlockOk returns a tuple with the DsBlock field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetDsBlockOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DsBlock, true
@@ -117,7 +117,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetDsDifficulty() string {
 // GetDsDifficultyOk returns a tuple with the DsDifficulty field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetDsDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DsDifficulty, true
@@ -141,7 +141,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetDsLeader() string {
 // GetDsLeaderOk returns a tuple with the DsLeader field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetDsLeaderOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DsLeader, true
@@ -165,7 +165,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetGasLimit() int32 {
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetGasLimitOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -189,7 +189,7 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetGasUsed() int32 {
 // GetGasUsedOk returns a tuple with the GasUsed field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetGasUsedOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasUsed, true
@@ -212,11 +212,11 @@ func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetMicroBlocks() []string 
 
 // GetMicroBlocksOk returns a tuple with the MicroBlocks field value
 // and a boolean to check if the value has been set.
-func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetMicroBlocksOk() (*[]string, bool) {
-	if o == nil  {
+func (o *GetBlockDetailsByBlockHashFromCallbackRIBSZ) GetMicroBlocksOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.MicroBlocks, true
+	return o.MicroBlocks, true
 }
 
 // SetMicroBlocks sets field value

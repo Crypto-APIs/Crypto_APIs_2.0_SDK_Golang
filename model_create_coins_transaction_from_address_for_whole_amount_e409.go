@@ -25,17 +25,23 @@ type CreateCoinsTransactionFromAddressForWholeAmountE409 struct {
 
 // InvalidDataAsCreateCoinsTransactionFromAddressForWholeAmountE409 is a convenience function that returns InvalidData wrapped in CreateCoinsTransactionFromAddressForWholeAmountE409
 func InvalidDataAsCreateCoinsTransactionFromAddressForWholeAmountE409(v *InvalidData) CreateCoinsTransactionFromAddressForWholeAmountE409 {
-	return CreateCoinsTransactionFromAddressForWholeAmountE409{ InvalidData: v}
+	return CreateCoinsTransactionFromAddressForWholeAmountE409{
+		InvalidData: v,
+	}
 }
 
 // WalletAsAServiceAddressBalanceNotEnoughAsCreateCoinsTransactionFromAddressForWholeAmountE409 is a convenience function that returns WalletAsAServiceAddressBalanceNotEnough wrapped in CreateCoinsTransactionFromAddressForWholeAmountE409
 func WalletAsAServiceAddressBalanceNotEnoughAsCreateCoinsTransactionFromAddressForWholeAmountE409(v *WalletAsAServiceAddressBalanceNotEnough) CreateCoinsTransactionFromAddressForWholeAmountE409 {
-	return CreateCoinsTransactionFromAddressForWholeAmountE409{ WalletAsAServiceAddressBalanceNotEnough: v}
+	return CreateCoinsTransactionFromAddressForWholeAmountE409{
+		WalletAsAServiceAddressBalanceNotEnough: v,
+	}
 }
 
 // WalletAsAServiceWalletBalanceNotEnoughAsCreateCoinsTransactionFromAddressForWholeAmountE409 is a convenience function that returns WalletAsAServiceWalletBalanceNotEnough wrapped in CreateCoinsTransactionFromAddressForWholeAmountE409
 func WalletAsAServiceWalletBalanceNotEnoughAsCreateCoinsTransactionFromAddressForWholeAmountE409(v *WalletAsAServiceWalletBalanceNotEnough) CreateCoinsTransactionFromAddressForWholeAmountE409 {
-	return CreateCoinsTransactionFromAddressForWholeAmountE409{ WalletAsAServiceWalletBalanceNotEnough: v}
+	return CreateCoinsTransactionFromAddressForWholeAmountE409{
+		WalletAsAServiceWalletBalanceNotEnough: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *CreateCoinsTransactionFromAddressForWholeAmountE409) UnmarshalJSON(da
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidData
-	err = json.Unmarshal(data, &dst.InvalidData)
+	err = newStrictDecoder(data).Decode(&dst.InvalidData)
 	if err == nil {
 		jsonInvalidData, _ := json.Marshal(dst.InvalidData)
 		if string(jsonInvalidData) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *CreateCoinsTransactionFromAddressForWholeAmountE409) UnmarshalJSON(da
 	}
 
 	// try to unmarshal data into WalletAsAServiceAddressBalanceNotEnough
-	err = json.Unmarshal(data, &dst.WalletAsAServiceAddressBalanceNotEnough)
+	err = newStrictDecoder(data).Decode(&dst.WalletAsAServiceAddressBalanceNotEnough)
 	if err == nil {
 		jsonWalletAsAServiceAddressBalanceNotEnough, _ := json.Marshal(dst.WalletAsAServiceAddressBalanceNotEnough)
 		if string(jsonWalletAsAServiceAddressBalanceNotEnough) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *CreateCoinsTransactionFromAddressForWholeAmountE409) UnmarshalJSON(da
 	}
 
 	// try to unmarshal data into WalletAsAServiceWalletBalanceNotEnough
-	err = json.Unmarshal(data, &dst.WalletAsAServiceWalletBalanceNotEnough)
+	err = newStrictDecoder(data).Decode(&dst.WalletAsAServiceWalletBalanceNotEnough)
 	if err == nil {
 		jsonWalletAsAServiceWalletBalanceNotEnough, _ := json.Marshal(dst.WalletAsAServiceWalletBalanceNotEnough)
 		if string(jsonWalletAsAServiceWalletBalanceNotEnough) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src CreateCoinsTransactionFromAddressForWholeAmountE409) MarshalJSON() ([]
 
 // Get the actual instance
 func (obj *CreateCoinsTransactionFromAddressForWholeAmountE409) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidData != nil {
 		return obj.InvalidData
 	}

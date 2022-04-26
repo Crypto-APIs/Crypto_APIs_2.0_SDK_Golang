@@ -55,7 +55,7 @@ func (o *ListUnconfirmedOmniTransactionsByAddressRISenders) GetAddress() string 
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedOmniTransactionsByAddressRISenders) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -79,7 +79,7 @@ func (o *ListUnconfirmedOmniTransactionsByAddressRISenders) GetAmount() string {
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedOmniTransactionsByAddressRISenders) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true

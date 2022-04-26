@@ -63,7 +63,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2) GetGasLimit() i
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2) GetGasLimitOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -87,7 +87,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2) GetGasPrice() G
 // GetGasPriceOk returns a tuple with the GasPrice field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2) GetGasPriceOk() (*GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasPrice, true
@@ -111,7 +111,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2) GetGasUsed() in
 // GetGasUsedOk returns a tuple with the GasUsed field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2) GetGasUsedOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasUsed, true
@@ -135,7 +135,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2) GetNonce() int3
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2) GetNonceOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -159,7 +159,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2) GetTransactionS
 // GetTransactionStatusOk returns a tuple with the TransactionStatus field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2) GetTransactionStatusOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionStatus, true

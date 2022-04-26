@@ -67,7 +67,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) GetCmu() stri
 // GetCmuOk returns a tuple with the Cmu field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) GetCmuOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Cmu, true
@@ -91,7 +91,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) GetCv() strin
 // GetCvOk returns a tuple with the Cv field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) GetCvOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Cv, true
@@ -115,7 +115,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) GetEncCipherT
 // GetEncCipherTextOk returns a tuple with the EncCipherText field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) GetEncCipherTextOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EncCipherText, true
@@ -139,7 +139,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) GetEphemeralK
 // GetEphemeralKeyOk returns a tuple with the EphemeralKey field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) GetEphemeralKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EphemeralKey, true
@@ -163,7 +163,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) GetOutCipherT
 // GetOutCipherTextOk returns a tuple with the OutCipherText field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) GetOutCipherTextOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OutCipherText, true
@@ -187,7 +187,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) GetProof() st
 // GetProofOk returns a tuple with the Proof field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) GetProofOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Proof, true

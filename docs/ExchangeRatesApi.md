@@ -32,12 +32,12 @@ import (
 func main() {
     fromAssetSymbol := "btc" // string | Defines the base asset symbol to get a rate for.
     toAssetSymbol := "usd" // string | Defines the relation asset symbol in which the base asset rate will be displayed.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     calculationTimestamp := int32(1635514425) // int32 | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ExchangeRatesApi.GetExchangeRateByAssetSymbols(context.Background(), fromAssetSymbol, toAssetSymbol).Context(context).CalculationTimestamp(calculationTimestamp).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ExchangeRatesApi.GetExchangeRateByAssetSymbols(context.Background(), fromAssetSymbol, toAssetSymbol).Context(context).CalculationTimestamp(calculationTimestamp).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ExchangeRatesApi.GetExchangeRateByAssetSymbols``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -109,12 +109,12 @@ import (
 func main() {
     fromAssetId := "5b1ea92e584bf50020130612" // string | Defines the base asset Reference ID to get a rate for.
     toAssetId := "5b1ea92e584bf50020130615" // string | Defines the relation asset Reference ID in which the base asset rate will be displayed.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     calculationTimestamp := int32(1618577849) // int32 | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.ExchangeRatesApi.GetExchangeRateByAssetsIDs(context.Background(), fromAssetId, toAssetId).Context(context).CalculationTimestamp(calculationTimestamp).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.ExchangeRatesApi.GetExchangeRateByAssetsIDs(context.Background(), fromAssetId, toAssetId).Context(context).CalculationTimestamp(calculationTimestamp).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `ExchangeRatesApi.GetExchangeRateByAssetsIDs``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

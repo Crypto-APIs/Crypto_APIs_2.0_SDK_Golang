@@ -13,23 +13,19 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // ZilliqaApiService ZilliqaApi service
 type ZilliqaApiService service
 
 type ApiGetLatestMinedZilliqaBlockRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ZilliqaApiService
 	network string
 	context *string
@@ -41,7 +37,7 @@ func (r ApiGetLatestMinedZilliqaBlockRequest) Context(context string) ApiGetLate
 	return r
 }
 
-func (r ApiGetLatestMinedZilliqaBlockRequest) Execute() (GetLatestMinedZilliqaBlockR, *_nethttp.Response, error) {
+func (r ApiGetLatestMinedZilliqaBlockRequest) Execute() (*GetLatestMinedZilliqaBlockR, *http.Response, error) {
 	return r.ApiService.GetLatestMinedZilliqaBlockExecute(r)
 }
 
@@ -50,11 +46,11 @@ GetLatestMinedZilliqaBlock Get Latest Mined Zilliqa Block
 
 Through this endpoint users can obtain information on the latest block that has been mined on the Zilliqa blockchain. Data could include the current and previous block hashes, transaction count, and more.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiGetLatestMinedZilliqaBlockRequest
 */
-func (a *ZilliqaApiService) GetLatestMinedZilliqaBlock(ctx _context.Context, network string) ApiGetLatestMinedZilliqaBlockRequest {
+func (a *ZilliqaApiService) GetLatestMinedZilliqaBlock(ctx context.Context, network string) ApiGetLatestMinedZilliqaBlockRequest {
 	return ApiGetLatestMinedZilliqaBlockRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -64,25 +60,25 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlock(ctx _context.Context, net
 
 // Execute executes the request
 //  @return GetLatestMinedZilliqaBlockR
-func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMinedZilliqaBlockRequest) (GetLatestMinedZilliqaBlockR, *_nethttp.Response, error) {
+func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMinedZilliqaBlockRequest) (*GetLatestMinedZilliqaBlockR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetLatestMinedZilliqaBlockR
+		localVarReturnValue  *GetLatestMinedZilliqaBlockR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZilliqaApiService.GetLatestMinedZilliqaBlock")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/blocks/last"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -128,20 +124,20 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40040
+			var v InlineResponse40043
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -151,7 +147,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40140
+			var v InlineResponse40143
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -171,7 +167,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40340
+			var v InlineResponse40343
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -244,7 +240,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -255,7 +251,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 }
 
 type ApiGetZilliqaAddressDetailsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ZilliqaApiService
 	network string
 	address string
@@ -268,7 +264,7 @@ func (r ApiGetZilliqaAddressDetailsRequest) Context(context string) ApiGetZilliq
 	return r
 }
 
-func (r ApiGetZilliqaAddressDetailsRequest) Execute() (GetZilliqaAddressDetailsR, *_nethttp.Response, error) {
+func (r ApiGetZilliqaAddressDetailsRequest) Execute() (*GetZilliqaAddressDetailsR, *http.Response, error) {
 	return r.ApiService.GetZilliqaAddressDetailsExecute(r)
 }
 
@@ -277,12 +273,12 @@ GetZilliqaAddressDetails Get Zilliqa Address Details
 
 Through this endpoint customers can obtain information address details from the Zilliqa blockchain.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param address Defines the specific transaction's address.
  @return ApiGetZilliqaAddressDetailsRequest
 */
-func (a *ZilliqaApiService) GetZilliqaAddressDetails(ctx _context.Context, network string, address string) ApiGetZilliqaAddressDetailsRequest {
+func (a *ZilliqaApiService) GetZilliqaAddressDetails(ctx context.Context, network string, address string) ApiGetZilliqaAddressDetailsRequest {
 	return ApiGetZilliqaAddressDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -293,26 +289,26 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetails(ctx _context.Context, netwo
 
 // Execute executes the request
 //  @return GetZilliqaAddressDetailsR
-func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddressDetailsRequest) (GetZilliqaAddressDetailsR, *_nethttp.Response, error) {
+func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddressDetailsRequest) (*GetZilliqaAddressDetailsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetZilliqaAddressDetailsR
+		localVarReturnValue  *GetZilliqaAddressDetailsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZilliqaApiService.GetZilliqaAddressDetails")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/addresses/{address}"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -358,15 +354,15 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -464,7 +460,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -475,7 +471,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 }
 
 type ApiGetZilliqaBlockDetailsByBlockHashRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ZilliqaApiService
 	network string
 	blockHash string
@@ -488,7 +484,7 @@ func (r ApiGetZilliqaBlockDetailsByBlockHashRequest) Context(context string) Api
 	return r
 }
 
-func (r ApiGetZilliqaBlockDetailsByBlockHashRequest) Execute() (GetZilliqaBlockDetailsByBlockHashR, *_nethttp.Response, error) {
+func (r ApiGetZilliqaBlockDetailsByBlockHashRequest) Execute() (*GetZilliqaBlockDetailsByBlockHashR, *http.Response, error) {
 	return r.ApiService.GetZilliqaBlockDetailsByBlockHashExecute(r)
 }
 
@@ -497,12 +493,12 @@ GetZilliqaBlockDetailsByBlockHash Get Zilliqa Block Details By Block Hash
 
 Through this endpoint customers can obtain block details from the Zilliqa blockchain by providing the block Hash parameter.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockHash Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
  @return ApiGetZilliqaBlockDetailsByBlockHashRequest
 */
-func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHash(ctx _context.Context, network string, blockHash string) ApiGetZilliqaBlockDetailsByBlockHashRequest {
+func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHash(ctx context.Context, network string, blockHash string) ApiGetZilliqaBlockDetailsByBlockHashRequest {
 	return ApiGetZilliqaBlockDetailsByBlockHashRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -513,26 +509,26 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHash(ctx _context.Conte
 
 // Execute executes the request
 //  @return GetZilliqaBlockDetailsByBlockHashR
-func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZilliqaBlockDetailsByBlockHashRequest) (GetZilliqaBlockDetailsByBlockHashR, *_nethttp.Response, error) {
+func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZilliqaBlockDetailsByBlockHashRequest) (*GetZilliqaBlockDetailsByBlockHashR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetZilliqaBlockDetailsByBlockHashR
+		localVarReturnValue  *GetZilliqaBlockDetailsByBlockHashR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZilliqaApiService.GetZilliqaBlockDetailsByBlockHash")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash}"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", _neturl.PathEscape(parameterToString(r.blockHash, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", url.PathEscape(parameterToString(r.blockHash, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -578,20 +574,20 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40033
+			var v InlineResponse40034
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -601,7 +597,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40133
+			var v InlineResponse40134
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -621,7 +617,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40333
+			var v InlineResponse40334
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -694,7 +690,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -705,7 +701,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 }
 
 type ApiGetZilliqaBlockDetailsByBlockHeightRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ZilliqaApiService
 	network string
 	blockHeight int32
@@ -718,7 +714,7 @@ func (r ApiGetZilliqaBlockDetailsByBlockHeightRequest) Context(context string) A
 	return r
 }
 
-func (r ApiGetZilliqaBlockDetailsByBlockHeightRequest) Execute() (GetZilliqaBlockDetailsByBlockHeightR, *_nethttp.Response, error) {
+func (r ApiGetZilliqaBlockDetailsByBlockHeightRequest) Execute() (*GetZilliqaBlockDetailsByBlockHeightR, *http.Response, error) {
 	return r.ApiService.GetZilliqaBlockDetailsByBlockHeightExecute(r)
 }
 
@@ -727,12 +723,12 @@ GetZilliqaBlockDetailsByBlockHeight Get Zilliqa Block Details By Block Height
 
 Through this endpoint customers can obtain block details from the Zilliqa blockchain by providing the block Height parameter.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockHeight Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
  @return ApiGetZilliqaBlockDetailsByBlockHeightRequest
 */
-func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeight(ctx _context.Context, network string, blockHeight int32) ApiGetZilliqaBlockDetailsByBlockHeightRequest {
+func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeight(ctx context.Context, network string, blockHeight int32) ApiGetZilliqaBlockDetailsByBlockHeightRequest {
 	return ApiGetZilliqaBlockDetailsByBlockHeightRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -743,26 +739,26 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeight(ctx _context.Con
 
 // Execute executes the request
 //  @return GetZilliqaBlockDetailsByBlockHeightR
-func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZilliqaBlockDetailsByBlockHeightRequest) (GetZilliqaBlockDetailsByBlockHeightR, *_nethttp.Response, error) {
+func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZilliqaBlockDetailsByBlockHeightRequest) (*GetZilliqaBlockDetailsByBlockHeightR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetZilliqaBlockDetailsByBlockHeightR
+		localVarReturnValue  *GetZilliqaBlockDetailsByBlockHeightR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZilliqaApiService.GetZilliqaBlockDetailsByBlockHeight")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight}"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", _neturl.PathEscape(parameterToString(r.blockHeight, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", url.PathEscape(parameterToString(r.blockHeight, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -808,20 +804,20 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40029
+			var v InlineResponse40030
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -831,7 +827,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40129
+			var v InlineResponse40130
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -851,7 +847,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40329
+			var v InlineResponse40330
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -924,7 +920,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -935,7 +931,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 }
 
 type ApiGetZilliqaTransactionDetailsByTransactionIDRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ZilliqaApiService
 	network string
 	transactionHash string
@@ -948,7 +944,7 @@ func (r ApiGetZilliqaTransactionDetailsByTransactionIDRequest) Context(context s
 	return r
 }
 
-func (r ApiGetZilliqaTransactionDetailsByTransactionIDRequest) Execute() (GetZilliqaTransactionDetailsByTransactionIDR, *_nethttp.Response, error) {
+func (r ApiGetZilliqaTransactionDetailsByTransactionIDRequest) Execute() (*GetZilliqaTransactionDetailsByTransactionIDR, *http.Response, error) {
 	return r.ApiService.GetZilliqaTransactionDetailsByTransactionIDExecute(r)
 }
 
@@ -957,12 +953,12 @@ GetZilliqaTransactionDetailsByTransactionID Get Zilliqa Transaction Details by T
 
 Through this endpoint customers can obtain transaction details on the Zilliqa blockchain by providing a Transaction ID parameter.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param transactionHash String identifier of the transaction
  @return ApiGetZilliqaTransactionDetailsByTransactionIDRequest
 */
-func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionID(ctx _context.Context, network string, transactionHash string) ApiGetZilliqaTransactionDetailsByTransactionIDRequest {
+func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionID(ctx context.Context, network string, transactionHash string) ApiGetZilliqaTransactionDetailsByTransactionIDRequest {
 	return ApiGetZilliqaTransactionDetailsByTransactionIDRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -973,26 +969,26 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionID(ctx _con
 
 // Execute executes the request
 //  @return GetZilliqaTransactionDetailsByTransactionIDR
-func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r ApiGetZilliqaTransactionDetailsByTransactionIDRequest) (GetZilliqaTransactionDetailsByTransactionIDR, *_nethttp.Response, error) {
+func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r ApiGetZilliqaTransactionDetailsByTransactionIDRequest) (*GetZilliqaTransactionDetailsByTransactionIDR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetZilliqaTransactionDetailsByTransactionIDR
+		localVarReturnValue  *GetZilliqaTransactionDetailsByTransactionIDR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZilliqaApiService.GetZilliqaTransactionDetailsByTransactionID")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/transactions/{transactionHash}"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"transactionHash"+"}", _neturl.PathEscape(parameterToString(r.transactionHash, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"transactionHash"+"}", url.PathEscape(parameterToString(r.transactionHash, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1038,15 +1034,15 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1154,7 +1150,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1165,7 +1161,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 }
 
 type ApiListZilliqaTransactionsByAddressRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ZilliqaApiService
 	network string
 	address string
@@ -1179,18 +1175,20 @@ func (r ApiListZilliqaTransactionsByAddressRequest) Context(context string) ApiL
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListZilliqaTransactionsByAddressRequest) Limit(limit int32) ApiListZilliqaTransactionsByAddressRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListZilliqaTransactionsByAddressRequest) Offset(offset int32) ApiListZilliqaTransactionsByAddressRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListZilliqaTransactionsByAddressRequest) Execute() (ListZilliqaTransactionsByAddressR, *_nethttp.Response, error) {
+func (r ApiListZilliqaTransactionsByAddressRequest) Execute() (*ListZilliqaTransactionsByAddressR, *http.Response, error) {
 	return r.ApiService.ListZilliqaTransactionsByAddressExecute(r)
 }
 
@@ -1199,12 +1197,12 @@ ListZilliqaTransactionsByAddress List Zilliqa Transactions by Address
 
 Through this endpoint customers can list transactions on the Zilliqa blockchain by the address parameter.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param address Defines the specific address of the sender.
  @return ApiListZilliqaTransactionsByAddressRequest
 */
-func (a *ZilliqaApiService) ListZilliqaTransactionsByAddress(ctx _context.Context, network string, address string) ApiListZilliqaTransactionsByAddressRequest {
+func (a *ZilliqaApiService) ListZilliqaTransactionsByAddress(ctx context.Context, network string, address string) ApiListZilliqaTransactionsByAddressRequest {
 	return ApiListZilliqaTransactionsByAddressRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1215,26 +1213,26 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddress(ctx _context.Contex
 
 // Execute executes the request
 //  @return ListZilliqaTransactionsByAddressR
-func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZilliqaTransactionsByAddressRequest) (ListZilliqaTransactionsByAddressR, *_nethttp.Response, error) {
+func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZilliqaTransactionsByAddressRequest) (*ListZilliqaTransactionsByAddressR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListZilliqaTransactionsByAddressR
+		localVarReturnValue  *ListZilliqaTransactionsByAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZilliqaApiService.ListZilliqaTransactionsByAddress")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/addresses/{address}/transactions"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1286,15 +1284,15 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1392,7 +1390,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1403,7 +1401,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 }
 
 type ApiListZilliqaTransactionsByBlockHashRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ZilliqaApiService
 	network string
 	blockHash string
@@ -1417,18 +1415,20 @@ func (r ApiListZilliqaTransactionsByBlockHashRequest) Context(context string) Ap
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListZilliqaTransactionsByBlockHashRequest) Limit(limit int32) ApiListZilliqaTransactionsByBlockHashRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListZilliqaTransactionsByBlockHashRequest) Offset(offset int32) ApiListZilliqaTransactionsByBlockHashRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListZilliqaTransactionsByBlockHashRequest) Execute() (ListZilliqaTransactionsByBlockHashR, *_nethttp.Response, error) {
+func (r ApiListZilliqaTransactionsByBlockHashRequest) Execute() (*ListZilliqaTransactionsByBlockHashR, *http.Response, error) {
 	return r.ApiService.ListZilliqaTransactionsByBlockHashExecute(r)
 }
 
@@ -1437,12 +1437,12 @@ ListZilliqaTransactionsByBlockHash List Zilliqa Transactions By Block Hash
 
 Through this endpoint customers can list transactions on the Zilliqa blockchain by the block hash parameter.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockHash Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
  @return ApiListZilliqaTransactionsByBlockHashRequest
 */
-func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHash(ctx _context.Context, network string, blockHash string) ApiListZilliqaTransactionsByBlockHashRequest {
+func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHash(ctx context.Context, network string, blockHash string) ApiListZilliqaTransactionsByBlockHashRequest {
 	return ApiListZilliqaTransactionsByBlockHashRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1453,26 +1453,26 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHash(ctx _context.Cont
 
 // Execute executes the request
 //  @return ListZilliqaTransactionsByBlockHashR
-func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZilliqaTransactionsByBlockHashRequest) (ListZilliqaTransactionsByBlockHashR, *_nethttp.Response, error) {
+func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZilliqaTransactionsByBlockHashRequest) (*ListZilliqaTransactionsByBlockHashR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListZilliqaTransactionsByBlockHashR
+		localVarReturnValue  *ListZilliqaTransactionsByBlockHashR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZilliqaApiService.ListZilliqaTransactionsByBlockHash")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/blocks/hash/{blockHash}/transactions"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", _neturl.PathEscape(parameterToString(r.blockHash, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", url.PathEscape(parameterToString(r.blockHash, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1524,253 +1524,15 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40021
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40121
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v InlineResponse402
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40321
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 415 {
-			var v InlineResponse415
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse422
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v InlineResponse429
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiListZilliqaTransactionsByBlockHeightRequest struct {
-	ctx _context.Context
-	ApiService *ZilliqaApiService
-	network string
-	blockHeight int32
-	context *string
-	limit *int32
-	offset *int32
-}
-
-// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
-func (r ApiListZilliqaTransactionsByBlockHeightRequest) Context(context string) ApiListZilliqaTransactionsByBlockHeightRequest {
-	r.context = &context
-	return r
-}
-// Defines how many items should be returned in the response per page basis.
-func (r ApiListZilliqaTransactionsByBlockHeightRequest) Limit(limit int32) ApiListZilliqaTransactionsByBlockHeightRequest {
-	r.limit = &limit
-	return r
-}
-// The starting index of the response items, i.e. where the response should start listing the returned items.
-func (r ApiListZilliqaTransactionsByBlockHeightRequest) Offset(offset int32) ApiListZilliqaTransactionsByBlockHeightRequest {
-	r.offset = &offset
-	return r
-}
-
-func (r ApiListZilliqaTransactionsByBlockHeightRequest) Execute() (ListZilliqaTransactionsByBlockHeightR, *_nethttp.Response, error) {
-	return r.ApiService.ListZilliqaTransactionsByBlockHeightExecute(r)
-}
-
-/*
-ListZilliqaTransactionsByBlockHeight List Zilliqa Transactions By Block Height
-
-Through this endpoint customers can list transactions on the Zilliqa blockchain by the block height parameter.
-
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
- @param blockHeight Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
- @return ApiListZilliqaTransactionsByBlockHeightRequest
-*/
-func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeight(ctx _context.Context, network string, blockHeight int32) ApiListZilliqaTransactionsByBlockHeightRequest {
-	return ApiListZilliqaTransactionsByBlockHeightRequest{
-		ApiService: a,
-		ctx: ctx,
-		network: network,
-		blockHeight: blockHeight,
-	}
-}
-
-// Execute executes the request
-//  @return ListZilliqaTransactionsByBlockHeightR
-func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiListZilliqaTransactionsByBlockHeightRequest) (ListZilliqaTransactionsByBlockHeightR, *_nethttp.Response, error) {
-	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  ListZilliqaTransactionsByBlockHeightR
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZilliqaApiService.ListZilliqaTransactionsByBlockHeight")
-	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight}/transactions"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", _neturl.PathEscape(parameterToString(r.blockHeight, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
-
-	if r.context != nil {
-		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
-	}
-	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
-	}
-	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["ApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["x-api-key"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1868,7 +1630,247 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiListZilliqaTransactionsByBlockHeightRequest struct {
+	ctx context.Context
+	ApiService *ZilliqaApiService
+	network string
+	blockHeight int32
+	context *string
+	limit *int32
+	offset *int32
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiListZilliqaTransactionsByBlockHeightRequest) Context(context string) ApiListZilliqaTransactionsByBlockHeightRequest {
+	r.context = &context
+	return r
+}
+
+// Defines how many items should be returned in the response per page basis.
+func (r ApiListZilliqaTransactionsByBlockHeightRequest) Limit(limit int32) ApiListZilliqaTransactionsByBlockHeightRequest {
+	r.limit = &limit
+	return r
+}
+
+// The starting index of the response items, i.e. where the response should start listing the returned items.
+func (r ApiListZilliqaTransactionsByBlockHeightRequest) Offset(offset int32) ApiListZilliqaTransactionsByBlockHeightRequest {
+	r.offset = &offset
+	return r
+}
+
+func (r ApiListZilliqaTransactionsByBlockHeightRequest) Execute() (*ListZilliqaTransactionsByBlockHeightR, *http.Response, error) {
+	return r.ApiService.ListZilliqaTransactionsByBlockHeightExecute(r)
+}
+
+/*
+ListZilliqaTransactionsByBlockHeight List Zilliqa Transactions By Block Height
+
+Through this endpoint customers can list transactions on the Zilliqa blockchain by the block height parameter.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+ @param blockHeight Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
+ @return ApiListZilliqaTransactionsByBlockHeightRequest
+*/
+func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeight(ctx context.Context, network string, blockHeight int32) ApiListZilliqaTransactionsByBlockHeightRequest {
+	return ApiListZilliqaTransactionsByBlockHeightRequest{
+		ApiService: a,
+		ctx: ctx,
+		network: network,
+		blockHeight: blockHeight,
+	}
+}
+
+// Execute executes the request
+//  @return ListZilliqaTransactionsByBlockHeightR
+func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiListZilliqaTransactionsByBlockHeightRequest) (*ListZilliqaTransactionsByBlockHeightR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListZilliqaTransactionsByBlockHeightR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ZilliqaApiService.ListZilliqaTransactionsByBlockHeight")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/blockchain-data/zilliqa-specific/{network}/blocks/height/{blockHeight}/transactions"
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", url.PathEscape(parameterToString(r.blockHeight, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	if r.limit != nil {
+		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+	}
+	if r.offset != nil {
+		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InlineResponse40023
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v InlineResponse40123
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v InlineResponse402
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v InlineResponse40323
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v InlineResponse409
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v InlineResponse415
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v InlineResponse422
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v InlineResponse429
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InlineResponse500
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

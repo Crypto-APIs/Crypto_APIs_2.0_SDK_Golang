@@ -26,22 +26,30 @@ type GetXRPRippleBlockDetailsByBlockHashE403 struct {
 
 // BannedIpAddressAsGetXRPRippleBlockDetailsByBlockHashE403 is a convenience function that returns BannedIpAddress wrapped in GetXRPRippleBlockDetailsByBlockHashE403
 func BannedIpAddressAsGetXRPRippleBlockDetailsByBlockHashE403(v *BannedIpAddress) GetXRPRippleBlockDetailsByBlockHashE403 {
-	return GetXRPRippleBlockDetailsByBlockHashE403{ BannedIpAddress: v}
+	return GetXRPRippleBlockDetailsByBlockHashE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsGetXRPRippleBlockDetailsByBlockHashE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in GetXRPRippleBlockDetailsByBlockHashE403
 func EndpointNotAllowedForApiKeyAsGetXRPRippleBlockDetailsByBlockHashE403(v *EndpointNotAllowedForApiKey) GetXRPRippleBlockDetailsByBlockHashE403 {
-	return GetXRPRippleBlockDetailsByBlockHashE403{ EndpointNotAllowedForApiKey: v}
+	return GetXRPRippleBlockDetailsByBlockHashE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsGetXRPRippleBlockDetailsByBlockHashE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in GetXRPRippleBlockDetailsByBlockHashE403
 func EndpointNotAllowedForPlanAsGetXRPRippleBlockDetailsByBlockHashE403(v *EndpointNotAllowedForPlan) GetXRPRippleBlockDetailsByBlockHashE403 {
-	return GetXRPRippleBlockDetailsByBlockHashE403{ EndpointNotAllowedForPlan: v}
+	return GetXRPRippleBlockDetailsByBlockHashE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsGetXRPRippleBlockDetailsByBlockHashE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in GetXRPRippleBlockDetailsByBlockHashE403
 func FeatureMainnetsNotAllowedForPlanAsGetXRPRippleBlockDetailsByBlockHashE403(v *FeatureMainnetsNotAllowedForPlan) GetXRPRippleBlockDetailsByBlockHashE403 {
-	return GetXRPRippleBlockDetailsByBlockHashE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return GetXRPRippleBlockDetailsByBlockHashE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *GetXRPRippleBlockDetailsByBlockHashE403) UnmarshalJSON(data []byte) e
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *GetXRPRippleBlockDetailsByBlockHashE403) UnmarshalJSON(data []byte) e
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *GetXRPRippleBlockDetailsByBlockHashE403) UnmarshalJSON(data []byte) e
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *GetXRPRippleBlockDetailsByBlockHashE403) UnmarshalJSON(data []byte) e
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src GetXRPRippleBlockDetailsByBlockHashE403) MarshalJSON() ([]byte, error)
 
 // Get the actual instance
 func (obj *GetXRPRippleBlockDetailsByBlockHashE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

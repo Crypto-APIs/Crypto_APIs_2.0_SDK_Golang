@@ -13,23 +13,19 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // OmniLayerApiService OmniLayerApi service
 type OmniLayerApiService service
 
 type ApiGetOmniTransactionDetailsByTransactionIDTxidRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *OmniLayerApiService
 	network string
 	blockchain string
@@ -43,7 +39,7 @@ func (r ApiGetOmniTransactionDetailsByTransactionIDTxidRequest) Context(context 
 	return r
 }
 
-func (r ApiGetOmniTransactionDetailsByTransactionIDTxidRequest) Execute() (GetOmniTransactionDetailsByTransactionIDTxidR, *_nethttp.Response, error) {
+func (r ApiGetOmniTransactionDetailsByTransactionIDTxidRequest) Execute() (*GetOmniTransactionDetailsByTransactionIDTxidR, *http.Response, error) {
 	return r.ApiService.GetOmniTransactionDetailsByTransactionIDTxidExecute(r)
 }
 
@@ -52,13 +48,13 @@ GetOmniTransactionDetailsByTransactionIDTxid Get Omni Transaction Details By Tra
 
 Through this endpoint customers can obtain details about an Omni transaction by the transaction's unique identifier. The transaction can return information such as hash, height, time of creation in Unix timestamp, etc.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param transactionId Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
  @return ApiGetOmniTransactionDetailsByTransactionIDTxidRequest
 */
-func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxid(ctx _context.Context, network string, blockchain string, transactionId string) ApiGetOmniTransactionDetailsByTransactionIDTxidRequest {
+func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxid(ctx context.Context, network string, blockchain string, transactionId string) ApiGetOmniTransactionDetailsByTransactionIDTxidRequest {
 	return ApiGetOmniTransactionDetailsByTransactionIDTxidRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -70,27 +66,27 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxid(ctx _
 
 // Execute executes the request
 //  @return GetOmniTransactionDetailsByTransactionIDTxidR
-func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecute(r ApiGetOmniTransactionDetailsByTransactionIDTxidRequest) (GetOmniTransactionDetailsByTransactionIDTxidR, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecute(r ApiGetOmniTransactionDetailsByTransactionIDTxidRequest) (*GetOmniTransactionDetailsByTransactionIDTxidR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetOmniTransactionDetailsByTransactionIDTxidR
+		localVarReturnValue  *GetOmniTransactionDetailsByTransactionIDTxidR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.GetOmniTransactionDetailsByTransactionIDTxid")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/omni/transactions/{transactionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"transactionId"+"}", _neturl.PathEscape(parameterToString(r.transactionId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"transactionId"+"}", url.PathEscape(parameterToString(r.transactionId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -136,20 +132,20 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40032
+			var v InlineResponse40033
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -159,7 +155,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40132
+			var v InlineResponse40133
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -179,7 +175,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40332
+			var v InlineResponse40333
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -252,7 +248,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -263,7 +259,7 @@ func (a *OmniLayerApiService) GetOmniTransactionDetailsByTransactionIDTxidExecut
 }
 
 type ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *OmniLayerApiService
 	network string
 	blockchain string
@@ -277,7 +273,7 @@ func (r ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest) Context(cont
 	return r
 }
 
-func (r ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest) Execute() (GetUnconfirmedOmniTransactionByTransactionIDTxidR, *_nethttp.Response, error) {
+func (r ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest) Execute() (*GetUnconfirmedOmniTransactionByTransactionIDTxidR, *http.Response, error) {
 	return r.ApiService.GetUnconfirmedOmniTransactionByTransactionIDTxidExecute(r)
 }
 
@@ -288,13 +284,13 @@ Through this endpoint customers can obtain information on unconfirmed Omni trans
 
 Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param transactionId Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
  @return ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest
 */
-func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxid(ctx _context.Context, network string, blockchain string, transactionId string) ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest {
+func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxid(ctx context.Context, network string, blockchain string, transactionId string) ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest {
 	return ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -306,27 +302,27 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxid(c
 
 // Execute executes the request
 //  @return GetUnconfirmedOmniTransactionByTransactionIDTxidR
-func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidExecute(r ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest) (GetUnconfirmedOmniTransactionByTransactionIDTxidR, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidExecute(r ApiGetUnconfirmedOmniTransactionByTransactionIDTxidRequest) (*GetUnconfirmedOmniTransactionByTransactionIDTxidR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetUnconfirmedOmniTransactionByTransactionIDTxidR
+		localVarReturnValue  *GetUnconfirmedOmniTransactionByTransactionIDTxidR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.GetUnconfirmedOmniTransactionByTransactionIDTxid")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/omni/transactions-unconfirmed/{transactionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"transactionId"+"}", _neturl.PathEscape(parameterToString(r.transactionId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"transactionId"+"}", url.PathEscape(parameterToString(r.transactionId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -372,20 +368,20 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40019
+			var v InlineResponse40020
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -395,7 +391,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40119
+			var v InlineResponse40120
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -415,7 +411,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40319
+			var v InlineResponse40320
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -488,7 +484,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -499,7 +495,7 @@ func (a *OmniLayerApiService) GetUnconfirmedOmniTransactionByTransactionIDTxidEx
 }
 
 type ApiListOmniTokensByAddressRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *OmniLayerApiService
 	network string
 	blockchain string
@@ -513,7 +509,7 @@ func (r ApiListOmniTokensByAddressRequest) Context(context string) ApiListOmniTo
 	return r
 }
 
-func (r ApiListOmniTokensByAddressRequest) Execute() (ListOmniTokensByAddressR, *_nethttp.Response, error) {
+func (r ApiListOmniTokensByAddressRequest) Execute() (*ListOmniTokensByAddressR, *http.Response, error) {
 	return r.ApiService.ListOmniTokensByAddressExecute(r)
 }
 
@@ -522,13 +518,13 @@ ListOmniTokensByAddress List Omni Tokens By Address
 
 Through this endpoint the customer can receive basic information about a given Omni address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing **unconfirmed** transactions for the specific address, they **will not** be counted or calculated here.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param address Represents the public address, which is a compressed and shortened form of a public key.
  @return ApiListOmniTokensByAddressRequest
 */
-func (a *OmniLayerApiService) ListOmniTokensByAddress(ctx _context.Context, network string, blockchain string, address string) ApiListOmniTokensByAddressRequest {
+func (a *OmniLayerApiService) ListOmniTokensByAddress(ctx context.Context, network string, blockchain string, address string) ApiListOmniTokensByAddressRequest {
 	return ApiListOmniTokensByAddressRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -540,27 +536,27 @@ func (a *OmniLayerApiService) ListOmniTokensByAddress(ctx _context.Context, netw
 
 // Execute executes the request
 //  @return ListOmniTokensByAddressR
-func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokensByAddressRequest) (ListOmniTokensByAddressR, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokensByAddressRequest) (*ListOmniTokensByAddressR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListOmniTokensByAddressR
+		localVarReturnValue  *ListOmniTokensByAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.ListOmniTokensByAddress")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/omni/addresses/{address}"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -606,15 +602,15 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -712,7 +708,7 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -723,7 +719,7 @@ func (a *OmniLayerApiService) ListOmniTokensByAddressExecute(r ApiListOmniTokens
 }
 
 type ApiListOmniTransactionsByAddressRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *OmniLayerApiService
 	network string
 	blockchain string
@@ -738,18 +734,20 @@ func (r ApiListOmniTransactionsByAddressRequest) Context(context string) ApiList
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListOmniTransactionsByAddressRequest) Limit(limit int32) ApiListOmniTransactionsByAddressRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListOmniTransactionsByAddressRequest) Offset(offset int32) ApiListOmniTransactionsByAddressRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListOmniTransactionsByAddressRequest) Execute() (ListOmniTransactionsByAddressR, *_nethttp.Response, error) {
+func (r ApiListOmniTransactionsByAddressRequest) Execute() (*ListOmniTransactionsByAddressR, *http.Response, error) {
 	return r.ApiService.ListOmniTransactionsByAddressExecute(r)
 }
 
@@ -758,13 +756,13 @@ ListOmniTransactionsByAddress List Omni Transactions By Address
 
 This endpoint will list Omni transactions by an attribute `address`. The transactions listed will detail additional information such as hash, height, time of creation in Unix timestamp, etc.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param address Represents the public address, which is a compressed and shortened form of a public key.
  @return ApiListOmniTransactionsByAddressRequest
 */
-func (a *OmniLayerApiService) ListOmniTransactionsByAddress(ctx _context.Context, network string, blockchain string, address string) ApiListOmniTransactionsByAddressRequest {
+func (a *OmniLayerApiService) ListOmniTransactionsByAddress(ctx context.Context, network string, blockchain string, address string) ApiListOmniTransactionsByAddressRequest {
 	return ApiListOmniTransactionsByAddressRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -776,27 +774,27 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddress(ctx _context.Context
 
 // Execute executes the request
 //  @return ListOmniTransactionsByAddressR
-func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmniTransactionsByAddressRequest) (ListOmniTransactionsByAddressR, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmniTransactionsByAddressRequest) (*ListOmniTransactionsByAddressR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListOmniTransactionsByAddressR
+		localVarReturnValue  *ListOmniTransactionsByAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.ListOmniTransactionsByAddress")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/omni/addresses/{address}/transactions"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -848,15 +846,15 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -954,7 +952,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -965,7 +963,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByAddressExecute(r ApiListOmni
 }
 
 type ApiListOmniTransactionsByBlockHashRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *OmniLayerApiService
 	network string
 	blockchain string
@@ -980,18 +978,20 @@ func (r ApiListOmniTransactionsByBlockHashRequest) Context(context string) ApiLi
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListOmniTransactionsByBlockHashRequest) Limit(limit int32) ApiListOmniTransactionsByBlockHashRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListOmniTransactionsByBlockHashRequest) Offset(offset int32) ApiListOmniTransactionsByBlockHashRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListOmniTransactionsByBlockHashRequest) Execute() (ListOmniTransactionsByBlockHashR, *_nethttp.Response, error) {
+func (r ApiListOmniTransactionsByBlockHashRequest) Execute() (*ListOmniTransactionsByBlockHashR, *http.Response, error) {
 	return r.ApiService.ListOmniTransactionsByBlockHashExecute(r)
 }
 
@@ -1000,13 +1000,13 @@ ListOmniTransactionsByBlockHash List Omni Transactions By Block Hash
 
 This endpoint will list Omni transactions by an attribute `transactionHash`. The transactions listed will detail additional information such as addresses, height, time of creation in Unix timestamp, etc.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param blockHash Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
  @return ApiListOmniTransactionsByBlockHashRequest
 */
-func (a *OmniLayerApiService) ListOmniTransactionsByBlockHash(ctx _context.Context, network string, blockchain string, blockHash string) ApiListOmniTransactionsByBlockHashRequest {
+func (a *OmniLayerApiService) ListOmniTransactionsByBlockHash(ctx context.Context, network string, blockchain string, blockHash string) ApiListOmniTransactionsByBlockHashRequest {
 	return ApiListOmniTransactionsByBlockHashRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1018,27 +1018,27 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHash(ctx _context.Conte
 
 // Execute executes the request
 //  @return ListOmniTransactionsByBlockHashR
-func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOmniTransactionsByBlockHashRequest) (ListOmniTransactionsByBlockHashR, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOmniTransactionsByBlockHashRequest) (*ListOmniTransactionsByBlockHashR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListOmniTransactionsByBlockHashR
+		localVarReturnValue  *ListOmniTransactionsByBlockHashR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.ListOmniTransactionsByBlockHash")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/omni/blocks/hash/{blockHash}/transactions"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", _neturl.PathEscape(parameterToString(r.blockHash, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", url.PathEscape(parameterToString(r.blockHash, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1090,20 +1090,20 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40044
+			var v InlineResponse40047
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1113,7 +1113,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40144
+			var v InlineResponse40147
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1133,7 +1133,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40344
+			var v InlineResponse40347
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1196,7 +1196,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1207,7 +1207,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHashExecute(r ApiListOm
 }
 
 type ApiListOmniTransactionsByBlockHeightRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *OmniLayerApiService
 	network string
 	blockchain string
@@ -1222,18 +1222,20 @@ func (r ApiListOmniTransactionsByBlockHeightRequest) Context(context string) Api
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListOmniTransactionsByBlockHeightRequest) Limit(limit int32) ApiListOmniTransactionsByBlockHeightRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListOmniTransactionsByBlockHeightRequest) Offset(offset int32) ApiListOmniTransactionsByBlockHeightRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListOmniTransactionsByBlockHeightRequest) Execute() (ListOmniTransactionsByBlockHeightR, *_nethttp.Response, error) {
+func (r ApiListOmniTransactionsByBlockHeightRequest) Execute() (*ListOmniTransactionsByBlockHeightR, *http.Response, error) {
 	return r.ApiService.ListOmniTransactionsByBlockHeightExecute(r)
 }
 
@@ -1242,13 +1244,13 @@ ListOmniTransactionsByBlockHeight List Omni Transactions By Block Height
 
 This endpoint will list Omni transactions by an attribute `blockHeight`. The transactions listed will detail additional information such as hash, addresses, time of creation in Unix timestamp, etc.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param blockHeight Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
  @return ApiListOmniTransactionsByBlockHeightRequest
 */
-func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeight(ctx _context.Context, network string, blockchain string, blockHeight string) ApiListOmniTransactionsByBlockHeightRequest {
+func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeight(ctx context.Context, network string, blockchain string, blockHeight string) ApiListOmniTransactionsByBlockHeightRequest {
 	return ApiListOmniTransactionsByBlockHeightRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1260,27 +1262,27 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeight(ctx _context.Con
 
 // Execute executes the request
 //  @return ListOmniTransactionsByBlockHeightR
-func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiListOmniTransactionsByBlockHeightRequest) (ListOmniTransactionsByBlockHeightR, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiListOmniTransactionsByBlockHeightRequest) (*ListOmniTransactionsByBlockHeightR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListOmniTransactionsByBlockHeightR
+		localVarReturnValue  *ListOmniTransactionsByBlockHeightR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.ListOmniTransactionsByBlockHeight")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/omni/blocks/height/{blockHeight}/transactions"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", _neturl.PathEscape(parameterToString(r.blockHeight, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", url.PathEscape(parameterToString(r.blockHeight, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1332,20 +1334,20 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40038
+			var v InlineResponse40041
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1355,7 +1357,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40138
+			var v InlineResponse40141
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1375,7 +1377,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40338
+			var v InlineResponse40341
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1438,7 +1440,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1449,7 +1451,7 @@ func (a *OmniLayerApiService) ListOmniTransactionsByBlockHeightExecute(r ApiList
 }
 
 type ApiListUnconfirmedOmniTransactionsByAddressRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *OmniLayerApiService
 	network string
 	blockchain string
@@ -1464,18 +1466,20 @@ func (r ApiListUnconfirmedOmniTransactionsByAddressRequest) Context(context stri
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListUnconfirmedOmniTransactionsByAddressRequest) Limit(limit int32) ApiListUnconfirmedOmniTransactionsByAddressRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListUnconfirmedOmniTransactionsByAddressRequest) Offset(offset int32) ApiListUnconfirmedOmniTransactionsByAddressRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListUnconfirmedOmniTransactionsByAddressRequest) Execute() (ListUnconfirmedOmniTransactionsByAddressR, *_nethttp.Response, error) {
+func (r ApiListUnconfirmedOmniTransactionsByAddressRequest) Execute() (*ListUnconfirmedOmniTransactionsByAddressR, *http.Response, error) {
 	return r.ApiService.ListUnconfirmedOmniTransactionsByAddressExecute(r)
 }
 
@@ -1486,13 +1490,13 @@ This endpoint will list unconfirmed Omni transactions by an attribute `address`.
 
 Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param address Represents the public address, which is a compressed and shortened form of a public key.
  @return ApiListUnconfirmedOmniTransactionsByAddressRequest
 */
-func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddress(ctx _context.Context, network string, blockchain string, address string) ApiListUnconfirmedOmniTransactionsByAddressRequest {
+func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddress(ctx context.Context, network string, blockchain string, address string) ApiListUnconfirmedOmniTransactionsByAddressRequest {
 	return ApiListUnconfirmedOmniTransactionsByAddressRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1504,27 +1508,27 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddress(ctx _cont
 
 // Execute executes the request
 //  @return ListUnconfirmedOmniTransactionsByAddressR
-func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r ApiListUnconfirmedOmniTransactionsByAddressRequest) (ListUnconfirmedOmniTransactionsByAddressR, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r ApiListUnconfirmedOmniTransactionsByAddressRequest) (*ListUnconfirmedOmniTransactionsByAddressR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListUnconfirmedOmniTransactionsByAddressR
+		localVarReturnValue  *ListUnconfirmedOmniTransactionsByAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.ListUnconfirmedOmniTransactionsByAddress")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/omni/address-transactions-unconfirmed/{address}"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1576,15 +1580,15 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1682,7 +1686,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1693,7 +1697,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByAddressExecute(r 
 }
 
 type ApiListUnconfirmedOmniTransactionsByPropertyIDRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *OmniLayerApiService
 	network string
 	blockchain string
@@ -1708,18 +1712,20 @@ func (r ApiListUnconfirmedOmniTransactionsByPropertyIDRequest) Context(context s
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListUnconfirmedOmniTransactionsByPropertyIDRequest) Limit(limit int32) ApiListUnconfirmedOmniTransactionsByPropertyIDRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListUnconfirmedOmniTransactionsByPropertyIDRequest) Offset(offset int32) ApiListUnconfirmedOmniTransactionsByPropertyIDRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListUnconfirmedOmniTransactionsByPropertyIDRequest) Execute() (ListUnconfirmedOmniTransactionsByPropertyIDR, *_nethttp.Response, error) {
+func (r ApiListUnconfirmedOmniTransactionsByPropertyIDRequest) Execute() (*ListUnconfirmedOmniTransactionsByPropertyIDR, *http.Response, error) {
 	return r.ApiService.ListUnconfirmedOmniTransactionsByPropertyIDExecute(r)
 }
 
@@ -1730,13 +1736,13 @@ This endpoint will list unconfirmed Omni transactions by an attribute `propertyI
 
 Unconfirmed transactions are usually put in the Mempool and await verification so that they can be added to a block.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param propertyId Represents the identifier of the tokens to send.
  @return ApiListUnconfirmedOmniTransactionsByPropertyIDRequest
 */
-func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyID(ctx _context.Context, network string, blockchain string, propertyId string) ApiListUnconfirmedOmniTransactionsByPropertyIDRequest {
+func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyID(ctx context.Context, network string, blockchain string, propertyId string) ApiListUnconfirmedOmniTransactionsByPropertyIDRequest {
 	return ApiListUnconfirmedOmniTransactionsByPropertyIDRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1748,27 +1754,27 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyID(ctx _c
 
 // Execute executes the request
 //  @return ListUnconfirmedOmniTransactionsByPropertyIDR
-func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute(r ApiListUnconfirmedOmniTransactionsByPropertyIDRequest) (ListUnconfirmedOmniTransactionsByPropertyIDR, *_nethttp.Response, error) {
+func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute(r ApiListUnconfirmedOmniTransactionsByPropertyIDRequest) (*ListUnconfirmedOmniTransactionsByPropertyIDR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListUnconfirmedOmniTransactionsByPropertyIDR
+		localVarReturnValue  *ListUnconfirmedOmniTransactionsByPropertyIDR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "OmniLayerApiService.ListUnconfirmedOmniTransactionsByPropertyID")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/omni/properties/{propertyId}/transactions"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"propertyId"+"}", _neturl.PathEscape(parameterToString(r.propertyId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"propertyId"+"}", url.PathEscape(parameterToString(r.propertyId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1820,20 +1826,20 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40028
+			var v InlineResponse40029
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1843,7 +1849,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40128
+			var v InlineResponse40129
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1863,7 +1869,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40328
+			var v InlineResponse40329
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1926,7 +1932,7 @@ func (a *OmniLayerApiService) ListUnconfirmedOmniTransactionsByPropertyIDExecute
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

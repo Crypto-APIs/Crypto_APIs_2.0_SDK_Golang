@@ -39,13 +39,14 @@ type ListTokensTransfersByTransactionHashRI struct {
 	TransactionHash string `json:"transactionHash"`
 	// Defines the specific time/date when the transaction was created in Unix Timestamp.
 	TransactionTimestamp int32 `json:"transactionTimestamp"`
+	TransactionFee ListTokensTransfersByTransactionHashRITransactionFee `json:"transactionFee"`
 }
 
 // NewListTokensTransfersByTransactionHashRI instantiates a new ListTokensTransfersByTransactionHashRI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListTokensTransfersByTransactionHashRI(contractAddress string, minedInBlockHeight int32, recipientAddress string, senderAddress string, tokenDecimals int32, tokenName string, tokenSymbol string, tokenType string, tokensAmount string, transactionHash string, transactionTimestamp int32) *ListTokensTransfersByTransactionHashRI {
+func NewListTokensTransfersByTransactionHashRI(contractAddress string, minedInBlockHeight int32, recipientAddress string, senderAddress string, tokenDecimals int32, tokenName string, tokenSymbol string, tokenType string, tokensAmount string, transactionHash string, transactionTimestamp int32, transactionFee ListTokensTransfersByTransactionHashRITransactionFee) *ListTokensTransfersByTransactionHashRI {
 	this := ListTokensTransfersByTransactionHashRI{}
 	this.ContractAddress = contractAddress
 	this.MinedInBlockHeight = minedInBlockHeight
@@ -58,6 +59,7 @@ func NewListTokensTransfersByTransactionHashRI(contractAddress string, minedInBl
 	this.TokensAmount = tokensAmount
 	this.TransactionHash = transactionHash
 	this.TransactionTimestamp = transactionTimestamp
+	this.TransactionFee = transactionFee
 	return &this
 }
 
@@ -82,7 +84,7 @@ func (o *ListTokensTransfersByTransactionHashRI) GetContractAddress() string {
 // GetContractAddressOk returns a tuple with the ContractAddress field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensTransfersByTransactionHashRI) GetContractAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ContractAddress, true
@@ -106,7 +108,7 @@ func (o *ListTokensTransfersByTransactionHashRI) GetMinedInBlockHeight() int32 {
 // GetMinedInBlockHeightOk returns a tuple with the MinedInBlockHeight field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensTransfersByTransactionHashRI) GetMinedInBlockHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHeight, true
@@ -130,7 +132,7 @@ func (o *ListTokensTransfersByTransactionHashRI) GetRecipientAddress() string {
 // GetRecipientAddressOk returns a tuple with the RecipientAddress field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensTransfersByTransactionHashRI) GetRecipientAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RecipientAddress, true
@@ -154,7 +156,7 @@ func (o *ListTokensTransfersByTransactionHashRI) GetSenderAddress() string {
 // GetSenderAddressOk returns a tuple with the SenderAddress field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensTransfersByTransactionHashRI) GetSenderAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SenderAddress, true
@@ -178,7 +180,7 @@ func (o *ListTokensTransfersByTransactionHashRI) GetTokenDecimals() int32 {
 // GetTokenDecimalsOk returns a tuple with the TokenDecimals field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensTransfersByTransactionHashRI) GetTokenDecimalsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenDecimals, true
@@ -202,7 +204,7 @@ func (o *ListTokensTransfersByTransactionHashRI) GetTokenName() string {
 // GetTokenNameOk returns a tuple with the TokenName field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensTransfersByTransactionHashRI) GetTokenNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenName, true
@@ -226,7 +228,7 @@ func (o *ListTokensTransfersByTransactionHashRI) GetTokenSymbol() string {
 // GetTokenSymbolOk returns a tuple with the TokenSymbol field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensTransfersByTransactionHashRI) GetTokenSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenSymbol, true
@@ -250,7 +252,7 @@ func (o *ListTokensTransfersByTransactionHashRI) GetTokenType() string {
 // GetTokenTypeOk returns a tuple with the TokenType field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensTransfersByTransactionHashRI) GetTokenTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenType, true
@@ -274,7 +276,7 @@ func (o *ListTokensTransfersByTransactionHashRI) GetTokensAmount() string {
 // GetTokensAmountOk returns a tuple with the TokensAmount field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensTransfersByTransactionHashRI) GetTokensAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokensAmount, true
@@ -298,7 +300,7 @@ func (o *ListTokensTransfersByTransactionHashRI) GetTransactionHash() string {
 // GetTransactionHashOk returns a tuple with the TransactionHash field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensTransfersByTransactionHashRI) GetTransactionHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionHash, true
@@ -322,7 +324,7 @@ func (o *ListTokensTransfersByTransactionHashRI) GetTransactionTimestamp() int32
 // GetTransactionTimestampOk returns a tuple with the TransactionTimestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensTransfersByTransactionHashRI) GetTransactionTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionTimestamp, true
@@ -331,6 +333,30 @@ func (o *ListTokensTransfersByTransactionHashRI) GetTransactionTimestampOk() (*i
 // SetTransactionTimestamp sets field value
 func (o *ListTokensTransfersByTransactionHashRI) SetTransactionTimestamp(v int32) {
 	o.TransactionTimestamp = v
+}
+
+// GetTransactionFee returns the TransactionFee field value
+func (o *ListTokensTransfersByTransactionHashRI) GetTransactionFee() ListTokensTransfersByTransactionHashRITransactionFee {
+	if o == nil {
+		var ret ListTokensTransfersByTransactionHashRITransactionFee
+		return ret
+	}
+
+	return o.TransactionFee
+}
+
+// GetTransactionFeeOk returns a tuple with the TransactionFee field value
+// and a boolean to check if the value has been set.
+func (o *ListTokensTransfersByTransactionHashRI) GetTransactionFeeOk() (*ListTokensTransfersByTransactionHashRITransactionFee, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TransactionFee, true
+}
+
+// SetTransactionFee sets field value
+func (o *ListTokensTransfersByTransactionHashRI) SetTransactionFee(v ListTokensTransfersByTransactionHashRITransactionFee) {
+	o.TransactionFee = v
 }
 
 func (o ListTokensTransfersByTransactionHashRI) MarshalJSON() ([]byte, error) {
@@ -367,6 +393,9 @@ func (o ListTokensTransfersByTransactionHashRI) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["transactionTimestamp"] = o.TransactionTimestamp
+	}
+	if true {
+		toSerialize["transactionFee"] = o.TransactionFee
 	}
 	return json.Marshal(toSerialize)
 }

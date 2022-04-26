@@ -26,22 +26,30 @@ type ListUnspentTransactionOutputsByAddressE403 struct {
 
 // BannedIpAddressAsListUnspentTransactionOutputsByAddressE403 is a convenience function that returns BannedIpAddress wrapped in ListUnspentTransactionOutputsByAddressE403
 func BannedIpAddressAsListUnspentTransactionOutputsByAddressE403(v *BannedIpAddress) ListUnspentTransactionOutputsByAddressE403 {
-	return ListUnspentTransactionOutputsByAddressE403{ BannedIpAddress: v}
+	return ListUnspentTransactionOutputsByAddressE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsListUnspentTransactionOutputsByAddressE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in ListUnspentTransactionOutputsByAddressE403
 func EndpointNotAllowedForApiKeyAsListUnspentTransactionOutputsByAddressE403(v *EndpointNotAllowedForApiKey) ListUnspentTransactionOutputsByAddressE403 {
-	return ListUnspentTransactionOutputsByAddressE403{ EndpointNotAllowedForApiKey: v}
+	return ListUnspentTransactionOutputsByAddressE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsListUnspentTransactionOutputsByAddressE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in ListUnspentTransactionOutputsByAddressE403
 func EndpointNotAllowedForPlanAsListUnspentTransactionOutputsByAddressE403(v *EndpointNotAllowedForPlan) ListUnspentTransactionOutputsByAddressE403 {
-	return ListUnspentTransactionOutputsByAddressE403{ EndpointNotAllowedForPlan: v}
+	return ListUnspentTransactionOutputsByAddressE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsListUnspentTransactionOutputsByAddressE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in ListUnspentTransactionOutputsByAddressE403
 func FeatureMainnetsNotAllowedForPlanAsListUnspentTransactionOutputsByAddressE403(v *FeatureMainnetsNotAllowedForPlan) ListUnspentTransactionOutputsByAddressE403 {
-	return ListUnspentTransactionOutputsByAddressE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return ListUnspentTransactionOutputsByAddressE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *ListUnspentTransactionOutputsByAddressE403) UnmarshalJSON(data []byte
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *ListUnspentTransactionOutputsByAddressE403) UnmarshalJSON(data []byte
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *ListUnspentTransactionOutputsByAddressE403) UnmarshalJSON(data []byte
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *ListUnspentTransactionOutputsByAddressE403) UnmarshalJSON(data []byte
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src ListUnspentTransactionOutputsByAddressE403) MarshalJSON() ([]byte, err
 
 // Get the actual instance
 func (obj *ListUnspentTransactionOutputsByAddressE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

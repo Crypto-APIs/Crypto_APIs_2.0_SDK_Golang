@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **ExpiryHeight** | **int32** | Represents a block height after which the transaction will expire. | 
 **JoinSplitPubKey** | **string** | Represents an encoding of a JoinSplitSig public validating key. | 
 **JoinSplitSig** | **string** | Is used to sign transactions that contain at least one JoinSplit description. | 
-**Locktime** | **int32** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
+**Locktime** | **int64** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
 **Overwintered** | **bool** | \&quot;Overwinter\&quot; is the network upgrade for the Zcash blockchain. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **VJoinSplit** | [**[]ListConfirmedTransactionsByAddressRIBSZVJoinSplit**](ListConfirmedTransactionsByAddressRIBSZVJoinSplit.md) | Represents a sequence of JoinSplit descriptions using BCTV14 proofs. | 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewListConfirmedTransactionsByAddressRIBSZ
 
-`func NewListConfirmedTransactionsByAddressRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int32, overwintered bool, size int32, vJoinSplit []ListConfirmedTransactionsByAddressRIBSZVJoinSplit, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []ListConfirmedTransactionsByAddressRIBSZVin, vout []GetTransactionDetailsByTransactionIDRIBSZVout, ) *ListConfirmedTransactionsByAddressRIBSZ`
+`func NewListConfirmedTransactionsByAddressRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int64, overwintered bool, size int32, vJoinSplit []ListConfirmedTransactionsByAddressRIBSZVJoinSplit, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []ListConfirmedTransactionsByAddressRIBSZVin, vout []GetTransactionDetailsByTransactionIDRIBSZVout, ) *ListConfirmedTransactionsByAddressRIBSZ`
 
 NewListConfirmedTransactionsByAddressRIBSZ instantiates a new ListConfirmedTransactionsByAddressRIBSZ object
 This constructor will assign default values to properties that have it defined,
@@ -121,20 +121,20 @@ SetJoinSplitSig sets JoinSplitSig field to given value.
 
 ### GetLocktime
 
-`func (o *ListConfirmedTransactionsByAddressRIBSZ) GetLocktime() int32`
+`func (o *ListConfirmedTransactionsByAddressRIBSZ) GetLocktime() int64`
 
 GetLocktime returns the Locktime field if non-nil, zero value otherwise.
 
 ### GetLocktimeOk
 
-`func (o *ListConfirmedTransactionsByAddressRIBSZ) GetLocktimeOk() (*int32, bool)`
+`func (o *ListConfirmedTransactionsByAddressRIBSZ) GetLocktimeOk() (*int64, bool)`
 
 GetLocktimeOk returns a tuple with the Locktime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLocktime
 
-`func (o *ListConfirmedTransactionsByAddressRIBSZ) SetLocktime(v int32)`
+`func (o *ListConfirmedTransactionsByAddressRIBSZ) SetLocktime(v int64)`
 
 SetLocktime sets Locktime field to given value.
 

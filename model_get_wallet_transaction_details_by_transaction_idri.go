@@ -78,7 +78,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetIndex() int32 {
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRI) GetIndexOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Index, true
@@ -102,7 +102,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetIsConfirmed() bool {
 // GetIsConfirmedOk returns a tuple with the IsConfirmed field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRI) GetIsConfirmedOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsConfirmed, true
@@ -189,11 +189,11 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipients() []GetWall
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipientsOk() (*[]GetWalletTransactionDetailsByTransactionIDRIRecipients, bool) {
-	if o == nil  {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipientsOk() ([]GetWalletTransactionDetailsByTransactionIDRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -213,11 +213,11 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSenders() []GetWalletT
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSendersOk() (*[]GetWalletTransactionDetailsByTransactionIDRISenders, bool) {
-	if o == nil  {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSendersOk() ([]GetWalletTransactionDetailsByTransactionIDRISenders, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Senders, true
+	return o.Senders, true
 }
 
 // SetSenders sets field value
@@ -238,7 +238,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -262,7 +262,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetTransactionHash() stri
 // GetTransactionHashOk returns a tuple with the TransactionHash field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRI) GetTransactionHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionHash, true
@@ -286,7 +286,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetTransactionId() string
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -310,7 +310,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetFee() GetWalletTransac
 // GetFeeOk returns a tuple with the Fee field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRI) GetFeeOk() (*GetWalletTransactionDetailsByTransactionIDRIFee, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fee, true
@@ -334,7 +334,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetBlockchainSpecific() G
 // GetBlockchainSpecificOk returns a tuple with the BlockchainSpecific field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRI) GetBlockchainSpecificOk() (*GetWalletTransactionDetailsByTransactionIDRIBS, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockchainSpecific, true

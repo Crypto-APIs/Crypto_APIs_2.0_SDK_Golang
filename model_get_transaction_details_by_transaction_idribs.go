@@ -31,47 +31,65 @@ type GetTransactionDetailsByTransactionIDRIBS struct {
 
 // GetTransactionDetailsByTransactionIDRIBSBAsGetTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDRIBSB wrapped in GetTransactionDetailsByTransactionIDRIBS
 func GetTransactionDetailsByTransactionIDRIBSBAsGetTransactionDetailsByTransactionIDRIBS(v *GetTransactionDetailsByTransactionIDRIBSB) GetTransactionDetailsByTransactionIDRIBS {
-	return GetTransactionDetailsByTransactionIDRIBS{ GetTransactionDetailsByTransactionIDRIBSB: v}
+	return GetTransactionDetailsByTransactionIDRIBS{
+		GetTransactionDetailsByTransactionIDRIBSB: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDRIBSBCAsGetTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDRIBSBC wrapped in GetTransactionDetailsByTransactionIDRIBS
 func GetTransactionDetailsByTransactionIDRIBSBCAsGetTransactionDetailsByTransactionIDRIBS(v *GetTransactionDetailsByTransactionIDRIBSBC) GetTransactionDetailsByTransactionIDRIBS {
-	return GetTransactionDetailsByTransactionIDRIBS{ GetTransactionDetailsByTransactionIDRIBSBC: v}
+	return GetTransactionDetailsByTransactionIDRIBS{
+		GetTransactionDetailsByTransactionIDRIBSBC: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDRIBSBSCAsGetTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDRIBSBSC wrapped in GetTransactionDetailsByTransactionIDRIBS
 func GetTransactionDetailsByTransactionIDRIBSBSCAsGetTransactionDetailsByTransactionIDRIBS(v *GetTransactionDetailsByTransactionIDRIBSBSC) GetTransactionDetailsByTransactionIDRIBS {
-	return GetTransactionDetailsByTransactionIDRIBS{ GetTransactionDetailsByTransactionIDRIBSBSC: v}
+	return GetTransactionDetailsByTransactionIDRIBS{
+		GetTransactionDetailsByTransactionIDRIBSBSC: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDRIBSDAsGetTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDRIBSD wrapped in GetTransactionDetailsByTransactionIDRIBS
 func GetTransactionDetailsByTransactionIDRIBSDAsGetTransactionDetailsByTransactionIDRIBS(v *GetTransactionDetailsByTransactionIDRIBSD) GetTransactionDetailsByTransactionIDRIBS {
-	return GetTransactionDetailsByTransactionIDRIBS{ GetTransactionDetailsByTransactionIDRIBSD: v}
+	return GetTransactionDetailsByTransactionIDRIBS{
+		GetTransactionDetailsByTransactionIDRIBSD: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDRIBSD2AsGetTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDRIBSD2 wrapped in GetTransactionDetailsByTransactionIDRIBS
 func GetTransactionDetailsByTransactionIDRIBSD2AsGetTransactionDetailsByTransactionIDRIBS(v *GetTransactionDetailsByTransactionIDRIBSD2) GetTransactionDetailsByTransactionIDRIBS {
-	return GetTransactionDetailsByTransactionIDRIBS{ GetTransactionDetailsByTransactionIDRIBSD2: v}
+	return GetTransactionDetailsByTransactionIDRIBS{
+		GetTransactionDetailsByTransactionIDRIBSD2: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDRIBSEAsGetTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDRIBSE wrapped in GetTransactionDetailsByTransactionIDRIBS
 func GetTransactionDetailsByTransactionIDRIBSEAsGetTransactionDetailsByTransactionIDRIBS(v *GetTransactionDetailsByTransactionIDRIBSE) GetTransactionDetailsByTransactionIDRIBS {
-	return GetTransactionDetailsByTransactionIDRIBS{ GetTransactionDetailsByTransactionIDRIBSE: v}
+	return GetTransactionDetailsByTransactionIDRIBS{
+		GetTransactionDetailsByTransactionIDRIBSE: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDRIBSECAsGetTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDRIBSEC wrapped in GetTransactionDetailsByTransactionIDRIBS
 func GetTransactionDetailsByTransactionIDRIBSECAsGetTransactionDetailsByTransactionIDRIBS(v *GetTransactionDetailsByTransactionIDRIBSEC) GetTransactionDetailsByTransactionIDRIBS {
-	return GetTransactionDetailsByTransactionIDRIBS{ GetTransactionDetailsByTransactionIDRIBSEC: v}
+	return GetTransactionDetailsByTransactionIDRIBS{
+		GetTransactionDetailsByTransactionIDRIBSEC: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDRIBSLAsGetTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDRIBSL wrapped in GetTransactionDetailsByTransactionIDRIBS
 func GetTransactionDetailsByTransactionIDRIBSLAsGetTransactionDetailsByTransactionIDRIBS(v *GetTransactionDetailsByTransactionIDRIBSL) GetTransactionDetailsByTransactionIDRIBS {
-	return GetTransactionDetailsByTransactionIDRIBS{ GetTransactionDetailsByTransactionIDRIBSL: v}
+	return GetTransactionDetailsByTransactionIDRIBS{
+		GetTransactionDetailsByTransactionIDRIBSL: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDRIBSZAsGetTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDRIBSZ wrapped in GetTransactionDetailsByTransactionIDRIBS
 func GetTransactionDetailsByTransactionIDRIBSZAsGetTransactionDetailsByTransactionIDRIBS(v *GetTransactionDetailsByTransactionIDRIBSZ) GetTransactionDetailsByTransactionIDRIBS {
-	return GetTransactionDetailsByTransactionIDRIBS{ GetTransactionDetailsByTransactionIDRIBSZ: v}
+	return GetTransactionDetailsByTransactionIDRIBS{
+		GetTransactionDetailsByTransactionIDRIBSZ: v,
+	}
 }
 
 
@@ -80,7 +98,7 @@ func (dst *GetTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []byte) 
 	var err error
 	match := 0
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDRIBSB
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDRIBSB)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDRIBSB)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDRIBSB, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDRIBSB)
 		if string(jsonGetTransactionDetailsByTransactionIDRIBSB) == "{}" { // empty struct
@@ -93,7 +111,7 @@ func (dst *GetTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDRIBSBC
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDRIBSBC)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDRIBSBC)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDRIBSBC, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDRIBSBC)
 		if string(jsonGetTransactionDetailsByTransactionIDRIBSBC) == "{}" { // empty struct
@@ -106,7 +124,7 @@ func (dst *GetTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDRIBSBSC
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDRIBSBSC)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDRIBSBSC)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDRIBSBSC, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDRIBSBSC)
 		if string(jsonGetTransactionDetailsByTransactionIDRIBSBSC) == "{}" { // empty struct
@@ -119,7 +137,7 @@ func (dst *GetTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDRIBSD
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDRIBSD)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDRIBSD)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDRIBSD, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDRIBSD)
 		if string(jsonGetTransactionDetailsByTransactionIDRIBSD) == "{}" { // empty struct
@@ -132,7 +150,7 @@ func (dst *GetTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDRIBSD2
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDRIBSD2)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDRIBSD2)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDRIBSD2, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDRIBSD2)
 		if string(jsonGetTransactionDetailsByTransactionIDRIBSD2) == "{}" { // empty struct
@@ -145,7 +163,7 @@ func (dst *GetTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDRIBSE
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDRIBSE)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDRIBSE)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDRIBSE, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDRIBSE)
 		if string(jsonGetTransactionDetailsByTransactionIDRIBSE) == "{}" { // empty struct
@@ -158,7 +176,7 @@ func (dst *GetTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDRIBSEC
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDRIBSEC)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDRIBSEC)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDRIBSEC, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDRIBSEC)
 		if string(jsonGetTransactionDetailsByTransactionIDRIBSEC) == "{}" { // empty struct
@@ -171,7 +189,7 @@ func (dst *GetTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDRIBSL
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDRIBSL)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDRIBSL)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDRIBSL, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDRIBSL)
 		if string(jsonGetTransactionDetailsByTransactionIDRIBSL) == "{}" { // empty struct
@@ -184,7 +202,7 @@ func (dst *GetTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDRIBSZ
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDRIBSZ)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDRIBSZ)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDRIBSZ, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDRIBSZ)
 		if string(jsonGetTransactionDetailsByTransactionIDRIBSZ) == "{}" { // empty struct
@@ -259,6 +277,9 @@ func (src GetTransactionDetailsByTransactionIDRIBS) MarshalJSON() ([]byte, error
 
 // Get the actual instance
 func (obj *GetTransactionDetailsByTransactionIDRIBS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.GetTransactionDetailsByTransactionIDRIBSB != nil {
 		return obj.GetTransactionDetailsByTransactionIDRIBSB
 	}

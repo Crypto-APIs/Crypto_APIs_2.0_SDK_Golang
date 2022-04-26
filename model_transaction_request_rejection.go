@@ -60,7 +60,7 @@ func (o *TransactionRequestRejection) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestRejection) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -84,7 +84,7 @@ func (o *TransactionRequestRejection) GetReferenceId() string {
 // GetReferenceIdOk returns a tuple with the ReferenceId field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestRejection) GetReferenceIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ReferenceId, true
@@ -108,7 +108,7 @@ func (o *TransactionRequestRejection) GetIdempotencyKey() string {
 // GetIdempotencyKeyOk returns a tuple with the IdempotencyKey field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestRejection) GetIdempotencyKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IdempotencyKey, true
@@ -132,7 +132,7 @@ func (o *TransactionRequestRejection) GetData() TransactionRequestRejectionData 
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestRejection) GetDataOk() (*TransactionRequestRejectionData, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Data, true

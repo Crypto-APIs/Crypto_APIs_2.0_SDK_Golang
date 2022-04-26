@@ -7,7 +7,8 @@ Name | Type | Description | Notes
 **Address** | **string** | Defines the specific address of the internal transaction. | 
 **AllowDuplicates** | **bool** | Flag that permits or denies creation of duplicates | [default to false]
 **CallbackSecretKey** | **string** | Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security). | 
-**CallbackUrl** | **string** | Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. | 
+**CallbackUrl** | **string** | Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. &#x60;We support ONLY httpS type of protocol&#x60;. | 
+**ReceiveCallbackOn** | Pointer to **int32** | Represents the exact confirmation, on which the user wants to receive callback. | [optional] 
 
 ## Methods
 
@@ -107,6 +108,31 @@ and a boolean to check if the value has been set.
 
 SetCallbackUrl sets CallbackUrl field to given value.
 
+
+### GetReceiveCallbackOn
+
+`func (o *NewConfirmedInternalTransactionsRBDataItem) GetReceiveCallbackOn() int32`
+
+GetReceiveCallbackOn returns the ReceiveCallbackOn field if non-nil, zero value otherwise.
+
+### GetReceiveCallbackOnOk
+
+`func (o *NewConfirmedInternalTransactionsRBDataItem) GetReceiveCallbackOnOk() (*int32, bool)`
+
+GetReceiveCallbackOnOk returns a tuple with the ReceiveCallbackOn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetReceiveCallbackOn
+
+`func (o *NewConfirmedInternalTransactionsRBDataItem) SetReceiveCallbackOn(v int32)`
+
+SetReceiveCallbackOn sets ReceiveCallbackOn field to given value.
+
+### HasReceiveCallbackOn
+
+`func (o *NewConfirmedInternalTransactionsRBDataItem) HasReceiveCallbackOn() bool`
+
+HasReceiveCallbackOn returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

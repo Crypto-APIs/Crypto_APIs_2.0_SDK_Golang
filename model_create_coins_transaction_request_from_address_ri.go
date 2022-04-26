@@ -17,10 +17,14 @@ import (
 
 // CreateCoinsTransactionRequestFromAddressRI struct for CreateCoinsTransactionRequestFromAddressRI
 type CreateCoinsTransactionRequestFromAddressRI struct {
+	// Defines a specific Tag that is an additional XRP address feature. It helps identify a transaction recipient beyond a wallet address. The tag that was encoded into the x-Address along with the Source Classic Address.
+	AddressTag *int32 `json:"addressTag,omitempty"`
 	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
 	CallbackSecretKey *string `json:"callbackSecretKey,omitempty"`
-	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 	CallbackUrl *string `json:"callbackUrl,omitempty"`
+	// Represents the public address, which is a compressed and shortened form of a public key. The classic address is shown when the source address is an x-Address.
+	ClassicAddress *string `json:"classicAddress,omitempty"`
 	// Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
 	FeePriority string `json:"feePriority"`
 	// Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request.
@@ -54,6 +58,38 @@ func NewCreateCoinsTransactionRequestFromAddressRI(feePriority string, recipient
 func NewCreateCoinsTransactionRequestFromAddressRIWithDefaults() *CreateCoinsTransactionRequestFromAddressRI {
 	this := CreateCoinsTransactionRequestFromAddressRI{}
 	return &this
+}
+
+// GetAddressTag returns the AddressTag field value if set, zero value otherwise.
+func (o *CreateCoinsTransactionRequestFromAddressRI) GetAddressTag() int32 {
+	if o == nil || o.AddressTag == nil {
+		var ret int32
+		return ret
+	}
+	return *o.AddressTag
+}
+
+// GetAddressTagOk returns a tuple with the AddressTag field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCoinsTransactionRequestFromAddressRI) GetAddressTagOk() (*int32, bool) {
+	if o == nil || o.AddressTag == nil {
+		return nil, false
+	}
+	return o.AddressTag, true
+}
+
+// HasAddressTag returns a boolean if a field has been set.
+func (o *CreateCoinsTransactionRequestFromAddressRI) HasAddressTag() bool {
+	if o != nil && o.AddressTag != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAddressTag gets a reference to the given int32 and assigns it to the AddressTag field.
+func (o *CreateCoinsTransactionRequestFromAddressRI) SetAddressTag(v int32) {
+	o.AddressTag = &v
 }
 
 // GetCallbackSecretKey returns the CallbackSecretKey field value if set, zero value otherwise.
@@ -120,6 +156,38 @@ func (o *CreateCoinsTransactionRequestFromAddressRI) SetCallbackUrl(v string) {
 	o.CallbackUrl = &v
 }
 
+// GetClassicAddress returns the ClassicAddress field value if set, zero value otherwise.
+func (o *CreateCoinsTransactionRequestFromAddressRI) GetClassicAddress() string {
+	if o == nil || o.ClassicAddress == nil {
+		var ret string
+		return ret
+	}
+	return *o.ClassicAddress
+}
+
+// GetClassicAddressOk returns a tuple with the ClassicAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCoinsTransactionRequestFromAddressRI) GetClassicAddressOk() (*string, bool) {
+	if o == nil || o.ClassicAddress == nil {
+		return nil, false
+	}
+	return o.ClassicAddress, true
+}
+
+// HasClassicAddress returns a boolean if a field has been set.
+func (o *CreateCoinsTransactionRequestFromAddressRI) HasClassicAddress() bool {
+	if o != nil && o.ClassicAddress != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetClassicAddress gets a reference to the given string and assigns it to the ClassicAddress field.
+func (o *CreateCoinsTransactionRequestFromAddressRI) SetClassicAddress(v string) {
+	o.ClassicAddress = &v
+}
+
 // GetFeePriority returns the FeePriority field value
 func (o *CreateCoinsTransactionRequestFromAddressRI) GetFeePriority() string {
 	if o == nil {
@@ -133,7 +201,7 @@ func (o *CreateCoinsTransactionRequestFromAddressRI) GetFeePriority() string {
 // GetFeePriorityOk returns a tuple with the FeePriority field value
 // and a boolean to check if the value has been set.
 func (o *CreateCoinsTransactionRequestFromAddressRI) GetFeePriorityOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FeePriority, true
@@ -188,11 +256,11 @@ func (o *CreateCoinsTransactionRequestFromAddressRI) GetRecipients() []CreateCoi
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *CreateCoinsTransactionRequestFromAddressRI) GetRecipientsOk() (*[]CreateCoinsTransactionRequestFromAddressRIRecipients, bool) {
-	if o == nil  {
+func (o *CreateCoinsTransactionRequestFromAddressRI) GetRecipientsOk() ([]CreateCoinsTransactionRequestFromAddressRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -213,7 +281,7 @@ func (o *CreateCoinsTransactionRequestFromAddressRI) GetSenders() CreateCoinsTra
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
 func (o *CreateCoinsTransactionRequestFromAddressRI) GetSendersOk() (*CreateCoinsTransactionRequestFromAddressRISenders, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Senders, true
@@ -237,7 +305,7 @@ func (o *CreateCoinsTransactionRequestFromAddressRI) GetTransactionRequestId() s
 // GetTransactionRequestIdOk returns a tuple with the TransactionRequestId field value
 // and a boolean to check if the value has been set.
 func (o *CreateCoinsTransactionRequestFromAddressRI) GetTransactionRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionRequestId, true
@@ -261,7 +329,7 @@ func (o *CreateCoinsTransactionRequestFromAddressRI) GetTransactionRequestStatus
 // GetTransactionRequestStatusOk returns a tuple with the TransactionRequestStatus field value
 // and a boolean to check if the value has been set.
 func (o *CreateCoinsTransactionRequestFromAddressRI) GetTransactionRequestStatusOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionRequestStatus, true
@@ -274,11 +342,17 @@ func (o *CreateCoinsTransactionRequestFromAddressRI) SetTransactionRequestStatus
 
 func (o CreateCoinsTransactionRequestFromAddressRI) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.AddressTag != nil {
+		toSerialize["addressTag"] = o.AddressTag
+	}
 	if o.CallbackSecretKey != nil {
 		toSerialize["callbackSecretKey"] = o.CallbackSecretKey
 	}
 	if o.CallbackUrl != nil {
 		toSerialize["callbackUrl"] = o.CallbackUrl
+	}
+	if o.ClassicAddress != nil {
+		toSerialize["classicAddress"] = o.ClassicAddress
 	}
 	if true {
 		toSerialize["feePriority"] = o.FeePriority

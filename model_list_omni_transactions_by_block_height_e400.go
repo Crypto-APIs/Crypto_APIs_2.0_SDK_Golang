@@ -25,17 +25,23 @@ type ListOmniTransactionsByBlockHeightE400 struct {
 
 // InvalidPaginationAsListOmniTransactionsByBlockHeightE400 is a convenience function that returns InvalidPagination wrapped in ListOmniTransactionsByBlockHeightE400
 func InvalidPaginationAsListOmniTransactionsByBlockHeightE400(v *InvalidPagination) ListOmniTransactionsByBlockHeightE400 {
-	return ListOmniTransactionsByBlockHeightE400{ InvalidPagination: v}
+	return ListOmniTransactionsByBlockHeightE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsListOmniTransactionsByBlockHeightE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in ListOmniTransactionsByBlockHeightE400
 func LimitGreaterThanAllowedAsListOmniTransactionsByBlockHeightE400(v *LimitGreaterThanAllowed) ListOmniTransactionsByBlockHeightE400 {
-	return ListOmniTransactionsByBlockHeightE400{ LimitGreaterThanAllowed: v}
+	return ListOmniTransactionsByBlockHeightE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsListOmniTransactionsByBlockHeightE400 is a convenience function that returns UriNotFound wrapped in ListOmniTransactionsByBlockHeightE400
 func UriNotFoundAsListOmniTransactionsByBlockHeightE400(v *UriNotFound) ListOmniTransactionsByBlockHeightE400 {
-	return ListOmniTransactionsByBlockHeightE400{ UriNotFound: v}
+	return ListOmniTransactionsByBlockHeightE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *ListOmniTransactionsByBlockHeightE400) UnmarshalJSON(data []byte) err
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *ListOmniTransactionsByBlockHeightE400) UnmarshalJSON(data []byte) err
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *ListOmniTransactionsByBlockHeightE400) UnmarshalJSON(data []byte) err
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src ListOmniTransactionsByBlockHeightE400) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *ListOmniTransactionsByBlockHeightE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

@@ -59,7 +59,7 @@ func (o *GetEIP1559FeeRecommendationsR) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *GetEIP1559FeeRecommendationsR) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *GetEIP1559FeeRecommendationsR) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *GetEIP1559FeeRecommendationsR) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -139,7 +139,7 @@ func (o *GetEIP1559FeeRecommendationsR) GetData() GetEIP1559FeeRecommendationsRD
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
 func (o *GetEIP1559FeeRecommendationsR) GetDataOk() (*GetEIP1559FeeRecommendationsRData, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Data, true

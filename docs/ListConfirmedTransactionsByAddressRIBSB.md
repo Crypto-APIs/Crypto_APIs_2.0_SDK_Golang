@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Locktime** | **int32** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
+**Locktime** | **int64** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **VSize** | **int32** | Defines the transaction&#39;s virtual size. | 
 **Version** | **int32** | Defines the version of the transaction. | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewListConfirmedTransactionsByAddressRIBSB
 
-`func NewListConfirmedTransactionsByAddressRIBSB(locktime int32, size int32, vSize int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSBVin, vout []ListConfirmedTransactionsByAddressRIBSBVout, ) *ListConfirmedTransactionsByAddressRIBSB`
+`func NewListConfirmedTransactionsByAddressRIBSB(locktime int64, size int32, vSize int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSBVin, vout []ListConfirmedTransactionsByAddressRIBSBVout, ) *ListConfirmedTransactionsByAddressRIBSB`
 
 NewListConfirmedTransactionsByAddressRIBSB instantiates a new ListConfirmedTransactionsByAddressRIBSB object
 This constructor will assign default values to properties that have it defined,
@@ -32,20 +32,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetLocktime
 
-`func (o *ListConfirmedTransactionsByAddressRIBSB) GetLocktime() int32`
+`func (o *ListConfirmedTransactionsByAddressRIBSB) GetLocktime() int64`
 
 GetLocktime returns the Locktime field if non-nil, zero value otherwise.
 
 ### GetLocktimeOk
 
-`func (o *ListConfirmedTransactionsByAddressRIBSB) GetLocktimeOk() (*int32, bool)`
+`func (o *ListConfirmedTransactionsByAddressRIBSB) GetLocktimeOk() (*int64, bool)`
 
 GetLocktimeOk returns a tuple with the Locktime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLocktime
 
-`func (o *ListConfirmedTransactionsByAddressRIBSB) SetLocktime(v int32)`
+`func (o *ListConfirmedTransactionsByAddressRIBSB) SetLocktime(v int64)`
 
 SetLocktime sets Locktime field to given value.
 

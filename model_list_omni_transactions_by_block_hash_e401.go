@@ -24,12 +24,16 @@ type ListOmniTransactionsByBlockHashE401 struct {
 
 // InvalidApiKeyAsListOmniTransactionsByBlockHashE401 is a convenience function that returns InvalidApiKey wrapped in ListOmniTransactionsByBlockHashE401
 func InvalidApiKeyAsListOmniTransactionsByBlockHashE401(v *InvalidApiKey) ListOmniTransactionsByBlockHashE401 {
-	return ListOmniTransactionsByBlockHashE401{ InvalidApiKey: v}
+	return ListOmniTransactionsByBlockHashE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsListOmniTransactionsByBlockHashE401 is a convenience function that returns MissingApiKey wrapped in ListOmniTransactionsByBlockHashE401
 func MissingApiKeyAsListOmniTransactionsByBlockHashE401(v *MissingApiKey) ListOmniTransactionsByBlockHashE401 {
-	return ListOmniTransactionsByBlockHashE401{ MissingApiKey: v}
+	return ListOmniTransactionsByBlockHashE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *ListOmniTransactionsByBlockHashE401) UnmarshalJSON(data []byte) error
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *ListOmniTransactionsByBlockHashE401) UnmarshalJSON(data []byte) error
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src ListOmniTransactionsByBlockHashE401) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *ListOmniTransactionsByBlockHashE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

@@ -32,12 +32,12 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     walletId := "60c9d9921c38030006675ff6" // string | Represents the unique ID of the specific Wallet.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     generateDepositAddressRB := *openapiclient.NewGenerateDepositAddressRB(*openapiclient.NewGenerateDepositAddressRBData(*openapiclient.NewGenerateDepositAddressRBDataItem("yourLabelStringHere"))) // GenerateDepositAddressRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.GeneratingApi.GenerateDepositAddress(context.Background(), blockchain, network, walletId).Context(context).GenerateDepositAddressRB(generateDepositAddressRB).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.GeneratingApi.GenerateDepositAddress(context.Background(), blockchain, network, walletId).Context(context).GenerateDepositAddressRB(generateDepositAddressRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `GeneratingApi.GenerateDepositAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -58,7 +58,7 @@ func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItemMinedInBlock) G
 // GetHeightOk returns a tuple with the Height field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItemMinedInBlock) GetHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Height, true
@@ -82,7 +82,7 @@ func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItemMinedInBlock) G
 // GetHashOk returns a tuple with the Hash field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItemMinedInBlock) GetHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Hash, true
@@ -106,7 +106,7 @@ func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItemMinedInBlock) G
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedEachConfirmationDataItemMinedInBlock) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true

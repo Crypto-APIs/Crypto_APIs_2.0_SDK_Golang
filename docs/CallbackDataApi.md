@@ -35,11 +35,11 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     address := "mzYijhgmzZrmuB7wBDazRKirnChKyow4M3" // string | Represents the public address, which is a compressed and shortened form of a public key.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CallbackDataApi.GetAddressDetailsFromCallback(context.Background(), blockchain, network, address).Context(context).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CallbackDataApi.GetAddressDetailsFromCallback(context.Background(), blockchain, network, address).Context(context).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CallbackDataApi.GetAddressDetailsFromCallback``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -113,11 +113,11 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     blockHash := "000000000000000bdea8ba7df4bfd9f398e428fde8ee47152bcf93834ee48e8a" // string | Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CallbackDataApi.GetBlockDetailsByBlockHashFromCallback(context.Background(), blockchain, network, blockHash).Context(context).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CallbackDataApi.GetBlockDetailsByBlockHashFromCallback(context.Background(), blockchain, network, blockHash).Context(context).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CallbackDataApi.GetBlockDetailsByBlockHashFromCallback``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -191,11 +191,11 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     blockHeight := "blockHeight_example" // string | Numeric representation of the block height
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CallbackDataApi.GetBlockDetailsByBlockHeightFromCallback(context.Background(), blockchain, network, blockHeight).Context(context).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CallbackDataApi.GetBlockDetailsByBlockHeightFromCallback(context.Background(), blockchain, network, blockHeight).Context(context).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CallbackDataApi.GetBlockDetailsByBlockHeightFromCallback``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -269,11 +269,11 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     transactionId := "8888f6c8168ff69aaf6438ab185c690e8c76c63e5f9c472c1c86f08406ea74f2" // string | String identifier of the transaction
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CallbackDataApi.GetTransactionDetailsByTransactionIDFromCallback(context.Background(), blockchain, network, transactionId).Context(context).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CallbackDataApi.GetTransactionDetailsByTransactionIDFromCallback(context.Background(), blockchain, network, transactionId).Context(context).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CallbackDataApi.GetTransactionDetailsByTransactionIDFromCallback``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

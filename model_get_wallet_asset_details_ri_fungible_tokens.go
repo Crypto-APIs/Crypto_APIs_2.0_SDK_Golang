@@ -61,7 +61,7 @@ func (o *GetWalletAssetDetailsRIFungibleTokens) GetConfirmedAmount() string {
 // GetConfirmedAmountOk returns a tuple with the ConfirmedAmount field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletAssetDetailsRIFungibleTokens) GetConfirmedAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConfirmedAmount, true
@@ -85,7 +85,7 @@ func (o *GetWalletAssetDetailsRIFungibleTokens) GetIdentifier() string {
 // GetIdentifierOk returns a tuple with the Identifier field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletAssetDetailsRIFungibleTokens) GetIdentifierOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Identifier, true
@@ -109,7 +109,7 @@ func (o *GetWalletAssetDetailsRIFungibleTokens) GetSymbol() string {
 // GetSymbolOk returns a tuple with the Symbol field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletAssetDetailsRIFungibleTokens) GetSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Symbol, true
@@ -133,7 +133,7 @@ func (o *GetWalletAssetDetailsRIFungibleTokens) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletAssetDetailsRIFungibleTokens) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true

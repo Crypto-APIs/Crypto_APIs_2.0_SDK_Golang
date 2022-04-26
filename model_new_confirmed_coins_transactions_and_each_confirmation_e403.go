@@ -27,27 +27,37 @@ type NewConfirmedCoinsTransactionsAndEachConfirmationE403 struct {
 
 // BannedIpAddressAsNewConfirmedCoinsTransactionsAndEachConfirmationE403 is a convenience function that returns BannedIpAddress wrapped in NewConfirmedCoinsTransactionsAndEachConfirmationE403
 func BannedIpAddressAsNewConfirmedCoinsTransactionsAndEachConfirmationE403(v *BannedIpAddress) NewConfirmedCoinsTransactionsAndEachConfirmationE403 {
-	return NewConfirmedCoinsTransactionsAndEachConfirmationE403{ BannedIpAddress: v}
+	return NewConfirmedCoinsTransactionsAndEachConfirmationE403{
+		BannedIpAddress: v,
+	}
 }
 
 // BlockchainEventsCallbacksLimitReachedAsNewConfirmedCoinsTransactionsAndEachConfirmationE403 is a convenience function that returns BlockchainEventsCallbacksLimitReached wrapped in NewConfirmedCoinsTransactionsAndEachConfirmationE403
 func BlockchainEventsCallbacksLimitReachedAsNewConfirmedCoinsTransactionsAndEachConfirmationE403(v *BlockchainEventsCallbacksLimitReached) NewConfirmedCoinsTransactionsAndEachConfirmationE403 {
-	return NewConfirmedCoinsTransactionsAndEachConfirmationE403{ BlockchainEventsCallbacksLimitReached: v}
+	return NewConfirmedCoinsTransactionsAndEachConfirmationE403{
+		BlockchainEventsCallbacksLimitReached: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsNewConfirmedCoinsTransactionsAndEachConfirmationE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in NewConfirmedCoinsTransactionsAndEachConfirmationE403
 func EndpointNotAllowedForApiKeyAsNewConfirmedCoinsTransactionsAndEachConfirmationE403(v *EndpointNotAllowedForApiKey) NewConfirmedCoinsTransactionsAndEachConfirmationE403 {
-	return NewConfirmedCoinsTransactionsAndEachConfirmationE403{ EndpointNotAllowedForApiKey: v}
+	return NewConfirmedCoinsTransactionsAndEachConfirmationE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsNewConfirmedCoinsTransactionsAndEachConfirmationE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in NewConfirmedCoinsTransactionsAndEachConfirmationE403
 func EndpointNotAllowedForPlanAsNewConfirmedCoinsTransactionsAndEachConfirmationE403(v *EndpointNotAllowedForPlan) NewConfirmedCoinsTransactionsAndEachConfirmationE403 {
-	return NewConfirmedCoinsTransactionsAndEachConfirmationE403{ EndpointNotAllowedForPlan: v}
+	return NewConfirmedCoinsTransactionsAndEachConfirmationE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsNewConfirmedCoinsTransactionsAndEachConfirmationE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in NewConfirmedCoinsTransactionsAndEachConfirmationE403
 func FeatureMainnetsNotAllowedForPlanAsNewConfirmedCoinsTransactionsAndEachConfirmationE403(v *FeatureMainnetsNotAllowedForPlan) NewConfirmedCoinsTransactionsAndEachConfirmationE403 {
-	return NewConfirmedCoinsTransactionsAndEachConfirmationE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return NewConfirmedCoinsTransactionsAndEachConfirmationE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -56,7 +66,7 @@ func (dst *NewConfirmedCoinsTransactionsAndEachConfirmationE403) UnmarshalJSON(d
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -69,7 +79,7 @@ func (dst *NewConfirmedCoinsTransactionsAndEachConfirmationE403) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into BlockchainEventsCallbacksLimitReached
-	err = json.Unmarshal(data, &dst.BlockchainEventsCallbacksLimitReached)
+	err = newStrictDecoder(data).Decode(&dst.BlockchainEventsCallbacksLimitReached)
 	if err == nil {
 		jsonBlockchainEventsCallbacksLimitReached, _ := json.Marshal(dst.BlockchainEventsCallbacksLimitReached)
 		if string(jsonBlockchainEventsCallbacksLimitReached) == "{}" { // empty struct
@@ -82,7 +92,7 @@ func (dst *NewConfirmedCoinsTransactionsAndEachConfirmationE403) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -95,7 +105,7 @@ func (dst *NewConfirmedCoinsTransactionsAndEachConfirmationE403) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -108,7 +118,7 @@ func (dst *NewConfirmedCoinsTransactionsAndEachConfirmationE403) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -163,6 +173,9 @@ func (src NewConfirmedCoinsTransactionsAndEachConfirmationE403) MarshalJSON() ([
 
 // Get the actual instance
 func (obj *NewConfirmedCoinsTransactionsAndEachConfirmationE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

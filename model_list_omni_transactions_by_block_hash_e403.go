@@ -26,22 +26,30 @@ type ListOmniTransactionsByBlockHashE403 struct {
 
 // BannedIpAddressAsListOmniTransactionsByBlockHashE403 is a convenience function that returns BannedIpAddress wrapped in ListOmniTransactionsByBlockHashE403
 func BannedIpAddressAsListOmniTransactionsByBlockHashE403(v *BannedIpAddress) ListOmniTransactionsByBlockHashE403 {
-	return ListOmniTransactionsByBlockHashE403{ BannedIpAddress: v}
+	return ListOmniTransactionsByBlockHashE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsListOmniTransactionsByBlockHashE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in ListOmniTransactionsByBlockHashE403
 func EndpointNotAllowedForApiKeyAsListOmniTransactionsByBlockHashE403(v *EndpointNotAllowedForApiKey) ListOmniTransactionsByBlockHashE403 {
-	return ListOmniTransactionsByBlockHashE403{ EndpointNotAllowedForApiKey: v}
+	return ListOmniTransactionsByBlockHashE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsListOmniTransactionsByBlockHashE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in ListOmniTransactionsByBlockHashE403
 func EndpointNotAllowedForPlanAsListOmniTransactionsByBlockHashE403(v *EndpointNotAllowedForPlan) ListOmniTransactionsByBlockHashE403 {
-	return ListOmniTransactionsByBlockHashE403{ EndpointNotAllowedForPlan: v}
+	return ListOmniTransactionsByBlockHashE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsListOmniTransactionsByBlockHashE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in ListOmniTransactionsByBlockHashE403
 func FeatureMainnetsNotAllowedForPlanAsListOmniTransactionsByBlockHashE403(v *FeatureMainnetsNotAllowedForPlan) ListOmniTransactionsByBlockHashE403 {
-	return ListOmniTransactionsByBlockHashE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return ListOmniTransactionsByBlockHashE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *ListOmniTransactionsByBlockHashE403) UnmarshalJSON(data []byte) error
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *ListOmniTransactionsByBlockHashE403) UnmarshalJSON(data []byte) error
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *ListOmniTransactionsByBlockHashE403) UnmarshalJSON(data []byte) error
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *ListOmniTransactionsByBlockHashE403) UnmarshalJSON(data []byte) error
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src ListOmniTransactionsByBlockHashE403) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *ListOmniTransactionsByBlockHashE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

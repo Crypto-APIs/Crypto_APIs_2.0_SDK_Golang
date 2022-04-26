@@ -24,12 +24,16 @@ type CreateFungibleTokensTransactionRequestFromAddressE401 struct {
 
 // InvalidApiKeyAsCreateFungibleTokensTransactionRequestFromAddressE401 is a convenience function that returns InvalidApiKey wrapped in CreateFungibleTokensTransactionRequestFromAddressE401
 func InvalidApiKeyAsCreateFungibleTokensTransactionRequestFromAddressE401(v *InvalidApiKey) CreateFungibleTokensTransactionRequestFromAddressE401 {
-	return CreateFungibleTokensTransactionRequestFromAddressE401{ InvalidApiKey: v}
+	return CreateFungibleTokensTransactionRequestFromAddressE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsCreateFungibleTokensTransactionRequestFromAddressE401 is a convenience function that returns MissingApiKey wrapped in CreateFungibleTokensTransactionRequestFromAddressE401
 func MissingApiKeyAsCreateFungibleTokensTransactionRequestFromAddressE401(v *MissingApiKey) CreateFungibleTokensTransactionRequestFromAddressE401 {
-	return CreateFungibleTokensTransactionRequestFromAddressE401{ MissingApiKey: v}
+	return CreateFungibleTokensTransactionRequestFromAddressE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressE401) UnmarshalJSON(
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressE401) UnmarshalJSON(
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src CreateFungibleTokensTransactionRequestFromAddressE401) MarshalJSON() (
 
 // Get the actual instance
 func (obj *CreateFungibleTokensTransactionRequestFromAddressE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

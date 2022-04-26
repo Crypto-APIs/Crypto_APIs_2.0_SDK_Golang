@@ -22,7 +22,7 @@ type GetTransactionDetailsByTransactionIDRIBSDVin struct {
 	Coinbase *string `json:"coinbase,omitempty"`
 	ScriptSig GetTransactionDetailsByTransactionIDRIBSDScriptSig `json:"scriptSig"`
 	// Represents the script sequence number.
-	Sequence int32 `json:"sequence"`
+	Sequence int64 `json:"sequence"`
 	// Represents the reference transaction identifier.
 	Txid *string `json:"txid,omitempty"`
 	Txinwitness []string `json:"txinwitness"`
@@ -36,7 +36,7 @@ type GetTransactionDetailsByTransactionIDRIBSDVin struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDRIBSDVin(addresses []string, scriptSig GetTransactionDetailsByTransactionIDRIBSDScriptSig, sequence int32, txinwitness []string, value string) *GetTransactionDetailsByTransactionIDRIBSDVin {
+func NewGetTransactionDetailsByTransactionIDRIBSDVin(addresses []string, scriptSig GetTransactionDetailsByTransactionIDRIBSDScriptSig, sequence int64, txinwitness []string, value string) *GetTransactionDetailsByTransactionIDRIBSDVin {
 	this := GetTransactionDetailsByTransactionIDRIBSDVin{}
 	this.Addresses = addresses
 	this.ScriptSig = scriptSig
@@ -66,11 +66,11 @@ func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetAddresses() []string {
 
 // GetAddressesOk returns a tuple with the Addresses field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetAddressesOk() (*[]string, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetAddressesOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Addresses, true
+	return o.Addresses, true
 }
 
 // SetAddresses sets field value
@@ -123,7 +123,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetScriptSig() GetTransac
 // GetScriptSigOk returns a tuple with the ScriptSig field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetScriptSigOk() (*GetTransactionDetailsByTransactionIDRIBSDScriptSig, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ScriptSig, true
@@ -135,9 +135,9 @@ func (o *GetTransactionDetailsByTransactionIDRIBSDVin) SetScriptSig(v GetTransac
 }
 
 // GetSequence returns the Sequence field value
-func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetSequence() int32 {
+func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetSequence() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -146,15 +146,15 @@ func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetSequence() int32 {
 
 // GetSequenceOk returns a tuple with the Sequence field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetSequenceOk() (*int32, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetSequenceOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sequence, true
 }
 
 // SetSequence sets field value
-func (o *GetTransactionDetailsByTransactionIDRIBSDVin) SetSequence(v int32) {
+func (o *GetTransactionDetailsByTransactionIDRIBSDVin) SetSequence(v int64) {
 	o.Sequence = v
 }
 
@@ -202,11 +202,11 @@ func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetTxinwitness() []string
 
 // GetTxinwitnessOk returns a tuple with the Txinwitness field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetTxinwitnessOk() (*[]string, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetTxinwitnessOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Txinwitness, true
+	return o.Txinwitness, true
 }
 
 // SetTxinwitness sets field value
@@ -227,7 +227,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetValue() string {
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSDVin) GetValueOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Value, true

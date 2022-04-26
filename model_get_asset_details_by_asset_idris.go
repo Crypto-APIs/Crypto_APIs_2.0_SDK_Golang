@@ -23,7 +23,9 @@ type GetAssetDetailsByAssetIDRIS struct {
 
 // GetAssetDetailsByAssetIDRISCAsGetAssetDetailsByAssetIDRIS is a convenience function that returns GetAssetDetailsByAssetIDRISC wrapped in GetAssetDetailsByAssetIDRIS
 func GetAssetDetailsByAssetIDRISCAsGetAssetDetailsByAssetIDRIS(v *GetAssetDetailsByAssetIDRISC) GetAssetDetailsByAssetIDRIS {
-	return GetAssetDetailsByAssetIDRIS{ GetAssetDetailsByAssetIDRISC: v}
+	return GetAssetDetailsByAssetIDRIS{
+		GetAssetDetailsByAssetIDRISC: v,
+	}
 }
 
 
@@ -32,7 +34,7 @@ func (dst *GetAssetDetailsByAssetIDRIS) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into GetAssetDetailsByAssetIDRISC
-	err = json.Unmarshal(data, &dst.GetAssetDetailsByAssetIDRISC)
+	err = newStrictDecoder(data).Decode(&dst.GetAssetDetailsByAssetIDRISC)
 	if err == nil {
 		jsonGetAssetDetailsByAssetIDRISC, _ := json.Marshal(dst.GetAssetDetailsByAssetIDRISC)
 		if string(jsonGetAssetDetailsByAssetIDRISC) == "{}" { // empty struct
@@ -67,6 +69,9 @@ func (src GetAssetDetailsByAssetIDRIS) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetAssetDetailsByAssetIDRIS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.GetAssetDetailsByAssetIDRISC != nil {
 		return obj.GetAssetDetailsByAssetIDRISC
 	}

@@ -66,7 +66,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC) GetContract() s
 // GetContractOk returns a tuple with the Contract field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC) GetContractOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Contract, true
@@ -90,7 +90,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC) GetGasLimit() s
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC) GetGasLimitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -114,7 +114,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC) GetGasPrice() G
 // GetGasPriceOk returns a tuple with the GasPrice field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC) GetGasPriceOk() (*GetTransactionDetailsByTransactionIDRIBSECGasPrice, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasPrice, true
@@ -138,7 +138,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC) GetGasUsed() st
 // GetGasUsedOk returns a tuple with the GasUsed field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC) GetGasUsedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasUsed, true
@@ -162,7 +162,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC) GetInputData() 
 // GetInputDataOk returns a tuple with the InputData field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC) GetInputDataOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.InputData, true
@@ -186,7 +186,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC) GetNonce() int3
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC) GetNonceOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true

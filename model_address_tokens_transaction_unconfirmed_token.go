@@ -25,17 +25,23 @@ type AddressTokensTransactionUnconfirmedToken struct {
 
 // AddressTokensTransactionUnconfirmedErc20AsAddressTokensTransactionUnconfirmedToken is a convenience function that returns AddressTokensTransactionUnconfirmedErc20 wrapped in AddressTokensTransactionUnconfirmedToken
 func AddressTokensTransactionUnconfirmedErc20AsAddressTokensTransactionUnconfirmedToken(v *AddressTokensTransactionUnconfirmedErc20) AddressTokensTransactionUnconfirmedToken {
-	return AddressTokensTransactionUnconfirmedToken{ AddressTokensTransactionUnconfirmedErc20: v}
+	return AddressTokensTransactionUnconfirmedToken{
+		AddressTokensTransactionUnconfirmedErc20: v,
+	}
 }
 
 // AddressTokensTransactionUnconfirmedErc721AsAddressTokensTransactionUnconfirmedToken is a convenience function that returns AddressTokensTransactionUnconfirmedErc721 wrapped in AddressTokensTransactionUnconfirmedToken
 func AddressTokensTransactionUnconfirmedErc721AsAddressTokensTransactionUnconfirmedToken(v *AddressTokensTransactionUnconfirmedErc721) AddressTokensTransactionUnconfirmedToken {
-	return AddressTokensTransactionUnconfirmedToken{ AddressTokensTransactionUnconfirmedErc721: v}
+	return AddressTokensTransactionUnconfirmedToken{
+		AddressTokensTransactionUnconfirmedErc721: v,
+	}
 }
 
 // AddressTokensTransactionUnconfirmedOmniAsAddressTokensTransactionUnconfirmedToken is a convenience function that returns AddressTokensTransactionUnconfirmedOmni wrapped in AddressTokensTransactionUnconfirmedToken
 func AddressTokensTransactionUnconfirmedOmniAsAddressTokensTransactionUnconfirmedToken(v *AddressTokensTransactionUnconfirmedOmni) AddressTokensTransactionUnconfirmedToken {
-	return AddressTokensTransactionUnconfirmedToken{ AddressTokensTransactionUnconfirmedOmni: v}
+	return AddressTokensTransactionUnconfirmedToken{
+		AddressTokensTransactionUnconfirmedOmni: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *AddressTokensTransactionUnconfirmedToken) UnmarshalJSON(data []byte) 
 	var err error
 	match := 0
 	// try to unmarshal data into AddressTokensTransactionUnconfirmedErc20
-	err = json.Unmarshal(data, &dst.AddressTokensTransactionUnconfirmedErc20)
+	err = newStrictDecoder(data).Decode(&dst.AddressTokensTransactionUnconfirmedErc20)
 	if err == nil {
 		jsonAddressTokensTransactionUnconfirmedErc20, _ := json.Marshal(dst.AddressTokensTransactionUnconfirmedErc20)
 		if string(jsonAddressTokensTransactionUnconfirmedErc20) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *AddressTokensTransactionUnconfirmedToken) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into AddressTokensTransactionUnconfirmedErc721
-	err = json.Unmarshal(data, &dst.AddressTokensTransactionUnconfirmedErc721)
+	err = newStrictDecoder(data).Decode(&dst.AddressTokensTransactionUnconfirmedErc721)
 	if err == nil {
 		jsonAddressTokensTransactionUnconfirmedErc721, _ := json.Marshal(dst.AddressTokensTransactionUnconfirmedErc721)
 		if string(jsonAddressTokensTransactionUnconfirmedErc721) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *AddressTokensTransactionUnconfirmedToken) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into AddressTokensTransactionUnconfirmedOmni
-	err = json.Unmarshal(data, &dst.AddressTokensTransactionUnconfirmedOmni)
+	err = newStrictDecoder(data).Decode(&dst.AddressTokensTransactionUnconfirmedOmni)
 	if err == nil {
 		jsonAddressTokensTransactionUnconfirmedOmni, _ := json.Marshal(dst.AddressTokensTransactionUnconfirmedOmni)
 		if string(jsonAddressTokensTransactionUnconfirmedOmni) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src AddressTokensTransactionUnconfirmedToken) MarshalJSON() ([]byte, error
 
 // Get the actual instance
 func (obj *AddressTokensTransactionUnconfirmedToken) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.AddressTokensTransactionUnconfirmedErc20 != nil {
 		return obj.AddressTokensTransactionUnconfirmedErc20
 	}

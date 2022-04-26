@@ -78,7 +78,7 @@ func (o *ListLatestMinedBlocksRIBSBSC) GetDifficulty() string {
 // GetDifficultyOk returns a tuple with the Difficulty field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSBSC) GetDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Difficulty, true
@@ -102,7 +102,7 @@ func (o *ListLatestMinedBlocksRIBSBSC) GetExtraData() string {
 // GetExtraDataOk returns a tuple with the ExtraData field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSBSC) GetExtraDataOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExtraData, true
@@ -126,7 +126,7 @@ func (o *ListLatestMinedBlocksRIBSBSC) GetGasLimit() string {
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSBSC) GetGasLimitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -150,7 +150,7 @@ func (o *ListLatestMinedBlocksRIBSBSC) GetGasUsed() string {
 // GetGasUsedOk returns a tuple with the GasUsed field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSBSC) GetGasUsedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasUsed, true
@@ -174,7 +174,7 @@ func (o *ListLatestMinedBlocksRIBSBSC) GetMinedInSeconds() int32 {
 // GetMinedInSecondsOk returns a tuple with the MinedInSeconds field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSBSC) GetMinedInSecondsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInSeconds, true
@@ -198,7 +198,7 @@ func (o *ListLatestMinedBlocksRIBSBSC) GetNonce() string {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSBSC) GetNonceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -222,7 +222,7 @@ func (o *ListLatestMinedBlocksRIBSBSC) GetSha3Uncles() string {
 // GetSha3UnclesOk returns a tuple with the Sha3Uncles field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSBSC) GetSha3UnclesOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sha3Uncles, true
@@ -246,7 +246,7 @@ func (o *ListLatestMinedBlocksRIBSBSC) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSBSC) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -270,7 +270,7 @@ func (o *ListLatestMinedBlocksRIBSBSC) GetTotalDifficulty() string {
 // GetTotalDifficultyOk returns a tuple with the TotalDifficulty field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSBSC) GetTotalDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalDifficulty, true
@@ -293,11 +293,11 @@ func (o *ListLatestMinedBlocksRIBSBSC) GetUncles() []string {
 
 // GetUnclesOk returns a tuple with the Uncles field value
 // and a boolean to check if the value has been set.
-func (o *ListLatestMinedBlocksRIBSBSC) GetUnclesOk() (*[]string, bool) {
-	if o == nil  {
+func (o *ListLatestMinedBlocksRIBSBSC) GetUnclesOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Uncles, true
+	return o.Uncles, true
 }
 
 // SetUncles sets field value

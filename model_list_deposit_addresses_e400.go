@@ -25,17 +25,23 @@ type ListDepositAddressesE400 struct {
 
 // InvalidPaginationAsListDepositAddressesE400 is a convenience function that returns InvalidPagination wrapped in ListDepositAddressesE400
 func InvalidPaginationAsListDepositAddressesE400(v *InvalidPagination) ListDepositAddressesE400 {
-	return ListDepositAddressesE400{ InvalidPagination: v}
+	return ListDepositAddressesE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsListDepositAddressesE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in ListDepositAddressesE400
 func LimitGreaterThanAllowedAsListDepositAddressesE400(v *LimitGreaterThanAllowed) ListDepositAddressesE400 {
-	return ListDepositAddressesE400{ LimitGreaterThanAllowed: v}
+	return ListDepositAddressesE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsListDepositAddressesE400 is a convenience function that returns UriNotFound wrapped in ListDepositAddressesE400
 func UriNotFoundAsListDepositAddressesE400(v *UriNotFound) ListDepositAddressesE400 {
-	return ListDepositAddressesE400{ UriNotFound: v}
+	return ListDepositAddressesE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *ListDepositAddressesE400) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *ListDepositAddressesE400) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *ListDepositAddressesE400) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src ListDepositAddressesE400) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *ListDepositAddressesE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

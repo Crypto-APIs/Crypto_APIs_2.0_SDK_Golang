@@ -26,22 +26,30 @@ type GetXRPRippleAddressDetailsE403 struct {
 
 // BannedIpAddressAsGetXRPRippleAddressDetailsE403 is a convenience function that returns BannedIpAddress wrapped in GetXRPRippleAddressDetailsE403
 func BannedIpAddressAsGetXRPRippleAddressDetailsE403(v *BannedIpAddress) GetXRPRippleAddressDetailsE403 {
-	return GetXRPRippleAddressDetailsE403{ BannedIpAddress: v}
+	return GetXRPRippleAddressDetailsE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsGetXRPRippleAddressDetailsE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in GetXRPRippleAddressDetailsE403
 func EndpointNotAllowedForApiKeyAsGetXRPRippleAddressDetailsE403(v *EndpointNotAllowedForApiKey) GetXRPRippleAddressDetailsE403 {
-	return GetXRPRippleAddressDetailsE403{ EndpointNotAllowedForApiKey: v}
+	return GetXRPRippleAddressDetailsE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsGetXRPRippleAddressDetailsE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in GetXRPRippleAddressDetailsE403
 func EndpointNotAllowedForPlanAsGetXRPRippleAddressDetailsE403(v *EndpointNotAllowedForPlan) GetXRPRippleAddressDetailsE403 {
-	return GetXRPRippleAddressDetailsE403{ EndpointNotAllowedForPlan: v}
+	return GetXRPRippleAddressDetailsE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsGetXRPRippleAddressDetailsE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in GetXRPRippleAddressDetailsE403
 func FeatureMainnetsNotAllowedForPlanAsGetXRPRippleAddressDetailsE403(v *FeatureMainnetsNotAllowedForPlan) GetXRPRippleAddressDetailsE403 {
-	return GetXRPRippleAddressDetailsE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return GetXRPRippleAddressDetailsE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *GetXRPRippleAddressDetailsE403) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *GetXRPRippleAddressDetailsE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *GetXRPRippleAddressDetailsE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *GetXRPRippleAddressDetailsE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src GetXRPRippleAddressDetailsE403) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetXRPRippleAddressDetailsE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

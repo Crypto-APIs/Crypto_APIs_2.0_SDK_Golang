@@ -17,7 +17,7 @@ import (
 
 // ListCoinsForwardingAutomationsRI struct for ListCoinsForwardingAutomationsRI
 type ListCoinsForwardingAutomationsRI struct {
-	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 	CallbackUrl string `json:"callbackUrl"`
 	// Represents the total count of the transaction confirmations before triggering the event.
 	ConfirmationsCountTrigger int32 `json:"confirmationsCountTrigger"`
@@ -73,7 +73,7 @@ func (o *ListCoinsForwardingAutomationsRI) GetCallbackUrl() string {
 // GetCallbackUrlOk returns a tuple with the CallbackUrl field value
 // and a boolean to check if the value has been set.
 func (o *ListCoinsForwardingAutomationsRI) GetCallbackUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackUrl, true
@@ -97,7 +97,7 @@ func (o *ListCoinsForwardingAutomationsRI) GetConfirmationsCountTrigger() int32 
 // GetConfirmationsCountTriggerOk returns a tuple with the ConfirmationsCountTrigger field value
 // and a boolean to check if the value has been set.
 func (o *ListCoinsForwardingAutomationsRI) GetConfirmationsCountTriggerOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConfirmationsCountTrigger, true
@@ -121,7 +121,7 @@ func (o *ListCoinsForwardingAutomationsRI) GetCreatedTimestamp() int32 {
 // GetCreatedTimestampOk returns a tuple with the CreatedTimestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListCoinsForwardingAutomationsRI) GetCreatedTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CreatedTimestamp, true
@@ -145,7 +145,7 @@ func (o *ListCoinsForwardingAutomationsRI) GetFeePriority() string {
 // GetFeePriorityOk returns a tuple with the FeePriority field value
 // and a boolean to check if the value has been set.
 func (o *ListCoinsForwardingAutomationsRI) GetFeePriorityOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FeePriority, true
@@ -169,7 +169,7 @@ func (o *ListCoinsForwardingAutomationsRI) GetFromAddress() string {
 // GetFromAddressOk returns a tuple with the FromAddress field value
 // and a boolean to check if the value has been set.
 func (o *ListCoinsForwardingAutomationsRI) GetFromAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FromAddress, true
@@ -193,7 +193,7 @@ func (o *ListCoinsForwardingAutomationsRI) GetMinimumTransferAmount() string {
 // GetMinimumTransferAmountOk returns a tuple with the MinimumTransferAmount field value
 // and a boolean to check if the value has been set.
 func (o *ListCoinsForwardingAutomationsRI) GetMinimumTransferAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinimumTransferAmount, true
@@ -217,7 +217,7 @@ func (o *ListCoinsForwardingAutomationsRI) GetReferenceId() string {
 // GetReferenceIdOk returns a tuple with the ReferenceId field value
 // and a boolean to check if the value has been set.
 func (o *ListCoinsForwardingAutomationsRI) GetReferenceIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ReferenceId, true
@@ -241,7 +241,7 @@ func (o *ListCoinsForwardingAutomationsRI) GetToAddress() string {
 // GetToAddressOk returns a tuple with the ToAddress field value
 // and a boolean to check if the value has been set.
 func (o *ListCoinsForwardingAutomationsRI) GetToAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ToAddress, true

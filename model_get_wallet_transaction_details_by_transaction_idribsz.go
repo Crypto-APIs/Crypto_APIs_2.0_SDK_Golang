@@ -26,17 +26,17 @@ type GetWalletTransactionDetailsByTransactionIDRIBSZ struct {
 	// Is used to sign transactions that contain at least one JoinSplit description.
 	JoinSplitSig string `json:"joinSplitSig"`
 	// Represents the time at which a particular transaction can be added to the blockchain.
-	Locktime int32 `json:"locktime"`
+	Locktime int64 `json:"locktime"`
 	// \"Overwinter\" is the network upgrade for the Zcash blockchain.
 	Overwintered bool `json:"overwintered"`
 	// Represents the total size of this transaction.
 	Size int32 `json:"size"`
 	// Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
-	VJoinSplit *[]GetTransactionDetailsByTransactionIDRIBSZVJoinSplit `json:"vJoinSplit,omitempty"`
+	VJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit `json:"vJoinSplit,omitempty"`
 	// Object Array representation of transaction output descriptions
-	VShieldedOutput *[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput `json:"vShieldedOutput,omitempty"`
+	VShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput `json:"vShieldedOutput,omitempty"`
 	// Object Array representation of transaction spend descriptions
-	VShieldedSpend *[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend `json:"vShieldedSpend,omitempty"`
+	VShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend `json:"vShieldedSpend,omitempty"`
 	// String representation of the transaction value balance
 	ValueBalance string `json:"valueBalance"`
 	// Represents the transaction version number.
@@ -53,7 +53,7 @@ type GetWalletTransactionDetailsByTransactionIDRIBSZ struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetWalletTransactionDetailsByTransactionIDRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int32, overwintered bool, size int32, valueBalance string, version int32, versionGroupId string, vin []GetWalletTransactionDetailsByTransactionIDRIBSZVin, vout []ListTransactionsByBlockHeightRIBSZVout) *GetWalletTransactionDetailsByTransactionIDRIBSZ {
+func NewGetWalletTransactionDetailsByTransactionIDRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int64, overwintered bool, size int32, valueBalance string, version int32, versionGroupId string, vin []GetWalletTransactionDetailsByTransactionIDRIBSZVin, vout []ListTransactionsByBlockHeightRIBSZVout) *GetWalletTransactionDetailsByTransactionIDRIBSZ {
 	this := GetWalletTransactionDetailsByTransactionIDRIBSZ{}
 	this.BindingSig = bindingSig
 	this.ExpiryHeight = expiryHeight
@@ -91,7 +91,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetBindingSig() string
 // GetBindingSigOk returns a tuple with the BindingSig field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetBindingSigOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BindingSig, true
@@ -115,7 +115,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetExpiryHeight() int3
 // GetExpiryHeightOk returns a tuple with the ExpiryHeight field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetExpiryHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExpiryHeight, true
@@ -139,7 +139,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetJoinSplitPubKey() s
 // GetJoinSplitPubKeyOk returns a tuple with the JoinSplitPubKey field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetJoinSplitPubKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.JoinSplitPubKey, true
@@ -163,7 +163,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetJoinSplitSig() stri
 // GetJoinSplitSigOk returns a tuple with the JoinSplitSig field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetJoinSplitSigOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.JoinSplitSig, true
@@ -175,9 +175,9 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) SetJoinSplitSig(v stri
 }
 
 // GetLocktime returns the Locktime field value
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetLocktime() int32 {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetLocktime() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -186,15 +186,15 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetLocktime() int32 {
 
 // GetLocktimeOk returns a tuple with the Locktime field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetLocktimeOk() (*int32, bool) {
-	if o == nil  {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetLocktimeOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Locktime, true
 }
 
 // SetLocktime sets field value
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) SetLocktime(v int32) {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) SetLocktime(v int64) {
 	o.Locktime = v
 }
 
@@ -211,7 +211,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetOverwintered() bool
 // GetOverwinteredOk returns a tuple with the Overwintered field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetOverwinteredOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Overwintered, true
@@ -235,7 +235,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -252,12 +252,12 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVJoinSplit() []GetT
 		var ret []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit
 		return ret
 	}
-	return *o.VJoinSplit
+	return o.VJoinSplit
 }
 
 // GetVJoinSplitOk returns a tuple with the VJoinSplit field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVJoinSplitOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVJoinSplit, bool) {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVJoinSplitOk() ([]GetTransactionDetailsByTransactionIDRIBSZVJoinSplit, bool) {
 	if o == nil || o.VJoinSplit == nil {
 		return nil, false
 	}
@@ -275,7 +275,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) HasVJoinSplit() bool {
 
 // SetVJoinSplit gets a reference to the given []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit and assigns it to the VJoinSplit field.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) SetVJoinSplit(v []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit) {
-	o.VJoinSplit = &v
+	o.VJoinSplit = v
 }
 
 // GetVShieldedOutput returns the VShieldedOutput field value if set, zero value otherwise.
@@ -284,12 +284,12 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVShieldedOutput() [
 		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
 		return ret
 	}
-	return *o.VShieldedOutput
+	return o.VShieldedOutput
 }
 
 // GetVShieldedOutputOk returns a tuple with the VShieldedOutput field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVShieldedOutputOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, bool) {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVShieldedOutputOk() ([]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, bool) {
 	if o == nil || o.VShieldedOutput == nil {
 		return nil, false
 	}
@@ -307,7 +307,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) HasVShieldedOutput() b
 
 // SetVShieldedOutput gets a reference to the given []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput and assigns it to the VShieldedOutput field.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) SetVShieldedOutput(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) {
-	o.VShieldedOutput = &v
+	o.VShieldedOutput = v
 }
 
 // GetVShieldedSpend returns the VShieldedSpend field value if set, zero value otherwise.
@@ -316,12 +316,12 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVShieldedSpend() []
 		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
 		return ret
 	}
-	return *o.VShieldedSpend
+	return o.VShieldedSpend
 }
 
 // GetVShieldedSpendOk returns a tuple with the VShieldedSpend field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVShieldedSpendOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, bool) {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVShieldedSpendOk() ([]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, bool) {
 	if o == nil || o.VShieldedSpend == nil {
 		return nil, false
 	}
@@ -339,7 +339,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) HasVShieldedSpend() bo
 
 // SetVShieldedSpend gets a reference to the given []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend and assigns it to the VShieldedSpend field.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) SetVShieldedSpend(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) {
-	o.VShieldedSpend = &v
+	o.VShieldedSpend = v
 }
 
 // GetValueBalance returns the ValueBalance field value
@@ -355,7 +355,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetValueBalance() stri
 // GetValueBalanceOk returns a tuple with the ValueBalance field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetValueBalanceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ValueBalance, true
@@ -379,7 +379,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVersion() int32 {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -403,7 +403,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVersionGroupId() st
 // GetVersionGroupIdOk returns a tuple with the VersionGroupId field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVersionGroupIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VersionGroupId, true
@@ -426,11 +426,11 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVin() []GetWalletTr
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVinOk() (*[]GetWalletTransactionDetailsByTransactionIDRIBSZVin, bool) {
-	if o == nil  {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVinOk() ([]GetWalletTransactionDetailsByTransactionIDRIBSZVin, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vin, true
+	return o.Vin, true
 }
 
 // SetVin sets field value
@@ -450,11 +450,11 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVout() []ListTransa
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVoutOk() (*[]ListTransactionsByBlockHeightRIBSZVout, bool) {
-	if o == nil  {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetVoutOk() ([]ListTransactionsByBlockHeightRIBSZVout, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vout, true
+	return o.Vout, true
 }
 
 // SetVout sets field value

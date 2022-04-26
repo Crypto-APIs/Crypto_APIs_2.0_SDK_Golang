@@ -26,22 +26,30 @@ type GetTransactionDetailsByTransactionIDE403 struct {
 
 // BannedIpAddressAsGetTransactionDetailsByTransactionIDE403 is a convenience function that returns BannedIpAddress wrapped in GetTransactionDetailsByTransactionIDE403
 func BannedIpAddressAsGetTransactionDetailsByTransactionIDE403(v *BannedIpAddress) GetTransactionDetailsByTransactionIDE403 {
-	return GetTransactionDetailsByTransactionIDE403{ BannedIpAddress: v}
+	return GetTransactionDetailsByTransactionIDE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsGetTransactionDetailsByTransactionIDE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in GetTransactionDetailsByTransactionIDE403
 func EndpointNotAllowedForApiKeyAsGetTransactionDetailsByTransactionIDE403(v *EndpointNotAllowedForApiKey) GetTransactionDetailsByTransactionIDE403 {
-	return GetTransactionDetailsByTransactionIDE403{ EndpointNotAllowedForApiKey: v}
+	return GetTransactionDetailsByTransactionIDE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsGetTransactionDetailsByTransactionIDE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in GetTransactionDetailsByTransactionIDE403
 func EndpointNotAllowedForPlanAsGetTransactionDetailsByTransactionIDE403(v *EndpointNotAllowedForPlan) GetTransactionDetailsByTransactionIDE403 {
-	return GetTransactionDetailsByTransactionIDE403{ EndpointNotAllowedForPlan: v}
+	return GetTransactionDetailsByTransactionIDE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsGetTransactionDetailsByTransactionIDE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in GetTransactionDetailsByTransactionIDE403
 func FeatureMainnetsNotAllowedForPlanAsGetTransactionDetailsByTransactionIDE403(v *FeatureMainnetsNotAllowedForPlan) GetTransactionDetailsByTransactionIDE403 {
-	return GetTransactionDetailsByTransactionIDE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return GetTransactionDetailsByTransactionIDE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *GetTransactionDetailsByTransactionIDE403) UnmarshalJSON(data []byte) 
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *GetTransactionDetailsByTransactionIDE403) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *GetTransactionDetailsByTransactionIDE403) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *GetTransactionDetailsByTransactionIDE403) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src GetTransactionDetailsByTransactionIDE403) MarshalJSON() ([]byte, error
 
 // Get the actual instance
 func (obj *GetTransactionDetailsByTransactionIDE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

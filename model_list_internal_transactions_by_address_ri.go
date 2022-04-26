@@ -75,7 +75,7 @@ func (o *ListInternalTransactionsByAddressRI) GetAmount() string {
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionsByAddressRI) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -99,7 +99,7 @@ func (o *ListInternalTransactionsByAddressRI) GetMinedInBlockHash() string {
 // GetMinedInBlockHashOk returns a tuple with the MinedInBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionsByAddressRI) GetMinedInBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHash, true
@@ -123,7 +123,7 @@ func (o *ListInternalTransactionsByAddressRI) GetMinedInBlockHeight() int32 {
 // GetMinedInBlockHeightOk returns a tuple with the MinedInBlockHeight field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionsByAddressRI) GetMinedInBlockHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHeight, true
@@ -147,7 +147,7 @@ func (o *ListInternalTransactionsByAddressRI) GetOperationID() string {
 // GetOperationIDOk returns a tuple with the OperationID field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionsByAddressRI) GetOperationIDOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OperationID, true
@@ -171,7 +171,7 @@ func (o *ListInternalTransactionsByAddressRI) GetOperationType() string {
 // GetOperationTypeOk returns a tuple with the OperationType field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionsByAddressRI) GetOperationTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OperationType, true
@@ -195,7 +195,7 @@ func (o *ListInternalTransactionsByAddressRI) GetParentHash() string {
 // GetParentHashOk returns a tuple with the ParentHash field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionsByAddressRI) GetParentHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ParentHash, true
@@ -219,7 +219,7 @@ func (o *ListInternalTransactionsByAddressRI) GetRecipient() string {
 // GetRecipientOk returns a tuple with the Recipient field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionsByAddressRI) GetRecipientOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Recipient, true
@@ -243,7 +243,7 @@ func (o *ListInternalTransactionsByAddressRI) GetSender() string {
 // GetSenderOk returns a tuple with the Sender field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionsByAddressRI) GetSenderOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sender, true
@@ -267,7 +267,7 @@ func (o *ListInternalTransactionsByAddressRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionsByAddressRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true

@@ -31,47 +31,65 @@ type ListTransactionsByBlockHeightRIBS struct {
 
 // ListTransactionsByBlockHeightRIBSBAsListTransactionsByBlockHeightRIBS is a convenience function that returns ListTransactionsByBlockHeightRIBSB wrapped in ListTransactionsByBlockHeightRIBS
 func ListTransactionsByBlockHeightRIBSBAsListTransactionsByBlockHeightRIBS(v *ListTransactionsByBlockHeightRIBSB) ListTransactionsByBlockHeightRIBS {
-	return ListTransactionsByBlockHeightRIBS{ ListTransactionsByBlockHeightRIBSB: v}
+	return ListTransactionsByBlockHeightRIBS{
+		ListTransactionsByBlockHeightRIBSB: v,
+	}
 }
 
 // ListTransactionsByBlockHeightRIBSBCAsListTransactionsByBlockHeightRIBS is a convenience function that returns ListTransactionsByBlockHeightRIBSBC wrapped in ListTransactionsByBlockHeightRIBS
 func ListTransactionsByBlockHeightRIBSBCAsListTransactionsByBlockHeightRIBS(v *ListTransactionsByBlockHeightRIBSBC) ListTransactionsByBlockHeightRIBS {
-	return ListTransactionsByBlockHeightRIBS{ ListTransactionsByBlockHeightRIBSBC: v}
+	return ListTransactionsByBlockHeightRIBS{
+		ListTransactionsByBlockHeightRIBSBC: v,
+	}
 }
 
 // ListTransactionsByBlockHeightRIBSBSCAsListTransactionsByBlockHeightRIBS is a convenience function that returns ListTransactionsByBlockHeightRIBSBSC wrapped in ListTransactionsByBlockHeightRIBS
 func ListTransactionsByBlockHeightRIBSBSCAsListTransactionsByBlockHeightRIBS(v *ListTransactionsByBlockHeightRIBSBSC) ListTransactionsByBlockHeightRIBS {
-	return ListTransactionsByBlockHeightRIBS{ ListTransactionsByBlockHeightRIBSBSC: v}
+	return ListTransactionsByBlockHeightRIBS{
+		ListTransactionsByBlockHeightRIBSBSC: v,
+	}
 }
 
 // ListTransactionsByBlockHeightRIBSDAsListTransactionsByBlockHeightRIBS is a convenience function that returns ListTransactionsByBlockHeightRIBSD wrapped in ListTransactionsByBlockHeightRIBS
 func ListTransactionsByBlockHeightRIBSDAsListTransactionsByBlockHeightRIBS(v *ListTransactionsByBlockHeightRIBSD) ListTransactionsByBlockHeightRIBS {
-	return ListTransactionsByBlockHeightRIBS{ ListTransactionsByBlockHeightRIBSD: v}
+	return ListTransactionsByBlockHeightRIBS{
+		ListTransactionsByBlockHeightRIBSD: v,
+	}
 }
 
 // ListTransactionsByBlockHeightRIBSD2AsListTransactionsByBlockHeightRIBS is a convenience function that returns ListTransactionsByBlockHeightRIBSD2 wrapped in ListTransactionsByBlockHeightRIBS
 func ListTransactionsByBlockHeightRIBSD2AsListTransactionsByBlockHeightRIBS(v *ListTransactionsByBlockHeightRIBSD2) ListTransactionsByBlockHeightRIBS {
-	return ListTransactionsByBlockHeightRIBS{ ListTransactionsByBlockHeightRIBSD2: v}
+	return ListTransactionsByBlockHeightRIBS{
+		ListTransactionsByBlockHeightRIBSD2: v,
+	}
 }
 
 // ListTransactionsByBlockHeightRIBSEAsListTransactionsByBlockHeightRIBS is a convenience function that returns ListTransactionsByBlockHeightRIBSE wrapped in ListTransactionsByBlockHeightRIBS
 func ListTransactionsByBlockHeightRIBSEAsListTransactionsByBlockHeightRIBS(v *ListTransactionsByBlockHeightRIBSE) ListTransactionsByBlockHeightRIBS {
-	return ListTransactionsByBlockHeightRIBS{ ListTransactionsByBlockHeightRIBSE: v}
+	return ListTransactionsByBlockHeightRIBS{
+		ListTransactionsByBlockHeightRIBSE: v,
+	}
 }
 
 // ListTransactionsByBlockHeightRIBSECAsListTransactionsByBlockHeightRIBS is a convenience function that returns ListTransactionsByBlockHeightRIBSEC wrapped in ListTransactionsByBlockHeightRIBS
 func ListTransactionsByBlockHeightRIBSECAsListTransactionsByBlockHeightRIBS(v *ListTransactionsByBlockHeightRIBSEC) ListTransactionsByBlockHeightRIBS {
-	return ListTransactionsByBlockHeightRIBS{ ListTransactionsByBlockHeightRIBSEC: v}
+	return ListTransactionsByBlockHeightRIBS{
+		ListTransactionsByBlockHeightRIBSEC: v,
+	}
 }
 
 // ListTransactionsByBlockHeightRIBSLAsListTransactionsByBlockHeightRIBS is a convenience function that returns ListTransactionsByBlockHeightRIBSL wrapped in ListTransactionsByBlockHeightRIBS
 func ListTransactionsByBlockHeightRIBSLAsListTransactionsByBlockHeightRIBS(v *ListTransactionsByBlockHeightRIBSL) ListTransactionsByBlockHeightRIBS {
-	return ListTransactionsByBlockHeightRIBS{ ListTransactionsByBlockHeightRIBSL: v}
+	return ListTransactionsByBlockHeightRIBS{
+		ListTransactionsByBlockHeightRIBSL: v,
+	}
 }
 
 // ListTransactionsByBlockHeightRIBSZAsListTransactionsByBlockHeightRIBS is a convenience function that returns ListTransactionsByBlockHeightRIBSZ wrapped in ListTransactionsByBlockHeightRIBS
 func ListTransactionsByBlockHeightRIBSZAsListTransactionsByBlockHeightRIBS(v *ListTransactionsByBlockHeightRIBSZ) ListTransactionsByBlockHeightRIBS {
-	return ListTransactionsByBlockHeightRIBS{ ListTransactionsByBlockHeightRIBSZ: v}
+	return ListTransactionsByBlockHeightRIBS{
+		ListTransactionsByBlockHeightRIBSZ: v,
+	}
 }
 
 
@@ -80,7 +98,7 @@ func (dst *ListTransactionsByBlockHeightRIBS) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into ListTransactionsByBlockHeightRIBSB
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHeightRIBSB)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHeightRIBSB)
 	if err == nil {
 		jsonListTransactionsByBlockHeightRIBSB, _ := json.Marshal(dst.ListTransactionsByBlockHeightRIBSB)
 		if string(jsonListTransactionsByBlockHeightRIBSB) == "{}" { // empty struct
@@ -93,7 +111,7 @@ func (dst *ListTransactionsByBlockHeightRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHeightRIBSBC
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHeightRIBSBC)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHeightRIBSBC)
 	if err == nil {
 		jsonListTransactionsByBlockHeightRIBSBC, _ := json.Marshal(dst.ListTransactionsByBlockHeightRIBSBC)
 		if string(jsonListTransactionsByBlockHeightRIBSBC) == "{}" { // empty struct
@@ -106,7 +124,7 @@ func (dst *ListTransactionsByBlockHeightRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHeightRIBSBSC
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHeightRIBSBSC)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHeightRIBSBSC)
 	if err == nil {
 		jsonListTransactionsByBlockHeightRIBSBSC, _ := json.Marshal(dst.ListTransactionsByBlockHeightRIBSBSC)
 		if string(jsonListTransactionsByBlockHeightRIBSBSC) == "{}" { // empty struct
@@ -119,7 +137,7 @@ func (dst *ListTransactionsByBlockHeightRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHeightRIBSD
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHeightRIBSD)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHeightRIBSD)
 	if err == nil {
 		jsonListTransactionsByBlockHeightRIBSD, _ := json.Marshal(dst.ListTransactionsByBlockHeightRIBSD)
 		if string(jsonListTransactionsByBlockHeightRIBSD) == "{}" { // empty struct
@@ -132,7 +150,7 @@ func (dst *ListTransactionsByBlockHeightRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHeightRIBSD2
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHeightRIBSD2)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHeightRIBSD2)
 	if err == nil {
 		jsonListTransactionsByBlockHeightRIBSD2, _ := json.Marshal(dst.ListTransactionsByBlockHeightRIBSD2)
 		if string(jsonListTransactionsByBlockHeightRIBSD2) == "{}" { // empty struct
@@ -145,7 +163,7 @@ func (dst *ListTransactionsByBlockHeightRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHeightRIBSE
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHeightRIBSE)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHeightRIBSE)
 	if err == nil {
 		jsonListTransactionsByBlockHeightRIBSE, _ := json.Marshal(dst.ListTransactionsByBlockHeightRIBSE)
 		if string(jsonListTransactionsByBlockHeightRIBSE) == "{}" { // empty struct
@@ -158,7 +176,7 @@ func (dst *ListTransactionsByBlockHeightRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHeightRIBSEC
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHeightRIBSEC)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHeightRIBSEC)
 	if err == nil {
 		jsonListTransactionsByBlockHeightRIBSEC, _ := json.Marshal(dst.ListTransactionsByBlockHeightRIBSEC)
 		if string(jsonListTransactionsByBlockHeightRIBSEC) == "{}" { // empty struct
@@ -171,7 +189,7 @@ func (dst *ListTransactionsByBlockHeightRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHeightRIBSL
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHeightRIBSL)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHeightRIBSL)
 	if err == nil {
 		jsonListTransactionsByBlockHeightRIBSL, _ := json.Marshal(dst.ListTransactionsByBlockHeightRIBSL)
 		if string(jsonListTransactionsByBlockHeightRIBSL) == "{}" { // empty struct
@@ -184,7 +202,7 @@ func (dst *ListTransactionsByBlockHeightRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into ListTransactionsByBlockHeightRIBSZ
-	err = json.Unmarshal(data, &dst.ListTransactionsByBlockHeightRIBSZ)
+	err = newStrictDecoder(data).Decode(&dst.ListTransactionsByBlockHeightRIBSZ)
 	if err == nil {
 		jsonListTransactionsByBlockHeightRIBSZ, _ := json.Marshal(dst.ListTransactionsByBlockHeightRIBSZ)
 		if string(jsonListTransactionsByBlockHeightRIBSZ) == "{}" { // empty struct
@@ -259,6 +277,9 @@ func (src ListTransactionsByBlockHeightRIBS) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *ListTransactionsByBlockHeightRIBS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.ListTransactionsByBlockHeightRIBSB != nil {
 		return obj.ListTransactionsByBlockHeightRIBSB
 	}

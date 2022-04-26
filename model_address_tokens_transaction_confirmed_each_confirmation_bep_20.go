@@ -63,7 +63,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationBep20) GetName() strin
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationBep20) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -87,7 +87,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationBep20) GetSymbol() str
 // GetSymbolOk returns a tuple with the Symbol field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationBep20) GetSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Symbol, true
@@ -143,7 +143,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationBep20) GetAmount() str
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationBep20) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -167,7 +167,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationBep20) GetContractAddr
 // GetContractAddressOk returns a tuple with the ContractAddress field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationBep20) GetContractAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ContractAddress, true

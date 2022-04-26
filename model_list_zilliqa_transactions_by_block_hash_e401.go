@@ -24,12 +24,16 @@ type ListZilliqaTransactionsByBlockHashE401 struct {
 
 // InvalidApiKeyAsListZilliqaTransactionsByBlockHashE401 is a convenience function that returns InvalidApiKey wrapped in ListZilliqaTransactionsByBlockHashE401
 func InvalidApiKeyAsListZilliqaTransactionsByBlockHashE401(v *InvalidApiKey) ListZilliqaTransactionsByBlockHashE401 {
-	return ListZilliqaTransactionsByBlockHashE401{ InvalidApiKey: v}
+	return ListZilliqaTransactionsByBlockHashE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsListZilliqaTransactionsByBlockHashE401 is a convenience function that returns MissingApiKey wrapped in ListZilliqaTransactionsByBlockHashE401
 func MissingApiKeyAsListZilliqaTransactionsByBlockHashE401(v *MissingApiKey) ListZilliqaTransactionsByBlockHashE401 {
-	return ListZilliqaTransactionsByBlockHashE401{ MissingApiKey: v}
+	return ListZilliqaTransactionsByBlockHashE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *ListZilliqaTransactionsByBlockHashE401) UnmarshalJSON(data []byte) er
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *ListZilliqaTransactionsByBlockHashE401) UnmarshalJSON(data []byte) er
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src ListZilliqaTransactionsByBlockHashE401) MarshalJSON() ([]byte, error) 
 
 // Get the actual instance
 func (obj *ListZilliqaTransactionsByBlockHashE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

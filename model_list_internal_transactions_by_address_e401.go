@@ -24,12 +24,16 @@ type ListInternalTransactionsByAddressE401 struct {
 
 // InvalidApiKeyAsListInternalTransactionsByAddressE401 is a convenience function that returns InvalidApiKey wrapped in ListInternalTransactionsByAddressE401
 func InvalidApiKeyAsListInternalTransactionsByAddressE401(v *InvalidApiKey) ListInternalTransactionsByAddressE401 {
-	return ListInternalTransactionsByAddressE401{ InvalidApiKey: v}
+	return ListInternalTransactionsByAddressE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsListInternalTransactionsByAddressE401 is a convenience function that returns MissingApiKey wrapped in ListInternalTransactionsByAddressE401
 func MissingApiKeyAsListInternalTransactionsByAddressE401(v *MissingApiKey) ListInternalTransactionsByAddressE401 {
-	return ListInternalTransactionsByAddressE401{ MissingApiKey: v}
+	return ListInternalTransactionsByAddressE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *ListInternalTransactionsByAddressE401) UnmarshalJSON(data []byte) err
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *ListInternalTransactionsByAddressE401) UnmarshalJSON(data []byte) err
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src ListInternalTransactionsByAddressE401) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *ListInternalTransactionsByAddressE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

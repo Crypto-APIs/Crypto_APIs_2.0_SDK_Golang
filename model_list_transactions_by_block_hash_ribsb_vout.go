@@ -57,7 +57,7 @@ func (o *ListTransactionsByBlockHashRIBSBVout) GetIsSpent() bool {
 // GetIsSpentOk returns a tuple with the IsSpent field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSBVout) GetIsSpentOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsSpent, true
@@ -81,7 +81,7 @@ func (o *ListTransactionsByBlockHashRIBSBVout) GetScriptPubKey() ListTransaction
 // GetScriptPubKeyOk returns a tuple with the ScriptPubKey field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSBVout) GetScriptPubKeyOk() (*ListTransactionsByBlockHashRIBSBScriptPubKey, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ScriptPubKey, true
@@ -105,7 +105,7 @@ func (o *ListTransactionsByBlockHashRIBSBVout) GetValue() string {
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSBVout) GetValueOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Value, true

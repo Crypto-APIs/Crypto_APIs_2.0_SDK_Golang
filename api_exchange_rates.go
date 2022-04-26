@@ -13,23 +13,19 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // ExchangeRatesApiService ExchangeRatesApi service
 type ExchangeRatesApiService service
 
 type ApiGetExchangeRateByAssetSymbolsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ExchangeRatesApiService
 	fromAssetSymbol string
 	toAssetSymbol string
@@ -42,13 +38,14 @@ func (r ApiGetExchangeRateByAssetSymbolsRequest) Context(context string) ApiGetE
 	r.context = &context
 	return r
 }
+
 // Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp.
 func (r ApiGetExchangeRateByAssetSymbolsRequest) CalculationTimestamp(calculationTimestamp int32) ApiGetExchangeRateByAssetSymbolsRequest {
 	r.calculationTimestamp = &calculationTimestamp
 	return r
 }
 
-func (r ApiGetExchangeRateByAssetSymbolsRequest) Execute() (GetExchangeRateByAssetSymbolsR, *_nethttp.Response, error) {
+func (r ApiGetExchangeRateByAssetSymbolsRequest) Execute() (*GetExchangeRateByAssetSymbolsR, *http.Response, error) {
 	return r.ApiService.GetExchangeRateByAssetSymbolsExecute(r)
 }
 
@@ -57,12 +54,12 @@ GetExchangeRateByAssetSymbols Get Exchange Rate By Asset Symbols
 
 Through this endpoint customers can obtain exchange rates by asset symbols. The process represents the exchange rate value of a single unit of one asset versus another one. Data is provided per unique asset symbol.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fromAssetSymbol Defines the base asset symbol to get a rate for.
  @param toAssetSymbol Defines the relation asset symbol in which the base asset rate will be displayed.
  @return ApiGetExchangeRateByAssetSymbolsRequest
 */
-func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbols(ctx _context.Context, fromAssetSymbol string, toAssetSymbol string) ApiGetExchangeRateByAssetSymbolsRequest {
+func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbols(ctx context.Context, fromAssetSymbol string, toAssetSymbol string) ApiGetExchangeRateByAssetSymbolsRequest {
 	return ApiGetExchangeRateByAssetSymbolsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -73,26 +70,26 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbols(ctx _context.Con
 
 // Execute executes the request
 //  @return GetExchangeRateByAssetSymbolsR
-func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetExchangeRateByAssetSymbolsRequest) (GetExchangeRateByAssetSymbolsR, *_nethttp.Response, error) {
+func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetExchangeRateByAssetSymbolsRequest) (*GetExchangeRateByAssetSymbolsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetExchangeRateByAssetSymbolsR
+		localVarReturnValue  *GetExchangeRateByAssetSymbolsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExchangeRatesApiService.GetExchangeRateByAssetSymbols")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/market-data/exchange-rates/by-symbols/{fromAssetSymbol}/{toAssetSymbol}"
-	localVarPath = strings.Replace(localVarPath, "{"+"fromAssetSymbol"+"}", _neturl.PathEscape(parameterToString(r.fromAssetSymbol, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"toAssetSymbol"+"}", _neturl.PathEscape(parameterToString(r.toAssetSymbol, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fromAssetSymbol"+"}", url.PathEscape(parameterToString(r.fromAssetSymbol, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"toAssetSymbol"+"}", url.PathEscape(parameterToString(r.toAssetSymbol, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -141,20 +138,20 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40087
+			var v InlineResponse400106
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -164,7 +161,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40187
+			var v InlineResponse401106
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -184,7 +181,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40387
+			var v InlineResponse403106
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -214,7 +211,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse4224
+			var v InlineResponse4226
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -247,7 +244,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -258,7 +255,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetSymbolsExecute(r ApiGetE
 }
 
 type ApiGetExchangeRateByAssetsIDsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ExchangeRatesApiService
 	fromAssetId string
 	toAssetId string
@@ -271,13 +268,14 @@ func (r ApiGetExchangeRateByAssetsIDsRequest) Context(context string) ApiGetExch
 	r.context = &context
 	return r
 }
+
 // Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp.
 func (r ApiGetExchangeRateByAssetsIDsRequest) CalculationTimestamp(calculationTimestamp int32) ApiGetExchangeRateByAssetsIDsRequest {
 	r.calculationTimestamp = &calculationTimestamp
 	return r
 }
 
-func (r ApiGetExchangeRateByAssetsIDsRequest) Execute() (GetExchangeRateByAssetsIDsR, *_nethttp.Response, error) {
+func (r ApiGetExchangeRateByAssetsIDsRequest) Execute() (*GetExchangeRateByAssetsIDsR, *http.Response, error) {
 	return r.ApiService.GetExchangeRateByAssetsIDsExecute(r)
 }
 
@@ -286,12 +284,12 @@ GetExchangeRateByAssetsIDs Get Exchange Rate By Assets IDs
 
 Through this endpoint customers can obtain exchange rates by asset IDs. The process represents the exchange rate value of a single unit of one asset versus another one. Data is provided per unique asset Reference ID.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param fromAssetId Defines the base asset Reference ID to get a rate for.
  @param toAssetId Defines the relation asset Reference ID in which the base asset rate will be displayed.
  @return ApiGetExchangeRateByAssetsIDsRequest
 */
-func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDs(ctx _context.Context, fromAssetId string, toAssetId string) ApiGetExchangeRateByAssetsIDsRequest {
+func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDs(ctx context.Context, fromAssetId string, toAssetId string) ApiGetExchangeRateByAssetsIDsRequest {
 	return ApiGetExchangeRateByAssetsIDsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -302,26 +300,26 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDs(ctx _context.Contex
 
 // Execute executes the request
 //  @return GetExchangeRateByAssetsIDsR
-func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExchangeRateByAssetsIDsRequest) (GetExchangeRateByAssetsIDsR, *_nethttp.Response, error) {
+func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExchangeRateByAssetsIDsRequest) (*GetExchangeRateByAssetsIDsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetExchangeRateByAssetsIDsR
+		localVarReturnValue  *GetExchangeRateByAssetsIDsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ExchangeRatesApiService.GetExchangeRateByAssetsIDs")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/market-data/exchange-rates/by-asset-ids/{fromAssetId}/{toAssetId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"fromAssetId"+"}", _neturl.PathEscape(parameterToString(r.fromAssetId, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"toAssetId"+"}", _neturl.PathEscape(parameterToString(r.toAssetId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"fromAssetId"+"}", url.PathEscape(parameterToString(r.fromAssetId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"toAssetId"+"}", url.PathEscape(parameterToString(r.toAssetId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -370,20 +368,20 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40088
+			var v InlineResponse400107
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -393,7 +391,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40188
+			var v InlineResponse401107
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -413,7 +411,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40388
+			var v InlineResponse403107
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -443,7 +441,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse4225
+			var v InlineResponse4227
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -476,7 +474,7 @@ func (a *ExchangeRatesApiService) GetExchangeRateByAssetsIDsExecute(r ApiGetExch
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

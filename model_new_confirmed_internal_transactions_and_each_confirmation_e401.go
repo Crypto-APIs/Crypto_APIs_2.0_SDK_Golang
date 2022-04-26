@@ -24,12 +24,16 @@ type NewConfirmedInternalTransactionsAndEachConfirmationE401 struct {
 
 // InvalidApiKeyAsNewConfirmedInternalTransactionsAndEachConfirmationE401 is a convenience function that returns InvalidApiKey wrapped in NewConfirmedInternalTransactionsAndEachConfirmationE401
 func InvalidApiKeyAsNewConfirmedInternalTransactionsAndEachConfirmationE401(v *InvalidApiKey) NewConfirmedInternalTransactionsAndEachConfirmationE401 {
-	return NewConfirmedInternalTransactionsAndEachConfirmationE401{ InvalidApiKey: v}
+	return NewConfirmedInternalTransactionsAndEachConfirmationE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsNewConfirmedInternalTransactionsAndEachConfirmationE401 is a convenience function that returns MissingApiKey wrapped in NewConfirmedInternalTransactionsAndEachConfirmationE401
 func MissingApiKeyAsNewConfirmedInternalTransactionsAndEachConfirmationE401(v *MissingApiKey) NewConfirmedInternalTransactionsAndEachConfirmationE401 {
-	return NewConfirmedInternalTransactionsAndEachConfirmationE401{ MissingApiKey: v}
+	return NewConfirmedInternalTransactionsAndEachConfirmationE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *NewConfirmedInternalTransactionsAndEachConfirmationE401) UnmarshalJSO
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *NewConfirmedInternalTransactionsAndEachConfirmationE401) UnmarshalJSO
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src NewConfirmedInternalTransactionsAndEachConfirmationE401) MarshalJSON()
 
 // Get the actual instance
 func (obj *NewConfirmedInternalTransactionsAndEachConfirmationE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

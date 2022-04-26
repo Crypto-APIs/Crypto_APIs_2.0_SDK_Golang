@@ -23,8 +23,10 @@ type NewConfirmedCoinsTransactionsRBDataItem struct {
 	AllowDuplicates *bool `json:"allowDuplicates,omitempty"`
 	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
 	CallbackSecretKey *string `json:"callbackSecretKey,omitempty"`
-	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 	CallbackURL string `json:"callbackURL"`
+	// Represents the exact confirmation, on which the user wants to receive callback.
+	ReceiveCallbackOn *int32 `json:"receiveCallbackOn,omitempty"`
 }
 
 // NewNewConfirmedCoinsTransactionsRBDataItem instantiates a new NewConfirmedCoinsTransactionsRBDataItem object
@@ -63,7 +65,7 @@ func (o *NewConfirmedCoinsTransactionsRBDataItem) GetAddress() string {
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedCoinsTransactionsRBDataItem) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -151,7 +153,7 @@ func (o *NewConfirmedCoinsTransactionsRBDataItem) GetCallbackURL() string {
 // GetCallbackURLOk returns a tuple with the CallbackURL field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedCoinsTransactionsRBDataItem) GetCallbackURLOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackURL, true
@@ -160,6 +162,38 @@ func (o *NewConfirmedCoinsTransactionsRBDataItem) GetCallbackURLOk() (*string, b
 // SetCallbackURL sets field value
 func (o *NewConfirmedCoinsTransactionsRBDataItem) SetCallbackURL(v string) {
 	o.CallbackURL = v
+}
+
+// GetReceiveCallbackOn returns the ReceiveCallbackOn field value if set, zero value otherwise.
+func (o *NewConfirmedCoinsTransactionsRBDataItem) GetReceiveCallbackOn() int32 {
+	if o == nil || o.ReceiveCallbackOn == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ReceiveCallbackOn
+}
+
+// GetReceiveCallbackOnOk returns a tuple with the ReceiveCallbackOn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NewConfirmedCoinsTransactionsRBDataItem) GetReceiveCallbackOnOk() (*int32, bool) {
+	if o == nil || o.ReceiveCallbackOn == nil {
+		return nil, false
+	}
+	return o.ReceiveCallbackOn, true
+}
+
+// HasReceiveCallbackOn returns a boolean if a field has been set.
+func (o *NewConfirmedCoinsTransactionsRBDataItem) HasReceiveCallbackOn() bool {
+	if o != nil && o.ReceiveCallbackOn != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReceiveCallbackOn gets a reference to the given int32 and assigns it to the ReceiveCallbackOn field.
+func (o *NewConfirmedCoinsTransactionsRBDataItem) SetReceiveCallbackOn(v int32) {
+	o.ReceiveCallbackOn = &v
 }
 
 func (o NewConfirmedCoinsTransactionsRBDataItem) MarshalJSON() ([]byte, error) {
@@ -175,6 +209,9 @@ func (o NewConfirmedCoinsTransactionsRBDataItem) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["callbackURL"] = o.CallbackURL
+	}
+	if o.ReceiveCallbackOn != nil {
+		toSerialize["receiveCallbackOn"] = o.ReceiveCallbackOn
 	}
 	return json.Marshal(toSerialize)
 }

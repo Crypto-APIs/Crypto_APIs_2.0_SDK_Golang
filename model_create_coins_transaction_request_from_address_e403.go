@@ -26,22 +26,30 @@ type CreateCoinsTransactionRequestFromAddressE403 struct {
 
 // BannedIpAddressAsCreateCoinsTransactionRequestFromAddressE403 is a convenience function that returns BannedIpAddress wrapped in CreateCoinsTransactionRequestFromAddressE403
 func BannedIpAddressAsCreateCoinsTransactionRequestFromAddressE403(v *BannedIpAddress) CreateCoinsTransactionRequestFromAddressE403 {
-	return CreateCoinsTransactionRequestFromAddressE403{ BannedIpAddress: v}
+	return CreateCoinsTransactionRequestFromAddressE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsCreateCoinsTransactionRequestFromAddressE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in CreateCoinsTransactionRequestFromAddressE403
 func EndpointNotAllowedForApiKeyAsCreateCoinsTransactionRequestFromAddressE403(v *EndpointNotAllowedForApiKey) CreateCoinsTransactionRequestFromAddressE403 {
-	return CreateCoinsTransactionRequestFromAddressE403{ EndpointNotAllowedForApiKey: v}
+	return CreateCoinsTransactionRequestFromAddressE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsCreateCoinsTransactionRequestFromAddressE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in CreateCoinsTransactionRequestFromAddressE403
 func EndpointNotAllowedForPlanAsCreateCoinsTransactionRequestFromAddressE403(v *EndpointNotAllowedForPlan) CreateCoinsTransactionRequestFromAddressE403 {
-	return CreateCoinsTransactionRequestFromAddressE403{ EndpointNotAllowedForPlan: v}
+	return CreateCoinsTransactionRequestFromAddressE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsCreateCoinsTransactionRequestFromAddressE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in CreateCoinsTransactionRequestFromAddressE403
 func FeatureMainnetsNotAllowedForPlanAsCreateCoinsTransactionRequestFromAddressE403(v *FeatureMainnetsNotAllowedForPlan) CreateCoinsTransactionRequestFromAddressE403 {
-	return CreateCoinsTransactionRequestFromAddressE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return CreateCoinsTransactionRequestFromAddressE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *CreateCoinsTransactionRequestFromAddressE403) UnmarshalJSON(data []by
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *CreateCoinsTransactionRequestFromAddressE403) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *CreateCoinsTransactionRequestFromAddressE403) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *CreateCoinsTransactionRequestFromAddressE403) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src CreateCoinsTransactionRequestFromAddressE403) MarshalJSON() ([]byte, e
 
 // Get the actual instance
 func (obj *CreateCoinsTransactionRequestFromAddressE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

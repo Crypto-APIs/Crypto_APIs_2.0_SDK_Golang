@@ -20,13 +20,15 @@ type ListBlockchainEventsSubscriptionsRI struct {
 	// Represents the address of the transaction.
 	Address string `json:"address"`
 	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
-	CallbackSecretKey string `json:"callbackSecretKey"`
-	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+	CallbackSecretKey *string `json:"callbackSecretKey,omitempty"`
+	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 	CallbackUrl string `json:"callbackUrl"`
 	// Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
 	ConfirmationsCount int32 `json:"confirmationsCount"`
 	// Defines the specific time/date when the subscription was created in Unix Timestamp.
 	CreatedTimestamp int32 `json:"createdTimestamp"`
+	// Represents the deactivation reason details, available when a blockchain event subscription has status isActive - false.
+	DeactivationReasons []ListBlockchainEventsSubscriptionsRIDeactivationReasons `json:"deactivationReasons,omitempty"`
 	// Defines the type of the specific event available for the customer to subscribe to for callback notification.
 	EventType string `json:"eventType"`
 	// Defines whether the subscription is active or not. Set as boolean.
@@ -34,24 +36,22 @@ type ListBlockchainEventsSubscriptionsRI struct {
 	// Represents a unique ID used to reference the specific callback subscription.
 	ReferenceId string `json:"referenceId"`
 	// Represents the unique identification string that defines the transaction.
-	TransactionId string `json:"transactionId"`
+	TransactionId *string `json:"transactionId,omitempty"`
 }
 
 // NewListBlockchainEventsSubscriptionsRI instantiates a new ListBlockchainEventsSubscriptionsRI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListBlockchainEventsSubscriptionsRI(address string, callbackSecretKey string, callbackUrl string, confirmationsCount int32, createdTimestamp int32, eventType string, isActive bool, referenceId string, transactionId string) *ListBlockchainEventsSubscriptionsRI {
+func NewListBlockchainEventsSubscriptionsRI(address string, callbackUrl string, confirmationsCount int32, createdTimestamp int32, eventType string, isActive bool, referenceId string) *ListBlockchainEventsSubscriptionsRI {
 	this := ListBlockchainEventsSubscriptionsRI{}
 	this.Address = address
-	this.CallbackSecretKey = callbackSecretKey
 	this.CallbackUrl = callbackUrl
 	this.ConfirmationsCount = confirmationsCount
 	this.CreatedTimestamp = createdTimestamp
 	this.EventType = eventType
 	this.IsActive = isActive
 	this.ReferenceId = referenceId
-	this.TransactionId = transactionId
 	return &this
 }
 
@@ -76,7 +76,7 @@ func (o *ListBlockchainEventsSubscriptionsRI) GetAddress() string {
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *ListBlockchainEventsSubscriptionsRI) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -87,28 +87,36 @@ func (o *ListBlockchainEventsSubscriptionsRI) SetAddress(v string) {
 	o.Address = v
 }
 
-// GetCallbackSecretKey returns the CallbackSecretKey field value
+// GetCallbackSecretKey returns the CallbackSecretKey field value if set, zero value otherwise.
 func (o *ListBlockchainEventsSubscriptionsRI) GetCallbackSecretKey() string {
-	if o == nil {
+	if o == nil || o.CallbackSecretKey == nil {
 		var ret string
 		return ret
 	}
-
-	return o.CallbackSecretKey
+	return *o.CallbackSecretKey
 }
 
-// GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field value
+// GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListBlockchainEventsSubscriptionsRI) GetCallbackSecretKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.CallbackSecretKey == nil {
 		return nil, false
 	}
-	return &o.CallbackSecretKey, true
+	return o.CallbackSecretKey, true
 }
 
-// SetCallbackSecretKey sets field value
+// HasCallbackSecretKey returns a boolean if a field has been set.
+func (o *ListBlockchainEventsSubscriptionsRI) HasCallbackSecretKey() bool {
+	if o != nil && o.CallbackSecretKey != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCallbackSecretKey gets a reference to the given string and assigns it to the CallbackSecretKey field.
 func (o *ListBlockchainEventsSubscriptionsRI) SetCallbackSecretKey(v string) {
-	o.CallbackSecretKey = v
+	o.CallbackSecretKey = &v
 }
 
 // GetCallbackUrl returns the CallbackUrl field value
@@ -124,7 +132,7 @@ func (o *ListBlockchainEventsSubscriptionsRI) GetCallbackUrl() string {
 // GetCallbackUrlOk returns a tuple with the CallbackUrl field value
 // and a boolean to check if the value has been set.
 func (o *ListBlockchainEventsSubscriptionsRI) GetCallbackUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackUrl, true
@@ -148,7 +156,7 @@ func (o *ListBlockchainEventsSubscriptionsRI) GetConfirmationsCount() int32 {
 // GetConfirmationsCountOk returns a tuple with the ConfirmationsCount field value
 // and a boolean to check if the value has been set.
 func (o *ListBlockchainEventsSubscriptionsRI) GetConfirmationsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConfirmationsCount, true
@@ -172,7 +180,7 @@ func (o *ListBlockchainEventsSubscriptionsRI) GetCreatedTimestamp() int32 {
 // GetCreatedTimestampOk returns a tuple with the CreatedTimestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListBlockchainEventsSubscriptionsRI) GetCreatedTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CreatedTimestamp, true
@@ -181,6 +189,38 @@ func (o *ListBlockchainEventsSubscriptionsRI) GetCreatedTimestampOk() (*int32, b
 // SetCreatedTimestamp sets field value
 func (o *ListBlockchainEventsSubscriptionsRI) SetCreatedTimestamp(v int32) {
 	o.CreatedTimestamp = v
+}
+
+// GetDeactivationReasons returns the DeactivationReasons field value if set, zero value otherwise.
+func (o *ListBlockchainEventsSubscriptionsRI) GetDeactivationReasons() []ListBlockchainEventsSubscriptionsRIDeactivationReasons {
+	if o == nil || o.DeactivationReasons == nil {
+		var ret []ListBlockchainEventsSubscriptionsRIDeactivationReasons
+		return ret
+	}
+	return o.DeactivationReasons
+}
+
+// GetDeactivationReasonsOk returns a tuple with the DeactivationReasons field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ListBlockchainEventsSubscriptionsRI) GetDeactivationReasonsOk() ([]ListBlockchainEventsSubscriptionsRIDeactivationReasons, bool) {
+	if o == nil || o.DeactivationReasons == nil {
+		return nil, false
+	}
+	return o.DeactivationReasons, true
+}
+
+// HasDeactivationReasons returns a boolean if a field has been set.
+func (o *ListBlockchainEventsSubscriptionsRI) HasDeactivationReasons() bool {
+	if o != nil && o.DeactivationReasons != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetDeactivationReasons gets a reference to the given []ListBlockchainEventsSubscriptionsRIDeactivationReasons and assigns it to the DeactivationReasons field.
+func (o *ListBlockchainEventsSubscriptionsRI) SetDeactivationReasons(v []ListBlockchainEventsSubscriptionsRIDeactivationReasons) {
+	o.DeactivationReasons = v
 }
 
 // GetEventType returns the EventType field value
@@ -196,7 +236,7 @@ func (o *ListBlockchainEventsSubscriptionsRI) GetEventType() string {
 // GetEventTypeOk returns a tuple with the EventType field value
 // and a boolean to check if the value has been set.
 func (o *ListBlockchainEventsSubscriptionsRI) GetEventTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EventType, true
@@ -220,7 +260,7 @@ func (o *ListBlockchainEventsSubscriptionsRI) GetIsActive() bool {
 // GetIsActiveOk returns a tuple with the IsActive field value
 // and a boolean to check if the value has been set.
 func (o *ListBlockchainEventsSubscriptionsRI) GetIsActiveOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsActive, true
@@ -244,7 +284,7 @@ func (o *ListBlockchainEventsSubscriptionsRI) GetReferenceId() string {
 // GetReferenceIdOk returns a tuple with the ReferenceId field value
 // and a boolean to check if the value has been set.
 func (o *ListBlockchainEventsSubscriptionsRI) GetReferenceIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ReferenceId, true
@@ -255,28 +295,36 @@ func (o *ListBlockchainEventsSubscriptionsRI) SetReferenceId(v string) {
 	o.ReferenceId = v
 }
 
-// GetTransactionId returns the TransactionId field value
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
 func (o *ListBlockchainEventsSubscriptionsRI) GetTransactionId() string {
-	if o == nil {
+	if o == nil || o.TransactionId == nil {
 		var ret string
 		return ret
 	}
-
-	return o.TransactionId
+	return *o.TransactionId
 }
 
-// GetTransactionIdOk returns a tuple with the TransactionId field value
+// GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *ListBlockchainEventsSubscriptionsRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.TransactionId == nil {
 		return nil, false
 	}
-	return &o.TransactionId, true
+	return o.TransactionId, true
 }
 
-// SetTransactionId sets field value
+// HasTransactionId returns a boolean if a field has been set.
+func (o *ListBlockchainEventsSubscriptionsRI) HasTransactionId() bool {
+	if o != nil && o.TransactionId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
 func (o *ListBlockchainEventsSubscriptionsRI) SetTransactionId(v string) {
-	o.TransactionId = v
+	o.TransactionId = &v
 }
 
 func (o ListBlockchainEventsSubscriptionsRI) MarshalJSON() ([]byte, error) {
@@ -284,7 +332,7 @@ func (o ListBlockchainEventsSubscriptionsRI) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["address"] = o.Address
 	}
-	if true {
+	if o.CallbackSecretKey != nil {
 		toSerialize["callbackSecretKey"] = o.CallbackSecretKey
 	}
 	if true {
@@ -296,6 +344,9 @@ func (o ListBlockchainEventsSubscriptionsRI) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["createdTimestamp"] = o.CreatedTimestamp
 	}
+	if o.DeactivationReasons != nil {
+		toSerialize["deactivationReasons"] = o.DeactivationReasons
+	}
 	if true {
 		toSerialize["eventType"] = o.EventType
 	}
@@ -305,7 +356,7 @@ func (o ListBlockchainEventsSubscriptionsRI) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["referenceId"] = o.ReferenceId
 	}
-	if true {
+	if o.TransactionId != nil {
 		toSerialize["transactionId"] = o.TransactionId
 	}
 	return json.Marshal(toSerialize)

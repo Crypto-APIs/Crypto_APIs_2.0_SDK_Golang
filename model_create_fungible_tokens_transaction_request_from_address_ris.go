@@ -23,7 +23,9 @@ type CreateFungibleTokensTransactionRequestFromAddressRIS struct {
 
 // CreateFungibleTokensTransactionRequestFromAddressRISEAsCreateFungibleTokensTransactionRequestFromAddressRIS is a convenience function that returns CreateFungibleTokensTransactionRequestFromAddressRISE wrapped in CreateFungibleTokensTransactionRequestFromAddressRIS
 func CreateFungibleTokensTransactionRequestFromAddressRISEAsCreateFungibleTokensTransactionRequestFromAddressRIS(v *CreateFungibleTokensTransactionRequestFromAddressRISE) CreateFungibleTokensTransactionRequestFromAddressRIS {
-	return CreateFungibleTokensTransactionRequestFromAddressRIS{ CreateFungibleTokensTransactionRequestFromAddressRISE: v}
+	return CreateFungibleTokensTransactionRequestFromAddressRIS{
+		CreateFungibleTokensTransactionRequestFromAddressRISE: v,
+	}
 }
 
 
@@ -32,7 +34,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressRIS) UnmarshalJSON(d
 	var err error
 	match := 0
 	// try to unmarshal data into CreateFungibleTokensTransactionRequestFromAddressRISE
-	err = json.Unmarshal(data, &dst.CreateFungibleTokensTransactionRequestFromAddressRISE)
+	err = newStrictDecoder(data).Decode(&dst.CreateFungibleTokensTransactionRequestFromAddressRISE)
 	if err == nil {
 		jsonCreateFungibleTokensTransactionRequestFromAddressRISE, _ := json.Marshal(dst.CreateFungibleTokensTransactionRequestFromAddressRISE)
 		if string(jsonCreateFungibleTokensTransactionRequestFromAddressRISE) == "{}" { // empty struct
@@ -67,6 +69,9 @@ func (src CreateFungibleTokensTransactionRequestFromAddressRIS) MarshalJSON() ([
 
 // Get the actual instance
 func (obj *CreateFungibleTokensTransactionRequestFromAddressRIS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.CreateFungibleTokensTransactionRequestFromAddressRISE != nil {
 		return obj.CreateFungibleTokensTransactionRequestFromAddressRISE
 	}

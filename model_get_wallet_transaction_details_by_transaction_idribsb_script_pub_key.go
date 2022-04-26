@@ -62,11 +62,11 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSBScriptPubKey) GetAddress
 
 // GetAddressesOk returns a tuple with the Addresses field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSBScriptPubKey) GetAddressesOk() (*[]string, bool) {
-	if o == nil  {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSBScriptPubKey) GetAddressesOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Addresses, true
+	return o.Addresses, true
 }
 
 // SetAddresses sets field value
@@ -87,7 +87,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSBScriptPubKey) GetAsm() s
 // GetAsmOk returns a tuple with the Asm field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSBScriptPubKey) GetAsmOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Asm, true
@@ -111,7 +111,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSBScriptPubKey) GetHex() s
 // GetHexOk returns a tuple with the Hex field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSBScriptPubKey) GetHexOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Hex, true
@@ -135,7 +135,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSBScriptPubKey) GetReqSigs
 // GetReqSigsOk returns a tuple with the ReqSigs field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSBScriptPubKey) GetReqSigsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ReqSigs, true
@@ -159,7 +159,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSBScriptPubKey) GetType() 
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSBScriptPubKey) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true

@@ -18,14 +18,14 @@ import (
 // ListXRPRippleTransactionsByBlockHeightRI struct for ListXRPRippleTransactionsByBlockHeightRI
 type ListXRPRippleTransactionsByBlockHeightRI struct {
 	AdditionalData *string `json:"additionalData,omitempty"`
-	DestinationTag *int32 `json:"destinationTag,omitempty"`
+	DestinationTag *int64 `json:"destinationTag,omitempty"`
 	Index int32 `json:"index"`
 	MinedInBlockHash string `json:"minedInBlockHash"`
 	// Object Array representation of transaction receivers
 	Recipients []ListXRPRippleTransactionsByBlockHeightRIRecipients `json:"recipients"`
 	// Object Array representation of transaction senders
 	Senders []ListXRPRippleTransactionsByBlockHeightRISenders `json:"senders"`
-	Sequence int32 `json:"sequence"`
+	Sequence int64 `json:"sequence"`
 	Status string `json:"status"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
 	Timestamp int32 `json:"timestamp"`
@@ -41,7 +41,7 @@ type ListXRPRippleTransactionsByBlockHeightRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListXRPRippleTransactionsByBlockHeightRI(index int32, minedInBlockHash string, recipients []ListXRPRippleTransactionsByBlockHeightRIRecipients, senders []ListXRPRippleTransactionsByBlockHeightRISenders, sequence int32, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByBlockHeightRIFee, offer ListXRPRippleTransactionsByBlockHeightRIOffer, receive ListXRPRippleTransactionsByBlockHeightRIReceive, value ListXRPRippleTransactionsByBlockHeightRIValue) *ListXRPRippleTransactionsByBlockHeightRI {
+func NewListXRPRippleTransactionsByBlockHeightRI(index int32, minedInBlockHash string, recipients []ListXRPRippleTransactionsByBlockHeightRIRecipients, senders []ListXRPRippleTransactionsByBlockHeightRISenders, sequence int64, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByBlockHeightRIFee, offer ListXRPRippleTransactionsByBlockHeightRIOffer, receive ListXRPRippleTransactionsByBlockHeightRIReceive, value ListXRPRippleTransactionsByBlockHeightRIValue) *ListXRPRippleTransactionsByBlockHeightRI {
 	this := ListXRPRippleTransactionsByBlockHeightRI{}
 	this.Index = index
 	this.MinedInBlockHash = minedInBlockHash
@@ -100,9 +100,9 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) SetAdditionalData(v string) {
 }
 
 // GetDestinationTag returns the DestinationTag field value if set, zero value otherwise.
-func (o *ListXRPRippleTransactionsByBlockHeightRI) GetDestinationTag() int32 {
+func (o *ListXRPRippleTransactionsByBlockHeightRI) GetDestinationTag() int64 {
 	if o == nil || o.DestinationTag == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DestinationTag
@@ -110,7 +110,7 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetDestinationTag() int32 {
 
 // GetDestinationTagOk returns a tuple with the DestinationTag field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListXRPRippleTransactionsByBlockHeightRI) GetDestinationTagOk() (*int32, bool) {
+func (o *ListXRPRippleTransactionsByBlockHeightRI) GetDestinationTagOk() (*int64, bool) {
 	if o == nil || o.DestinationTag == nil {
 		return nil, false
 	}
@@ -126,8 +126,8 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) HasDestinationTag() bool {
 	return false
 }
 
-// SetDestinationTag gets a reference to the given int32 and assigns it to the DestinationTag field.
-func (o *ListXRPRippleTransactionsByBlockHeightRI) SetDestinationTag(v int32) {
+// SetDestinationTag gets a reference to the given int64 and assigns it to the DestinationTag field.
+func (o *ListXRPRippleTransactionsByBlockHeightRI) SetDestinationTag(v int64) {
 	o.DestinationTag = &v
 }
 
@@ -144,7 +144,7 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetIndex() int32 {
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
 func (o *ListXRPRippleTransactionsByBlockHeightRI) GetIndexOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Index, true
@@ -168,7 +168,7 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetMinedInBlockHash() string 
 // GetMinedInBlockHashOk returns a tuple with the MinedInBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *ListXRPRippleTransactionsByBlockHeightRI) GetMinedInBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHash, true
@@ -191,11 +191,11 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetRecipients() []ListXRPRipp
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListXRPRippleTransactionsByBlockHeightRI) GetRecipientsOk() (*[]ListXRPRippleTransactionsByBlockHeightRIRecipients, bool) {
-	if o == nil  {
+func (o *ListXRPRippleTransactionsByBlockHeightRI) GetRecipientsOk() ([]ListXRPRippleTransactionsByBlockHeightRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -215,11 +215,11 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetSenders() []ListXRPRippleT
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListXRPRippleTransactionsByBlockHeightRI) GetSendersOk() (*[]ListXRPRippleTransactionsByBlockHeightRISenders, bool) {
-	if o == nil  {
+func (o *ListXRPRippleTransactionsByBlockHeightRI) GetSendersOk() ([]ListXRPRippleTransactionsByBlockHeightRISenders, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Senders, true
+	return o.Senders, true
 }
 
 // SetSenders sets field value
@@ -228,9 +228,9 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) SetSenders(v []ListXRPRippleT
 }
 
 // GetSequence returns the Sequence field value
-func (o *ListXRPRippleTransactionsByBlockHeightRI) GetSequence() int32 {
+func (o *ListXRPRippleTransactionsByBlockHeightRI) GetSequence() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -239,15 +239,15 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetSequence() int32 {
 
 // GetSequenceOk returns a tuple with the Sequence field value
 // and a boolean to check if the value has been set.
-func (o *ListXRPRippleTransactionsByBlockHeightRI) GetSequenceOk() (*int32, bool) {
-	if o == nil  {
+func (o *ListXRPRippleTransactionsByBlockHeightRI) GetSequenceOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sequence, true
 }
 
 // SetSequence sets field value
-func (o *ListXRPRippleTransactionsByBlockHeightRI) SetSequence(v int32) {
+func (o *ListXRPRippleTransactionsByBlockHeightRI) SetSequence(v int64) {
 	o.Sequence = v
 }
 
@@ -264,7 +264,7 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *ListXRPRippleTransactionsByBlockHeightRI) GetStatusOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Status, true
@@ -288,7 +288,7 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListXRPRippleTransactionsByBlockHeightRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -312,7 +312,7 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetTransactionHash() string {
 // GetTransactionHashOk returns a tuple with the TransactionHash field value
 // and a boolean to check if the value has been set.
 func (o *ListXRPRippleTransactionsByBlockHeightRI) GetTransactionHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionHash, true
@@ -336,7 +336,7 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *ListXRPRippleTransactionsByBlockHeightRI) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true
@@ -360,7 +360,7 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetFee() ListXRPRippleTransac
 // GetFeeOk returns a tuple with the Fee field value
 // and a boolean to check if the value has been set.
 func (o *ListXRPRippleTransactionsByBlockHeightRI) GetFeeOk() (*ListXRPRippleTransactionsByBlockHeightRIFee, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fee, true
@@ -384,7 +384,7 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetOffer() ListXRPRippleTrans
 // GetOfferOk returns a tuple with the Offer field value
 // and a boolean to check if the value has been set.
 func (o *ListXRPRippleTransactionsByBlockHeightRI) GetOfferOk() (*ListXRPRippleTransactionsByBlockHeightRIOffer, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Offer, true
@@ -408,7 +408,7 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetReceive() ListXRPRippleTra
 // GetReceiveOk returns a tuple with the Receive field value
 // and a boolean to check if the value has been set.
 func (o *ListXRPRippleTransactionsByBlockHeightRI) GetReceiveOk() (*ListXRPRippleTransactionsByBlockHeightRIReceive, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Receive, true
@@ -432,7 +432,7 @@ func (o *ListXRPRippleTransactionsByBlockHeightRI) GetValue() ListXRPRippleTrans
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *ListXRPRippleTransactionsByBlockHeightRI) GetValueOk() (*ListXRPRippleTransactionsByBlockHeightRIValue, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Value, true

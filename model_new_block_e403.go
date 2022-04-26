@@ -27,27 +27,37 @@ type NewBlockE403 struct {
 
 // BannedIpAddressAsNewBlockE403 is a convenience function that returns BannedIpAddress wrapped in NewBlockE403
 func BannedIpAddressAsNewBlockE403(v *BannedIpAddress) NewBlockE403 {
-	return NewBlockE403{ BannedIpAddress: v}
+	return NewBlockE403{
+		BannedIpAddress: v,
+	}
 }
 
 // BlockchainEventsCallbacksLimitReachedAsNewBlockE403 is a convenience function that returns BlockchainEventsCallbacksLimitReached wrapped in NewBlockE403
 func BlockchainEventsCallbacksLimitReachedAsNewBlockE403(v *BlockchainEventsCallbacksLimitReached) NewBlockE403 {
-	return NewBlockE403{ BlockchainEventsCallbacksLimitReached: v}
+	return NewBlockE403{
+		BlockchainEventsCallbacksLimitReached: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsNewBlockE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in NewBlockE403
 func EndpointNotAllowedForApiKeyAsNewBlockE403(v *EndpointNotAllowedForApiKey) NewBlockE403 {
-	return NewBlockE403{ EndpointNotAllowedForApiKey: v}
+	return NewBlockE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsNewBlockE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in NewBlockE403
 func EndpointNotAllowedForPlanAsNewBlockE403(v *EndpointNotAllowedForPlan) NewBlockE403 {
-	return NewBlockE403{ EndpointNotAllowedForPlan: v}
+	return NewBlockE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsNewBlockE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in NewBlockE403
 func FeatureMainnetsNotAllowedForPlanAsNewBlockE403(v *FeatureMainnetsNotAllowedForPlan) NewBlockE403 {
-	return NewBlockE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return NewBlockE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -56,7 +66,7 @@ func (dst *NewBlockE403) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -69,7 +79,7 @@ func (dst *NewBlockE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into BlockchainEventsCallbacksLimitReached
-	err = json.Unmarshal(data, &dst.BlockchainEventsCallbacksLimitReached)
+	err = newStrictDecoder(data).Decode(&dst.BlockchainEventsCallbacksLimitReached)
 	if err == nil {
 		jsonBlockchainEventsCallbacksLimitReached, _ := json.Marshal(dst.BlockchainEventsCallbacksLimitReached)
 		if string(jsonBlockchainEventsCallbacksLimitReached) == "{}" { // empty struct
@@ -82,7 +92,7 @@ func (dst *NewBlockE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -95,7 +105,7 @@ func (dst *NewBlockE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -108,7 +118,7 @@ func (dst *NewBlockE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -163,6 +173,9 @@ func (src NewBlockE403) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *NewBlockE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Balance** | [**GetXRPRippleAddressDetailsRIBalance**](GetXRPRippleAddressDetailsRIBalance.md) |  | 
 **IncomingTransactionsCount** | **int32** | Defines the count of all confirmed incoming transactions from the address for coins. This applies to coins only, not to tokens transfers | 
 **OutgoingTransactionsCount** | **int32** | Defines the count of all confirmed outgoing transactions for coins. This applies to coins only, not to tokens transfers | 
-**Sequence** | **int32** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
+**Sequence** | **int64** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
 **TransactionsCount** | **int32** | Represents the total number of all transactions as part of this block. | 
 
 ## Methods
 
 ### NewGetXRPRippleAddressDetailsRI
 
-`func NewGetXRPRippleAddressDetailsRI(balance GetXRPRippleAddressDetailsRIBalance, incomingTransactionsCount int32, outgoingTransactionsCount int32, sequence int32, transactionsCount int32, ) *GetXRPRippleAddressDetailsRI`
+`func NewGetXRPRippleAddressDetailsRI(balance GetXRPRippleAddressDetailsRIBalance, incomingTransactionsCount int32, outgoingTransactionsCount int32, sequence int64, transactionsCount int32, ) *GetXRPRippleAddressDetailsRI`
 
 NewGetXRPRippleAddressDetailsRI instantiates a new GetXRPRippleAddressDetailsRI object
 This constructor will assign default values to properties that have it defined,
@@ -91,20 +91,20 @@ SetOutgoingTransactionsCount sets OutgoingTransactionsCount field to given value
 
 ### GetSequence
 
-`func (o *GetXRPRippleAddressDetailsRI) GetSequence() int32`
+`func (o *GetXRPRippleAddressDetailsRI) GetSequence() int64`
 
 GetSequence returns the Sequence field if non-nil, zero value otherwise.
 
 ### GetSequenceOk
 
-`func (o *GetXRPRippleAddressDetailsRI) GetSequenceOk() (*int32, bool)`
+`func (o *GetXRPRippleAddressDetailsRI) GetSequenceOk() (*int64, bool)`
 
 GetSequenceOk returns a tuple with the Sequence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSequence
 
-`func (o *GetXRPRippleAddressDetailsRI) SetSequence(v int32)`
+`func (o *GetXRPRippleAddressDetailsRI) SetSequence(v int64)`
 
 SetSequence sets Sequence field to given value.
 

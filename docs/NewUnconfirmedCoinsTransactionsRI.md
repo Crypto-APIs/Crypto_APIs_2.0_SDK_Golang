@@ -4,8 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Address** | **string** | Represents the address of the transaction, per which the result is returned. | 
 **CallbackSecretKey** | **string** | Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security). | 
-**CallbackUrl** | **string** | Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. | 
+**CallbackUrl** | **string** | Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. &#x60;We support ONLY httpS type of protocol&#x60;. | 
 **CreatedTimestamp** | **int32** | Defines the specific time/date when the subscription was created in Unix Timestamp. | 
 **EventType** | **string** | Defines the type of the specific event available for the customer to subscribe to for callback notification. | 
 **IsActive** | **bool** | Defines whether the subscription is active or not. Set as boolean. | 
@@ -15,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewNewUnconfirmedCoinsTransactionsRI
 
-`func NewNewUnconfirmedCoinsTransactionsRI(callbackSecretKey string, callbackUrl string, createdTimestamp int32, eventType string, isActive bool, referenceId string, ) *NewUnconfirmedCoinsTransactionsRI`
+`func NewNewUnconfirmedCoinsTransactionsRI(address string, callbackSecretKey string, callbackUrl string, createdTimestamp int32, eventType string, isActive bool, referenceId string, ) *NewUnconfirmedCoinsTransactionsRI`
 
 NewNewUnconfirmedCoinsTransactionsRI instantiates a new NewUnconfirmedCoinsTransactionsRI object
 This constructor will assign default values to properties that have it defined,
@@ -29,6 +30,26 @@ will change when the set of required properties is changed
 NewNewUnconfirmedCoinsTransactionsRIWithDefaults instantiates a new NewUnconfirmedCoinsTransactionsRI object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAddress
+
+`func (o *NewUnconfirmedCoinsTransactionsRI) GetAddress() string`
+
+GetAddress returns the Address field if non-nil, zero value otherwise.
+
+### GetAddressOk
+
+`func (o *NewUnconfirmedCoinsTransactionsRI) GetAddressOk() (*string, bool)`
+
+GetAddressOk returns a tuple with the Address field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddress
+
+`func (o *NewUnconfirmedCoinsTransactionsRI) SetAddress(v string)`
+
+SetAddress sets Address field to given value.
+
 
 ### GetCallbackSecretKey
 

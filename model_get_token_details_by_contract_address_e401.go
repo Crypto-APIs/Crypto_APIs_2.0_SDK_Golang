@@ -24,12 +24,16 @@ type GetTokenDetailsByContractAddressE401 struct {
 
 // InvalidApiKeyAsGetTokenDetailsByContractAddressE401 is a convenience function that returns InvalidApiKey wrapped in GetTokenDetailsByContractAddressE401
 func InvalidApiKeyAsGetTokenDetailsByContractAddressE401(v *InvalidApiKey) GetTokenDetailsByContractAddressE401 {
-	return GetTokenDetailsByContractAddressE401{ InvalidApiKey: v}
+	return GetTokenDetailsByContractAddressE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsGetTokenDetailsByContractAddressE401 is a convenience function that returns MissingApiKey wrapped in GetTokenDetailsByContractAddressE401
 func MissingApiKeyAsGetTokenDetailsByContractAddressE401(v *MissingApiKey) GetTokenDetailsByContractAddressE401 {
-	return GetTokenDetailsByContractAddressE401{ MissingApiKey: v}
+	return GetTokenDetailsByContractAddressE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *GetTokenDetailsByContractAddressE401) UnmarshalJSON(data []byte) erro
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *GetTokenDetailsByContractAddressE401) UnmarshalJSON(data []byte) erro
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src GetTokenDetailsByContractAddressE401) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetTokenDetailsByContractAddressE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

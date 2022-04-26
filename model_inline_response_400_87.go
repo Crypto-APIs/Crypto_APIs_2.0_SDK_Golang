@@ -23,14 +23,14 @@ type InlineResponse40087 struct {
 	RequestId string `json:"requestId"`
 	// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.
 	Context *string `json:"context,omitempty"`
-	Error GetExchangeRateByAssetSymbolsE400 `json:"error"`
+	Error NewConfirmedInternalTransactionsE400 `json:"error"`
 }
 
 // NewInlineResponse40087 instantiates a new InlineResponse40087 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse40087(apiVersion string, requestId string, error_ GetExchangeRateByAssetSymbolsE400) *InlineResponse40087 {
+func NewInlineResponse40087(apiVersion string, requestId string, error_ NewConfirmedInternalTransactionsE400) *InlineResponse40087 {
 	this := InlineResponse40087{}
 	this.ApiVersion = apiVersion
 	this.RequestId = requestId
@@ -59,7 +59,7 @@ func (o *InlineResponse40087) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40087) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *InlineResponse40087) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40087) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -127,9 +127,9 @@ func (o *InlineResponse40087) SetContext(v string) {
 }
 
 // GetError returns the Error field value
-func (o *InlineResponse40087) GetError() GetExchangeRateByAssetSymbolsE400 {
+func (o *InlineResponse40087) GetError() NewConfirmedInternalTransactionsE400 {
 	if o == nil {
-		var ret GetExchangeRateByAssetSymbolsE400
+		var ret NewConfirmedInternalTransactionsE400
 		return ret
 	}
 
@@ -138,15 +138,15 @@ func (o *InlineResponse40087) GetError() GetExchangeRateByAssetSymbolsE400 {
 
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse40087) GetErrorOk() (*GetExchangeRateByAssetSymbolsE400, bool) {
-	if o == nil  {
+func (o *InlineResponse40087) GetErrorOk() (*NewConfirmedInternalTransactionsE400, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Error, true
 }
 
 // SetError sets field value
-func (o *InlineResponse40087) SetError(v GetExchangeRateByAssetSymbolsE400) {
+func (o *InlineResponse40087) SetError(v NewConfirmedInternalTransactionsE400) {
 	o.Error = v
 }
 

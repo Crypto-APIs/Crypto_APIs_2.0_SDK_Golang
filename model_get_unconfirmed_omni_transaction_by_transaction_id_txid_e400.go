@@ -25,17 +25,23 @@ type GetUnconfirmedOmniTransactionByTransactionIDTxidE400 struct {
 
 // InvalidPaginationAsGetUnconfirmedOmniTransactionByTransactionIDTxidE400 is a convenience function that returns InvalidPagination wrapped in GetUnconfirmedOmniTransactionByTransactionIDTxidE400
 func InvalidPaginationAsGetUnconfirmedOmniTransactionByTransactionIDTxidE400(v *InvalidPagination) GetUnconfirmedOmniTransactionByTransactionIDTxidE400 {
-	return GetUnconfirmedOmniTransactionByTransactionIDTxidE400{ InvalidPagination: v}
+	return GetUnconfirmedOmniTransactionByTransactionIDTxidE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsGetUnconfirmedOmniTransactionByTransactionIDTxidE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in GetUnconfirmedOmniTransactionByTransactionIDTxidE400
 func LimitGreaterThanAllowedAsGetUnconfirmedOmniTransactionByTransactionIDTxidE400(v *LimitGreaterThanAllowed) GetUnconfirmedOmniTransactionByTransactionIDTxidE400 {
-	return GetUnconfirmedOmniTransactionByTransactionIDTxidE400{ LimitGreaterThanAllowed: v}
+	return GetUnconfirmedOmniTransactionByTransactionIDTxidE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsGetUnconfirmedOmniTransactionByTransactionIDTxidE400 is a convenience function that returns UriNotFound wrapped in GetUnconfirmedOmniTransactionByTransactionIDTxidE400
 func UriNotFoundAsGetUnconfirmedOmniTransactionByTransactionIDTxidE400(v *UriNotFound) GetUnconfirmedOmniTransactionByTransactionIDTxidE400 {
-	return GetUnconfirmedOmniTransactionByTransactionIDTxidE400{ UriNotFound: v}
+	return GetUnconfirmedOmniTransactionByTransactionIDTxidE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *GetUnconfirmedOmniTransactionByTransactionIDTxidE400) UnmarshalJSON(d
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *GetUnconfirmedOmniTransactionByTransactionIDTxidE400) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *GetUnconfirmedOmniTransactionByTransactionIDTxidE400) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src GetUnconfirmedOmniTransactionByTransactionIDTxidE400) MarshalJSON() ([
 
 // Get the actual instance
 func (obj *GetUnconfirmedOmniTransactionByTransactionIDTxidE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

@@ -13,23 +13,19 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // XRPRippleApiService XRPRippleApi service
 type XRPRippleApiService service
 
 type ApiGetLatestMinedXRPRippleBlockRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *XRPRippleApiService
 	network string
 	context *string
@@ -41,7 +37,7 @@ func (r ApiGetLatestMinedXRPRippleBlockRequest) Context(context string) ApiGetLa
 	return r
 }
 
-func (r ApiGetLatestMinedXRPRippleBlockRequest) Execute() (GetLatestMinedXRPRippleBlockR, *_nethttp.Response, error) {
+func (r ApiGetLatestMinedXRPRippleBlockRequest) Execute() (*GetLatestMinedXRPRippleBlockR, *http.Response, error) {
 	return r.ApiService.GetLatestMinedXRPRippleBlockExecute(r)
 }
 
@@ -52,11 +48,11 @@ Through this endpoint customers can fetch the last mined XRP block in the blockc
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiGetLatestMinedXRPRippleBlockRequest
 */
-func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlock(ctx _context.Context, network string) ApiGetLatestMinedXRPRippleBlockRequest {
+func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlock(ctx context.Context, network string) ApiGetLatestMinedXRPRippleBlockRequest {
 	return ApiGetLatestMinedXRPRippleBlockRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -66,25 +62,25 @@ func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlock(ctx _context.Context,
 
 // Execute executes the request
 //  @return GetLatestMinedXRPRippleBlockR
-func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatestMinedXRPRippleBlockRequest) (GetLatestMinedXRPRippleBlockR, *_nethttp.Response, error) {
+func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatestMinedXRPRippleBlockRequest) (*GetLatestMinedXRPRippleBlockR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetLatestMinedXRPRippleBlockR
+		localVarReturnValue  *GetLatestMinedXRPRippleBlockR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "XRPRippleApiService.GetLatestMinedXRPRippleBlock")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/blocks/last"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -130,20 +126,20 @@ func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatest
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40039
+			var v InlineResponse40042
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -153,7 +149,7 @@ func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40139
+			var v InlineResponse40142
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -173,7 +169,7 @@ func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40339
+			var v InlineResponse40342
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -246,7 +242,7 @@ func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatest
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -257,7 +253,7 @@ func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatest
 }
 
 type ApiGetXRPRippleAddressDetailsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *XRPRippleApiService
 	network string
 	address string
@@ -270,7 +266,7 @@ func (r ApiGetXRPRippleAddressDetailsRequest) Context(context string) ApiGetXRPR
 	return r
 }
 
-func (r ApiGetXRPRippleAddressDetailsRequest) Execute() (GetXRPRippleAddressDetailsR, *_nethttp.Response, error) {
+func (r ApiGetXRPRippleAddressDetailsRequest) Execute() (*GetXRPRippleAddressDetailsR, *http.Response, error) {
 	return r.ApiService.GetXRPRippleAddressDetailsExecute(r)
 }
 
@@ -281,12 +277,12 @@ Through this endpoint the customer can receive basic information about a given X
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\",  are test networks.
  @param address Represents the public address, which is a compressed and shortened form of a public key.
  @return ApiGetXRPRippleAddressDetailsRequest
 */
-func (a *XRPRippleApiService) GetXRPRippleAddressDetails(ctx _context.Context, network string, address string) ApiGetXRPRippleAddressDetailsRequest {
+func (a *XRPRippleApiService) GetXRPRippleAddressDetails(ctx context.Context, network string, address string) ApiGetXRPRippleAddressDetailsRequest {
 	return ApiGetXRPRippleAddressDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -297,26 +293,26 @@ func (a *XRPRippleApiService) GetXRPRippleAddressDetails(ctx _context.Context, n
 
 // Execute executes the request
 //  @return GetXRPRippleAddressDetailsR
-func (a *XRPRippleApiService) GetXRPRippleAddressDetailsExecute(r ApiGetXRPRippleAddressDetailsRequest) (GetXRPRippleAddressDetailsR, *_nethttp.Response, error) {
+func (a *XRPRippleApiService) GetXRPRippleAddressDetailsExecute(r ApiGetXRPRippleAddressDetailsRequest) (*GetXRPRippleAddressDetailsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetXRPRippleAddressDetailsR
+		localVarReturnValue  *GetXRPRippleAddressDetailsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "XRPRippleApiService.GetXRPRippleAddressDetails")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/addresses/{address}"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -362,15 +358,15 @@ func (a *XRPRippleApiService) GetXRPRippleAddressDetailsExecute(r ApiGetXRPRippl
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -468,7 +464,7 @@ func (a *XRPRippleApiService) GetXRPRippleAddressDetailsExecute(r ApiGetXRPRippl
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -479,7 +475,7 @@ func (a *XRPRippleApiService) GetXRPRippleAddressDetailsExecute(r ApiGetXRPRippl
 }
 
 type ApiGetXRPRippleBlockDetailsByBlockHashRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *XRPRippleApiService
 	network string
 	blockHash string
@@ -492,7 +488,7 @@ func (r ApiGetXRPRippleBlockDetailsByBlockHashRequest) Context(context string) A
 	return r
 }
 
-func (r ApiGetXRPRippleBlockDetailsByBlockHashRequest) Execute() (GetXRPRippleBlockDetailsByBlockHashR, *_nethttp.Response, error) {
+func (r ApiGetXRPRippleBlockDetailsByBlockHashRequest) Execute() (*GetXRPRippleBlockDetailsByBlockHashR, *http.Response, error) {
 	return r.ApiService.GetXRPRippleBlockDetailsByBlockHashExecute(r)
 }
 
@@ -503,12 +499,12 @@ Through this endpoint customers can obtain basic information about a given XRP b
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockHash Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
  @return ApiGetXRPRippleBlockDetailsByBlockHashRequest
 */
-func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHash(ctx _context.Context, network string, blockHash string) ApiGetXRPRippleBlockDetailsByBlockHashRequest {
+func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHash(ctx context.Context, network string, blockHash string) ApiGetXRPRippleBlockDetailsByBlockHashRequest {
 	return ApiGetXRPRippleBlockDetailsByBlockHashRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -519,26 +515,26 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHash(ctx _context.C
 
 // Execute executes the request
 //  @return GetXRPRippleBlockDetailsByBlockHashR
-func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGetXRPRippleBlockDetailsByBlockHashRequest) (GetXRPRippleBlockDetailsByBlockHashR, *_nethttp.Response, error) {
+func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGetXRPRippleBlockDetailsByBlockHashRequest) (*GetXRPRippleBlockDetailsByBlockHashR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetXRPRippleBlockDetailsByBlockHashR
+		localVarReturnValue  *GetXRPRippleBlockDetailsByBlockHashR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "XRPRippleApiService.GetXRPRippleBlockDetailsByBlockHash")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", _neturl.PathEscape(parameterToString(r.blockHash, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", url.PathEscape(parameterToString(r.blockHash, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -584,20 +580,20 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGe
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40031
+			var v InlineResponse40032
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -607,7 +603,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40131
+			var v InlineResponse40132
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -627,7 +623,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40331
+			var v InlineResponse40332
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -700,7 +696,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGe
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -711,7 +707,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGe
 }
 
 type ApiGetXRPRippleBlockDetailsByBlockHeightRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *XRPRippleApiService
 	network string
 	blockHeight string
@@ -724,7 +720,7 @@ func (r ApiGetXRPRippleBlockDetailsByBlockHeightRequest) Context(context string)
 	return r
 }
 
-func (r ApiGetXRPRippleBlockDetailsByBlockHeightRequest) Execute() (GetXRPRippleBlockDetailsByBlockHeightR, *_nethttp.Response, error) {
+func (r ApiGetXRPRippleBlockDetailsByBlockHeightRequest) Execute() (*GetXRPRippleBlockDetailsByBlockHeightR, *http.Response, error) {
 	return r.ApiService.GetXRPRippleBlockDetailsByBlockHeightExecute(r)
 }
 
@@ -735,12 +731,12 @@ Through this endpoint customers can obtain basic information about a given XRP b
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\",  are test networks.
  @param blockHeight Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
  @return ApiGetXRPRippleBlockDetailsByBlockHeightRequest
 */
-func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeight(ctx _context.Context, network string, blockHeight string) ApiGetXRPRippleBlockDetailsByBlockHeightRequest {
+func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeight(ctx context.Context, network string, blockHeight string) ApiGetXRPRippleBlockDetailsByBlockHeightRequest {
 	return ApiGetXRPRippleBlockDetailsByBlockHeightRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -751,26 +747,26 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeight(ctx _context
 
 // Execute executes the request
 //  @return GetXRPRippleBlockDetailsByBlockHeightR
-func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r ApiGetXRPRippleBlockDetailsByBlockHeightRequest) (GetXRPRippleBlockDetailsByBlockHeightR, *_nethttp.Response, error) {
+func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r ApiGetXRPRippleBlockDetailsByBlockHeightRequest) (*GetXRPRippleBlockDetailsByBlockHeightR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetXRPRippleBlockDetailsByBlockHeightR
+		localVarReturnValue  *GetXRPRippleBlockDetailsByBlockHeightR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "XRPRippleApiService.GetXRPRippleBlockDetailsByBlockHeight")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", _neturl.PathEscape(parameterToString(r.blockHeight, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", url.PathEscape(parameterToString(r.blockHeight, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -816,20 +812,20 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r Api
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40027
+			var v InlineResponse40028
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -839,7 +835,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40127
+			var v InlineResponse40128
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -859,7 +855,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40327
+			var v InlineResponse40328
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -932,7 +928,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r Api
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -943,7 +939,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r Api
 }
 
 type ApiGetXRPRippleTransactionDetailsByTransactionIDRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *XRPRippleApiService
 	network string
 	transactionHash string
@@ -956,7 +952,7 @@ func (r ApiGetXRPRippleTransactionDetailsByTransactionIDRequest) Context(context
 	return r
 }
 
-func (r ApiGetXRPRippleTransactionDetailsByTransactionIDRequest) Execute() (GetXRPRippleTransactionDetailsByTransactionIDR, *_nethttp.Response, error) {
+func (r ApiGetXRPRippleTransactionDetailsByTransactionIDRequest) Execute() (*GetXRPRippleTransactionDetailsByTransactionIDR, *http.Response, error) {
 	return r.ApiService.GetXRPRippleTransactionDetailsByTransactionIDExecute(r)
 }
 
@@ -967,12 +963,12 @@ Through this endpoint customers can obtain details about a XRP transaction by th
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param transactionHash Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
  @return ApiGetXRPRippleTransactionDetailsByTransactionIDRequest
 */
-func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionID(ctx _context.Context, network string, transactionHash string) ApiGetXRPRippleTransactionDetailsByTransactionIDRequest {
+func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionID(ctx context.Context, network string, transactionHash string) ApiGetXRPRippleTransactionDetailsByTransactionIDRequest {
 	return ApiGetXRPRippleTransactionDetailsByTransactionIDRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -983,26 +979,26 @@ func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionID(ctx 
 
 // Execute executes the request
 //  @return GetXRPRippleTransactionDetailsByTransactionIDR
-func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionIDExecute(r ApiGetXRPRippleTransactionDetailsByTransactionIDRequest) (GetXRPRippleTransactionDetailsByTransactionIDR, *_nethttp.Response, error) {
+func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionIDExecute(r ApiGetXRPRippleTransactionDetailsByTransactionIDRequest) (*GetXRPRippleTransactionDetailsByTransactionIDR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetXRPRippleTransactionDetailsByTransactionIDR
+		localVarReturnValue  *GetXRPRippleTransactionDetailsByTransactionIDR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "XRPRippleApiService.GetXRPRippleTransactionDetailsByTransactionID")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/transactions/{transactionHash}"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"transactionHash"+"}", _neturl.PathEscape(parameterToString(r.transactionHash, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"transactionHash"+"}", url.PathEscape(parameterToString(r.transactionHash, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1048,15 +1044,15 @@ func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionIDExecu
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1164,7 +1160,7 @@ func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionIDExecu
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1175,13 +1171,13 @@ func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionIDExecu
 }
 
 type ApiListXRPRippleTransactionsByAddressRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *XRPRippleApiService
 	network string
 	address string
 	context *string
-	limit *int32
-	offset *int32
+	limit *int64
+	offset *int64
 	transactionType *string
 }
 
@@ -1190,22 +1186,25 @@ func (r ApiListXRPRippleTransactionsByAddressRequest) Context(context string) Ap
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
-func (r ApiListXRPRippleTransactionsByAddressRequest) Limit(limit int32) ApiListXRPRippleTransactionsByAddressRequest {
+func (r ApiListXRPRippleTransactionsByAddressRequest) Limit(limit int64) ApiListXRPRippleTransactionsByAddressRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
-func (r ApiListXRPRippleTransactionsByAddressRequest) Offset(offset int32) ApiListXRPRippleTransactionsByAddressRequest {
+func (r ApiListXRPRippleTransactionsByAddressRequest) Offset(offset int64) ApiListXRPRippleTransactionsByAddressRequest {
 	r.offset = &offset
 	return r
 }
+
 func (r ApiListXRPRippleTransactionsByAddressRequest) TransactionType(transactionType string) ApiListXRPRippleTransactionsByAddressRequest {
 	r.transactionType = &transactionType
 	return r
 }
 
-func (r ApiListXRPRippleTransactionsByAddressRequest) Execute() (ListXRPRippleTransactionsByAddressR, *_nethttp.Response, error) {
+func (r ApiListXRPRippleTransactionsByAddressRequest) Execute() (*ListXRPRippleTransactionsByAddressR, *http.Response, error) {
 	return r.ApiService.ListXRPRippleTransactionsByAddressExecute(r)
 }
 
@@ -1216,12 +1215,12 @@ This endpoint will list XRP transactions by a attribute `address`. The transacti
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param address Represents the public address, which is a compressed and shortened form of a public key.
  @return ApiListXRPRippleTransactionsByAddressRequest
 */
-func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddress(ctx _context.Context, network string, address string) ApiListXRPRippleTransactionsByAddressRequest {
+func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddress(ctx context.Context, network string, address string) ApiListXRPRippleTransactionsByAddressRequest {
 	return ApiListXRPRippleTransactionsByAddressRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1232,26 +1231,26 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddress(ctx _context.Co
 
 // Execute executes the request
 //  @return ListXRPRippleTransactionsByAddressR
-func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressExecute(r ApiListXRPRippleTransactionsByAddressRequest) (ListXRPRippleTransactionsByAddressR, *_nethttp.Response, error) {
+func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressExecute(r ApiListXRPRippleTransactionsByAddressRequest) (*ListXRPRippleTransactionsByAddressR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListXRPRippleTransactionsByAddressR
+		localVarReturnValue  *ListXRPRippleTransactionsByAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "XRPRippleApiService.ListXRPRippleTransactionsByAddress")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/addresses/{address}/transactions"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1306,15 +1305,15 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressExecute(r ApiLis
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -1412,7 +1411,279 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressExecute(r ApiLis
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest struct {
+	ctx context.Context
+	ApiService *XRPRippleApiService
+	network string
+	address string
+	fromTimestamp *int32
+	toTimestamp *int32
+	context *string
+	limit *int64
+	offset *int64
+	transactionType *string
+}
+
+// Defines the specific time/date from which the results will start being listed.
+func (r ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest) FromTimestamp(fromTimestamp int32) ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest {
+	r.fromTimestamp = &fromTimestamp
+	return r
+}
+
+// Defines the specific time/date to which the results will be listed.
+func (r ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest) ToTimestamp(toTimestamp int32) ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest {
+	r.toTimestamp = &toTimestamp
+	return r
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest) Context(context string) ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest {
+	r.context = &context
+	return r
+}
+
+// Defines how many items should be returned in the response per page basis.
+func (r ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest) Limit(limit int64) ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest {
+	r.limit = &limit
+	return r
+}
+
+// The starting index of the response items, i.e. where the response should start listing the returned items.
+func (r ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest) Offset(offset int64) ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest {
+	r.offset = &offset
+	return r
+}
+
+// Defines the transaction type.
+func (r ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest) TransactionType(transactionType string) ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest {
+	r.transactionType = &transactionType
+	return r
+}
+
+func (r ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest) Execute() (*ListXRPRippleTransactionsByAddressAndTimeRangeR, *http.Response, error) {
+	return r.ApiService.ListXRPRippleTransactionsByAddressAndTimeRangeExecute(r)
+}
+
+/*
+ListXRPRippleTransactionsByAddressAndTimeRange List XRP (Ripple) Transactions By Address And Time Range
+
+Тhis endpoint lists XRP transactions by the attribute `address` and the query parameters `fromTimestamp` and `toTimestamp`  which gives customers the opportunity to filter the results by a specified time period.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+ @param address Represents the public address, which is a compressed and shortened form of a public key.
+ @return ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest
+*/
+func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressAndTimeRange(ctx context.Context, network string, address string) ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest {
+	return ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest{
+		ApiService: a,
+		ctx: ctx,
+		network: network,
+		address: address,
+	}
+}
+
+// Execute executes the request
+//  @return ListXRPRippleTransactionsByAddressAndTimeRangeR
+func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressAndTimeRangeExecute(r ApiListXRPRippleTransactionsByAddressAndTimeRangeRequest) (*ListXRPRippleTransactionsByAddressAndTimeRangeR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListXRPRippleTransactionsByAddressAndTimeRangeR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "XRPRippleApiService.ListXRPRippleTransactionsByAddressAndTimeRange")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/addresses/{address}/transactions-by-time-range"
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+	if r.fromTimestamp == nil {
+		return localVarReturnValue, nil, reportError("fromTimestamp is required and must be specified")
+	}
+	if r.toTimestamp == nil {
+		return localVarReturnValue, nil, reportError("toTimestamp is required and must be specified")
+	}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	localVarQueryParams.Add("fromTimestamp", parameterToString(*r.fromTimestamp, ""))
+	if r.limit != nil {
+		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+	}
+	if r.offset != nil {
+		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+	}
+	localVarQueryParams.Add("toTimestamp", parameterToString(*r.toTimestamp, ""))
+	if r.transactionType != nil {
+		localVarQueryParams.Add("transactionType", parameterToString(*r.transactionType, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InlineResponse40016
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v InlineResponse40116
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v InlineResponse402
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v InlineResponse40316
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v InlineResponse409
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v InlineResponse415
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v InlineResponse422
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v InlineResponse429
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InlineResponse500
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1423,13 +1694,13 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressExecute(r ApiLis
 }
 
 type ApiListXRPRippleTransactionsByBlockHashRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *XRPRippleApiService
 	network string
 	blockHash string
 	context *string
-	limit *int32
-	offset *int32
+	limit *int64
+	offset *int64
 }
 
 // In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
@@ -1437,18 +1708,20 @@ func (r ApiListXRPRippleTransactionsByBlockHashRequest) Context(context string) 
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
-func (r ApiListXRPRippleTransactionsByBlockHashRequest) Limit(limit int32) ApiListXRPRippleTransactionsByBlockHashRequest {
+func (r ApiListXRPRippleTransactionsByBlockHashRequest) Limit(limit int64) ApiListXRPRippleTransactionsByBlockHashRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
-func (r ApiListXRPRippleTransactionsByBlockHashRequest) Offset(offset int32) ApiListXRPRippleTransactionsByBlockHashRequest {
+func (r ApiListXRPRippleTransactionsByBlockHashRequest) Offset(offset int64) ApiListXRPRippleTransactionsByBlockHashRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListXRPRippleTransactionsByBlockHashRequest) Execute() (ListXRPRippleTransactionsByBlockHashR, *_nethttp.Response, error) {
+func (r ApiListXRPRippleTransactionsByBlockHashRequest) Execute() (*ListXRPRippleTransactionsByBlockHashR, *http.Response, error) {
 	return r.ApiService.ListXRPRippleTransactionsByBlockHashExecute(r)
 }
 
@@ -1459,12 +1732,12 @@ This endpoint will list transactions by an attribute `blockHash`. The transactio
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockHash Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
  @return ApiListXRPRippleTransactionsByBlockHashRequest
 */
-func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHash(ctx _context.Context, network string, blockHash string) ApiListXRPRippleTransactionsByBlockHashRequest {
+func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHash(ctx context.Context, network string, blockHash string) ApiListXRPRippleTransactionsByBlockHashRequest {
 	return ApiListXRPRippleTransactionsByBlockHashRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1475,26 +1748,26 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHash(ctx _context.
 
 // Execute executes the request
 //  @return ListXRPRippleTransactionsByBlockHashR
-func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiListXRPRippleTransactionsByBlockHashRequest) (ListXRPRippleTransactionsByBlockHashR, *_nethttp.Response, error) {
+func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiListXRPRippleTransactionsByBlockHashRequest) (*ListXRPRippleTransactionsByBlockHashR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListXRPRippleTransactionsByBlockHashR
+		localVarReturnValue  *ListXRPRippleTransactionsByBlockHashR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "XRPRippleApiService.ListXRPRippleTransactionsByBlockHash")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/blocks/hash/{blockHash}/transactions"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", _neturl.PathEscape(parameterToString(r.blockHash, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockHash"+"}", url.PathEscape(parameterToString(r.blockHash, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1546,20 +1819,20 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiL
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40018
+			var v InlineResponse40019
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1569,7 +1842,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40118
+			var v InlineResponse40119
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1589,7 +1862,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40318
+			var v InlineResponse40319
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1652,7 +1925,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiL
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1663,13 +1936,13 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiL
 }
 
 type ApiListXRPRippleTransactionsByBlockHeightRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *XRPRippleApiService
 	network string
-	blockHeight int32
+	blockHeight int64
 	context *string
-	limit *int32
-	offset *int32
+	limit *int64
+	offset *int64
 }
 
 // In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
@@ -1677,18 +1950,20 @@ func (r ApiListXRPRippleTransactionsByBlockHeightRequest) Context(context string
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
-func (r ApiListXRPRippleTransactionsByBlockHeightRequest) Limit(limit int32) ApiListXRPRippleTransactionsByBlockHeightRequest {
+func (r ApiListXRPRippleTransactionsByBlockHeightRequest) Limit(limit int64) ApiListXRPRippleTransactionsByBlockHeightRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
-func (r ApiListXRPRippleTransactionsByBlockHeightRequest) Offset(offset int32) ApiListXRPRippleTransactionsByBlockHeightRequest {
+func (r ApiListXRPRippleTransactionsByBlockHeightRequest) Offset(offset int64) ApiListXRPRippleTransactionsByBlockHeightRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListXRPRippleTransactionsByBlockHeightRequest) Execute() (ListXRPRippleTransactionsByBlockHeightR, *_nethttp.Response, error) {
+func (r ApiListXRPRippleTransactionsByBlockHeightRequest) Execute() (*ListXRPRippleTransactionsByBlockHeightR, *http.Response, error) {
 	return r.ApiService.ListXRPRippleTransactionsByBlockHeightExecute(r)
 }
 
@@ -1699,12 +1974,12 @@ This endpoint will list transactions by an attribute `blockHeight`. The transact
 
 Since XRP is a different blockchain than Bitcoin and Ethereum, it isn't unified.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param blockHeight
  @return ApiListXRPRippleTransactionsByBlockHeightRequest
 */
-func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeight(ctx _context.Context, network string, blockHeight int32) ApiListXRPRippleTransactionsByBlockHeightRequest {
+func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeight(ctx context.Context, network string, blockHeight int64) ApiListXRPRippleTransactionsByBlockHeightRequest {
 	return ApiListXRPRippleTransactionsByBlockHeightRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1715,26 +1990,26 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeight(ctx _contex
 
 // Execute executes the request
 //  @return ListXRPRippleTransactionsByBlockHeightR
-func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeightExecute(r ApiListXRPRippleTransactionsByBlockHeightRequest) (ListXRPRippleTransactionsByBlockHeightR, *_nethttp.Response, error) {
+func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeightExecute(r ApiListXRPRippleTransactionsByBlockHeightRequest) (*ListXRPRippleTransactionsByBlockHeightR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListXRPRippleTransactionsByBlockHeightR
+		localVarReturnValue  *ListXRPRippleTransactionsByBlockHeightR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "XRPRippleApiService.ListXRPRippleTransactionsByBlockHeight")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/xrp-specific/{network}/blocks/height/{blockHeight}/transactions"
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", _neturl.PathEscape(parameterToString(r.blockHeight, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockHeight"+"}", url.PathEscape(parameterToString(r.blockHeight, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1786,20 +2061,20 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeightExecute(r Ap
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40023
+			var v InlineResponse40024
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1809,7 +2084,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeightExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40123
+			var v InlineResponse40124
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1829,7 +2104,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeightExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40323
+			var v InlineResponse40324
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1892,7 +2167,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeightExecute(r Ap
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

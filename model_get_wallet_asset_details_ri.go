@@ -67,7 +67,7 @@ func (o *GetWalletAssetDetailsRI) GetConfirmedBalance() GetWalletAssetDetailsRIC
 // GetConfirmedBalanceOk returns a tuple with the ConfirmedBalance field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletAssetDetailsRI) GetConfirmedBalanceOk() (*GetWalletAssetDetailsRIConfirmedBalance, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConfirmedBalance, true
@@ -91,7 +91,7 @@ func (o *GetWalletAssetDetailsRI) GetDepositAddressesCount() int32 {
 // GetDepositAddressesCountOk returns a tuple with the DepositAddressesCount field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletAssetDetailsRI) GetDepositAddressesCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DepositAddressesCount, true
@@ -114,11 +114,11 @@ func (o *GetWalletAssetDetailsRI) GetFungibleTokens() []GetWalletAssetDetailsRIF
 
 // GetFungibleTokensOk returns a tuple with the FungibleTokens field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletAssetDetailsRI) GetFungibleTokensOk() (*[]GetWalletAssetDetailsRIFungibleTokens, bool) {
-	if o == nil  {
+func (o *GetWalletAssetDetailsRI) GetFungibleTokensOk() ([]GetWalletAssetDetailsRIFungibleTokens, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.FungibleTokens, true
+	return o.FungibleTokens, true
 }
 
 // SetFungibleTokens sets field value
@@ -139,7 +139,7 @@ func (o *GetWalletAssetDetailsRI) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletAssetDetailsRI) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -162,11 +162,11 @@ func (o *GetWalletAssetDetailsRI) GetNonFungibleTokens() []GetWalletAssetDetails
 
 // GetNonFungibleTokensOk returns a tuple with the NonFungibleTokens field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletAssetDetailsRI) GetNonFungibleTokensOk() (*[]GetWalletAssetDetailsRINonFungibleTokens, bool) {
-	if o == nil  {
+func (o *GetWalletAssetDetailsRI) GetNonFungibleTokensOk() ([]GetWalletAssetDetailsRINonFungibleTokens, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.NonFungibleTokens, true
+	return o.NonFungibleTokens, true
 }
 
 // SetNonFungibleTokens sets field value
@@ -187,7 +187,7 @@ func (o *GetWalletAssetDetailsRI) GetRecievedConfirmedAmount() GetWalletAssetDet
 // GetRecievedConfirmedAmountOk returns a tuple with the RecievedConfirmedAmount field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletAssetDetailsRI) GetRecievedConfirmedAmountOk() (*GetWalletAssetDetailsRIRecievedConfirmedAmount, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RecievedConfirmedAmount, true
@@ -211,7 +211,7 @@ func (o *GetWalletAssetDetailsRI) GetSentConfirmedAmount() GetWalletAssetDetails
 // GetSentConfirmedAmountOk returns a tuple with the SentConfirmedAmount field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletAssetDetailsRI) GetSentConfirmedAmountOk() (*GetWalletAssetDetailsRISentConfirmedAmount, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SentConfirmedAmount, true

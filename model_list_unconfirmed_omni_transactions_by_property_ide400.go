@@ -25,17 +25,23 @@ type ListUnconfirmedOmniTransactionsByPropertyIDE400 struct {
 
 // InvalidPaginationAsListUnconfirmedOmniTransactionsByPropertyIDE400 is a convenience function that returns InvalidPagination wrapped in ListUnconfirmedOmniTransactionsByPropertyIDE400
 func InvalidPaginationAsListUnconfirmedOmniTransactionsByPropertyIDE400(v *InvalidPagination) ListUnconfirmedOmniTransactionsByPropertyIDE400 {
-	return ListUnconfirmedOmniTransactionsByPropertyIDE400{ InvalidPagination: v}
+	return ListUnconfirmedOmniTransactionsByPropertyIDE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsListUnconfirmedOmniTransactionsByPropertyIDE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in ListUnconfirmedOmniTransactionsByPropertyIDE400
 func LimitGreaterThanAllowedAsListUnconfirmedOmniTransactionsByPropertyIDE400(v *LimitGreaterThanAllowed) ListUnconfirmedOmniTransactionsByPropertyIDE400 {
-	return ListUnconfirmedOmniTransactionsByPropertyIDE400{ LimitGreaterThanAllowed: v}
+	return ListUnconfirmedOmniTransactionsByPropertyIDE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsListUnconfirmedOmniTransactionsByPropertyIDE400 is a convenience function that returns UriNotFound wrapped in ListUnconfirmedOmniTransactionsByPropertyIDE400
 func UriNotFoundAsListUnconfirmedOmniTransactionsByPropertyIDE400(v *UriNotFound) ListUnconfirmedOmniTransactionsByPropertyIDE400 {
-	return ListUnconfirmedOmniTransactionsByPropertyIDE400{ UriNotFound: v}
+	return ListUnconfirmedOmniTransactionsByPropertyIDE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *ListUnconfirmedOmniTransactionsByPropertyIDE400) UnmarshalJSON(data [
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *ListUnconfirmedOmniTransactionsByPropertyIDE400) UnmarshalJSON(data [
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *ListUnconfirmedOmniTransactionsByPropertyIDE400) UnmarshalJSON(data [
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src ListUnconfirmedOmniTransactionsByPropertyIDE400) MarshalJSON() ([]byte
 
 // Get the actual instance
 func (obj *ListUnconfirmedOmniTransactionsByPropertyIDE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

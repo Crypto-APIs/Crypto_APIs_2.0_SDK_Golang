@@ -61,7 +61,7 @@ func (o *ListWalletTransactionsRIFee) GetAmount() string {
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRIFee) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -85,7 +85,7 @@ func (o *ListWalletTransactionsRIFee) GetConvertedAmount() string {
 // GetConvertedAmountOk returns a tuple with the ConvertedAmount field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRIFee) GetConvertedAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConvertedAmount, true
@@ -109,7 +109,7 @@ func (o *ListWalletTransactionsRIFee) GetExchangeRateUnit() string {
 // GetExchangeRateUnitOk returns a tuple with the ExchangeRateUnit field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRIFee) GetExchangeRateUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExchangeRateUnit, true
@@ -133,7 +133,7 @@ func (o *ListWalletTransactionsRIFee) GetSymbol() string {
 // GetSymbolOk returns a tuple with the Symbol field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRIFee) GetSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Symbol, true

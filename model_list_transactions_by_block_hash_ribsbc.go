@@ -18,7 +18,7 @@ import (
 // ListTransactionsByBlockHashRIBSBC Bitcoin Cash
 type ListTransactionsByBlockHashRIBSBC struct {
 	// Represents the time at which a particular transaction can be added to the blockchain.
-	Locktime int32 `json:"locktime"`
+	Locktime int64 `json:"locktime"`
 	// Represents the total size of this transaction.
 	Size int32 `json:"size"`
 	// Represents transaction version number.
@@ -33,7 +33,7 @@ type ListTransactionsByBlockHashRIBSBC struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListTransactionsByBlockHashRIBSBC(locktime int32, size int32, version int32, vin []ListTransactionsByBlockHashRIBSBCVin, vout []ListTransactionsByBlockHashRIBSBCVout) *ListTransactionsByBlockHashRIBSBC {
+func NewListTransactionsByBlockHashRIBSBC(locktime int64, size int32, version int32, vin []ListTransactionsByBlockHashRIBSBCVin, vout []ListTransactionsByBlockHashRIBSBCVout) *ListTransactionsByBlockHashRIBSBC {
 	this := ListTransactionsByBlockHashRIBSBC{}
 	this.Locktime = locktime
 	this.Size = size
@@ -52,9 +52,9 @@ func NewListTransactionsByBlockHashRIBSBCWithDefaults() *ListTransactionsByBlock
 }
 
 // GetLocktime returns the Locktime field value
-func (o *ListTransactionsByBlockHashRIBSBC) GetLocktime() int32 {
+func (o *ListTransactionsByBlockHashRIBSBC) GetLocktime() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -63,15 +63,15 @@ func (o *ListTransactionsByBlockHashRIBSBC) GetLocktime() int32 {
 
 // GetLocktimeOk returns a tuple with the Locktime field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSBC) GetLocktimeOk() (*int32, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHashRIBSBC) GetLocktimeOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Locktime, true
 }
 
 // SetLocktime sets field value
-func (o *ListTransactionsByBlockHashRIBSBC) SetLocktime(v int32) {
+func (o *ListTransactionsByBlockHashRIBSBC) SetLocktime(v int64) {
 	o.Locktime = v
 }
 
@@ -88,7 +88,7 @@ func (o *ListTransactionsByBlockHashRIBSBC) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSBC) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -112,7 +112,7 @@ func (o *ListTransactionsByBlockHashRIBSBC) GetVersion() int32 {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSBC) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -135,11 +135,11 @@ func (o *ListTransactionsByBlockHashRIBSBC) GetVin() []ListTransactionsByBlockHa
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSBC) GetVinOk() (*[]ListTransactionsByBlockHashRIBSBCVin, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHashRIBSBC) GetVinOk() ([]ListTransactionsByBlockHashRIBSBCVin, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vin, true
+	return o.Vin, true
 }
 
 // SetVin sets field value
@@ -159,11 +159,11 @@ func (o *ListTransactionsByBlockHashRIBSBC) GetVout() []ListTransactionsByBlockH
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSBC) GetVoutOk() (*[]ListTransactionsByBlockHashRIBSBCVout, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHashRIBSBC) GetVoutOk() ([]ListTransactionsByBlockHashRIBSBCVout, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vout, true
+	return o.Vout, true
 }
 
 // SetVout sets field value

@@ -25,17 +25,23 @@ type GetLastMinedBlockE400 struct {
 
 // InvalidPaginationAsGetLastMinedBlockE400 is a convenience function that returns InvalidPagination wrapped in GetLastMinedBlockE400
 func InvalidPaginationAsGetLastMinedBlockE400(v *InvalidPagination) GetLastMinedBlockE400 {
-	return GetLastMinedBlockE400{ InvalidPagination: v}
+	return GetLastMinedBlockE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsGetLastMinedBlockE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in GetLastMinedBlockE400
 func LimitGreaterThanAllowedAsGetLastMinedBlockE400(v *LimitGreaterThanAllowed) GetLastMinedBlockE400 {
-	return GetLastMinedBlockE400{ LimitGreaterThanAllowed: v}
+	return GetLastMinedBlockE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsGetLastMinedBlockE400 is a convenience function that returns UriNotFound wrapped in GetLastMinedBlockE400
 func UriNotFoundAsGetLastMinedBlockE400(v *UriNotFound) GetLastMinedBlockE400 {
-	return GetLastMinedBlockE400{ UriNotFound: v}
+	return GetLastMinedBlockE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *GetLastMinedBlockE400) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *GetLastMinedBlockE400) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *GetLastMinedBlockE400) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src GetLastMinedBlockE400) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetLastMinedBlockE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

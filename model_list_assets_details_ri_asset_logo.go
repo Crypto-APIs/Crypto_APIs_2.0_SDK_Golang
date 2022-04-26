@@ -58,7 +58,7 @@ func (o *ListAssetsDetailsRIAssetLogo) GetEncoding() string {
 // GetEncodingOk returns a tuple with the Encoding field value
 // and a boolean to check if the value has been set.
 func (o *ListAssetsDetailsRIAssetLogo) GetEncodingOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Encoding, true
@@ -82,7 +82,7 @@ func (o *ListAssetsDetailsRIAssetLogo) GetImageData() string {
 // GetImageDataOk returns a tuple with the ImageData field value
 // and a boolean to check if the value has been set.
 func (o *ListAssetsDetailsRIAssetLogo) GetImageDataOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ImageData, true
@@ -106,7 +106,7 @@ func (o *ListAssetsDetailsRIAssetLogo) GetMimeType() string {
 // GetMimeTypeOk returns a tuple with the MimeType field value
 // and a boolean to check if the value has been set.
 func (o *ListAssetsDetailsRIAssetLogo) GetMimeTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MimeType, true

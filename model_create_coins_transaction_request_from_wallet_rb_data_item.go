@@ -19,7 +19,7 @@ import (
 type CreateCoinsTransactionRequestFromWalletRBDataItem struct {
 	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
 	CallbackSecretKey *string `json:"callbackSecretKey,omitempty"`
-	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 	CallbackUrl *string `json:"callbackUrl,omitempty"`
 	// Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
 	FeePriority string `json:"feePriority"`
@@ -131,7 +131,7 @@ func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetFeePriority() str
 // GetFeePriorityOk returns a tuple with the FeePriority field value
 // and a boolean to check if the value has been set.
 func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetFeePriorityOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FeePriority, true
@@ -218,11 +218,11 @@ func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipients() []Cr
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipientsOk() (*[]CreateCoinsTransactionRequestFromWalletRBDataItemRecipients, bool) {
-	if o == nil  {
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipientsOk() ([]CreateCoinsTransactionRequestFromWalletRBDataItemRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value

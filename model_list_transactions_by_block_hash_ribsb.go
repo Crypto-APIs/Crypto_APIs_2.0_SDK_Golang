@@ -18,7 +18,7 @@ import (
 // ListTransactionsByBlockHashRIBSB Bitcoin
 type ListTransactionsByBlockHashRIBSB struct {
 	// Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
-	Locktime int32 `json:"locktime"`
+	Locktime int64 `json:"locktime"`
 	// Represents the total size of this transaction.
 	Size int32 `json:"size"`
 	// Represents the virtual size of this transaction.
@@ -35,7 +35,7 @@ type ListTransactionsByBlockHashRIBSB struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListTransactionsByBlockHashRIBSB(locktime int32, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHashRIBSBVin, vout []ListTransactionsByBlockHashRIBSBVout) *ListTransactionsByBlockHashRIBSB {
+func NewListTransactionsByBlockHashRIBSB(locktime int64, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHashRIBSBVin, vout []ListTransactionsByBlockHashRIBSBVout) *ListTransactionsByBlockHashRIBSB {
 	this := ListTransactionsByBlockHashRIBSB{}
 	this.Locktime = locktime
 	this.Size = size
@@ -55,9 +55,9 @@ func NewListTransactionsByBlockHashRIBSBWithDefaults() *ListTransactionsByBlockH
 }
 
 // GetLocktime returns the Locktime field value
-func (o *ListTransactionsByBlockHashRIBSB) GetLocktime() int32 {
+func (o *ListTransactionsByBlockHashRIBSB) GetLocktime() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -66,15 +66,15 @@ func (o *ListTransactionsByBlockHashRIBSB) GetLocktime() int32 {
 
 // GetLocktimeOk returns a tuple with the Locktime field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSB) GetLocktimeOk() (*int32, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHashRIBSB) GetLocktimeOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Locktime, true
 }
 
 // SetLocktime sets field value
-func (o *ListTransactionsByBlockHashRIBSB) SetLocktime(v int32) {
+func (o *ListTransactionsByBlockHashRIBSB) SetLocktime(v int64) {
 	o.Locktime = v
 }
 
@@ -91,7 +91,7 @@ func (o *ListTransactionsByBlockHashRIBSB) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSB) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -115,7 +115,7 @@ func (o *ListTransactionsByBlockHashRIBSB) GetVSize() int32 {
 // GetVSizeOk returns a tuple with the VSize field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSB) GetVSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VSize, true
@@ -139,7 +139,7 @@ func (o *ListTransactionsByBlockHashRIBSB) GetVersion() int32 {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRIBSB) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -162,11 +162,11 @@ func (o *ListTransactionsByBlockHashRIBSB) GetVin() []ListTransactionsByBlockHas
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSB) GetVinOk() (*[]ListTransactionsByBlockHashRIBSBVin, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHashRIBSB) GetVinOk() ([]ListTransactionsByBlockHashRIBSBVin, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vin, true
+	return o.Vin, true
 }
 
 // SetVin sets field value
@@ -186,11 +186,11 @@ func (o *ListTransactionsByBlockHashRIBSB) GetVout() []ListTransactionsByBlockHa
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSB) GetVoutOk() (*[]ListTransactionsByBlockHashRIBSBVout, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHashRIBSB) GetVoutOk() ([]ListTransactionsByBlockHashRIBSBVout, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vout, true
+	return o.Vout, true
 }
 
 // SetVout sets field value

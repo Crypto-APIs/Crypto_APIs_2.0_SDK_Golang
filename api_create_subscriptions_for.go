@@ -13,23 +13,19 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // CreateSubscriptionsForApiService CreateSubscriptionsForApi service
 type CreateSubscriptionsForApiService service
 
 type ApiMinedTransactionRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CreateSubscriptionsForApiService
 	blockchain string
 	network string
@@ -42,12 +38,13 @@ func (r ApiMinedTransactionRequest) Context(context string) ApiMinedTransactionR
 	r.context = &context
 	return r
 }
+
 func (r ApiMinedTransactionRequest) MinedTransactionRB(minedTransactionRB MinedTransactionRB) ApiMinedTransactionRequest {
 	r.minedTransactionRB = &minedTransactionRB
 	return r
 }
 
-func (r ApiMinedTransactionRequest) Execute() (MinedTransactionR, *_nethttp.Response, error) {
+func (r ApiMinedTransactionRequest) Execute() (*MinedTransactionR, *http.Response, error) {
 	return r.ApiService.MinedTransactionExecute(r)
 }
 
@@ -62,12 +59,12 @@ A transaction is mined when it is included in a new block in the blockchain.
 
 {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiMinedTransactionRequest
 */
-func (a *CreateSubscriptionsForApiService) MinedTransaction(ctx _context.Context, blockchain string, network string) ApiMinedTransactionRequest {
+func (a *CreateSubscriptionsForApiService) MinedTransaction(ctx context.Context, blockchain string, network string) ApiMinedTransactionRequest {
 	return ApiMinedTransactionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -78,26 +75,26 @@ func (a *CreateSubscriptionsForApiService) MinedTransaction(ctx _context.Context
 
 // Execute executes the request
 //  @return MinedTransactionR
-func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTransactionRequest) (MinedTransactionR, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTransactionRequest) (*MinedTransactionR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  MinedTransactionR
+		localVarReturnValue  *MinedTransactionR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.MinedTransaction")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions/transaction-mined"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -145,20 +142,20 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40064
+			var v InlineResponse40077
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -168,7 +165,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40164
+			var v InlineResponse40177
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -188,7 +185,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40364
+			var v InlineResponse40377
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -251,7 +248,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -262,7 +259,7 @@ func (a *CreateSubscriptionsForApiService) MinedTransactionExecute(r ApiMinedTra
 }
 
 type ApiNewBlockRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CreateSubscriptionsForApiService
 	blockchain string
 	network string
@@ -275,12 +272,13 @@ func (r ApiNewBlockRequest) Context(context string) ApiNewBlockRequest {
 	r.context = &context
 	return r
 }
+
 func (r ApiNewBlockRequest) NewBlockRB(newBlockRB NewBlockRB) ApiNewBlockRequest {
 	r.newBlockRB = &newBlockRB
 	return r
 }
 
-func (r ApiNewBlockRequest) Execute() (NewBlockR, *_nethttp.Response, error) {
+func (r ApiNewBlockRequest) Execute() (*NewBlockR, *http.Response, error) {
 	return r.ApiService.NewBlockExecute(r)
 }
 
@@ -295,12 +293,12 @@ A new block is mined when it is added to the chain once a consensus is reached b
 
 {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiNewBlockRequest
 */
-func (a *CreateSubscriptionsForApiService) NewBlock(ctx _context.Context, blockchain string, network string) ApiNewBlockRequest {
+func (a *CreateSubscriptionsForApiService) NewBlock(ctx context.Context, blockchain string, network string) ApiNewBlockRequest {
 	return ApiNewBlockRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -311,26 +309,26 @@ func (a *CreateSubscriptionsForApiService) NewBlock(ctx _context.Context, blockc
 
 // Execute executes the request
 //  @return NewBlockR
-func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest) (NewBlockR, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest) (*NewBlockR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  NewBlockR
+		localVarReturnValue  *NewBlockR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewBlock")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions/block-mined"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -378,20 +376,20 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40065
+			var v InlineResponse40078
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -401,7 +399,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40165
+			var v InlineResponse40178
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -421,7 +419,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40365
+			var v InlineResponse40378
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -484,7 +482,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -495,7 +493,7 @@ func (a *CreateSubscriptionsForApiService) NewBlockExecute(r ApiNewBlockRequest)
 }
 
 type ApiNewConfirmedCoinsTransactionsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CreateSubscriptionsForApiService
 	blockchain string
 	network string
@@ -508,12 +506,13 @@ func (r ApiNewConfirmedCoinsTransactionsRequest) Context(context string) ApiNewC
 	r.context = &context
 	return r
 }
+
 func (r ApiNewConfirmedCoinsTransactionsRequest) NewConfirmedCoinsTransactionsRB(newConfirmedCoinsTransactionsRB NewConfirmedCoinsTransactionsRB) ApiNewConfirmedCoinsTransactionsRequest {
 	r.newConfirmedCoinsTransactionsRB = &newConfirmedCoinsTransactionsRB
 	return r
 }
 
-func (r ApiNewConfirmedCoinsTransactionsRequest) Execute() (NewConfirmedCoinsTransactionsR, *_nethttp.Response, error) {
+func (r ApiNewConfirmedCoinsTransactionsRequest) Execute() (*NewConfirmedCoinsTransactionsR, *http.Response, error) {
 	return r.ApiService.NewConfirmedCoinsTransactionsExecute(r)
 }
 
@@ -530,12 +529,12 @@ Being confirmed means that the transactions are verified by miners and added to 
 
 {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiNewConfirmedCoinsTransactionsRequest
 */
-func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactions(ctx _context.Context, blockchain string, network string) ApiNewConfirmedCoinsTransactionsRequest {
+func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactions(ctx context.Context, blockchain string, network string) ApiNewConfirmedCoinsTransactionsRequest {
 	return ApiNewConfirmedCoinsTransactionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -546,26 +545,26 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactions(ctx _co
 
 // Execute executes the request
 //  @return NewConfirmedCoinsTransactionsR
-func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(r ApiNewConfirmedCoinsTransactionsRequest) (NewConfirmedCoinsTransactionsR, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(r ApiNewConfirmedCoinsTransactionsRequest) (*NewConfirmedCoinsTransactionsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  NewConfirmedCoinsTransactionsR
+		localVarReturnValue  *NewConfirmedCoinsTransactionsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewConfirmedCoinsTransactions")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-confirmed"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -613,20 +612,20 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40060
+			var v InlineResponse40073
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -636,7 +635,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40160
+			var v InlineResponse40173
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -656,7 +655,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40360
+			var v InlineResponse40373
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -719,7 +718,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -730,7 +729,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsExecute(
 }
 
 type ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CreateSubscriptionsForApiService
 	blockchain string
 	network string
@@ -743,12 +742,13 @@ func (r ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest) Context(cont
 	r.context = &context
 	return r
 }
+
 func (r ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest) NewConfirmedCoinsTransactionsAndEachConfirmationRB(newConfirmedCoinsTransactionsAndEachConfirmationRB NewConfirmedCoinsTransactionsAndEachConfirmationRB) ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest {
 	r.newConfirmedCoinsTransactionsAndEachConfirmationRB = &newConfirmedCoinsTransactionsAndEachConfirmationRB
 	return r
 }
 
-func (r ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest) Execute() (NewConfirmedCoinsTransactionsAndEachConfirmationR, *_nethttp.Response, error) {
+func (r ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest) Execute() (*NewConfirmedCoinsTransactionsAndEachConfirmationR, *http.Response, error) {
 	return r.ApiService.NewConfirmedCoinsTransactionsAndEachConfirmationExecute(r)
 }
 
@@ -765,12 +765,12 @@ Being confirmed means that the transactions are verified by miners and added to 
 
 {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest
 */
-func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachConfirmation(ctx _context.Context, blockchain string, network string) ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest {
+func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachConfirmation(ctx context.Context, blockchain string, network string) ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest {
 	return ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -781,26 +781,26 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 
 // Execute executes the request
 //  @return NewConfirmedCoinsTransactionsAndEachConfirmationR
-func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachConfirmationExecute(r ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest) (NewConfirmedCoinsTransactionsAndEachConfirmationR, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachConfirmationExecute(r ApiNewConfirmedCoinsTransactionsAndEachConfirmationRequest) (*NewConfirmedCoinsTransactionsAndEachConfirmationR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  NewConfirmedCoinsTransactionsAndEachConfirmationR
+		localVarReturnValue  *NewConfirmedCoinsTransactionsAndEachConfirmationR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewConfirmedCoinsTransactionsAndEachConfirmation")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-confirmed-each-confirmation"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -848,20 +848,20 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40063
+			var v InlineResponse40076
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -871,7 +871,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40163
+			var v InlineResponse40176
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -891,7 +891,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40363
+			var v InlineResponse40376
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -954,7 +954,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -965,7 +965,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedCoinsTransactionsAndEachC
 }
 
 type ApiNewConfirmedInternalTransactionsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CreateSubscriptionsForApiService
 	blockchain string
 	network string
@@ -978,12 +978,13 @@ func (r ApiNewConfirmedInternalTransactionsRequest) Context(context string) ApiN
 	r.context = &context
 	return r
 }
+
 func (r ApiNewConfirmedInternalTransactionsRequest) NewConfirmedInternalTransactionsRB(newConfirmedInternalTransactionsRB NewConfirmedInternalTransactionsRB) ApiNewConfirmedInternalTransactionsRequest {
 	r.newConfirmedInternalTransactionsRB = &newConfirmedInternalTransactionsRB
 	return r
 }
 
-func (r ApiNewConfirmedInternalTransactionsRequest) Execute() (NewConfirmedInternalTransactionsR, *_nethttp.Response, error) {
+func (r ApiNewConfirmedInternalTransactionsRequest) Execute() (*NewConfirmedInternalTransactionsR, *http.Response, error) {
 	return r.ApiService.NewConfirmedInternalTransactionsExecute(r)
 }
 
@@ -998,12 +999,12 @@ Being confirmed means that the transactions are verified by miners and added to 
 
 {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiNewConfirmedInternalTransactionsRequest
 */
-func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactions(ctx _context.Context, blockchain string, network string) ApiNewConfirmedInternalTransactionsRequest {
+func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactions(ctx context.Context, blockchain string, network string) ApiNewConfirmedInternalTransactionsRequest {
 	return ApiNewConfirmedInternalTransactionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1014,26 +1015,26 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactions(ctx 
 
 // Execute executes the request
 //  @return NewConfirmedInternalTransactionsR
-func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecute(r ApiNewConfirmedInternalTransactionsRequest) (NewConfirmedInternalTransactionsR, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecute(r ApiNewConfirmedInternalTransactionsRequest) (*NewConfirmedInternalTransactionsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  NewConfirmedInternalTransactionsR
+		localVarReturnValue  *NewConfirmedInternalTransactionsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewConfirmedInternalTransactions")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1081,20 +1082,20 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40073
+			var v InlineResponse40087
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1104,7 +1105,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40173
+			var v InlineResponse40187
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1124,7 +1125,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40373
+			var v InlineResponse40387
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1187,7 +1188,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1198,7 +1199,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsExecu
 }
 
 type ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CreateSubscriptionsForApiService
 	blockchain string
 	network string
@@ -1211,12 +1212,13 @@ func (r ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest) Context(c
 	r.context = &context
 	return r
 }
+
 func (r ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest) NewConfirmedInternalTransactionsAndEachConfirmationRB(newConfirmedInternalTransactionsAndEachConfirmationRB NewConfirmedInternalTransactionsAndEachConfirmationRB) ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest {
 	r.newConfirmedInternalTransactionsAndEachConfirmationRB = &newConfirmedInternalTransactionsAndEachConfirmationRB
 	return r
 }
 
-func (r ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest) Execute() (NewConfirmedInternalTransactionsAndEachConfirmationR, *_nethttp.Response, error) {
+func (r ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest) Execute() (*NewConfirmedInternalTransactionsAndEachConfirmationR, *http.Response, error) {
 	return r.ApiService.NewConfirmedInternalTransactionsAndEachConfirmationExecute(r)
 }
 
@@ -1231,12 +1233,12 @@ Being confirmed means that the transactions are verified by miners and added to 
 
 {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest
 */
-func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEachConfirmation(ctx _context.Context, blockchain string, network string) ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest {
+func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEachConfirmation(ctx context.Context, blockchain string, network string) ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest {
 	return ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1247,26 +1249,26 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 
 // Execute executes the request
 //  @return NewConfirmedInternalTransactionsAndEachConfirmationR
-func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEachConfirmationExecute(r ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest) (NewConfirmedInternalTransactionsAndEachConfirmationR, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEachConfirmationExecute(r ApiNewConfirmedInternalTransactionsAndEachConfirmationRequest) (*NewConfirmedInternalTransactionsAndEachConfirmationR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  NewConfirmedInternalTransactionsAndEachConfirmationR
+		localVarReturnValue  *NewConfirmedInternalTransactionsAndEachConfirmationR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewConfirmedInternalTransactionsAndEachConfirmation")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed-each-confirmation"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1314,20 +1316,20 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40074
+			var v InlineResponse40088
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1337,7 +1339,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40174
+			var v InlineResponse40188
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1357,7 +1359,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40374
+			var v InlineResponse40388
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1420,7 +1422,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1431,7 +1433,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedInternalTransactionsAndEa
 }
 
 type ApiNewConfirmedTokensTransactionsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CreateSubscriptionsForApiService
 	blockchain string
 	network string
@@ -1444,12 +1446,13 @@ func (r ApiNewConfirmedTokensTransactionsRequest) Context(context string) ApiNew
 	r.context = &context
 	return r
 }
+
 func (r ApiNewConfirmedTokensTransactionsRequest) NewConfirmedTokensTransactionsRB(newConfirmedTokensTransactionsRB NewConfirmedTokensTransactionsRB) ApiNewConfirmedTokensTransactionsRequest {
 	r.newConfirmedTokensTransactionsRB = &newConfirmedTokensTransactionsRB
 	return r
 }
 
-func (r ApiNewConfirmedTokensTransactionsRequest) Execute() (NewConfirmedTokensTransactionsR, *_nethttp.Response, error) {
+func (r ApiNewConfirmedTokensTransactionsRequest) Execute() (*NewConfirmedTokensTransactionsR, *http.Response, error) {
 	return r.ApiService.NewConfirmedTokensTransactionsExecute(r)
 }
 
@@ -1464,12 +1467,12 @@ Being confirmed means that the transactions are verified by miners and added to 
 
 {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiNewConfirmedTokensTransactionsRequest
 */
-func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactions(ctx _context.Context, blockchain string, network string) ApiNewConfirmedTokensTransactionsRequest {
+func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactions(ctx context.Context, blockchain string, network string) ApiNewConfirmedTokensTransactionsRequest {
 	return ApiNewConfirmedTokensTransactionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1480,26 +1483,26 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactions(ctx _c
 
 // Execute executes the request
 //  @return NewConfirmedTokensTransactionsR
-func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute(r ApiNewConfirmedTokensTransactionsRequest) (NewConfirmedTokensTransactionsR, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute(r ApiNewConfirmedTokensTransactionsRequest) (*NewConfirmedTokensTransactionsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  NewConfirmedTokensTransactionsR
+		localVarReturnValue  *NewConfirmedTokensTransactionsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewConfirmedTokensTransactions")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions/address-tokens-transactions-confirmed"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1547,20 +1550,20 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40061
+			var v InlineResponse40074
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1570,7 +1573,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40161
+			var v InlineResponse40174
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1590,7 +1593,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40361
+			var v InlineResponse40374
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1653,7 +1656,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1664,7 +1667,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsExecute
 }
 
 type ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CreateSubscriptionsForApiService
 	blockchain string
 	network string
@@ -1677,12 +1680,13 @@ func (r ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest) Context(con
 	r.context = &context
 	return r
 }
+
 func (r ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest) NewConfirmedTokensTransactionsAndEachConfirmationRB(newConfirmedTokensTransactionsAndEachConfirmationRB NewConfirmedTokensTransactionsAndEachConfirmationRB) ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest {
 	r.newConfirmedTokensTransactionsAndEachConfirmationRB = &newConfirmedTokensTransactionsAndEachConfirmationRB
 	return r
 }
 
-func (r ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest) Execute() (NewConfirmedTokensTransactionsAndEachConfirmationR, *_nethttp.Response, error) {
+func (r ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest) Execute() (*NewConfirmedTokensTransactionsAndEachConfirmationR, *http.Response, error) {
 	return r.ApiService.NewConfirmedTokensTransactionsAndEachConfirmationExecute(r)
 }
 
@@ -1697,12 +1701,12 @@ Being confirmed means that the transactions are verified by miners and added to 
 
 {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest
 */
-func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEachConfirmation(ctx _context.Context, blockchain string, network string) ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest {
+func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEachConfirmation(ctx context.Context, blockchain string, network string) ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest {
 	return ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1713,26 +1717,26 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 
 // Execute executes the request
 //  @return NewConfirmedTokensTransactionsAndEachConfirmationR
-func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEachConfirmationExecute(r ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest) (NewConfirmedTokensTransactionsAndEachConfirmationR, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEachConfirmationExecute(r ApiNewConfirmedTokensTransactionsAndEachConfirmationRequest) (*NewConfirmedTokensTransactionsAndEachConfirmationR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  NewConfirmedTokensTransactionsAndEachConfirmationR
+		localVarReturnValue  *NewConfirmedTokensTransactionsAndEachConfirmationR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewConfirmedTokensTransactionsAndEachConfirmation")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions/address-tokens-transactions-confirmed-each-confirmation"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1780,20 +1784,20 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40062
+			var v InlineResponse40075
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1803,7 +1807,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40162
+			var v InlineResponse40175
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1823,7 +1827,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40362
+			var v InlineResponse40375
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1886,7 +1890,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1897,7 +1901,7 @@ func (a *CreateSubscriptionsForApiService) NewConfirmedTokensTransactionsAndEach
 }
 
 type ApiNewUnconfirmedCoinsTransactionsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CreateSubscriptionsForApiService
 	blockchain string
 	network string
@@ -1910,12 +1914,13 @@ func (r ApiNewUnconfirmedCoinsTransactionsRequest) Context(context string) ApiNe
 	r.context = &context
 	return r
 }
+
 func (r ApiNewUnconfirmedCoinsTransactionsRequest) NewUnconfirmedCoinsTransactionsRB(newUnconfirmedCoinsTransactionsRB NewUnconfirmedCoinsTransactionsRB) ApiNewUnconfirmedCoinsTransactionsRequest {
 	r.newUnconfirmedCoinsTransactionsRB = &newUnconfirmedCoinsTransactionsRB
 	return r
 }
 
-func (r ApiNewUnconfirmedCoinsTransactionsRequest) Execute() (NewUnconfirmedCoinsTransactionsR, *_nethttp.Response, error) {
+func (r ApiNewUnconfirmedCoinsTransactionsRequest) Execute() (*NewUnconfirmedCoinsTransactionsR, *http.Response, error) {
 	return r.ApiService.NewUnconfirmedCoinsTransactionsExecute(r)
 }
 
@@ -1936,12 +1941,12 @@ Unconfirmed coins transactions remain in the mempool (memory pool) until they ar
 
 {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiNewUnconfirmedCoinsTransactionsRequest
 */
-func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactions(ctx _context.Context, blockchain string, network string) ApiNewUnconfirmedCoinsTransactionsRequest {
+func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactions(ctx context.Context, blockchain string, network string) ApiNewUnconfirmedCoinsTransactionsRequest {
 	return ApiNewUnconfirmedCoinsTransactionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1952,26 +1957,26 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactions(ctx _
 
 // Execute executes the request
 //  @return NewUnconfirmedCoinsTransactionsR
-func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecute(r ApiNewUnconfirmedCoinsTransactionsRequest) (NewUnconfirmedCoinsTransactionsR, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecute(r ApiNewUnconfirmedCoinsTransactionsRequest) (*NewUnconfirmedCoinsTransactionsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  NewUnconfirmedCoinsTransactionsR
+		localVarReturnValue  *NewUnconfirmedCoinsTransactionsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewUnconfirmedCoinsTransactions")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-unconfirmed"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -2019,20 +2024,20 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40058
+			var v InlineResponse40071
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2042,7 +2047,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40158
+			var v InlineResponse40171
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2062,7 +2067,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40358
+			var v InlineResponse40371
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2125,7 +2130,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -2136,7 +2141,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedCoinsTransactionsExecut
 }
 
 type ApiNewUnconfirmedTokensTransactionsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *CreateSubscriptionsForApiService
 	blockchain string
 	network string
@@ -2149,12 +2154,13 @@ func (r ApiNewUnconfirmedTokensTransactionsRequest) Context(context string) ApiN
 	r.context = &context
 	return r
 }
+
 func (r ApiNewUnconfirmedTokensTransactionsRequest) NewUnconfirmedTokensTransactionsRB(newUnconfirmedTokensTransactionsRB NewUnconfirmedTokensTransactionsRB) ApiNewUnconfirmedTokensTransactionsRequest {
 	r.newUnconfirmedTokensTransactionsRB = &newUnconfirmedTokensTransactionsRB
 	return r
 }
 
-func (r ApiNewUnconfirmedTokensTransactionsRequest) Execute() (NewUnconfirmedTokensTransactionsR, *_nethttp.Response, error) {
+func (r ApiNewUnconfirmedTokensTransactionsRequest) Execute() (*NewUnconfirmedTokensTransactionsR, *http.Response, error) {
 	return r.ApiService.NewUnconfirmedTokensTransactionsExecute(r)
 }
 
@@ -2173,12 +2179,12 @@ Unconfirmed tokens transactions remain in the mempool (memory pool) until they a
 
 {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiNewUnconfirmedTokensTransactionsRequest
 */
-func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactions(ctx _context.Context, blockchain string, network string) ApiNewUnconfirmedTokensTransactionsRequest {
+func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactions(ctx context.Context, blockchain string, network string) ApiNewUnconfirmedTokensTransactionsRequest {
 	return ApiNewUnconfirmedTokensTransactionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -2189,26 +2195,26 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactions(ctx 
 
 // Execute executes the request
 //  @return NewUnconfirmedTokensTransactionsR
-func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecute(r ApiNewUnconfirmedTokensTransactionsRequest) (NewUnconfirmedTokensTransactionsR, *_nethttp.Response, error) {
+func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecute(r ApiNewUnconfirmedTokensTransactionsRequest) (*NewUnconfirmedTokensTransactionsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  NewUnconfirmedTokensTransactionsR
+		localVarReturnValue  *NewUnconfirmedTokensTransactionsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "CreateSubscriptionsForApiService.NewUnconfirmedTokensTransactions")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions/address-tokens-transactions-unconfirmed"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -2256,20 +2262,20 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40059
+			var v InlineResponse40072
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2279,7 +2285,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40159
+			var v InlineResponse40172
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2299,7 +2305,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40359
+			var v InlineResponse40372
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2362,7 +2368,7 @@ func (a *CreateSubscriptionsForApiService) NewUnconfirmedTokensTransactionsExecu
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

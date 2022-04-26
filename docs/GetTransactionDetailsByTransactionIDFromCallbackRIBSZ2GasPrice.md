@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | **int32** | Defines the price of the gas. | 
+**Amount** | **int64** | Defines the price of the gas. | 
 **Unit** | **string** | Defines the unit of the gas price amount, e.g. BTC, ETH, XRP. | 
 
 ## Methods
 
 ### NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice
 
-`func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice(amount int32, unit string, ) *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice`
+`func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice(amount int64, unit string, ) *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice`
 
 NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice object
 This constructor will assign default values to properties that have it defined,
@@ -28,20 +28,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAmount
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) GetAmount() int32`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) GetAmount() int64`
 
 GetAmount returns the Amount field if non-nil, zero value otherwise.
 
 ### GetAmountOk
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) GetAmountOk() (*int32, bool)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) GetAmountOk() (*int64, bool)`
 
 GetAmountOk returns a tuple with the Amount field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAmount
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) SetAmount(v int32)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) SetAmount(v int64)`
 
 SetAmount sets Amount field to given value.
 

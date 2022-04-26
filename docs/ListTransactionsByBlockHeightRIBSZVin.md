@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Addresses** | **[]string** |  | 
 **Coinbase** | **string** | Represents the coinbase hex. | 
 **ScriptSig** | [**ListTransactionsByBlockHeightRIBSZScriptSig**](ListTransactionsByBlockHeightRIBSZScriptSig.md) |  | 
-**Sequence** | **int32** | Represents the script sequence number. | 
+**Sequence** | **int64** | Represents the script sequence number. | 
 **Txid** | **string** | Represents the reference transaction identifier. | 
 **Txinwitness** | **[]string** |  | 
 **Value** | **string** | Defines the specific amount. | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewListTransactionsByBlockHeightRIBSZVin
 
-`func NewListTransactionsByBlockHeightRIBSZVin(addresses []string, coinbase string, scriptSig ListTransactionsByBlockHeightRIBSZScriptSig, sequence int32, txid string, txinwitness []string, value string, vout int32, ) *ListTransactionsByBlockHeightRIBSZVin`
+`func NewListTransactionsByBlockHeightRIBSZVin(addresses []string, coinbase string, scriptSig ListTransactionsByBlockHeightRIBSZScriptSig, sequence int64, txid string, txinwitness []string, value string, vout int32, ) *ListTransactionsByBlockHeightRIBSZVin`
 
 NewListTransactionsByBlockHeightRIBSZVin instantiates a new ListTransactionsByBlockHeightRIBSZVin object
 This constructor will assign default values to properties that have it defined,
@@ -94,20 +94,20 @@ SetScriptSig sets ScriptSig field to given value.
 
 ### GetSequence
 
-`func (o *ListTransactionsByBlockHeightRIBSZVin) GetSequence() int32`
+`func (o *ListTransactionsByBlockHeightRIBSZVin) GetSequence() int64`
 
 GetSequence returns the Sequence field if non-nil, zero value otherwise.
 
 ### GetSequenceOk
 
-`func (o *ListTransactionsByBlockHeightRIBSZVin) GetSequenceOk() (*int32, bool)`
+`func (o *ListTransactionsByBlockHeightRIBSZVin) GetSequenceOk() (*int64, bool)`
 
 GetSequenceOk returns a tuple with the Sequence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSequence
 
-`func (o *ListTransactionsByBlockHeightRIBSZVin) SetSequence(v int32)`
+`func (o *ListTransactionsByBlockHeightRIBSZVin) SetSequence(v int64)`
 
 SetSequence sets Sequence field to given value.
 

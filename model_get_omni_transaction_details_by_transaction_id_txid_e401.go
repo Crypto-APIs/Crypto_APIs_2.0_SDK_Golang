@@ -24,12 +24,16 @@ type GetOmniTransactionDetailsByTransactionIDTxidE401 struct {
 
 // InvalidApiKeyAsGetOmniTransactionDetailsByTransactionIDTxidE401 is a convenience function that returns InvalidApiKey wrapped in GetOmniTransactionDetailsByTransactionIDTxidE401
 func InvalidApiKeyAsGetOmniTransactionDetailsByTransactionIDTxidE401(v *InvalidApiKey) GetOmniTransactionDetailsByTransactionIDTxidE401 {
-	return GetOmniTransactionDetailsByTransactionIDTxidE401{ InvalidApiKey: v}
+	return GetOmniTransactionDetailsByTransactionIDTxidE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsGetOmniTransactionDetailsByTransactionIDTxidE401 is a convenience function that returns MissingApiKey wrapped in GetOmniTransactionDetailsByTransactionIDTxidE401
 func MissingApiKeyAsGetOmniTransactionDetailsByTransactionIDTxidE401(v *MissingApiKey) GetOmniTransactionDetailsByTransactionIDTxidE401 {
-	return GetOmniTransactionDetailsByTransactionIDTxidE401{ MissingApiKey: v}
+	return GetOmniTransactionDetailsByTransactionIDTxidE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *GetOmniTransactionDetailsByTransactionIDTxidE401) UnmarshalJSON(data 
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *GetOmniTransactionDetailsByTransactionIDTxidE401) UnmarshalJSON(data 
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src GetOmniTransactionDetailsByTransactionIDTxidE401) MarshalJSON() ([]byt
 
 // Get the actual instance
 func (obj *GetOmniTransactionDetailsByTransactionIDTxidE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

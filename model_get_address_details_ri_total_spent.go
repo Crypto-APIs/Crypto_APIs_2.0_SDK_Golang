@@ -55,7 +55,7 @@ func (o *GetAddressDetailsRITotalSpent) GetAmount() string {
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsRITotalSpent) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -79,7 +79,7 @@ func (o *GetAddressDetailsRITotalSpent) GetUnit() string {
 // GetUnitOk returns a tuple with the Unit field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsRITotalSpent) GetUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Unit, true

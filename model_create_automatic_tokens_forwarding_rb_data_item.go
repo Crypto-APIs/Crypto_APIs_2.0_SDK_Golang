@@ -19,7 +19,7 @@ import (
 type CreateAutomaticTokensForwardingRBDataItem struct {
 	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
 	CallbackSecretKey *string `json:"callbackSecretKey,omitempty"`
-	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 	CallbackUrl string `json:"callbackUrl"`
 	// Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
 	ConfirmationsCount string `json:"confirmationsCount"`
@@ -100,7 +100,7 @@ func (o *CreateAutomaticTokensForwardingRBDataItem) GetCallbackUrl() string {
 // GetCallbackUrlOk returns a tuple with the CallbackUrl field value
 // and a boolean to check if the value has been set.
 func (o *CreateAutomaticTokensForwardingRBDataItem) GetCallbackUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackUrl, true
@@ -124,7 +124,7 @@ func (o *CreateAutomaticTokensForwardingRBDataItem) GetConfirmationsCount() stri
 // GetConfirmationsCountOk returns a tuple with the ConfirmationsCount field value
 // and a boolean to check if the value has been set.
 func (o *CreateAutomaticTokensForwardingRBDataItem) GetConfirmationsCountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConfirmationsCount, true
@@ -148,7 +148,7 @@ func (o *CreateAutomaticTokensForwardingRBDataItem) GetFeePriority() string {
 // GetFeePriorityOk returns a tuple with the FeePriority field value
 // and a boolean to check if the value has been set.
 func (o *CreateAutomaticTokensForwardingRBDataItem) GetFeePriorityOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FeePriority, true
@@ -172,7 +172,7 @@ func (o *CreateAutomaticTokensForwardingRBDataItem) GetMinimumTransferAmount() s
 // GetMinimumTransferAmountOk returns a tuple with the MinimumTransferAmount field value
 // and a boolean to check if the value has been set.
 func (o *CreateAutomaticTokensForwardingRBDataItem) GetMinimumTransferAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinimumTransferAmount, true
@@ -196,7 +196,7 @@ func (o *CreateAutomaticTokensForwardingRBDataItem) GetToAddress() string {
 // GetToAddressOk returns a tuple with the ToAddress field value
 // and a boolean to check if the value has been set.
 func (o *CreateAutomaticTokensForwardingRBDataItem) GetToAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ToAddress, true
@@ -220,7 +220,7 @@ func (o *CreateAutomaticTokensForwardingRBDataItem) GetTokenData() CreateAutomat
 // GetTokenDataOk returns a tuple with the TokenData field value
 // and a boolean to check if the value has been set.
 func (o *CreateAutomaticTokensForwardingRBDataItem) GetTokenDataOk() (*CreateAutomaticTokensForwardingRBTokenData, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenData, true

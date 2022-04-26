@@ -55,7 +55,7 @@ func (o *GetEIP1559FeeRecommendationsRIBaseFeePerGas) GetUnit() string {
 // GetUnitOk returns a tuple with the Unit field value
 // and a boolean to check if the value has been set.
 func (o *GetEIP1559FeeRecommendationsRIBaseFeePerGas) GetUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Unit, true
@@ -79,7 +79,7 @@ func (o *GetEIP1559FeeRecommendationsRIBaseFeePerGas) GetValue() string {
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *GetEIP1559FeeRecommendationsRIBaseFeePerGas) GetValueOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Value, true

@@ -23,14 +23,14 @@ type InlineResponse40365 struct {
 	RequestId string `json:"requestId"`
 	// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.
 	Context *string `json:"context,omitempty"`
-	Error NewBlockE403 `json:"error"`
+	Error GetRawTransactionDataE403 `json:"error"`
 }
 
 // NewInlineResponse40365 instantiates a new InlineResponse40365 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse40365(apiVersion string, requestId string, error_ NewBlockE403) *InlineResponse40365 {
+func NewInlineResponse40365(apiVersion string, requestId string, error_ GetRawTransactionDataE403) *InlineResponse40365 {
 	this := InlineResponse40365{}
 	this.ApiVersion = apiVersion
 	this.RequestId = requestId
@@ -59,7 +59,7 @@ func (o *InlineResponse40365) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40365) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *InlineResponse40365) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40365) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -127,9 +127,9 @@ func (o *InlineResponse40365) SetContext(v string) {
 }
 
 // GetError returns the Error field value
-func (o *InlineResponse40365) GetError() NewBlockE403 {
+func (o *InlineResponse40365) GetError() GetRawTransactionDataE403 {
 	if o == nil {
-		var ret NewBlockE403
+		var ret GetRawTransactionDataE403
 		return ret
 	}
 
@@ -138,15 +138,15 @@ func (o *InlineResponse40365) GetError() NewBlockE403 {
 
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse40365) GetErrorOk() (*NewBlockE403, bool) {
-	if o == nil  {
+func (o *InlineResponse40365) GetErrorOk() (*GetRawTransactionDataE403, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Error, true
 }
 
 // SetError sets field value
-func (o *InlineResponse40365) SetError(v NewBlockE403) {
+func (o *InlineResponse40365) SetError(v GetRawTransactionDataE403) {
 	o.Error = v
 }
 

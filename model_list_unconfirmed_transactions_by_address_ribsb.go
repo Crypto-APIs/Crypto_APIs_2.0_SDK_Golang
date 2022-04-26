@@ -18,7 +18,7 @@ import (
 // ListUnconfirmedTransactionsByAddressRIBSB Bitcoin
 type ListUnconfirmedTransactionsByAddressRIBSB struct {
 	// Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
-	Locktime int32 `json:"locktime"`
+	Locktime int64 `json:"locktime"`
 	// Represents the total size of this transaction.
 	Size int32 `json:"size"`
 	// Defines the transaction's virtual size.
@@ -35,7 +35,7 @@ type ListUnconfirmedTransactionsByAddressRIBSB struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListUnconfirmedTransactionsByAddressRIBSB(locktime int32, size int32, vSize int32, version int32, vin []ListUnconfirmedTransactionsByAddressRIBSBVin, vout []ListUnconfirmedTransactionsByAddressRIBSBVout) *ListUnconfirmedTransactionsByAddressRIBSB {
+func NewListUnconfirmedTransactionsByAddressRIBSB(locktime int64, size int32, vSize int32, version int32, vin []ListUnconfirmedTransactionsByAddressRIBSBVin, vout []ListUnconfirmedTransactionsByAddressRIBSBVout) *ListUnconfirmedTransactionsByAddressRIBSB {
 	this := ListUnconfirmedTransactionsByAddressRIBSB{}
 	this.Locktime = locktime
 	this.Size = size
@@ -55,9 +55,9 @@ func NewListUnconfirmedTransactionsByAddressRIBSBWithDefaults() *ListUnconfirmed
 }
 
 // GetLocktime returns the Locktime field value
-func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetLocktime() int32 {
+func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetLocktime() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -66,15 +66,15 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetLocktime() int32 {
 
 // GetLocktimeOk returns a tuple with the Locktime field value
 // and a boolean to check if the value has been set.
-func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetLocktimeOk() (*int32, bool) {
-	if o == nil  {
+func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetLocktimeOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Locktime, true
 }
 
 // SetLocktime sets field value
-func (o *ListUnconfirmedTransactionsByAddressRIBSB) SetLocktime(v int32) {
+func (o *ListUnconfirmedTransactionsByAddressRIBSB) SetLocktime(v int64) {
 	o.Locktime = v
 }
 
@@ -91,7 +91,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -115,7 +115,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetVSize() int32 {
 // GetVSizeOk returns a tuple with the VSize field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetVSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VSize, true
@@ -139,7 +139,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetVersion() int32 {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -162,11 +162,11 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetVin() []ListUnconfirmedTr
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetVinOk() (*[]ListUnconfirmedTransactionsByAddressRIBSBVin, bool) {
-	if o == nil  {
+func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetVinOk() ([]ListUnconfirmedTransactionsByAddressRIBSBVin, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vin, true
+	return o.Vin, true
 }
 
 // SetVin sets field value
@@ -186,11 +186,11 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetVout() []ListUnconfirmedT
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetVoutOk() (*[]ListUnconfirmedTransactionsByAddressRIBSBVout, bool) {
-	if o == nil  {
+func (o *ListUnconfirmedTransactionsByAddressRIBSB) GetVoutOk() ([]ListUnconfirmedTransactionsByAddressRIBSBVout, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vout, true
+	return o.Vout, true
 }
 
 // SetVout sets field value

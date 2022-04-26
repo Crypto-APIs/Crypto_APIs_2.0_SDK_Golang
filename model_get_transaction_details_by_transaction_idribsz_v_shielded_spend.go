@@ -67,7 +67,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) GetAnchor() st
 // GetAnchorOk returns a tuple with the Anchor field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) GetAnchorOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Anchor, true
@@ -91,7 +91,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) GetCv() string
 // GetCvOk returns a tuple with the Cv field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) GetCvOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Cv, true
@@ -115,7 +115,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) GetNullifier()
 // GetNullifierOk returns a tuple with the Nullifier field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) GetNullifierOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nullifier, true
@@ -139,7 +139,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) GetProof() str
 // GetProofOk returns a tuple with the Proof field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) GetProofOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Proof, true
@@ -163,7 +163,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) GetRk() string
 // GetRkOk returns a tuple with the Rk field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) GetRkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Rk, true
@@ -187,7 +187,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) GetSpendAuthSi
 // GetSpendAuthSigOk returns a tuple with the SpendAuthSig field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) GetSpendAuthSigOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SpendAuthSig, true

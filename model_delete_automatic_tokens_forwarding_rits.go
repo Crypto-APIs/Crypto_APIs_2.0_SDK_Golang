@@ -24,12 +24,16 @@ type DeleteAutomaticTokensForwardingRITS struct {
 
 // DeleteAutomaticTokensForwardingRITSBOTAsDeleteAutomaticTokensForwardingRITS is a convenience function that returns DeleteAutomaticTokensForwardingRITSBOT wrapped in DeleteAutomaticTokensForwardingRITS
 func DeleteAutomaticTokensForwardingRITSBOTAsDeleteAutomaticTokensForwardingRITS(v *DeleteAutomaticTokensForwardingRITSBOT) DeleteAutomaticTokensForwardingRITS {
-	return DeleteAutomaticTokensForwardingRITS{ DeleteAutomaticTokensForwardingRITSBOT: v}
+	return DeleteAutomaticTokensForwardingRITS{
+		DeleteAutomaticTokensForwardingRITSBOT: v,
+	}
 }
 
 // DeleteAutomaticTokensForwardingRITSETAsDeleteAutomaticTokensForwardingRITS is a convenience function that returns DeleteAutomaticTokensForwardingRITSET wrapped in DeleteAutomaticTokensForwardingRITS
 func DeleteAutomaticTokensForwardingRITSETAsDeleteAutomaticTokensForwardingRITS(v *DeleteAutomaticTokensForwardingRITSET) DeleteAutomaticTokensForwardingRITS {
-	return DeleteAutomaticTokensForwardingRITS{ DeleteAutomaticTokensForwardingRITSET: v}
+	return DeleteAutomaticTokensForwardingRITS{
+		DeleteAutomaticTokensForwardingRITSET: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *DeleteAutomaticTokensForwardingRITS) UnmarshalJSON(data []byte) error
 	var err error
 	match := 0
 	// try to unmarshal data into DeleteAutomaticTokensForwardingRITSBOT
-	err = json.Unmarshal(data, &dst.DeleteAutomaticTokensForwardingRITSBOT)
+	err = newStrictDecoder(data).Decode(&dst.DeleteAutomaticTokensForwardingRITSBOT)
 	if err == nil {
 		jsonDeleteAutomaticTokensForwardingRITSBOT, _ := json.Marshal(dst.DeleteAutomaticTokensForwardingRITSBOT)
 		if string(jsonDeleteAutomaticTokensForwardingRITSBOT) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *DeleteAutomaticTokensForwardingRITS) UnmarshalJSON(data []byte) error
 	}
 
 	// try to unmarshal data into DeleteAutomaticTokensForwardingRITSET
-	err = json.Unmarshal(data, &dst.DeleteAutomaticTokensForwardingRITSET)
+	err = newStrictDecoder(data).Decode(&dst.DeleteAutomaticTokensForwardingRITSET)
 	if err == nil {
 		jsonDeleteAutomaticTokensForwardingRITSET, _ := json.Marshal(dst.DeleteAutomaticTokensForwardingRITSET)
 		if string(jsonDeleteAutomaticTokensForwardingRITSET) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src DeleteAutomaticTokensForwardingRITS) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *DeleteAutomaticTokensForwardingRITS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.DeleteAutomaticTokensForwardingRITSBOT != nil {
 		return obj.DeleteAutomaticTokensForwardingRITSBOT
 	}

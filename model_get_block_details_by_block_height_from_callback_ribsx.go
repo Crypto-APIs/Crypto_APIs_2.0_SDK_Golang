@@ -53,7 +53,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSX) GetTotalCoins() GetLates
 // GetTotalCoinsOk returns a tuple with the TotalCoins field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSX) GetTotalCoinsOk() (*GetLatestMinedXRPRippleBlockRITotalCoins, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalCoins, true
@@ -77,7 +77,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSX) GetTotalFees() GetLatest
 // GetTotalFeesOk returns a tuple with the TotalFees field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSX) GetTotalFeesOk() (*GetLatestMinedXRPRippleBlockRITotalFees, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalFees, true

@@ -25,17 +25,23 @@ type ActivateBlockchainEventSubscriptionE400 struct {
 
 // InvalidPaginationAsActivateBlockchainEventSubscriptionE400 is a convenience function that returns InvalidPagination wrapped in ActivateBlockchainEventSubscriptionE400
 func InvalidPaginationAsActivateBlockchainEventSubscriptionE400(v *InvalidPagination) ActivateBlockchainEventSubscriptionE400 {
-	return ActivateBlockchainEventSubscriptionE400{ InvalidPagination: v}
+	return ActivateBlockchainEventSubscriptionE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsActivateBlockchainEventSubscriptionE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in ActivateBlockchainEventSubscriptionE400
 func LimitGreaterThanAllowedAsActivateBlockchainEventSubscriptionE400(v *LimitGreaterThanAllowed) ActivateBlockchainEventSubscriptionE400 {
-	return ActivateBlockchainEventSubscriptionE400{ LimitGreaterThanAllowed: v}
+	return ActivateBlockchainEventSubscriptionE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsActivateBlockchainEventSubscriptionE400 is a convenience function that returns UriNotFound wrapped in ActivateBlockchainEventSubscriptionE400
 func UriNotFoundAsActivateBlockchainEventSubscriptionE400(v *UriNotFound) ActivateBlockchainEventSubscriptionE400 {
-	return ActivateBlockchainEventSubscriptionE400{ UriNotFound: v}
+	return ActivateBlockchainEventSubscriptionE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *ActivateBlockchainEventSubscriptionE400) UnmarshalJSON(data []byte) e
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *ActivateBlockchainEventSubscriptionE400) UnmarshalJSON(data []byte) e
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *ActivateBlockchainEventSubscriptionE400) UnmarshalJSON(data []byte) e
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src ActivateBlockchainEventSubscriptionE400) MarshalJSON() ([]byte, error)
 
 // Get the actual instance
 func (obj *ActivateBlockchainEventSubscriptionE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

@@ -64,7 +64,7 @@ func (o *ListSupportedAssetsRI) GetAssetId() string {
 // GetAssetIdOk returns a tuple with the AssetId field value
 // and a boolean to check if the value has been set.
 func (o *ListSupportedAssetsRI) GetAssetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AssetId, true
@@ -88,7 +88,7 @@ func (o *ListSupportedAssetsRI) GetAssetName() string {
 // GetAssetNameOk returns a tuple with the AssetName field value
 // and a boolean to check if the value has been set.
 func (o *ListSupportedAssetsRI) GetAssetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AssetName, true
@@ -112,7 +112,7 @@ func (o *ListSupportedAssetsRI) GetAssetSymbol() string {
 // GetAssetSymbolOk returns a tuple with the AssetSymbol field value
 // and a boolean to check if the value has been set.
 func (o *ListSupportedAssetsRI) GetAssetSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AssetSymbol, true
@@ -136,7 +136,7 @@ func (o *ListSupportedAssetsRI) GetAssetType() string {
 // GetAssetTypeOk returns a tuple with the AssetType field value
 // and a boolean to check if the value has been set.
 func (o *ListSupportedAssetsRI) GetAssetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AssetType, true
@@ -160,7 +160,7 @@ func (o *ListSupportedAssetsRI) GetOriginalSymbol() string {
 // GetOriginalSymbolOk returns a tuple with the OriginalSymbol field value
 // and a boolean to check if the value has been set.
 func (o *ListSupportedAssetsRI) GetOriginalSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OriginalSymbol, true

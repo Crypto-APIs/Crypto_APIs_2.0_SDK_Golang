@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Locktime** | **int32** | Represents the time at which a particular transaction can be added to the blockchain. | 
+**Locktime** | **int64** | Represents the time at which a particular transaction can be added to the blockchain. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Represents the transaction version number. | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewListTransactionsByBlockHeightRIBSB
 
-`func NewListTransactionsByBlockHeightRIBSB(locktime int32, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHashRIBSBVin, vout []ListTransactionsByBlockHeightRIBSBVout, ) *ListTransactionsByBlockHeightRIBSB`
+`func NewListTransactionsByBlockHeightRIBSB(locktime int64, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHashRIBSBVin, vout []ListTransactionsByBlockHeightRIBSBVout, ) *ListTransactionsByBlockHeightRIBSB`
 
 NewListTransactionsByBlockHeightRIBSB instantiates a new ListTransactionsByBlockHeightRIBSB object
 This constructor will assign default values to properties that have it defined,
@@ -32,20 +32,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetLocktime
 
-`func (o *ListTransactionsByBlockHeightRIBSB) GetLocktime() int32`
+`func (o *ListTransactionsByBlockHeightRIBSB) GetLocktime() int64`
 
 GetLocktime returns the Locktime field if non-nil, zero value otherwise.
 
 ### GetLocktimeOk
 
-`func (o *ListTransactionsByBlockHeightRIBSB) GetLocktimeOk() (*int32, bool)`
+`func (o *ListTransactionsByBlockHeightRIBSB) GetLocktimeOk() (*int64, bool)`
 
 GetLocktimeOk returns a tuple with the Locktime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLocktime
 
-`func (o *ListTransactionsByBlockHeightRIBSB) SetLocktime(v int32)`
+`func (o *ListTransactionsByBlockHeightRIBSB) SetLocktime(v int64)`
 
 SetLocktime sets Locktime field to given value.
 

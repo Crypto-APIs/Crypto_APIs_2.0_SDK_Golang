@@ -24,12 +24,16 @@ type ListZilliqaTransactionsByAddressE401 struct {
 
 // InvalidApiKeyAsListZilliqaTransactionsByAddressE401 is a convenience function that returns InvalidApiKey wrapped in ListZilliqaTransactionsByAddressE401
 func InvalidApiKeyAsListZilliqaTransactionsByAddressE401(v *InvalidApiKey) ListZilliqaTransactionsByAddressE401 {
-	return ListZilliqaTransactionsByAddressE401{ InvalidApiKey: v}
+	return ListZilliqaTransactionsByAddressE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsListZilliqaTransactionsByAddressE401 is a convenience function that returns MissingApiKey wrapped in ListZilliqaTransactionsByAddressE401
 func MissingApiKeyAsListZilliqaTransactionsByAddressE401(v *MissingApiKey) ListZilliqaTransactionsByAddressE401 {
-	return ListZilliqaTransactionsByAddressE401{ MissingApiKey: v}
+	return ListZilliqaTransactionsByAddressE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *ListZilliqaTransactionsByAddressE401) UnmarshalJSON(data []byte) erro
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *ListZilliqaTransactionsByAddressE401) UnmarshalJSON(data []byte) erro
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src ListZilliqaTransactionsByAddressE401) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *ListZilliqaTransactionsByAddressE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

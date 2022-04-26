@@ -23,14 +23,14 @@ type InlineResponse40159 struct {
 	RequestId string `json:"requestId"`
 	// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.
 	Context *string `json:"context,omitempty"`
-	Error NewUnconfirmedTokensTransactionsE401 `json:"error"`
+	Error ListUnspentTransactionOutputsByAddressE401 `json:"error"`
 }
 
 // NewInlineResponse40159 instantiates a new InlineResponse40159 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse40159(apiVersion string, requestId string, error_ NewUnconfirmedTokensTransactionsE401) *InlineResponse40159 {
+func NewInlineResponse40159(apiVersion string, requestId string, error_ ListUnspentTransactionOutputsByAddressE401) *InlineResponse40159 {
 	this := InlineResponse40159{}
 	this.ApiVersion = apiVersion
 	this.RequestId = requestId
@@ -59,7 +59,7 @@ func (o *InlineResponse40159) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40159) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *InlineResponse40159) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40159) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -127,9 +127,9 @@ func (o *InlineResponse40159) SetContext(v string) {
 }
 
 // GetError returns the Error field value
-func (o *InlineResponse40159) GetError() NewUnconfirmedTokensTransactionsE401 {
+func (o *InlineResponse40159) GetError() ListUnspentTransactionOutputsByAddressE401 {
 	if o == nil {
-		var ret NewUnconfirmedTokensTransactionsE401
+		var ret ListUnspentTransactionOutputsByAddressE401
 		return ret
 	}
 
@@ -138,15 +138,15 @@ func (o *InlineResponse40159) GetError() NewUnconfirmedTokensTransactionsE401 {
 
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse40159) GetErrorOk() (*NewUnconfirmedTokensTransactionsE401, bool) {
-	if o == nil  {
+func (o *InlineResponse40159) GetErrorOk() (*ListUnspentTransactionOutputsByAddressE401, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Error, true
 }
 
 // SetError sets field value
-func (o *InlineResponse40159) SetError(v NewUnconfirmedTokensTransactionsE401) {
+func (o *InlineResponse40159) SetError(v ListUnspentTransactionOutputsByAddressE401) {
 	o.Error = v
 }
 

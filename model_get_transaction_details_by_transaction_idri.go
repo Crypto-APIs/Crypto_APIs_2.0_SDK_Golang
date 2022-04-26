@@ -78,7 +78,7 @@ func (o *GetTransactionDetailsByTransactionIDRI) GetIndex() int32 {
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRI) GetIndexOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Index, true
@@ -102,7 +102,7 @@ func (o *GetTransactionDetailsByTransactionIDRI) GetIsConfirmed() bool {
 // GetIsConfirmedOk returns a tuple with the IsConfirmed field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRI) GetIsConfirmedOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsConfirmed, true
@@ -189,11 +189,11 @@ func (o *GetTransactionDetailsByTransactionIDRI) GetRecipients() []GetTransactio
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDRI) GetRecipientsOk() (*[]GetTransactionDetailsByTransactionIDRIRecipients, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDRI) GetRecipientsOk() ([]GetTransactionDetailsByTransactionIDRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -213,11 +213,11 @@ func (o *GetTransactionDetailsByTransactionIDRI) GetSenders() []GetTransactionDe
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDRI) GetSendersOk() (*[]GetTransactionDetailsByTransactionIDRISenders, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDRI) GetSendersOk() ([]GetTransactionDetailsByTransactionIDRISenders, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Senders, true
+	return o.Senders, true
 }
 
 // SetSenders sets field value
@@ -238,7 +238,7 @@ func (o *GetTransactionDetailsByTransactionIDRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -262,7 +262,7 @@ func (o *GetTransactionDetailsByTransactionIDRI) GetTransactionHash() string {
 // GetTransactionHashOk returns a tuple with the TransactionHash field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRI) GetTransactionHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionHash, true
@@ -286,7 +286,7 @@ func (o *GetTransactionDetailsByTransactionIDRI) GetTransactionId() string {
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -310,7 +310,7 @@ func (o *GetTransactionDetailsByTransactionIDRI) GetFee() GetTransactionDetailsB
 // GetFeeOk returns a tuple with the Fee field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRI) GetFeeOk() (*GetTransactionDetailsByTransactionIDRIFee, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fee, true
@@ -334,7 +334,7 @@ func (o *GetTransactionDetailsByTransactionIDRI) GetBlockchainSpecific() GetTran
 // GetBlockchainSpecificOk returns a tuple with the BlockchainSpecific field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRI) GetBlockchainSpecificOk() (*GetTransactionDetailsByTransactionIDRIBS, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockchainSpecific, true

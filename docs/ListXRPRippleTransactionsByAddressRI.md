@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**DestinationTag** | Pointer to **int32** |  | [optional] 
+**DestinationTag** | Pointer to **int64** |  | [optional] 
 **Index** | **int32** | Represents the index position of the transaction in the block. | 
 **MinedInBlockHash** | **string** | Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
 **MinedInBlockHeight** | **int32** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
 **Recipients** | [**[]GetXRPRippleTransactionDetailsByTransactionIDRIRecipients**](GetXRPRippleTransactionDetailsByTransactionIDRIRecipients.md) | Represents an object of addresses that receive the transactions. | 
 **Senders** | [**[]GetXRPRippleTransactionDetailsByTransactionIDRISenders**](GetXRPRippleTransactionDetailsByTransactionIDRISenders.md) | Represents an object of addresses that provide the funds. | 
-**Sequence** | **int32** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
+**Sequence** | **int64** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
 **Status** | **string** | Defines the status of the transaction. | 
 **Timestamp** | **int32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
 **TransactionHash** | **string** | Represents the hash of the XRP transaction. | 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewListXRPRippleTransactionsByAddressRI
 
-`func NewListXRPRippleTransactionsByAddressRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, senders []GetXRPRippleTransactionDetailsByTransactionIDRISenders, sequence int32, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByAddressRIFee, offer ListXRPRippleTransactionsByAddressRIOffer, receive ListXRPRippleTransactionsByAddressRIReceive, value ListXRPRippleTransactionsByAddressRIValue, ) *ListXRPRippleTransactionsByAddressRI`
+`func NewListXRPRippleTransactionsByAddressRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, senders []GetXRPRippleTransactionDetailsByTransactionIDRISenders, sequence int64, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByAddressRIFee, offer ListXRPRippleTransactionsByAddressRIOffer, receive ListXRPRippleTransactionsByAddressRIReceive, value ListXRPRippleTransactionsByAddressRIValue, ) *ListXRPRippleTransactionsByAddressRI`
 
 NewListXRPRippleTransactionsByAddressRI instantiates a new ListXRPRippleTransactionsByAddressRI object
 This constructor will assign default values to properties that have it defined,
@@ -41,20 +41,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetDestinationTag
 
-`func (o *ListXRPRippleTransactionsByAddressRI) GetDestinationTag() int32`
+`func (o *ListXRPRippleTransactionsByAddressRI) GetDestinationTag() int64`
 
 GetDestinationTag returns the DestinationTag field if non-nil, zero value otherwise.
 
 ### GetDestinationTagOk
 
-`func (o *ListXRPRippleTransactionsByAddressRI) GetDestinationTagOk() (*int32, bool)`
+`func (o *ListXRPRippleTransactionsByAddressRI) GetDestinationTagOk() (*int64, bool)`
 
 GetDestinationTagOk returns a tuple with the DestinationTag field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDestinationTag
 
-`func (o *ListXRPRippleTransactionsByAddressRI) SetDestinationTag(v int32)`
+`func (o *ListXRPRippleTransactionsByAddressRI) SetDestinationTag(v int64)`
 
 SetDestinationTag sets DestinationTag field to given value.
 
@@ -166,20 +166,20 @@ SetSenders sets Senders field to given value.
 
 ### GetSequence
 
-`func (o *ListXRPRippleTransactionsByAddressRI) GetSequence() int32`
+`func (o *ListXRPRippleTransactionsByAddressRI) GetSequence() int64`
 
 GetSequence returns the Sequence field if non-nil, zero value otherwise.
 
 ### GetSequenceOk
 
-`func (o *ListXRPRippleTransactionsByAddressRI) GetSequenceOk() (*int32, bool)`
+`func (o *ListXRPRippleTransactionsByAddressRI) GetSequenceOk() (*int64, bool)`
 
 GetSequenceOk returns a tuple with the Sequence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSequence
 
-`func (o *ListXRPRippleTransactionsByAddressRI) SetSequence(v int32)`
+`func (o *ListXRPRippleTransactionsByAddressRI) SetSequence(v int64)`
 
 SetSequence sets Sequence field to given value.
 

@@ -66,7 +66,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSBSC) GetContract() string
 // GetContractOk returns a tuple with the Contract field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSBSC) GetContractOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Contract, true
@@ -90,7 +90,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSBSC) GetGasLimit() string
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSBSC) GetGasLimitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -114,7 +114,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSBSC) GetGasPrice() GetTra
 // GetGasPriceOk returns a tuple with the GasPrice field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSBSC) GetGasPriceOk() (*GetTransactionDetailsByTransactionIDRIBSBSCGasPrice, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasPrice, true
@@ -138,7 +138,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSBSC) GetGasUsed() string 
 // GetGasUsedOk returns a tuple with the GasUsed field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSBSC) GetGasUsedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasUsed, true
@@ -162,7 +162,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSBSC) GetInputData() strin
 // GetInputDataOk returns a tuple with the InputData field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSBSC) GetInputDataOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.InputData, true
@@ -186,7 +186,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSBSC) GetNonce() int32 {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSBSC) GetNonceOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true

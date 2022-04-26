@@ -35,12 +35,12 @@ import (
 func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     addTokensToExistingFromAddressRB := *openapiclient.NewAddTokensToExistingFromAddressRB(*openapiclient.NewAddTokensToExistingFromAddressRBData(*openapiclient.NewAddTokensToExistingFromAddressRBDataItem("https://example.com", int32(3), "standard", "mizRduUBKEbJ6uzYJUegPh78gEGgM3WjAr", "0.00001", "mnumE76iEKN47bUsdni85oped5D1fRwKWi", openapiclient.AddTokensToExistingFromAddressRBTokenData{AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken: openapiclient.NewAddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken(int32(2))}))) // AddTokensToExistingFromAddressRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AutomaticTokensForwardingApi.AddTokensToExistingFromAddress(context.Background(), blockchain, network).Context(context).AddTokensToExistingFromAddressRB(addTokensToExistingFromAddressRB).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutomaticTokensForwardingApi.AddTokensToExistingFromAddress(context.Background(), blockchain, network).Context(context).AddTokensToExistingFromAddressRB(addTokensToExistingFromAddressRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutomaticTokensForwardingApi.AddTokensToExistingFromAddress``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -112,12 +112,12 @@ import (
 func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     createAutomaticTokensForwardingRB := *openapiclient.NewCreateAutomaticTokensForwardingRB(*openapiclient.NewCreateAutomaticTokensForwardingRBData(*openapiclient.NewCreateAutomaticTokensForwardingRBDataItem("https://example.com", "3", "standard", "0.00002", "tb1q54j7qcu7kgsrx87yn0r9zjdvsxrnvxg4qua2z6", openapiclient.CreateAutomaticTokensForwardingRBTokenData{CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken: openapiclient.NewCreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken(int32(31))}))) // CreateAutomaticTokensForwardingRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AutomaticTokensForwardingApi.CreateAutomaticTokensForwarding(context.Background(), blockchain, network).Context(context).CreateAutomaticTokensForwardingRB(createAutomaticTokensForwardingRB).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutomaticTokensForwardingApi.CreateAutomaticTokensForwarding(context.Background(), blockchain, network).Context(context).CreateAutomaticTokensForwardingRB(createAutomaticTokensForwardingRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutomaticTokensForwardingApi.CreateAutomaticTokensForwarding``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -190,11 +190,11 @@ func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     referenceId := "6017dd02a309213863be9e55" // string | Represents a unique ID used to reference the specific callback subscription.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AutomaticTokensForwardingApi.DeleteAutomaticTokensForwarding(context.Background(), blockchain, network, referenceId).Context(context).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutomaticTokensForwardingApi.DeleteAutomaticTokensForwarding(context.Background(), blockchain, network, referenceId).Context(context).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutomaticTokensForwardingApi.DeleteAutomaticTokensForwarding``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -267,11 +267,11 @@ import (
 func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AutomaticTokensForwardingApi.GetFeeAddressDetails(context.Background(), blockchain, network).Context(context).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutomaticTokensForwardingApi.GetFeeAddressDetails(context.Background(), blockchain, network).Context(context).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutomaticTokensForwardingApi.GetFeeAddressDetails``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -342,13 +342,13 @@ import (
 func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     limit := int32(50) // int32 | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
-    offset := int32(10) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
+    offset := int32(0) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AutomaticTokensForwardingApi.ListTokensForwardingAutomations(context.Background(), blockchain, network).Context(context).Limit(limit).Offset(offset).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AutomaticTokensForwardingApi.ListTokensForwardingAutomations(context.Background(), blockchain, network).Context(context).Limit(limit).Offset(offset).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AutomaticTokensForwardingApi.ListTokensForwardingAutomations``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

@@ -13,23 +13,19 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // InternalApiService InternalApi service
 type InternalApiService service
 
 type ApiGetInternalTransactionByTransactionHashAndOperationIdRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *InternalApiService
 	blockchain string
 	network string
@@ -44,7 +40,7 @@ func (r ApiGetInternalTransactionByTransactionHashAndOperationIdRequest) Context
 	return r
 }
 
-func (r ApiGetInternalTransactionByTransactionHashAndOperationIdRequest) Execute() (GetInternalTransactionByTransactionHashAndOperationIdR, *_nethttp.Response, error) {
+func (r ApiGetInternalTransactionByTransactionHashAndOperationIdRequest) Execute() (*GetInternalTransactionByTransactionHashAndOperationIdR, *http.Response, error) {
 	return r.ApiService.GetInternalTransactionByTransactionHashAndOperationIdExecute(r)
 }
 
@@ -55,14 +51,14 @@ Through this endpoint customers can obtain detailed information about a specific
 
 An internal transaction is the result of a smart contract being triggered by an EOA or a subsequent contract call.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param operationId Represents the unique internal transaction ID in regards to the parent transaction (type trace address).
  @param transactionHash String identifier of the parent transaction of the internal transaction represented in CryptoAPIs.
  @return ApiGetInternalTransactionByTransactionHashAndOperationIdRequest
 */
-func (a *InternalApiService) GetInternalTransactionByTransactionHashAndOperationId(ctx _context.Context, blockchain string, network string, operationId string, transactionHash string) ApiGetInternalTransactionByTransactionHashAndOperationIdRequest {
+func (a *InternalApiService) GetInternalTransactionByTransactionHashAndOperationId(ctx context.Context, blockchain string, network string, operationId string, transactionHash string) ApiGetInternalTransactionByTransactionHashAndOperationIdRequest {
 	return ApiGetInternalTransactionByTransactionHashAndOperationIdRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -75,28 +71,28 @@ func (a *InternalApiService) GetInternalTransactionByTransactionHashAndOperation
 
 // Execute executes the request
 //  @return GetInternalTransactionByTransactionHashAndOperationIdR
-func (a *InternalApiService) GetInternalTransactionByTransactionHashAndOperationIdExecute(r ApiGetInternalTransactionByTransactionHashAndOperationIdRequest) (GetInternalTransactionByTransactionHashAndOperationIdR, *_nethttp.Response, error) {
+func (a *InternalApiService) GetInternalTransactionByTransactionHashAndOperationIdExecute(r ApiGetInternalTransactionByTransactionHashAndOperationIdRequest) (*GetInternalTransactionByTransactionHashAndOperationIdR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetInternalTransactionByTransactionHashAndOperationIdR
+		localVarReturnValue  *GetInternalTransactionByTransactionHashAndOperationIdR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InternalApiService.GetInternalTransactionByTransactionHashAndOperationId")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/transactions/{transactionHash}/internal/{operationId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"operationId"+"}", _neturl.PathEscape(parameterToString(r.operationId, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"transactionHash"+"}", _neturl.PathEscape(parameterToString(r.transactionHash, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"operationId"+"}", url.PathEscape(parameterToString(r.operationId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"transactionHash"+"}", url.PathEscape(parameterToString(r.transactionHash, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -142,20 +138,20 @@ func (a *InternalApiService) GetInternalTransactionByTransactionHashAndOperation
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40050
+			var v InlineResponse40054
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -165,7 +161,7 @@ func (a *InternalApiService) GetInternalTransactionByTransactionHashAndOperation
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40150
+			var v InlineResponse40154
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -185,7 +181,7 @@ func (a *InternalApiService) GetInternalTransactionByTransactionHashAndOperation
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40350
+			var v InlineResponse40354
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -258,7 +254,7 @@ func (a *InternalApiService) GetInternalTransactionByTransactionHashAndOperation
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -269,7 +265,7 @@ func (a *InternalApiService) GetInternalTransactionByTransactionHashAndOperation
 }
 
 type ApiListInternalTransactionDetailsByTransactionHashRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *InternalApiService
 	blockchain string
 	network string
@@ -284,18 +280,20 @@ func (r ApiListInternalTransactionDetailsByTransactionHashRequest) Context(conte
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListInternalTransactionDetailsByTransactionHashRequest) Limit(limit int32) ApiListInternalTransactionDetailsByTransactionHashRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListInternalTransactionDetailsByTransactionHashRequest) Offset(offset int32) ApiListInternalTransactionDetailsByTransactionHashRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListInternalTransactionDetailsByTransactionHashRequest) Execute() (ListInternalTransactionDetailsByTransactionHashR, *_nethttp.Response, error) {
+func (r ApiListInternalTransactionDetailsByTransactionHashRequest) Execute() (*ListInternalTransactionDetailsByTransactionHashR, *http.Response, error) {
 	return r.ApiService.ListInternalTransactionDetailsByTransactionHashExecute(r)
 }
 
@@ -306,13 +304,13 @@ Through this endpoint customers can list internal transactions along with their 
 
 An internal transaction is the result of a smart contract being triggered by an EOA or a subsequent contract call.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param transactionHash String identifier of the parent transaction of the internal transaction represented in CryptoAPIs.
  @return ApiListInternalTransactionDetailsByTransactionHashRequest
 */
-func (a *InternalApiService) ListInternalTransactionDetailsByTransactionHash(ctx _context.Context, blockchain string, network string, transactionHash string) ApiListInternalTransactionDetailsByTransactionHashRequest {
+func (a *InternalApiService) ListInternalTransactionDetailsByTransactionHash(ctx context.Context, blockchain string, network string, transactionHash string) ApiListInternalTransactionDetailsByTransactionHashRequest {
 	return ApiListInternalTransactionDetailsByTransactionHashRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -324,27 +322,27 @@ func (a *InternalApiService) ListInternalTransactionDetailsByTransactionHash(ctx
 
 // Execute executes the request
 //  @return ListInternalTransactionDetailsByTransactionHashR
-func (a *InternalApiService) ListInternalTransactionDetailsByTransactionHashExecute(r ApiListInternalTransactionDetailsByTransactionHashRequest) (ListInternalTransactionDetailsByTransactionHashR, *_nethttp.Response, error) {
+func (a *InternalApiService) ListInternalTransactionDetailsByTransactionHashExecute(r ApiListInternalTransactionDetailsByTransactionHashRequest) (*ListInternalTransactionDetailsByTransactionHashR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListInternalTransactionDetailsByTransactionHashR
+		localVarReturnValue  *ListInternalTransactionDetailsByTransactionHashR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InternalApiService.ListInternalTransactionDetailsByTransactionHash")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/transactions/{transactionHash}/internal"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"transactionHash"+"}", _neturl.PathEscape(parameterToString(r.transactionHash, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"transactionHash"+"}", url.PathEscape(parameterToString(r.transactionHash, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -396,20 +394,20 @@ func (a *InternalApiService) ListInternalTransactionDetailsByTransactionHashExec
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40048
+			var v InlineResponse40052
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -419,7 +417,7 @@ func (a *InternalApiService) ListInternalTransactionDetailsByTransactionHashExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40148
+			var v InlineResponse40152
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -439,7 +437,7 @@ func (a *InternalApiService) ListInternalTransactionDetailsByTransactionHashExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40348
+			var v InlineResponse40352
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -502,7 +500,7 @@ func (a *InternalApiService) ListInternalTransactionDetailsByTransactionHashExec
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -513,7 +511,7 @@ func (a *InternalApiService) ListInternalTransactionDetailsByTransactionHashExec
 }
 
 type ApiListInternalTransactionsByAddressRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *InternalApiService
 	blockchain string
 	network string
@@ -528,18 +526,20 @@ func (r ApiListInternalTransactionsByAddressRequest) Context(context string) Api
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListInternalTransactionsByAddressRequest) Limit(limit int32) ApiListInternalTransactionsByAddressRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListInternalTransactionsByAddressRequest) Offset(offset int32) ApiListInternalTransactionsByAddressRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListInternalTransactionsByAddressRequest) Execute() (ListInternalTransactionsByAddressR, *_nethttp.Response, error) {
+func (r ApiListInternalTransactionsByAddressRequest) Execute() (*ListInternalTransactionsByAddressR, *http.Response, error) {
 	return r.ApiService.ListInternalTransactionsByAddressExecute(r)
 }
 
@@ -548,13 +548,13 @@ ListInternalTransactionsByAddress List Internal Transactions By Address
 
 Through this endpoint customers can list internal transactions by the `address` attribute.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param address String identifier of the address document represented in CryptoAPIs
  @return ApiListInternalTransactionsByAddressRequest
 */
-func (a *InternalApiService) ListInternalTransactionsByAddress(ctx _context.Context, blockchain string, network string, address string) ApiListInternalTransactionsByAddressRequest {
+func (a *InternalApiService) ListInternalTransactionsByAddress(ctx context.Context, blockchain string, network string, address string) ApiListInternalTransactionsByAddressRequest {
 	return ApiListInternalTransactionsByAddressRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -566,27 +566,27 @@ func (a *InternalApiService) ListInternalTransactionsByAddress(ctx _context.Cont
 
 // Execute executes the request
 //  @return ListInternalTransactionsByAddressR
-func (a *InternalApiService) ListInternalTransactionsByAddressExecute(r ApiListInternalTransactionsByAddressRequest) (ListInternalTransactionsByAddressR, *_nethttp.Response, error) {
+func (a *InternalApiService) ListInternalTransactionsByAddressExecute(r ApiListInternalTransactionsByAddressRequest) (*ListInternalTransactionsByAddressR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListInternalTransactionsByAddressR
+		localVarReturnValue  *ListInternalTransactionsByAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InternalApiService.ListInternalTransactionsByAddress")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/addresses/{address}/internal"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -638,20 +638,20 @@ func (a *InternalApiService) ListInternalTransactionsByAddressExecute(r ApiListI
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40051
+			var v InlineResponse40056
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -661,7 +661,7 @@ func (a *InternalApiService) ListInternalTransactionsByAddressExecute(r ApiListI
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40151
+			var v InlineResponse40156
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -681,7 +681,7 @@ func (a *InternalApiService) ListInternalTransactionsByAddressExecute(r ApiListI
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40351
+			var v InlineResponse40356
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -744,7 +744,7 @@ func (a *InternalApiService) ListInternalTransactionsByAddressExecute(r ApiListI
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

@@ -25,17 +25,23 @@ type ListUnconfirmedOmniTransactionsByAddressE400 struct {
 
 // InvalidPaginationAsListUnconfirmedOmniTransactionsByAddressE400 is a convenience function that returns InvalidPagination wrapped in ListUnconfirmedOmniTransactionsByAddressE400
 func InvalidPaginationAsListUnconfirmedOmniTransactionsByAddressE400(v *InvalidPagination) ListUnconfirmedOmniTransactionsByAddressE400 {
-	return ListUnconfirmedOmniTransactionsByAddressE400{ InvalidPagination: v}
+	return ListUnconfirmedOmniTransactionsByAddressE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsListUnconfirmedOmniTransactionsByAddressE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in ListUnconfirmedOmniTransactionsByAddressE400
 func LimitGreaterThanAllowedAsListUnconfirmedOmniTransactionsByAddressE400(v *LimitGreaterThanAllowed) ListUnconfirmedOmniTransactionsByAddressE400 {
-	return ListUnconfirmedOmniTransactionsByAddressE400{ LimitGreaterThanAllowed: v}
+	return ListUnconfirmedOmniTransactionsByAddressE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsListUnconfirmedOmniTransactionsByAddressE400 is a convenience function that returns UriNotFound wrapped in ListUnconfirmedOmniTransactionsByAddressE400
 func UriNotFoundAsListUnconfirmedOmniTransactionsByAddressE400(v *UriNotFound) ListUnconfirmedOmniTransactionsByAddressE400 {
-	return ListUnconfirmedOmniTransactionsByAddressE400{ UriNotFound: v}
+	return ListUnconfirmedOmniTransactionsByAddressE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *ListUnconfirmedOmniTransactionsByAddressE400) UnmarshalJSON(data []by
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *ListUnconfirmedOmniTransactionsByAddressE400) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *ListUnconfirmedOmniTransactionsByAddressE400) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src ListUnconfirmedOmniTransactionsByAddressE400) MarshalJSON() ([]byte, e
 
 // Get the actual instance
 func (obj *ListUnconfirmedOmniTransactionsByAddressE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

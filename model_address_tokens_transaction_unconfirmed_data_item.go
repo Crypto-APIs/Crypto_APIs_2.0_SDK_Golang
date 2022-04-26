@@ -72,7 +72,7 @@ func (o *AddressTokensTransactionUnconfirmedDataItem) GetBlockchain() string {
 // GetBlockchainOk returns a tuple with the Blockchain field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionUnconfirmedDataItem) GetBlockchainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Blockchain, true
@@ -96,7 +96,7 @@ func (o *AddressTokensTransactionUnconfirmedDataItem) GetNetwork() string {
 // GetNetworkOk returns a tuple with the Network field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionUnconfirmedDataItem) GetNetworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Network, true
@@ -120,7 +120,7 @@ func (o *AddressTokensTransactionUnconfirmedDataItem) GetAddress() string {
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionUnconfirmedDataItem) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -144,7 +144,7 @@ func (o *AddressTokensTransactionUnconfirmedDataItem) GetTransactionId() string 
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionUnconfirmedDataItem) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -168,7 +168,7 @@ func (o *AddressTokensTransactionUnconfirmedDataItem) GetTokenType() string {
 // GetTokenTypeOk returns a tuple with the TokenType field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionUnconfirmedDataItem) GetTokenTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenType, true
@@ -192,7 +192,7 @@ func (o *AddressTokensTransactionUnconfirmedDataItem) GetToken() AddressTokensTr
 // GetTokenOk returns a tuple with the Token field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionUnconfirmedDataItem) GetTokenOk() (*AddressTokensTransactionUnconfirmedToken, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Token, true
@@ -216,7 +216,7 @@ func (o *AddressTokensTransactionUnconfirmedDataItem) GetDirection() string {
 // GetDirectionOk returns a tuple with the Direction field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionUnconfirmedDataItem) GetDirectionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Direction, true
@@ -240,7 +240,7 @@ func (o *AddressTokensTransactionUnconfirmedDataItem) GetFirstSeenInMempoolTimes
 // GetFirstSeenInMempoolTimestampOk returns a tuple with the FirstSeenInMempoolTimestamp field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionUnconfirmedDataItem) GetFirstSeenInMempoolTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FirstSeenInMempoolTimestamp, true

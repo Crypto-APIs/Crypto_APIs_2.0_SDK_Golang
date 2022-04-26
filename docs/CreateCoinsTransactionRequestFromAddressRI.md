@@ -4,8 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**AddressTag** | Pointer to **int32** | Defines a specific Tag that is an additional XRP address feature. It helps identify a transaction recipient beyond a wallet address. The tag that was encoded into the x-Address along with the Source Classic Address. | [optional] 
 **CallbackSecretKey** | Pointer to **string** | Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security). | [optional] 
-**CallbackUrl** | Pointer to **string** | Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. | [optional] 
+**CallbackUrl** | Pointer to **string** | Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. &#x60;We support ONLY httpS type of protocol&#x60;. | [optional] 
+**ClassicAddress** | Pointer to **string** | Represents the public address, which is a compressed and shortened form of a public key. The classic address is shown when the source address is an x-Address. | [optional] 
 **FeePriority** | **string** | Represents the fee priority of the automation, whether it is \&quot;slow\&quot;, \&quot;standard\&quot; or \&quot;fast\&quot;. | 
 **Note** | Pointer to **string** | Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request. | [optional] 
 **Recipients** | [**[]CreateCoinsTransactionRequestFromAddressRIRecipients**](CreateCoinsTransactionRequestFromAddressRIRecipients.md) | Defines the destination for the transaction, i.e. the recipient(s). | 
@@ -31,6 +33,31 @@ will change when the set of required properties is changed
 NewCreateCoinsTransactionRequestFromAddressRIWithDefaults instantiates a new CreateCoinsTransactionRequestFromAddressRI object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetAddressTag
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) GetAddressTag() int32`
+
+GetAddressTag returns the AddressTag field if non-nil, zero value otherwise.
+
+### GetAddressTagOk
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) GetAddressTagOk() (*int32, bool)`
+
+GetAddressTagOk returns a tuple with the AddressTag field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAddressTag
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) SetAddressTag(v int32)`
+
+SetAddressTag sets AddressTag field to given value.
+
+### HasAddressTag
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) HasAddressTag() bool`
+
+HasAddressTag returns a boolean if a field has been set.
 
 ### GetCallbackSecretKey
 
@@ -81,6 +108,31 @@ SetCallbackUrl sets CallbackUrl field to given value.
 `func (o *CreateCoinsTransactionRequestFromAddressRI) HasCallbackUrl() bool`
 
 HasCallbackUrl returns a boolean if a field has been set.
+
+### GetClassicAddress
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) GetClassicAddress() string`
+
+GetClassicAddress returns the ClassicAddress field if non-nil, zero value otherwise.
+
+### GetClassicAddressOk
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) GetClassicAddressOk() (*string, bool)`
+
+GetClassicAddressOk returns a tuple with the ClassicAddress field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClassicAddress
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) SetClassicAddress(v string)`
+
+SetClassicAddress sets ClassicAddress field to given value.
+
+### HasClassicAddress
+
+`func (o *CreateCoinsTransactionRequestFromAddressRI) HasClassicAddress() bool`
+
+HasClassicAddress returns a boolean if a field has been set.
 
 ### GetFeePriority
 

@@ -18,7 +18,7 @@ import (
 // GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice struct for GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice
 type GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice struct {
 	// Defines the price of the gas.
-	Amount int32 `json:"amount"`
+	Amount int64 `json:"amount"`
 	// Defines the unit of the gas price amount, e.g. BTC, ETH, XRP.
 	Unit string `json:"unit"`
 }
@@ -27,7 +27,7 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice(amount int32, unit string) *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice(amount int64, unit string) *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice{}
 	this.Amount = amount
 	this.Unit = unit
@@ -43,9 +43,9 @@ func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPriceWithDefaul
 }
 
 // GetAmount returns the Amount field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) GetAmount() int32 {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) GetAmount() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -54,15 +54,15 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) GetAmou
 
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) GetAmountOk() (*int32, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) GetAmountOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
 }
 
 // SetAmount sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) SetAmount(v int32) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) SetAmount(v int64) {
 	o.Amount = v
 }
 
@@ -79,7 +79,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) GetUnit
 // GetUnitOk returns a tuple with the Unit field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice) GetUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Unit, true

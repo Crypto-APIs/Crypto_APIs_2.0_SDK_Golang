@@ -61,7 +61,7 @@ func (o *BroadcastTransactionFailDataItem) GetBlockchain() string {
 // GetBlockchainOk returns a tuple with the Blockchain field value
 // and a boolean to check if the value has been set.
 func (o *BroadcastTransactionFailDataItem) GetBlockchainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Blockchain, true
@@ -85,7 +85,7 @@ func (o *BroadcastTransactionFailDataItem) GetNetwork() string {
 // GetNetworkOk returns a tuple with the Network field value
 // and a boolean to check if the value has been set.
 func (o *BroadcastTransactionFailDataItem) GetNetworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Network, true
@@ -109,7 +109,7 @@ func (o *BroadcastTransactionFailDataItem) GetTransactionId() string {
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *BroadcastTransactionFailDataItem) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -133,7 +133,7 @@ func (o *BroadcastTransactionFailDataItem) GetErrorMessage() string {
 // GetErrorMessageOk returns a tuple with the ErrorMessage field value
 // and a boolean to check if the value has been set.
 func (o *BroadcastTransactionFailDataItem) GetErrorMessageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ErrorMessage, true

@@ -64,7 +64,7 @@ func (o *ListTokensByAddressRI) GetConfirmedBalance() string {
 // GetConfirmedBalanceOk returns a tuple with the ConfirmedBalance field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensByAddressRI) GetConfirmedBalanceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConfirmedBalance, true
@@ -88,7 +88,7 @@ func (o *ListTokensByAddressRI) GetContractAddress() string {
 // GetContractAddressOk returns a tuple with the ContractAddress field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensByAddressRI) GetContractAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ContractAddress, true
@@ -112,7 +112,7 @@ func (o *ListTokensByAddressRI) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensByAddressRI) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -136,7 +136,7 @@ func (o *ListTokensByAddressRI) GetSymbol() string {
 // GetSymbolOk returns a tuple with the Symbol field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensByAddressRI) GetSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Symbol, true
@@ -160,7 +160,7 @@ func (o *ListTokensByAddressRI) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *ListTokensByAddressRI) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true

@@ -52,7 +52,7 @@ func (o *CreateAutomaticTokensForwardingRITSBOT) GetPropertyId() int32 {
 // GetPropertyIdOk returns a tuple with the PropertyId field value
 // and a boolean to check if the value has been set.
 func (o *CreateAutomaticTokensForwardingRITSBOT) GetPropertyIdOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PropertyId, true

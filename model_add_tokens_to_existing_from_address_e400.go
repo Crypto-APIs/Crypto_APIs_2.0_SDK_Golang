@@ -25,17 +25,23 @@ type AddTokensToExistingFromAddressE400 struct {
 
 // InvalidPaginationAsAddTokensToExistingFromAddressE400 is a convenience function that returns InvalidPagination wrapped in AddTokensToExistingFromAddressE400
 func InvalidPaginationAsAddTokensToExistingFromAddressE400(v *InvalidPagination) AddTokensToExistingFromAddressE400 {
-	return AddTokensToExistingFromAddressE400{ InvalidPagination: v}
+	return AddTokensToExistingFromAddressE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsAddTokensToExistingFromAddressE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in AddTokensToExistingFromAddressE400
 func LimitGreaterThanAllowedAsAddTokensToExistingFromAddressE400(v *LimitGreaterThanAllowed) AddTokensToExistingFromAddressE400 {
-	return AddTokensToExistingFromAddressE400{ LimitGreaterThanAllowed: v}
+	return AddTokensToExistingFromAddressE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsAddTokensToExistingFromAddressE400 is a convenience function that returns UriNotFound wrapped in AddTokensToExistingFromAddressE400
 func UriNotFoundAsAddTokensToExistingFromAddressE400(v *UriNotFound) AddTokensToExistingFromAddressE400 {
-	return AddTokensToExistingFromAddressE400{ UriNotFound: v}
+	return AddTokensToExistingFromAddressE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *AddTokensToExistingFromAddressE400) UnmarshalJSON(data []byte) error 
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *AddTokensToExistingFromAddressE400) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *AddTokensToExistingFromAddressE400) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src AddTokensToExistingFromAddressE400) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *AddTokensToExistingFromAddressE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

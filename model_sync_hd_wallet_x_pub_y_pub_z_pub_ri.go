@@ -52,7 +52,7 @@ func (o *SyncHDWalletXPubYPubZPubRI) GetExtendedPublicKey() string {
 // GetExtendedPublicKeyOk returns a tuple with the ExtendedPublicKey field value
 // and a boolean to check if the value has been set.
 func (o *SyncHDWalletXPubYPubZPubRI) GetExtendedPublicKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExtendedPublicKey, true

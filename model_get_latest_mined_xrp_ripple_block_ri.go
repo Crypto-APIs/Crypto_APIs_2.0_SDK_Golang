@@ -68,7 +68,7 @@ func (o *GetLatestMinedXRPRippleBlockRI) GetBlockHash() string {
 // GetBlockHashOk returns a tuple with the BlockHash field value
 // and a boolean to check if the value has been set.
 func (o *GetLatestMinedXRPRippleBlockRI) GetBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockHash, true
@@ -92,7 +92,7 @@ func (o *GetLatestMinedXRPRippleBlockRI) GetBlockHeight() int32 {
 // GetBlockHeightOk returns a tuple with the BlockHeight field value
 // and a boolean to check if the value has been set.
 func (o *GetLatestMinedXRPRippleBlockRI) GetBlockHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockHeight, true
@@ -116,7 +116,7 @@ func (o *GetLatestMinedXRPRippleBlockRI) GetPreviousBlockHash() string {
 // GetPreviousBlockHashOk returns a tuple with the PreviousBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *GetLatestMinedXRPRippleBlockRI) GetPreviousBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PreviousBlockHash, true
@@ -140,7 +140,7 @@ func (o *GetLatestMinedXRPRippleBlockRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *GetLatestMinedXRPRippleBlockRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -164,7 +164,7 @@ func (o *GetLatestMinedXRPRippleBlockRI) GetTransactionsCount() int32 {
 // GetTransactionsCountOk returns a tuple with the TransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetLatestMinedXRPRippleBlockRI) GetTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionsCount, true
@@ -188,7 +188,7 @@ func (o *GetLatestMinedXRPRippleBlockRI) GetTotalCoins() GetLatestMinedXRPRipple
 // GetTotalCoinsOk returns a tuple with the TotalCoins field value
 // and a boolean to check if the value has been set.
 func (o *GetLatestMinedXRPRippleBlockRI) GetTotalCoinsOk() (*GetLatestMinedXRPRippleBlockRITotalCoins, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalCoins, true
@@ -212,7 +212,7 @@ func (o *GetLatestMinedXRPRippleBlockRI) GetTotalFees() GetLatestMinedXRPRippleB
 // GetTotalFeesOk returns a tuple with the TotalFees field value
 // and a boolean to check if the value has been set.
 func (o *GetLatestMinedXRPRippleBlockRI) GetTotalFeesOk() (*GetLatestMinedXRPRippleBlockRITotalFees, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalFees, true

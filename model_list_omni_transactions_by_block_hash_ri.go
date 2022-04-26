@@ -93,7 +93,7 @@ func (o *ListOmniTransactionsByBlockHashRI) GetAmount() string {
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTransactionsByBlockHashRI) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -117,7 +117,7 @@ func (o *ListOmniTransactionsByBlockHashRI) GetDivisible() bool {
 // GetDivisibleOk returns a tuple with the Divisible field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTransactionsByBlockHashRI) GetDivisibleOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Divisible, true
@@ -141,7 +141,7 @@ func (o *ListOmniTransactionsByBlockHashRI) GetMinedInBlockHash() string {
 // GetMinedInBlockHashOk returns a tuple with the MinedInBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTransactionsByBlockHashRI) GetMinedInBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHash, true
@@ -165,7 +165,7 @@ func (o *ListOmniTransactionsByBlockHashRI) GetMinedInBlockHeight() int32 {
 // GetMinedInBlockHeightOk returns a tuple with the MinedInBlockHeight field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTransactionsByBlockHashRI) GetMinedInBlockHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHeight, true
@@ -189,7 +189,7 @@ func (o *ListOmniTransactionsByBlockHashRI) GetPositionInBlock() int32 {
 // GetPositionInBlockOk returns a tuple with the PositionInBlock field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTransactionsByBlockHashRI) GetPositionInBlockOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PositionInBlock, true
@@ -213,7 +213,7 @@ func (o *ListOmniTransactionsByBlockHashRI) GetPropertyId() int32 {
 // GetPropertyIdOk returns a tuple with the PropertyId field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTransactionsByBlockHashRI) GetPropertyIdOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PropertyId, true
@@ -236,11 +236,11 @@ func (o *ListOmniTransactionsByBlockHashRI) GetRecipients() []ListOmniTransactio
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListOmniTransactionsByBlockHashRI) GetRecipientsOk() (*[]ListOmniTransactionsByAddressRIRecipients, bool) {
-	if o == nil  {
+func (o *ListOmniTransactionsByBlockHashRI) GetRecipientsOk() ([]ListOmniTransactionsByAddressRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -260,11 +260,11 @@ func (o *ListOmniTransactionsByBlockHashRI) GetSenders() []ListOmniTransactionsB
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListOmniTransactionsByBlockHashRI) GetSendersOk() (*[]ListOmniTransactionsByAddressRISenders, bool) {
-	if o == nil  {
+func (o *ListOmniTransactionsByBlockHashRI) GetSendersOk() ([]ListOmniTransactionsByAddressRISenders, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Senders, true
+	return o.Senders, true
 }
 
 // SetSenders sets field value
@@ -285,7 +285,7 @@ func (o *ListOmniTransactionsByBlockHashRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTransactionsByBlockHashRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -309,7 +309,7 @@ func (o *ListOmniTransactionsByBlockHashRI) GetTransactionId() string {
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTransactionsByBlockHashRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -333,7 +333,7 @@ func (o *ListOmniTransactionsByBlockHashRI) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTransactionsByBlockHashRI) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true
@@ -357,7 +357,7 @@ func (o *ListOmniTransactionsByBlockHashRI) GetTypeInt() int32 {
 // GetTypeIntOk returns a tuple with the TypeInt field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTransactionsByBlockHashRI) GetTypeIntOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TypeInt, true
@@ -381,7 +381,7 @@ func (o *ListOmniTransactionsByBlockHashRI) GetValid() bool {
 // GetValidOk returns a tuple with the Valid field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTransactionsByBlockHashRI) GetValidOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Valid, true
@@ -405,7 +405,7 @@ func (o *ListOmniTransactionsByBlockHashRI) GetVersion() int32 {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTransactionsByBlockHashRI) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -429,7 +429,7 @@ func (o *ListOmniTransactionsByBlockHashRI) GetFee() ListOmniTransactionsByBlock
 // GetFeeOk returns a tuple with the Fee field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTransactionsByBlockHashRI) GetFeeOk() (*ListOmniTransactionsByBlockHashRIFee, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fee, true

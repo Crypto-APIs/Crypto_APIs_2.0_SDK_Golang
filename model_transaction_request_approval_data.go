@@ -57,7 +57,7 @@ func (o *TransactionRequestApprovalData) GetProduct() string {
 // GetProductOk returns a tuple with the Product field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestApprovalData) GetProductOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Product, true
@@ -81,7 +81,7 @@ func (o *TransactionRequestApprovalData) GetEvent() string {
 // GetEventOk returns a tuple with the Event field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestApprovalData) GetEventOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Event, true
@@ -105,7 +105,7 @@ func (o *TransactionRequestApprovalData) GetItem() TransactionRequestApprovalDat
 // GetItemOk returns a tuple with the Item field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestApprovalData) GetItemOk() (*TransactionRequestApprovalDataItem, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Item, true

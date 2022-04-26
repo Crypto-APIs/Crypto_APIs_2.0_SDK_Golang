@@ -76,7 +76,7 @@ func (o *GetBlockDetailsByBlockHashRIBSD) GetDifficulty() string {
 // GetDifficultyOk returns a tuple with the Difficulty field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSD) GetDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Difficulty, true
@@ -100,7 +100,7 @@ func (o *GetBlockDetailsByBlockHashRIBSD) GetNonce() string {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSD) GetNonceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -124,7 +124,7 @@ func (o *GetBlockDetailsByBlockHashRIBSD) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSD) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -148,7 +148,7 @@ func (o *GetBlockDetailsByBlockHashRIBSD) GetBits() string {
 // GetBitsOk returns a tuple with the Bits field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSD) GetBitsOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Bits, true
@@ -172,7 +172,7 @@ func (o *GetBlockDetailsByBlockHashRIBSD) GetChainwork() string {
 // GetChainworkOk returns a tuple with the Chainwork field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSD) GetChainworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Chainwork, true
@@ -196,7 +196,7 @@ func (o *GetBlockDetailsByBlockHashRIBSD) GetMerkleRoot() string {
 // GetMerkleRootOk returns a tuple with the MerkleRoot field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSD) GetMerkleRootOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MerkleRoot, true
@@ -220,7 +220,7 @@ func (o *GetBlockDetailsByBlockHashRIBSD) GetStrippedSize() int32 {
 // GetStrippedSizeOk returns a tuple with the StrippedSize field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSD) GetStrippedSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.StrippedSize, true
@@ -244,7 +244,7 @@ func (o *GetBlockDetailsByBlockHashRIBSD) GetVersion() int32 {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSD) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -268,7 +268,7 @@ func (o *GetBlockDetailsByBlockHashRIBSD) GetWeight() int32 {
 // GetWeightOk returns a tuple with the Weight field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSD) GetWeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Weight, true

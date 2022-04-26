@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ConfirmedBalance** | [**GetAddressDetailsRIConfirmedBalance**](GetAddressDetailsRIConfirmedBalance.md) |  | 
 **TotalReceived** | Pointer to [**GetAddressDetailsFromCallbackRITotalReceived**](GetAddressDetailsFromCallbackRITotalReceived.md) |  | [optional] 
 **TotalSpent** | Pointer to [**GetAddressDetailsFromCallbackRITotalSpent**](GetAddressDetailsFromCallbackRITotalSpent.md) |  | [optional] 
-**Sequence** | Pointer to **int32** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | [optional] 
+**Sequence** | Pointer to **int64** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | [optional] 
 
 ## Methods
 
@@ -163,20 +163,20 @@ HasTotalSpent returns a boolean if a field has been set.
 
 ### GetSequence
 
-`func (o *GetAddressDetailsFromCallbackRI) GetSequence() int32`
+`func (o *GetAddressDetailsFromCallbackRI) GetSequence() int64`
 
 GetSequence returns the Sequence field if non-nil, zero value otherwise.
 
 ### GetSequenceOk
 
-`func (o *GetAddressDetailsFromCallbackRI) GetSequenceOk() (*int32, bool)`
+`func (o *GetAddressDetailsFromCallbackRI) GetSequenceOk() (*int64, bool)`
 
 GetSequenceOk returns a tuple with the Sequence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSequence
 
-`func (o *GetAddressDetailsFromCallbackRI) SetSequence(v int32)`
+`func (o *GetAddressDetailsFromCallbackRI) SetSequence(v int64)`
 
 SetSequence sets Sequence field to given value.
 

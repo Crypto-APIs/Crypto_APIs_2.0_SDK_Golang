@@ -24,12 +24,16 @@ type NewConfirmedCoinsTransactionsAndEachConfirmationE401 struct {
 
 // InvalidApiKeyAsNewConfirmedCoinsTransactionsAndEachConfirmationE401 is a convenience function that returns InvalidApiKey wrapped in NewConfirmedCoinsTransactionsAndEachConfirmationE401
 func InvalidApiKeyAsNewConfirmedCoinsTransactionsAndEachConfirmationE401(v *InvalidApiKey) NewConfirmedCoinsTransactionsAndEachConfirmationE401 {
-	return NewConfirmedCoinsTransactionsAndEachConfirmationE401{ InvalidApiKey: v}
+	return NewConfirmedCoinsTransactionsAndEachConfirmationE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsNewConfirmedCoinsTransactionsAndEachConfirmationE401 is a convenience function that returns MissingApiKey wrapped in NewConfirmedCoinsTransactionsAndEachConfirmationE401
 func MissingApiKeyAsNewConfirmedCoinsTransactionsAndEachConfirmationE401(v *MissingApiKey) NewConfirmedCoinsTransactionsAndEachConfirmationE401 {
-	return NewConfirmedCoinsTransactionsAndEachConfirmationE401{ MissingApiKey: v}
+	return NewConfirmedCoinsTransactionsAndEachConfirmationE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *NewConfirmedCoinsTransactionsAndEachConfirmationE401) UnmarshalJSON(d
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *NewConfirmedCoinsTransactionsAndEachConfirmationE401) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src NewConfirmedCoinsTransactionsAndEachConfirmationE401) MarshalJSON() ([
 
 // Get the actual instance
 func (obj *NewConfirmedCoinsTransactionsAndEachConfirmationE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

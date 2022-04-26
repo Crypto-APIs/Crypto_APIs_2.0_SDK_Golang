@@ -24,12 +24,16 @@ type GetInternalTransactionByTransactionHashAndOperationIdE401 struct {
 
 // InvalidApiKeyAsGetInternalTransactionByTransactionHashAndOperationIdE401 is a convenience function that returns InvalidApiKey wrapped in GetInternalTransactionByTransactionHashAndOperationIdE401
 func InvalidApiKeyAsGetInternalTransactionByTransactionHashAndOperationIdE401(v *InvalidApiKey) GetInternalTransactionByTransactionHashAndOperationIdE401 {
-	return GetInternalTransactionByTransactionHashAndOperationIdE401{ InvalidApiKey: v}
+	return GetInternalTransactionByTransactionHashAndOperationIdE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsGetInternalTransactionByTransactionHashAndOperationIdE401 is a convenience function that returns MissingApiKey wrapped in GetInternalTransactionByTransactionHashAndOperationIdE401
 func MissingApiKeyAsGetInternalTransactionByTransactionHashAndOperationIdE401(v *MissingApiKey) GetInternalTransactionByTransactionHashAndOperationIdE401 {
-	return GetInternalTransactionByTransactionHashAndOperationIdE401{ MissingApiKey: v}
+	return GetInternalTransactionByTransactionHashAndOperationIdE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *GetInternalTransactionByTransactionHashAndOperationIdE401) UnmarshalJ
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *GetInternalTransactionByTransactionHashAndOperationIdE401) UnmarshalJ
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src GetInternalTransactionByTransactionHashAndOperationIdE401) MarshalJSON
 
 // Get the actual instance
 func (obj *GetInternalTransactionByTransactionHashAndOperationIdE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

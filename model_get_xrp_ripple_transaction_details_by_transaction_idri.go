@@ -19,7 +19,7 @@ import (
 type GetXRPRippleTransactionDetailsByTransactionIDRI struct {
 	// Represents additional data that may be needed.
 	AdditionalData string `json:"additionalData"`
-	DestinationTag *int32 `json:"destinationTag,omitempty"`
+	DestinationTag *int64 `json:"destinationTag,omitempty"`
 	// Defines the index of the transaction, i.e. the consecutive place it takes in the blockchain.
 	Index string `json:"index"`
 	// Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
@@ -33,7 +33,7 @@ type GetXRPRippleTransactionDetailsByTransactionIDRI struct {
 	// Represents an object of addresses that provide the funds.
 	Senders []GetXRPRippleTransactionDetailsByTransactionIDRISenders `json:"senders"`
 	// Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
-	Sequence int32 `json:"sequence"`
+	Sequence int64 `json:"sequence"`
 	// Defines the status of the transaction.
 	Status *string `json:"status,omitempty"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
@@ -50,7 +50,7 @@ type GetXRPRippleTransactionDetailsByTransactionIDRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetXRPRippleTransactionDetailsByTransactionIDRI(additionalData string, index string, minedInBlockHash string, minedInBlockHeight string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, recipients []GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, senders []GetXRPRippleTransactionDetailsByTransactionIDRISenders, sequence int32, timestamp int32, transactionHash string, type_ string, fee GetXRPRippleTransactionDetailsByTransactionIDRIFee, value GetXRPRippleTransactionDetailsByTransactionIDRIValue) *GetXRPRippleTransactionDetailsByTransactionIDRI {
+func NewGetXRPRippleTransactionDetailsByTransactionIDRI(additionalData string, index string, minedInBlockHash string, minedInBlockHeight string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, recipients []GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, senders []GetXRPRippleTransactionDetailsByTransactionIDRISenders, sequence int64, timestamp int32, transactionHash string, type_ string, fee GetXRPRippleTransactionDetailsByTransactionIDRIFee, value GetXRPRippleTransactionDetailsByTransactionIDRIValue) *GetXRPRippleTransactionDetailsByTransactionIDRI {
 	this := GetXRPRippleTransactionDetailsByTransactionIDRI{}
 	this.AdditionalData = additionalData
 	this.Index = index
@@ -90,7 +90,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetAdditionalData() st
 // GetAdditionalDataOk returns a tuple with the AdditionalData field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetAdditionalDataOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AdditionalData, true
@@ -102,9 +102,9 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetAdditionalData(v st
 }
 
 // GetDestinationTag returns the DestinationTag field value if set, zero value otherwise.
-func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetDestinationTag() int32 {
+func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetDestinationTag() int64 {
 	if o == nil || o.DestinationTag == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DestinationTag
@@ -112,7 +112,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetDestinationTag() in
 
 // GetDestinationTagOk returns a tuple with the DestinationTag field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetDestinationTagOk() (*int32, bool) {
+func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetDestinationTagOk() (*int64, bool) {
 	if o == nil || o.DestinationTag == nil {
 		return nil, false
 	}
@@ -128,8 +128,8 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) HasDestinationTag() bo
 	return false
 }
 
-// SetDestinationTag gets a reference to the given int32 and assigns it to the DestinationTag field.
-func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetDestinationTag(v int32) {
+// SetDestinationTag gets a reference to the given int64 and assigns it to the DestinationTag field.
+func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetDestinationTag(v int64) {
 	o.DestinationTag = &v
 }
 
@@ -146,7 +146,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetIndex() string {
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetIndexOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Index, true
@@ -170,7 +170,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetMinedInBlockHash() 
 // GetMinedInBlockHashOk returns a tuple with the MinedInBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetMinedInBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHash, true
@@ -194,7 +194,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetMinedInBlockHeight(
 // GetMinedInBlockHeightOk returns a tuple with the MinedInBlockHeight field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetMinedInBlockHeightOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHeight, true
@@ -218,7 +218,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetOffer() GetXRPRippl
 // GetOfferOk returns a tuple with the Offer field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetOfferOk() (*GetXRPRippleTransactionDetailsByTransactionIDRIOffer, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Offer, true
@@ -242,7 +242,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetReceive() GetXRPRip
 // GetReceiveOk returns a tuple with the Receive field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetReceiveOk() (*GetXRPRippleTransactionDetailsByTransactionIDRIReceive, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Receive, true
@@ -265,11 +265,11 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetRecipients() []GetX
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetRecipientsOk() (*[]GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, bool) {
-	if o == nil  {
+func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetRecipientsOk() ([]GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -289,11 +289,11 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSenders() []GetXRPR
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSendersOk() (*[]GetXRPRippleTransactionDetailsByTransactionIDRISenders, bool) {
-	if o == nil  {
+func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSendersOk() ([]GetXRPRippleTransactionDetailsByTransactionIDRISenders, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Senders, true
+	return o.Senders, true
 }
 
 // SetSenders sets field value
@@ -302,9 +302,9 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetSenders(v []GetXRPR
 }
 
 // GetSequence returns the Sequence field value
-func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSequence() int32 {
+func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSequence() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -313,15 +313,15 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSequence() int32 {
 
 // GetSequenceOk returns a tuple with the Sequence field value
 // and a boolean to check if the value has been set.
-func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSequenceOk() (*int32, bool) {
-	if o == nil  {
+func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSequenceOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sequence, true
 }
 
 // SetSequence sets field value
-func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetSequence(v int32) {
+func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetSequence(v int64) {
 	o.Sequence = v
 }
 
@@ -370,7 +370,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -394,7 +394,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetTransactionHash() s
 // GetTransactionHashOk returns a tuple with the TransactionHash field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetTransactionHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionHash, true
@@ -418,7 +418,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true
@@ -442,7 +442,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetFee() GetXRPRippleT
 // GetFeeOk returns a tuple with the Fee field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetFeeOk() (*GetXRPRippleTransactionDetailsByTransactionIDRIFee, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fee, true
@@ -466,7 +466,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetValue() GetXRPRippl
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetValueOk() (*GetXRPRippleTransactionDetailsByTransactionIDRIValue, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Value, true

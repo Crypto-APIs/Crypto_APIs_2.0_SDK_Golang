@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **Addresses** | **[]string** |  | 
 **Coinbase** | Pointer to **string** | Represents the coinbase hex. | [optional] 
 **ScriptSig** | [**GetWalletTransactionDetailsByTransactionIDRIBSDScriptSig**](GetWalletTransactionDetailsByTransactionIDRIBSDScriptSig.md) |  | 
-**Sequence** | **int32** | Represents the script sequence number. | 
+**Sequence** | **int64** | Represents the script sequence number. | 
 **Txid** | Pointer to **string** | Represents the reference transaction identifier. | [optional] 
 **Txinwitness** | Pointer to **[]string** |  | [optional] 
 **Value** | **string** | Represents the sent/received amount. | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewGetWalletTransactionDetailsByTransactionIDRIBSDVin
 
-`func NewGetWalletTransactionDetailsByTransactionIDRIBSDVin(addresses []string, scriptSig GetWalletTransactionDetailsByTransactionIDRIBSDScriptSig, sequence int32, value string, ) *GetWalletTransactionDetailsByTransactionIDRIBSDVin`
+`func NewGetWalletTransactionDetailsByTransactionIDRIBSDVin(addresses []string, scriptSig GetWalletTransactionDetailsByTransactionIDRIBSDScriptSig, sequence int64, value string, ) *GetWalletTransactionDetailsByTransactionIDRIBSDVin`
 
 NewGetWalletTransactionDetailsByTransactionIDRIBSDVin instantiates a new GetWalletTransactionDetailsByTransactionIDRIBSDVin object
 This constructor will assign default values to properties that have it defined,
@@ -99,20 +99,20 @@ SetScriptSig sets ScriptSig field to given value.
 
 ### GetSequence
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetSequence() int32`
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetSequence() int64`
 
 GetSequence returns the Sequence field if non-nil, zero value otherwise.
 
 ### GetSequenceOk
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetSequenceOk() (*int32, bool)`
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) GetSequenceOk() (*int64, bool)`
 
 GetSequenceOk returns a tuple with the Sequence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSequence
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) SetSequence(v int32)`
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBSDVin) SetSequence(v int64)`
 
 SetSequence sets Sequence field to given value.
 

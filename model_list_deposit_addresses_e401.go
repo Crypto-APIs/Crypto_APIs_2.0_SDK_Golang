@@ -24,12 +24,16 @@ type ListDepositAddressesE401 struct {
 
 // InvalidApiKeyAsListDepositAddressesE401 is a convenience function that returns InvalidApiKey wrapped in ListDepositAddressesE401
 func InvalidApiKeyAsListDepositAddressesE401(v *InvalidApiKey) ListDepositAddressesE401 {
-	return ListDepositAddressesE401{ InvalidApiKey: v}
+	return ListDepositAddressesE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsListDepositAddressesE401 is a convenience function that returns MissingApiKey wrapped in ListDepositAddressesE401
 func MissingApiKeyAsListDepositAddressesE401(v *MissingApiKey) ListDepositAddressesE401 {
-	return ListDepositAddressesE401{ MissingApiKey: v}
+	return ListDepositAddressesE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *ListDepositAddressesE401) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *ListDepositAddressesE401) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src ListDepositAddressesE401) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *ListDepositAddressesE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

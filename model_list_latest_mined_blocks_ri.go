@@ -70,7 +70,7 @@ func (o *ListLatestMinedBlocksRI) GetHash() string {
 // GetHashOk returns a tuple with the Hash field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRI) GetHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Hash, true
@@ -94,7 +94,7 @@ func (o *ListLatestMinedBlocksRI) GetHeight() int32 {
 // GetHeightOk returns a tuple with the Height field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRI) GetHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Height, true
@@ -118,7 +118,7 @@ func (o *ListLatestMinedBlocksRI) GetPreviousBlockHash() string {
 // GetPreviousBlockHashOk returns a tuple with the PreviousBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRI) GetPreviousBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PreviousBlockHash, true
@@ -142,7 +142,7 @@ func (o *ListLatestMinedBlocksRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -166,7 +166,7 @@ func (o *ListLatestMinedBlocksRI) GetTransactionsCount() int32 {
 // GetTransactionsCountOk returns a tuple with the TransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRI) GetTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionsCount, true
@@ -190,7 +190,7 @@ func (o *ListLatestMinedBlocksRI) GetTotalCoins() ListLatestMinedBlocksRITotalCo
 // GetTotalCoinsOk returns a tuple with the TotalCoins field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRI) GetTotalCoinsOk() (*ListLatestMinedBlocksRITotalCoins, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalCoins, true
@@ -214,7 +214,7 @@ func (o *ListLatestMinedBlocksRI) GetTotalFees() ListLatestMinedBlocksRITotalFee
 // GetTotalFeesOk returns a tuple with the TotalFees field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRI) GetTotalFeesOk() (*ListLatestMinedBlocksRITotalFees, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalFees, true
@@ -238,7 +238,7 @@ func (o *ListLatestMinedBlocksRI) GetBlockchainSpecific() ListLatestMinedBlocksR
 // GetBlockchainSpecificOk returns a tuple with the BlockchainSpecific field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRI) GetBlockchainSpecificOk() (*ListLatestMinedBlocksRIBS, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockchainSpecific, true

@@ -67,7 +67,7 @@ func (o *ListDepositAddressesRIFungibleTokens) GetAmount() string {
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRIFungibleTokens) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -91,7 +91,7 @@ func (o *ListDepositAddressesRIFungibleTokens) GetIdentifier() string {
 // GetIdentifierOk returns a tuple with the Identifier field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRIFungibleTokens) GetIdentifierOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Identifier, true
@@ -115,7 +115,7 @@ func (o *ListDepositAddressesRIFungibleTokens) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRIFungibleTokens) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -139,7 +139,7 @@ func (o *ListDepositAddressesRIFungibleTokens) GetSymbol() string {
 // GetSymbolOk returns a tuple with the Symbol field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRIFungibleTokens) GetSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Symbol, true
@@ -163,7 +163,7 @@ func (o *ListDepositAddressesRIFungibleTokens) GetTokenDecimals() int32 {
 // GetTokenDecimalsOk returns a tuple with the TokenDecimals field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRIFungibleTokens) GetTokenDecimalsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenDecimals, true
@@ -187,7 +187,7 @@ func (o *ListDepositAddressesRIFungibleTokens) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRIFungibleTokens) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true

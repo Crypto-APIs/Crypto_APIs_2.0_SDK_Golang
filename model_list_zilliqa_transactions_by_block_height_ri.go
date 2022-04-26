@@ -84,7 +84,7 @@ func (o *ListZilliqaTransactionsByBlockHeightRI) GetFee() GetZilliqaTransactionD
 // GetFeeOk returns a tuple with the Fee field value
 // and a boolean to check if the value has been set.
 func (o *ListZilliqaTransactionsByBlockHeightRI) GetFeeOk() (*GetZilliqaTransactionDetailsByTransactionIDRIFee, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fee, true
@@ -108,7 +108,7 @@ func (o *ListZilliqaTransactionsByBlockHeightRI) GetGasLimit() int32 {
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *ListZilliqaTransactionsByBlockHeightRI) GetGasLimitOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -132,7 +132,7 @@ func (o *ListZilliqaTransactionsByBlockHeightRI) GetGasPrice() int32 {
 // GetGasPriceOk returns a tuple with the GasPrice field value
 // and a boolean to check if the value has been set.
 func (o *ListZilliqaTransactionsByBlockHeightRI) GetGasPriceOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasPrice, true
@@ -156,7 +156,7 @@ func (o *ListZilliqaTransactionsByBlockHeightRI) GetGasUsed() int32 {
 // GetGasUsedOk returns a tuple with the GasUsed field value
 // and a boolean to check if the value has been set.
 func (o *ListZilliqaTransactionsByBlockHeightRI) GetGasUsedOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasUsed, true
@@ -180,7 +180,7 @@ func (o *ListZilliqaTransactionsByBlockHeightRI) GetMinedInBlockHash() string {
 // GetMinedInBlockHashOk returns a tuple with the MinedInBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *ListZilliqaTransactionsByBlockHeightRI) GetMinedInBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHash, true
@@ -204,7 +204,7 @@ func (o *ListZilliqaTransactionsByBlockHeightRI) GetNonce() int32 {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *ListZilliqaTransactionsByBlockHeightRI) GetNonceOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -227,11 +227,11 @@ func (o *ListZilliqaTransactionsByBlockHeightRI) GetRecipients() []ListZilliqaTr
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListZilliqaTransactionsByBlockHeightRI) GetRecipientsOk() (*[]ListZilliqaTransactionsByAddressRIRecipients, bool) {
-	if o == nil  {
+func (o *ListZilliqaTransactionsByBlockHeightRI) GetRecipientsOk() ([]ListZilliqaTransactionsByAddressRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -251,11 +251,11 @@ func (o *ListZilliqaTransactionsByBlockHeightRI) GetSenders() []ListZilliqaTrans
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListZilliqaTransactionsByBlockHeightRI) GetSendersOk() (*[]ListZilliqaTransactionsByAddressRISenders, bool) {
-	if o == nil  {
+func (o *ListZilliqaTransactionsByBlockHeightRI) GetSendersOk() ([]ListZilliqaTransactionsByAddressRISenders, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Senders, true
+	return o.Senders, true
 }
 
 // SetSenders sets field value
@@ -276,7 +276,7 @@ func (o *ListZilliqaTransactionsByBlockHeightRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListZilliqaTransactionsByBlockHeightRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -300,7 +300,7 @@ func (o *ListZilliqaTransactionsByBlockHeightRI) GetTransactionHash() string {
 // GetTransactionHashOk returns a tuple with the TransactionHash field value
 // and a boolean to check if the value has been set.
 func (o *ListZilliqaTransactionsByBlockHeightRI) GetTransactionHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionHash, true
@@ -324,7 +324,7 @@ func (o *ListZilliqaTransactionsByBlockHeightRI) GetTransactionIndex() int32 {
 // GetTransactionIndexOk returns a tuple with the TransactionIndex field value
 // and a boolean to check if the value has been set.
 func (o *ListZilliqaTransactionsByBlockHeightRI) GetTransactionIndexOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionIndex, true
@@ -348,7 +348,7 @@ func (o *ListZilliqaTransactionsByBlockHeightRI) GetTransactionStatus() string {
 // GetTransactionStatusOk returns a tuple with the TransactionStatus field value
 // and a boolean to check if the value has been set.
 func (o *ListZilliqaTransactionsByBlockHeightRI) GetTransactionStatusOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionStatus, true

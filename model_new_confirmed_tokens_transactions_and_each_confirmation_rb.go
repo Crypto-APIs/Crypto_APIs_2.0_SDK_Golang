@@ -85,7 +85,7 @@ func (o *NewConfirmedTokensTransactionsAndEachConfirmationRB) GetData() NewConfi
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedTokensTransactionsAndEachConfirmationRB) GetDataOk() (*NewConfirmedTokensTransactionsAndEachConfirmationRBData, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Data, true

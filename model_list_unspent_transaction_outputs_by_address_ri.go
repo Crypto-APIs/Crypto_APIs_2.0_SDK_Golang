@@ -17,57 +17,32 @@ import (
 
 // ListUnspentTransactionOutputsByAddressRI struct for ListUnspentTransactionOutputsByAddressRI
 type ListUnspentTransactionOutputsByAddressRI struct {
+	// Represents the address that has unspend funds per which the result is returned.
+	Address string `json:"address"`
+	// Represents the sent/received amount.
+	Amount string `json:"amount"`
 	// Represents the index position of the transaction in the block.
 	Index int32 `json:"index"`
-	// Represents the time at which a particular transaction can be added to the blockchain
-	Locktime int32 `json:"locktime"`
-	// Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
-	MinedInBlockHash string `json:"minedInBlockHash"`
-	// Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
-	MinedInBlockHeight int32 `json:"minedInBlockHeight"`
-	// Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Recipients []GetTransactionDetailsByTransactionIDRIRecipients `json:"recipients"`
-	// Object Array representation of transaction senders
-	Senders []ListUnspentTransactionOutputsByAddressRISenders `json:"senders"`
-	// Represents the total size of this transaction
-	Size int32 `json:"size"`
+	// Represents the state of the transaction whether it is confirmed or not confirmed.
+	IsConfirmed bool `json:"isConfirmed"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
 	Timestamp int32 `json:"timestamp"`
-	// Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
-	TransactionHash string `json:"transactionHash"`
 	// Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
 	TransactionId string `json:"transactionId"`
-	// Represents the transaction version number.
-	Version int32 `json:"version"`
-	// Represents the transaction inputs.
-	Vin []ListUnspentTransactionOutputsByAddressRIVin `json:"vin"`
-	// Represents the transaction outputs.
-	Vout []ListConfirmedTransactionsByAddressRIBSBVout `json:"vout"`
-	Fee ListUnspentTransactionOutputsByAddressRIFee `json:"fee"`
-	BlockchainSpecific ListUnspentTransactionOutputsByAddressRIBlockchainSpecific `json:"blockchainSpecific"`
 }
 
 // NewListUnspentTransactionOutputsByAddressRI instantiates a new ListUnspentTransactionOutputsByAddressRI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListUnspentTransactionOutputsByAddressRI(index int32, locktime int32, minedInBlockHash string, minedInBlockHeight int32, recipients []GetTransactionDetailsByTransactionIDRIRecipients, senders []ListUnspentTransactionOutputsByAddressRISenders, size int32, timestamp int32, transactionHash string, transactionId string, version int32, vin []ListUnspentTransactionOutputsByAddressRIVin, vout []ListConfirmedTransactionsByAddressRIBSBVout, fee ListUnspentTransactionOutputsByAddressRIFee, blockchainSpecific ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) *ListUnspentTransactionOutputsByAddressRI {
+func NewListUnspentTransactionOutputsByAddressRI(address string, amount string, index int32, isConfirmed bool, timestamp int32, transactionId string) *ListUnspentTransactionOutputsByAddressRI {
 	this := ListUnspentTransactionOutputsByAddressRI{}
+	this.Address = address
+	this.Amount = amount
 	this.Index = index
-	this.Locktime = locktime
-	this.MinedInBlockHash = minedInBlockHash
-	this.MinedInBlockHeight = minedInBlockHeight
-	this.Recipients = recipients
-	this.Senders = senders
-	this.Size = size
+	this.IsConfirmed = isConfirmed
 	this.Timestamp = timestamp
-	this.TransactionHash = transactionHash
 	this.TransactionId = transactionId
-	this.Version = version
-	this.Vin = vin
-	this.Vout = vout
-	this.Fee = fee
-	this.BlockchainSpecific = blockchainSpecific
 	return &this
 }
 
@@ -77,6 +52,54 @@ func NewListUnspentTransactionOutputsByAddressRI(index int32, locktime int32, mi
 func NewListUnspentTransactionOutputsByAddressRIWithDefaults() *ListUnspentTransactionOutputsByAddressRI {
 	this := ListUnspentTransactionOutputsByAddressRI{}
 	return &this
+}
+
+// GetAddress returns the Address field value
+func (o *ListUnspentTransactionOutputsByAddressRI) GetAddress() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Address
+}
+
+// GetAddressOk returns a tuple with the Address field value
+// and a boolean to check if the value has been set.
+func (o *ListUnspentTransactionOutputsByAddressRI) GetAddressOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Address, true
+}
+
+// SetAddress sets field value
+func (o *ListUnspentTransactionOutputsByAddressRI) SetAddress(v string) {
+	o.Address = v
+}
+
+// GetAmount returns the Amount field value
+func (o *ListUnspentTransactionOutputsByAddressRI) GetAmount() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Amount
+}
+
+// GetAmountOk returns a tuple with the Amount field value
+// and a boolean to check if the value has been set.
+func (o *ListUnspentTransactionOutputsByAddressRI) GetAmountOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Amount, true
+}
+
+// SetAmount sets field value
+func (o *ListUnspentTransactionOutputsByAddressRI) SetAmount(v string) {
+	o.Amount = v
 }
 
 // GetIndex returns the Index field value
@@ -92,7 +115,7 @@ func (o *ListUnspentTransactionOutputsByAddressRI) GetIndex() int32 {
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
 func (o *ListUnspentTransactionOutputsByAddressRI) GetIndexOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Index, true
@@ -103,148 +126,28 @@ func (o *ListUnspentTransactionOutputsByAddressRI) SetIndex(v int32) {
 	o.Index = v
 }
 
-// GetLocktime returns the Locktime field value
-func (o *ListUnspentTransactionOutputsByAddressRI) GetLocktime() int32 {
+// GetIsConfirmed returns the IsConfirmed field value
+func (o *ListUnspentTransactionOutputsByAddressRI) GetIsConfirmed() bool {
 	if o == nil {
-		var ret int32
+		var ret bool
 		return ret
 	}
 
-	return o.Locktime
+	return o.IsConfirmed
 }
 
-// GetLocktimeOk returns a tuple with the Locktime field value
+// GetIsConfirmedOk returns a tuple with the IsConfirmed field value
 // and a boolean to check if the value has been set.
-func (o *ListUnspentTransactionOutputsByAddressRI) GetLocktimeOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Locktime, true
-}
-
-// SetLocktime sets field value
-func (o *ListUnspentTransactionOutputsByAddressRI) SetLocktime(v int32) {
-	o.Locktime = v
-}
-
-// GetMinedInBlockHash returns the MinedInBlockHash field value
-func (o *ListUnspentTransactionOutputsByAddressRI) GetMinedInBlockHash() string {
+func (o *ListUnspentTransactionOutputsByAddressRI) GetIsConfirmedOk() (*bool, bool) {
 	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.MinedInBlockHash
-}
-
-// GetMinedInBlockHashOk returns a tuple with the MinedInBlockHash field value
-// and a boolean to check if the value has been set.
-func (o *ListUnspentTransactionOutputsByAddressRI) GetMinedInBlockHashOk() (*string, bool) {
-	if o == nil  {
 		return nil, false
 	}
-	return &o.MinedInBlockHash, true
+	return &o.IsConfirmed, true
 }
 
-// SetMinedInBlockHash sets field value
-func (o *ListUnspentTransactionOutputsByAddressRI) SetMinedInBlockHash(v string) {
-	o.MinedInBlockHash = v
-}
-
-// GetMinedInBlockHeight returns the MinedInBlockHeight field value
-func (o *ListUnspentTransactionOutputsByAddressRI) GetMinedInBlockHeight() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.MinedInBlockHeight
-}
-
-// GetMinedInBlockHeightOk returns a tuple with the MinedInBlockHeight field value
-// and a boolean to check if the value has been set.
-func (o *ListUnspentTransactionOutputsByAddressRI) GetMinedInBlockHeightOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.MinedInBlockHeight, true
-}
-
-// SetMinedInBlockHeight sets field value
-func (o *ListUnspentTransactionOutputsByAddressRI) SetMinedInBlockHeight(v int32) {
-	o.MinedInBlockHeight = v
-}
-
-// GetRecipients returns the Recipients field value
-func (o *ListUnspentTransactionOutputsByAddressRI) GetRecipients() []GetTransactionDetailsByTransactionIDRIRecipients {
-	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIRecipients
-		return ret
-	}
-
-	return o.Recipients
-}
-
-// GetRecipientsOk returns a tuple with the Recipients field value
-// and a boolean to check if the value has been set.
-func (o *ListUnspentTransactionOutputsByAddressRI) GetRecipientsOk() (*[]GetTransactionDetailsByTransactionIDRIRecipients, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Recipients, true
-}
-
-// SetRecipients sets field value
-func (o *ListUnspentTransactionOutputsByAddressRI) SetRecipients(v []GetTransactionDetailsByTransactionIDRIRecipients) {
-	o.Recipients = v
-}
-
-// GetSenders returns the Senders field value
-func (o *ListUnspentTransactionOutputsByAddressRI) GetSenders() []ListUnspentTransactionOutputsByAddressRISenders {
-	if o == nil {
-		var ret []ListUnspentTransactionOutputsByAddressRISenders
-		return ret
-	}
-
-	return o.Senders
-}
-
-// GetSendersOk returns a tuple with the Senders field value
-// and a boolean to check if the value has been set.
-func (o *ListUnspentTransactionOutputsByAddressRI) GetSendersOk() (*[]ListUnspentTransactionOutputsByAddressRISenders, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Senders, true
-}
-
-// SetSenders sets field value
-func (o *ListUnspentTransactionOutputsByAddressRI) SetSenders(v []ListUnspentTransactionOutputsByAddressRISenders) {
-	o.Senders = v
-}
-
-// GetSize returns the Size field value
-func (o *ListUnspentTransactionOutputsByAddressRI) GetSize() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.Size
-}
-
-// GetSizeOk returns a tuple with the Size field value
-// and a boolean to check if the value has been set.
-func (o *ListUnspentTransactionOutputsByAddressRI) GetSizeOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Size, true
-}
-
-// SetSize sets field value
-func (o *ListUnspentTransactionOutputsByAddressRI) SetSize(v int32) {
-	o.Size = v
+// SetIsConfirmed sets field value
+func (o *ListUnspentTransactionOutputsByAddressRI) SetIsConfirmed(v bool) {
+	o.IsConfirmed = v
 }
 
 // GetTimestamp returns the Timestamp field value
@@ -260,7 +163,7 @@ func (o *ListUnspentTransactionOutputsByAddressRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListUnspentTransactionOutputsByAddressRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -269,30 +172,6 @@ func (o *ListUnspentTransactionOutputsByAddressRI) GetTimestampOk() (*int32, boo
 // SetTimestamp sets field value
 func (o *ListUnspentTransactionOutputsByAddressRI) SetTimestamp(v int32) {
 	o.Timestamp = v
-}
-
-// GetTransactionHash returns the TransactionHash field value
-func (o *ListUnspentTransactionOutputsByAddressRI) GetTransactionHash() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.TransactionHash
-}
-
-// GetTransactionHashOk returns a tuple with the TransactionHash field value
-// and a boolean to check if the value has been set.
-func (o *ListUnspentTransactionOutputsByAddressRI) GetTransactionHashOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.TransactionHash, true
-}
-
-// SetTransactionHash sets field value
-func (o *ListUnspentTransactionOutputsByAddressRI) SetTransactionHash(v string) {
-	o.TransactionHash = v
 }
 
 // GetTransactionId returns the TransactionId field value
@@ -308,7 +187,7 @@ func (o *ListUnspentTransactionOutputsByAddressRI) GetTransactionId() string {
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *ListUnspentTransactionOutputsByAddressRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -319,172 +198,25 @@ func (o *ListUnspentTransactionOutputsByAddressRI) SetTransactionId(v string) {
 	o.TransactionId = v
 }
 
-// GetVersion returns the Version field value
-func (o *ListUnspentTransactionOutputsByAddressRI) GetVersion() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.Version
-}
-
-// GetVersionOk returns a tuple with the Version field value
-// and a boolean to check if the value has been set.
-func (o *ListUnspentTransactionOutputsByAddressRI) GetVersionOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Version, true
-}
-
-// SetVersion sets field value
-func (o *ListUnspentTransactionOutputsByAddressRI) SetVersion(v int32) {
-	o.Version = v
-}
-
-// GetVin returns the Vin field value
-func (o *ListUnspentTransactionOutputsByAddressRI) GetVin() []ListUnspentTransactionOutputsByAddressRIVin {
-	if o == nil {
-		var ret []ListUnspentTransactionOutputsByAddressRIVin
-		return ret
-	}
-
-	return o.Vin
-}
-
-// GetVinOk returns a tuple with the Vin field value
-// and a boolean to check if the value has been set.
-func (o *ListUnspentTransactionOutputsByAddressRI) GetVinOk() (*[]ListUnspentTransactionOutputsByAddressRIVin, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Vin, true
-}
-
-// SetVin sets field value
-func (o *ListUnspentTransactionOutputsByAddressRI) SetVin(v []ListUnspentTransactionOutputsByAddressRIVin) {
-	o.Vin = v
-}
-
-// GetVout returns the Vout field value
-func (o *ListUnspentTransactionOutputsByAddressRI) GetVout() []ListConfirmedTransactionsByAddressRIBSBVout {
-	if o == nil {
-		var ret []ListConfirmedTransactionsByAddressRIBSBVout
-		return ret
-	}
-
-	return o.Vout
-}
-
-// GetVoutOk returns a tuple with the Vout field value
-// and a boolean to check if the value has been set.
-func (o *ListUnspentTransactionOutputsByAddressRI) GetVoutOk() (*[]ListConfirmedTransactionsByAddressRIBSBVout, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Vout, true
-}
-
-// SetVout sets field value
-func (o *ListUnspentTransactionOutputsByAddressRI) SetVout(v []ListConfirmedTransactionsByAddressRIBSBVout) {
-	o.Vout = v
-}
-
-// GetFee returns the Fee field value
-func (o *ListUnspentTransactionOutputsByAddressRI) GetFee() ListUnspentTransactionOutputsByAddressRIFee {
-	if o == nil {
-		var ret ListUnspentTransactionOutputsByAddressRIFee
-		return ret
-	}
-
-	return o.Fee
-}
-
-// GetFeeOk returns a tuple with the Fee field value
-// and a boolean to check if the value has been set.
-func (o *ListUnspentTransactionOutputsByAddressRI) GetFeeOk() (*ListUnspentTransactionOutputsByAddressRIFee, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Fee, true
-}
-
-// SetFee sets field value
-func (o *ListUnspentTransactionOutputsByAddressRI) SetFee(v ListUnspentTransactionOutputsByAddressRIFee) {
-	o.Fee = v
-}
-
-// GetBlockchainSpecific returns the BlockchainSpecific field value
-func (o *ListUnspentTransactionOutputsByAddressRI) GetBlockchainSpecific() ListUnspentTransactionOutputsByAddressRIBlockchainSpecific {
-	if o == nil {
-		var ret ListUnspentTransactionOutputsByAddressRIBlockchainSpecific
-		return ret
-	}
-
-	return o.BlockchainSpecific
-}
-
-// GetBlockchainSpecificOk returns a tuple with the BlockchainSpecific field value
-// and a boolean to check if the value has been set.
-func (o *ListUnspentTransactionOutputsByAddressRI) GetBlockchainSpecificOk() (*ListUnspentTransactionOutputsByAddressRIBlockchainSpecific, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.BlockchainSpecific, true
-}
-
-// SetBlockchainSpecific sets field value
-func (o *ListUnspentTransactionOutputsByAddressRI) SetBlockchainSpecific(v ListUnspentTransactionOutputsByAddressRIBlockchainSpecific) {
-	o.BlockchainSpecific = v
-}
-
 func (o ListUnspentTransactionOutputsByAddressRI) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if true {
+		toSerialize["address"] = o.Address
+	}
+	if true {
+		toSerialize["amount"] = o.Amount
+	}
 	if true {
 		toSerialize["index"] = o.Index
 	}
 	if true {
-		toSerialize["locktime"] = o.Locktime
-	}
-	if true {
-		toSerialize["minedInBlockHash"] = o.MinedInBlockHash
-	}
-	if true {
-		toSerialize["minedInBlockHeight"] = o.MinedInBlockHeight
-	}
-	if true {
-		toSerialize["recipients"] = o.Recipients
-	}
-	if true {
-		toSerialize["senders"] = o.Senders
-	}
-	if true {
-		toSerialize["size"] = o.Size
+		toSerialize["isConfirmed"] = o.IsConfirmed
 	}
 	if true {
 		toSerialize["timestamp"] = o.Timestamp
 	}
 	if true {
-		toSerialize["transactionHash"] = o.TransactionHash
-	}
-	if true {
 		toSerialize["transactionId"] = o.TransactionId
-	}
-	if true {
-		toSerialize["version"] = o.Version
-	}
-	if true {
-		toSerialize["vin"] = o.Vin
-	}
-	if true {
-		toSerialize["vout"] = o.Vout
-	}
-	if true {
-		toSerialize["fee"] = o.Fee
-	}
-	if true {
-		toSerialize["blockchainSpecific"] = o.BlockchainSpecific
 	}
 	return json.Marshal(toSerialize)
 }

@@ -76,7 +76,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetIndex() int32 {
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetIndexOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Index, true
@@ -100,7 +100,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetMinedInBlockHash
 // GetMinedInBlockHashOk returns a tuple with the MinedInBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetMinedInBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHash, true
@@ -124,7 +124,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetMinedInBlockHeig
 // GetMinedInBlockHeightOk returns a tuple with the MinedInBlockHeight field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetMinedInBlockHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHeight, true
@@ -147,11 +147,11 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetRecipients() []G
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetRecipientsOk() (*[]GetTransactionDetailsByTransactionIDFromCallbackRIRecipients, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetRecipientsOk() ([]GetTransactionDetailsByTransactionIDFromCallbackRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -171,11 +171,11 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetSenders() []GetT
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetSendersOk() (*[]GetTransactionDetailsByTransactionIDFromCallbackRISenders, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetSendersOk() ([]GetTransactionDetailsByTransactionIDFromCallbackRISenders, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Senders, true
+	return o.Senders, true
 }
 
 // SetSenders sets field value
@@ -196,7 +196,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetTimestamp() int3
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -220,7 +220,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetTransactionHash(
 // GetTransactionHashOk returns a tuple with the TransactionHash field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetTransactionHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionHash, true
@@ -244,7 +244,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetFee() GetTransac
 // GetFeeOk returns a tuple with the Fee field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetFeeOk() (*GetTransactionDetailsByTransactionIDFromCallbackRIFee, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fee, true
@@ -268,7 +268,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetIsConfirmed() bo
 // GetIsConfirmedOk returns a tuple with the IsConfirmed field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetIsConfirmedOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsConfirmed, true
@@ -292,7 +292,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetBlockchainSpecif
 // GetBlockchainSpecificOk returns a tuple with the BlockchainSpecific field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetBlockchainSpecificOk() (*GetTransactionDetailsByTransactionIDFromCallbackRIBS, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockchainSpecific, true

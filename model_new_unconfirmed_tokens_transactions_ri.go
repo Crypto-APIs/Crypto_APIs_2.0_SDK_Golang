@@ -21,7 +21,7 @@ type NewUnconfirmedTokensTransactionsRI struct {
 	Address string `json:"address"`
 	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
 	CallbackSecretKey string `json:"callbackSecretKey"`
-	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 	CallbackUrl string `json:"callbackUrl"`
 	// Defines the specific time/date when the subscription was created in Unix Timestamp.
 	CreatedTimestamp int32 `json:"createdTimestamp"`
@@ -70,7 +70,7 @@ func (o *NewUnconfirmedTokensTransactionsRI) GetAddress() string {
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *NewUnconfirmedTokensTransactionsRI) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -94,7 +94,7 @@ func (o *NewUnconfirmedTokensTransactionsRI) GetCallbackSecretKey() string {
 // GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field value
 // and a boolean to check if the value has been set.
 func (o *NewUnconfirmedTokensTransactionsRI) GetCallbackSecretKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackSecretKey, true
@@ -118,7 +118,7 @@ func (o *NewUnconfirmedTokensTransactionsRI) GetCallbackUrl() string {
 // GetCallbackUrlOk returns a tuple with the CallbackUrl field value
 // and a boolean to check if the value has been set.
 func (o *NewUnconfirmedTokensTransactionsRI) GetCallbackUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackUrl, true
@@ -142,7 +142,7 @@ func (o *NewUnconfirmedTokensTransactionsRI) GetCreatedTimestamp() int32 {
 // GetCreatedTimestampOk returns a tuple with the CreatedTimestamp field value
 // and a boolean to check if the value has been set.
 func (o *NewUnconfirmedTokensTransactionsRI) GetCreatedTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CreatedTimestamp, true
@@ -166,7 +166,7 @@ func (o *NewUnconfirmedTokensTransactionsRI) GetEventType() string {
 // GetEventTypeOk returns a tuple with the EventType field value
 // and a boolean to check if the value has been set.
 func (o *NewUnconfirmedTokensTransactionsRI) GetEventTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EventType, true
@@ -190,7 +190,7 @@ func (o *NewUnconfirmedTokensTransactionsRI) GetIsActive() bool {
 // GetIsActiveOk returns a tuple with the IsActive field value
 // and a boolean to check if the value has been set.
 func (o *NewUnconfirmedTokensTransactionsRI) GetIsActiveOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsActive, true
@@ -214,7 +214,7 @@ func (o *NewUnconfirmedTokensTransactionsRI) GetReferenceId() string {
 // GetReferenceIdOk returns a tuple with the ReferenceId field value
 // and a boolean to check if the value has been set.
 func (o *NewUnconfirmedTokensTransactionsRI) GetReferenceIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ReferenceId, true

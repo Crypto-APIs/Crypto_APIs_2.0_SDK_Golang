@@ -25,17 +25,23 @@ type CreateFungibleTokensTransactionRequestFromAddressE400 struct {
 
 // InvalidPaginationAsCreateFungibleTokensTransactionRequestFromAddressE400 is a convenience function that returns InvalidPagination wrapped in CreateFungibleTokensTransactionRequestFromAddressE400
 func InvalidPaginationAsCreateFungibleTokensTransactionRequestFromAddressE400(v *InvalidPagination) CreateFungibleTokensTransactionRequestFromAddressE400 {
-	return CreateFungibleTokensTransactionRequestFromAddressE400{ InvalidPagination: v}
+	return CreateFungibleTokensTransactionRequestFromAddressE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsCreateFungibleTokensTransactionRequestFromAddressE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in CreateFungibleTokensTransactionRequestFromAddressE400
 func LimitGreaterThanAllowedAsCreateFungibleTokensTransactionRequestFromAddressE400(v *LimitGreaterThanAllowed) CreateFungibleTokensTransactionRequestFromAddressE400 {
-	return CreateFungibleTokensTransactionRequestFromAddressE400{ LimitGreaterThanAllowed: v}
+	return CreateFungibleTokensTransactionRequestFromAddressE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsCreateFungibleTokensTransactionRequestFromAddressE400 is a convenience function that returns UriNotFound wrapped in CreateFungibleTokensTransactionRequestFromAddressE400
 func UriNotFoundAsCreateFungibleTokensTransactionRequestFromAddressE400(v *UriNotFound) CreateFungibleTokensTransactionRequestFromAddressE400 {
-	return CreateFungibleTokensTransactionRequestFromAddressE400{ UriNotFound: v}
+	return CreateFungibleTokensTransactionRequestFromAddressE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressE400) UnmarshalJSON(
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressE400) UnmarshalJSON(
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressE400) UnmarshalJSON(
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src CreateFungibleTokensTransactionRequestFromAddressE400) MarshalJSON() (
 
 // Get the actual instance
 func (obj *CreateFungibleTokensTransactionRequestFromAddressE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

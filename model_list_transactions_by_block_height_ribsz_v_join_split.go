@@ -75,7 +75,7 @@ func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetAnchor() string {
 // GetAnchorOk returns a tuple with the Anchor field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetAnchorOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Anchor, true
@@ -98,11 +98,11 @@ func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetCipherTexts() []string
 
 // GetCipherTextsOk returns a tuple with the CipherTexts field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetCipherTextsOk() (*[]string, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetCipherTextsOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.CipherTexts, true
+	return o.CipherTexts, true
 }
 
 // SetCipherTexts sets field value
@@ -122,11 +122,11 @@ func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetCommitments() []string
 
 // GetCommitmentsOk returns a tuple with the Commitments field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetCommitmentsOk() (*[]string, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetCommitmentsOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Commitments, true
+	return o.Commitments, true
 }
 
 // SetCommitments sets field value
@@ -146,11 +146,11 @@ func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetMacs() []string {
 
 // GetMacsOk returns a tuple with the Macs field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetMacsOk() (*[]string, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetMacsOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Macs, true
+	return o.Macs, true
 }
 
 // SetMacs sets field value
@@ -170,11 +170,11 @@ func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetNullifiers() []string 
 
 // GetNullifiersOk returns a tuple with the Nullifiers field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetNullifiersOk() (*[]string, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetNullifiersOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Nullifiers, true
+	return o.Nullifiers, true
 }
 
 // SetNullifiers sets field value
@@ -195,7 +195,7 @@ func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetOneTimePubKey() string
 // GetOneTimePubKeyOk returns a tuple with the OneTimePubKey field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetOneTimePubKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OneTimePubKey, true
@@ -219,7 +219,7 @@ func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetProof() string {
 // GetProofOk returns a tuple with the Proof field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetProofOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Proof, true
@@ -243,7 +243,7 @@ func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetRandomSeed() string {
 // GetRandomSeedOk returns a tuple with the RandomSeed field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetRandomSeedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RandomSeed, true
@@ -267,7 +267,7 @@ func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetVPubNew() string {
 // GetVPubNewOk returns a tuple with the VPubNew field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetVPubNewOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VPubNew, true
@@ -291,7 +291,7 @@ func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetVPubOld() string {
 // GetVPubOldOk returns a tuple with the VPubOld field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSZVJoinSplit) GetVPubOldOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VPubOld, true

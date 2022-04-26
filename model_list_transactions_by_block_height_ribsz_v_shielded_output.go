@@ -67,7 +67,7 @@ func (o *ListTransactionsByBlockHeightRIBSZVShieldedOutput) GetCmu() string {
 // GetCmuOk returns a tuple with the Cmu field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSZVShieldedOutput) GetCmuOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Cmu, true
@@ -91,7 +91,7 @@ func (o *ListTransactionsByBlockHeightRIBSZVShieldedOutput) GetCv() string {
 // GetCvOk returns a tuple with the Cv field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSZVShieldedOutput) GetCvOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Cv, true
@@ -115,7 +115,7 @@ func (o *ListTransactionsByBlockHeightRIBSZVShieldedOutput) GetEncCipherText() s
 // GetEncCipherTextOk returns a tuple with the EncCipherText field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSZVShieldedOutput) GetEncCipherTextOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EncCipherText, true
@@ -139,7 +139,7 @@ func (o *ListTransactionsByBlockHeightRIBSZVShieldedOutput) GetEphemeralKey() st
 // GetEphemeralKeyOk returns a tuple with the EphemeralKey field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSZVShieldedOutput) GetEphemeralKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EphemeralKey, true
@@ -163,7 +163,7 @@ func (o *ListTransactionsByBlockHeightRIBSZVShieldedOutput) GetOutCipherText() s
 // GetOutCipherTextOk returns a tuple with the OutCipherText field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSZVShieldedOutput) GetOutCipherTextOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OutCipherText, true
@@ -187,7 +187,7 @@ func (o *ListTransactionsByBlockHeightRIBSZVShieldedOutput) GetProof() string {
 // GetProofOk returns a tuple with the Proof field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSZVShieldedOutput) GetProofOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Proof, true

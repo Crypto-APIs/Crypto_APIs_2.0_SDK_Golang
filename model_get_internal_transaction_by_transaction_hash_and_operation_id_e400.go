@@ -25,17 +25,23 @@ type GetInternalTransactionByTransactionHashAndOperationIdE400 struct {
 
 // InvalidPaginationAsGetInternalTransactionByTransactionHashAndOperationIdE400 is a convenience function that returns InvalidPagination wrapped in GetInternalTransactionByTransactionHashAndOperationIdE400
 func InvalidPaginationAsGetInternalTransactionByTransactionHashAndOperationIdE400(v *InvalidPagination) GetInternalTransactionByTransactionHashAndOperationIdE400 {
-	return GetInternalTransactionByTransactionHashAndOperationIdE400{ InvalidPagination: v}
+	return GetInternalTransactionByTransactionHashAndOperationIdE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsGetInternalTransactionByTransactionHashAndOperationIdE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in GetInternalTransactionByTransactionHashAndOperationIdE400
 func LimitGreaterThanAllowedAsGetInternalTransactionByTransactionHashAndOperationIdE400(v *LimitGreaterThanAllowed) GetInternalTransactionByTransactionHashAndOperationIdE400 {
-	return GetInternalTransactionByTransactionHashAndOperationIdE400{ LimitGreaterThanAllowed: v}
+	return GetInternalTransactionByTransactionHashAndOperationIdE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsGetInternalTransactionByTransactionHashAndOperationIdE400 is a convenience function that returns UriNotFound wrapped in GetInternalTransactionByTransactionHashAndOperationIdE400
 func UriNotFoundAsGetInternalTransactionByTransactionHashAndOperationIdE400(v *UriNotFound) GetInternalTransactionByTransactionHashAndOperationIdE400 {
-	return GetInternalTransactionByTransactionHashAndOperationIdE400{ UriNotFound: v}
+	return GetInternalTransactionByTransactionHashAndOperationIdE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *GetInternalTransactionByTransactionHashAndOperationIdE400) UnmarshalJ
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *GetInternalTransactionByTransactionHashAndOperationIdE400) UnmarshalJ
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *GetInternalTransactionByTransactionHashAndOperationIdE400) UnmarshalJ
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src GetInternalTransactionByTransactionHashAndOperationIdE400) MarshalJSON
 
 // Get the actual instance
 func (obj *GetInternalTransactionByTransactionHashAndOperationIdE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

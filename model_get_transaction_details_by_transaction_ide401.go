@@ -24,12 +24,16 @@ type GetTransactionDetailsByTransactionIDE401 struct {
 
 // InvalidApiKeyAsGetTransactionDetailsByTransactionIDE401 is a convenience function that returns InvalidApiKey wrapped in GetTransactionDetailsByTransactionIDE401
 func InvalidApiKeyAsGetTransactionDetailsByTransactionIDE401(v *InvalidApiKey) GetTransactionDetailsByTransactionIDE401 {
-	return GetTransactionDetailsByTransactionIDE401{ InvalidApiKey: v}
+	return GetTransactionDetailsByTransactionIDE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsGetTransactionDetailsByTransactionIDE401 is a convenience function that returns MissingApiKey wrapped in GetTransactionDetailsByTransactionIDE401
 func MissingApiKeyAsGetTransactionDetailsByTransactionIDE401(v *MissingApiKey) GetTransactionDetailsByTransactionIDE401 {
-	return GetTransactionDetailsByTransactionIDE401{ MissingApiKey: v}
+	return GetTransactionDetailsByTransactionIDE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *GetTransactionDetailsByTransactionIDE401) UnmarshalJSON(data []byte) 
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *GetTransactionDetailsByTransactionIDE401) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src GetTransactionDetailsByTransactionIDE401) MarshalJSON() ([]byte, error
 
 // Get the actual instance
 func (obj *GetTransactionDetailsByTransactionIDE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

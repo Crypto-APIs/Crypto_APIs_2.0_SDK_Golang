@@ -58,7 +58,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSBScriptSig) GetAsm() string {
 // GetAsmOk returns a tuple with the Asm field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRIBSBScriptSig) GetAsmOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Asm, true
@@ -82,7 +82,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSBScriptSig) GetHex() string {
 // GetHexOk returns a tuple with the Hex field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRIBSBScriptSig) GetHexOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Hex, true
@@ -106,7 +106,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSBScriptSig) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRIBSBScriptSig) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true

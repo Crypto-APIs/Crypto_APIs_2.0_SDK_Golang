@@ -13,22 +13,18 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // MetadataApiService MetadataApi service
 type MetadataApiService service
 
 type ApiListSupportedAssetsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *MetadataApiService
 	context *string
 	assetType *string
@@ -41,23 +37,26 @@ func (r ApiListSupportedAssetsRequest) Context(context string) ApiListSupportedA
 	r.context = &context
 	return r
 }
+
 // Defines the type of the supported asset. This could be either \&quot;crypto\&quot; or \&quot;fiat\&quot;.
 func (r ApiListSupportedAssetsRequest) AssetType(assetType string) ApiListSupportedAssetsRequest {
 	r.assetType = &assetType
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListSupportedAssetsRequest) Limit(limit int32) ApiListSupportedAssetsRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListSupportedAssetsRequest) Offset(offset int32) ApiListSupportedAssetsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListSupportedAssetsRequest) Execute() (ListSupportedAssetsR, *_nethttp.Response, error) {
+func (r ApiListSupportedAssetsRequest) Execute() (*ListSupportedAssetsR, *http.Response, error) {
 	return r.ApiService.ListSupportedAssetsExecute(r)
 }
 
@@ -66,10 +65,10 @@ ListSupportedAssets List Supported Assets
 
 This endpoint will return a list of supported assets. The asset could be a cryptocurrency or FIAT assets that we support. Each asset has a unique identifier - `assetId` and a unique symbol in the form of a string, e.g. "BTC".
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @return ApiListSupportedAssetsRequest
 */
-func (a *MetadataApiService) ListSupportedAssets(ctx _context.Context) ApiListSupportedAssetsRequest {
+func (a *MetadataApiService) ListSupportedAssets(ctx context.Context) ApiListSupportedAssetsRequest {
 	return ApiListSupportedAssetsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -78,24 +77,24 @@ func (a *MetadataApiService) ListSupportedAssets(ctx _context.Context) ApiListSu
 
 // Execute executes the request
 //  @return ListSupportedAssetsR
-func (a *MetadataApiService) ListSupportedAssetsExecute(r ApiListSupportedAssetsRequest) (ListSupportedAssetsR, *_nethttp.Response, error) {
+func (a *MetadataApiService) ListSupportedAssetsExecute(r ApiListSupportedAssetsRequest) (*ListSupportedAssetsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListSupportedAssetsR
+		localVarReturnValue  *ListSupportedAssetsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MetadataApiService.ListSupportedAssets")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/market-data/assets/supported"
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -150,20 +149,20 @@ func (a *MetadataApiService) ListSupportedAssetsExecute(r ApiListSupportedAssets
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40086
+			var v InlineResponse400105
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -173,7 +172,7 @@ func (a *MetadataApiService) ListSupportedAssetsExecute(r ApiListSupportedAssets
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40186
+			var v InlineResponse401105
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -193,7 +192,7 @@ func (a *MetadataApiService) ListSupportedAssetsExecute(r ApiListSupportedAssets
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40386
+			var v InlineResponse403105
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -256,7 +255,7 @@ func (a *MetadataApiService) ListSupportedAssetsExecute(r ApiListSupportedAssets
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

@@ -26,22 +26,30 @@ type GetZilliqaTransactionDetailsByTransactionIDE403 struct {
 
 // BannedIpAddressAsGetZilliqaTransactionDetailsByTransactionIDE403 is a convenience function that returns BannedIpAddress wrapped in GetZilliqaTransactionDetailsByTransactionIDE403
 func BannedIpAddressAsGetZilliqaTransactionDetailsByTransactionIDE403(v *BannedIpAddress) GetZilliqaTransactionDetailsByTransactionIDE403 {
-	return GetZilliqaTransactionDetailsByTransactionIDE403{ BannedIpAddress: v}
+	return GetZilliqaTransactionDetailsByTransactionIDE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsGetZilliqaTransactionDetailsByTransactionIDE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in GetZilliqaTransactionDetailsByTransactionIDE403
 func EndpointNotAllowedForApiKeyAsGetZilliqaTransactionDetailsByTransactionIDE403(v *EndpointNotAllowedForApiKey) GetZilliqaTransactionDetailsByTransactionIDE403 {
-	return GetZilliqaTransactionDetailsByTransactionIDE403{ EndpointNotAllowedForApiKey: v}
+	return GetZilliqaTransactionDetailsByTransactionIDE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsGetZilliqaTransactionDetailsByTransactionIDE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in GetZilliqaTransactionDetailsByTransactionIDE403
 func EndpointNotAllowedForPlanAsGetZilliqaTransactionDetailsByTransactionIDE403(v *EndpointNotAllowedForPlan) GetZilliqaTransactionDetailsByTransactionIDE403 {
-	return GetZilliqaTransactionDetailsByTransactionIDE403{ EndpointNotAllowedForPlan: v}
+	return GetZilliqaTransactionDetailsByTransactionIDE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsGetZilliqaTransactionDetailsByTransactionIDE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in GetZilliqaTransactionDetailsByTransactionIDE403
 func FeatureMainnetsNotAllowedForPlanAsGetZilliqaTransactionDetailsByTransactionIDE403(v *FeatureMainnetsNotAllowedForPlan) GetZilliqaTransactionDetailsByTransactionIDE403 {
-	return GetZilliqaTransactionDetailsByTransactionIDE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return GetZilliqaTransactionDetailsByTransactionIDE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *GetZilliqaTransactionDetailsByTransactionIDE403) UnmarshalJSON(data [
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *GetZilliqaTransactionDetailsByTransactionIDE403) UnmarshalJSON(data [
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *GetZilliqaTransactionDetailsByTransactionIDE403) UnmarshalJSON(data [
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *GetZilliqaTransactionDetailsByTransactionIDE403) UnmarshalJSON(data [
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src GetZilliqaTransactionDetailsByTransactionIDE403) MarshalJSON() ([]byte
 
 // Get the actual instance
 func (obj *GetZilliqaTransactionDetailsByTransactionIDE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

@@ -8,12 +8,13 @@ Name | Type | Description | Notes
 **Fast** | **string** | Fast fee per byte calculated from unconfirmed transactions | 
 **Slow** | **string** | Slow fee per byte calculated from unconfirmed transactions | 
 **Standard** | **string** | Standard fee per byte calculated from unconfirmed transactions | 
+**FeeCushionMultiplier** | **string** | Represents the fee cushion multiplier used to multiply the base fee. | 
 
 ## Methods
 
 ### NewGetFeeRecommendationsRI
 
-`func NewGetFeeRecommendationsRI(unit string, fast string, slow string, standard string, ) *GetFeeRecommendationsRI`
+`func NewGetFeeRecommendationsRI(unit string, fast string, slow string, standard string, feeCushionMultiplier string, ) *GetFeeRecommendationsRI`
 
 NewGetFeeRecommendationsRI instantiates a new GetFeeRecommendationsRI object
 This constructor will assign default values to properties that have it defined,
@@ -106,6 +107,26 @@ and a boolean to check if the value has been set.
 `func (o *GetFeeRecommendationsRI) SetStandard(v string)`
 
 SetStandard sets Standard field to given value.
+
+
+### GetFeeCushionMultiplier
+
+`func (o *GetFeeRecommendationsRI) GetFeeCushionMultiplier() string`
+
+GetFeeCushionMultiplier returns the FeeCushionMultiplier field if non-nil, zero value otherwise.
+
+### GetFeeCushionMultiplierOk
+
+`func (o *GetFeeRecommendationsRI) GetFeeCushionMultiplierOk() (*string, bool)`
+
+GetFeeCushionMultiplierOk returns a tuple with the FeeCushionMultiplier field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFeeCushionMultiplier
+
+`func (o *GetFeeRecommendationsRI) SetFeeCushionMultiplier(v string)`
+
+SetFeeCushionMultiplier sets FeeCushionMultiplier field to given value.
 
 
 

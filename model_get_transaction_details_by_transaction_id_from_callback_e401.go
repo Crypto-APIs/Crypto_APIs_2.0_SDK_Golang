@@ -24,12 +24,16 @@ type GetTransactionDetailsByTransactionIDFromCallbackE401 struct {
 
 // InvalidApiKeyAsGetTransactionDetailsByTransactionIDFromCallbackE401 is a convenience function that returns InvalidApiKey wrapped in GetTransactionDetailsByTransactionIDFromCallbackE401
 func InvalidApiKeyAsGetTransactionDetailsByTransactionIDFromCallbackE401(v *InvalidApiKey) GetTransactionDetailsByTransactionIDFromCallbackE401 {
-	return GetTransactionDetailsByTransactionIDFromCallbackE401{ InvalidApiKey: v}
+	return GetTransactionDetailsByTransactionIDFromCallbackE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsGetTransactionDetailsByTransactionIDFromCallbackE401 is a convenience function that returns MissingApiKey wrapped in GetTransactionDetailsByTransactionIDFromCallbackE401
 func MissingApiKeyAsGetTransactionDetailsByTransactionIDFromCallbackE401(v *MissingApiKey) GetTransactionDetailsByTransactionIDFromCallbackE401 {
-	return GetTransactionDetailsByTransactionIDFromCallbackE401{ MissingApiKey: v}
+	return GetTransactionDetailsByTransactionIDFromCallbackE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackE401) UnmarshalJSON(d
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackE401) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src GetTransactionDetailsByTransactionIDFromCallbackE401) MarshalJSON() ([
 
 // Get the actual instance
 func (obj *GetTransactionDetailsByTransactionIDFromCallbackE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

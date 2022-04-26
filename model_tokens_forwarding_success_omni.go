@@ -64,7 +64,7 @@ func (o *TokensForwardingSuccessOmni) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *TokensForwardingSuccessOmni) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -88,7 +88,7 @@ func (o *TokensForwardingSuccessOmni) GetPropertyId() string {
 // GetPropertyIdOk returns a tuple with the PropertyId field value
 // and a boolean to check if the value has been set.
 func (o *TokensForwardingSuccessOmni) GetPropertyIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PropertyId, true
@@ -112,7 +112,7 @@ func (o *TokensForwardingSuccessOmni) GetTransactionType() string {
 // GetTransactionTypeOk returns a tuple with the TransactionType field value
 // and a boolean to check if the value has been set.
 func (o *TokensForwardingSuccessOmni) GetTransactionTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionType, true
@@ -136,7 +136,7 @@ func (o *TokensForwardingSuccessOmni) GetCreatedByTransactionId() string {
 // GetCreatedByTransactionIdOk returns a tuple with the CreatedByTransactionId field value
 // and a boolean to check if the value has been set.
 func (o *TokensForwardingSuccessOmni) GetCreatedByTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CreatedByTransactionId, true
@@ -160,7 +160,7 @@ func (o *TokensForwardingSuccessOmni) GetAmount() string {
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *TokensForwardingSuccessOmni) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true

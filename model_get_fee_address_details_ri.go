@@ -57,7 +57,7 @@ func (o *GetFeeAddressDetailsRI) GetAddress() string {
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *GetFeeAddressDetailsRI) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -81,7 +81,7 @@ func (o *GetFeeAddressDetailsRI) GetBalance() GetFeeAddressDetailsRIBalance {
 // GetBalanceOk returns a tuple with the Balance field value
 // and a boolean to check if the value has been set.
 func (o *GetFeeAddressDetailsRI) GetBalanceOk() (*GetFeeAddressDetailsRIBalance, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Balance, true
@@ -105,7 +105,7 @@ func (o *GetFeeAddressDetailsRI) GetMinimumTransferAmount() string {
 // GetMinimumTransferAmountOk returns a tuple with the MinimumTransferAmount field value
 // and a boolean to check if the value has been set.
 func (o *GetFeeAddressDetailsRI) GetMinimumTransferAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinimumTransferAmount, true

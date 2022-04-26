@@ -24,12 +24,16 @@ type CreateAutomaticTokensForwardingRITS struct {
 
 // CreateAutomaticTokensForwardingRITSBOTAsCreateAutomaticTokensForwardingRITS is a convenience function that returns CreateAutomaticTokensForwardingRITSBOT wrapped in CreateAutomaticTokensForwardingRITS
 func CreateAutomaticTokensForwardingRITSBOTAsCreateAutomaticTokensForwardingRITS(v *CreateAutomaticTokensForwardingRITSBOT) CreateAutomaticTokensForwardingRITS {
-	return CreateAutomaticTokensForwardingRITS{ CreateAutomaticTokensForwardingRITSBOT: v}
+	return CreateAutomaticTokensForwardingRITS{
+		CreateAutomaticTokensForwardingRITSBOT: v,
+	}
 }
 
 // CreateAutomaticTokensForwardingRITSETAsCreateAutomaticTokensForwardingRITS is a convenience function that returns CreateAutomaticTokensForwardingRITSET wrapped in CreateAutomaticTokensForwardingRITS
 func CreateAutomaticTokensForwardingRITSETAsCreateAutomaticTokensForwardingRITS(v *CreateAutomaticTokensForwardingRITSET) CreateAutomaticTokensForwardingRITS {
-	return CreateAutomaticTokensForwardingRITS{ CreateAutomaticTokensForwardingRITSET: v}
+	return CreateAutomaticTokensForwardingRITS{
+		CreateAutomaticTokensForwardingRITSET: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *CreateAutomaticTokensForwardingRITS) UnmarshalJSON(data []byte) error
 	var err error
 	match := 0
 	// try to unmarshal data into CreateAutomaticTokensForwardingRITSBOT
-	err = json.Unmarshal(data, &dst.CreateAutomaticTokensForwardingRITSBOT)
+	err = newStrictDecoder(data).Decode(&dst.CreateAutomaticTokensForwardingRITSBOT)
 	if err == nil {
 		jsonCreateAutomaticTokensForwardingRITSBOT, _ := json.Marshal(dst.CreateAutomaticTokensForwardingRITSBOT)
 		if string(jsonCreateAutomaticTokensForwardingRITSBOT) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *CreateAutomaticTokensForwardingRITS) UnmarshalJSON(data []byte) error
 	}
 
 	// try to unmarshal data into CreateAutomaticTokensForwardingRITSET
-	err = json.Unmarshal(data, &dst.CreateAutomaticTokensForwardingRITSET)
+	err = newStrictDecoder(data).Decode(&dst.CreateAutomaticTokensForwardingRITSET)
 	if err == nil {
 		jsonCreateAutomaticTokensForwardingRITSET, _ := json.Marshal(dst.CreateAutomaticTokensForwardingRITSET)
 		if string(jsonCreateAutomaticTokensForwardingRITSET) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src CreateAutomaticTokensForwardingRITS) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *CreateAutomaticTokensForwardingRITS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.CreateAutomaticTokensForwardingRITSBOT != nil {
 		return obj.CreateAutomaticTokensForwardingRITSBOT
 	}

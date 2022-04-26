@@ -71,7 +71,7 @@ func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetBlockHash() string {
 // GetBlockHashOk returns a tuple with the BlockHash field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockHash, true
@@ -95,7 +95,7 @@ func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetBlockHeight() int32 {
 // GetBlockHeightOk returns a tuple with the BlockHeight field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetBlockHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockHeight, true
@@ -119,7 +119,7 @@ func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetNextBlockHash() string {
 // GetNextBlockHashOk returns a tuple with the NextBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetNextBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NextBlockHash, true
@@ -143,7 +143,7 @@ func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetPreviousBlockHash() string 
 // GetPreviousBlockHashOk returns a tuple with the PreviousBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetPreviousBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PreviousBlockHash, true
@@ -167,7 +167,7 @@ func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -191,7 +191,7 @@ func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetTotalCoins() GetXRPRippleBl
 // GetTotalCoinsOk returns a tuple with the TotalCoins field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetTotalCoinsOk() (*GetXRPRippleBlockDetailsByBlockHeightRITotalCoins, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalCoins, true
@@ -215,7 +215,7 @@ func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetTotalFees() GetXRPRippleBlo
 // GetTotalFeesOk returns a tuple with the TotalFees field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetTotalFeesOk() (*GetXRPRippleBlockDetailsByBlockHeightRITotalFees, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalFees, true
@@ -239,7 +239,7 @@ func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetTransactionsCount() int32 {
 // GetTransactionsCountOk returns a tuple with the TransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleBlockDetailsByBlockHeightRI) GetTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionsCount, true

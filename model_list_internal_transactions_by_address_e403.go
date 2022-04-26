@@ -26,22 +26,30 @@ type ListInternalTransactionsByAddressE403 struct {
 
 // BannedIpAddressAsListInternalTransactionsByAddressE403 is a convenience function that returns BannedIpAddress wrapped in ListInternalTransactionsByAddressE403
 func BannedIpAddressAsListInternalTransactionsByAddressE403(v *BannedIpAddress) ListInternalTransactionsByAddressE403 {
-	return ListInternalTransactionsByAddressE403{ BannedIpAddress: v}
+	return ListInternalTransactionsByAddressE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsListInternalTransactionsByAddressE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in ListInternalTransactionsByAddressE403
 func EndpointNotAllowedForApiKeyAsListInternalTransactionsByAddressE403(v *EndpointNotAllowedForApiKey) ListInternalTransactionsByAddressE403 {
-	return ListInternalTransactionsByAddressE403{ EndpointNotAllowedForApiKey: v}
+	return ListInternalTransactionsByAddressE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsListInternalTransactionsByAddressE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in ListInternalTransactionsByAddressE403
 func EndpointNotAllowedForPlanAsListInternalTransactionsByAddressE403(v *EndpointNotAllowedForPlan) ListInternalTransactionsByAddressE403 {
-	return ListInternalTransactionsByAddressE403{ EndpointNotAllowedForPlan: v}
+	return ListInternalTransactionsByAddressE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsListInternalTransactionsByAddressE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in ListInternalTransactionsByAddressE403
 func FeatureMainnetsNotAllowedForPlanAsListInternalTransactionsByAddressE403(v *FeatureMainnetsNotAllowedForPlan) ListInternalTransactionsByAddressE403 {
-	return ListInternalTransactionsByAddressE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return ListInternalTransactionsByAddressE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *ListInternalTransactionsByAddressE403) UnmarshalJSON(data []byte) err
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *ListInternalTransactionsByAddressE403) UnmarshalJSON(data []byte) err
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *ListInternalTransactionsByAddressE403) UnmarshalJSON(data []byte) err
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *ListInternalTransactionsByAddressE403) UnmarshalJSON(data []byte) err
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src ListInternalTransactionsByAddressE403) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *ListInternalTransactionsByAddressE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

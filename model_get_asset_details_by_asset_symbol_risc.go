@@ -73,7 +73,7 @@ func (o *GetAssetDetailsByAssetSymbolRISC) GetVar1HourPriceChangeInPercentage() 
 // GetVar1HourPriceChangeInPercentageOk returns a tuple with the Var1HourPriceChangeInPercentage field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetSymbolRISC) GetVar1HourPriceChangeInPercentageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Var1HourPriceChangeInPercentage, true
@@ -97,7 +97,7 @@ func (o *GetAssetDetailsByAssetSymbolRISC) GetVar1WeekPriceChangeInPercentage() 
 // GetVar1WeekPriceChangeInPercentageOk returns a tuple with the Var1WeekPriceChangeInPercentage field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetSymbolRISC) GetVar1WeekPriceChangeInPercentageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Var1WeekPriceChangeInPercentage, true
@@ -121,7 +121,7 @@ func (o *GetAssetDetailsByAssetSymbolRISC) GetVar24HoursPriceChangeInPercentage(
 // GetVar24HoursPriceChangeInPercentageOk returns a tuple with the Var24HoursPriceChangeInPercentage field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetSymbolRISC) GetVar24HoursPriceChangeInPercentageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Var24HoursPriceChangeInPercentage, true
@@ -145,7 +145,7 @@ func (o *GetAssetDetailsByAssetSymbolRISC) GetVar24HoursTradingVolume() string {
 // GetVar24HoursTradingVolumeOk returns a tuple with the Var24HoursTradingVolume field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetSymbolRISC) GetVar24HoursTradingVolumeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Var24HoursTradingVolume, true
@@ -169,7 +169,7 @@ func (o *GetAssetDetailsByAssetSymbolRISC) GetAssetType() string {
 // GetAssetTypeOk returns a tuple with the AssetType field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetSymbolRISC) GetAssetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AssetType, true
@@ -193,7 +193,7 @@ func (o *GetAssetDetailsByAssetSymbolRISC) GetCirculatingSupply() string {
 // GetCirculatingSupplyOk returns a tuple with the CirculatingSupply field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetSymbolRISC) GetCirculatingSupplyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CirculatingSupply, true
@@ -217,7 +217,7 @@ func (o *GetAssetDetailsByAssetSymbolRISC) GetMarketCapInUSD() string {
 // GetMarketCapInUSDOk returns a tuple with the MarketCapInUSD field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetSymbolRISC) GetMarketCapInUSDOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MarketCapInUSD, true
@@ -241,7 +241,7 @@ func (o *GetAssetDetailsByAssetSymbolRISC) GetMaxSupply() string {
 // GetMaxSupplyOk returns a tuple with the MaxSupply field value
 // and a boolean to check if the value has been set.
 func (o *GetAssetDetailsByAssetSymbolRISC) GetMaxSupplyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MaxSupply, true

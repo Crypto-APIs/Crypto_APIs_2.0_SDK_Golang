@@ -60,7 +60,7 @@ func (o *GetZilliqaAddressDetailsRI) GetBalance() GetZilliqaAddressDetailsRIBala
 // GetBalanceOk returns a tuple with the Balance field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaAddressDetailsRI) GetBalanceOk() (*GetZilliqaAddressDetailsRIBalance, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Balance, true
@@ -84,7 +84,7 @@ func (o *GetZilliqaAddressDetailsRI) GetIncomingTransactionsCount() int32 {
 // GetIncomingTransactionsCountOk returns a tuple with the IncomingTransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaAddressDetailsRI) GetIncomingTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IncomingTransactionsCount, true
@@ -108,7 +108,7 @@ func (o *GetZilliqaAddressDetailsRI) GetOutgoingTransactionsCount() int32 {
 // GetOutgoingTransactionsCountOk returns a tuple with the OutgoingTransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaAddressDetailsRI) GetOutgoingTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OutgoingTransactionsCount, true
@@ -132,7 +132,7 @@ func (o *GetZilliqaAddressDetailsRI) GetTransactionsCount() int32 {
 // GetTransactionsCountOk returns a tuple with the TransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaAddressDetailsRI) GetTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionsCount, true

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Addresses** | **[]string** |  | 
 **ScriptSig** | [**ListConfirmedTransactionsByAddressRIBSDScriptSig**](ListConfirmedTransactionsByAddressRIBSDScriptSig.md) |  | 
-**Sequence** | **int32** | Represents the script sequence number. | 
+**Sequence** | **int64** | Represents the script sequence number. | 
 **Txid** | **string** | Represents the reference transaction identifier. | 
 **Txinwitness** | **[]string** |  | 
 **Value** | **string** | Represents the sent/received amount. | 
@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 
 ### NewListAllUnconfirmedTransactionsRIBSDVin
 
-`func NewListAllUnconfirmedTransactionsRIBSDVin(addresses []string, scriptSig ListConfirmedTransactionsByAddressRIBSDScriptSig, sequence int32, txid string, txinwitness []string, value string, ) *ListAllUnconfirmedTransactionsRIBSDVin`
+`func NewListAllUnconfirmedTransactionsRIBSDVin(addresses []string, scriptSig ListConfirmedTransactionsByAddressRIBSDScriptSig, sequence int64, txid string, txinwitness []string, value string, ) *ListAllUnconfirmedTransactionsRIBSDVin`
 
 NewListAllUnconfirmedTransactionsRIBSDVin instantiates a new ListAllUnconfirmedTransactionsRIBSDVin object
 This constructor will assign default values to properties that have it defined,
@@ -73,20 +73,20 @@ SetScriptSig sets ScriptSig field to given value.
 
 ### GetSequence
 
-`func (o *ListAllUnconfirmedTransactionsRIBSDVin) GetSequence() int32`
+`func (o *ListAllUnconfirmedTransactionsRIBSDVin) GetSequence() int64`
 
 GetSequence returns the Sequence field if non-nil, zero value otherwise.
 
 ### GetSequenceOk
 
-`func (o *ListAllUnconfirmedTransactionsRIBSDVin) GetSequenceOk() (*int32, bool)`
+`func (o *ListAllUnconfirmedTransactionsRIBSDVin) GetSequenceOk() (*int64, bool)`
 
 GetSequenceOk returns a tuple with the Sequence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSequence
 
-`func (o *ListAllUnconfirmedTransactionsRIBSDVin) SetSequence(v int32)`
+`func (o *ListAllUnconfirmedTransactionsRIBSDVin) SetSequence(v int64)`
 
 SetSequence sets Sequence field to given value.
 

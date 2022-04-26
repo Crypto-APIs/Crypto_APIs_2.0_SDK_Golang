@@ -52,7 +52,7 @@ func (o *GenerateDepositAddressRBDataItem) GetLabel() string {
 // GetLabelOk returns a tuple with the Label field value
 // and a boolean to check if the value has been set.
 func (o *GenerateDepositAddressRBDataItem) GetLabelOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Label, true

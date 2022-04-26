@@ -59,7 +59,7 @@ func (o *ListUnconfirmedOmniTransactionsByAddressR) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedOmniTransactionsByAddressR) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *ListUnconfirmedOmniTransactionsByAddressR) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedOmniTransactionsByAddressR) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -139,7 +139,7 @@ func (o *ListUnconfirmedOmniTransactionsByAddressR) GetData() ListUnconfirmedOmn
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedOmniTransactionsByAddressR) GetDataOk() (*ListUnconfirmedOmniTransactionsByAddressRData, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Data, true

@@ -24,12 +24,16 @@ type NewConfirmedCoinsTransactionsE409 struct {
 
 // AlreadyExistsAsNewConfirmedCoinsTransactionsE409 is a convenience function that returns AlreadyExists wrapped in NewConfirmedCoinsTransactionsE409
 func AlreadyExistsAsNewConfirmedCoinsTransactionsE409(v *AlreadyExists) NewConfirmedCoinsTransactionsE409 {
-	return NewConfirmedCoinsTransactionsE409{ AlreadyExists: v}
+	return NewConfirmedCoinsTransactionsE409{
+		AlreadyExists: v,
+	}
 }
 
 // InvalidDataAsNewConfirmedCoinsTransactionsE409 is a convenience function that returns InvalidData wrapped in NewConfirmedCoinsTransactionsE409
 func InvalidDataAsNewConfirmedCoinsTransactionsE409(v *InvalidData) NewConfirmedCoinsTransactionsE409 {
-	return NewConfirmedCoinsTransactionsE409{ InvalidData: v}
+	return NewConfirmedCoinsTransactionsE409{
+		InvalidData: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *NewConfirmedCoinsTransactionsE409) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into AlreadyExists
-	err = json.Unmarshal(data, &dst.AlreadyExists)
+	err = newStrictDecoder(data).Decode(&dst.AlreadyExists)
 	if err == nil {
 		jsonAlreadyExists, _ := json.Marshal(dst.AlreadyExists)
 		if string(jsonAlreadyExists) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *NewConfirmedCoinsTransactionsE409) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into InvalidData
-	err = json.Unmarshal(data, &dst.InvalidData)
+	err = newStrictDecoder(data).Decode(&dst.InvalidData)
 	if err == nil {
 		jsonInvalidData, _ := json.Marshal(dst.InvalidData)
 		if string(jsonInvalidData) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src NewConfirmedCoinsTransactionsE409) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *NewConfirmedCoinsTransactionsE409) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.AlreadyExists != nil {
 		return obj.AlreadyExists
 	}

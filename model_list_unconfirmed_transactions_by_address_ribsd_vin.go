@@ -20,7 +20,7 @@ type ListUnconfirmedTransactionsByAddressRIBSDVin struct {
 	Addresses []string `json:"addresses"`
 	ScriptSig ListConfirmedTransactionsByAddressRIBSDScriptSig `json:"scriptSig"`
 	// Represents the script sequence number.
-	Sequence int32 `json:"sequence"`
+	Sequence int64 `json:"sequence"`
 	// Represents the reference transaction identifier.
 	Txid *string `json:"txid,omitempty"`
 	Txinwitness []string `json:"txinwitness"`
@@ -34,7 +34,7 @@ type ListUnconfirmedTransactionsByAddressRIBSDVin struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListUnconfirmedTransactionsByAddressRIBSDVin(addresses []string, scriptSig ListConfirmedTransactionsByAddressRIBSDScriptSig, sequence int32, txinwitness []string, value string) *ListUnconfirmedTransactionsByAddressRIBSDVin {
+func NewListUnconfirmedTransactionsByAddressRIBSDVin(addresses []string, scriptSig ListConfirmedTransactionsByAddressRIBSDScriptSig, sequence int64, txinwitness []string, value string) *ListUnconfirmedTransactionsByAddressRIBSDVin {
 	this := ListUnconfirmedTransactionsByAddressRIBSDVin{}
 	this.Addresses = addresses
 	this.ScriptSig = scriptSig
@@ -64,11 +64,11 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetAddresses() []string {
 
 // GetAddressesOk returns a tuple with the Addresses field value
 // and a boolean to check if the value has been set.
-func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetAddressesOk() (*[]string, bool) {
-	if o == nil  {
+func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetAddressesOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Addresses, true
+	return o.Addresses, true
 }
 
 // SetAddresses sets field value
@@ -89,7 +89,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetScriptSig() ListConfir
 // GetScriptSigOk returns a tuple with the ScriptSig field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetScriptSigOk() (*ListConfirmedTransactionsByAddressRIBSDScriptSig, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ScriptSig, true
@@ -101,9 +101,9 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) SetScriptSig(v ListConfir
 }
 
 // GetSequence returns the Sequence field value
-func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetSequence() int32 {
+func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetSequence() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -112,15 +112,15 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetSequence() int32 {
 
 // GetSequenceOk returns a tuple with the Sequence field value
 // and a boolean to check if the value has been set.
-func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetSequenceOk() (*int32, bool) {
-	if o == nil  {
+func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetSequenceOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sequence, true
 }
 
 // SetSequence sets field value
-func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) SetSequence(v int32) {
+func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) SetSequence(v int64) {
 	o.Sequence = v
 }
 
@@ -168,11 +168,11 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetTxinwitness() []string
 
 // GetTxinwitnessOk returns a tuple with the Txinwitness field value
 // and a boolean to check if the value has been set.
-func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetTxinwitnessOk() (*[]string, bool) {
-	if o == nil  {
+func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetTxinwitnessOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Txinwitness, true
+	return o.Txinwitness, true
 }
 
 // SetTxinwitness sets field value
@@ -193,7 +193,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetValue() string {
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *ListUnconfirmedTransactionsByAddressRIBSDVin) GetValueOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Value, true

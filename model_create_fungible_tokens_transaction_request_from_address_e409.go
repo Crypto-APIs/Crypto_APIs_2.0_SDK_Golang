@@ -26,22 +26,30 @@ type CreateFungibleTokensTransactionRequestFromAddressE409 struct {
 
 // InvalidDataAsCreateFungibleTokensTransactionRequestFromAddressE409 is a convenience function that returns InvalidData wrapped in CreateFungibleTokensTransactionRequestFromAddressE409
 func InvalidDataAsCreateFungibleTokensTransactionRequestFromAddressE409(v *InvalidData) CreateFungibleTokensTransactionRequestFromAddressE409 {
-	return CreateFungibleTokensTransactionRequestFromAddressE409{ InvalidData: v}
+	return CreateFungibleTokensTransactionRequestFromAddressE409{
+		InvalidData: v,
+	}
 }
 
 // WalletAsAServiceAddressBalanceNotEnoughAsCreateFungibleTokensTransactionRequestFromAddressE409 is a convenience function that returns WalletAsAServiceAddressBalanceNotEnough wrapped in CreateFungibleTokensTransactionRequestFromAddressE409
 func WalletAsAServiceAddressBalanceNotEnoughAsCreateFungibleTokensTransactionRequestFromAddressE409(v *WalletAsAServiceAddressBalanceNotEnough) CreateFungibleTokensTransactionRequestFromAddressE409 {
-	return CreateFungibleTokensTransactionRequestFromAddressE409{ WalletAsAServiceAddressBalanceNotEnough: v}
+	return CreateFungibleTokensTransactionRequestFromAddressE409{
+		WalletAsAServiceAddressBalanceNotEnough: v,
+	}
 }
 
 // WalletAsAServiceTokenNotSupportedAsCreateFungibleTokensTransactionRequestFromAddressE409 is a convenience function that returns WalletAsAServiceTokenNotSupported wrapped in CreateFungibleTokensTransactionRequestFromAddressE409
 func WalletAsAServiceTokenNotSupportedAsCreateFungibleTokensTransactionRequestFromAddressE409(v *WalletAsAServiceTokenNotSupported) CreateFungibleTokensTransactionRequestFromAddressE409 {
-	return CreateFungibleTokensTransactionRequestFromAddressE409{ WalletAsAServiceTokenNotSupported: v}
+	return CreateFungibleTokensTransactionRequestFromAddressE409{
+		WalletAsAServiceTokenNotSupported: v,
+	}
 }
 
 // WalletAsAServiceWalletBalanceNotEnoughAsCreateFungibleTokensTransactionRequestFromAddressE409 is a convenience function that returns WalletAsAServiceWalletBalanceNotEnough wrapped in CreateFungibleTokensTransactionRequestFromAddressE409
 func WalletAsAServiceWalletBalanceNotEnoughAsCreateFungibleTokensTransactionRequestFromAddressE409(v *WalletAsAServiceWalletBalanceNotEnough) CreateFungibleTokensTransactionRequestFromAddressE409 {
-	return CreateFungibleTokensTransactionRequestFromAddressE409{ WalletAsAServiceWalletBalanceNotEnough: v}
+	return CreateFungibleTokensTransactionRequestFromAddressE409{
+		WalletAsAServiceWalletBalanceNotEnough: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressE409) UnmarshalJSON(
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidData
-	err = json.Unmarshal(data, &dst.InvalidData)
+	err = newStrictDecoder(data).Decode(&dst.InvalidData)
 	if err == nil {
 		jsonInvalidData, _ := json.Marshal(dst.InvalidData)
 		if string(jsonInvalidData) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressE409) UnmarshalJSON(
 	}
 
 	// try to unmarshal data into WalletAsAServiceAddressBalanceNotEnough
-	err = json.Unmarshal(data, &dst.WalletAsAServiceAddressBalanceNotEnough)
+	err = newStrictDecoder(data).Decode(&dst.WalletAsAServiceAddressBalanceNotEnough)
 	if err == nil {
 		jsonWalletAsAServiceAddressBalanceNotEnough, _ := json.Marshal(dst.WalletAsAServiceAddressBalanceNotEnough)
 		if string(jsonWalletAsAServiceAddressBalanceNotEnough) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressE409) UnmarshalJSON(
 	}
 
 	// try to unmarshal data into WalletAsAServiceTokenNotSupported
-	err = json.Unmarshal(data, &dst.WalletAsAServiceTokenNotSupported)
+	err = newStrictDecoder(data).Decode(&dst.WalletAsAServiceTokenNotSupported)
 	if err == nil {
 		jsonWalletAsAServiceTokenNotSupported, _ := json.Marshal(dst.WalletAsAServiceTokenNotSupported)
 		if string(jsonWalletAsAServiceTokenNotSupported) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressE409) UnmarshalJSON(
 	}
 
 	// try to unmarshal data into WalletAsAServiceWalletBalanceNotEnough
-	err = json.Unmarshal(data, &dst.WalletAsAServiceWalletBalanceNotEnough)
+	err = newStrictDecoder(data).Decode(&dst.WalletAsAServiceWalletBalanceNotEnough)
 	if err == nil {
 		jsonWalletAsAServiceWalletBalanceNotEnough, _ := json.Marshal(dst.WalletAsAServiceWalletBalanceNotEnough)
 		if string(jsonWalletAsAServiceWalletBalanceNotEnough) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src CreateFungibleTokensTransactionRequestFromAddressE409) MarshalJSON() (
 
 // Get the actual instance
 func (obj *CreateFungibleTokensTransactionRequestFromAddressE409) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidData != nil {
 		return obj.InvalidData
 	}

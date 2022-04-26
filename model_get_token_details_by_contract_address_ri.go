@@ -62,7 +62,7 @@ func (o *GetTokenDetailsByContractAddressRI) GetTokenDecimals() string {
 // GetTokenDecimalsOk returns a tuple with the TokenDecimals field value
 // and a boolean to check if the value has been set.
 func (o *GetTokenDetailsByContractAddressRI) GetTokenDecimalsOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenDecimals, true
@@ -150,7 +150,7 @@ func (o *GetTokenDetailsByContractAddressRI) GetTokenType() string {
 // GetTokenTypeOk returns a tuple with the TokenType field value
 // and a boolean to check if the value has been set.
 func (o *GetTokenDetailsByContractAddressRI) GetTokenTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenType, true
@@ -174,7 +174,7 @@ func (o *GetTokenDetailsByContractAddressRI) GetTotalSupply() string {
 // GetTotalSupplyOk returns a tuple with the TotalSupply field value
 // and a boolean to check if the value has been set.
 func (o *GetTokenDetailsByContractAddressRI) GetTotalSupplyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalSupply, true

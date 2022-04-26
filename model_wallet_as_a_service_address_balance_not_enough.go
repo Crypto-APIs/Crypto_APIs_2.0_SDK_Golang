@@ -21,7 +21,7 @@ type WalletAsAServiceAddressBalanceNotEnough struct {
 	Code string `json:"code"`
 	// Specifies the message of the error, i.e. why the error was returned, e.g. error 404 stands for “not found”.
 	Message string `json:"message"`
-	Details *[]BannedIpAddressDetails `json:"details,omitempty"`
+	Details []BannedIpAddressDetails `json:"details,omitempty"`
 }
 
 // NewWalletAsAServiceAddressBalanceNotEnough instantiates a new WalletAsAServiceAddressBalanceNotEnough object
@@ -56,7 +56,7 @@ func (o *WalletAsAServiceAddressBalanceNotEnough) GetCode() string {
 // GetCodeOk returns a tuple with the Code field value
 // and a boolean to check if the value has been set.
 func (o *WalletAsAServiceAddressBalanceNotEnough) GetCodeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Code, true
@@ -80,7 +80,7 @@ func (o *WalletAsAServiceAddressBalanceNotEnough) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value
 // and a boolean to check if the value has been set.
 func (o *WalletAsAServiceAddressBalanceNotEnough) GetMessageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Message, true
@@ -97,12 +97,12 @@ func (o *WalletAsAServiceAddressBalanceNotEnough) GetDetails() []BannedIpAddress
 		var ret []BannedIpAddressDetails
 		return ret
 	}
-	return *o.Details
+	return o.Details
 }
 
 // GetDetailsOk returns a tuple with the Details field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *WalletAsAServiceAddressBalanceNotEnough) GetDetailsOk() (*[]BannedIpAddressDetails, bool) {
+func (o *WalletAsAServiceAddressBalanceNotEnough) GetDetailsOk() ([]BannedIpAddressDetails, bool) {
 	if o == nil || o.Details == nil {
 		return nil, false
 	}
@@ -120,7 +120,7 @@ func (o *WalletAsAServiceAddressBalanceNotEnough) HasDetails() bool {
 
 // SetDetails gets a reference to the given []BannedIpAddressDetails and assigns it to the Details field.
 func (o *WalletAsAServiceAddressBalanceNotEnough) SetDetails(v []BannedIpAddressDetails) {
-	o.Details = &v
+	o.Details = v
 }
 
 func (o WalletAsAServiceAddressBalanceNotEnough) MarshalJSON() ([]byte, error) {

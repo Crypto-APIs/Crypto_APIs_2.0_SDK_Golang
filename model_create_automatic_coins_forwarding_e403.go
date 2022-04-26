@@ -27,27 +27,37 @@ type CreateAutomaticCoinsForwardingE403 struct {
 
 // BannedIpAddressAsCreateAutomaticCoinsForwardingE403 is a convenience function that returns BannedIpAddress wrapped in CreateAutomaticCoinsForwardingE403
 func BannedIpAddressAsCreateAutomaticCoinsForwardingE403(v *BannedIpAddress) CreateAutomaticCoinsForwardingE403 {
-	return CreateAutomaticCoinsForwardingE403{ BannedIpAddress: v}
+	return CreateAutomaticCoinsForwardingE403{
+		BannedIpAddress: v,
+	}
 }
 
 // CoinsForwardingAutomationsLimitReachedAsCreateAutomaticCoinsForwardingE403 is a convenience function that returns CoinsForwardingAutomationsLimitReached wrapped in CreateAutomaticCoinsForwardingE403
 func CoinsForwardingAutomationsLimitReachedAsCreateAutomaticCoinsForwardingE403(v *CoinsForwardingAutomationsLimitReached) CreateAutomaticCoinsForwardingE403 {
-	return CreateAutomaticCoinsForwardingE403{ CoinsForwardingAutomationsLimitReached: v}
+	return CreateAutomaticCoinsForwardingE403{
+		CoinsForwardingAutomationsLimitReached: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsCreateAutomaticCoinsForwardingE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in CreateAutomaticCoinsForwardingE403
 func EndpointNotAllowedForApiKeyAsCreateAutomaticCoinsForwardingE403(v *EndpointNotAllowedForApiKey) CreateAutomaticCoinsForwardingE403 {
-	return CreateAutomaticCoinsForwardingE403{ EndpointNotAllowedForApiKey: v}
+	return CreateAutomaticCoinsForwardingE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsCreateAutomaticCoinsForwardingE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in CreateAutomaticCoinsForwardingE403
 func EndpointNotAllowedForPlanAsCreateAutomaticCoinsForwardingE403(v *EndpointNotAllowedForPlan) CreateAutomaticCoinsForwardingE403 {
-	return CreateAutomaticCoinsForwardingE403{ EndpointNotAllowedForPlan: v}
+	return CreateAutomaticCoinsForwardingE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsCreateAutomaticCoinsForwardingE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in CreateAutomaticCoinsForwardingE403
 func FeatureMainnetsNotAllowedForPlanAsCreateAutomaticCoinsForwardingE403(v *FeatureMainnetsNotAllowedForPlan) CreateAutomaticCoinsForwardingE403 {
-	return CreateAutomaticCoinsForwardingE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return CreateAutomaticCoinsForwardingE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -56,7 +66,7 @@ func (dst *CreateAutomaticCoinsForwardingE403) UnmarshalJSON(data []byte) error 
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -69,7 +79,7 @@ func (dst *CreateAutomaticCoinsForwardingE403) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into CoinsForwardingAutomationsLimitReached
-	err = json.Unmarshal(data, &dst.CoinsForwardingAutomationsLimitReached)
+	err = newStrictDecoder(data).Decode(&dst.CoinsForwardingAutomationsLimitReached)
 	if err == nil {
 		jsonCoinsForwardingAutomationsLimitReached, _ := json.Marshal(dst.CoinsForwardingAutomationsLimitReached)
 		if string(jsonCoinsForwardingAutomationsLimitReached) == "{}" { // empty struct
@@ -82,7 +92,7 @@ func (dst *CreateAutomaticCoinsForwardingE403) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -95,7 +105,7 @@ func (dst *CreateAutomaticCoinsForwardingE403) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -108,7 +118,7 @@ func (dst *CreateAutomaticCoinsForwardingE403) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -163,6 +173,9 @@ func (src CreateAutomaticCoinsForwardingE403) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *CreateAutomaticCoinsForwardingE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

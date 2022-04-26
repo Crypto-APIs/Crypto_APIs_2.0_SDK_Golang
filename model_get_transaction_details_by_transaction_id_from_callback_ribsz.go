@@ -26,7 +26,7 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSZ struct {
 	// Is used to sign transactions that contain at least one JoinSplit description.
 	JoinSplitSig string `json:"joinSplitSig"`
 	// Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
-	Locktime int32 `json:"locktime"`
+	Locktime int64 `json:"locktime"`
 	// \"Overwinter\" is the network upgrade for the Zcash blockchain.
 	Overwintered bool `json:"overwintered"`
 	// Represents the total size of this transaction.
@@ -53,7 +53,7 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSZ struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int32, overwintered bool, size int32, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []GetTransactionDetailsByTransactionIDRIBSZVin, vout []GetTransactionDetailsByTransactionIDRIBSZVout) *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int64, overwintered bool, size int32, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []GetTransactionDetailsByTransactionIDRIBSZVin, vout []GetTransactionDetailsByTransactionIDRIBSZVout) *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRIBSZ{}
 	this.BindingSig = bindingSig
 	this.ExpiryHeight = expiryHeight
@@ -94,7 +94,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetBindingSig() 
 // GetBindingSigOk returns a tuple with the BindingSig field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetBindingSigOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BindingSig, true
@@ -118,7 +118,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetExpiryHeight(
 // GetExpiryHeightOk returns a tuple with the ExpiryHeight field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetExpiryHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExpiryHeight, true
@@ -142,7 +142,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetJoinSplitPubK
 // GetJoinSplitPubKeyOk returns a tuple with the JoinSplitPubKey field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetJoinSplitPubKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.JoinSplitPubKey, true
@@ -166,7 +166,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetJoinSplitSig(
 // GetJoinSplitSigOk returns a tuple with the JoinSplitSig field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetJoinSplitSigOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.JoinSplitSig, true
@@ -178,9 +178,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetJoinSplitSig(
 }
 
 // GetLocktime returns the Locktime field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetLocktime() int32 {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetLocktime() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -189,15 +189,15 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetLocktime() in
 
 // GetLocktimeOk returns a tuple with the Locktime field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetLocktimeOk() (*int32, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetLocktimeOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Locktime, true
 }
 
 // SetLocktime sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetLocktime(v int32) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetLocktime(v int64) {
 	o.Locktime = v
 }
 
@@ -214,7 +214,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetOverwintered(
 // GetOverwinteredOk returns a tuple with the Overwintered field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetOverwinteredOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Overwintered, true
@@ -238,7 +238,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetSize() int32 
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -261,11 +261,11 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVJoinSplit() 
 
 // GetVJoinSplitOk returns a tuple with the VJoinSplit field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVJoinSplitOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVJoinSplit, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVJoinSplitOk() ([]GetTransactionDetailsByTransactionIDRIBSZVJoinSplit, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.VJoinSplit, true
+	return o.VJoinSplit, true
 }
 
 // SetVJoinSplit sets field value
@@ -285,11 +285,11 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedOutp
 
 // GetVShieldedOutputOk returns a tuple with the VShieldedOutput field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedOutputOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedOutputOk() ([]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.VShieldedOutput, true
+	return o.VShieldedOutput, true
 }
 
 // SetVShieldedOutput sets field value
@@ -309,11 +309,11 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedSpen
 
 // GetVShieldedSpendOk returns a tuple with the VShieldedSpend field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedSpendOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedSpendOk() ([]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.VShieldedSpend, true
+	return o.VShieldedSpend, true
 }
 
 // SetVShieldedSpend sets field value
@@ -334,7 +334,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetValueBalance(
 // GetValueBalanceOk returns a tuple with the ValueBalance field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetValueBalanceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ValueBalance, true
@@ -358,7 +358,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVersion() int
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -382,7 +382,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVersionGroupI
 // GetVersionGroupIdOk returns a tuple with the VersionGroupId field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVersionGroupIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VersionGroupId, true
@@ -405,11 +405,11 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVin() []GetTr
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVinOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVin, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVinOk() ([]GetTransactionDetailsByTransactionIDRIBSZVin, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vin, true
+	return o.Vin, true
 }
 
 // SetVin sets field value
@@ -429,11 +429,11 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVout() []GetT
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVout, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSZVout, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vout, true
+	return o.Vout, true
 }
 
 // SetVout sets field value

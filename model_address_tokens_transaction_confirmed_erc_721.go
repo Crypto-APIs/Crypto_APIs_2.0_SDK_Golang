@@ -61,7 +61,7 @@ func (o *AddressTokensTransactionConfirmedErc721) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedErc721) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -85,7 +85,7 @@ func (o *AddressTokensTransactionConfirmedErc721) GetSymbol() string {
 // GetSymbolOk returns a tuple with the Symbol field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedErc721) GetSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Symbol, true
@@ -109,7 +109,7 @@ func (o *AddressTokensTransactionConfirmedErc721) GetTokenId() string {
 // GetTokenIdOk returns a tuple with the TokenId field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedErc721) GetTokenIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenId, true
@@ -133,7 +133,7 @@ func (o *AddressTokensTransactionConfirmedErc721) GetContractAddress() string {
 // GetContractAddressOk returns a tuple with the ContractAddress field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedErc721) GetContractAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ContractAddress, true

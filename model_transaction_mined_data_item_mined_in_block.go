@@ -58,7 +58,7 @@ func (o *TransactionMinedDataItemMinedInBlock) GetHeight() int32 {
 // GetHeightOk returns a tuple with the Height field value
 // and a boolean to check if the value has been set.
 func (o *TransactionMinedDataItemMinedInBlock) GetHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Height, true
@@ -82,7 +82,7 @@ func (o *TransactionMinedDataItemMinedInBlock) GetHash() string {
 // GetHashOk returns a tuple with the Hash field value
 // and a boolean to check if the value has been set.
 func (o *TransactionMinedDataItemMinedInBlock) GetHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Hash, true
@@ -106,7 +106,7 @@ func (o *TransactionMinedDataItemMinedInBlock) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *TransactionMinedDataItemMinedInBlock) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true

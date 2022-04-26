@@ -55,7 +55,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRIOffer) GetAmount() strin
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleTransactionDetailsByTransactionIDRIOffer) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -79,7 +79,7 @@ func (o *GetXRPRippleTransactionDetailsByTransactionIDRIOffer) GetUnit() string 
 // GetUnitOk returns a tuple with the Unit field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleTransactionDetailsByTransactionIDRIOffer) GetUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Unit, true

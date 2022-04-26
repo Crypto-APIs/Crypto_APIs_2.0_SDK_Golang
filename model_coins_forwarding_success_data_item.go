@@ -79,7 +79,7 @@ func (o *CoinsForwardingSuccessDataItem) GetBlockchain() string {
 // GetBlockchainOk returns a tuple with the Blockchain field value
 // and a boolean to check if the value has been set.
 func (o *CoinsForwardingSuccessDataItem) GetBlockchainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Blockchain, true
@@ -103,7 +103,7 @@ func (o *CoinsForwardingSuccessDataItem) GetNetwork() string {
 // GetNetworkOk returns a tuple with the Network field value
 // and a boolean to check if the value has been set.
 func (o *CoinsForwardingSuccessDataItem) GetNetworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Network, true
@@ -127,7 +127,7 @@ func (o *CoinsForwardingSuccessDataItem) GetFromAddress() string {
 // GetFromAddressOk returns a tuple with the FromAddress field value
 // and a boolean to check if the value has been set.
 func (o *CoinsForwardingSuccessDataItem) GetFromAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FromAddress, true
@@ -151,7 +151,7 @@ func (o *CoinsForwardingSuccessDataItem) GetToAddress() string {
 // GetToAddressOk returns a tuple with the ToAddress field value
 // and a boolean to check if the value has been set.
 func (o *CoinsForwardingSuccessDataItem) GetToAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ToAddress, true
@@ -175,7 +175,7 @@ func (o *CoinsForwardingSuccessDataItem) GetForwardedAmount() string {
 // GetForwardedAmountOk returns a tuple with the ForwardedAmount field value
 // and a boolean to check if the value has been set.
 func (o *CoinsForwardingSuccessDataItem) GetForwardedAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ForwardedAmount, true
@@ -199,7 +199,7 @@ func (o *CoinsForwardingSuccessDataItem) GetForwardedUnit() string {
 // GetForwardedUnitOk returns a tuple with the ForwardedUnit field value
 // and a boolean to check if the value has been set.
 func (o *CoinsForwardingSuccessDataItem) GetForwardedUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ForwardedUnit, true
@@ -223,7 +223,7 @@ func (o *CoinsForwardingSuccessDataItem) GetSpentFeesAmount() string {
 // GetSpentFeesAmountOk returns a tuple with the SpentFeesAmount field value
 // and a boolean to check if the value has been set.
 func (o *CoinsForwardingSuccessDataItem) GetSpentFeesAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SpentFeesAmount, true
@@ -247,7 +247,7 @@ func (o *CoinsForwardingSuccessDataItem) GetSpentFeesUnit() string {
 // GetSpentFeesUnitOk returns a tuple with the SpentFeesUnit field value
 // and a boolean to check if the value has been set.
 func (o *CoinsForwardingSuccessDataItem) GetSpentFeesUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.SpentFeesUnit, true
@@ -271,7 +271,7 @@ func (o *CoinsForwardingSuccessDataItem) GetTriggerTransactionId() string {
 // GetTriggerTransactionIdOk returns a tuple with the TriggerTransactionId field value
 // and a boolean to check if the value has been set.
 func (o *CoinsForwardingSuccessDataItem) GetTriggerTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TriggerTransactionId, true
@@ -295,7 +295,7 @@ func (o *CoinsForwardingSuccessDataItem) GetForwardingTransactionId() string {
 // GetForwardingTransactionIdOk returns a tuple with the ForwardingTransactionId field value
 // and a boolean to check if the value has been set.
 func (o *CoinsForwardingSuccessDataItem) GetForwardingTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ForwardingTransactionId, true

@@ -52,7 +52,7 @@ func (o *CreateAutomaticTokensForwardingRBTokenDataEthereumToken) GetContractAdd
 // GetContractAddressOk returns a tuple with the ContractAddress field value
 // and a boolean to check if the value has been set.
 func (o *CreateAutomaticTokensForwardingRBTokenDataEthereumToken) GetContractAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ContractAddress, true

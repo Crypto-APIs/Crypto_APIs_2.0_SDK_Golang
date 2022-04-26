@@ -40,12 +40,12 @@ import (
 func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    minedTransactionRB := *openapiclient.NewMinedTransactionRB(*openapiclient.NewMinedTransactionRBData(*openapiclient.NewMinedTransactionRBDataItem("http://example.com", "df2690ff97e72c1f8b0f2102a8cb5c1d0fa8fb8754d543c9bc0edc4d4bc34bfc"))) // MinedTransactionRB |  (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    minedTransactionRB := *openapiclient.NewMinedTransactionRB(*openapiclient.NewMinedTransactionRBData(*openapiclient.NewMinedTransactionRBDataItem("https://example.com", "df2690ff97e72c1f8b0f2102a8cb5c1d0fa8fb8754d543c9bc0edc4d4bc34bfc"))) // MinedTransactionRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CreateSubscriptionsForApi.MinedTransaction(context.Background(), blockchain, network).Context(context).MinedTransactionRB(minedTransactionRB).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.MinedTransaction(context.Background(), blockchain, network).Context(context).MinedTransactionRB(minedTransactionRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.MinedTransaction``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -117,12 +117,12 @@ import (
 func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    newBlockRB := *openapiclient.NewNewBlockRB(*openapiclient.NewNewBlockRBData(*openapiclient.NewNewBlockRBDataItem("http://example.com"))) // NewBlockRB |  (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    newBlockRB := *openapiclient.NewNewBlockRB(*openapiclient.NewNewBlockRBData(*openapiclient.NewNewBlockRBDataItem("https://example.com"))) // NewBlockRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CreateSubscriptionsForApi.NewBlock(context.Background(), blockchain, network).Context(context).NewBlockRB(newBlockRB).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.NewBlock(context.Background(), blockchain, network).Context(context).NewBlockRB(newBlockRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.NewBlock``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -194,12 +194,12 @@ import (
 func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    newConfirmedCoinsTransactionsRB := *openapiclient.NewNewConfirmedCoinsTransactionsRB(*openapiclient.NewNewConfirmedCoinsTransactionsRBData(*openapiclient.NewNewConfirmedCoinsTransactionsRBDataItem("mho4jHBcrNCncKt38trJahXakuaBnS7LK5", "http://example.com"))) // NewConfirmedCoinsTransactionsRB |  (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    newConfirmedCoinsTransactionsRB := *openapiclient.NewNewConfirmedCoinsTransactionsRB(*openapiclient.NewNewConfirmedCoinsTransactionsRBData(*openapiclient.NewNewConfirmedCoinsTransactionsRBDataItem("mho4jHBcrNCncKt38trJahXakuaBnS7LK5", "https://example.com"))) // NewConfirmedCoinsTransactionsRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CreateSubscriptionsForApi.NewConfirmedCoinsTransactions(context.Background(), blockchain, network).Context(context).NewConfirmedCoinsTransactionsRB(newConfirmedCoinsTransactionsRB).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.NewConfirmedCoinsTransactions(context.Background(), blockchain, network).Context(context).NewConfirmedCoinsTransactionsRB(newConfirmedCoinsTransactionsRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.NewConfirmedCoinsTransactions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -271,12 +271,12 @@ import (
 func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    newConfirmedCoinsTransactionsAndEachConfirmationRB := *openapiclient.NewNewConfirmedCoinsTransactionsAndEachConfirmationRB(*openapiclient.NewNewConfirmedCoinsTransactionsAndEachConfirmationRBData(*openapiclient.NewNewConfirmedCoinsTransactionsAndEachConfirmationRBDataItem("mho4jHBcrNCncKt38trJahXakuaBnS7LK5", "http://example.com", int32(3)))) // NewConfirmedCoinsTransactionsAndEachConfirmationRB |  (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    newConfirmedCoinsTransactionsAndEachConfirmationRB := *openapiclient.NewNewConfirmedCoinsTransactionsAndEachConfirmationRB(*openapiclient.NewNewConfirmedCoinsTransactionsAndEachConfirmationRBData(*openapiclient.NewNewConfirmedCoinsTransactionsAndEachConfirmationRBDataItem("mho4jHBcrNCncKt38trJahXakuaBnS7LK5", "https://example.com", int32(3)))) // NewConfirmedCoinsTransactionsAndEachConfirmationRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CreateSubscriptionsForApi.NewConfirmedCoinsTransactionsAndEachConfirmation(context.Background(), blockchain, network).Context(context).NewConfirmedCoinsTransactionsAndEachConfirmationRB(newConfirmedCoinsTransactionsAndEachConfirmationRB).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.NewConfirmedCoinsTransactionsAndEachConfirmation(context.Background(), blockchain, network).Context(context).NewConfirmedCoinsTransactionsAndEachConfirmationRB(newConfirmedCoinsTransactionsAndEachConfirmationRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.NewConfirmedCoinsTransactionsAndEachConfirmation``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -348,12 +348,12 @@ import (
 func main() {
     blockchain := "ethereum-classic" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "mordor" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    newConfirmedInternalTransactionsRB := *openapiclient.NewNewConfirmedInternalTransactionsRB(*openapiclient.NewNewConfirmedInternalTransactionsRBData(*openapiclient.NewNewConfirmedInternalTransactionsRBDataItem("0xbcc817f057950b0df41206c5d7125e6225cae18e", true, "yourSecretKey", "http://example.com"))) // NewConfirmedInternalTransactionsRB |  (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    newConfirmedInternalTransactionsRB := *openapiclient.NewNewConfirmedInternalTransactionsRB(*openapiclient.NewNewConfirmedInternalTransactionsRBData(*openapiclient.NewNewConfirmedInternalTransactionsRBDataItem("0xbcc817f057950b0df41206c5d7125e6225cae18e", true, "yourSecretKey", "https://example.com"))) // NewConfirmedInternalTransactionsRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CreateSubscriptionsForApi.NewConfirmedInternalTransactions(context.Background(), blockchain, network).Context(context).NewConfirmedInternalTransactionsRB(newConfirmedInternalTransactionsRB).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.NewConfirmedInternalTransactions(context.Background(), blockchain, network).Context(context).NewConfirmedInternalTransactionsRB(newConfirmedInternalTransactionsRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.NewConfirmedInternalTransactions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -425,12 +425,12 @@ import (
 func main() {
     blockchain := "ethereum-classic" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "mordor" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     newConfirmedInternalTransactionsAndEachConfirmationRB := *openapiclient.NewNewConfirmedInternalTransactionsAndEachConfirmationRB(*openapiclient.NewNewConfirmedInternalTransactionsAndEachConfirmationRBData(*openapiclient.NewNewConfirmedInternalTransactionsAndEachConfirmationRBDataItem("0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2", true, "yourSecretString", "https://example.com", int32(3)))) // NewConfirmedInternalTransactionsAndEachConfirmationRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CreateSubscriptionsForApi.NewConfirmedInternalTransactionsAndEachConfirmation(context.Background(), blockchain, network).Context(context).NewConfirmedInternalTransactionsAndEachConfirmationRB(newConfirmedInternalTransactionsAndEachConfirmationRB).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.NewConfirmedInternalTransactionsAndEachConfirmation(context.Background(), blockchain, network).Context(context).NewConfirmedInternalTransactionsAndEachConfirmationRB(newConfirmedInternalTransactionsAndEachConfirmationRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.NewConfirmedInternalTransactionsAndEachConfirmation``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -502,12 +502,12 @@ import (
 func main() {
     blockchain := "ethereum" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "ropsten" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    newConfirmedTokensTransactionsRB := *openapiclient.NewNewConfirmedTokensTransactionsRB(*openapiclient.NewNewConfirmedTokensTransactionsRBData(*openapiclient.NewNewConfirmedTokensTransactionsRBDataItem("0xbf16582e53d6fd892f11de8a3e29e8c3b65d77c2", "http://example.com"))) // NewConfirmedTokensTransactionsRB |  (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    newConfirmedTokensTransactionsRB := *openapiclient.NewNewConfirmedTokensTransactionsRB(*openapiclient.NewNewConfirmedTokensTransactionsRBData(*openapiclient.NewNewConfirmedTokensTransactionsRBDataItem("0xbf16582e53d6fd892f11de8a3e29e8c3b65d77c2", "https://example.com"))) // NewConfirmedTokensTransactionsRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CreateSubscriptionsForApi.NewConfirmedTokensTransactions(context.Background(), blockchain, network).Context(context).NewConfirmedTokensTransactionsRB(newConfirmedTokensTransactionsRB).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.NewConfirmedTokensTransactions(context.Background(), blockchain, network).Context(context).NewConfirmedTokensTransactionsRB(newConfirmedTokensTransactionsRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.NewConfirmedTokensTransactions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -579,12 +579,12 @@ import (
 func main() {
     blockchain := "ethereum" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "ropsten" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    newConfirmedTokensTransactionsAndEachConfirmationRB := *openapiclient.NewNewConfirmedTokensTransactionsAndEachConfirmationRB(*openapiclient.NewNewConfirmedTokensTransactionsAndEachConfirmationRBData(*openapiclient.NewNewConfirmedTokensTransactionsAndEachConfirmationRBDataItem("0x033ef6db9fbd0ee60e2931906b987fe0280471a0", "http://example.com"))) // NewConfirmedTokensTransactionsAndEachConfirmationRB |  (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    newConfirmedTokensTransactionsAndEachConfirmationRB := *openapiclient.NewNewConfirmedTokensTransactionsAndEachConfirmationRB(*openapiclient.NewNewConfirmedTokensTransactionsAndEachConfirmationRBData(*openapiclient.NewNewConfirmedTokensTransactionsAndEachConfirmationRBDataItem("0x033ef6db9fbd0ee60e2931906b987fe0280471a0", "https://example.com"))) // NewConfirmedTokensTransactionsAndEachConfirmationRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CreateSubscriptionsForApi.NewConfirmedTokensTransactionsAndEachConfirmation(context.Background(), blockchain, network).Context(context).NewConfirmedTokensTransactionsAndEachConfirmationRB(newConfirmedTokensTransactionsAndEachConfirmationRB).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.NewConfirmedTokensTransactionsAndEachConfirmation(context.Background(), blockchain, network).Context(context).NewConfirmedTokensTransactionsAndEachConfirmationRB(newConfirmedTokensTransactionsAndEachConfirmationRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.NewConfirmedTokensTransactionsAndEachConfirmation``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -656,12 +656,12 @@ import (
 func main() {
     blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    newUnconfirmedCoinsTransactionsRB := *openapiclient.NewNewUnconfirmedCoinsTransactionsRB(*openapiclient.NewNewUnconfirmedCoinsTransactionsRBData(*openapiclient.NewNewUnconfirmedCoinsTransactionsRBDataItem("mho4jHBcrNCncKt38trJahXakuaBnS7LK5", "http://example.com"))) // NewUnconfirmedCoinsTransactionsRB |  (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    newUnconfirmedCoinsTransactionsRB := *openapiclient.NewNewUnconfirmedCoinsTransactionsRB(*openapiclient.NewNewUnconfirmedCoinsTransactionsRBData(*openapiclient.NewNewUnconfirmedCoinsTransactionsRBDataItem("mho4jHBcrNCncKt38trJahXakuaBnS7LK5", "https://example.com"))) // NewUnconfirmedCoinsTransactionsRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CreateSubscriptionsForApi.NewUnconfirmedCoinsTransactions(context.Background(), blockchain, network).Context(context).NewUnconfirmedCoinsTransactionsRB(newUnconfirmedCoinsTransactionsRB).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.NewUnconfirmedCoinsTransactions(context.Background(), blockchain, network).Context(context).NewUnconfirmedCoinsTransactionsRB(newUnconfirmedCoinsTransactionsRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.NewUnconfirmedCoinsTransactions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -733,12 +733,12 @@ import (
 func main() {
     blockchain := "ethereum" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
     network := "ropsten" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    newUnconfirmedTokensTransactionsRB := *openapiclient.NewNewUnconfirmedTokensTransactionsRB(*openapiclient.NewNewUnconfirmedTokensTransactionsRBData(*openapiclient.NewNewUnconfirmedTokensTransactionsRBDataItem("0x033ef6db9fbd0ee60e2931906b987fe0280471a0", "http://example.com"))) // NewUnconfirmedTokensTransactionsRB |  (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    newUnconfirmedTokensTransactionsRB := *openapiclient.NewNewUnconfirmedTokensTransactionsRB(*openapiclient.NewNewUnconfirmedTokensTransactionsRBData(*openapiclient.NewNewUnconfirmedTokensTransactionsRBDataItem("0x033ef6db9fbd0ee60e2931906b987fe0280471a0", "https://example.com"))) // NewUnconfirmedTokensTransactionsRB |  (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.CreateSubscriptionsForApi.NewUnconfirmedTokensTransactions(context.Background(), blockchain, network).Context(context).NewUnconfirmedTokensTransactionsRB(newUnconfirmedTokensTransactionsRB).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.NewUnconfirmedTokensTransactions(context.Background(), blockchain, network).Context(context).NewUnconfirmedTokensTransactionsRB(newUnconfirmedTokensTransactionsRB).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.NewUnconfirmedTokensTransactions``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

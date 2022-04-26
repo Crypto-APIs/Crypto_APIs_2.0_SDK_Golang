@@ -59,7 +59,7 @@ func (o *CreateCoinsTransactionRequestFromAddressR) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *CreateCoinsTransactionRequestFromAddressR) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *CreateCoinsTransactionRequestFromAddressR) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *CreateCoinsTransactionRequestFromAddressR) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -139,7 +139,7 @@ func (o *CreateCoinsTransactionRequestFromAddressR) GetData() CreateCoinsTransac
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
 func (o *CreateCoinsTransactionRequestFromAddressR) GetDataOk() (*CreateCoinsTransactionRequestFromAddressRData, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Data, true

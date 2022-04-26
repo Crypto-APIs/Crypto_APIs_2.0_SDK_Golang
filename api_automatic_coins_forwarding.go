@@ -13,23 +13,19 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // AutomaticCoinsForwardingApiService AutomaticCoinsForwardingApi service
 type AutomaticCoinsForwardingApiService service
 
 type ApiCreateAutomaticCoinsForwardingRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *AutomaticCoinsForwardingApiService
 	blockchain string
 	network string
@@ -42,12 +38,13 @@ func (r ApiCreateAutomaticCoinsForwardingRequest) Context(context string) ApiCre
 	r.context = &context
 	return r
 }
+
 func (r ApiCreateAutomaticCoinsForwardingRequest) CreateAutomaticCoinsForwardingRB(createAutomaticCoinsForwardingRB CreateAutomaticCoinsForwardingRB) ApiCreateAutomaticCoinsForwardingRequest {
 	r.createAutomaticCoinsForwardingRB = &createAutomaticCoinsForwardingRB
 	return r
 }
 
-func (r ApiCreateAutomaticCoinsForwardingRequest) Execute() (CreateAutomaticCoinsForwardingR, *_nethttp.Response, error) {
+func (r ApiCreateAutomaticCoinsForwardingRequest) Execute() (*CreateAutomaticCoinsForwardingR, *http.Response, error) {
 	return r.ApiService.CreateAutomaticCoinsForwardingExecute(r)
 }
 
@@ -68,12 +65,12 @@ For this automatic forwarding the customer can set a callback subscription.
 
 {note}This endpoint generates a new `fromAddress` each time.{/note}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiCreateAutomaticCoinsForwardingRequest
 */
-func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwarding(ctx _context.Context, blockchain string, network string) ApiCreateAutomaticCoinsForwardingRequest {
+func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwarding(ctx context.Context, blockchain string, network string) ApiCreateAutomaticCoinsForwardingRequest {
 	return ApiCreateAutomaticCoinsForwardingRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -84,26 +81,26 @@ func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwarding(ctx 
 
 // Execute executes the request
 //  @return CreateAutomaticCoinsForwardingR
-func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwardingExecute(r ApiCreateAutomaticCoinsForwardingRequest) (CreateAutomaticCoinsForwardingR, *_nethttp.Response, error) {
+func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwardingExecute(r ApiCreateAutomaticCoinsForwardingRequest) (*CreateAutomaticCoinsForwardingR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  CreateAutomaticCoinsForwardingR
+		localVarReturnValue  *CreateAutomaticCoinsForwardingR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutomaticCoinsForwardingApiService.CreateAutomaticCoinsForwarding")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-automations/{blockchain}/{network}/coins-forwarding/automations"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -151,20 +148,20 @@ func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwardingExecu
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40076
+			var v InlineResponse40090
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -174,7 +171,7 @@ func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwardingExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40176
+			var v InlineResponse40190
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -194,7 +191,7 @@ func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwardingExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40376
+			var v InlineResponse40390
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -267,7 +264,7 @@ func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwardingExecu
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -278,7 +275,7 @@ func (a *AutomaticCoinsForwardingApiService) CreateAutomaticCoinsForwardingExecu
 }
 
 type ApiDeleteAutomaticCoinsForwardingRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *AutomaticCoinsForwardingApiService
 	blockchain string
 	network string
@@ -292,7 +289,7 @@ func (r ApiDeleteAutomaticCoinsForwardingRequest) Context(context string) ApiDel
 	return r
 }
 
-func (r ApiDeleteAutomaticCoinsForwardingRequest) Execute() (DeleteAutomaticCoinsForwardingR, *_nethttp.Response, error) {
+func (r ApiDeleteAutomaticCoinsForwardingRequest) Execute() (*DeleteAutomaticCoinsForwardingR, *http.Response, error) {
 	return r.ApiService.DeleteAutomaticCoinsForwardingExecute(r)
 }
 
@@ -307,13 +304,13 @@ A `feePriority` will be returned which represents the fee priority of the automa
 
 {warning}The subscription will work for all incoming transactions until it is deleted. There is no need to do that for every transaction.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param referenceId Represents a unique ID used to reference the specific callback subscription.
  @return ApiDeleteAutomaticCoinsForwardingRequest
 */
-func (a *AutomaticCoinsForwardingApiService) DeleteAutomaticCoinsForwarding(ctx _context.Context, blockchain string, network string, referenceId string) ApiDeleteAutomaticCoinsForwardingRequest {
+func (a *AutomaticCoinsForwardingApiService) DeleteAutomaticCoinsForwarding(ctx context.Context, blockchain string, network string, referenceId string) ApiDeleteAutomaticCoinsForwardingRequest {
 	return ApiDeleteAutomaticCoinsForwardingRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -325,27 +322,27 @@ func (a *AutomaticCoinsForwardingApiService) DeleteAutomaticCoinsForwarding(ctx 
 
 // Execute executes the request
 //  @return DeleteAutomaticCoinsForwardingR
-func (a *AutomaticCoinsForwardingApiService) DeleteAutomaticCoinsForwardingExecute(r ApiDeleteAutomaticCoinsForwardingRequest) (DeleteAutomaticCoinsForwardingR, *_nethttp.Response, error) {
+func (a *AutomaticCoinsForwardingApiService) DeleteAutomaticCoinsForwardingExecute(r ApiDeleteAutomaticCoinsForwardingRequest) (*DeleteAutomaticCoinsForwardingR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  DeleteAutomaticCoinsForwardingR
+		localVarReturnValue  *DeleteAutomaticCoinsForwardingR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutomaticCoinsForwardingApiService.DeleteAutomaticCoinsForwarding")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-automations/{blockchain}/{network}/coins-forwarding/automations/{referenceId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"referenceId"+"}", _neturl.PathEscape(parameterToString(r.referenceId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"referenceId"+"}", url.PathEscape(parameterToString(r.referenceId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -391,20 +388,20 @@ func (a *AutomaticCoinsForwardingApiService) DeleteAutomaticCoinsForwardingExecu
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40077
+			var v InlineResponse40091
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -414,7 +411,7 @@ func (a *AutomaticCoinsForwardingApiService) DeleteAutomaticCoinsForwardingExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40177
+			var v InlineResponse40191
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -434,7 +431,7 @@ func (a *AutomaticCoinsForwardingApiService) DeleteAutomaticCoinsForwardingExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40377
+			var v InlineResponse40391
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -507,7 +504,7 @@ func (a *AutomaticCoinsForwardingApiService) DeleteAutomaticCoinsForwardingExecu
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -518,7 +515,7 @@ func (a *AutomaticCoinsForwardingApiService) DeleteAutomaticCoinsForwardingExecu
 }
 
 type ApiListCoinsForwardingAutomationsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *AutomaticCoinsForwardingApiService
 	blockchain string
 	network string
@@ -532,18 +529,20 @@ func (r ApiListCoinsForwardingAutomationsRequest) Context(context string) ApiLis
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListCoinsForwardingAutomationsRequest) Limit(limit int32) ApiListCoinsForwardingAutomationsRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListCoinsForwardingAutomationsRequest) Offset(offset int32) ApiListCoinsForwardingAutomationsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListCoinsForwardingAutomationsRequest) Execute() (ListCoinsForwardingAutomationsR, *_nethttp.Response, error) {
+func (r ApiListCoinsForwardingAutomationsRequest) Execute() (*ListCoinsForwardingAutomationsR, *http.Response, error) {
 	return r.ApiService.ListCoinsForwardingAutomationsExecute(r)
 }
 
@@ -558,12 +557,12 @@ A `feePriority` will be returned which represents the fee priority of the automa
 
 {warning}The subscription will work for all transactions until it is deleted. There is no need to do that for every transaction.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiListCoinsForwardingAutomationsRequest
 */
-func (a *AutomaticCoinsForwardingApiService) ListCoinsForwardingAutomations(ctx _context.Context, blockchain string, network string) ApiListCoinsForwardingAutomationsRequest {
+func (a *AutomaticCoinsForwardingApiService) ListCoinsForwardingAutomations(ctx context.Context, blockchain string, network string) ApiListCoinsForwardingAutomationsRequest {
 	return ApiListCoinsForwardingAutomationsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -574,26 +573,26 @@ func (a *AutomaticCoinsForwardingApiService) ListCoinsForwardingAutomations(ctx 
 
 // Execute executes the request
 //  @return ListCoinsForwardingAutomationsR
-func (a *AutomaticCoinsForwardingApiService) ListCoinsForwardingAutomationsExecute(r ApiListCoinsForwardingAutomationsRequest) (ListCoinsForwardingAutomationsR, *_nethttp.Response, error) {
+func (a *AutomaticCoinsForwardingApiService) ListCoinsForwardingAutomationsExecute(r ApiListCoinsForwardingAutomationsRequest) (*ListCoinsForwardingAutomationsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListCoinsForwardingAutomationsR
+		localVarReturnValue  *ListCoinsForwardingAutomationsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AutomaticCoinsForwardingApiService.ListCoinsForwardingAutomations")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-automations/{blockchain}/{network}/coins-forwarding/automations"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -645,20 +644,20 @@ func (a *AutomaticCoinsForwardingApiService) ListCoinsForwardingAutomationsExecu
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40075
+			var v InlineResponse40089
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -668,7 +667,7 @@ func (a *AutomaticCoinsForwardingApiService) ListCoinsForwardingAutomationsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40175
+			var v InlineResponse40189
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -688,7 +687,7 @@ func (a *AutomaticCoinsForwardingApiService) ListCoinsForwardingAutomationsExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40375
+			var v InlineResponse40389
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -761,7 +760,7 @@ func (a *AutomaticCoinsForwardingApiService) ListCoinsForwardingAutomationsExecu
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

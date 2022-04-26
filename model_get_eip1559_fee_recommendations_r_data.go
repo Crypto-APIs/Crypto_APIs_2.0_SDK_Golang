@@ -51,7 +51,7 @@ func (o *GetEIP1559FeeRecommendationsRData) GetItem() GetEIP1559FeeRecommendatio
 // GetItemOk returns a tuple with the Item field value
 // and a boolean to check if the value has been set.
 func (o *GetEIP1559FeeRecommendationsRData) GetItemOk() (*GetEIP1559FeeRecommendationsRI, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Item, true

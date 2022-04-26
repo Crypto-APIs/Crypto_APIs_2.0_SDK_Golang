@@ -75,7 +75,7 @@ func (o *AddressInternalTransactionConfirmedDataItem) GetBlockchain() string {
 // GetBlockchainOk returns a tuple with the Blockchain field value
 // and a boolean to check if the value has been set.
 func (o *AddressInternalTransactionConfirmedDataItem) GetBlockchainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Blockchain, true
@@ -99,7 +99,7 @@ func (o *AddressInternalTransactionConfirmedDataItem) GetNetwork() string {
 // GetNetworkOk returns a tuple with the Network field value
 // and a boolean to check if the value has been set.
 func (o *AddressInternalTransactionConfirmedDataItem) GetNetworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Network, true
@@ -123,7 +123,7 @@ func (o *AddressInternalTransactionConfirmedDataItem) GetAddress() string {
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *AddressInternalTransactionConfirmedDataItem) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -147,7 +147,7 @@ func (o *AddressInternalTransactionConfirmedDataItem) GetMinedInBlock() AddressI
 // GetMinedInBlockOk returns a tuple with the MinedInBlock field value
 // and a boolean to check if the value has been set.
 func (o *AddressInternalTransactionConfirmedDataItem) GetMinedInBlockOk() (*AddressInternalTransactionConfirmedDataItemMinedInBlock, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlock, true
@@ -171,7 +171,7 @@ func (o *AddressInternalTransactionConfirmedDataItem) GetParentTransactionId() s
 // GetParentTransactionIdOk returns a tuple with the ParentTransactionId field value
 // and a boolean to check if the value has been set.
 func (o *AddressInternalTransactionConfirmedDataItem) GetParentTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ParentTransactionId, true
@@ -195,7 +195,7 @@ func (o *AddressInternalTransactionConfirmedDataItem) GetOperationId() string {
 // GetOperationIdOk returns a tuple with the OperationId field value
 // and a boolean to check if the value has been set.
 func (o *AddressInternalTransactionConfirmedDataItem) GetOperationIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OperationId, true
@@ -219,7 +219,7 @@ func (o *AddressInternalTransactionConfirmedDataItem) GetAmount() string {
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *AddressInternalTransactionConfirmedDataItem) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -243,7 +243,7 @@ func (o *AddressInternalTransactionConfirmedDataItem) GetUnit() string {
 // GetUnitOk returns a tuple with the Unit field value
 // and a boolean to check if the value has been set.
 func (o *AddressInternalTransactionConfirmedDataItem) GetUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Unit, true
@@ -267,7 +267,7 @@ func (o *AddressInternalTransactionConfirmedDataItem) GetDirection() string {
 // GetDirectionOk returns a tuple with the Direction field value
 // and a boolean to check if the value has been set.
 func (o *AddressInternalTransactionConfirmedDataItem) GetDirectionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Direction, true

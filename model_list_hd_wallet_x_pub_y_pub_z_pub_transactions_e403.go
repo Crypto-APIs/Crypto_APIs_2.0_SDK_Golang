@@ -26,22 +26,30 @@ type ListHDWalletXPubYPubZPubTransactionsE403 struct {
 
 // BannedIpAddressAsListHDWalletXPubYPubZPubTransactionsE403 is a convenience function that returns BannedIpAddress wrapped in ListHDWalletXPubYPubZPubTransactionsE403
 func BannedIpAddressAsListHDWalletXPubYPubZPubTransactionsE403(v *BannedIpAddress) ListHDWalletXPubYPubZPubTransactionsE403 {
-	return ListHDWalletXPubYPubZPubTransactionsE403{ BannedIpAddress: v}
+	return ListHDWalletXPubYPubZPubTransactionsE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsListHDWalletXPubYPubZPubTransactionsE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in ListHDWalletXPubYPubZPubTransactionsE403
 func EndpointNotAllowedForApiKeyAsListHDWalletXPubYPubZPubTransactionsE403(v *EndpointNotAllowedForApiKey) ListHDWalletXPubYPubZPubTransactionsE403 {
-	return ListHDWalletXPubYPubZPubTransactionsE403{ EndpointNotAllowedForApiKey: v}
+	return ListHDWalletXPubYPubZPubTransactionsE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsListHDWalletXPubYPubZPubTransactionsE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in ListHDWalletXPubYPubZPubTransactionsE403
 func EndpointNotAllowedForPlanAsListHDWalletXPubYPubZPubTransactionsE403(v *EndpointNotAllowedForPlan) ListHDWalletXPubYPubZPubTransactionsE403 {
-	return ListHDWalletXPubYPubZPubTransactionsE403{ EndpointNotAllowedForPlan: v}
+	return ListHDWalletXPubYPubZPubTransactionsE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsListHDWalletXPubYPubZPubTransactionsE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in ListHDWalletXPubYPubZPubTransactionsE403
 func FeatureMainnetsNotAllowedForPlanAsListHDWalletXPubYPubZPubTransactionsE403(v *FeatureMainnetsNotAllowedForPlan) ListHDWalletXPubYPubZPubTransactionsE403 {
-	return ListHDWalletXPubYPubZPubTransactionsE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return ListHDWalletXPubYPubZPubTransactionsE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *ListHDWalletXPubYPubZPubTransactionsE403) UnmarshalJSON(data []byte) 
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *ListHDWalletXPubYPubZPubTransactionsE403) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *ListHDWalletXPubYPubZPubTransactionsE403) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *ListHDWalletXPubYPubZPubTransactionsE403) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src ListHDWalletXPubYPubZPubTransactionsE403) MarshalJSON() ([]byte, error
 
 // Get the actual instance
 func (obj *ListHDWalletXPubYPubZPubTransactionsE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

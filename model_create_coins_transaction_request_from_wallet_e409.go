@@ -19,23 +19,37 @@ import (
 // CreateCoinsTransactionRequestFromWalletE409 - struct for CreateCoinsTransactionRequestFromWalletE409
 type CreateCoinsTransactionRequestFromWalletE409 struct {
 	InvalidData *InvalidData
+	WalletAsAServiceAddressBalanceNotEnough *WalletAsAServiceAddressBalanceNotEnough
 	WalletAsAServiceNoDepositAddressesFound *WalletAsAServiceNoDepositAddressesFound
 	WalletAsAServiceWalletBalanceNotEnough *WalletAsAServiceWalletBalanceNotEnough
 }
 
 // InvalidDataAsCreateCoinsTransactionRequestFromWalletE409 is a convenience function that returns InvalidData wrapped in CreateCoinsTransactionRequestFromWalletE409
 func InvalidDataAsCreateCoinsTransactionRequestFromWalletE409(v *InvalidData) CreateCoinsTransactionRequestFromWalletE409 {
-	return CreateCoinsTransactionRequestFromWalletE409{ InvalidData: v}
+	return CreateCoinsTransactionRequestFromWalletE409{
+		InvalidData: v,
+	}
+}
+
+// WalletAsAServiceAddressBalanceNotEnoughAsCreateCoinsTransactionRequestFromWalletE409 is a convenience function that returns WalletAsAServiceAddressBalanceNotEnough wrapped in CreateCoinsTransactionRequestFromWalletE409
+func WalletAsAServiceAddressBalanceNotEnoughAsCreateCoinsTransactionRequestFromWalletE409(v *WalletAsAServiceAddressBalanceNotEnough) CreateCoinsTransactionRequestFromWalletE409 {
+	return CreateCoinsTransactionRequestFromWalletE409{
+		WalletAsAServiceAddressBalanceNotEnough: v,
+	}
 }
 
 // WalletAsAServiceNoDepositAddressesFoundAsCreateCoinsTransactionRequestFromWalletE409 is a convenience function that returns WalletAsAServiceNoDepositAddressesFound wrapped in CreateCoinsTransactionRequestFromWalletE409
 func WalletAsAServiceNoDepositAddressesFoundAsCreateCoinsTransactionRequestFromWalletE409(v *WalletAsAServiceNoDepositAddressesFound) CreateCoinsTransactionRequestFromWalletE409 {
-	return CreateCoinsTransactionRequestFromWalletE409{ WalletAsAServiceNoDepositAddressesFound: v}
+	return CreateCoinsTransactionRequestFromWalletE409{
+		WalletAsAServiceNoDepositAddressesFound: v,
+	}
 }
 
 // WalletAsAServiceWalletBalanceNotEnoughAsCreateCoinsTransactionRequestFromWalletE409 is a convenience function that returns WalletAsAServiceWalletBalanceNotEnough wrapped in CreateCoinsTransactionRequestFromWalletE409
 func WalletAsAServiceWalletBalanceNotEnoughAsCreateCoinsTransactionRequestFromWalletE409(v *WalletAsAServiceWalletBalanceNotEnough) CreateCoinsTransactionRequestFromWalletE409 {
-	return CreateCoinsTransactionRequestFromWalletE409{ WalletAsAServiceWalletBalanceNotEnough: v}
+	return CreateCoinsTransactionRequestFromWalletE409{
+		WalletAsAServiceWalletBalanceNotEnough: v,
+	}
 }
 
 
@@ -44,7 +58,7 @@ func (dst *CreateCoinsTransactionRequestFromWalletE409) UnmarshalJSON(data []byt
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidData
-	err = json.Unmarshal(data, &dst.InvalidData)
+	err = newStrictDecoder(data).Decode(&dst.InvalidData)
 	if err == nil {
 		jsonInvalidData, _ := json.Marshal(dst.InvalidData)
 		if string(jsonInvalidData) == "{}" { // empty struct
@@ -56,8 +70,21 @@ func (dst *CreateCoinsTransactionRequestFromWalletE409) UnmarshalJSON(data []byt
 		dst.InvalidData = nil
 	}
 
+	// try to unmarshal data into WalletAsAServiceAddressBalanceNotEnough
+	err = newStrictDecoder(data).Decode(&dst.WalletAsAServiceAddressBalanceNotEnough)
+	if err == nil {
+		jsonWalletAsAServiceAddressBalanceNotEnough, _ := json.Marshal(dst.WalletAsAServiceAddressBalanceNotEnough)
+		if string(jsonWalletAsAServiceAddressBalanceNotEnough) == "{}" { // empty struct
+			dst.WalletAsAServiceAddressBalanceNotEnough = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.WalletAsAServiceAddressBalanceNotEnough = nil
+	}
+
 	// try to unmarshal data into WalletAsAServiceNoDepositAddressesFound
-	err = json.Unmarshal(data, &dst.WalletAsAServiceNoDepositAddressesFound)
+	err = newStrictDecoder(data).Decode(&dst.WalletAsAServiceNoDepositAddressesFound)
 	if err == nil {
 		jsonWalletAsAServiceNoDepositAddressesFound, _ := json.Marshal(dst.WalletAsAServiceNoDepositAddressesFound)
 		if string(jsonWalletAsAServiceNoDepositAddressesFound) == "{}" { // empty struct
@@ -70,7 +97,7 @@ func (dst *CreateCoinsTransactionRequestFromWalletE409) UnmarshalJSON(data []byt
 	}
 
 	// try to unmarshal data into WalletAsAServiceWalletBalanceNotEnough
-	err = json.Unmarshal(data, &dst.WalletAsAServiceWalletBalanceNotEnough)
+	err = newStrictDecoder(data).Decode(&dst.WalletAsAServiceWalletBalanceNotEnough)
 	if err == nil {
 		jsonWalletAsAServiceWalletBalanceNotEnough, _ := json.Marshal(dst.WalletAsAServiceWalletBalanceNotEnough)
 		if string(jsonWalletAsAServiceWalletBalanceNotEnough) == "{}" { // empty struct
@@ -85,6 +112,7 @@ func (dst *CreateCoinsTransactionRequestFromWalletE409) UnmarshalJSON(data []byt
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.InvalidData = nil
+		dst.WalletAsAServiceAddressBalanceNotEnough = nil
 		dst.WalletAsAServiceNoDepositAddressesFound = nil
 		dst.WalletAsAServiceWalletBalanceNotEnough = nil
 
@@ -102,6 +130,10 @@ func (src CreateCoinsTransactionRequestFromWalletE409) MarshalJSON() ([]byte, er
 		return json.Marshal(&src.InvalidData)
 	}
 
+	if src.WalletAsAServiceAddressBalanceNotEnough != nil {
+		return json.Marshal(&src.WalletAsAServiceAddressBalanceNotEnough)
+	}
+
 	if src.WalletAsAServiceNoDepositAddressesFound != nil {
 		return json.Marshal(&src.WalletAsAServiceNoDepositAddressesFound)
 	}
@@ -115,8 +147,15 @@ func (src CreateCoinsTransactionRequestFromWalletE409) MarshalJSON() ([]byte, er
 
 // Get the actual instance
 func (obj *CreateCoinsTransactionRequestFromWalletE409) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidData != nil {
 		return obj.InvalidData
+	}
+
+	if obj.WalletAsAServiceAddressBalanceNotEnough != nil {
+		return obj.WalletAsAServiceAddressBalanceNotEnough
 	}
 
 	if obj.WalletAsAServiceNoDepositAddressesFound != nil {

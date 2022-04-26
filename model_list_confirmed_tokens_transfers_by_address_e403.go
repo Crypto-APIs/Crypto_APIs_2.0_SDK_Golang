@@ -26,22 +26,30 @@ type ListConfirmedTokensTransfersByAddressE403 struct {
 
 // BannedIpAddressAsListConfirmedTokensTransfersByAddressE403 is a convenience function that returns BannedIpAddress wrapped in ListConfirmedTokensTransfersByAddressE403
 func BannedIpAddressAsListConfirmedTokensTransfersByAddressE403(v *BannedIpAddress) ListConfirmedTokensTransfersByAddressE403 {
-	return ListConfirmedTokensTransfersByAddressE403{ BannedIpAddress: v}
+	return ListConfirmedTokensTransfersByAddressE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsListConfirmedTokensTransfersByAddressE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in ListConfirmedTokensTransfersByAddressE403
 func EndpointNotAllowedForApiKeyAsListConfirmedTokensTransfersByAddressE403(v *EndpointNotAllowedForApiKey) ListConfirmedTokensTransfersByAddressE403 {
-	return ListConfirmedTokensTransfersByAddressE403{ EndpointNotAllowedForApiKey: v}
+	return ListConfirmedTokensTransfersByAddressE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsListConfirmedTokensTransfersByAddressE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in ListConfirmedTokensTransfersByAddressE403
 func EndpointNotAllowedForPlanAsListConfirmedTokensTransfersByAddressE403(v *EndpointNotAllowedForPlan) ListConfirmedTokensTransfersByAddressE403 {
-	return ListConfirmedTokensTransfersByAddressE403{ EndpointNotAllowedForPlan: v}
+	return ListConfirmedTokensTransfersByAddressE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsListConfirmedTokensTransfersByAddressE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in ListConfirmedTokensTransfersByAddressE403
 func FeatureMainnetsNotAllowedForPlanAsListConfirmedTokensTransfersByAddressE403(v *FeatureMainnetsNotAllowedForPlan) ListConfirmedTokensTransfersByAddressE403 {
-	return ListConfirmedTokensTransfersByAddressE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return ListConfirmedTokensTransfersByAddressE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *ListConfirmedTokensTransfersByAddressE403) UnmarshalJSON(data []byte)
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *ListConfirmedTokensTransfersByAddressE403) UnmarshalJSON(data []byte)
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *ListConfirmedTokensTransfersByAddressE403) UnmarshalJSON(data []byte)
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *ListConfirmedTokensTransfersByAddressE403) UnmarshalJSON(data []byte)
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src ListConfirmedTokensTransfersByAddressE403) MarshalJSON() ([]byte, erro
 
 // Get the actual instance
 func (obj *ListConfirmedTokensTransfersByAddressE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

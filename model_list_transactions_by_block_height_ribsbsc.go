@@ -100,7 +100,7 @@ func (o *ListTransactionsByBlockHeightRIBSBSC) GetGasLimit() string {
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSBSC) GetGasLimitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -124,7 +124,7 @@ func (o *ListTransactionsByBlockHeightRIBSBSC) GetGasPrice() ListTransactionsByB
 // GetGasPriceOk returns a tuple with the GasPrice field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSBSC) GetGasPriceOk() (*ListTransactionsByBlockHeightRIBSBSCGasPrice, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasPrice, true
@@ -148,7 +148,7 @@ func (o *ListTransactionsByBlockHeightRIBSBSC) GetGasUsed() string {
 // GetGasUsedOk returns a tuple with the GasUsed field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSBSC) GetGasUsedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasUsed, true
@@ -172,7 +172,7 @@ func (o *ListTransactionsByBlockHeightRIBSBSC) GetInputData() string {
 // GetInputDataOk returns a tuple with the InputData field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSBSC) GetInputDataOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.InputData, true
@@ -196,7 +196,7 @@ func (o *ListTransactionsByBlockHeightRIBSBSC) GetNonce() int32 {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSBSC) GetNonceOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -220,7 +220,7 @@ func (o *ListTransactionsByBlockHeightRIBSBSC) GetTransactionStatus() string {
 // GetTransactionStatusOk returns a tuple with the TransactionStatus field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSBSC) GetTransactionStatusOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionStatus, true

@@ -64,7 +64,7 @@ func (o *ListDepositAddressesRINonFungibleTokens) GetIdentifier() string {
 // GetIdentifierOk returns a tuple with the Identifier field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRINonFungibleTokens) GetIdentifierOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Identifier, true
@@ -88,7 +88,7 @@ func (o *ListDepositAddressesRINonFungibleTokens) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRINonFungibleTokens) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -112,7 +112,7 @@ func (o *ListDepositAddressesRINonFungibleTokens) GetSymbol() string {
 // GetSymbolOk returns a tuple with the Symbol field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRINonFungibleTokens) GetSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Symbol, true
@@ -136,7 +136,7 @@ func (o *ListDepositAddressesRINonFungibleTokens) GetTokenId() string {
 // GetTokenIdOk returns a tuple with the TokenId field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRINonFungibleTokens) GetTokenIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenId, true
@@ -160,7 +160,7 @@ func (o *ListDepositAddressesRINonFungibleTokens) GetType() string {
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *ListDepositAddressesRINonFungibleTokens) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true

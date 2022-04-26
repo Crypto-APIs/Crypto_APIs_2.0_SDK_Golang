@@ -82,8 +82,6 @@ type APIClient struct {
 
 	TransactionsApi *TransactionsApiService
 
-	UTXOBasedApi *UTXOBasedApiService
-
 	UnifiedEndpointsApi *UnifiedEndpointsApiService
 
 	XRPRippleApi *XRPRippleApiService
@@ -123,7 +121,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.OmniLayerApi = (*OmniLayerApiService)(&c.common)
 	c.TokensApi = (*TokensApiService)(&c.common)
 	c.TransactionsApi = (*TransactionsApiService)(&c.common)
-	c.UTXOBasedApi = (*UTXOBasedApiService)(&c.common)
 	c.UnifiedEndpointsApi = (*UnifiedEndpointsApiService)(&c.common)
 	c.XRPRippleApi = (*XRPRippleApiService)(&c.common)
 	c.ZilliqaApi = (*ZilliqaApiService)(&c.common)
@@ -478,6 +475,13 @@ func addFile(w *multipart.Writer, fieldName, path string) error {
 // Prevent trying to import "fmt"
 func reportError(format string, a ...interface{}) error {
 	return fmt.Errorf(format, a...)
+}
+
+// A wrapper for strict JSON decoding
+func newStrictDecoder(data []byte) *json.Decoder {
+	dec := json.NewDecoder(bytes.NewBuffer(data))
+	dec.DisallowUnknownFields()
+	return dec
 }
 
 // Set request body from an interface{}

@@ -24,12 +24,16 @@ type CreateCoinsTransactionRequestFromAddressE401 struct {
 
 // InvalidApiKeyAsCreateCoinsTransactionRequestFromAddressE401 is a convenience function that returns InvalidApiKey wrapped in CreateCoinsTransactionRequestFromAddressE401
 func InvalidApiKeyAsCreateCoinsTransactionRequestFromAddressE401(v *InvalidApiKey) CreateCoinsTransactionRequestFromAddressE401 {
-	return CreateCoinsTransactionRequestFromAddressE401{ InvalidApiKey: v}
+	return CreateCoinsTransactionRequestFromAddressE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsCreateCoinsTransactionRequestFromAddressE401 is a convenience function that returns MissingApiKey wrapped in CreateCoinsTransactionRequestFromAddressE401
 func MissingApiKeyAsCreateCoinsTransactionRequestFromAddressE401(v *MissingApiKey) CreateCoinsTransactionRequestFromAddressE401 {
-	return CreateCoinsTransactionRequestFromAddressE401{ MissingApiKey: v}
+	return CreateCoinsTransactionRequestFromAddressE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *CreateCoinsTransactionRequestFromAddressE401) UnmarshalJSON(data []by
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *CreateCoinsTransactionRequestFromAddressE401) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src CreateCoinsTransactionRequestFromAddressE401) MarshalJSON() ([]byte, e
 
 // Get the actual instance
 func (obj *CreateCoinsTransactionRequestFromAddressE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

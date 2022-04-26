@@ -55,7 +55,7 @@ func (o *ValidateAddressRI) GetAddress() string {
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *ValidateAddressRI) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -79,7 +79,7 @@ func (o *ValidateAddressRI) GetIsValid() bool {
 // GetIsValidOk returns a tuple with the IsValid field value
 // and a boolean to check if the value has been set.
 func (o *ValidateAddressRI) GetIsValidOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsValid, true

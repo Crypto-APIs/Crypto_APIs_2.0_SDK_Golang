@@ -24,12 +24,16 @@ type GetWalletTransactionDetailsByTransactionIDE401 struct {
 
 // InvalidApiKeyAsGetWalletTransactionDetailsByTransactionIDE401 is a convenience function that returns InvalidApiKey wrapped in GetWalletTransactionDetailsByTransactionIDE401
 func InvalidApiKeyAsGetWalletTransactionDetailsByTransactionIDE401(v *InvalidApiKey) GetWalletTransactionDetailsByTransactionIDE401 {
-	return GetWalletTransactionDetailsByTransactionIDE401{ InvalidApiKey: v}
+	return GetWalletTransactionDetailsByTransactionIDE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsGetWalletTransactionDetailsByTransactionIDE401 is a convenience function that returns MissingApiKey wrapped in GetWalletTransactionDetailsByTransactionIDE401
 func MissingApiKeyAsGetWalletTransactionDetailsByTransactionIDE401(v *MissingApiKey) GetWalletTransactionDetailsByTransactionIDE401 {
-	return GetWalletTransactionDetailsByTransactionIDE401{ MissingApiKey: v}
+	return GetWalletTransactionDetailsByTransactionIDE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *GetWalletTransactionDetailsByTransactionIDE401) UnmarshalJSON(data []
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *GetWalletTransactionDetailsByTransactionIDE401) UnmarshalJSON(data []
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src GetWalletTransactionDetailsByTransactionIDE401) MarshalJSON() ([]byte,
 
 // Get the actual instance
 func (obj *GetWalletTransactionDetailsByTransactionIDE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

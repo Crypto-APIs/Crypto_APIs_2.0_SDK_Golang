@@ -26,22 +26,30 @@ type GetAssetDetailsByAssetSymbolE403 struct {
 
 // BannedIpAddressAsGetAssetDetailsByAssetSymbolE403 is a convenience function that returns BannedIpAddress wrapped in GetAssetDetailsByAssetSymbolE403
 func BannedIpAddressAsGetAssetDetailsByAssetSymbolE403(v *BannedIpAddress) GetAssetDetailsByAssetSymbolE403 {
-	return GetAssetDetailsByAssetSymbolE403{ BannedIpAddress: v}
+	return GetAssetDetailsByAssetSymbolE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsGetAssetDetailsByAssetSymbolE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in GetAssetDetailsByAssetSymbolE403
 func EndpointNotAllowedForApiKeyAsGetAssetDetailsByAssetSymbolE403(v *EndpointNotAllowedForApiKey) GetAssetDetailsByAssetSymbolE403 {
-	return GetAssetDetailsByAssetSymbolE403{ EndpointNotAllowedForApiKey: v}
+	return GetAssetDetailsByAssetSymbolE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsGetAssetDetailsByAssetSymbolE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in GetAssetDetailsByAssetSymbolE403
 func EndpointNotAllowedForPlanAsGetAssetDetailsByAssetSymbolE403(v *EndpointNotAllowedForPlan) GetAssetDetailsByAssetSymbolE403 {
-	return GetAssetDetailsByAssetSymbolE403{ EndpointNotAllowedForPlan: v}
+	return GetAssetDetailsByAssetSymbolE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsGetAssetDetailsByAssetSymbolE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in GetAssetDetailsByAssetSymbolE403
 func FeatureMainnetsNotAllowedForPlanAsGetAssetDetailsByAssetSymbolE403(v *FeatureMainnetsNotAllowedForPlan) GetAssetDetailsByAssetSymbolE403 {
-	return GetAssetDetailsByAssetSymbolE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return GetAssetDetailsByAssetSymbolE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *GetAssetDetailsByAssetSymbolE403) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *GetAssetDetailsByAssetSymbolE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *GetAssetDetailsByAssetSymbolE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *GetAssetDetailsByAssetSymbolE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src GetAssetDetailsByAssetSymbolE403) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetAssetDetailsByAssetSymbolE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

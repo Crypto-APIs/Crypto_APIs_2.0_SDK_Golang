@@ -24,12 +24,16 @@ type SyncHDWalletXPubYPubZPubE409 struct {
 
 // AlreadyExistsAsSyncHDWalletXPubYPubZPubE409 is a convenience function that returns AlreadyExists wrapped in SyncHDWalletXPubYPubZPubE409
 func AlreadyExistsAsSyncHDWalletXPubYPubZPubE409(v *AlreadyExists) SyncHDWalletXPubYPubZPubE409 {
-	return SyncHDWalletXPubYPubZPubE409{ AlreadyExists: v}
+	return SyncHDWalletXPubYPubZPubE409{
+		AlreadyExists: v,
+	}
 }
 
 // InvalidDataAsSyncHDWalletXPubYPubZPubE409 is a convenience function that returns InvalidData wrapped in SyncHDWalletXPubYPubZPubE409
 func InvalidDataAsSyncHDWalletXPubYPubZPubE409(v *InvalidData) SyncHDWalletXPubYPubZPubE409 {
-	return SyncHDWalletXPubYPubZPubE409{ InvalidData: v}
+	return SyncHDWalletXPubYPubZPubE409{
+		InvalidData: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *SyncHDWalletXPubYPubZPubE409) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into AlreadyExists
-	err = json.Unmarshal(data, &dst.AlreadyExists)
+	err = newStrictDecoder(data).Decode(&dst.AlreadyExists)
 	if err == nil {
 		jsonAlreadyExists, _ := json.Marshal(dst.AlreadyExists)
 		if string(jsonAlreadyExists) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *SyncHDWalletXPubYPubZPubE409) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into InvalidData
-	err = json.Unmarshal(data, &dst.InvalidData)
+	err = newStrictDecoder(data).Decode(&dst.InvalidData)
 	if err == nil {
 		jsonInvalidData, _ := json.Marshal(dst.InvalidData)
 		if string(jsonInvalidData) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src SyncHDWalletXPubYPubZPubE409) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *SyncHDWalletXPubYPubZPubE409) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.AlreadyExists != nil {
 		return obj.AlreadyExists
 	}

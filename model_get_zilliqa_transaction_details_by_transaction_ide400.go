@@ -25,17 +25,23 @@ type GetZilliqaTransactionDetailsByTransactionIDE400 struct {
 
 // InvalidPaginationAsGetZilliqaTransactionDetailsByTransactionIDE400 is a convenience function that returns InvalidPagination wrapped in GetZilliqaTransactionDetailsByTransactionIDE400
 func InvalidPaginationAsGetZilliqaTransactionDetailsByTransactionIDE400(v *InvalidPagination) GetZilliqaTransactionDetailsByTransactionIDE400 {
-	return GetZilliqaTransactionDetailsByTransactionIDE400{ InvalidPagination: v}
+	return GetZilliqaTransactionDetailsByTransactionIDE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsGetZilliqaTransactionDetailsByTransactionIDE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in GetZilliqaTransactionDetailsByTransactionIDE400
 func LimitGreaterThanAllowedAsGetZilliqaTransactionDetailsByTransactionIDE400(v *LimitGreaterThanAllowed) GetZilliqaTransactionDetailsByTransactionIDE400 {
-	return GetZilliqaTransactionDetailsByTransactionIDE400{ LimitGreaterThanAllowed: v}
+	return GetZilliqaTransactionDetailsByTransactionIDE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsGetZilliqaTransactionDetailsByTransactionIDE400 is a convenience function that returns UriNotFound wrapped in GetZilliqaTransactionDetailsByTransactionIDE400
 func UriNotFoundAsGetZilliqaTransactionDetailsByTransactionIDE400(v *UriNotFound) GetZilliqaTransactionDetailsByTransactionIDE400 {
-	return GetZilliqaTransactionDetailsByTransactionIDE400{ UriNotFound: v}
+	return GetZilliqaTransactionDetailsByTransactionIDE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *GetZilliqaTransactionDetailsByTransactionIDE400) UnmarshalJSON(data [
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *GetZilliqaTransactionDetailsByTransactionIDE400) UnmarshalJSON(data [
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *GetZilliqaTransactionDetailsByTransactionIDE400) UnmarshalJSON(data [
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src GetZilliqaTransactionDetailsByTransactionIDE400) MarshalJSON() ([]byte
 
 // Get the actual instance
 func (obj *GetZilliqaTransactionDetailsByTransactionIDE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

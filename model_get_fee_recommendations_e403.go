@@ -26,22 +26,30 @@ type GetFeeRecommendationsE403 struct {
 
 // BannedIpAddressAsGetFeeRecommendationsE403 is a convenience function that returns BannedIpAddress wrapped in GetFeeRecommendationsE403
 func BannedIpAddressAsGetFeeRecommendationsE403(v *BannedIpAddress) GetFeeRecommendationsE403 {
-	return GetFeeRecommendationsE403{ BannedIpAddress: v}
+	return GetFeeRecommendationsE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsGetFeeRecommendationsE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in GetFeeRecommendationsE403
 func EndpointNotAllowedForApiKeyAsGetFeeRecommendationsE403(v *EndpointNotAllowedForApiKey) GetFeeRecommendationsE403 {
-	return GetFeeRecommendationsE403{ EndpointNotAllowedForApiKey: v}
+	return GetFeeRecommendationsE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsGetFeeRecommendationsE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in GetFeeRecommendationsE403
 func EndpointNotAllowedForPlanAsGetFeeRecommendationsE403(v *EndpointNotAllowedForPlan) GetFeeRecommendationsE403 {
-	return GetFeeRecommendationsE403{ EndpointNotAllowedForPlan: v}
+	return GetFeeRecommendationsE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsGetFeeRecommendationsE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in GetFeeRecommendationsE403
 func FeatureMainnetsNotAllowedForPlanAsGetFeeRecommendationsE403(v *FeatureMainnetsNotAllowedForPlan) GetFeeRecommendationsE403 {
-	return GetFeeRecommendationsE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return GetFeeRecommendationsE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *GetFeeRecommendationsE403) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *GetFeeRecommendationsE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *GetFeeRecommendationsE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *GetFeeRecommendationsE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src GetFeeRecommendationsE403) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetFeeRecommendationsE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

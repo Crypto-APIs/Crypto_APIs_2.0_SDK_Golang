@@ -65,11 +65,11 @@ func (o *ListAllUnconfirmedTransactionsRI) GetRecipients() []ListUnconfirmedTran
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListAllUnconfirmedTransactionsRI) GetRecipientsOk() (*[]ListUnconfirmedTransactionsByAddressRIRecipients, bool) {
-	if o == nil  {
+func (o *ListAllUnconfirmedTransactionsRI) GetRecipientsOk() ([]ListUnconfirmedTransactionsByAddressRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -89,11 +89,11 @@ func (o *ListAllUnconfirmedTransactionsRI) GetSenders() []ListUnconfirmedTransac
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListAllUnconfirmedTransactionsRI) GetSendersOk() (*[]ListUnconfirmedTransactionsByAddressRISenders, bool) {
-	if o == nil  {
+func (o *ListAllUnconfirmedTransactionsRI) GetSendersOk() ([]ListUnconfirmedTransactionsByAddressRISenders, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Senders, true
+	return o.Senders, true
 }
 
 // SetSenders sets field value
@@ -114,7 +114,7 @@ func (o *ListAllUnconfirmedTransactionsRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -138,7 +138,7 @@ func (o *ListAllUnconfirmedTransactionsRI) GetTransactionHash() string {
 // GetTransactionHashOk returns a tuple with the TransactionHash field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRI) GetTransactionHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionHash, true
@@ -162,7 +162,7 @@ func (o *ListAllUnconfirmedTransactionsRI) GetTransactionId() string {
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -186,7 +186,7 @@ func (o *ListAllUnconfirmedTransactionsRI) GetBlockchainSpecific() ListAllUnconf
 // GetBlockchainSpecificOk returns a tuple with the BlockchainSpecific field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRI) GetBlockchainSpecificOk() (*ListAllUnconfirmedTransactionsRIBS, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockchainSpecific, true

@@ -71,7 +71,7 @@ func (o *AddressTokensTransactionConfirmedDataItem) GetBlockchain() string {
 // GetBlockchainOk returns a tuple with the Blockchain field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedDataItem) GetBlockchainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Blockchain, true
@@ -95,7 +95,7 @@ func (o *AddressTokensTransactionConfirmedDataItem) GetNetwork() string {
 // GetNetworkOk returns a tuple with the Network field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedDataItem) GetNetworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Network, true
@@ -119,7 +119,7 @@ func (o *AddressTokensTransactionConfirmedDataItem) GetAddress() string {
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedDataItem) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -143,7 +143,7 @@ func (o *AddressTokensTransactionConfirmedDataItem) GetMinedInBlock() AddressTok
 // GetMinedInBlockOk returns a tuple with the MinedInBlock field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedDataItem) GetMinedInBlockOk() (*AddressTokensTransactionConfirmedDataItemMinedInBlock, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlock, true
@@ -167,7 +167,7 @@ func (o *AddressTokensTransactionConfirmedDataItem) GetTransactionId() string {
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedDataItem) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -191,7 +191,7 @@ func (o *AddressTokensTransactionConfirmedDataItem) GetTokenType() string {
 // GetTokenTypeOk returns a tuple with the TokenType field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedDataItem) GetTokenTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenType, true
@@ -215,7 +215,7 @@ func (o *AddressTokensTransactionConfirmedDataItem) GetToken() AddressTokensTran
 // GetTokenOk returns a tuple with the Token field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedDataItem) GetTokenOk() (*AddressTokensTransactionConfirmedToken, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Token, true
@@ -239,7 +239,7 @@ func (o *AddressTokensTransactionConfirmedDataItem) GetDirection() string {
 // GetDirectionOk returns a tuple with the Direction field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedDataItem) GetDirectionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Direction, true

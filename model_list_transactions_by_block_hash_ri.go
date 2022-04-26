@@ -77,7 +77,7 @@ func (o *ListTransactionsByBlockHashRI) GetIndex() int32 {
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRI) GetIndexOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Index, true
@@ -101,7 +101,7 @@ func (o *ListTransactionsByBlockHashRI) GetMinedInBlockHash() string {
 // GetMinedInBlockHashOk returns a tuple with the MinedInBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRI) GetMinedInBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHash, true
@@ -125,7 +125,7 @@ func (o *ListTransactionsByBlockHashRI) GetMinedInBlockHeight() int32 {
 // GetMinedInBlockHeightOk returns a tuple with the MinedInBlockHeight field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRI) GetMinedInBlockHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHeight, true
@@ -148,11 +148,11 @@ func (o *ListTransactionsByBlockHashRI) GetRecipients() []ListTransactionsByBloc
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRI) GetRecipientsOk() (*[]ListTransactionsByBlockHashRIRecipients, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHashRI) GetRecipientsOk() ([]ListTransactionsByBlockHashRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -172,11 +172,11 @@ func (o *ListTransactionsByBlockHashRI) GetSenders() []ListTransactionsByBlockHa
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRI) GetSendersOk() (*[]ListTransactionsByBlockHashRISenders, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHashRI) GetSendersOk() ([]ListTransactionsByBlockHashRISenders, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Senders, true
+	return o.Senders, true
 }
 
 // SetSenders sets field value
@@ -197,7 +197,7 @@ func (o *ListTransactionsByBlockHashRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -221,7 +221,7 @@ func (o *ListTransactionsByBlockHashRI) GetTransactionHash() string {
 // GetTransactionHashOk returns a tuple with the TransactionHash field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRI) GetTransactionHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionHash, true
@@ -245,7 +245,7 @@ func (o *ListTransactionsByBlockHashRI) GetTransactionId() string {
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -269,7 +269,7 @@ func (o *ListTransactionsByBlockHashRI) GetFee() ListTransactionsByBlockHashRIFe
 // GetFeeOk returns a tuple with the Fee field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRI) GetFeeOk() (*ListTransactionsByBlockHashRIFee, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fee, true
@@ -293,7 +293,7 @@ func (o *ListTransactionsByBlockHashRI) GetBlockchainSpecific() ListTransactions
 // GetBlockchainSpecificOk returns a tuple with the BlockchainSpecific field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHashRI) GetBlockchainSpecificOk() (*ListTransactionsByBlockHashRIBS, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockchainSpecific, true

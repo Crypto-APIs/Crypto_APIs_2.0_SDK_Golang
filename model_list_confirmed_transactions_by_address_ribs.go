@@ -31,47 +31,65 @@ type ListConfirmedTransactionsByAddressRIBS struct {
 
 // ListConfirmedTransactionsByAddressRIBSBAsListConfirmedTransactionsByAddressRIBS is a convenience function that returns ListConfirmedTransactionsByAddressRIBSB wrapped in ListConfirmedTransactionsByAddressRIBS
 func ListConfirmedTransactionsByAddressRIBSBAsListConfirmedTransactionsByAddressRIBS(v *ListConfirmedTransactionsByAddressRIBSB) ListConfirmedTransactionsByAddressRIBS {
-	return ListConfirmedTransactionsByAddressRIBS{ ListConfirmedTransactionsByAddressRIBSB: v}
+	return ListConfirmedTransactionsByAddressRIBS{
+		ListConfirmedTransactionsByAddressRIBSB: v,
+	}
 }
 
 // ListConfirmedTransactionsByAddressRIBSBCAsListConfirmedTransactionsByAddressRIBS is a convenience function that returns ListConfirmedTransactionsByAddressRIBSBC wrapped in ListConfirmedTransactionsByAddressRIBS
 func ListConfirmedTransactionsByAddressRIBSBCAsListConfirmedTransactionsByAddressRIBS(v *ListConfirmedTransactionsByAddressRIBSBC) ListConfirmedTransactionsByAddressRIBS {
-	return ListConfirmedTransactionsByAddressRIBS{ ListConfirmedTransactionsByAddressRIBSBC: v}
+	return ListConfirmedTransactionsByAddressRIBS{
+		ListConfirmedTransactionsByAddressRIBSBC: v,
+	}
 }
 
 // ListConfirmedTransactionsByAddressRIBSBSCAsListConfirmedTransactionsByAddressRIBS is a convenience function that returns ListConfirmedTransactionsByAddressRIBSBSC wrapped in ListConfirmedTransactionsByAddressRIBS
 func ListConfirmedTransactionsByAddressRIBSBSCAsListConfirmedTransactionsByAddressRIBS(v *ListConfirmedTransactionsByAddressRIBSBSC) ListConfirmedTransactionsByAddressRIBS {
-	return ListConfirmedTransactionsByAddressRIBS{ ListConfirmedTransactionsByAddressRIBSBSC: v}
+	return ListConfirmedTransactionsByAddressRIBS{
+		ListConfirmedTransactionsByAddressRIBSBSC: v,
+	}
 }
 
 // ListConfirmedTransactionsByAddressRIBSDAsListConfirmedTransactionsByAddressRIBS is a convenience function that returns ListConfirmedTransactionsByAddressRIBSD wrapped in ListConfirmedTransactionsByAddressRIBS
 func ListConfirmedTransactionsByAddressRIBSDAsListConfirmedTransactionsByAddressRIBS(v *ListConfirmedTransactionsByAddressRIBSD) ListConfirmedTransactionsByAddressRIBS {
-	return ListConfirmedTransactionsByAddressRIBS{ ListConfirmedTransactionsByAddressRIBSD: v}
+	return ListConfirmedTransactionsByAddressRIBS{
+		ListConfirmedTransactionsByAddressRIBSD: v,
+	}
 }
 
 // ListConfirmedTransactionsByAddressRIBSD2AsListConfirmedTransactionsByAddressRIBS is a convenience function that returns ListConfirmedTransactionsByAddressRIBSD2 wrapped in ListConfirmedTransactionsByAddressRIBS
 func ListConfirmedTransactionsByAddressRIBSD2AsListConfirmedTransactionsByAddressRIBS(v *ListConfirmedTransactionsByAddressRIBSD2) ListConfirmedTransactionsByAddressRIBS {
-	return ListConfirmedTransactionsByAddressRIBS{ ListConfirmedTransactionsByAddressRIBSD2: v}
+	return ListConfirmedTransactionsByAddressRIBS{
+		ListConfirmedTransactionsByAddressRIBSD2: v,
+	}
 }
 
 // ListConfirmedTransactionsByAddressRIBSEAsListConfirmedTransactionsByAddressRIBS is a convenience function that returns ListConfirmedTransactionsByAddressRIBSE wrapped in ListConfirmedTransactionsByAddressRIBS
 func ListConfirmedTransactionsByAddressRIBSEAsListConfirmedTransactionsByAddressRIBS(v *ListConfirmedTransactionsByAddressRIBSE) ListConfirmedTransactionsByAddressRIBS {
-	return ListConfirmedTransactionsByAddressRIBS{ ListConfirmedTransactionsByAddressRIBSE: v}
+	return ListConfirmedTransactionsByAddressRIBS{
+		ListConfirmedTransactionsByAddressRIBSE: v,
+	}
 }
 
 // ListConfirmedTransactionsByAddressRIBSECAsListConfirmedTransactionsByAddressRIBS is a convenience function that returns ListConfirmedTransactionsByAddressRIBSEC wrapped in ListConfirmedTransactionsByAddressRIBS
 func ListConfirmedTransactionsByAddressRIBSECAsListConfirmedTransactionsByAddressRIBS(v *ListConfirmedTransactionsByAddressRIBSEC) ListConfirmedTransactionsByAddressRIBS {
-	return ListConfirmedTransactionsByAddressRIBS{ ListConfirmedTransactionsByAddressRIBSEC: v}
+	return ListConfirmedTransactionsByAddressRIBS{
+		ListConfirmedTransactionsByAddressRIBSEC: v,
+	}
 }
 
 // ListConfirmedTransactionsByAddressRIBSLAsListConfirmedTransactionsByAddressRIBS is a convenience function that returns ListConfirmedTransactionsByAddressRIBSL wrapped in ListConfirmedTransactionsByAddressRIBS
 func ListConfirmedTransactionsByAddressRIBSLAsListConfirmedTransactionsByAddressRIBS(v *ListConfirmedTransactionsByAddressRIBSL) ListConfirmedTransactionsByAddressRIBS {
-	return ListConfirmedTransactionsByAddressRIBS{ ListConfirmedTransactionsByAddressRIBSL: v}
+	return ListConfirmedTransactionsByAddressRIBS{
+		ListConfirmedTransactionsByAddressRIBSL: v,
+	}
 }
 
 // ListConfirmedTransactionsByAddressRIBSZAsListConfirmedTransactionsByAddressRIBS is a convenience function that returns ListConfirmedTransactionsByAddressRIBSZ wrapped in ListConfirmedTransactionsByAddressRIBS
 func ListConfirmedTransactionsByAddressRIBSZAsListConfirmedTransactionsByAddressRIBS(v *ListConfirmedTransactionsByAddressRIBSZ) ListConfirmedTransactionsByAddressRIBS {
-	return ListConfirmedTransactionsByAddressRIBS{ ListConfirmedTransactionsByAddressRIBSZ: v}
+	return ListConfirmedTransactionsByAddressRIBS{
+		ListConfirmedTransactionsByAddressRIBSZ: v,
+	}
 }
 
 
@@ -80,7 +98,7 @@ func (dst *ListConfirmedTransactionsByAddressRIBS) UnmarshalJSON(data []byte) er
 	var err error
 	match := 0
 	// try to unmarshal data into ListConfirmedTransactionsByAddressRIBSB
-	err = json.Unmarshal(data, &dst.ListConfirmedTransactionsByAddressRIBSB)
+	err = newStrictDecoder(data).Decode(&dst.ListConfirmedTransactionsByAddressRIBSB)
 	if err == nil {
 		jsonListConfirmedTransactionsByAddressRIBSB, _ := json.Marshal(dst.ListConfirmedTransactionsByAddressRIBSB)
 		if string(jsonListConfirmedTransactionsByAddressRIBSB) == "{}" { // empty struct
@@ -93,7 +111,7 @@ func (dst *ListConfirmedTransactionsByAddressRIBS) UnmarshalJSON(data []byte) er
 	}
 
 	// try to unmarshal data into ListConfirmedTransactionsByAddressRIBSBC
-	err = json.Unmarshal(data, &dst.ListConfirmedTransactionsByAddressRIBSBC)
+	err = newStrictDecoder(data).Decode(&dst.ListConfirmedTransactionsByAddressRIBSBC)
 	if err == nil {
 		jsonListConfirmedTransactionsByAddressRIBSBC, _ := json.Marshal(dst.ListConfirmedTransactionsByAddressRIBSBC)
 		if string(jsonListConfirmedTransactionsByAddressRIBSBC) == "{}" { // empty struct
@@ -106,7 +124,7 @@ func (dst *ListConfirmedTransactionsByAddressRIBS) UnmarshalJSON(data []byte) er
 	}
 
 	// try to unmarshal data into ListConfirmedTransactionsByAddressRIBSBSC
-	err = json.Unmarshal(data, &dst.ListConfirmedTransactionsByAddressRIBSBSC)
+	err = newStrictDecoder(data).Decode(&dst.ListConfirmedTransactionsByAddressRIBSBSC)
 	if err == nil {
 		jsonListConfirmedTransactionsByAddressRIBSBSC, _ := json.Marshal(dst.ListConfirmedTransactionsByAddressRIBSBSC)
 		if string(jsonListConfirmedTransactionsByAddressRIBSBSC) == "{}" { // empty struct
@@ -119,7 +137,7 @@ func (dst *ListConfirmedTransactionsByAddressRIBS) UnmarshalJSON(data []byte) er
 	}
 
 	// try to unmarshal data into ListConfirmedTransactionsByAddressRIBSD
-	err = json.Unmarshal(data, &dst.ListConfirmedTransactionsByAddressRIBSD)
+	err = newStrictDecoder(data).Decode(&dst.ListConfirmedTransactionsByAddressRIBSD)
 	if err == nil {
 		jsonListConfirmedTransactionsByAddressRIBSD, _ := json.Marshal(dst.ListConfirmedTransactionsByAddressRIBSD)
 		if string(jsonListConfirmedTransactionsByAddressRIBSD) == "{}" { // empty struct
@@ -132,7 +150,7 @@ func (dst *ListConfirmedTransactionsByAddressRIBS) UnmarshalJSON(data []byte) er
 	}
 
 	// try to unmarshal data into ListConfirmedTransactionsByAddressRIBSD2
-	err = json.Unmarshal(data, &dst.ListConfirmedTransactionsByAddressRIBSD2)
+	err = newStrictDecoder(data).Decode(&dst.ListConfirmedTransactionsByAddressRIBSD2)
 	if err == nil {
 		jsonListConfirmedTransactionsByAddressRIBSD2, _ := json.Marshal(dst.ListConfirmedTransactionsByAddressRIBSD2)
 		if string(jsonListConfirmedTransactionsByAddressRIBSD2) == "{}" { // empty struct
@@ -145,7 +163,7 @@ func (dst *ListConfirmedTransactionsByAddressRIBS) UnmarshalJSON(data []byte) er
 	}
 
 	// try to unmarshal data into ListConfirmedTransactionsByAddressRIBSE
-	err = json.Unmarshal(data, &dst.ListConfirmedTransactionsByAddressRIBSE)
+	err = newStrictDecoder(data).Decode(&dst.ListConfirmedTransactionsByAddressRIBSE)
 	if err == nil {
 		jsonListConfirmedTransactionsByAddressRIBSE, _ := json.Marshal(dst.ListConfirmedTransactionsByAddressRIBSE)
 		if string(jsonListConfirmedTransactionsByAddressRIBSE) == "{}" { // empty struct
@@ -158,7 +176,7 @@ func (dst *ListConfirmedTransactionsByAddressRIBS) UnmarshalJSON(data []byte) er
 	}
 
 	// try to unmarshal data into ListConfirmedTransactionsByAddressRIBSEC
-	err = json.Unmarshal(data, &dst.ListConfirmedTransactionsByAddressRIBSEC)
+	err = newStrictDecoder(data).Decode(&dst.ListConfirmedTransactionsByAddressRIBSEC)
 	if err == nil {
 		jsonListConfirmedTransactionsByAddressRIBSEC, _ := json.Marshal(dst.ListConfirmedTransactionsByAddressRIBSEC)
 		if string(jsonListConfirmedTransactionsByAddressRIBSEC) == "{}" { // empty struct
@@ -171,7 +189,7 @@ func (dst *ListConfirmedTransactionsByAddressRIBS) UnmarshalJSON(data []byte) er
 	}
 
 	// try to unmarshal data into ListConfirmedTransactionsByAddressRIBSL
-	err = json.Unmarshal(data, &dst.ListConfirmedTransactionsByAddressRIBSL)
+	err = newStrictDecoder(data).Decode(&dst.ListConfirmedTransactionsByAddressRIBSL)
 	if err == nil {
 		jsonListConfirmedTransactionsByAddressRIBSL, _ := json.Marshal(dst.ListConfirmedTransactionsByAddressRIBSL)
 		if string(jsonListConfirmedTransactionsByAddressRIBSL) == "{}" { // empty struct
@@ -184,7 +202,7 @@ func (dst *ListConfirmedTransactionsByAddressRIBS) UnmarshalJSON(data []byte) er
 	}
 
 	// try to unmarshal data into ListConfirmedTransactionsByAddressRIBSZ
-	err = json.Unmarshal(data, &dst.ListConfirmedTransactionsByAddressRIBSZ)
+	err = newStrictDecoder(data).Decode(&dst.ListConfirmedTransactionsByAddressRIBSZ)
 	if err == nil {
 		jsonListConfirmedTransactionsByAddressRIBSZ, _ := json.Marshal(dst.ListConfirmedTransactionsByAddressRIBSZ)
 		if string(jsonListConfirmedTransactionsByAddressRIBSZ) == "{}" { // empty struct
@@ -259,6 +277,9 @@ func (src ListConfirmedTransactionsByAddressRIBS) MarshalJSON() ([]byte, error) 
 
 // Get the actual instance
 func (obj *ListConfirmedTransactionsByAddressRIBS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.ListConfirmedTransactionsByAddressRIBSB != nil {
 		return obj.ListConfirmedTransactionsByAddressRIBSB
 	}

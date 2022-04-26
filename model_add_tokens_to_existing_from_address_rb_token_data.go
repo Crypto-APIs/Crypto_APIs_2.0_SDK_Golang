@@ -24,12 +24,16 @@ type AddTokensToExistingFromAddressRBTokenData struct {
 
 // AddTokensToExistingFromAddressRBTokenDataBitcoinOmniTokenAsAddTokensToExistingFromAddressRBTokenData is a convenience function that returns AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken wrapped in AddTokensToExistingFromAddressRBTokenData
 func AddTokensToExistingFromAddressRBTokenDataBitcoinOmniTokenAsAddTokensToExistingFromAddressRBTokenData(v *AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken) AddTokensToExistingFromAddressRBTokenData {
-	return AddTokensToExistingFromAddressRBTokenData{ AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken: v}
+	return AddTokensToExistingFromAddressRBTokenData{
+		AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken: v,
+	}
 }
 
 // AddTokensToExistingFromAddressRBTokenDataEthereumTokenAsAddTokensToExistingFromAddressRBTokenData is a convenience function that returns AddTokensToExistingFromAddressRBTokenDataEthereumToken wrapped in AddTokensToExistingFromAddressRBTokenData
 func AddTokensToExistingFromAddressRBTokenDataEthereumTokenAsAddTokensToExistingFromAddressRBTokenData(v *AddTokensToExistingFromAddressRBTokenDataEthereumToken) AddTokensToExistingFromAddressRBTokenData {
-	return AddTokensToExistingFromAddressRBTokenData{ AddTokensToExistingFromAddressRBTokenDataEthereumToken: v}
+	return AddTokensToExistingFromAddressRBTokenData{
+		AddTokensToExistingFromAddressRBTokenDataEthereumToken: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *AddTokensToExistingFromAddressRBTokenData) UnmarshalJSON(data []byte)
 	var err error
 	match := 0
 	// try to unmarshal data into AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken
-	err = json.Unmarshal(data, &dst.AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken)
+	err = newStrictDecoder(data).Decode(&dst.AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken)
 	if err == nil {
 		jsonAddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken, _ := json.Marshal(dst.AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken)
 		if string(jsonAddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *AddTokensToExistingFromAddressRBTokenData) UnmarshalJSON(data []byte)
 	}
 
 	// try to unmarshal data into AddTokensToExistingFromAddressRBTokenDataEthereumToken
-	err = json.Unmarshal(data, &dst.AddTokensToExistingFromAddressRBTokenDataEthereumToken)
+	err = newStrictDecoder(data).Decode(&dst.AddTokensToExistingFromAddressRBTokenDataEthereumToken)
 	if err == nil {
 		jsonAddTokensToExistingFromAddressRBTokenDataEthereumToken, _ := json.Marshal(dst.AddTokensToExistingFromAddressRBTokenDataEthereumToken)
 		if string(jsonAddTokensToExistingFromAddressRBTokenDataEthereumToken) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src AddTokensToExistingFromAddressRBTokenData) MarshalJSON() ([]byte, erro
 
 // Get the actual instance
 func (obj *AddTokensToExistingFromAddressRBTokenData) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken != nil {
 		return obj.AddTokensToExistingFromAddressRBTokenDataBitcoinOmniToken
 	}

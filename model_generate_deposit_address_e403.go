@@ -27,27 +27,37 @@ type GenerateDepositAddressE403 struct {
 
 // BannedIpAddressAsGenerateDepositAddressE403 is a convenience function that returns BannedIpAddress wrapped in GenerateDepositAddressE403
 func BannedIpAddressAsGenerateDepositAddressE403(v *BannedIpAddress) GenerateDepositAddressE403 {
-	return GenerateDepositAddressE403{ BannedIpAddress: v}
+	return GenerateDepositAddressE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsGenerateDepositAddressE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in GenerateDepositAddressE403
 func EndpointNotAllowedForApiKeyAsGenerateDepositAddressE403(v *EndpointNotAllowedForApiKey) GenerateDepositAddressE403 {
-	return GenerateDepositAddressE403{ EndpointNotAllowedForApiKey: v}
+	return GenerateDepositAddressE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsGenerateDepositAddressE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in GenerateDepositAddressE403
 func EndpointNotAllowedForPlanAsGenerateDepositAddressE403(v *EndpointNotAllowedForPlan) GenerateDepositAddressE403 {
-	return GenerateDepositAddressE403{ EndpointNotAllowedForPlan: v}
+	return GenerateDepositAddressE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsGenerateDepositAddressE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in GenerateDepositAddressE403
 func FeatureMainnetsNotAllowedForPlanAsGenerateDepositAddressE403(v *FeatureMainnetsNotAllowedForPlan) GenerateDepositAddressE403 {
-	return GenerateDepositAddressE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return GenerateDepositAddressE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 // WalletAsAServiceDepositAddressesLimitReachedAsGenerateDepositAddressE403 is a convenience function that returns WalletAsAServiceDepositAddressesLimitReached wrapped in GenerateDepositAddressE403
 func WalletAsAServiceDepositAddressesLimitReachedAsGenerateDepositAddressE403(v *WalletAsAServiceDepositAddressesLimitReached) GenerateDepositAddressE403 {
-	return GenerateDepositAddressE403{ WalletAsAServiceDepositAddressesLimitReached: v}
+	return GenerateDepositAddressE403{
+		WalletAsAServiceDepositAddressesLimitReached: v,
+	}
 }
 
 
@@ -56,7 +66,7 @@ func (dst *GenerateDepositAddressE403) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -69,7 +79,7 @@ func (dst *GenerateDepositAddressE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -82,7 +92,7 @@ func (dst *GenerateDepositAddressE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -95,7 +105,7 @@ func (dst *GenerateDepositAddressE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -108,7 +118,7 @@ func (dst *GenerateDepositAddressE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into WalletAsAServiceDepositAddressesLimitReached
-	err = json.Unmarshal(data, &dst.WalletAsAServiceDepositAddressesLimitReached)
+	err = newStrictDecoder(data).Decode(&dst.WalletAsAServiceDepositAddressesLimitReached)
 	if err == nil {
 		jsonWalletAsAServiceDepositAddressesLimitReached, _ := json.Marshal(dst.WalletAsAServiceDepositAddressesLimitReached)
 		if string(jsonWalletAsAServiceDepositAddressesLimitReached) == "{}" { // empty struct
@@ -163,6 +173,9 @@ func (src GenerateDepositAddressE403) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GenerateDepositAddressE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

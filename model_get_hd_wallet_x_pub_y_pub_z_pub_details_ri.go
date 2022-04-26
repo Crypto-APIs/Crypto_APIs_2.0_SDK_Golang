@@ -20,20 +20,18 @@ type GetHDWalletXPubYPubZPubDetailsRI struct {
 	// Specifies the confirmed coins balance of the Wallet.
 	ConfirmedBalance string `json:"confirmedBalance"`
 	// Defines the total currency received to the Wallet.
-	TotalReceived string `json:"totalReceived"`
+	TotalReceived *string `json:"totalReceived,omitempty"`
 	// Defines the total currency spent from the Wallet.
-	TotalSpent string `json:"totalSpent"`
+	TotalSpent *string `json:"totalSpent,omitempty"`
 }
 
 // NewGetHDWalletXPubYPubZPubDetailsRI instantiates a new GetHDWalletXPubYPubZPubDetailsRI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetHDWalletXPubYPubZPubDetailsRI(confirmedBalance string, totalReceived string, totalSpent string) *GetHDWalletXPubYPubZPubDetailsRI {
+func NewGetHDWalletXPubYPubZPubDetailsRI(confirmedBalance string) *GetHDWalletXPubYPubZPubDetailsRI {
 	this := GetHDWalletXPubYPubZPubDetailsRI{}
 	this.ConfirmedBalance = confirmedBalance
-	this.TotalReceived = totalReceived
-	this.TotalSpent = totalSpent
 	return &this
 }
 
@@ -58,7 +56,7 @@ func (o *GetHDWalletXPubYPubZPubDetailsRI) GetConfirmedBalance() string {
 // GetConfirmedBalanceOk returns a tuple with the ConfirmedBalance field value
 // and a boolean to check if the value has been set.
 func (o *GetHDWalletXPubYPubZPubDetailsRI) GetConfirmedBalanceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConfirmedBalance, true
@@ -69,52 +67,68 @@ func (o *GetHDWalletXPubYPubZPubDetailsRI) SetConfirmedBalance(v string) {
 	o.ConfirmedBalance = v
 }
 
-// GetTotalReceived returns the TotalReceived field value
+// GetTotalReceived returns the TotalReceived field value if set, zero value otherwise.
 func (o *GetHDWalletXPubYPubZPubDetailsRI) GetTotalReceived() string {
-	if o == nil {
+	if o == nil || o.TotalReceived == nil {
 		var ret string
 		return ret
 	}
-
-	return o.TotalReceived
+	return *o.TotalReceived
 }
 
-// GetTotalReceivedOk returns a tuple with the TotalReceived field value
+// GetTotalReceivedOk returns a tuple with the TotalReceived field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetHDWalletXPubYPubZPubDetailsRI) GetTotalReceivedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.TotalReceived == nil {
 		return nil, false
 	}
-	return &o.TotalReceived, true
+	return o.TotalReceived, true
 }
 
-// SetTotalReceived sets field value
+// HasTotalReceived returns a boolean if a field has been set.
+func (o *GetHDWalletXPubYPubZPubDetailsRI) HasTotalReceived() bool {
+	if o != nil && o.TotalReceived != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalReceived gets a reference to the given string and assigns it to the TotalReceived field.
 func (o *GetHDWalletXPubYPubZPubDetailsRI) SetTotalReceived(v string) {
-	o.TotalReceived = v
+	o.TotalReceived = &v
 }
 
-// GetTotalSpent returns the TotalSpent field value
+// GetTotalSpent returns the TotalSpent field value if set, zero value otherwise.
 func (o *GetHDWalletXPubYPubZPubDetailsRI) GetTotalSpent() string {
-	if o == nil {
+	if o == nil || o.TotalSpent == nil {
 		var ret string
 		return ret
 	}
-
-	return o.TotalSpent
+	return *o.TotalSpent
 }
 
-// GetTotalSpentOk returns a tuple with the TotalSpent field value
+// GetTotalSpentOk returns a tuple with the TotalSpent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetHDWalletXPubYPubZPubDetailsRI) GetTotalSpentOk() (*string, bool) {
-	if o == nil  {
+	if o == nil || o.TotalSpent == nil {
 		return nil, false
 	}
-	return &o.TotalSpent, true
+	return o.TotalSpent, true
 }
 
-// SetTotalSpent sets field value
+// HasTotalSpent returns a boolean if a field has been set.
+func (o *GetHDWalletXPubYPubZPubDetailsRI) HasTotalSpent() bool {
+	if o != nil && o.TotalSpent != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalSpent gets a reference to the given string and assigns it to the TotalSpent field.
 func (o *GetHDWalletXPubYPubZPubDetailsRI) SetTotalSpent(v string) {
-	o.TotalSpent = v
+	o.TotalSpent = &v
 }
 
 func (o GetHDWalletXPubYPubZPubDetailsRI) MarshalJSON() ([]byte, error) {
@@ -122,10 +136,10 @@ func (o GetHDWalletXPubYPubZPubDetailsRI) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["confirmedBalance"] = o.ConfirmedBalance
 	}
-	if true {
+	if o.TotalReceived != nil {
 		toSerialize["totalReceived"] = o.TotalReceived
 	}
-	if true {
+	if o.TotalSpent != nil {
 		toSerialize["totalSpent"] = o.TotalSpent
 	}
 	return json.Marshal(toSerialize)

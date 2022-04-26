@@ -5,12 +5,12 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdditionalData** | Pointer to **string** |  | [optional] 
-**DestinationTag** | Pointer to **int32** |  | [optional] 
+**DestinationTag** | Pointer to **int64** |  | [optional] 
 **Index** | **int32** |  | 
 **MinedInBlockHash** | **string** |  | 
 **Recipients** | [**[]ListXRPRippleTransactionsByBlockHeightRIRecipients**](ListXRPRippleTransactionsByBlockHeightRIRecipients.md) | Object Array representation of transaction receivers | 
 **Senders** | [**[]ListXRPRippleTransactionsByBlockHeightRISenders**](ListXRPRippleTransactionsByBlockHeightRISenders.md) | Object Array representation of transaction senders | 
-**Sequence** | **int32** |  | 
+**Sequence** | **int64** |  | 
 **Status** | **string** |  | 
 **Timestamp** | **int32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
 **TransactionHash** | **string** |  | 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewListXRPRippleTransactionsByBlockHeightRI
 
-`func NewListXRPRippleTransactionsByBlockHeightRI(index int32, minedInBlockHash string, recipients []ListXRPRippleTransactionsByBlockHeightRIRecipients, senders []ListXRPRippleTransactionsByBlockHeightRISenders, sequence int32, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByBlockHeightRIFee, offer ListXRPRippleTransactionsByBlockHeightRIOffer, receive ListXRPRippleTransactionsByBlockHeightRIReceive, value ListXRPRippleTransactionsByBlockHeightRIValue, ) *ListXRPRippleTransactionsByBlockHeightRI`
+`func NewListXRPRippleTransactionsByBlockHeightRI(index int32, minedInBlockHash string, recipients []ListXRPRippleTransactionsByBlockHeightRIRecipients, senders []ListXRPRippleTransactionsByBlockHeightRISenders, sequence int64, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByBlockHeightRIFee, offer ListXRPRippleTransactionsByBlockHeightRIOffer, receive ListXRPRippleTransactionsByBlockHeightRIReceive, value ListXRPRippleTransactionsByBlockHeightRIValue, ) *ListXRPRippleTransactionsByBlockHeightRI`
 
 NewListXRPRippleTransactionsByBlockHeightRI instantiates a new ListXRPRippleTransactionsByBlockHeightRI object
 This constructor will assign default values to properties that have it defined,
@@ -66,20 +66,20 @@ HasAdditionalData returns a boolean if a field has been set.
 
 ### GetDestinationTag
 
-`func (o *ListXRPRippleTransactionsByBlockHeightRI) GetDestinationTag() int32`
+`func (o *ListXRPRippleTransactionsByBlockHeightRI) GetDestinationTag() int64`
 
 GetDestinationTag returns the DestinationTag field if non-nil, zero value otherwise.
 
 ### GetDestinationTagOk
 
-`func (o *ListXRPRippleTransactionsByBlockHeightRI) GetDestinationTagOk() (*int32, bool)`
+`func (o *ListXRPRippleTransactionsByBlockHeightRI) GetDestinationTagOk() (*int64, bool)`
 
 GetDestinationTagOk returns a tuple with the DestinationTag field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDestinationTag
 
-`func (o *ListXRPRippleTransactionsByBlockHeightRI) SetDestinationTag(v int32)`
+`func (o *ListXRPRippleTransactionsByBlockHeightRI) SetDestinationTag(v int64)`
 
 SetDestinationTag sets DestinationTag field to given value.
 
@@ -171,20 +171,20 @@ SetSenders sets Senders field to given value.
 
 ### GetSequence
 
-`func (o *ListXRPRippleTransactionsByBlockHeightRI) GetSequence() int32`
+`func (o *ListXRPRippleTransactionsByBlockHeightRI) GetSequence() int64`
 
 GetSequence returns the Sequence field if non-nil, zero value otherwise.
 
 ### GetSequenceOk
 
-`func (o *ListXRPRippleTransactionsByBlockHeightRI) GetSequenceOk() (*int32, bool)`
+`func (o *ListXRPRippleTransactionsByBlockHeightRI) GetSequenceOk() (*int64, bool)`
 
 GetSequenceOk returns a tuple with the Sequence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSequence
 
-`func (o *ListXRPRippleTransactionsByBlockHeightRI) SetSequence(v int32)`
+`func (o *ListXRPRippleTransactionsByBlockHeightRI) SetSequence(v int64)`
 
 SetSequence sets Sequence field to given value.
 

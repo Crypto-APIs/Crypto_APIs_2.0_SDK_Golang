@@ -17,7 +17,7 @@ import (
 
 // AddTokensToExistingFromAddressRI struct for AddTokensToExistingFromAddressRI
 type AddTokensToExistingFromAddressRI struct {
-	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 	CallbackUrl string `json:"callbackUrl"`
 	// Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
 	ConfirmationsCount int32 `json:"confirmationsCount"`
@@ -78,7 +78,7 @@ func (o *AddTokensToExistingFromAddressRI) GetCallbackUrl() string {
 // GetCallbackUrlOk returns a tuple with the CallbackUrl field value
 // and a boolean to check if the value has been set.
 func (o *AddTokensToExistingFromAddressRI) GetCallbackUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackUrl, true
@@ -102,7 +102,7 @@ func (o *AddTokensToExistingFromAddressRI) GetConfirmationsCount() int32 {
 // GetConfirmationsCountOk returns a tuple with the ConfirmationsCount field value
 // and a boolean to check if the value has been set.
 func (o *AddTokensToExistingFromAddressRI) GetConfirmationsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConfirmationsCount, true
@@ -126,7 +126,7 @@ func (o *AddTokensToExistingFromAddressRI) GetCreatedTimestamp() int32 {
 // GetCreatedTimestampOk returns a tuple with the CreatedTimestamp field value
 // and a boolean to check if the value has been set.
 func (o *AddTokensToExistingFromAddressRI) GetCreatedTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CreatedTimestamp, true
@@ -150,7 +150,7 @@ func (o *AddTokensToExistingFromAddressRI) GetFeeAddress() string {
 // GetFeeAddressOk returns a tuple with the FeeAddress field value
 // and a boolean to check if the value has been set.
 func (o *AddTokensToExistingFromAddressRI) GetFeeAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FeeAddress, true
@@ -174,7 +174,7 @@ func (o *AddTokensToExistingFromAddressRI) GetFeePriority() string {
 // GetFeePriorityOk returns a tuple with the FeePriority field value
 // and a boolean to check if the value has been set.
 func (o *AddTokensToExistingFromAddressRI) GetFeePriorityOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FeePriority, true
@@ -198,7 +198,7 @@ func (o *AddTokensToExistingFromAddressRI) GetFromAddress() string {
 // GetFromAddressOk returns a tuple with the FromAddress field value
 // and a boolean to check if the value has been set.
 func (o *AddTokensToExistingFromAddressRI) GetFromAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FromAddress, true
@@ -222,7 +222,7 @@ func (o *AddTokensToExistingFromAddressRI) GetMinimumTransferAmount() string {
 // GetMinimumTransferAmountOk returns a tuple with the MinimumTransferAmount field value
 // and a boolean to check if the value has been set.
 func (o *AddTokensToExistingFromAddressRI) GetMinimumTransferAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinimumTransferAmount, true
@@ -246,7 +246,7 @@ func (o *AddTokensToExistingFromAddressRI) GetReferenceId() string {
 // GetReferenceIdOk returns a tuple with the ReferenceId field value
 // and a boolean to check if the value has been set.
 func (o *AddTokensToExistingFromAddressRI) GetReferenceIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ReferenceId, true
@@ -270,7 +270,7 @@ func (o *AddTokensToExistingFromAddressRI) GetToAddress() string {
 // GetToAddressOk returns a tuple with the ToAddress field value
 // and a boolean to check if the value has been set.
 func (o *AddTokensToExistingFromAddressRI) GetToAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ToAddress, true
@@ -294,7 +294,7 @@ func (o *AddTokensToExistingFromAddressRI) GetTokenData() AddTokensToExistingFro
 // GetTokenDataOk returns a tuple with the TokenData field value
 // and a boolean to check if the value has been set.
 func (o *AddTokensToExistingFromAddressRI) GetTokenDataOk() (*AddTokensToExistingFromAddressRITS, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenData, true

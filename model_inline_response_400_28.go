@@ -23,14 +23,14 @@ type InlineResponse40028 struct {
 	RequestId string `json:"requestId"`
 	// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.
 	Context *string `json:"context,omitempty"`
-	Error ListUnconfirmedOmniTransactionsByPropertyIDE400 `json:"error"`
+	Error GetXRPRippleBlockDetailsByBlockHeightE400 `json:"error"`
 }
 
 // NewInlineResponse40028 instantiates a new InlineResponse40028 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse40028(apiVersion string, requestId string, error_ ListUnconfirmedOmniTransactionsByPropertyIDE400) *InlineResponse40028 {
+func NewInlineResponse40028(apiVersion string, requestId string, error_ GetXRPRippleBlockDetailsByBlockHeightE400) *InlineResponse40028 {
 	this := InlineResponse40028{}
 	this.ApiVersion = apiVersion
 	this.RequestId = requestId
@@ -59,7 +59,7 @@ func (o *InlineResponse40028) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40028) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *InlineResponse40028) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40028) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -127,9 +127,9 @@ func (o *InlineResponse40028) SetContext(v string) {
 }
 
 // GetError returns the Error field value
-func (o *InlineResponse40028) GetError() ListUnconfirmedOmniTransactionsByPropertyIDE400 {
+func (o *InlineResponse40028) GetError() GetXRPRippleBlockDetailsByBlockHeightE400 {
 	if o == nil {
-		var ret ListUnconfirmedOmniTransactionsByPropertyIDE400
+		var ret GetXRPRippleBlockDetailsByBlockHeightE400
 		return ret
 	}
 
@@ -138,15 +138,15 @@ func (o *InlineResponse40028) GetError() ListUnconfirmedOmniTransactionsByProper
 
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse40028) GetErrorOk() (*ListUnconfirmedOmniTransactionsByPropertyIDE400, bool) {
-	if o == nil  {
+func (o *InlineResponse40028) GetErrorOk() (*GetXRPRippleBlockDetailsByBlockHeightE400, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Error, true
 }
 
 // SetError sets field value
-func (o *InlineResponse40028) SetError(v ListUnconfirmedOmniTransactionsByPropertyIDE400) {
+func (o *InlineResponse40028) SetError(v GetXRPRippleBlockDetailsByBlockHeightE400) {
 	o.Error = v
 }
 

@@ -64,7 +64,7 @@ func (o *ListOmniTokensByAddressRI) GetBalance() string {
 // GetBalanceOk returns a tuple with the Balance field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTokensByAddressRI) GetBalanceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Balance, true
@@ -88,7 +88,7 @@ func (o *ListOmniTokensByAddressRI) GetFrozen() string {
 // GetFrozenOk returns a tuple with the Frozen field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTokensByAddressRI) GetFrozenOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Frozen, true
@@ -112,7 +112,7 @@ func (o *ListOmniTokensByAddressRI) GetName() string {
 // GetNameOk returns a tuple with the Name field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTokensByAddressRI) GetNameOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Name, true
@@ -136,7 +136,7 @@ func (o *ListOmniTokensByAddressRI) GetPropertyId() int32 {
 // GetPropertyIdOk returns a tuple with the PropertyId field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTokensByAddressRI) GetPropertyIdOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PropertyId, true
@@ -160,7 +160,7 @@ func (o *ListOmniTokensByAddressRI) GetReserved() string {
 // GetReservedOk returns a tuple with the Reserved field value
 // and a boolean to check if the value has been set.
 func (o *ListOmniTokensByAddressRI) GetReservedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Reserved, true

@@ -26,22 +26,30 @@ type ListInternalTransactionDetailsByTransactionHashE403 struct {
 
 // BannedIpAddressAsListInternalTransactionDetailsByTransactionHashE403 is a convenience function that returns BannedIpAddress wrapped in ListInternalTransactionDetailsByTransactionHashE403
 func BannedIpAddressAsListInternalTransactionDetailsByTransactionHashE403(v *BannedIpAddress) ListInternalTransactionDetailsByTransactionHashE403 {
-	return ListInternalTransactionDetailsByTransactionHashE403{ BannedIpAddress: v}
+	return ListInternalTransactionDetailsByTransactionHashE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsListInternalTransactionDetailsByTransactionHashE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in ListInternalTransactionDetailsByTransactionHashE403
 func EndpointNotAllowedForApiKeyAsListInternalTransactionDetailsByTransactionHashE403(v *EndpointNotAllowedForApiKey) ListInternalTransactionDetailsByTransactionHashE403 {
-	return ListInternalTransactionDetailsByTransactionHashE403{ EndpointNotAllowedForApiKey: v}
+	return ListInternalTransactionDetailsByTransactionHashE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsListInternalTransactionDetailsByTransactionHashE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in ListInternalTransactionDetailsByTransactionHashE403
 func EndpointNotAllowedForPlanAsListInternalTransactionDetailsByTransactionHashE403(v *EndpointNotAllowedForPlan) ListInternalTransactionDetailsByTransactionHashE403 {
-	return ListInternalTransactionDetailsByTransactionHashE403{ EndpointNotAllowedForPlan: v}
+	return ListInternalTransactionDetailsByTransactionHashE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsListInternalTransactionDetailsByTransactionHashE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in ListInternalTransactionDetailsByTransactionHashE403
 func FeatureMainnetsNotAllowedForPlanAsListInternalTransactionDetailsByTransactionHashE403(v *FeatureMainnetsNotAllowedForPlan) ListInternalTransactionDetailsByTransactionHashE403 {
-	return ListInternalTransactionDetailsByTransactionHashE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return ListInternalTransactionDetailsByTransactionHashE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *ListInternalTransactionDetailsByTransactionHashE403) UnmarshalJSON(da
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *ListInternalTransactionDetailsByTransactionHashE403) UnmarshalJSON(da
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *ListInternalTransactionDetailsByTransactionHashE403) UnmarshalJSON(da
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *ListInternalTransactionDetailsByTransactionHashE403) UnmarshalJSON(da
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src ListInternalTransactionDetailsByTransactionHashE403) MarshalJSON() ([]
 
 // Get the actual instance
 func (obj *ListInternalTransactionDetailsByTransactionHashE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

@@ -25,17 +25,23 @@ type TokensForwardingSuccessToken struct {
 
 // TokensForwardingSuccessErc20AsTokensForwardingSuccessToken is a convenience function that returns TokensForwardingSuccessErc20 wrapped in TokensForwardingSuccessToken
 func TokensForwardingSuccessErc20AsTokensForwardingSuccessToken(v *TokensForwardingSuccessErc20) TokensForwardingSuccessToken {
-	return TokensForwardingSuccessToken{ TokensForwardingSuccessErc20: v}
+	return TokensForwardingSuccessToken{
+		TokensForwardingSuccessErc20: v,
+	}
 }
 
 // TokensForwardingSuccessErc721AsTokensForwardingSuccessToken is a convenience function that returns TokensForwardingSuccessErc721 wrapped in TokensForwardingSuccessToken
 func TokensForwardingSuccessErc721AsTokensForwardingSuccessToken(v *TokensForwardingSuccessErc721) TokensForwardingSuccessToken {
-	return TokensForwardingSuccessToken{ TokensForwardingSuccessErc721: v}
+	return TokensForwardingSuccessToken{
+		TokensForwardingSuccessErc721: v,
+	}
 }
 
 // TokensForwardingSuccessOmniAsTokensForwardingSuccessToken is a convenience function that returns TokensForwardingSuccessOmni wrapped in TokensForwardingSuccessToken
 func TokensForwardingSuccessOmniAsTokensForwardingSuccessToken(v *TokensForwardingSuccessOmni) TokensForwardingSuccessToken {
-	return TokensForwardingSuccessToken{ TokensForwardingSuccessOmni: v}
+	return TokensForwardingSuccessToken{
+		TokensForwardingSuccessOmni: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *TokensForwardingSuccessToken) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into TokensForwardingSuccessErc20
-	err = json.Unmarshal(data, &dst.TokensForwardingSuccessErc20)
+	err = newStrictDecoder(data).Decode(&dst.TokensForwardingSuccessErc20)
 	if err == nil {
 		jsonTokensForwardingSuccessErc20, _ := json.Marshal(dst.TokensForwardingSuccessErc20)
 		if string(jsonTokensForwardingSuccessErc20) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *TokensForwardingSuccessToken) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into TokensForwardingSuccessErc721
-	err = json.Unmarshal(data, &dst.TokensForwardingSuccessErc721)
+	err = newStrictDecoder(data).Decode(&dst.TokensForwardingSuccessErc721)
 	if err == nil {
 		jsonTokensForwardingSuccessErc721, _ := json.Marshal(dst.TokensForwardingSuccessErc721)
 		if string(jsonTokensForwardingSuccessErc721) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *TokensForwardingSuccessToken) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into TokensForwardingSuccessOmni
-	err = json.Unmarshal(data, &dst.TokensForwardingSuccessOmni)
+	err = newStrictDecoder(data).Decode(&dst.TokensForwardingSuccessOmni)
 	if err == nil {
 		jsonTokensForwardingSuccessOmni, _ := json.Marshal(dst.TokensForwardingSuccessOmni)
 		if string(jsonTokensForwardingSuccessOmni) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src TokensForwardingSuccessToken) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *TokensForwardingSuccessToken) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.TokensForwardingSuccessErc20 != nil {
 		return obj.TokensForwardingSuccessErc20
 	}

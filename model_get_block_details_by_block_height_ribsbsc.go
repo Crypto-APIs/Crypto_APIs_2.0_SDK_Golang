@@ -76,7 +76,7 @@ func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetDifficulty() string {
 // GetDifficultyOk returns a tuple with the Difficulty field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Difficulty, true
@@ -100,7 +100,7 @@ func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetNonce() string {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetNonceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -124,7 +124,7 @@ func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -148,7 +148,7 @@ func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetExtraData() string {
 // GetExtraDataOk returns a tuple with the ExtraData field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetExtraDataOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExtraData, true
@@ -172,7 +172,7 @@ func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetGasLimit() string {
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetGasLimitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -196,7 +196,7 @@ func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetGasUsed() string {
 // GetGasUsedOk returns a tuple with the GasUsed field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetGasUsedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasUsed, true
@@ -220,7 +220,7 @@ func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetMinedInSeconds() int32 {
 // GetMinedInSecondsOk returns a tuple with the MinedInSeconds field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetMinedInSecondsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInSeconds, true
@@ -244,7 +244,7 @@ func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetSha3Uncles() string {
 // GetSha3UnclesOk returns a tuple with the Sha3Uncles field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetSha3UnclesOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sha3Uncles, true
@@ -268,7 +268,7 @@ func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetTotalDifficulty() string {
 // GetTotalDifficultyOk returns a tuple with the TotalDifficulty field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRIBSBSC) GetTotalDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalDifficulty, true

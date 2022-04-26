@@ -76,7 +76,7 @@ func (o *ListInternalTransactionDetailsByTransactionHashRI) GetAmount() string {
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionDetailsByTransactionHashRI) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -100,7 +100,7 @@ func (o *ListInternalTransactionDetailsByTransactionHashRI) GetBlockHash() strin
 // GetBlockHashOk returns a tuple with the BlockHash field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionDetailsByTransactionHashRI) GetBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockHash, true
@@ -124,7 +124,7 @@ func (o *ListInternalTransactionDetailsByTransactionHashRI) GetBlockHeight() int
 // GetBlockHeightOk returns a tuple with the BlockHeight field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionDetailsByTransactionHashRI) GetBlockHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockHeight, true
@@ -148,7 +148,7 @@ func (o *ListInternalTransactionDetailsByTransactionHashRI) GetOperationID() str
 // GetOperationIDOk returns a tuple with the OperationID field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionDetailsByTransactionHashRI) GetOperationIDOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OperationID, true
@@ -172,7 +172,7 @@ func (o *ListInternalTransactionDetailsByTransactionHashRI) GetOperationType() s
 // GetOperationTypeOk returns a tuple with the OperationType field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionDetailsByTransactionHashRI) GetOperationTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OperationType, true
@@ -196,7 +196,7 @@ func (o *ListInternalTransactionDetailsByTransactionHashRI) GetParentHash() stri
 // GetParentHashOk returns a tuple with the ParentHash field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionDetailsByTransactionHashRI) GetParentHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ParentHash, true
@@ -220,7 +220,7 @@ func (o *ListInternalTransactionDetailsByTransactionHashRI) GetRecipient() strin
 // GetRecipientOk returns a tuple with the Recipient field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionDetailsByTransactionHashRI) GetRecipientOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Recipient, true
@@ -244,7 +244,7 @@ func (o *ListInternalTransactionDetailsByTransactionHashRI) GetSender() string {
 // GetSenderOk returns a tuple with the Sender field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionDetailsByTransactionHashRI) GetSenderOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sender, true
@@ -268,7 +268,7 @@ func (o *ListInternalTransactionDetailsByTransactionHashRI) GetTimestamp() int32
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListInternalTransactionDetailsByTransactionHashRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true

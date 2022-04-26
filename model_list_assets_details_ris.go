@@ -23,7 +23,9 @@ type ListAssetsDetailsRIS struct {
 
 // ListAssetsDetailsRISCAsListAssetsDetailsRIS is a convenience function that returns ListAssetsDetailsRISC wrapped in ListAssetsDetailsRIS
 func ListAssetsDetailsRISCAsListAssetsDetailsRIS(v *ListAssetsDetailsRISC) ListAssetsDetailsRIS {
-	return ListAssetsDetailsRIS{ ListAssetsDetailsRISC: v}
+	return ListAssetsDetailsRIS{
+		ListAssetsDetailsRISC: v,
+	}
 }
 
 
@@ -32,7 +34,7 @@ func (dst *ListAssetsDetailsRIS) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into ListAssetsDetailsRISC
-	err = json.Unmarshal(data, &dst.ListAssetsDetailsRISC)
+	err = newStrictDecoder(data).Decode(&dst.ListAssetsDetailsRISC)
 	if err == nil {
 		jsonListAssetsDetailsRISC, _ := json.Marshal(dst.ListAssetsDetailsRISC)
 		if string(jsonListAssetsDetailsRISC) == "{}" { // empty struct
@@ -67,6 +69,9 @@ func (src ListAssetsDetailsRIS) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *ListAssetsDetailsRIS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.ListAssetsDetailsRISC != nil {
 		return obj.ListAssetsDetailsRISC
 	}

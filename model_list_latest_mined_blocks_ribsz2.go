@@ -70,7 +70,7 @@ func (o *ListLatestMinedBlocksRIBSZ2) GetBits() string {
 // GetBitsOk returns a tuple with the Bits field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSZ2) GetBitsOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Bits, true
@@ -94,7 +94,7 @@ func (o *ListLatestMinedBlocksRIBSZ2) GetChainwork() string {
 // GetChainworkOk returns a tuple with the Chainwork field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSZ2) GetChainworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Chainwork, true
@@ -118,7 +118,7 @@ func (o *ListLatestMinedBlocksRIBSZ2) GetDifficulty() string {
 // GetDifficultyOk returns a tuple with the Difficulty field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSZ2) GetDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Difficulty, true
@@ -142,7 +142,7 @@ func (o *ListLatestMinedBlocksRIBSZ2) GetMerkleRoot() string {
 // GetMerkleRootOk returns a tuple with the MerkleRoot field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSZ2) GetMerkleRootOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MerkleRoot, true
@@ -166,7 +166,7 @@ func (o *ListLatestMinedBlocksRIBSZ2) GetNonce() string {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSZ2) GetNonceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -190,7 +190,7 @@ func (o *ListLatestMinedBlocksRIBSZ2) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSZ2) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -214,7 +214,7 @@ func (o *ListLatestMinedBlocksRIBSZ2) GetVersion() int32 {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *ListLatestMinedBlocksRIBSZ2) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true

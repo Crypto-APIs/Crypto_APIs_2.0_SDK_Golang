@@ -23,14 +23,14 @@ type InlineResponse40038 struct {
 	RequestId string `json:"requestId"`
 	// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.
 	Context *string `json:"context,omitempty"`
-	Error ListOmniTransactionsByBlockHeightE400 `json:"error"`
+	Error ListAllAssetsFromAllWalletsE400 `json:"error"`
 }
 
 // NewInlineResponse40038 instantiates a new InlineResponse40038 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse40038(apiVersion string, requestId string, error_ ListOmniTransactionsByBlockHeightE400) *InlineResponse40038 {
+func NewInlineResponse40038(apiVersion string, requestId string, error_ ListAllAssetsFromAllWalletsE400) *InlineResponse40038 {
 	this := InlineResponse40038{}
 	this.ApiVersion = apiVersion
 	this.RequestId = requestId
@@ -59,7 +59,7 @@ func (o *InlineResponse40038) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40038) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *InlineResponse40038) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40038) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -127,9 +127,9 @@ func (o *InlineResponse40038) SetContext(v string) {
 }
 
 // GetError returns the Error field value
-func (o *InlineResponse40038) GetError() ListOmniTransactionsByBlockHeightE400 {
+func (o *InlineResponse40038) GetError() ListAllAssetsFromAllWalletsE400 {
 	if o == nil {
-		var ret ListOmniTransactionsByBlockHeightE400
+		var ret ListAllAssetsFromAllWalletsE400
 		return ret
 	}
 
@@ -138,15 +138,15 @@ func (o *InlineResponse40038) GetError() ListOmniTransactionsByBlockHeightE400 {
 
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse40038) GetErrorOk() (*ListOmniTransactionsByBlockHeightE400, bool) {
-	if o == nil  {
+func (o *InlineResponse40038) GetErrorOk() (*ListAllAssetsFromAllWalletsE400, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Error, true
 }
 
 // SetError sets field value
-func (o *InlineResponse40038) SetError(v ListOmniTransactionsByBlockHeightE400) {
+func (o *InlineResponse40038) SetError(v ListAllAssetsFromAllWalletsE400) {
 	o.Error = v
 }
 

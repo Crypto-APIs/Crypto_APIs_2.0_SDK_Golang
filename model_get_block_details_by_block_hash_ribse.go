@@ -78,7 +78,7 @@ func (o *GetBlockDetailsByBlockHashRIBSE) GetDifficulty() string {
 // GetDifficultyOk returns a tuple with the Difficulty field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSE) GetDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Difficulty, true
@@ -102,7 +102,7 @@ func (o *GetBlockDetailsByBlockHashRIBSE) GetNonce() string {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSE) GetNonceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -126,7 +126,7 @@ func (o *GetBlockDetailsByBlockHashRIBSE) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSE) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -150,7 +150,7 @@ func (o *GetBlockDetailsByBlockHashRIBSE) GetExtraData() string {
 // GetExtraDataOk returns a tuple with the ExtraData field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSE) GetExtraDataOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ExtraData, true
@@ -174,7 +174,7 @@ func (o *GetBlockDetailsByBlockHashRIBSE) GetGasLimit() string {
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSE) GetGasLimitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -198,7 +198,7 @@ func (o *GetBlockDetailsByBlockHashRIBSE) GetGasUsed() string {
 // GetGasUsedOk returns a tuple with the GasUsed field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSE) GetGasUsedOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasUsed, true
@@ -222,7 +222,7 @@ func (o *GetBlockDetailsByBlockHashRIBSE) GetMinedInSeconds() int32 {
 // GetMinedInSecondsOk returns a tuple with the MinedInSeconds field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSE) GetMinedInSecondsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInSeconds, true
@@ -246,7 +246,7 @@ func (o *GetBlockDetailsByBlockHashRIBSE) GetSha3Uncles() string {
 // GetSha3UnclesOk returns a tuple with the Sha3Uncles field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSE) GetSha3UnclesOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sha3Uncles, true
@@ -270,7 +270,7 @@ func (o *GetBlockDetailsByBlockHashRIBSE) GetTotalDifficulty() string {
 // GetTotalDifficultyOk returns a tuple with the TotalDifficulty field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHashRIBSE) GetTotalDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalDifficulty, true
@@ -293,11 +293,11 @@ func (o *GetBlockDetailsByBlockHashRIBSE) GetUncles() []string {
 
 // GetUnclesOk returns a tuple with the Uncles field value
 // and a boolean to check if the value has been set.
-func (o *GetBlockDetailsByBlockHashRIBSE) GetUnclesOk() (*[]string, bool) {
-	if o == nil  {
+func (o *GetBlockDetailsByBlockHashRIBSE) GetUnclesOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Uncles, true
+	return o.Uncles, true
 }
 
 // SetUncles sets field value

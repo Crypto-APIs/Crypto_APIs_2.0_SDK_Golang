@@ -19,8 +19,12 @@ import (
 type GetTransactionRequestDetailsRIRecipients struct {
 	// The address which receives this transaction. In UTXO-based protocols like Bitcoin there could be several senders while in account-based protocols like Ethereum there is always only one recipient.
 	Address string `json:"address"`
+	// Defines a specific Tag that is an additional XRP address feature. It helps identify a transaction recipient beyond a wallet address. The tag that was encoded into the x-Address along with the Classic Address.
+	AddressTag *int32 `json:"addressTag,omitempty"`
 	// Represents the amount received to this address.
 	Amount string `json:"amount"`
+	// Represents the public address, which is a compressed and shortened form of a public key. A classic address is shown when the destination address is an x-Address.
+	ClassicAddress *string `json:"classicAddress,omitempty"`
 	// Defines the unit of the amount.
 	Unit string `json:"unit"`
 }
@@ -58,7 +62,7 @@ func (o *GetTransactionRequestDetailsRIRecipients) GetAddress() string {
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionRequestDetailsRIRecipients) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -67,6 +71,38 @@ func (o *GetTransactionRequestDetailsRIRecipients) GetAddressOk() (*string, bool
 // SetAddress sets field value
 func (o *GetTransactionRequestDetailsRIRecipients) SetAddress(v string) {
 	o.Address = v
+}
+
+// GetAddressTag returns the AddressTag field value if set, zero value otherwise.
+func (o *GetTransactionRequestDetailsRIRecipients) GetAddressTag() int32 {
+	if o == nil || o.AddressTag == nil {
+		var ret int32
+		return ret
+	}
+	return *o.AddressTag
+}
+
+// GetAddressTagOk returns a tuple with the AddressTag field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetTransactionRequestDetailsRIRecipients) GetAddressTagOk() (*int32, bool) {
+	if o == nil || o.AddressTag == nil {
+		return nil, false
+	}
+	return o.AddressTag, true
+}
+
+// HasAddressTag returns a boolean if a field has been set.
+func (o *GetTransactionRequestDetailsRIRecipients) HasAddressTag() bool {
+	if o != nil && o.AddressTag != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAddressTag gets a reference to the given int32 and assigns it to the AddressTag field.
+func (o *GetTransactionRequestDetailsRIRecipients) SetAddressTag(v int32) {
+	o.AddressTag = &v
 }
 
 // GetAmount returns the Amount field value
@@ -82,7 +118,7 @@ func (o *GetTransactionRequestDetailsRIRecipients) GetAmount() string {
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionRequestDetailsRIRecipients) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -91,6 +127,38 @@ func (o *GetTransactionRequestDetailsRIRecipients) GetAmountOk() (*string, bool)
 // SetAmount sets field value
 func (o *GetTransactionRequestDetailsRIRecipients) SetAmount(v string) {
 	o.Amount = v
+}
+
+// GetClassicAddress returns the ClassicAddress field value if set, zero value otherwise.
+func (o *GetTransactionRequestDetailsRIRecipients) GetClassicAddress() string {
+	if o == nil || o.ClassicAddress == nil {
+		var ret string
+		return ret
+	}
+	return *o.ClassicAddress
+}
+
+// GetClassicAddressOk returns a tuple with the ClassicAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetTransactionRequestDetailsRIRecipients) GetClassicAddressOk() (*string, bool) {
+	if o == nil || o.ClassicAddress == nil {
+		return nil, false
+	}
+	return o.ClassicAddress, true
+}
+
+// HasClassicAddress returns a boolean if a field has been set.
+func (o *GetTransactionRequestDetailsRIRecipients) HasClassicAddress() bool {
+	if o != nil && o.ClassicAddress != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetClassicAddress gets a reference to the given string and assigns it to the ClassicAddress field.
+func (o *GetTransactionRequestDetailsRIRecipients) SetClassicAddress(v string) {
+	o.ClassicAddress = &v
 }
 
 // GetUnit returns the Unit field value
@@ -106,7 +174,7 @@ func (o *GetTransactionRequestDetailsRIRecipients) GetUnit() string {
 // GetUnitOk returns a tuple with the Unit field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionRequestDetailsRIRecipients) GetUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Unit, true
@@ -122,8 +190,14 @@ func (o GetTransactionRequestDetailsRIRecipients) MarshalJSON() ([]byte, error) 
 	if true {
 		toSerialize["address"] = o.Address
 	}
+	if o.AddressTag != nil {
+		toSerialize["addressTag"] = o.AddressTag
+	}
 	if true {
 		toSerialize["amount"] = o.Amount
+	}
+	if o.ClassicAddress != nil {
+		toSerialize["classicAddress"] = o.ClassicAddress
 	}
 	if true {
 		toSerialize["unit"] = o.Unit

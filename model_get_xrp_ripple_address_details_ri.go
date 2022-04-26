@@ -23,7 +23,7 @@ type GetXRPRippleAddressDetailsRI struct {
 	// Defines the count of all confirmed outgoing transactions for coins. This applies to coins only, not to tokens transfers
 	OutgoingTransactionsCount int32 `json:"outgoingTransactionsCount"`
 	// Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
-	Sequence int32 `json:"sequence"`
+	Sequence int64 `json:"sequence"`
 	// Represents the total number of all transactions as part of this block.
 	TransactionsCount int32 `json:"transactionsCount"`
 }
@@ -32,7 +32,7 @@ type GetXRPRippleAddressDetailsRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetXRPRippleAddressDetailsRI(balance GetXRPRippleAddressDetailsRIBalance, incomingTransactionsCount int32, outgoingTransactionsCount int32, sequence int32, transactionsCount int32) *GetXRPRippleAddressDetailsRI {
+func NewGetXRPRippleAddressDetailsRI(balance GetXRPRippleAddressDetailsRIBalance, incomingTransactionsCount int32, outgoingTransactionsCount int32, sequence int64, transactionsCount int32) *GetXRPRippleAddressDetailsRI {
 	this := GetXRPRippleAddressDetailsRI{}
 	this.Balance = balance
 	this.IncomingTransactionsCount = incomingTransactionsCount
@@ -63,7 +63,7 @@ func (o *GetXRPRippleAddressDetailsRI) GetBalance() GetXRPRippleAddressDetailsRI
 // GetBalanceOk returns a tuple with the Balance field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleAddressDetailsRI) GetBalanceOk() (*GetXRPRippleAddressDetailsRIBalance, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Balance, true
@@ -87,7 +87,7 @@ func (o *GetXRPRippleAddressDetailsRI) GetIncomingTransactionsCount() int32 {
 // GetIncomingTransactionsCountOk returns a tuple with the IncomingTransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleAddressDetailsRI) GetIncomingTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IncomingTransactionsCount, true
@@ -111,7 +111,7 @@ func (o *GetXRPRippleAddressDetailsRI) GetOutgoingTransactionsCount() int32 {
 // GetOutgoingTransactionsCountOk returns a tuple with the OutgoingTransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleAddressDetailsRI) GetOutgoingTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OutgoingTransactionsCount, true
@@ -123,9 +123,9 @@ func (o *GetXRPRippleAddressDetailsRI) SetOutgoingTransactionsCount(v int32) {
 }
 
 // GetSequence returns the Sequence field value
-func (o *GetXRPRippleAddressDetailsRI) GetSequence() int32 {
+func (o *GetXRPRippleAddressDetailsRI) GetSequence() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -134,15 +134,15 @@ func (o *GetXRPRippleAddressDetailsRI) GetSequence() int32 {
 
 // GetSequenceOk returns a tuple with the Sequence field value
 // and a boolean to check if the value has been set.
-func (o *GetXRPRippleAddressDetailsRI) GetSequenceOk() (*int32, bool) {
-	if o == nil  {
+func (o *GetXRPRippleAddressDetailsRI) GetSequenceOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sequence, true
 }
 
 // SetSequence sets field value
-func (o *GetXRPRippleAddressDetailsRI) SetSequence(v int32) {
+func (o *GetXRPRippleAddressDetailsRI) SetSequence(v int64) {
 	o.Sequence = v
 }
 
@@ -159,7 +159,7 @@ func (o *GetXRPRippleAddressDetailsRI) GetTransactionsCount() int32 {
 // GetTransactionsCountOk returns a tuple with the TransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetXRPRippleAddressDetailsRI) GetTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionsCount, true

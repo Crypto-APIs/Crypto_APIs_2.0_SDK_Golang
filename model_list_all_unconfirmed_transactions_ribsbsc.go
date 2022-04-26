@@ -63,7 +63,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSBSC) GetGasLimit() string {
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRIBSBSC) GetGasLimitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -87,7 +87,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSBSC) GetGasPrice() ListConfirmedTrans
 // GetGasPriceOk returns a tuple with the GasPrice field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRIBSBSC) GetGasPriceOk() (*ListConfirmedTransactionsByAddressRIBSBSCGasPrice, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasPrice, true
@@ -111,7 +111,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSBSC) GetInputData() string {
 // GetInputDataOk returns a tuple with the InputData field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRIBSBSC) GetInputDataOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.InputData, true
@@ -135,7 +135,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSBSC) GetNonce() int32 {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRIBSBSC) GetNonceOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -159,7 +159,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSBSC) GetTransactionStatus() string {
 // GetTransactionStatusOk returns a tuple with the TransactionStatus field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRIBSBSC) GetTransactionStatusOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionStatus, true

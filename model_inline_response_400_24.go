@@ -23,14 +23,14 @@ type InlineResponse40024 struct {
 	RequestId string `json:"requestId"`
 	// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.
 	Context *string `json:"context,omitempty"`
-	Error ListTransactionsByBlockHeightE400 `json:"error"`
+	Error ListXRPRippleTransactionsByBlockHeightE400 `json:"error"`
 }
 
 // NewInlineResponse40024 instantiates a new InlineResponse40024 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse40024(apiVersion string, requestId string, error_ ListTransactionsByBlockHeightE400) *InlineResponse40024 {
+func NewInlineResponse40024(apiVersion string, requestId string, error_ ListXRPRippleTransactionsByBlockHeightE400) *InlineResponse40024 {
 	this := InlineResponse40024{}
 	this.ApiVersion = apiVersion
 	this.RequestId = requestId
@@ -59,7 +59,7 @@ func (o *InlineResponse40024) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40024) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *InlineResponse40024) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40024) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -127,9 +127,9 @@ func (o *InlineResponse40024) SetContext(v string) {
 }
 
 // GetError returns the Error field value
-func (o *InlineResponse40024) GetError() ListTransactionsByBlockHeightE400 {
+func (o *InlineResponse40024) GetError() ListXRPRippleTransactionsByBlockHeightE400 {
 	if o == nil {
-		var ret ListTransactionsByBlockHeightE400
+		var ret ListXRPRippleTransactionsByBlockHeightE400
 		return ret
 	}
 
@@ -138,15 +138,15 @@ func (o *InlineResponse40024) GetError() ListTransactionsByBlockHeightE400 {
 
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse40024) GetErrorOk() (*ListTransactionsByBlockHeightE400, bool) {
-	if o == nil  {
+func (o *InlineResponse40024) GetErrorOk() (*ListXRPRippleTransactionsByBlockHeightE400, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Error, true
 }
 
 // SetError sets field value
-func (o *InlineResponse40024) SetError(v ListTransactionsByBlockHeightE400) {
+func (o *InlineResponse40024) SetError(v ListXRPRippleTransactionsByBlockHeightE400) {
 	o.Error = v
 }
 

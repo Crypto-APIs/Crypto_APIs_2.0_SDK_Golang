@@ -5,10 +5,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdditionalData** | **string** | Represents additional data that may be needed. | 
-**DestinationTag** | Pointer to **int32** | Defines the destination tag value. | [optional] 
+**DestinationTag** | Pointer to **int64** | Defines the destination tag value. | [optional] 
 **Offer** | [**GetXRPRippleTransactionDetailsByTransactionIDRIOffer**](GetXRPRippleTransactionDetailsByTransactionIDRIOffer.md) |  | 
 **Receive** | [**GetXRPRippleTransactionDetailsByTransactionIDRIReceive**](GetXRPRippleTransactionDetailsByTransactionIDRIReceive.md) |  | 
-**Sequence** | **int32** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
+**Sequence** | **int64** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
 **Status** | **string** | Defines the status of the transaction. | 
 **Type** | **string** | Defines the type of the transaction. | 
 **Value** | [**GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue**](GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue.md) |  | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewGetTransactionDetailsByTransactionIDFromCallbackRIBSX
 
-`func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSX(additionalData string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, sequence int32, status string, type_ string, value GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue, ) *GetTransactionDetailsByTransactionIDFromCallbackRIBSX`
+`func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSX(additionalData string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, sequence int64, status string, type_ string, value GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue, ) *GetTransactionDetailsByTransactionIDFromCallbackRIBSX`
 
 NewGetTransactionDetailsByTransactionIDFromCallbackRIBSX instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBSX object
 This constructor will assign default values to properties that have it defined,
@@ -54,20 +54,20 @@ SetAdditionalData sets AdditionalData field to given value.
 
 ### GetDestinationTag
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetDestinationTag() int32`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetDestinationTag() int64`
 
 GetDestinationTag returns the DestinationTag field if non-nil, zero value otherwise.
 
 ### GetDestinationTagOk
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetDestinationTagOk() (*int32, bool)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetDestinationTagOk() (*int64, bool)`
 
 GetDestinationTagOk returns a tuple with the DestinationTag field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDestinationTag
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) SetDestinationTag(v int32)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) SetDestinationTag(v int64)`
 
 SetDestinationTag sets DestinationTag field to given value.
 
@@ -119,20 +119,20 @@ SetReceive sets Receive field to given value.
 
 ### GetSequence
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetSequence() int32`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetSequence() int64`
 
 GetSequence returns the Sequence field if non-nil, zero value otherwise.
 
 ### GetSequenceOk
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetSequenceOk() (*int32, bool)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetSequenceOk() (*int64, bool)`
 
 GetSequenceOk returns a tuple with the Sequence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSequence
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) SetSequence(v int32)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) SetSequence(v int64)`
 
 SetSequence sets Sequence field to given value.
 

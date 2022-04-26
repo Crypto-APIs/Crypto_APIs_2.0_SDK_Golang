@@ -31,47 +31,65 @@ type ListAllUnconfirmedTransactionsRIBS struct {
 
 // ListAllUnconfirmedTransactionsRIBSBAsListAllUnconfirmedTransactionsRIBS is a convenience function that returns ListAllUnconfirmedTransactionsRIBSB wrapped in ListAllUnconfirmedTransactionsRIBS
 func ListAllUnconfirmedTransactionsRIBSBAsListAllUnconfirmedTransactionsRIBS(v *ListAllUnconfirmedTransactionsRIBSB) ListAllUnconfirmedTransactionsRIBS {
-	return ListAllUnconfirmedTransactionsRIBS{ ListAllUnconfirmedTransactionsRIBSB: v}
+	return ListAllUnconfirmedTransactionsRIBS{
+		ListAllUnconfirmedTransactionsRIBSB: v,
+	}
 }
 
 // ListAllUnconfirmedTransactionsRIBSBCAsListAllUnconfirmedTransactionsRIBS is a convenience function that returns ListAllUnconfirmedTransactionsRIBSBC wrapped in ListAllUnconfirmedTransactionsRIBS
 func ListAllUnconfirmedTransactionsRIBSBCAsListAllUnconfirmedTransactionsRIBS(v *ListAllUnconfirmedTransactionsRIBSBC) ListAllUnconfirmedTransactionsRIBS {
-	return ListAllUnconfirmedTransactionsRIBS{ ListAllUnconfirmedTransactionsRIBSBC: v}
+	return ListAllUnconfirmedTransactionsRIBS{
+		ListAllUnconfirmedTransactionsRIBSBC: v,
+	}
 }
 
 // ListAllUnconfirmedTransactionsRIBSBSCAsListAllUnconfirmedTransactionsRIBS is a convenience function that returns ListAllUnconfirmedTransactionsRIBSBSC wrapped in ListAllUnconfirmedTransactionsRIBS
 func ListAllUnconfirmedTransactionsRIBSBSCAsListAllUnconfirmedTransactionsRIBS(v *ListAllUnconfirmedTransactionsRIBSBSC) ListAllUnconfirmedTransactionsRIBS {
-	return ListAllUnconfirmedTransactionsRIBS{ ListAllUnconfirmedTransactionsRIBSBSC: v}
+	return ListAllUnconfirmedTransactionsRIBS{
+		ListAllUnconfirmedTransactionsRIBSBSC: v,
+	}
 }
 
 // ListAllUnconfirmedTransactionsRIBSDAsListAllUnconfirmedTransactionsRIBS is a convenience function that returns ListAllUnconfirmedTransactionsRIBSD wrapped in ListAllUnconfirmedTransactionsRIBS
 func ListAllUnconfirmedTransactionsRIBSDAsListAllUnconfirmedTransactionsRIBS(v *ListAllUnconfirmedTransactionsRIBSD) ListAllUnconfirmedTransactionsRIBS {
-	return ListAllUnconfirmedTransactionsRIBS{ ListAllUnconfirmedTransactionsRIBSD: v}
+	return ListAllUnconfirmedTransactionsRIBS{
+		ListAllUnconfirmedTransactionsRIBSD: v,
+	}
 }
 
 // ListAllUnconfirmedTransactionsRIBSD2AsListAllUnconfirmedTransactionsRIBS is a convenience function that returns ListAllUnconfirmedTransactionsRIBSD2 wrapped in ListAllUnconfirmedTransactionsRIBS
 func ListAllUnconfirmedTransactionsRIBSD2AsListAllUnconfirmedTransactionsRIBS(v *ListAllUnconfirmedTransactionsRIBSD2) ListAllUnconfirmedTransactionsRIBS {
-	return ListAllUnconfirmedTransactionsRIBS{ ListAllUnconfirmedTransactionsRIBSD2: v}
+	return ListAllUnconfirmedTransactionsRIBS{
+		ListAllUnconfirmedTransactionsRIBSD2: v,
+	}
 }
 
 // ListAllUnconfirmedTransactionsRIBSEAsListAllUnconfirmedTransactionsRIBS is a convenience function that returns ListAllUnconfirmedTransactionsRIBSE wrapped in ListAllUnconfirmedTransactionsRIBS
 func ListAllUnconfirmedTransactionsRIBSEAsListAllUnconfirmedTransactionsRIBS(v *ListAllUnconfirmedTransactionsRIBSE) ListAllUnconfirmedTransactionsRIBS {
-	return ListAllUnconfirmedTransactionsRIBS{ ListAllUnconfirmedTransactionsRIBSE: v}
+	return ListAllUnconfirmedTransactionsRIBS{
+		ListAllUnconfirmedTransactionsRIBSE: v,
+	}
 }
 
 // ListAllUnconfirmedTransactionsRIBSECAsListAllUnconfirmedTransactionsRIBS is a convenience function that returns ListAllUnconfirmedTransactionsRIBSEC wrapped in ListAllUnconfirmedTransactionsRIBS
 func ListAllUnconfirmedTransactionsRIBSECAsListAllUnconfirmedTransactionsRIBS(v *ListAllUnconfirmedTransactionsRIBSEC) ListAllUnconfirmedTransactionsRIBS {
-	return ListAllUnconfirmedTransactionsRIBS{ ListAllUnconfirmedTransactionsRIBSEC: v}
+	return ListAllUnconfirmedTransactionsRIBS{
+		ListAllUnconfirmedTransactionsRIBSEC: v,
+	}
 }
 
 // ListAllUnconfirmedTransactionsRIBSLAsListAllUnconfirmedTransactionsRIBS is a convenience function that returns ListAllUnconfirmedTransactionsRIBSL wrapped in ListAllUnconfirmedTransactionsRIBS
 func ListAllUnconfirmedTransactionsRIBSLAsListAllUnconfirmedTransactionsRIBS(v *ListAllUnconfirmedTransactionsRIBSL) ListAllUnconfirmedTransactionsRIBS {
-	return ListAllUnconfirmedTransactionsRIBS{ ListAllUnconfirmedTransactionsRIBSL: v}
+	return ListAllUnconfirmedTransactionsRIBS{
+		ListAllUnconfirmedTransactionsRIBSL: v,
+	}
 }
 
 // ListAllUnconfirmedTransactionsRIBSZAsListAllUnconfirmedTransactionsRIBS is a convenience function that returns ListAllUnconfirmedTransactionsRIBSZ wrapped in ListAllUnconfirmedTransactionsRIBS
 func ListAllUnconfirmedTransactionsRIBSZAsListAllUnconfirmedTransactionsRIBS(v *ListAllUnconfirmedTransactionsRIBSZ) ListAllUnconfirmedTransactionsRIBS {
-	return ListAllUnconfirmedTransactionsRIBS{ ListAllUnconfirmedTransactionsRIBSZ: v}
+	return ListAllUnconfirmedTransactionsRIBS{
+		ListAllUnconfirmedTransactionsRIBSZ: v,
+	}
 }
 
 
@@ -80,7 +98,7 @@ func (dst *ListAllUnconfirmedTransactionsRIBS) UnmarshalJSON(data []byte) error 
 	var err error
 	match := 0
 	// try to unmarshal data into ListAllUnconfirmedTransactionsRIBSB
-	err = json.Unmarshal(data, &dst.ListAllUnconfirmedTransactionsRIBSB)
+	err = newStrictDecoder(data).Decode(&dst.ListAllUnconfirmedTransactionsRIBSB)
 	if err == nil {
 		jsonListAllUnconfirmedTransactionsRIBSB, _ := json.Marshal(dst.ListAllUnconfirmedTransactionsRIBSB)
 		if string(jsonListAllUnconfirmedTransactionsRIBSB) == "{}" { // empty struct
@@ -93,7 +111,7 @@ func (dst *ListAllUnconfirmedTransactionsRIBS) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into ListAllUnconfirmedTransactionsRIBSBC
-	err = json.Unmarshal(data, &dst.ListAllUnconfirmedTransactionsRIBSBC)
+	err = newStrictDecoder(data).Decode(&dst.ListAllUnconfirmedTransactionsRIBSBC)
 	if err == nil {
 		jsonListAllUnconfirmedTransactionsRIBSBC, _ := json.Marshal(dst.ListAllUnconfirmedTransactionsRIBSBC)
 		if string(jsonListAllUnconfirmedTransactionsRIBSBC) == "{}" { // empty struct
@@ -106,7 +124,7 @@ func (dst *ListAllUnconfirmedTransactionsRIBS) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into ListAllUnconfirmedTransactionsRIBSBSC
-	err = json.Unmarshal(data, &dst.ListAllUnconfirmedTransactionsRIBSBSC)
+	err = newStrictDecoder(data).Decode(&dst.ListAllUnconfirmedTransactionsRIBSBSC)
 	if err == nil {
 		jsonListAllUnconfirmedTransactionsRIBSBSC, _ := json.Marshal(dst.ListAllUnconfirmedTransactionsRIBSBSC)
 		if string(jsonListAllUnconfirmedTransactionsRIBSBSC) == "{}" { // empty struct
@@ -119,7 +137,7 @@ func (dst *ListAllUnconfirmedTransactionsRIBS) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into ListAllUnconfirmedTransactionsRIBSD
-	err = json.Unmarshal(data, &dst.ListAllUnconfirmedTransactionsRIBSD)
+	err = newStrictDecoder(data).Decode(&dst.ListAllUnconfirmedTransactionsRIBSD)
 	if err == nil {
 		jsonListAllUnconfirmedTransactionsRIBSD, _ := json.Marshal(dst.ListAllUnconfirmedTransactionsRIBSD)
 		if string(jsonListAllUnconfirmedTransactionsRIBSD) == "{}" { // empty struct
@@ -132,7 +150,7 @@ func (dst *ListAllUnconfirmedTransactionsRIBS) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into ListAllUnconfirmedTransactionsRIBSD2
-	err = json.Unmarshal(data, &dst.ListAllUnconfirmedTransactionsRIBSD2)
+	err = newStrictDecoder(data).Decode(&dst.ListAllUnconfirmedTransactionsRIBSD2)
 	if err == nil {
 		jsonListAllUnconfirmedTransactionsRIBSD2, _ := json.Marshal(dst.ListAllUnconfirmedTransactionsRIBSD2)
 		if string(jsonListAllUnconfirmedTransactionsRIBSD2) == "{}" { // empty struct
@@ -145,7 +163,7 @@ func (dst *ListAllUnconfirmedTransactionsRIBS) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into ListAllUnconfirmedTransactionsRIBSE
-	err = json.Unmarshal(data, &dst.ListAllUnconfirmedTransactionsRIBSE)
+	err = newStrictDecoder(data).Decode(&dst.ListAllUnconfirmedTransactionsRIBSE)
 	if err == nil {
 		jsonListAllUnconfirmedTransactionsRIBSE, _ := json.Marshal(dst.ListAllUnconfirmedTransactionsRIBSE)
 		if string(jsonListAllUnconfirmedTransactionsRIBSE) == "{}" { // empty struct
@@ -158,7 +176,7 @@ func (dst *ListAllUnconfirmedTransactionsRIBS) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into ListAllUnconfirmedTransactionsRIBSEC
-	err = json.Unmarshal(data, &dst.ListAllUnconfirmedTransactionsRIBSEC)
+	err = newStrictDecoder(data).Decode(&dst.ListAllUnconfirmedTransactionsRIBSEC)
 	if err == nil {
 		jsonListAllUnconfirmedTransactionsRIBSEC, _ := json.Marshal(dst.ListAllUnconfirmedTransactionsRIBSEC)
 		if string(jsonListAllUnconfirmedTransactionsRIBSEC) == "{}" { // empty struct
@@ -171,7 +189,7 @@ func (dst *ListAllUnconfirmedTransactionsRIBS) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into ListAllUnconfirmedTransactionsRIBSL
-	err = json.Unmarshal(data, &dst.ListAllUnconfirmedTransactionsRIBSL)
+	err = newStrictDecoder(data).Decode(&dst.ListAllUnconfirmedTransactionsRIBSL)
 	if err == nil {
 		jsonListAllUnconfirmedTransactionsRIBSL, _ := json.Marshal(dst.ListAllUnconfirmedTransactionsRIBSL)
 		if string(jsonListAllUnconfirmedTransactionsRIBSL) == "{}" { // empty struct
@@ -184,7 +202,7 @@ func (dst *ListAllUnconfirmedTransactionsRIBS) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into ListAllUnconfirmedTransactionsRIBSZ
-	err = json.Unmarshal(data, &dst.ListAllUnconfirmedTransactionsRIBSZ)
+	err = newStrictDecoder(data).Decode(&dst.ListAllUnconfirmedTransactionsRIBSZ)
 	if err == nil {
 		jsonListAllUnconfirmedTransactionsRIBSZ, _ := json.Marshal(dst.ListAllUnconfirmedTransactionsRIBSZ)
 		if string(jsonListAllUnconfirmedTransactionsRIBSZ) == "{}" { // empty struct
@@ -259,6 +277,9 @@ func (src ListAllUnconfirmedTransactionsRIBS) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *ListAllUnconfirmedTransactionsRIBS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.ListAllUnconfirmedTransactionsRIBSB != nil {
 		return obj.ListAllUnconfirmedTransactionsRIBSB
 	}

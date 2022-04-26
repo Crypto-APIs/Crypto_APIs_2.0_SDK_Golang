@@ -73,7 +73,7 @@ func (o *GetLastMinedBlockRIBSBC) GetDifficulty() string {
 // GetDifficultyOk returns a tuple with the Difficulty field value
 // and a boolean to check if the value has been set.
 func (o *GetLastMinedBlockRIBSBC) GetDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Difficulty, true
@@ -97,7 +97,7 @@ func (o *GetLastMinedBlockRIBSBC) GetNonce() string {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *GetLastMinedBlockRIBSBC) GetNonceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -121,7 +121,7 @@ func (o *GetLastMinedBlockRIBSBC) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *GetLastMinedBlockRIBSBC) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -145,7 +145,7 @@ func (o *GetLastMinedBlockRIBSBC) GetBits() string {
 // GetBitsOk returns a tuple with the Bits field value
 // and a boolean to check if the value has been set.
 func (o *GetLastMinedBlockRIBSBC) GetBitsOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Bits, true
@@ -169,7 +169,7 @@ func (o *GetLastMinedBlockRIBSBC) GetChainwork() string {
 // GetChainworkOk returns a tuple with the Chainwork field value
 // and a boolean to check if the value has been set.
 func (o *GetLastMinedBlockRIBSBC) GetChainworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Chainwork, true
@@ -193,7 +193,7 @@ func (o *GetLastMinedBlockRIBSBC) GetMerkleRoot() string {
 // GetMerkleRootOk returns a tuple with the MerkleRoot field value
 // and a boolean to check if the value has been set.
 func (o *GetLastMinedBlockRIBSBC) GetMerkleRootOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MerkleRoot, true
@@ -217,7 +217,7 @@ func (o *GetLastMinedBlockRIBSBC) GetVersion() int32 {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *GetLastMinedBlockRIBSBC) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -241,7 +241,7 @@ func (o *GetLastMinedBlockRIBSBC) GetVersionHex() string {
 // GetVersionHexOk returns a tuple with the VersionHex field value
 // and a boolean to check if the value has been set.
 func (o *GetLastMinedBlockRIBSBC) GetVersionHexOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VersionHex, true

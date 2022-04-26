@@ -79,7 +79,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetBits() string {
 // GetBitsOk returns a tuple with the Bits field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetBitsOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Bits, true
@@ -103,7 +103,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetChainwork() string {
 // GetChainworkOk returns a tuple with the Chainwork field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetChainworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Chainwork, true
@@ -127,7 +127,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetDifficulty() string {
 // GetDifficultyOk returns a tuple with the Difficulty field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Difficulty, true
@@ -151,7 +151,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetMerkleRoot() string {
 // GetMerkleRootOk returns a tuple with the MerkleRoot field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetMerkleRootOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MerkleRoot, true
@@ -175,7 +175,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetNonce() int32 {
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetNonceOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Nonce, true
@@ -199,7 +199,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -223,7 +223,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetStrippedsize() int32 
 // GetStrippedsizeOk returns a tuple with the Strippedsize field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetStrippedsizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Strippedsize, true
@@ -247,7 +247,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetVersion() int32 {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -271,7 +271,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetVersionHex() string {
 // GetVersionHexOk returns a tuple with the VersionHex field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetVersionHexOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VersionHex, true
@@ -295,7 +295,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetWeight() int32 {
 // GetWeightOk returns a tuple with the Weight field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetWeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Weight, true

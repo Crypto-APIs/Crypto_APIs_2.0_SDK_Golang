@@ -26,22 +26,30 @@ type ListZilliqaTransactionsByAddressE403 struct {
 
 // BannedIpAddressAsListZilliqaTransactionsByAddressE403 is a convenience function that returns BannedIpAddress wrapped in ListZilliqaTransactionsByAddressE403
 func BannedIpAddressAsListZilliqaTransactionsByAddressE403(v *BannedIpAddress) ListZilliqaTransactionsByAddressE403 {
-	return ListZilliqaTransactionsByAddressE403{ BannedIpAddress: v}
+	return ListZilliqaTransactionsByAddressE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsListZilliqaTransactionsByAddressE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in ListZilliqaTransactionsByAddressE403
 func EndpointNotAllowedForApiKeyAsListZilliqaTransactionsByAddressE403(v *EndpointNotAllowedForApiKey) ListZilliqaTransactionsByAddressE403 {
-	return ListZilliqaTransactionsByAddressE403{ EndpointNotAllowedForApiKey: v}
+	return ListZilliqaTransactionsByAddressE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsListZilliqaTransactionsByAddressE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in ListZilliqaTransactionsByAddressE403
 func EndpointNotAllowedForPlanAsListZilliqaTransactionsByAddressE403(v *EndpointNotAllowedForPlan) ListZilliqaTransactionsByAddressE403 {
-	return ListZilliqaTransactionsByAddressE403{ EndpointNotAllowedForPlan: v}
+	return ListZilliqaTransactionsByAddressE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsListZilliqaTransactionsByAddressE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in ListZilliqaTransactionsByAddressE403
 func FeatureMainnetsNotAllowedForPlanAsListZilliqaTransactionsByAddressE403(v *FeatureMainnetsNotAllowedForPlan) ListZilliqaTransactionsByAddressE403 {
-	return ListZilliqaTransactionsByAddressE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return ListZilliqaTransactionsByAddressE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *ListZilliqaTransactionsByAddressE403) UnmarshalJSON(data []byte) erro
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *ListZilliqaTransactionsByAddressE403) UnmarshalJSON(data []byte) erro
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *ListZilliqaTransactionsByAddressE403) UnmarshalJSON(data []byte) erro
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *ListZilliqaTransactionsByAddressE403) UnmarshalJSON(data []byte) erro
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src ListZilliqaTransactionsByAddressE403) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *ListZilliqaTransactionsByAddressE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

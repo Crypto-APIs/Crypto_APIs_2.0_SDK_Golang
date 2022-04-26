@@ -67,11 +67,11 @@ func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetAddresses() []string {
 
 // GetAddressesOk returns a tuple with the Addresses field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetAddressesOk() (*[]string, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetAddressesOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Addresses, true
+	return o.Addresses, true
 }
 
 // SetAddresses sets field value
@@ -124,7 +124,7 @@ func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetScriptSig() GetTransactionDe
 // GetScriptSigOk returns a tuple with the ScriptSig field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetScriptSigOk() (*GetTransactionDetailsByTransactionIDRIBSDScriptSig, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ScriptSig, true
@@ -148,7 +148,7 @@ func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetSequence() string {
 // GetSequenceOk returns a tuple with the Sequence field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetSequenceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sequence, true
@@ -203,11 +203,11 @@ func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetTxinwitness() []string {
 
 // GetTxinwitnessOk returns a tuple with the Txinwitness field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetTxinwitnessOk() (*[]string, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetTxinwitnessOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Txinwitness, true
+	return o.Txinwitness, true
 }
 
 // SetTxinwitness sets field value
@@ -228,7 +228,7 @@ func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetValue() string {
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetValueOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Value, true
@@ -252,7 +252,7 @@ func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetVout() int32 {
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRIBSD2Vin) GetVoutOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Vout, true

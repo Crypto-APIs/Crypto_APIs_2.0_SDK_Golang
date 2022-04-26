@@ -26,22 +26,30 @@ type ListUnconfirmedOmniTransactionsByAddressE403 struct {
 
 // BannedIpAddressAsListUnconfirmedOmniTransactionsByAddressE403 is a convenience function that returns BannedIpAddress wrapped in ListUnconfirmedOmniTransactionsByAddressE403
 func BannedIpAddressAsListUnconfirmedOmniTransactionsByAddressE403(v *BannedIpAddress) ListUnconfirmedOmniTransactionsByAddressE403 {
-	return ListUnconfirmedOmniTransactionsByAddressE403{ BannedIpAddress: v}
+	return ListUnconfirmedOmniTransactionsByAddressE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsListUnconfirmedOmniTransactionsByAddressE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in ListUnconfirmedOmniTransactionsByAddressE403
 func EndpointNotAllowedForApiKeyAsListUnconfirmedOmniTransactionsByAddressE403(v *EndpointNotAllowedForApiKey) ListUnconfirmedOmniTransactionsByAddressE403 {
-	return ListUnconfirmedOmniTransactionsByAddressE403{ EndpointNotAllowedForApiKey: v}
+	return ListUnconfirmedOmniTransactionsByAddressE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsListUnconfirmedOmniTransactionsByAddressE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in ListUnconfirmedOmniTransactionsByAddressE403
 func EndpointNotAllowedForPlanAsListUnconfirmedOmniTransactionsByAddressE403(v *EndpointNotAllowedForPlan) ListUnconfirmedOmniTransactionsByAddressE403 {
-	return ListUnconfirmedOmniTransactionsByAddressE403{ EndpointNotAllowedForPlan: v}
+	return ListUnconfirmedOmniTransactionsByAddressE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsListUnconfirmedOmniTransactionsByAddressE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in ListUnconfirmedOmniTransactionsByAddressE403
 func FeatureMainnetsNotAllowedForPlanAsListUnconfirmedOmniTransactionsByAddressE403(v *FeatureMainnetsNotAllowedForPlan) ListUnconfirmedOmniTransactionsByAddressE403 {
-	return ListUnconfirmedOmniTransactionsByAddressE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return ListUnconfirmedOmniTransactionsByAddressE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *ListUnconfirmedOmniTransactionsByAddressE403) UnmarshalJSON(data []by
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *ListUnconfirmedOmniTransactionsByAddressE403) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *ListUnconfirmedOmniTransactionsByAddressE403) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *ListUnconfirmedOmniTransactionsByAddressE403) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src ListUnconfirmedOmniTransactionsByAddressE403) MarshalJSON() ([]byte, e
 
 // Get the actual instance
 func (obj *ListUnconfirmedOmniTransactionsByAddressE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

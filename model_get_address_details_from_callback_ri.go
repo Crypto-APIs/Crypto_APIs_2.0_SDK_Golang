@@ -27,7 +27,7 @@ type GetAddressDetailsFromCallbackRI struct {
 	TotalReceived *GetAddressDetailsFromCallbackRITotalReceived `json:"totalReceived,omitempty"`
 	TotalSpent *GetAddressDetailsFromCallbackRITotalSpent `json:"totalSpent,omitempty"`
 	// Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
-	Sequence *int32 `json:"sequence,omitempty"`
+	Sequence *int64 `json:"sequence,omitempty"`
 }
 
 // NewGetAddressDetailsFromCallbackRI instantiates a new GetAddressDetailsFromCallbackRI object
@@ -64,7 +64,7 @@ func (o *GetAddressDetailsFromCallbackRI) GetIncomingTransactionsCount() int32 {
 // GetIncomingTransactionsCountOk returns a tuple with the IncomingTransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsFromCallbackRI) GetIncomingTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IncomingTransactionsCount, true
@@ -88,7 +88,7 @@ func (o *GetAddressDetailsFromCallbackRI) GetOutgoingTransactionsCount() int32 {
 // GetOutgoingTransactionsCountOk returns a tuple with the OutgoingTransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsFromCallbackRI) GetOutgoingTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.OutgoingTransactionsCount, true
@@ -112,7 +112,7 @@ func (o *GetAddressDetailsFromCallbackRI) GetTransactionsCount() int32 {
 // GetTransactionsCountOk returns a tuple with the TransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsFromCallbackRI) GetTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionsCount, true
@@ -136,7 +136,7 @@ func (o *GetAddressDetailsFromCallbackRI) GetConfirmedBalance() GetAddressDetail
 // GetConfirmedBalanceOk returns a tuple with the ConfirmedBalance field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsFromCallbackRI) GetConfirmedBalanceOk() (*GetAddressDetailsRIConfirmedBalance, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ConfirmedBalance, true
@@ -212,9 +212,9 @@ func (o *GetAddressDetailsFromCallbackRI) SetTotalSpent(v GetAddressDetailsFromC
 }
 
 // GetSequence returns the Sequence field value if set, zero value otherwise.
-func (o *GetAddressDetailsFromCallbackRI) GetSequence() int32 {
+func (o *GetAddressDetailsFromCallbackRI) GetSequence() int64 {
 	if o == nil || o.Sequence == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Sequence
@@ -222,7 +222,7 @@ func (o *GetAddressDetailsFromCallbackRI) GetSequence() int32 {
 
 // GetSequenceOk returns a tuple with the Sequence field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetAddressDetailsFromCallbackRI) GetSequenceOk() (*int32, bool) {
+func (o *GetAddressDetailsFromCallbackRI) GetSequenceOk() (*int64, bool) {
 	if o == nil || o.Sequence == nil {
 		return nil, false
 	}
@@ -238,8 +238,8 @@ func (o *GetAddressDetailsFromCallbackRI) HasSequence() bool {
 	return false
 }
 
-// SetSequence gets a reference to the given int32 and assigns it to the Sequence field.
-func (o *GetAddressDetailsFromCallbackRI) SetSequence(v int32) {
+// SetSequence gets a reference to the given int64 and assigns it to the Sequence field.
+func (o *GetAddressDetailsFromCallbackRI) SetSequence(v int64) {
 	o.Sequence = &v
 }
 

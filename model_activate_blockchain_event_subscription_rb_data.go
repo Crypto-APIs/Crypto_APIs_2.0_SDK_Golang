@@ -50,11 +50,11 @@ func (o *ActivateBlockchainEventSubscriptionRBData) GetItem() map[string]interfa
 
 // GetItemOk returns a tuple with the Item field value
 // and a boolean to check if the value has been set.
-func (o *ActivateBlockchainEventSubscriptionRBData) GetItemOk() (*map[string]interface{}, bool) {
-	if o == nil  {
+func (o *ActivateBlockchainEventSubscriptionRBData) GetItemOk() (map[string]interface{}, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Item, true
+	return o.Item, true
 }
 
 // SetItem sets field value

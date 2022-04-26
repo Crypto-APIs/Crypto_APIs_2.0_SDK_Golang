@@ -13,23 +13,19 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // TransactionsApiService TransactionsApi service
 type TransactionsApiService service
 
 type ApiCreateCoinsTransactionFromAddressForWholeAmountRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *TransactionsApiService
 	address string
 	blockchain string
@@ -44,12 +40,13 @@ func (r ApiCreateCoinsTransactionFromAddressForWholeAmountRequest) Context(conte
 	r.context = &context
 	return r
 }
+
 func (r ApiCreateCoinsTransactionFromAddressForWholeAmountRequest) CreateCoinsTransactionFromAddressForWholeAmountRB(createCoinsTransactionFromAddressForWholeAmountRB CreateCoinsTransactionFromAddressForWholeAmountRB) ApiCreateCoinsTransactionFromAddressForWholeAmountRequest {
 	r.createCoinsTransactionFromAddressForWholeAmountRB = &createCoinsTransactionFromAddressForWholeAmountRB
 	return r
 }
 
-func (r ApiCreateCoinsTransactionFromAddressForWholeAmountRequest) Execute() (CreateCoinsTransactionFromAddressForWholeAmountR, *_nethttp.Response, error) {
+func (r ApiCreateCoinsTransactionFromAddressForWholeAmountRequest) Execute() (*CreateCoinsTransactionFromAddressForWholeAmountR, *http.Response, error) {
 	return r.ApiService.CreateCoinsTransactionFromAddressForWholeAmountExecute(r)
 }
 
@@ -58,14 +55,14 @@ CreateCoinsTransactionFromAddressForWholeAmount Create Coins Transaction From Ad
 
 Through this endpoint customers can create a new transaction from address for **coins** specifically, which will transfer over the entire available amount.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param address Defines the source address.
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param walletId Represents the sender's specific and unique Wallet ID of the sender.
  @return ApiCreateCoinsTransactionFromAddressForWholeAmountRequest
 */
-func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount(ctx _context.Context, address string, blockchain string, network string, walletId string) ApiCreateCoinsTransactionFromAddressForWholeAmountRequest {
+func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount(ctx context.Context, address string, blockchain string, network string, walletId string) ApiCreateCoinsTransactionFromAddressForWholeAmountRequest {
 	return ApiCreateCoinsTransactionFromAddressForWholeAmountRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -78,28 +75,28 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 
 // Execute executes the request
 //  @return CreateCoinsTransactionFromAddressForWholeAmountR
-func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmountExecute(r ApiCreateCoinsTransactionFromAddressForWholeAmountRequest) (CreateCoinsTransactionFromAddressForWholeAmountR, *_nethttp.Response, error) {
+func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmountExecute(r ApiCreateCoinsTransactionFromAddressForWholeAmountRequest) (*CreateCoinsTransactionFromAddressForWholeAmountR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  CreateCoinsTransactionFromAddressForWholeAmountR
+		localVarReturnValue  *CreateCoinsTransactionFromAddressForWholeAmountR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TransactionsApiService.CreateCoinsTransactionFromAddressForWholeAmount")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/all-transaction-requests"
-	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", _neturl.PathEscape(parameterToString(r.walletId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", url.PathEscape(parameterToString(r.walletId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -147,20 +144,20 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40025
+			var v InlineResponse40026
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -170,7 +167,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40125
+			var v InlineResponse40126
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -190,7 +187,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40325
+			var v InlineResponse40326
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -253,7 +250,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -264,7 +261,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 }
 
 type ApiCreateCoinsTransactionRequestFromAddressRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *TransactionsApiService
 	address string
 	blockchain string
@@ -279,12 +276,13 @@ func (r ApiCreateCoinsTransactionRequestFromAddressRequest) Context(context stri
 	r.context = &context
 	return r
 }
+
 func (r ApiCreateCoinsTransactionRequestFromAddressRequest) CreateCoinsTransactionRequestFromAddressRB(createCoinsTransactionRequestFromAddressRB CreateCoinsTransactionRequestFromAddressRB) ApiCreateCoinsTransactionRequestFromAddressRequest {
 	r.createCoinsTransactionRequestFromAddressRB = &createCoinsTransactionRequestFromAddressRB
 	return r
 }
 
-func (r ApiCreateCoinsTransactionRequestFromAddressRequest) Execute() (CreateCoinsTransactionRequestFromAddressR, *_nethttp.Response, error) {
+func (r ApiCreateCoinsTransactionRequestFromAddressRequest) Execute() (*CreateCoinsTransactionRequestFromAddressR, *http.Response, error) {
 	return r.ApiService.CreateCoinsTransactionRequestFromAddressExecute(r)
 }
 
@@ -293,14 +291,14 @@ CreateCoinsTransactionRequestFromAddress Create Coins Transaction Request from A
 
 Through this endpoint users can create a new single transaction request from one address to another.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param address Defines the specific source address for the transaction.
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param address Defines the specific source address for the transaction. For XRP we also support the X-address format.
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param walletId Represents the sender's specific and unique Wallet ID of the sender.
  @return ApiCreateCoinsTransactionRequestFromAddressRequest
 */
-func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddress(ctx _context.Context, address string, blockchain string, network string, walletId string) ApiCreateCoinsTransactionRequestFromAddressRequest {
+func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddress(ctx context.Context, address string, blockchain string, network string, walletId string) ApiCreateCoinsTransactionRequestFromAddressRequest {
 	return ApiCreateCoinsTransactionRequestFromAddressRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -313,28 +311,28 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddress(ctx _c
 
 // Execute executes the request
 //  @return CreateCoinsTransactionRequestFromAddressR
-func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute(r ApiCreateCoinsTransactionRequestFromAddressRequest) (CreateCoinsTransactionRequestFromAddressR, *_nethttp.Response, error) {
+func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute(r ApiCreateCoinsTransactionRequestFromAddressRequest) (*CreateCoinsTransactionRequestFromAddressR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  CreateCoinsTransactionRequestFromAddressR
+		localVarReturnValue  *CreateCoinsTransactionRequestFromAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TransactionsApiService.CreateCoinsTransactionRequestFromAddress")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/transaction-requests"
-	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", _neturl.PathEscape(parameterToString(r.address, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", _neturl.PathEscape(parameterToString(r.walletId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", url.PathEscape(parameterToString(r.walletId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -382,20 +380,20 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40020
+			var v InlineResponse40021
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -405,7 +403,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40120
+			var v InlineResponse40121
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -425,7 +423,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40320
+			var v InlineResponse40321
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -488,7 +486,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -499,7 +497,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 }
 
 type ApiCreateCoinsTransactionRequestFromWalletRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *TransactionsApiService
 	blockchain string
 	network string
@@ -513,12 +511,13 @@ func (r ApiCreateCoinsTransactionRequestFromWalletRequest) Context(context strin
 	r.context = &context
 	return r
 }
+
 func (r ApiCreateCoinsTransactionRequestFromWalletRequest) CreateCoinsTransactionRequestFromWalletRB(createCoinsTransactionRequestFromWalletRB CreateCoinsTransactionRequestFromWalletRB) ApiCreateCoinsTransactionRequestFromWalletRequest {
 	r.createCoinsTransactionRequestFromWalletRB = &createCoinsTransactionRequestFromWalletRB
 	return r
 }
 
-func (r ApiCreateCoinsTransactionRequestFromWalletRequest) Execute() (CreateCoinsTransactionRequestFromWalletR, *_nethttp.Response, error) {
+func (r ApiCreateCoinsTransactionRequestFromWalletRequest) Execute() (*CreateCoinsTransactionRequestFromWalletR, *http.Response, error) {
 	return r.ApiService.CreateCoinsTransactionRequestFromWalletExecute(r)
 }
 
@@ -529,13 +528,13 @@ Through this endpoint users can create a new transaction request from the entire
 
 {warning}This is available **only** for UTXO-based protocols such as Bitcoin, Bitcoin Cash, Litecoin, etc. It **is not** available for Account-based protocols like Ethereum.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param walletId Represents the sender's specific and unique Wallet ID of the sender.
  @return ApiCreateCoinsTransactionRequestFromWalletRequest
 */
-func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWallet(ctx _context.Context, blockchain string, network string, walletId string) ApiCreateCoinsTransactionRequestFromWalletRequest {
+func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWallet(ctx context.Context, blockchain string, network string, walletId string) ApiCreateCoinsTransactionRequestFromWalletRequest {
 	return ApiCreateCoinsTransactionRequestFromWalletRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -547,27 +546,27 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWallet(ctx _co
 
 // Execute executes the request
 //  @return CreateCoinsTransactionRequestFromWalletR
-func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(r ApiCreateCoinsTransactionRequestFromWalletRequest) (CreateCoinsTransactionRequestFromWalletR, *_nethttp.Response, error) {
+func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(r ApiCreateCoinsTransactionRequestFromWalletRequest) (*CreateCoinsTransactionRequestFromWalletR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  CreateCoinsTransactionRequestFromWalletR
+		localVarReturnValue  *CreateCoinsTransactionRequestFromWalletR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TransactionsApiService.CreateCoinsTransactionRequestFromWallet")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/transaction-requests"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", _neturl.PathEscape(parameterToString(r.walletId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", url.PathEscape(parameterToString(r.walletId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -615,15 +614,15 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -721,7 +720,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -732,7 +731,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 }
 
 type ApiCreateFungibleTokensTransactionRequestFromAddressRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *TransactionsApiService
 	blockchain string
 	network string
@@ -747,12 +746,13 @@ func (r ApiCreateFungibleTokensTransactionRequestFromAddressRequest) Context(con
 	r.context = &context
 	return r
 }
+
 func (r ApiCreateFungibleTokensTransactionRequestFromAddressRequest) CreateFungibleTokensTransactionRequestFromAddressRB(createFungibleTokensTransactionRequestFromAddressRB CreateFungibleTokensTransactionRequestFromAddressRB) ApiCreateFungibleTokensTransactionRequestFromAddressRequest {
 	r.createFungibleTokensTransactionRequestFromAddressRB = &createFungibleTokensTransactionRequestFromAddressRB
 	return r
 }
 
-func (r ApiCreateFungibleTokensTransactionRequestFromAddressRequest) Execute() (CreateFungibleTokensTransactionRequestFromAddressR, *_nethttp.Response, error) {
+func (r ApiCreateFungibleTokensTransactionRequestFromAddressRequest) Execute() (*CreateFungibleTokensTransactionRequestFromAddressR, *http.Response, error) {
 	return r.ApiService.CreateFungibleTokensTransactionRequestFromAddressExecute(r)
 }
 
@@ -765,14 +765,14 @@ Through this endpoint users can make a single token transaction.
 
 {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param senderAddress Defines the specific source address for the transaction.
  @param walletId Defines the unique ID of the Wallet.
  @return ApiCreateFungibleTokensTransactionRequestFromAddressRequest
 */
-func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddress(ctx _context.Context, blockchain string, network string, senderAddress string, walletId string) ApiCreateFungibleTokensTransactionRequestFromAddressRequest {
+func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddress(ctx context.Context, blockchain string, network string, senderAddress string, walletId string) ApiCreateFungibleTokensTransactionRequestFromAddressRequest {
 	return ApiCreateFungibleTokensTransactionRequestFromAddressRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -785,28 +785,28 @@ func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddre
 
 // Execute executes the request
 //  @return CreateFungibleTokensTransactionRequestFromAddressR
-func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddressExecute(r ApiCreateFungibleTokensTransactionRequestFromAddressRequest) (CreateFungibleTokensTransactionRequestFromAddressR, *_nethttp.Response, error) {
+func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddressExecute(r ApiCreateFungibleTokensTransactionRequestFromAddressRequest) (*CreateFungibleTokensTransactionRequestFromAddressR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  CreateFungibleTokensTransactionRequestFromAddressR
+		localVarReturnValue  *CreateFungibleTokensTransactionRequestFromAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TransactionsApiService.CreateFungibleTokensTransactionRequestFromAddress")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/token-transaction-requests"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"senderAddress"+"}", _neturl.PathEscape(parameterToString(r.senderAddress, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", _neturl.PathEscape(parameterToString(r.walletId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"senderAddress"+"}", url.PathEscape(parameterToString(r.senderAddress, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", url.PathEscape(parameterToString(r.walletId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -854,20 +854,20 @@ func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddre
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40036
+			var v InlineResponse40037
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -877,7 +877,7 @@ func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40136
+			var v InlineResponse40137
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -897,7 +897,7 @@ func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40336
+			var v InlineResponse40337
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -960,7 +960,7 @@ func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddre
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

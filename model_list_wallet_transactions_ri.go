@@ -21,10 +21,10 @@ type ListWalletTransactionsRI struct {
 	Direction string `json:"direction"`
 	Fee ListWalletTransactionsRIFee `json:"fee"`
 	// Represents fungible tokens'es detailed information
-	FungibleTokens *[]ListWalletTransactionsRIFungibleTokens `json:"fungibleTokens,omitempty"`
-	InternalTransactions *[]ListWalletTransactionsRIInternalTransactions `json:"internalTransactions,omitempty"`
+	FungibleTokens []ListWalletTransactionsRIFungibleTokens `json:"fungibleTokens,omitempty"`
+	InternalTransactions []ListWalletTransactionsRIInternalTransactions `json:"internalTransactions,omitempty"`
 	// Represents non-fungible tokens'es detailed information.
-	NonFungibleTokens *[]ListWalletTransactionsRINonFungibleTokens `json:"nonFungibleTokens,omitempty"`
+	NonFungibleTokens []ListWalletTransactionsRINonFungibleTokens `json:"nonFungibleTokens,omitempty"`
 	// Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
 	Recipients []ListWalletTransactionsRIRecipients `json:"recipients"`
 	// Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
@@ -76,7 +76,7 @@ func (o *ListWalletTransactionsRI) GetDirection() string {
 // GetDirectionOk returns a tuple with the Direction field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRI) GetDirectionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Direction, true
@@ -100,7 +100,7 @@ func (o *ListWalletTransactionsRI) GetFee() ListWalletTransactionsRIFee {
 // GetFeeOk returns a tuple with the Fee field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRI) GetFeeOk() (*ListWalletTransactionsRIFee, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fee, true
@@ -117,12 +117,12 @@ func (o *ListWalletTransactionsRI) GetFungibleTokens() []ListWalletTransactionsR
 		var ret []ListWalletTransactionsRIFungibleTokens
 		return ret
 	}
-	return *o.FungibleTokens
+	return o.FungibleTokens
 }
 
 // GetFungibleTokensOk returns a tuple with the FungibleTokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListWalletTransactionsRI) GetFungibleTokensOk() (*[]ListWalletTransactionsRIFungibleTokens, bool) {
+func (o *ListWalletTransactionsRI) GetFungibleTokensOk() ([]ListWalletTransactionsRIFungibleTokens, bool) {
 	if o == nil || o.FungibleTokens == nil {
 		return nil, false
 	}
@@ -140,7 +140,7 @@ func (o *ListWalletTransactionsRI) HasFungibleTokens() bool {
 
 // SetFungibleTokens gets a reference to the given []ListWalletTransactionsRIFungibleTokens and assigns it to the FungibleTokens field.
 func (o *ListWalletTransactionsRI) SetFungibleTokens(v []ListWalletTransactionsRIFungibleTokens) {
-	o.FungibleTokens = &v
+	o.FungibleTokens = v
 }
 
 // GetInternalTransactions returns the InternalTransactions field value if set, zero value otherwise.
@@ -149,12 +149,12 @@ func (o *ListWalletTransactionsRI) GetInternalTransactions() []ListWalletTransac
 		var ret []ListWalletTransactionsRIInternalTransactions
 		return ret
 	}
-	return *o.InternalTransactions
+	return o.InternalTransactions
 }
 
 // GetInternalTransactionsOk returns a tuple with the InternalTransactions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListWalletTransactionsRI) GetInternalTransactionsOk() (*[]ListWalletTransactionsRIInternalTransactions, bool) {
+func (o *ListWalletTransactionsRI) GetInternalTransactionsOk() ([]ListWalletTransactionsRIInternalTransactions, bool) {
 	if o == nil || o.InternalTransactions == nil {
 		return nil, false
 	}
@@ -172,7 +172,7 @@ func (o *ListWalletTransactionsRI) HasInternalTransactions() bool {
 
 // SetInternalTransactions gets a reference to the given []ListWalletTransactionsRIInternalTransactions and assigns it to the InternalTransactions field.
 func (o *ListWalletTransactionsRI) SetInternalTransactions(v []ListWalletTransactionsRIInternalTransactions) {
-	o.InternalTransactions = &v
+	o.InternalTransactions = v
 }
 
 // GetNonFungibleTokens returns the NonFungibleTokens field value if set, zero value otherwise.
@@ -181,12 +181,12 @@ func (o *ListWalletTransactionsRI) GetNonFungibleTokens() []ListWalletTransactio
 		var ret []ListWalletTransactionsRINonFungibleTokens
 		return ret
 	}
-	return *o.NonFungibleTokens
+	return o.NonFungibleTokens
 }
 
 // GetNonFungibleTokensOk returns a tuple with the NonFungibleTokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListWalletTransactionsRI) GetNonFungibleTokensOk() (*[]ListWalletTransactionsRINonFungibleTokens, bool) {
+func (o *ListWalletTransactionsRI) GetNonFungibleTokensOk() ([]ListWalletTransactionsRINonFungibleTokens, bool) {
 	if o == nil || o.NonFungibleTokens == nil {
 		return nil, false
 	}
@@ -204,7 +204,7 @@ func (o *ListWalletTransactionsRI) HasNonFungibleTokens() bool {
 
 // SetNonFungibleTokens gets a reference to the given []ListWalletTransactionsRINonFungibleTokens and assigns it to the NonFungibleTokens field.
 func (o *ListWalletTransactionsRI) SetNonFungibleTokens(v []ListWalletTransactionsRINonFungibleTokens) {
-	o.NonFungibleTokens = &v
+	o.NonFungibleTokens = v
 }
 
 // GetRecipients returns the Recipients field value
@@ -219,11 +219,11 @@ func (o *ListWalletTransactionsRI) GetRecipients() []ListWalletTransactionsRIRec
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListWalletTransactionsRI) GetRecipientsOk() (*[]ListWalletTransactionsRIRecipients, bool) {
-	if o == nil  {
+func (o *ListWalletTransactionsRI) GetRecipientsOk() ([]ListWalletTransactionsRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -243,11 +243,11 @@ func (o *ListWalletTransactionsRI) GetSenders() []ListWalletTransactionsRISender
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListWalletTransactionsRI) GetSendersOk() (*[]ListWalletTransactionsRISenders, bool) {
-	if o == nil  {
+func (o *ListWalletTransactionsRI) GetSendersOk() ([]ListWalletTransactionsRISenders, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Senders, true
+	return o.Senders, true
 }
 
 // SetSenders sets field value
@@ -268,7 +268,7 @@ func (o *ListWalletTransactionsRI) GetStatus() string {
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRI) GetStatusOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Status, true
@@ -292,7 +292,7 @@ func (o *ListWalletTransactionsRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -316,7 +316,7 @@ func (o *ListWalletTransactionsRI) GetTransactionId() string {
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -340,7 +340,7 @@ func (o *ListWalletTransactionsRI) GetValue() ListWalletTransactionsRIValue {
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *ListWalletTransactionsRI) GetValueOk() (*ListWalletTransactionsRIValue, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Value, true

@@ -77,7 +77,7 @@ func (o *ListTransactionsByBlockHeightRI) GetIndex() int32 {
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRI) GetIndexOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Index, true
@@ -101,7 +101,7 @@ func (o *ListTransactionsByBlockHeightRI) GetMinedInBlockHash() string {
 // GetMinedInBlockHashOk returns a tuple with the MinedInBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRI) GetMinedInBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHash, true
@@ -125,7 +125,7 @@ func (o *ListTransactionsByBlockHeightRI) GetMinedInBlockHeight() int32 {
 // GetMinedInBlockHeightOk returns a tuple with the MinedInBlockHeight field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRI) GetMinedInBlockHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlockHeight, true
@@ -148,11 +148,11 @@ func (o *ListTransactionsByBlockHeightRI) GetRecipients() []GetTransactionDetail
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHeightRI) GetRecipientsOk() (*[]GetTransactionDetailsByTransactionIDRIRecipients, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHeightRI) GetRecipientsOk() ([]GetTransactionDetailsByTransactionIDRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -172,11 +172,11 @@ func (o *ListTransactionsByBlockHeightRI) GetSenders() []GetTransactionDetailsBy
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHeightRI) GetSendersOk() (*[]GetTransactionDetailsByTransactionIDRISenders, bool) {
-	if o == nil  {
+func (o *ListTransactionsByBlockHeightRI) GetSendersOk() ([]GetTransactionDetailsByTransactionIDRISenders, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Senders, true
+	return o.Senders, true
 }
 
 // SetSenders sets field value
@@ -197,7 +197,7 @@ func (o *ListTransactionsByBlockHeightRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -221,7 +221,7 @@ func (o *ListTransactionsByBlockHeightRI) GetTransactionHash() string {
 // GetTransactionHashOk returns a tuple with the TransactionHash field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRI) GetTransactionHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionHash, true
@@ -245,7 +245,7 @@ func (o *ListTransactionsByBlockHeightRI) GetTransactionId() string {
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -269,7 +269,7 @@ func (o *ListTransactionsByBlockHeightRI) GetFee() ListTransactionsByBlockHeight
 // GetFeeOk returns a tuple with the Fee field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRI) GetFeeOk() (*ListTransactionsByBlockHeightRIFee, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Fee, true
@@ -293,7 +293,7 @@ func (o *ListTransactionsByBlockHeightRI) GetBlockchainSpecific() ListTransactio
 // GetBlockchainSpecificOk returns a tuple with the BlockchainSpecific field value
 // and a boolean to check if the value has been set.
 func (o *ListTransactionsByBlockHeightRI) GetBlockchainSpecificOk() (*ListTransactionsByBlockHeightRIBS, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockchainSpecific, true

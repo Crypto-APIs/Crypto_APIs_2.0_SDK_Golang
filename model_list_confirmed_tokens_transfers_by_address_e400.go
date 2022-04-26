@@ -25,17 +25,23 @@ type ListConfirmedTokensTransfersByAddressE400 struct {
 
 // InvalidPaginationAsListConfirmedTokensTransfersByAddressE400 is a convenience function that returns InvalidPagination wrapped in ListConfirmedTokensTransfersByAddressE400
 func InvalidPaginationAsListConfirmedTokensTransfersByAddressE400(v *InvalidPagination) ListConfirmedTokensTransfersByAddressE400 {
-	return ListConfirmedTokensTransfersByAddressE400{ InvalidPagination: v}
+	return ListConfirmedTokensTransfersByAddressE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsListConfirmedTokensTransfersByAddressE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in ListConfirmedTokensTransfersByAddressE400
 func LimitGreaterThanAllowedAsListConfirmedTokensTransfersByAddressE400(v *LimitGreaterThanAllowed) ListConfirmedTokensTransfersByAddressE400 {
-	return ListConfirmedTokensTransfersByAddressE400{ LimitGreaterThanAllowed: v}
+	return ListConfirmedTokensTransfersByAddressE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsListConfirmedTokensTransfersByAddressE400 is a convenience function that returns UriNotFound wrapped in ListConfirmedTokensTransfersByAddressE400
 func UriNotFoundAsListConfirmedTokensTransfersByAddressE400(v *UriNotFound) ListConfirmedTokensTransfersByAddressE400 {
-	return ListConfirmedTokensTransfersByAddressE400{ UriNotFound: v}
+	return ListConfirmedTokensTransfersByAddressE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *ListConfirmedTokensTransfersByAddressE400) UnmarshalJSON(data []byte)
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *ListConfirmedTokensTransfersByAddressE400) UnmarshalJSON(data []byte)
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *ListConfirmedTokensTransfersByAddressE400) UnmarshalJSON(data []byte)
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src ListConfirmedTokensTransfersByAddressE400) MarshalJSON() ([]byte, erro
 
 // Get the actual instance
 func (obj *ListConfirmedTokensTransfersByAddressE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

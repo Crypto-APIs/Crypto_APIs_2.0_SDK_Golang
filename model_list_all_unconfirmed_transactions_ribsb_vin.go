@@ -23,7 +23,7 @@ type ListAllUnconfirmedTransactionsRIBSBVin struct {
 	Sequence string `json:"sequence"`
 	// Represents the reference transaction identifier.
 	Txid *string `json:"txid,omitempty"`
-	Txinwitness *[]string `json:"txinwitness,omitempty"`
+	Txinwitness []string `json:"txinwitness,omitempty"`
 	// Represents the sent/received amount.
 	Value *string `json:"value,omitempty"`
 	// Defines the vout of the transaction output, i.e. which output to spend.
@@ -63,11 +63,11 @@ func (o *ListAllUnconfirmedTransactionsRIBSBVin) GetAddresses() []string {
 
 // GetAddressesOk returns a tuple with the Addresses field value
 // and a boolean to check if the value has been set.
-func (o *ListAllUnconfirmedTransactionsRIBSBVin) GetAddressesOk() (*[]string, bool) {
-	if o == nil  {
+func (o *ListAllUnconfirmedTransactionsRIBSBVin) GetAddressesOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Addresses, true
+	return o.Addresses, true
 }
 
 // SetAddresses sets field value
@@ -88,7 +88,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSBVin) GetScriptSig() ListAllUnconfirm
 // GetScriptSigOk returns a tuple with the ScriptSig field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRIBSBVin) GetScriptSigOk() (*ListAllUnconfirmedTransactionsRIBSBScriptSig, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ScriptSig, true
@@ -112,7 +112,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSBVin) GetSequence() string {
 // GetSequenceOk returns a tuple with the Sequence field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRIBSBVin) GetSequenceOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sequence, true
@@ -161,12 +161,12 @@ func (o *ListAllUnconfirmedTransactionsRIBSBVin) GetTxinwitness() []string {
 		var ret []string
 		return ret
 	}
-	return *o.Txinwitness
+	return o.Txinwitness
 }
 
 // GetTxinwitnessOk returns a tuple with the Txinwitness field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListAllUnconfirmedTransactionsRIBSBVin) GetTxinwitnessOk() (*[]string, bool) {
+func (o *ListAllUnconfirmedTransactionsRIBSBVin) GetTxinwitnessOk() ([]string, bool) {
 	if o == nil || o.Txinwitness == nil {
 		return nil, false
 	}
@@ -184,7 +184,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSBVin) HasTxinwitness() bool {
 
 // SetTxinwitness gets a reference to the given []string and assigns it to the Txinwitness field.
 func (o *ListAllUnconfirmedTransactionsRIBSBVin) SetTxinwitness(v []string) {
-	o.Txinwitness = &v
+	o.Txinwitness = v
 }
 
 // GetValue returns the Value field value if set, zero value otherwise.
@@ -232,7 +232,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSBVin) GetVout() int32 {
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRIBSBVin) GetVoutOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Vout, true

@@ -27,27 +27,37 @@ type AddTokensToExistingFromAddressE403 struct {
 
 // BannedIpAddressAsAddTokensToExistingFromAddressE403 is a convenience function that returns BannedIpAddress wrapped in AddTokensToExistingFromAddressE403
 func BannedIpAddressAsAddTokensToExistingFromAddressE403(v *BannedIpAddress) AddTokensToExistingFromAddressE403 {
-	return AddTokensToExistingFromAddressE403{ BannedIpAddress: v}
+	return AddTokensToExistingFromAddressE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsAddTokensToExistingFromAddressE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in AddTokensToExistingFromAddressE403
 func EndpointNotAllowedForApiKeyAsAddTokensToExistingFromAddressE403(v *EndpointNotAllowedForApiKey) AddTokensToExistingFromAddressE403 {
-	return AddTokensToExistingFromAddressE403{ EndpointNotAllowedForApiKey: v}
+	return AddTokensToExistingFromAddressE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsAddTokensToExistingFromAddressE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in AddTokensToExistingFromAddressE403
 func EndpointNotAllowedForPlanAsAddTokensToExistingFromAddressE403(v *EndpointNotAllowedForPlan) AddTokensToExistingFromAddressE403 {
-	return AddTokensToExistingFromAddressE403{ EndpointNotAllowedForPlan: v}
+	return AddTokensToExistingFromAddressE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsAddTokensToExistingFromAddressE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in AddTokensToExistingFromAddressE403
 func FeatureMainnetsNotAllowedForPlanAsAddTokensToExistingFromAddressE403(v *FeatureMainnetsNotAllowedForPlan) AddTokensToExistingFromAddressE403 {
-	return AddTokensToExistingFromAddressE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return AddTokensToExistingFromAddressE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 // TokensForwardingAutomationsLimitReachedAsAddTokensToExistingFromAddressE403 is a convenience function that returns TokensForwardingAutomationsLimitReached wrapped in AddTokensToExistingFromAddressE403
 func TokensForwardingAutomationsLimitReachedAsAddTokensToExistingFromAddressE403(v *TokensForwardingAutomationsLimitReached) AddTokensToExistingFromAddressE403 {
-	return AddTokensToExistingFromAddressE403{ TokensForwardingAutomationsLimitReached: v}
+	return AddTokensToExistingFromAddressE403{
+		TokensForwardingAutomationsLimitReached: v,
+	}
 }
 
 
@@ -56,7 +66,7 @@ func (dst *AddTokensToExistingFromAddressE403) UnmarshalJSON(data []byte) error 
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -69,7 +79,7 @@ func (dst *AddTokensToExistingFromAddressE403) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -82,7 +92,7 @@ func (dst *AddTokensToExistingFromAddressE403) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -95,7 +105,7 @@ func (dst *AddTokensToExistingFromAddressE403) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -108,7 +118,7 @@ func (dst *AddTokensToExistingFromAddressE403) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into TokensForwardingAutomationsLimitReached
-	err = json.Unmarshal(data, &dst.TokensForwardingAutomationsLimitReached)
+	err = newStrictDecoder(data).Decode(&dst.TokensForwardingAutomationsLimitReached)
 	if err == nil {
 		jsonTokensForwardingAutomationsLimitReached, _ := json.Marshal(dst.TokensForwardingAutomationsLimitReached)
 		if string(jsonTokensForwardingAutomationsLimitReached) == "{}" { // empty struct
@@ -163,6 +173,9 @@ func (src AddTokensToExistingFromAddressE403) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *AddTokensToExistingFromAddressE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

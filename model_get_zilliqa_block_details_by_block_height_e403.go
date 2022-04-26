@@ -26,22 +26,30 @@ type GetZilliqaBlockDetailsByBlockHeightE403 struct {
 
 // BannedIpAddressAsGetZilliqaBlockDetailsByBlockHeightE403 is a convenience function that returns BannedIpAddress wrapped in GetZilliqaBlockDetailsByBlockHeightE403
 func BannedIpAddressAsGetZilliqaBlockDetailsByBlockHeightE403(v *BannedIpAddress) GetZilliqaBlockDetailsByBlockHeightE403 {
-	return GetZilliqaBlockDetailsByBlockHeightE403{ BannedIpAddress: v}
+	return GetZilliqaBlockDetailsByBlockHeightE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsGetZilliqaBlockDetailsByBlockHeightE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in GetZilliqaBlockDetailsByBlockHeightE403
 func EndpointNotAllowedForApiKeyAsGetZilliqaBlockDetailsByBlockHeightE403(v *EndpointNotAllowedForApiKey) GetZilliqaBlockDetailsByBlockHeightE403 {
-	return GetZilliqaBlockDetailsByBlockHeightE403{ EndpointNotAllowedForApiKey: v}
+	return GetZilliqaBlockDetailsByBlockHeightE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsGetZilliqaBlockDetailsByBlockHeightE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in GetZilliqaBlockDetailsByBlockHeightE403
 func EndpointNotAllowedForPlanAsGetZilliqaBlockDetailsByBlockHeightE403(v *EndpointNotAllowedForPlan) GetZilliqaBlockDetailsByBlockHeightE403 {
-	return GetZilliqaBlockDetailsByBlockHeightE403{ EndpointNotAllowedForPlan: v}
+	return GetZilliqaBlockDetailsByBlockHeightE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsGetZilliqaBlockDetailsByBlockHeightE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in GetZilliqaBlockDetailsByBlockHeightE403
 func FeatureMainnetsNotAllowedForPlanAsGetZilliqaBlockDetailsByBlockHeightE403(v *FeatureMainnetsNotAllowedForPlan) GetZilliqaBlockDetailsByBlockHeightE403 {
-	return GetZilliqaBlockDetailsByBlockHeightE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return GetZilliqaBlockDetailsByBlockHeightE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *GetZilliqaBlockDetailsByBlockHeightE403) UnmarshalJSON(data []byte) e
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *GetZilliqaBlockDetailsByBlockHeightE403) UnmarshalJSON(data []byte) e
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *GetZilliqaBlockDetailsByBlockHeightE403) UnmarshalJSON(data []byte) e
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *GetZilliqaBlockDetailsByBlockHeightE403) UnmarshalJSON(data []byte) e
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src GetZilliqaBlockDetailsByBlockHeightE403) MarshalJSON() ([]byte, error)
 
 // Get the actual instance
 func (obj *GetZilliqaBlockDetailsByBlockHeightE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

@@ -70,7 +70,7 @@ func (o *TransactionRequestFailDataItem) GetBlockchain() string {
 // GetBlockchainOk returns a tuple with the Blockchain field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestFailDataItem) GetBlockchainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Blockchain, true
@@ -94,7 +94,7 @@ func (o *TransactionRequestFailDataItem) GetNetwork() string {
 // GetNetworkOk returns a tuple with the Network field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestFailDataItem) GetNetworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Network, true
@@ -118,7 +118,7 @@ func (o *TransactionRequestFailDataItem) GetRequiredApprovals() int32 {
 // GetRequiredApprovalsOk returns a tuple with the RequiredApprovals field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestFailDataItem) GetRequiredApprovalsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequiredApprovals, true
@@ -142,7 +142,7 @@ func (o *TransactionRequestFailDataItem) GetRequiredRejections() int32 {
 // GetRequiredRejectionsOk returns a tuple with the RequiredRejections field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestFailDataItem) GetRequiredRejectionsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequiredRejections, true
@@ -166,7 +166,7 @@ func (o *TransactionRequestFailDataItem) GetCurrentApprovals() int32 {
 // GetCurrentApprovalsOk returns a tuple with the CurrentApprovals field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestFailDataItem) GetCurrentApprovalsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CurrentApprovals, true
@@ -190,7 +190,7 @@ func (o *TransactionRequestFailDataItem) GetCurrentRejections() int32 {
 // GetCurrentRejectionsOk returns a tuple with the CurrentRejections field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestFailDataItem) GetCurrentRejectionsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CurrentRejections, true
@@ -214,7 +214,7 @@ func (o *TransactionRequestFailDataItem) GetErrorMessage() string {
 // GetErrorMessageOk returns a tuple with the ErrorMessage field value
 // and a boolean to check if the value has been set.
 func (o *TransactionRequestFailDataItem) GetErrorMessageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ErrorMessage, true

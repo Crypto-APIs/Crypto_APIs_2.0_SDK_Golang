@@ -26,22 +26,30 @@ type GetXRPRippleTransactionDetailsByTransactionIDE403 struct {
 
 // BannedIpAddressAsGetXRPRippleTransactionDetailsByTransactionIDE403 is a convenience function that returns BannedIpAddress wrapped in GetXRPRippleTransactionDetailsByTransactionIDE403
 func BannedIpAddressAsGetXRPRippleTransactionDetailsByTransactionIDE403(v *BannedIpAddress) GetXRPRippleTransactionDetailsByTransactionIDE403 {
-	return GetXRPRippleTransactionDetailsByTransactionIDE403{ BannedIpAddress: v}
+	return GetXRPRippleTransactionDetailsByTransactionIDE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsGetXRPRippleTransactionDetailsByTransactionIDE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in GetXRPRippleTransactionDetailsByTransactionIDE403
 func EndpointNotAllowedForApiKeyAsGetXRPRippleTransactionDetailsByTransactionIDE403(v *EndpointNotAllowedForApiKey) GetXRPRippleTransactionDetailsByTransactionIDE403 {
-	return GetXRPRippleTransactionDetailsByTransactionIDE403{ EndpointNotAllowedForApiKey: v}
+	return GetXRPRippleTransactionDetailsByTransactionIDE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsGetXRPRippleTransactionDetailsByTransactionIDE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in GetXRPRippleTransactionDetailsByTransactionIDE403
 func EndpointNotAllowedForPlanAsGetXRPRippleTransactionDetailsByTransactionIDE403(v *EndpointNotAllowedForPlan) GetXRPRippleTransactionDetailsByTransactionIDE403 {
-	return GetXRPRippleTransactionDetailsByTransactionIDE403{ EndpointNotAllowedForPlan: v}
+	return GetXRPRippleTransactionDetailsByTransactionIDE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsGetXRPRippleTransactionDetailsByTransactionIDE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in GetXRPRippleTransactionDetailsByTransactionIDE403
 func FeatureMainnetsNotAllowedForPlanAsGetXRPRippleTransactionDetailsByTransactionIDE403(v *FeatureMainnetsNotAllowedForPlan) GetXRPRippleTransactionDetailsByTransactionIDE403 {
-	return GetXRPRippleTransactionDetailsByTransactionIDE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return GetXRPRippleTransactionDetailsByTransactionIDE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *GetXRPRippleTransactionDetailsByTransactionIDE403) UnmarshalJSON(data
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *GetXRPRippleTransactionDetailsByTransactionIDE403) UnmarshalJSON(data
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *GetXRPRippleTransactionDetailsByTransactionIDE403) UnmarshalJSON(data
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *GetXRPRippleTransactionDetailsByTransactionIDE403) UnmarshalJSON(data
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src GetXRPRippleTransactionDetailsByTransactionIDE403) MarshalJSON() ([]by
 
 // Get the actual instance
 func (obj *GetXRPRippleTransactionDetailsByTransactionIDE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

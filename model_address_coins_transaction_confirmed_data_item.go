@@ -72,7 +72,7 @@ func (o *AddressCoinsTransactionConfirmedDataItem) GetBlockchain() string {
 // GetBlockchainOk returns a tuple with the Blockchain field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedDataItem) GetBlockchainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Blockchain, true
@@ -96,7 +96,7 @@ func (o *AddressCoinsTransactionConfirmedDataItem) GetNetwork() string {
 // GetNetworkOk returns a tuple with the Network field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedDataItem) GetNetworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Network, true
@@ -120,7 +120,7 @@ func (o *AddressCoinsTransactionConfirmedDataItem) GetAddress() string {
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedDataItem) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -144,7 +144,7 @@ func (o *AddressCoinsTransactionConfirmedDataItem) GetMinedInBlock() AddressCoin
 // GetMinedInBlockOk returns a tuple with the MinedInBlock field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedDataItem) GetMinedInBlockOk() (*AddressCoinsTransactionConfirmedDataItemMinedInBlock, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlock, true
@@ -168,7 +168,7 @@ func (o *AddressCoinsTransactionConfirmedDataItem) GetTransactionId() string {
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedDataItem) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -192,7 +192,7 @@ func (o *AddressCoinsTransactionConfirmedDataItem) GetAmount() string {
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedDataItem) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -216,7 +216,7 @@ func (o *AddressCoinsTransactionConfirmedDataItem) GetUnit() string {
 // GetUnitOk returns a tuple with the Unit field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedDataItem) GetUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Unit, true
@@ -240,7 +240,7 @@ func (o *AddressCoinsTransactionConfirmedDataItem) GetDirection() string {
 // GetDirectionOk returns a tuple with the Direction field value
 // and a boolean to check if the value has been set.
 func (o *AddressCoinsTransactionConfirmedDataItem) GetDirectionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Direction, true

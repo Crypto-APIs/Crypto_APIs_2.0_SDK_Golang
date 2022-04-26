@@ -22,7 +22,7 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin struct {
 	Coinbase *string `json:"coinbase,omitempty"`
 	ScriptSig GetTransactionDetailsByTransactionIDFromCallbackRIBSBScriptSig `json:"scriptSig"`
 	// Represents the script sequence number.
-	Sequence int32 `json:"sequence"`
+	Sequence int64 `json:"sequence"`
 	// Represents the reference transaction identifier.
 	Txid *string `json:"txid,omitempty"`
 	Txinwitness []string `json:"txinwitness"`
@@ -36,7 +36,7 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSBVin(addresses []string, scriptSig GetTransactionDetailsByTransactionIDFromCallbackRIBSBScriptSig, sequence int32, txinwitness []string) *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSBVin(addresses []string, scriptSig GetTransactionDetailsByTransactionIDFromCallbackRIBSBScriptSig, sequence int64, txinwitness []string) *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin{}
 	this.Addresses = addresses
 	this.ScriptSig = scriptSig
@@ -65,11 +65,11 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) GetAddresses(
 
 // GetAddressesOk returns a tuple with the Addresses field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) GetAddressesOk() (*[]string, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) GetAddressesOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Addresses, true
+	return o.Addresses, true
 }
 
 // SetAddresses sets field value
@@ -122,7 +122,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) GetScriptSig(
 // GetScriptSigOk returns a tuple with the ScriptSig field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) GetScriptSigOk() (*GetTransactionDetailsByTransactionIDFromCallbackRIBSBScriptSig, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ScriptSig, true
@@ -134,9 +134,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) SetScriptSig(
 }
 
 // GetSequence returns the Sequence field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) GetSequence() int32 {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) GetSequence() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -145,15 +145,15 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) GetSequence()
 
 // GetSequenceOk returns a tuple with the Sequence field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) GetSequenceOk() (*int32, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) GetSequenceOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sequence, true
 }
 
 // SetSequence sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) SetSequence(v int32) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) SetSequence(v int64) {
 	o.Sequence = v
 }
 
@@ -201,11 +201,11 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) GetTxinwitnes
 
 // GetTxinwitnessOk returns a tuple with the Txinwitness field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) GetTxinwitnessOk() (*[]string, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBVin) GetTxinwitnessOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Txinwitness, true
+	return o.Txinwitness, true
 }
 
 // SetTxinwitness sets field value

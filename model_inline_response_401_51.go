@@ -23,14 +23,14 @@ type InlineResponse40151 struct {
 	RequestId string `json:"requestId"`
 	// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.
 	Context *string `json:"context,omitempty"`
-	Error ListInternalTransactionsByAddressE401 `json:"error"`
+	Error GetHDWalletXPubYPubZPubDetailsE401 `json:"error"`
 }
 
 // NewInlineResponse40151 instantiates a new InlineResponse40151 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse40151(apiVersion string, requestId string, error_ ListInternalTransactionsByAddressE401) *InlineResponse40151 {
+func NewInlineResponse40151(apiVersion string, requestId string, error_ GetHDWalletXPubYPubZPubDetailsE401) *InlineResponse40151 {
 	this := InlineResponse40151{}
 	this.ApiVersion = apiVersion
 	this.RequestId = requestId
@@ -59,7 +59,7 @@ func (o *InlineResponse40151) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40151) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *InlineResponse40151) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40151) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -127,9 +127,9 @@ func (o *InlineResponse40151) SetContext(v string) {
 }
 
 // GetError returns the Error field value
-func (o *InlineResponse40151) GetError() ListInternalTransactionsByAddressE401 {
+func (o *InlineResponse40151) GetError() GetHDWalletXPubYPubZPubDetailsE401 {
 	if o == nil {
-		var ret ListInternalTransactionsByAddressE401
+		var ret GetHDWalletXPubYPubZPubDetailsE401
 		return ret
 	}
 
@@ -138,15 +138,15 @@ func (o *InlineResponse40151) GetError() ListInternalTransactionsByAddressE401 {
 
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse40151) GetErrorOk() (*ListInternalTransactionsByAddressE401, bool) {
-	if o == nil  {
+func (o *InlineResponse40151) GetErrorOk() (*GetHDWalletXPubYPubZPubDetailsE401, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Error, true
 }
 
 // SetError sets field value
-func (o *InlineResponse40151) SetError(v ListInternalTransactionsByAddressE401) {
+func (o *InlineResponse40151) SetError(v GetHDWalletXPubYPubZPubDetailsE401) {
 	o.Error = v
 }
 

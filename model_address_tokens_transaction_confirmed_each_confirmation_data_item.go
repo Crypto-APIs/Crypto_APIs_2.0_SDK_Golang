@@ -77,7 +77,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetBlockchai
 // GetBlockchainOk returns a tuple with the Blockchain field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetBlockchainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Blockchain, true
@@ -101,7 +101,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetNetwork()
 // GetNetworkOk returns a tuple with the Network field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetNetworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Network, true
@@ -125,7 +125,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetAddress()
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -149,7 +149,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetMinedInBl
 // GetMinedInBlockOk returns a tuple with the MinedInBlock field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetMinedInBlockOk() (*AddressTokensTransactionConfirmedDataItemMinedInBlock, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MinedInBlock, true
@@ -173,7 +173,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetTransacti
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -197,7 +197,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetCurrentCo
 // GetCurrentConfirmationsOk returns a tuple with the CurrentConfirmations field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetCurrentConfirmationsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CurrentConfirmations, true
@@ -221,7 +221,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetTargetCon
 // GetTargetConfirmationsOk returns a tuple with the TargetConfirmations field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetTargetConfirmationsOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TargetConfirmations, true
@@ -245,7 +245,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetTokenType
 // GetTokenTypeOk returns a tuple with the TokenType field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetTokenTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenType, true
@@ -269,7 +269,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetToken() A
 // GetTokenOk returns a tuple with the Token field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetTokenOk() (*AddressTokensTransactionConfirmedEachConfirmationToken, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Token, true
@@ -293,7 +293,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetDirection
 // GetDirectionOk returns a tuple with the Direction field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmationDataItem) GetDirectionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Direction, true

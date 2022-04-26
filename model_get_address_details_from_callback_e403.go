@@ -26,22 +26,30 @@ type GetAddressDetailsFromCallbackE403 struct {
 
 // BannedIpAddressAsGetAddressDetailsFromCallbackE403 is a convenience function that returns BannedIpAddress wrapped in GetAddressDetailsFromCallbackE403
 func BannedIpAddressAsGetAddressDetailsFromCallbackE403(v *BannedIpAddress) GetAddressDetailsFromCallbackE403 {
-	return GetAddressDetailsFromCallbackE403{ BannedIpAddress: v}
+	return GetAddressDetailsFromCallbackE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsGetAddressDetailsFromCallbackE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in GetAddressDetailsFromCallbackE403
 func EndpointNotAllowedForApiKeyAsGetAddressDetailsFromCallbackE403(v *EndpointNotAllowedForApiKey) GetAddressDetailsFromCallbackE403 {
-	return GetAddressDetailsFromCallbackE403{ EndpointNotAllowedForApiKey: v}
+	return GetAddressDetailsFromCallbackE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsGetAddressDetailsFromCallbackE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in GetAddressDetailsFromCallbackE403
 func EndpointNotAllowedForPlanAsGetAddressDetailsFromCallbackE403(v *EndpointNotAllowedForPlan) GetAddressDetailsFromCallbackE403 {
-	return GetAddressDetailsFromCallbackE403{ EndpointNotAllowedForPlan: v}
+	return GetAddressDetailsFromCallbackE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsGetAddressDetailsFromCallbackE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in GetAddressDetailsFromCallbackE403
 func FeatureMainnetsNotAllowedForPlanAsGetAddressDetailsFromCallbackE403(v *FeatureMainnetsNotAllowedForPlan) GetAddressDetailsFromCallbackE403 {
-	return GetAddressDetailsFromCallbackE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return GetAddressDetailsFromCallbackE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *GetAddressDetailsFromCallbackE403) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *GetAddressDetailsFromCallbackE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *GetAddressDetailsFromCallbackE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *GetAddressDetailsFromCallbackE403) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src GetAddressDetailsFromCallbackE403) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetAddressDetailsFromCallbackE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

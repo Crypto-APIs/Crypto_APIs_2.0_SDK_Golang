@@ -25,17 +25,23 @@ type CreateCoinsTransactionRequestFromWalletE400 struct {
 
 // InvalidPaginationAsCreateCoinsTransactionRequestFromWalletE400 is a convenience function that returns InvalidPagination wrapped in CreateCoinsTransactionRequestFromWalletE400
 func InvalidPaginationAsCreateCoinsTransactionRequestFromWalletE400(v *InvalidPagination) CreateCoinsTransactionRequestFromWalletE400 {
-	return CreateCoinsTransactionRequestFromWalletE400{ InvalidPagination: v}
+	return CreateCoinsTransactionRequestFromWalletE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsCreateCoinsTransactionRequestFromWalletE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in CreateCoinsTransactionRequestFromWalletE400
 func LimitGreaterThanAllowedAsCreateCoinsTransactionRequestFromWalletE400(v *LimitGreaterThanAllowed) CreateCoinsTransactionRequestFromWalletE400 {
-	return CreateCoinsTransactionRequestFromWalletE400{ LimitGreaterThanAllowed: v}
+	return CreateCoinsTransactionRequestFromWalletE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsCreateCoinsTransactionRequestFromWalletE400 is a convenience function that returns UriNotFound wrapped in CreateCoinsTransactionRequestFromWalletE400
 func UriNotFoundAsCreateCoinsTransactionRequestFromWalletE400(v *UriNotFound) CreateCoinsTransactionRequestFromWalletE400 {
-	return CreateCoinsTransactionRequestFromWalletE400{ UriNotFound: v}
+	return CreateCoinsTransactionRequestFromWalletE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *CreateCoinsTransactionRequestFromWalletE400) UnmarshalJSON(data []byt
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *CreateCoinsTransactionRequestFromWalletE400) UnmarshalJSON(data []byt
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *CreateCoinsTransactionRequestFromWalletE400) UnmarshalJSON(data []byt
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src CreateCoinsTransactionRequestFromWalletE400) MarshalJSON() ([]byte, er
 
 // Get the actual instance
 func (obj *CreateCoinsTransactionRequestFromWalletE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

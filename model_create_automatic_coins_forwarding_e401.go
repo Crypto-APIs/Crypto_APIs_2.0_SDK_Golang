@@ -24,12 +24,16 @@ type CreateAutomaticCoinsForwardingE401 struct {
 
 // InvalidApiKeyAsCreateAutomaticCoinsForwardingE401 is a convenience function that returns InvalidApiKey wrapped in CreateAutomaticCoinsForwardingE401
 func InvalidApiKeyAsCreateAutomaticCoinsForwardingE401(v *InvalidApiKey) CreateAutomaticCoinsForwardingE401 {
-	return CreateAutomaticCoinsForwardingE401{ InvalidApiKey: v}
+	return CreateAutomaticCoinsForwardingE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsCreateAutomaticCoinsForwardingE401 is a convenience function that returns MissingApiKey wrapped in CreateAutomaticCoinsForwardingE401
 func MissingApiKeyAsCreateAutomaticCoinsForwardingE401(v *MissingApiKey) CreateAutomaticCoinsForwardingE401 {
-	return CreateAutomaticCoinsForwardingE401{ MissingApiKey: v}
+	return CreateAutomaticCoinsForwardingE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *CreateAutomaticCoinsForwardingE401) UnmarshalJSON(data []byte) error 
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *CreateAutomaticCoinsForwardingE401) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src CreateAutomaticCoinsForwardingE401) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *CreateAutomaticCoinsForwardingE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

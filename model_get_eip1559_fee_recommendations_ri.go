@@ -55,7 +55,7 @@ func (o *GetEIP1559FeeRecommendationsRI) GetBaseFeePerGas() GetEIP1559FeeRecomme
 // GetBaseFeePerGasOk returns a tuple with the BaseFeePerGas field value
 // and a boolean to check if the value has been set.
 func (o *GetEIP1559FeeRecommendationsRI) GetBaseFeePerGasOk() (*GetEIP1559FeeRecommendationsRIBaseFeePerGas, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BaseFeePerGas, true
@@ -79,7 +79,7 @@ func (o *GetEIP1559FeeRecommendationsRI) GetMaxFeePerGas() GetEIP1559FeeRecommen
 // GetMaxFeePerGasOk returns a tuple with the MaxFeePerGas field value
 // and a boolean to check if the value has been set.
 func (o *GetEIP1559FeeRecommendationsRI) GetMaxFeePerGasOk() (*GetEIP1559FeeRecommendationsRIMaxFeePerGas, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MaxFeePerGas, true
@@ -103,7 +103,7 @@ func (o *GetEIP1559FeeRecommendationsRI) GetMaxPriorityFeePerGas() GetEIP1559Fee
 // GetMaxPriorityFeePerGasOk returns a tuple with the MaxPriorityFeePerGas field value
 // and a boolean to check if the value has been set.
 func (o *GetEIP1559FeeRecommendationsRI) GetMaxPriorityFeePerGasOk() (*GetEIP1559FeeRecommendationsRIMaxPriorityFeePerGas, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.MaxPriorityFeePerGas, true

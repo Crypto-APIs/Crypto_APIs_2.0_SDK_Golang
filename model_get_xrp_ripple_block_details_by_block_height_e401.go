@@ -24,12 +24,16 @@ type GetXRPRippleBlockDetailsByBlockHeightE401 struct {
 
 // InvalidApiKeyAsGetXRPRippleBlockDetailsByBlockHeightE401 is a convenience function that returns InvalidApiKey wrapped in GetXRPRippleBlockDetailsByBlockHeightE401
 func InvalidApiKeyAsGetXRPRippleBlockDetailsByBlockHeightE401(v *InvalidApiKey) GetXRPRippleBlockDetailsByBlockHeightE401 {
-	return GetXRPRippleBlockDetailsByBlockHeightE401{ InvalidApiKey: v}
+	return GetXRPRippleBlockDetailsByBlockHeightE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsGetXRPRippleBlockDetailsByBlockHeightE401 is a convenience function that returns MissingApiKey wrapped in GetXRPRippleBlockDetailsByBlockHeightE401
 func MissingApiKeyAsGetXRPRippleBlockDetailsByBlockHeightE401(v *MissingApiKey) GetXRPRippleBlockDetailsByBlockHeightE401 {
-	return GetXRPRippleBlockDetailsByBlockHeightE401{ MissingApiKey: v}
+	return GetXRPRippleBlockDetailsByBlockHeightE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *GetXRPRippleBlockDetailsByBlockHeightE401) UnmarshalJSON(data []byte)
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *GetXRPRippleBlockDetailsByBlockHeightE401) UnmarshalJSON(data []byte)
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src GetXRPRippleBlockDetailsByBlockHeightE401) MarshalJSON() ([]byte, erro
 
 // Get the actual instance
 func (obj *GetXRPRippleBlockDetailsByBlockHeightE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

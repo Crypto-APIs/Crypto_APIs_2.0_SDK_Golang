@@ -31,47 +31,65 @@ type GetBlockDetailsByBlockHashRIBS struct {
 
 // GetBlockDetailsByBlockHashRIBSBAsGetBlockDetailsByBlockHashRIBS is a convenience function that returns GetBlockDetailsByBlockHashRIBSB wrapped in GetBlockDetailsByBlockHashRIBS
 func GetBlockDetailsByBlockHashRIBSBAsGetBlockDetailsByBlockHashRIBS(v *GetBlockDetailsByBlockHashRIBSB) GetBlockDetailsByBlockHashRIBS {
-	return GetBlockDetailsByBlockHashRIBS{ GetBlockDetailsByBlockHashRIBSB: v}
+	return GetBlockDetailsByBlockHashRIBS{
+		GetBlockDetailsByBlockHashRIBSB: v,
+	}
 }
 
 // GetBlockDetailsByBlockHashRIBSBCAsGetBlockDetailsByBlockHashRIBS is a convenience function that returns GetBlockDetailsByBlockHashRIBSBC wrapped in GetBlockDetailsByBlockHashRIBS
 func GetBlockDetailsByBlockHashRIBSBCAsGetBlockDetailsByBlockHashRIBS(v *GetBlockDetailsByBlockHashRIBSBC) GetBlockDetailsByBlockHashRIBS {
-	return GetBlockDetailsByBlockHashRIBS{ GetBlockDetailsByBlockHashRIBSBC: v}
+	return GetBlockDetailsByBlockHashRIBS{
+		GetBlockDetailsByBlockHashRIBSBC: v,
+	}
 }
 
 // GetBlockDetailsByBlockHashRIBSBSCAsGetBlockDetailsByBlockHashRIBS is a convenience function that returns GetBlockDetailsByBlockHashRIBSBSC wrapped in GetBlockDetailsByBlockHashRIBS
 func GetBlockDetailsByBlockHashRIBSBSCAsGetBlockDetailsByBlockHashRIBS(v *GetBlockDetailsByBlockHashRIBSBSC) GetBlockDetailsByBlockHashRIBS {
-	return GetBlockDetailsByBlockHashRIBS{ GetBlockDetailsByBlockHashRIBSBSC: v}
+	return GetBlockDetailsByBlockHashRIBS{
+		GetBlockDetailsByBlockHashRIBSBSC: v,
+	}
 }
 
 // GetBlockDetailsByBlockHashRIBSDAsGetBlockDetailsByBlockHashRIBS is a convenience function that returns GetBlockDetailsByBlockHashRIBSD wrapped in GetBlockDetailsByBlockHashRIBS
 func GetBlockDetailsByBlockHashRIBSDAsGetBlockDetailsByBlockHashRIBS(v *GetBlockDetailsByBlockHashRIBSD) GetBlockDetailsByBlockHashRIBS {
-	return GetBlockDetailsByBlockHashRIBS{ GetBlockDetailsByBlockHashRIBSD: v}
+	return GetBlockDetailsByBlockHashRIBS{
+		GetBlockDetailsByBlockHashRIBSD: v,
+	}
 }
 
 // GetBlockDetailsByBlockHashRIBSD2AsGetBlockDetailsByBlockHashRIBS is a convenience function that returns GetBlockDetailsByBlockHashRIBSD2 wrapped in GetBlockDetailsByBlockHashRIBS
 func GetBlockDetailsByBlockHashRIBSD2AsGetBlockDetailsByBlockHashRIBS(v *GetBlockDetailsByBlockHashRIBSD2) GetBlockDetailsByBlockHashRIBS {
-	return GetBlockDetailsByBlockHashRIBS{ GetBlockDetailsByBlockHashRIBSD2: v}
+	return GetBlockDetailsByBlockHashRIBS{
+		GetBlockDetailsByBlockHashRIBSD2: v,
+	}
 }
 
 // GetBlockDetailsByBlockHashRIBSEAsGetBlockDetailsByBlockHashRIBS is a convenience function that returns GetBlockDetailsByBlockHashRIBSE wrapped in GetBlockDetailsByBlockHashRIBS
 func GetBlockDetailsByBlockHashRIBSEAsGetBlockDetailsByBlockHashRIBS(v *GetBlockDetailsByBlockHashRIBSE) GetBlockDetailsByBlockHashRIBS {
-	return GetBlockDetailsByBlockHashRIBS{ GetBlockDetailsByBlockHashRIBSE: v}
+	return GetBlockDetailsByBlockHashRIBS{
+		GetBlockDetailsByBlockHashRIBSE: v,
+	}
 }
 
 // GetBlockDetailsByBlockHashRIBSECAsGetBlockDetailsByBlockHashRIBS is a convenience function that returns GetBlockDetailsByBlockHashRIBSEC wrapped in GetBlockDetailsByBlockHashRIBS
 func GetBlockDetailsByBlockHashRIBSECAsGetBlockDetailsByBlockHashRIBS(v *GetBlockDetailsByBlockHashRIBSEC) GetBlockDetailsByBlockHashRIBS {
-	return GetBlockDetailsByBlockHashRIBS{ GetBlockDetailsByBlockHashRIBSEC: v}
+	return GetBlockDetailsByBlockHashRIBS{
+		GetBlockDetailsByBlockHashRIBSEC: v,
+	}
 }
 
 // GetBlockDetailsByBlockHashRIBSLAsGetBlockDetailsByBlockHashRIBS is a convenience function that returns GetBlockDetailsByBlockHashRIBSL wrapped in GetBlockDetailsByBlockHashRIBS
 func GetBlockDetailsByBlockHashRIBSLAsGetBlockDetailsByBlockHashRIBS(v *GetBlockDetailsByBlockHashRIBSL) GetBlockDetailsByBlockHashRIBS {
-	return GetBlockDetailsByBlockHashRIBS{ GetBlockDetailsByBlockHashRIBSL: v}
+	return GetBlockDetailsByBlockHashRIBS{
+		GetBlockDetailsByBlockHashRIBSL: v,
+	}
 }
 
 // GetBlockDetailsByBlockHashRIBSZAsGetBlockDetailsByBlockHashRIBS is a convenience function that returns GetBlockDetailsByBlockHashRIBSZ wrapped in GetBlockDetailsByBlockHashRIBS
 func GetBlockDetailsByBlockHashRIBSZAsGetBlockDetailsByBlockHashRIBS(v *GetBlockDetailsByBlockHashRIBSZ) GetBlockDetailsByBlockHashRIBS {
-	return GetBlockDetailsByBlockHashRIBS{ GetBlockDetailsByBlockHashRIBSZ: v}
+	return GetBlockDetailsByBlockHashRIBS{
+		GetBlockDetailsByBlockHashRIBSZ: v,
+	}
 }
 
 
@@ -80,7 +98,7 @@ func (dst *GetBlockDetailsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into GetBlockDetailsByBlockHashRIBSB
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHashRIBSB)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHashRIBSB)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHashRIBSB, _ := json.Marshal(dst.GetBlockDetailsByBlockHashRIBSB)
 		if string(jsonGetBlockDetailsByBlockHashRIBSB) == "{}" { // empty struct
@@ -93,7 +111,7 @@ func (dst *GetBlockDetailsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHashRIBSBC
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHashRIBSBC)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHashRIBSBC)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHashRIBSBC, _ := json.Marshal(dst.GetBlockDetailsByBlockHashRIBSBC)
 		if string(jsonGetBlockDetailsByBlockHashRIBSBC) == "{}" { // empty struct
@@ -106,7 +124,7 @@ func (dst *GetBlockDetailsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHashRIBSBSC
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHashRIBSBSC)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHashRIBSBSC)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHashRIBSBSC, _ := json.Marshal(dst.GetBlockDetailsByBlockHashRIBSBSC)
 		if string(jsonGetBlockDetailsByBlockHashRIBSBSC) == "{}" { // empty struct
@@ -119,7 +137,7 @@ func (dst *GetBlockDetailsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHashRIBSD
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHashRIBSD)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHashRIBSD)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHashRIBSD, _ := json.Marshal(dst.GetBlockDetailsByBlockHashRIBSD)
 		if string(jsonGetBlockDetailsByBlockHashRIBSD) == "{}" { // empty struct
@@ -132,7 +150,7 @@ func (dst *GetBlockDetailsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHashRIBSD2
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHashRIBSD2)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHashRIBSD2)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHashRIBSD2, _ := json.Marshal(dst.GetBlockDetailsByBlockHashRIBSD2)
 		if string(jsonGetBlockDetailsByBlockHashRIBSD2) == "{}" { // empty struct
@@ -145,7 +163,7 @@ func (dst *GetBlockDetailsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHashRIBSE
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHashRIBSE)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHashRIBSE)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHashRIBSE, _ := json.Marshal(dst.GetBlockDetailsByBlockHashRIBSE)
 		if string(jsonGetBlockDetailsByBlockHashRIBSE) == "{}" { // empty struct
@@ -158,7 +176,7 @@ func (dst *GetBlockDetailsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHashRIBSEC
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHashRIBSEC)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHashRIBSEC)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHashRIBSEC, _ := json.Marshal(dst.GetBlockDetailsByBlockHashRIBSEC)
 		if string(jsonGetBlockDetailsByBlockHashRIBSEC) == "{}" { // empty struct
@@ -171,7 +189,7 @@ func (dst *GetBlockDetailsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHashRIBSL
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHashRIBSL)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHashRIBSL)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHashRIBSL, _ := json.Marshal(dst.GetBlockDetailsByBlockHashRIBSL)
 		if string(jsonGetBlockDetailsByBlockHashRIBSL) == "{}" { // empty struct
@@ -184,7 +202,7 @@ func (dst *GetBlockDetailsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHashRIBSZ
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHashRIBSZ)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHashRIBSZ)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHashRIBSZ, _ := json.Marshal(dst.GetBlockDetailsByBlockHashRIBSZ)
 		if string(jsonGetBlockDetailsByBlockHashRIBSZ) == "{}" { // empty struct
@@ -259,6 +277,9 @@ func (src GetBlockDetailsByBlockHashRIBS) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetBlockDetailsByBlockHashRIBS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.GetBlockDetailsByBlockHashRIBSB != nil {
 		return obj.GetBlockDetailsByBlockHashRIBSB
 	}

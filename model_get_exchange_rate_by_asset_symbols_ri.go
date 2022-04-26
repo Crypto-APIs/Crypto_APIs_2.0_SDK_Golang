@@ -67,7 +67,7 @@ func (o *GetExchangeRateByAssetSymbolsRI) GetCalculationTimestamp() int32 {
 // GetCalculationTimestampOk returns a tuple with the CalculationTimestamp field value
 // and a boolean to check if the value has been set.
 func (o *GetExchangeRateByAssetSymbolsRI) GetCalculationTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CalculationTimestamp, true
@@ -91,7 +91,7 @@ func (o *GetExchangeRateByAssetSymbolsRI) GetFromAssetId() string {
 // GetFromAssetIdOk returns a tuple with the FromAssetId field value
 // and a boolean to check if the value has been set.
 func (o *GetExchangeRateByAssetSymbolsRI) GetFromAssetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FromAssetId, true
@@ -115,7 +115,7 @@ func (o *GetExchangeRateByAssetSymbolsRI) GetFromAssetSymbol() string {
 // GetFromAssetSymbolOk returns a tuple with the FromAssetSymbol field value
 // and a boolean to check if the value has been set.
 func (o *GetExchangeRateByAssetSymbolsRI) GetFromAssetSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FromAssetSymbol, true
@@ -139,7 +139,7 @@ func (o *GetExchangeRateByAssetSymbolsRI) GetRate() string {
 // GetRateOk returns a tuple with the Rate field value
 // and a boolean to check if the value has been set.
 func (o *GetExchangeRateByAssetSymbolsRI) GetRateOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Rate, true
@@ -163,7 +163,7 @@ func (o *GetExchangeRateByAssetSymbolsRI) GetToAssetId() string {
 // GetToAssetIdOk returns a tuple with the ToAssetId field value
 // and a boolean to check if the value has been set.
 func (o *GetExchangeRateByAssetSymbolsRI) GetToAssetIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ToAssetId, true
@@ -187,7 +187,7 @@ func (o *GetExchangeRateByAssetSymbolsRI) GetToAssetSymbol() string {
 // GetToAssetSymbolOk returns a tuple with the ToAssetSymbol field value
 // and a boolean to check if the value has been set.
 func (o *GetExchangeRateByAssetSymbolsRI) GetToAssetSymbolOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ToAssetSymbol, true

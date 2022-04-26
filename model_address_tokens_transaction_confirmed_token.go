@@ -26,22 +26,30 @@ type AddressTokensTransactionConfirmedToken struct {
 
 // AddressTokensTransactionConfirmedBep20AsAddressTokensTransactionConfirmedToken is a convenience function that returns AddressTokensTransactionConfirmedBep20 wrapped in AddressTokensTransactionConfirmedToken
 func AddressTokensTransactionConfirmedBep20AsAddressTokensTransactionConfirmedToken(v *AddressTokensTransactionConfirmedBep20) AddressTokensTransactionConfirmedToken {
-	return AddressTokensTransactionConfirmedToken{ AddressTokensTransactionConfirmedBep20: v}
+	return AddressTokensTransactionConfirmedToken{
+		AddressTokensTransactionConfirmedBep20: v,
+	}
 }
 
 // AddressTokensTransactionConfirmedErc20AsAddressTokensTransactionConfirmedToken is a convenience function that returns AddressTokensTransactionConfirmedErc20 wrapped in AddressTokensTransactionConfirmedToken
 func AddressTokensTransactionConfirmedErc20AsAddressTokensTransactionConfirmedToken(v *AddressTokensTransactionConfirmedErc20) AddressTokensTransactionConfirmedToken {
-	return AddressTokensTransactionConfirmedToken{ AddressTokensTransactionConfirmedErc20: v}
+	return AddressTokensTransactionConfirmedToken{
+		AddressTokensTransactionConfirmedErc20: v,
+	}
 }
 
 // AddressTokensTransactionConfirmedErc721AsAddressTokensTransactionConfirmedToken is a convenience function that returns AddressTokensTransactionConfirmedErc721 wrapped in AddressTokensTransactionConfirmedToken
 func AddressTokensTransactionConfirmedErc721AsAddressTokensTransactionConfirmedToken(v *AddressTokensTransactionConfirmedErc721) AddressTokensTransactionConfirmedToken {
-	return AddressTokensTransactionConfirmedToken{ AddressTokensTransactionConfirmedErc721: v}
+	return AddressTokensTransactionConfirmedToken{
+		AddressTokensTransactionConfirmedErc721: v,
+	}
 }
 
 // AddressTokensTransactionConfirmedOmniAsAddressTokensTransactionConfirmedToken is a convenience function that returns AddressTokensTransactionConfirmedOmni wrapped in AddressTokensTransactionConfirmedToken
 func AddressTokensTransactionConfirmedOmniAsAddressTokensTransactionConfirmedToken(v *AddressTokensTransactionConfirmedOmni) AddressTokensTransactionConfirmedToken {
-	return AddressTokensTransactionConfirmedToken{ AddressTokensTransactionConfirmedOmni: v}
+	return AddressTokensTransactionConfirmedToken{
+		AddressTokensTransactionConfirmedOmni: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *AddressTokensTransactionConfirmedToken) UnmarshalJSON(data []byte) er
 	var err error
 	match := 0
 	// try to unmarshal data into AddressTokensTransactionConfirmedBep20
-	err = json.Unmarshal(data, &dst.AddressTokensTransactionConfirmedBep20)
+	err = newStrictDecoder(data).Decode(&dst.AddressTokensTransactionConfirmedBep20)
 	if err == nil {
 		jsonAddressTokensTransactionConfirmedBep20, _ := json.Marshal(dst.AddressTokensTransactionConfirmedBep20)
 		if string(jsonAddressTokensTransactionConfirmedBep20) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *AddressTokensTransactionConfirmedToken) UnmarshalJSON(data []byte) er
 	}
 
 	// try to unmarshal data into AddressTokensTransactionConfirmedErc20
-	err = json.Unmarshal(data, &dst.AddressTokensTransactionConfirmedErc20)
+	err = newStrictDecoder(data).Decode(&dst.AddressTokensTransactionConfirmedErc20)
 	if err == nil {
 		jsonAddressTokensTransactionConfirmedErc20, _ := json.Marshal(dst.AddressTokensTransactionConfirmedErc20)
 		if string(jsonAddressTokensTransactionConfirmedErc20) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *AddressTokensTransactionConfirmedToken) UnmarshalJSON(data []byte) er
 	}
 
 	// try to unmarshal data into AddressTokensTransactionConfirmedErc721
-	err = json.Unmarshal(data, &dst.AddressTokensTransactionConfirmedErc721)
+	err = newStrictDecoder(data).Decode(&dst.AddressTokensTransactionConfirmedErc721)
 	if err == nil {
 		jsonAddressTokensTransactionConfirmedErc721, _ := json.Marshal(dst.AddressTokensTransactionConfirmedErc721)
 		if string(jsonAddressTokensTransactionConfirmedErc721) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *AddressTokensTransactionConfirmedToken) UnmarshalJSON(data []byte) er
 	}
 
 	// try to unmarshal data into AddressTokensTransactionConfirmedOmni
-	err = json.Unmarshal(data, &dst.AddressTokensTransactionConfirmedOmni)
+	err = newStrictDecoder(data).Decode(&dst.AddressTokensTransactionConfirmedOmni)
 	if err == nil {
 		jsonAddressTokensTransactionConfirmedOmni, _ := json.Marshal(dst.AddressTokensTransactionConfirmedOmni)
 		if string(jsonAddressTokensTransactionConfirmedOmni) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src AddressTokensTransactionConfirmedToken) MarshalJSON() ([]byte, error) 
 
 // Get the actual instance
 func (obj *AddressTokensTransactionConfirmedToken) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.AddressTokensTransactionConfirmedBep20 != nil {
 		return obj.AddressTokensTransactionConfirmedBep20
 	}

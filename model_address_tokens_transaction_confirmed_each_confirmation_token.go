@@ -26,22 +26,30 @@ type AddressTokensTransactionConfirmedEachConfirmationToken struct {
 
 // AddressTokensTransactionConfirmedEachConfirmationBep20AsAddressTokensTransactionConfirmedEachConfirmationToken is a convenience function that returns AddressTokensTransactionConfirmedEachConfirmationBep20 wrapped in AddressTokensTransactionConfirmedEachConfirmationToken
 func AddressTokensTransactionConfirmedEachConfirmationBep20AsAddressTokensTransactionConfirmedEachConfirmationToken(v *AddressTokensTransactionConfirmedEachConfirmationBep20) AddressTokensTransactionConfirmedEachConfirmationToken {
-	return AddressTokensTransactionConfirmedEachConfirmationToken{ AddressTokensTransactionConfirmedEachConfirmationBep20: v}
+	return AddressTokensTransactionConfirmedEachConfirmationToken{
+		AddressTokensTransactionConfirmedEachConfirmationBep20: v,
+	}
 }
 
 // AddressTokensTransactionConfirmedEachConfirmationErc20AsAddressTokensTransactionConfirmedEachConfirmationToken is a convenience function that returns AddressTokensTransactionConfirmedEachConfirmationErc20 wrapped in AddressTokensTransactionConfirmedEachConfirmationToken
 func AddressTokensTransactionConfirmedEachConfirmationErc20AsAddressTokensTransactionConfirmedEachConfirmationToken(v *AddressTokensTransactionConfirmedEachConfirmationErc20) AddressTokensTransactionConfirmedEachConfirmationToken {
-	return AddressTokensTransactionConfirmedEachConfirmationToken{ AddressTokensTransactionConfirmedEachConfirmationErc20: v}
+	return AddressTokensTransactionConfirmedEachConfirmationToken{
+		AddressTokensTransactionConfirmedEachConfirmationErc20: v,
+	}
 }
 
 // AddressTokensTransactionConfirmedEachConfirmationErc721AsAddressTokensTransactionConfirmedEachConfirmationToken is a convenience function that returns AddressTokensTransactionConfirmedEachConfirmationErc721 wrapped in AddressTokensTransactionConfirmedEachConfirmationToken
 func AddressTokensTransactionConfirmedEachConfirmationErc721AsAddressTokensTransactionConfirmedEachConfirmationToken(v *AddressTokensTransactionConfirmedEachConfirmationErc721) AddressTokensTransactionConfirmedEachConfirmationToken {
-	return AddressTokensTransactionConfirmedEachConfirmationToken{ AddressTokensTransactionConfirmedEachConfirmationErc721: v}
+	return AddressTokensTransactionConfirmedEachConfirmationToken{
+		AddressTokensTransactionConfirmedEachConfirmationErc721: v,
+	}
 }
 
 // AddressTokensTransactionConfirmedEachConfirmationOmniAsAddressTokensTransactionConfirmedEachConfirmationToken is a convenience function that returns AddressTokensTransactionConfirmedEachConfirmationOmni wrapped in AddressTokensTransactionConfirmedEachConfirmationToken
 func AddressTokensTransactionConfirmedEachConfirmationOmniAsAddressTokensTransactionConfirmedEachConfirmationToken(v *AddressTokensTransactionConfirmedEachConfirmationOmni) AddressTokensTransactionConfirmedEachConfirmationToken {
-	return AddressTokensTransactionConfirmedEachConfirmationToken{ AddressTokensTransactionConfirmedEachConfirmationOmni: v}
+	return AddressTokensTransactionConfirmedEachConfirmationToken{
+		AddressTokensTransactionConfirmedEachConfirmationOmni: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *AddressTokensTransactionConfirmedEachConfirmationToken) UnmarshalJSON
 	var err error
 	match := 0
 	// try to unmarshal data into AddressTokensTransactionConfirmedEachConfirmationBep20
-	err = json.Unmarshal(data, &dst.AddressTokensTransactionConfirmedEachConfirmationBep20)
+	err = newStrictDecoder(data).Decode(&dst.AddressTokensTransactionConfirmedEachConfirmationBep20)
 	if err == nil {
 		jsonAddressTokensTransactionConfirmedEachConfirmationBep20, _ := json.Marshal(dst.AddressTokensTransactionConfirmedEachConfirmationBep20)
 		if string(jsonAddressTokensTransactionConfirmedEachConfirmationBep20) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *AddressTokensTransactionConfirmedEachConfirmationToken) UnmarshalJSON
 	}
 
 	// try to unmarshal data into AddressTokensTransactionConfirmedEachConfirmationErc20
-	err = json.Unmarshal(data, &dst.AddressTokensTransactionConfirmedEachConfirmationErc20)
+	err = newStrictDecoder(data).Decode(&dst.AddressTokensTransactionConfirmedEachConfirmationErc20)
 	if err == nil {
 		jsonAddressTokensTransactionConfirmedEachConfirmationErc20, _ := json.Marshal(dst.AddressTokensTransactionConfirmedEachConfirmationErc20)
 		if string(jsonAddressTokensTransactionConfirmedEachConfirmationErc20) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *AddressTokensTransactionConfirmedEachConfirmationToken) UnmarshalJSON
 	}
 
 	// try to unmarshal data into AddressTokensTransactionConfirmedEachConfirmationErc721
-	err = json.Unmarshal(data, &dst.AddressTokensTransactionConfirmedEachConfirmationErc721)
+	err = newStrictDecoder(data).Decode(&dst.AddressTokensTransactionConfirmedEachConfirmationErc721)
 	if err == nil {
 		jsonAddressTokensTransactionConfirmedEachConfirmationErc721, _ := json.Marshal(dst.AddressTokensTransactionConfirmedEachConfirmationErc721)
 		if string(jsonAddressTokensTransactionConfirmedEachConfirmationErc721) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *AddressTokensTransactionConfirmedEachConfirmationToken) UnmarshalJSON
 	}
 
 	// try to unmarshal data into AddressTokensTransactionConfirmedEachConfirmationOmni
-	err = json.Unmarshal(data, &dst.AddressTokensTransactionConfirmedEachConfirmationOmni)
+	err = newStrictDecoder(data).Decode(&dst.AddressTokensTransactionConfirmedEachConfirmationOmni)
 	if err == nil {
 		jsonAddressTokensTransactionConfirmedEachConfirmationOmni, _ := json.Marshal(dst.AddressTokensTransactionConfirmedEachConfirmationOmni)
 		if string(jsonAddressTokensTransactionConfirmedEachConfirmationOmni) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src AddressTokensTransactionConfirmedEachConfirmationToken) MarshalJSON() 
 
 // Get the actual instance
 func (obj *AddressTokensTransactionConfirmedEachConfirmationToken) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.AddressTokensTransactionConfirmedEachConfirmationBep20 != nil {
 		return obj.AddressTokensTransactionConfirmedEachConfirmationBep20
 	}

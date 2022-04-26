@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ConfirmedBalance** | **string** | Specifies the confirmed coins balance of the Wallet. | 
-**TotalReceived** | **string** | Defines the total currency received to the Wallet. | 
-**TotalSpent** | **string** | Defines the total currency spent from the Wallet. | 
+**TotalReceived** | Pointer to **string** | Defines the total currency received to the Wallet. | [optional] 
+**TotalSpent** | Pointer to **string** | Defines the total currency spent from the Wallet. | [optional] 
 
 ## Methods
 
 ### NewGetHDWalletXPubYPubZPubDetailsRI
 
-`func NewGetHDWalletXPubYPubZPubDetailsRI(confirmedBalance string, totalReceived string, totalSpent string, ) *GetHDWalletXPubYPubZPubDetailsRI`
+`func NewGetHDWalletXPubYPubZPubDetailsRI(confirmedBalance string, ) *GetHDWalletXPubYPubZPubDetailsRI`
 
 NewGetHDWalletXPubYPubZPubDetailsRI instantiates a new GetHDWalletXPubYPubZPubDetailsRI object
 This constructor will assign default values to properties that have it defined,
@@ -66,6 +66,11 @@ and a boolean to check if the value has been set.
 
 SetTotalReceived sets TotalReceived field to given value.
 
+### HasTotalReceived
+
+`func (o *GetHDWalletXPubYPubZPubDetailsRI) HasTotalReceived() bool`
+
+HasTotalReceived returns a boolean if a field has been set.
 
 ### GetTotalSpent
 
@@ -86,6 +91,11 @@ and a boolean to check if the value has been set.
 
 SetTotalSpent sets TotalSpent field to given value.
 
+### HasTotalSpent
+
+`func (o *GetHDWalletXPubYPubZPubDetailsRI) HasTotalSpent() bool`
+
+HasTotalSpent returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

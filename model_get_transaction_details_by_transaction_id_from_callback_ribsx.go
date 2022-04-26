@@ -20,11 +20,11 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSX struct {
 	// Represents additional data that may be needed.
 	AdditionalData string `json:"additionalData"`
 	// Defines the destination tag value.
-	DestinationTag *int32 `json:"destinationTag,omitempty"`
+	DestinationTag *int64 `json:"destinationTag,omitempty"`
 	Offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer `json:"offer"`
 	Receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive `json:"receive"`
 	// Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
-	Sequence int32 `json:"sequence"`
+	Sequence int64 `json:"sequence"`
 	// Defines the status of the transaction.
 	Status string `json:"status"`
 	// Defines the type of the transaction.
@@ -36,7 +36,7 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSX struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSX(additionalData string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, sequence int32, status string, type_ string, value GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue) *GetTransactionDetailsByTransactionIDFromCallbackRIBSX {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSX(additionalData string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, sequence int64, status string, type_ string, value GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue) *GetTransactionDetailsByTransactionIDFromCallbackRIBSX {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRIBSX{}
 	this.AdditionalData = additionalData
 	this.Offer = offer
@@ -69,7 +69,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetAdditionalDat
 // GetAdditionalDataOk returns a tuple with the AdditionalData field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetAdditionalDataOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AdditionalData, true
@@ -81,9 +81,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) SetAdditionalDat
 }
 
 // GetDestinationTag returns the DestinationTag field value if set, zero value otherwise.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetDestinationTag() int32 {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetDestinationTag() int64 {
 	if o == nil || o.DestinationTag == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.DestinationTag
@@ -91,7 +91,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetDestinationTa
 
 // GetDestinationTagOk returns a tuple with the DestinationTag field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetDestinationTagOk() (*int32, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetDestinationTagOk() (*int64, bool) {
 	if o == nil || o.DestinationTag == nil {
 		return nil, false
 	}
@@ -107,8 +107,8 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) HasDestinationTa
 	return false
 }
 
-// SetDestinationTag gets a reference to the given int32 and assigns it to the DestinationTag field.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) SetDestinationTag(v int32) {
+// SetDestinationTag gets a reference to the given int64 and assigns it to the DestinationTag field.
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) SetDestinationTag(v int64) {
 	o.DestinationTag = &v
 }
 
@@ -125,7 +125,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetOffer() GetXR
 // GetOfferOk returns a tuple with the Offer field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetOfferOk() (*GetXRPRippleTransactionDetailsByTransactionIDRIOffer, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Offer, true
@@ -149,7 +149,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetReceive() Get
 // GetReceiveOk returns a tuple with the Receive field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetReceiveOk() (*GetXRPRippleTransactionDetailsByTransactionIDRIReceive, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Receive, true
@@ -161,9 +161,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) SetReceive(v Get
 }
 
 // GetSequence returns the Sequence field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetSequence() int32 {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetSequence() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -172,15 +172,15 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetSequence() in
 
 // GetSequenceOk returns a tuple with the Sequence field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetSequenceOk() (*int32, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetSequenceOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Sequence, true
 }
 
 // SetSequence sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) SetSequence(v int32) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) SetSequence(v int64) {
 	o.Sequence = v
 }
 
@@ -197,7 +197,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetStatus() stri
 // GetStatusOk returns a tuple with the Status field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetStatusOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Status, true
@@ -221,7 +221,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetType() string
 // GetTypeOk returns a tuple with the Type field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Type, true
@@ -245,7 +245,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetValue() GetTr
 // GetValueOk returns a tuple with the Value field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetValueOk() (*GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Value, true

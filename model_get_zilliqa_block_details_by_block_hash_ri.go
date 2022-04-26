@@ -84,7 +84,7 @@ func (o *GetZilliqaBlockDetailsByBlockHashRI) GetBlockHeight() int32 {
 // GetBlockHeightOk returns a tuple with the BlockHeight field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaBlockDetailsByBlockHashRI) GetBlockHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockHeight, true
@@ -108,7 +108,7 @@ func (o *GetZilliqaBlockDetailsByBlockHashRI) GetDifficulty() string {
 // GetDifficultyOk returns a tuple with the Difficulty field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaBlockDetailsByBlockHashRI) GetDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Difficulty, true
@@ -132,7 +132,7 @@ func (o *GetZilliqaBlockDetailsByBlockHashRI) GetDsBlock() int32 {
 // GetDsBlockOk returns a tuple with the DsBlock field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaBlockDetailsByBlockHashRI) GetDsBlockOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DsBlock, true
@@ -156,7 +156,7 @@ func (o *GetZilliqaBlockDetailsByBlockHashRI) GetDsDifficulty() string {
 // GetDsDifficultyOk returns a tuple with the DsDifficulty field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaBlockDetailsByBlockHashRI) GetDsDifficultyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DsDifficulty, true
@@ -180,7 +180,7 @@ func (o *GetZilliqaBlockDetailsByBlockHashRI) GetDsLeader() string {
 // GetDsLeaderOk returns a tuple with the DsLeader field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaBlockDetailsByBlockHashRI) GetDsLeaderOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.DsLeader, true
@@ -204,7 +204,7 @@ func (o *GetZilliqaBlockDetailsByBlockHashRI) GetGasLimit() int32 {
 // GetGasLimitOk returns a tuple with the GasLimit field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaBlockDetailsByBlockHashRI) GetGasLimitOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasLimit, true
@@ -228,7 +228,7 @@ func (o *GetZilliqaBlockDetailsByBlockHashRI) GetGasUsed() int32 {
 // GetGasUsedOk returns a tuple with the GasUsed field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaBlockDetailsByBlockHashRI) GetGasUsedOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.GasUsed, true
@@ -251,11 +251,11 @@ func (o *GetZilliqaBlockDetailsByBlockHashRI) GetMicroBlocks() []string {
 
 // GetMicroBlocksOk returns a tuple with the MicroBlocks field value
 // and a boolean to check if the value has been set.
-func (o *GetZilliqaBlockDetailsByBlockHashRI) GetMicroBlocksOk() (*[]string, bool) {
-	if o == nil  {
+func (o *GetZilliqaBlockDetailsByBlockHashRI) GetMicroBlocksOk() ([]string, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.MicroBlocks, true
+	return o.MicroBlocks, true
 }
 
 // SetMicroBlocks sets field value
@@ -276,7 +276,7 @@ func (o *GetZilliqaBlockDetailsByBlockHashRI) GetNextBlockHash() string {
 // GetNextBlockHashOk returns a tuple with the NextBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaBlockDetailsByBlockHashRI) GetNextBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NextBlockHash, true
@@ -300,7 +300,7 @@ func (o *GetZilliqaBlockDetailsByBlockHashRI) GetPreviousBlockHash() string {
 // GetPreviousBlockHashOk returns a tuple with the PreviousBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaBlockDetailsByBlockHashRI) GetPreviousBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PreviousBlockHash, true
@@ -324,7 +324,7 @@ func (o *GetZilliqaBlockDetailsByBlockHashRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaBlockDetailsByBlockHashRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -348,7 +348,7 @@ func (o *GetZilliqaBlockDetailsByBlockHashRI) GetTransactionsCount() int32 {
 // GetTransactionsCountOk returns a tuple with the TransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetZilliqaBlockDetailsByBlockHashRI) GetTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionsCount, true

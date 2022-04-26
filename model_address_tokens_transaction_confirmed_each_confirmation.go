@@ -60,7 +60,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmation) GetApiVersion() stri
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmation) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -84,7 +84,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmation) GetReferenceId() str
 // GetReferenceIdOk returns a tuple with the ReferenceId field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmation) GetReferenceIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ReferenceId, true
@@ -108,7 +108,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmation) GetIdempotencyKey() 
 // GetIdempotencyKeyOk returns a tuple with the IdempotencyKey field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmation) GetIdempotencyKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IdempotencyKey, true
@@ -132,7 +132,7 @@ func (o *AddressTokensTransactionConfirmedEachConfirmation) GetData() AddressTok
 // GetDataOk returns a tuple with the Data field value
 // and a boolean to check if the value has been set.
 func (o *AddressTokensTransactionConfirmedEachConfirmation) GetDataOk() (*AddressTokensTransactionConfirmedEachConfirmationData, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Data, true

@@ -24,12 +24,16 @@ type SyncHDWalletXPubYPubZPubE422 struct {
 
 // InvalidRequestBodyStructureAsSyncHDWalletXPubYPubZPubE422 is a convenience function that returns InvalidRequestBodyStructure wrapped in SyncHDWalletXPubYPubZPubE422
 func InvalidRequestBodyStructureAsSyncHDWalletXPubYPubZPubE422(v *InvalidRequestBodyStructure) SyncHDWalletXPubYPubZPubE422 {
-	return SyncHDWalletXPubYPubZPubE422{ InvalidRequestBodyStructure: v}
+	return SyncHDWalletXPubYPubZPubE422{
+		InvalidRequestBodyStructure: v,
+	}
 }
 
 // XpubSyncInProgressAsSyncHDWalletXPubYPubZPubE422 is a convenience function that returns XpubSyncInProgress wrapped in SyncHDWalletXPubYPubZPubE422
 func XpubSyncInProgressAsSyncHDWalletXPubYPubZPubE422(v *XpubSyncInProgress) SyncHDWalletXPubYPubZPubE422 {
-	return SyncHDWalletXPubYPubZPubE422{ XpubSyncInProgress: v}
+	return SyncHDWalletXPubYPubZPubE422{
+		XpubSyncInProgress: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *SyncHDWalletXPubYPubZPubE422) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidRequestBodyStructure
-	err = json.Unmarshal(data, &dst.InvalidRequestBodyStructure)
+	err = newStrictDecoder(data).Decode(&dst.InvalidRequestBodyStructure)
 	if err == nil {
 		jsonInvalidRequestBodyStructure, _ := json.Marshal(dst.InvalidRequestBodyStructure)
 		if string(jsonInvalidRequestBodyStructure) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *SyncHDWalletXPubYPubZPubE422) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into XpubSyncInProgress
-	err = json.Unmarshal(data, &dst.XpubSyncInProgress)
+	err = newStrictDecoder(data).Decode(&dst.XpubSyncInProgress)
 	if err == nil {
 		jsonXpubSyncInProgress, _ := json.Marshal(dst.XpubSyncInProgress)
 		if string(jsonXpubSyncInProgress) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src SyncHDWalletXPubYPubZPubE422) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *SyncHDWalletXPubYPubZPubE422) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidRequestBodyStructure != nil {
 		return obj.InvalidRequestBodyStructure
 	}

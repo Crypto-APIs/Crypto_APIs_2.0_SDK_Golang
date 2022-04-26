@@ -18,7 +18,7 @@ import (
 // ListConfirmedTransactionsByAddressRIBSBC Bitcoin Cash
 type ListConfirmedTransactionsByAddressRIBSBC struct {
 	// Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
-	Locktime int32 `json:"locktime"`
+	Locktime int64 `json:"locktime"`
 	// Represents the total size of this transaction.
 	Size int32 `json:"size"`
 	// Represents the transaction's version number.
@@ -26,14 +26,14 @@ type ListConfirmedTransactionsByAddressRIBSBC struct {
 	// Represents the transaction inputs.
 	Vin []ListConfirmedTransactionsByAddressRIBSBCVin `json:"vin"`
 	// Represents the transaction outputs.
-	Vout *[]GetTransactionDetailsByTransactionIDRIBSBCVout `json:"vout,omitempty"`
+	Vout []GetTransactionDetailsByTransactionIDRIBSBCVout `json:"vout,omitempty"`
 }
 
 // NewListConfirmedTransactionsByAddressRIBSBC instantiates a new ListConfirmedTransactionsByAddressRIBSBC object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListConfirmedTransactionsByAddressRIBSBC(locktime int32, size int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSBCVin) *ListConfirmedTransactionsByAddressRIBSBC {
+func NewListConfirmedTransactionsByAddressRIBSBC(locktime int64, size int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSBCVin) *ListConfirmedTransactionsByAddressRIBSBC {
 	this := ListConfirmedTransactionsByAddressRIBSBC{}
 	this.Locktime = locktime
 	this.Size = size
@@ -51,9 +51,9 @@ func NewListConfirmedTransactionsByAddressRIBSBCWithDefaults() *ListConfirmedTra
 }
 
 // GetLocktime returns the Locktime field value
-func (o *ListConfirmedTransactionsByAddressRIBSBC) GetLocktime() int32 {
+func (o *ListConfirmedTransactionsByAddressRIBSBC) GetLocktime() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -62,15 +62,15 @@ func (o *ListConfirmedTransactionsByAddressRIBSBC) GetLocktime() int32 {
 
 // GetLocktimeOk returns a tuple with the Locktime field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressRIBSBC) GetLocktimeOk() (*int32, bool) {
-	if o == nil  {
+func (o *ListConfirmedTransactionsByAddressRIBSBC) GetLocktimeOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Locktime, true
 }
 
 // SetLocktime sets field value
-func (o *ListConfirmedTransactionsByAddressRIBSBC) SetLocktime(v int32) {
+func (o *ListConfirmedTransactionsByAddressRIBSBC) SetLocktime(v int64) {
 	o.Locktime = v
 }
 
@@ -87,7 +87,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSBC) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *ListConfirmedTransactionsByAddressRIBSBC) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -111,7 +111,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVersion() int32 {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -134,11 +134,11 @@ func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVin() []ListConfirmedTrans
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVinOk() (*[]ListConfirmedTransactionsByAddressRIBSBCVin, bool) {
-	if o == nil  {
+func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVinOk() ([]ListConfirmedTransactionsByAddressRIBSBCVin, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vin, true
+	return o.Vin, true
 }
 
 // SetVin sets field value
@@ -152,12 +152,12 @@ func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVout() []GetTransactionDet
 		var ret []GetTransactionDetailsByTransactionIDRIBSBCVout
 		return ret
 	}
-	return *o.Vout
+	return o.Vout
 }
 
 // GetVoutOk returns a tuple with the Vout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSBCVout, bool) {
+func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSBCVout, bool) {
 	if o == nil || o.Vout == nil {
 		return nil, false
 	}
@@ -175,7 +175,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSBC) HasVout() bool {
 
 // SetVout gets a reference to the given []GetTransactionDetailsByTransactionIDRIBSBCVout and assigns it to the Vout field.
 func (o *ListConfirmedTransactionsByAddressRIBSBC) SetVout(v []GetTransactionDetailsByTransactionIDRIBSBCVout) {
-	o.Vout = &v
+	o.Vout = v
 }
 
 func (o ListConfirmedTransactionsByAddressRIBSBC) MarshalJSON() ([]byte, error) {

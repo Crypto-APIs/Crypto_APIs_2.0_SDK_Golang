@@ -19,8 +19,12 @@ import (
 type CreateCoinsTransactionRequestFromAddressRIRecipients struct {
 	// Defines the destination address.
 	Address string `json:"address"`
+	// Defines a specific Tag that is an additional XRP address feature. It helps identify a transaction recipient beyond a wallet address. The tag that was encoded into the x-Address along with the Source Classic Address.
+	AddressTag *int32 `json:"addressTag,omitempty"`
 	// Defines the amount sent to the destination address.
 	Amount string `json:"amount"`
+	// Represents the public address, which is a compressed and shortened form of a public key. The classic address is shown when the source address is an x-Address.
+	ClassicAddress *string `json:"classicAddress,omitempty"`
 }
 
 // NewCreateCoinsTransactionRequestFromAddressRIRecipients instantiates a new CreateCoinsTransactionRequestFromAddressRIRecipients object
@@ -55,7 +59,7 @@ func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) GetAddress() stri
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -64,6 +68,38 @@ func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) GetAddressOk() (*
 // SetAddress sets field value
 func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) SetAddress(v string) {
 	o.Address = v
+}
+
+// GetAddressTag returns the AddressTag field value if set, zero value otherwise.
+func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) GetAddressTag() int32 {
+	if o == nil || o.AddressTag == nil {
+		var ret int32
+		return ret
+	}
+	return *o.AddressTag
+}
+
+// GetAddressTagOk returns a tuple with the AddressTag field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) GetAddressTagOk() (*int32, bool) {
+	if o == nil || o.AddressTag == nil {
+		return nil, false
+	}
+	return o.AddressTag, true
+}
+
+// HasAddressTag returns a boolean if a field has been set.
+func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) HasAddressTag() bool {
+	if o != nil && o.AddressTag != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetAddressTag gets a reference to the given int32 and assigns it to the AddressTag field.
+func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) SetAddressTag(v int32) {
+	o.AddressTag = &v
 }
 
 // GetAmount returns the Amount field value
@@ -79,7 +115,7 @@ func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) GetAmount() strin
 // GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) GetAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Amount, true
@@ -90,13 +126,51 @@ func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) SetAmount(v strin
 	o.Amount = v
 }
 
+// GetClassicAddress returns the ClassicAddress field value if set, zero value otherwise.
+func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) GetClassicAddress() string {
+	if o == nil || o.ClassicAddress == nil {
+		var ret string
+		return ret
+	}
+	return *o.ClassicAddress
+}
+
+// GetClassicAddressOk returns a tuple with the ClassicAddress field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) GetClassicAddressOk() (*string, bool) {
+	if o == nil || o.ClassicAddress == nil {
+		return nil, false
+	}
+	return o.ClassicAddress, true
+}
+
+// HasClassicAddress returns a boolean if a field has been set.
+func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) HasClassicAddress() bool {
+	if o != nil && o.ClassicAddress != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetClassicAddress gets a reference to the given string and assigns it to the ClassicAddress field.
+func (o *CreateCoinsTransactionRequestFromAddressRIRecipients) SetClassicAddress(v string) {
+	o.ClassicAddress = &v
+}
+
 func (o CreateCoinsTransactionRequestFromAddressRIRecipients) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
 		toSerialize["address"] = o.Address
 	}
+	if o.AddressTag != nil {
+		toSerialize["addressTag"] = o.AddressTag
+	}
 	if true {
 		toSerialize["amount"] = o.Amount
+	}
+	if o.ClassicAddress != nil {
+		toSerialize["classicAddress"] = o.ClassicAddress
 	}
 	return json.Marshal(toSerialize)
 }

@@ -31,47 +31,65 @@ type GetWalletTransactionDetailsByTransactionIDRIBS struct {
 
 // GetWalletTransactionDetailsByTransactionIDRIBSBAsGetWalletTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetWalletTransactionDetailsByTransactionIDRIBSB wrapped in GetWalletTransactionDetailsByTransactionIDRIBS
 func GetWalletTransactionDetailsByTransactionIDRIBSBAsGetWalletTransactionDetailsByTransactionIDRIBS(v *GetWalletTransactionDetailsByTransactionIDRIBSB) GetWalletTransactionDetailsByTransactionIDRIBS {
-	return GetWalletTransactionDetailsByTransactionIDRIBS{ GetWalletTransactionDetailsByTransactionIDRIBSB: v}
+	return GetWalletTransactionDetailsByTransactionIDRIBS{
+		GetWalletTransactionDetailsByTransactionIDRIBSB: v,
+	}
 }
 
 // GetWalletTransactionDetailsByTransactionIDRIBSBCAsGetWalletTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetWalletTransactionDetailsByTransactionIDRIBSBC wrapped in GetWalletTransactionDetailsByTransactionIDRIBS
 func GetWalletTransactionDetailsByTransactionIDRIBSBCAsGetWalletTransactionDetailsByTransactionIDRIBS(v *GetWalletTransactionDetailsByTransactionIDRIBSBC) GetWalletTransactionDetailsByTransactionIDRIBS {
-	return GetWalletTransactionDetailsByTransactionIDRIBS{ GetWalletTransactionDetailsByTransactionIDRIBSBC: v}
+	return GetWalletTransactionDetailsByTransactionIDRIBS{
+		GetWalletTransactionDetailsByTransactionIDRIBSBC: v,
+	}
 }
 
 // GetWalletTransactionDetailsByTransactionIDRIBSBSCAsGetWalletTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetWalletTransactionDetailsByTransactionIDRIBSBSC wrapped in GetWalletTransactionDetailsByTransactionIDRIBS
 func GetWalletTransactionDetailsByTransactionIDRIBSBSCAsGetWalletTransactionDetailsByTransactionIDRIBS(v *GetWalletTransactionDetailsByTransactionIDRIBSBSC) GetWalletTransactionDetailsByTransactionIDRIBS {
-	return GetWalletTransactionDetailsByTransactionIDRIBS{ GetWalletTransactionDetailsByTransactionIDRIBSBSC: v}
+	return GetWalletTransactionDetailsByTransactionIDRIBS{
+		GetWalletTransactionDetailsByTransactionIDRIBSBSC: v,
+	}
 }
 
 // GetWalletTransactionDetailsByTransactionIDRIBSDAsGetWalletTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetWalletTransactionDetailsByTransactionIDRIBSD wrapped in GetWalletTransactionDetailsByTransactionIDRIBS
 func GetWalletTransactionDetailsByTransactionIDRIBSDAsGetWalletTransactionDetailsByTransactionIDRIBS(v *GetWalletTransactionDetailsByTransactionIDRIBSD) GetWalletTransactionDetailsByTransactionIDRIBS {
-	return GetWalletTransactionDetailsByTransactionIDRIBS{ GetWalletTransactionDetailsByTransactionIDRIBSD: v}
+	return GetWalletTransactionDetailsByTransactionIDRIBS{
+		GetWalletTransactionDetailsByTransactionIDRIBSD: v,
+	}
 }
 
 // GetWalletTransactionDetailsByTransactionIDRIBSD2AsGetWalletTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetWalletTransactionDetailsByTransactionIDRIBSD2 wrapped in GetWalletTransactionDetailsByTransactionIDRIBS
 func GetWalletTransactionDetailsByTransactionIDRIBSD2AsGetWalletTransactionDetailsByTransactionIDRIBS(v *GetWalletTransactionDetailsByTransactionIDRIBSD2) GetWalletTransactionDetailsByTransactionIDRIBS {
-	return GetWalletTransactionDetailsByTransactionIDRIBS{ GetWalletTransactionDetailsByTransactionIDRIBSD2: v}
+	return GetWalletTransactionDetailsByTransactionIDRIBS{
+		GetWalletTransactionDetailsByTransactionIDRIBSD2: v,
+	}
 }
 
 // GetWalletTransactionDetailsByTransactionIDRIBSEAsGetWalletTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetWalletTransactionDetailsByTransactionIDRIBSE wrapped in GetWalletTransactionDetailsByTransactionIDRIBS
 func GetWalletTransactionDetailsByTransactionIDRIBSEAsGetWalletTransactionDetailsByTransactionIDRIBS(v *GetWalletTransactionDetailsByTransactionIDRIBSE) GetWalletTransactionDetailsByTransactionIDRIBS {
-	return GetWalletTransactionDetailsByTransactionIDRIBS{ GetWalletTransactionDetailsByTransactionIDRIBSE: v}
+	return GetWalletTransactionDetailsByTransactionIDRIBS{
+		GetWalletTransactionDetailsByTransactionIDRIBSE: v,
+	}
 }
 
 // GetWalletTransactionDetailsByTransactionIDRIBSECAsGetWalletTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetWalletTransactionDetailsByTransactionIDRIBSEC wrapped in GetWalletTransactionDetailsByTransactionIDRIBS
 func GetWalletTransactionDetailsByTransactionIDRIBSECAsGetWalletTransactionDetailsByTransactionIDRIBS(v *GetWalletTransactionDetailsByTransactionIDRIBSEC) GetWalletTransactionDetailsByTransactionIDRIBS {
-	return GetWalletTransactionDetailsByTransactionIDRIBS{ GetWalletTransactionDetailsByTransactionIDRIBSEC: v}
+	return GetWalletTransactionDetailsByTransactionIDRIBS{
+		GetWalletTransactionDetailsByTransactionIDRIBSEC: v,
+	}
 }
 
 // GetWalletTransactionDetailsByTransactionIDRIBSLAsGetWalletTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetWalletTransactionDetailsByTransactionIDRIBSL wrapped in GetWalletTransactionDetailsByTransactionIDRIBS
 func GetWalletTransactionDetailsByTransactionIDRIBSLAsGetWalletTransactionDetailsByTransactionIDRIBS(v *GetWalletTransactionDetailsByTransactionIDRIBSL) GetWalletTransactionDetailsByTransactionIDRIBS {
-	return GetWalletTransactionDetailsByTransactionIDRIBS{ GetWalletTransactionDetailsByTransactionIDRIBSL: v}
+	return GetWalletTransactionDetailsByTransactionIDRIBS{
+		GetWalletTransactionDetailsByTransactionIDRIBSL: v,
+	}
 }
 
 // GetWalletTransactionDetailsByTransactionIDRIBSZAsGetWalletTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetWalletTransactionDetailsByTransactionIDRIBSZ wrapped in GetWalletTransactionDetailsByTransactionIDRIBS
 func GetWalletTransactionDetailsByTransactionIDRIBSZAsGetWalletTransactionDetailsByTransactionIDRIBS(v *GetWalletTransactionDetailsByTransactionIDRIBSZ) GetWalletTransactionDetailsByTransactionIDRIBS {
-	return GetWalletTransactionDetailsByTransactionIDRIBS{ GetWalletTransactionDetailsByTransactionIDRIBSZ: v}
+	return GetWalletTransactionDetailsByTransactionIDRIBS{
+		GetWalletTransactionDetailsByTransactionIDRIBSZ: v,
+	}
 }
 
 
@@ -80,7 +98,7 @@ func (dst *GetWalletTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []
 	var err error
 	match := 0
 	// try to unmarshal data into GetWalletTransactionDetailsByTransactionIDRIBSB
-	err = json.Unmarshal(data, &dst.GetWalletTransactionDetailsByTransactionIDRIBSB)
+	err = newStrictDecoder(data).Decode(&dst.GetWalletTransactionDetailsByTransactionIDRIBSB)
 	if err == nil {
 		jsonGetWalletTransactionDetailsByTransactionIDRIBSB, _ := json.Marshal(dst.GetWalletTransactionDetailsByTransactionIDRIBSB)
 		if string(jsonGetWalletTransactionDetailsByTransactionIDRIBSB) == "{}" { // empty struct
@@ -93,7 +111,7 @@ func (dst *GetWalletTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []
 	}
 
 	// try to unmarshal data into GetWalletTransactionDetailsByTransactionIDRIBSBC
-	err = json.Unmarshal(data, &dst.GetWalletTransactionDetailsByTransactionIDRIBSBC)
+	err = newStrictDecoder(data).Decode(&dst.GetWalletTransactionDetailsByTransactionIDRIBSBC)
 	if err == nil {
 		jsonGetWalletTransactionDetailsByTransactionIDRIBSBC, _ := json.Marshal(dst.GetWalletTransactionDetailsByTransactionIDRIBSBC)
 		if string(jsonGetWalletTransactionDetailsByTransactionIDRIBSBC) == "{}" { // empty struct
@@ -106,7 +124,7 @@ func (dst *GetWalletTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []
 	}
 
 	// try to unmarshal data into GetWalletTransactionDetailsByTransactionIDRIBSBSC
-	err = json.Unmarshal(data, &dst.GetWalletTransactionDetailsByTransactionIDRIBSBSC)
+	err = newStrictDecoder(data).Decode(&dst.GetWalletTransactionDetailsByTransactionIDRIBSBSC)
 	if err == nil {
 		jsonGetWalletTransactionDetailsByTransactionIDRIBSBSC, _ := json.Marshal(dst.GetWalletTransactionDetailsByTransactionIDRIBSBSC)
 		if string(jsonGetWalletTransactionDetailsByTransactionIDRIBSBSC) == "{}" { // empty struct
@@ -119,7 +137,7 @@ func (dst *GetWalletTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []
 	}
 
 	// try to unmarshal data into GetWalletTransactionDetailsByTransactionIDRIBSD
-	err = json.Unmarshal(data, &dst.GetWalletTransactionDetailsByTransactionIDRIBSD)
+	err = newStrictDecoder(data).Decode(&dst.GetWalletTransactionDetailsByTransactionIDRIBSD)
 	if err == nil {
 		jsonGetWalletTransactionDetailsByTransactionIDRIBSD, _ := json.Marshal(dst.GetWalletTransactionDetailsByTransactionIDRIBSD)
 		if string(jsonGetWalletTransactionDetailsByTransactionIDRIBSD) == "{}" { // empty struct
@@ -132,7 +150,7 @@ func (dst *GetWalletTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []
 	}
 
 	// try to unmarshal data into GetWalletTransactionDetailsByTransactionIDRIBSD2
-	err = json.Unmarshal(data, &dst.GetWalletTransactionDetailsByTransactionIDRIBSD2)
+	err = newStrictDecoder(data).Decode(&dst.GetWalletTransactionDetailsByTransactionIDRIBSD2)
 	if err == nil {
 		jsonGetWalletTransactionDetailsByTransactionIDRIBSD2, _ := json.Marshal(dst.GetWalletTransactionDetailsByTransactionIDRIBSD2)
 		if string(jsonGetWalletTransactionDetailsByTransactionIDRIBSD2) == "{}" { // empty struct
@@ -145,7 +163,7 @@ func (dst *GetWalletTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []
 	}
 
 	// try to unmarshal data into GetWalletTransactionDetailsByTransactionIDRIBSE
-	err = json.Unmarshal(data, &dst.GetWalletTransactionDetailsByTransactionIDRIBSE)
+	err = newStrictDecoder(data).Decode(&dst.GetWalletTransactionDetailsByTransactionIDRIBSE)
 	if err == nil {
 		jsonGetWalletTransactionDetailsByTransactionIDRIBSE, _ := json.Marshal(dst.GetWalletTransactionDetailsByTransactionIDRIBSE)
 		if string(jsonGetWalletTransactionDetailsByTransactionIDRIBSE) == "{}" { // empty struct
@@ -158,7 +176,7 @@ func (dst *GetWalletTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []
 	}
 
 	// try to unmarshal data into GetWalletTransactionDetailsByTransactionIDRIBSEC
-	err = json.Unmarshal(data, &dst.GetWalletTransactionDetailsByTransactionIDRIBSEC)
+	err = newStrictDecoder(data).Decode(&dst.GetWalletTransactionDetailsByTransactionIDRIBSEC)
 	if err == nil {
 		jsonGetWalletTransactionDetailsByTransactionIDRIBSEC, _ := json.Marshal(dst.GetWalletTransactionDetailsByTransactionIDRIBSEC)
 		if string(jsonGetWalletTransactionDetailsByTransactionIDRIBSEC) == "{}" { // empty struct
@@ -171,7 +189,7 @@ func (dst *GetWalletTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []
 	}
 
 	// try to unmarshal data into GetWalletTransactionDetailsByTransactionIDRIBSL
-	err = json.Unmarshal(data, &dst.GetWalletTransactionDetailsByTransactionIDRIBSL)
+	err = newStrictDecoder(data).Decode(&dst.GetWalletTransactionDetailsByTransactionIDRIBSL)
 	if err == nil {
 		jsonGetWalletTransactionDetailsByTransactionIDRIBSL, _ := json.Marshal(dst.GetWalletTransactionDetailsByTransactionIDRIBSL)
 		if string(jsonGetWalletTransactionDetailsByTransactionIDRIBSL) == "{}" { // empty struct
@@ -184,7 +202,7 @@ func (dst *GetWalletTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []
 	}
 
 	// try to unmarshal data into GetWalletTransactionDetailsByTransactionIDRIBSZ
-	err = json.Unmarshal(data, &dst.GetWalletTransactionDetailsByTransactionIDRIBSZ)
+	err = newStrictDecoder(data).Decode(&dst.GetWalletTransactionDetailsByTransactionIDRIBSZ)
 	if err == nil {
 		jsonGetWalletTransactionDetailsByTransactionIDRIBSZ, _ := json.Marshal(dst.GetWalletTransactionDetailsByTransactionIDRIBSZ)
 		if string(jsonGetWalletTransactionDetailsByTransactionIDRIBSZ) == "{}" { // empty struct
@@ -259,6 +277,9 @@ func (src GetWalletTransactionDetailsByTransactionIDRIBS) MarshalJSON() ([]byte,
 
 // Get the actual instance
 func (obj *GetWalletTransactionDetailsByTransactionIDRIBS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.GetWalletTransactionDetailsByTransactionIDRIBSB != nil {
 		return obj.GetWalletTransactionDetailsByTransactionIDRIBSB
 	}

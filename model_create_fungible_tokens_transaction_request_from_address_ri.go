@@ -19,7 +19,7 @@ import (
 type CreateFungibleTokensTransactionRequestFromAddressRI struct {
 	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
 	CallbackSecretKey string `json:"callbackSecretKey"`
-	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 	CallbackUrl string `json:"callbackUrl"`
 	// Represents the fee priority of the automation, whether it is \"slow\", \"standard\" or \"fast\".
 	FeePriority string `json:"feePriority"`
@@ -70,7 +70,7 @@ func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetCallbackSecretK
 // GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field value
 // and a boolean to check if the value has been set.
 func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetCallbackSecretKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackSecretKey, true
@@ -94,7 +94,7 @@ func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetCallbackUrl() s
 // GetCallbackUrlOk returns a tuple with the CallbackUrl field value
 // and a boolean to check if the value has been set.
 func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetCallbackUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackUrl, true
@@ -118,7 +118,7 @@ func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetFeePriority() s
 // GetFeePriorityOk returns a tuple with the FeePriority field value
 // and a boolean to check if the value has been set.
 func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetFeePriorityOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FeePriority, true
@@ -173,11 +173,11 @@ func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetRecipients() []
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetRecipientsOk() (*[]CreateFungibleTokensTransactionRequestFromAddressRIRecipients, bool) {
-	if o == nil  {
+func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetRecipientsOk() ([]CreateFungibleTokensTransactionRequestFromAddressRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -198,7 +198,7 @@ func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetSenders() Creat
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
 func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetSendersOk() (*CreateFungibleTokensTransactionRequestFromAddressRISenders, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Senders, true
@@ -222,7 +222,7 @@ func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetTokenTypeSpecif
 // GetTokenTypeSpecificDataOk returns a tuple with the TokenTypeSpecificData field value
 // and a boolean to check if the value has been set.
 func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetTokenTypeSpecificDataOk() (*CreateFungibleTokensTransactionRequestFromAddressRIS, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TokenTypeSpecificData, true
@@ -246,7 +246,7 @@ func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetTransactionRequ
 // GetTransactionRequestIdOk returns a tuple with the TransactionRequestId field value
 // and a boolean to check if the value has been set.
 func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetTransactionRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionRequestId, true

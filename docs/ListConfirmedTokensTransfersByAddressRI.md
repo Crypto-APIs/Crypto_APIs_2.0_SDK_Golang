@@ -16,12 +16,13 @@ Name | Type | Description | Notes
 **TokensAmount** | Pointer to **string** | Defines the token amount of the transfer. | [optional] 
 **TransactionHash** | **string** | Represents the hash of the transaction, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
 **TransactionTimestamp** | **int32** | Defines the specific time/date when the transaction was created in Unix Timestamp. | 
+**TransactionFee** | [**ListTokensTransfersByTransactionHashRITransactionFee**](ListTokensTransfersByTransactionHashRITransactionFee.md) |  | 
 
 ## Methods
 
 ### NewListConfirmedTokensTransfersByAddressRI
 
-`func NewListConfirmedTokensTransfersByAddressRI(contractAddress string, minedInBlockHeight int32, recipientAddress string, senderAddress string, tokenDecimals int32, tokenName string, tokenSymbol string, tokenType string, transactionHash string, transactionTimestamp int32, ) *ListConfirmedTokensTransfersByAddressRI`
+`func NewListConfirmedTokensTransfersByAddressRI(contractAddress string, minedInBlockHeight int32, recipientAddress string, senderAddress string, tokenDecimals int32, tokenName string, tokenSymbol string, tokenType string, transactionHash string, transactionTimestamp int32, transactionFee ListTokensTransfersByTransactionHashRITransactionFee, ) *ListConfirmedTokensTransfersByAddressRI`
 
 NewListConfirmedTokensTransfersByAddressRI instantiates a new ListConfirmedTokensTransfersByAddressRI object
 This constructor will assign default values to properties that have it defined,
@@ -284,6 +285,26 @@ and a boolean to check if the value has been set.
 `func (o *ListConfirmedTokensTransfersByAddressRI) SetTransactionTimestamp(v int32)`
 
 SetTransactionTimestamp sets TransactionTimestamp field to given value.
+
+
+### GetTransactionFee
+
+`func (o *ListConfirmedTokensTransfersByAddressRI) GetTransactionFee() ListTokensTransfersByTransactionHashRITransactionFee`
+
+GetTransactionFee returns the TransactionFee field if non-nil, zero value otherwise.
+
+### GetTransactionFeeOk
+
+`func (o *ListConfirmedTokensTransfersByAddressRI) GetTransactionFeeOk() (*ListTokensTransfersByTransactionHashRITransactionFee, bool)`
+
+GetTransactionFeeOk returns a tuple with the TransactionFee field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransactionFee
+
+`func (o *ListConfirmedTokensTransfersByAddressRI) SetTransactionFee(v ListTokensTransfersByTransactionHashRITransactionFee)`
+
+SetTransactionFee sets TransactionFee field to given value.
 
 
 

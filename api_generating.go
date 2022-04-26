@@ -13,23 +13,19 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // GeneratingApiService GeneratingApi service
 type GeneratingApiService service
 
 type ApiGenerateDepositAddressRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *GeneratingApiService
 	blockchain string
 	network string
@@ -43,12 +39,13 @@ func (r ApiGenerateDepositAddressRequest) Context(context string) ApiGenerateDep
 	r.context = &context
 	return r
 }
+
 func (r ApiGenerateDepositAddressRequest) GenerateDepositAddressRB(generateDepositAddressRB GenerateDepositAddressRB) ApiGenerateDepositAddressRequest {
 	r.generateDepositAddressRB = &generateDepositAddressRB
 	return r
 }
 
-func (r ApiGenerateDepositAddressRequest) Execute() (GenerateDepositAddressR, *_nethttp.Response, error) {
+func (r ApiGenerateDepositAddressRequest) Execute() (*GenerateDepositAddressR, *http.Response, error) {
 	return r.ApiService.GenerateDepositAddressExecute(r)
 }
 
@@ -57,13 +54,13 @@ GenerateDepositAddress Generate Deposit Address
 
 Through this endpoint customers can generate a new Receiving/Deposit Addresses into their Wallet.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param walletId Represents the unique ID of the specific Wallet.
  @return ApiGenerateDepositAddressRequest
 */
-func (a *GeneratingApiService) GenerateDepositAddress(ctx _context.Context, blockchain string, network string, walletId string) ApiGenerateDepositAddressRequest {
+func (a *GeneratingApiService) GenerateDepositAddress(ctx context.Context, blockchain string, network string, walletId string) ApiGenerateDepositAddressRequest {
 	return ApiGenerateDepositAddressRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -75,27 +72,27 @@ func (a *GeneratingApiService) GenerateDepositAddress(ctx _context.Context, bloc
 
 // Execute executes the request
 //  @return GenerateDepositAddressR
-func (a *GeneratingApiService) GenerateDepositAddressExecute(r ApiGenerateDepositAddressRequest) (GenerateDepositAddressR, *_nethttp.Response, error) {
+func (a *GeneratingApiService) GenerateDepositAddressExecute(r ApiGenerateDepositAddressRequest) (*GenerateDepositAddressR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GenerateDepositAddressR
+		localVarReturnValue  *GenerateDepositAddressR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "GeneratingApiService.GenerateDepositAddress")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", _neturl.PathEscape(parameterToString(r.walletId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", url.PathEscape(parameterToString(r.walletId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -143,15 +140,15 @@ func (a *GeneratingApiService) GenerateDepositAddressExecute(r ApiGenerateDeposi
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -259,7 +256,7 @@ func (a *GeneratingApiService) GenerateDepositAddressExecute(r ApiGenerateDeposi
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

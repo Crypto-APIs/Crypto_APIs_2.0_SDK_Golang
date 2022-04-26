@@ -25,17 +25,23 @@ type GetZilliqaBlockDetailsByBlockHashE400 struct {
 
 // InvalidPaginationAsGetZilliqaBlockDetailsByBlockHashE400 is a convenience function that returns InvalidPagination wrapped in GetZilliqaBlockDetailsByBlockHashE400
 func InvalidPaginationAsGetZilliqaBlockDetailsByBlockHashE400(v *InvalidPagination) GetZilliqaBlockDetailsByBlockHashE400 {
-	return GetZilliqaBlockDetailsByBlockHashE400{ InvalidPagination: v}
+	return GetZilliqaBlockDetailsByBlockHashE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsGetZilliqaBlockDetailsByBlockHashE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in GetZilliqaBlockDetailsByBlockHashE400
 func LimitGreaterThanAllowedAsGetZilliqaBlockDetailsByBlockHashE400(v *LimitGreaterThanAllowed) GetZilliqaBlockDetailsByBlockHashE400 {
-	return GetZilliqaBlockDetailsByBlockHashE400{ LimitGreaterThanAllowed: v}
+	return GetZilliqaBlockDetailsByBlockHashE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsGetZilliqaBlockDetailsByBlockHashE400 is a convenience function that returns UriNotFound wrapped in GetZilliqaBlockDetailsByBlockHashE400
 func UriNotFoundAsGetZilliqaBlockDetailsByBlockHashE400(v *UriNotFound) GetZilliqaBlockDetailsByBlockHashE400 {
-	return GetZilliqaBlockDetailsByBlockHashE400{ UriNotFound: v}
+	return GetZilliqaBlockDetailsByBlockHashE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *GetZilliqaBlockDetailsByBlockHashE400) UnmarshalJSON(data []byte) err
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *GetZilliqaBlockDetailsByBlockHashE400) UnmarshalJSON(data []byte) err
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *GetZilliqaBlockDetailsByBlockHashE400) UnmarshalJSON(data []byte) err
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src GetZilliqaBlockDetailsByBlockHashE400) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetZilliqaBlockDetailsByBlockHashE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

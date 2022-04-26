@@ -31,47 +31,65 @@ type GetLastMinedBlockRIBS struct {
 
 // GetLastMinedBlockRIBSBAsGetLastMinedBlockRIBS is a convenience function that returns GetLastMinedBlockRIBSB wrapped in GetLastMinedBlockRIBS
 func GetLastMinedBlockRIBSBAsGetLastMinedBlockRIBS(v *GetLastMinedBlockRIBSB) GetLastMinedBlockRIBS {
-	return GetLastMinedBlockRIBS{ GetLastMinedBlockRIBSB: v}
+	return GetLastMinedBlockRIBS{
+		GetLastMinedBlockRIBSB: v,
+	}
 }
 
 // GetLastMinedBlockRIBSBCAsGetLastMinedBlockRIBS is a convenience function that returns GetLastMinedBlockRIBSBC wrapped in GetLastMinedBlockRIBS
 func GetLastMinedBlockRIBSBCAsGetLastMinedBlockRIBS(v *GetLastMinedBlockRIBSBC) GetLastMinedBlockRIBS {
-	return GetLastMinedBlockRIBS{ GetLastMinedBlockRIBSBC: v}
+	return GetLastMinedBlockRIBS{
+		GetLastMinedBlockRIBSBC: v,
+	}
 }
 
 // GetLastMinedBlockRIBSBSCAsGetLastMinedBlockRIBS is a convenience function that returns GetLastMinedBlockRIBSBSC wrapped in GetLastMinedBlockRIBS
 func GetLastMinedBlockRIBSBSCAsGetLastMinedBlockRIBS(v *GetLastMinedBlockRIBSBSC) GetLastMinedBlockRIBS {
-	return GetLastMinedBlockRIBS{ GetLastMinedBlockRIBSBSC: v}
+	return GetLastMinedBlockRIBS{
+		GetLastMinedBlockRIBSBSC: v,
+	}
 }
 
 // GetLastMinedBlockRIBSDAsGetLastMinedBlockRIBS is a convenience function that returns GetLastMinedBlockRIBSD wrapped in GetLastMinedBlockRIBS
 func GetLastMinedBlockRIBSDAsGetLastMinedBlockRIBS(v *GetLastMinedBlockRIBSD) GetLastMinedBlockRIBS {
-	return GetLastMinedBlockRIBS{ GetLastMinedBlockRIBSD: v}
+	return GetLastMinedBlockRIBS{
+		GetLastMinedBlockRIBSD: v,
+	}
 }
 
 // GetLastMinedBlockRIBSD2AsGetLastMinedBlockRIBS is a convenience function that returns GetLastMinedBlockRIBSD2 wrapped in GetLastMinedBlockRIBS
 func GetLastMinedBlockRIBSD2AsGetLastMinedBlockRIBS(v *GetLastMinedBlockRIBSD2) GetLastMinedBlockRIBS {
-	return GetLastMinedBlockRIBS{ GetLastMinedBlockRIBSD2: v}
+	return GetLastMinedBlockRIBS{
+		GetLastMinedBlockRIBSD2: v,
+	}
 }
 
 // GetLastMinedBlockRIBSEAsGetLastMinedBlockRIBS is a convenience function that returns GetLastMinedBlockRIBSE wrapped in GetLastMinedBlockRIBS
 func GetLastMinedBlockRIBSEAsGetLastMinedBlockRIBS(v *GetLastMinedBlockRIBSE) GetLastMinedBlockRIBS {
-	return GetLastMinedBlockRIBS{ GetLastMinedBlockRIBSE: v}
+	return GetLastMinedBlockRIBS{
+		GetLastMinedBlockRIBSE: v,
+	}
 }
 
 // GetLastMinedBlockRIBSECAsGetLastMinedBlockRIBS is a convenience function that returns GetLastMinedBlockRIBSEC wrapped in GetLastMinedBlockRIBS
 func GetLastMinedBlockRIBSECAsGetLastMinedBlockRIBS(v *GetLastMinedBlockRIBSEC) GetLastMinedBlockRIBS {
-	return GetLastMinedBlockRIBS{ GetLastMinedBlockRIBSEC: v}
+	return GetLastMinedBlockRIBS{
+		GetLastMinedBlockRIBSEC: v,
+	}
 }
 
 // GetLastMinedBlockRIBSLAsGetLastMinedBlockRIBS is a convenience function that returns GetLastMinedBlockRIBSL wrapped in GetLastMinedBlockRIBS
 func GetLastMinedBlockRIBSLAsGetLastMinedBlockRIBS(v *GetLastMinedBlockRIBSL) GetLastMinedBlockRIBS {
-	return GetLastMinedBlockRIBS{ GetLastMinedBlockRIBSL: v}
+	return GetLastMinedBlockRIBS{
+		GetLastMinedBlockRIBSL: v,
+	}
 }
 
 // GetLastMinedBlockRIBSZAsGetLastMinedBlockRIBS is a convenience function that returns GetLastMinedBlockRIBSZ wrapped in GetLastMinedBlockRIBS
 func GetLastMinedBlockRIBSZAsGetLastMinedBlockRIBS(v *GetLastMinedBlockRIBSZ) GetLastMinedBlockRIBS {
-	return GetLastMinedBlockRIBS{ GetLastMinedBlockRIBSZ: v}
+	return GetLastMinedBlockRIBS{
+		GetLastMinedBlockRIBSZ: v,
+	}
 }
 
 
@@ -80,7 +98,7 @@ func (dst *GetLastMinedBlockRIBS) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into GetLastMinedBlockRIBSB
-	err = json.Unmarshal(data, &dst.GetLastMinedBlockRIBSB)
+	err = newStrictDecoder(data).Decode(&dst.GetLastMinedBlockRIBSB)
 	if err == nil {
 		jsonGetLastMinedBlockRIBSB, _ := json.Marshal(dst.GetLastMinedBlockRIBSB)
 		if string(jsonGetLastMinedBlockRIBSB) == "{}" { // empty struct
@@ -93,7 +111,7 @@ func (dst *GetLastMinedBlockRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetLastMinedBlockRIBSBC
-	err = json.Unmarshal(data, &dst.GetLastMinedBlockRIBSBC)
+	err = newStrictDecoder(data).Decode(&dst.GetLastMinedBlockRIBSBC)
 	if err == nil {
 		jsonGetLastMinedBlockRIBSBC, _ := json.Marshal(dst.GetLastMinedBlockRIBSBC)
 		if string(jsonGetLastMinedBlockRIBSBC) == "{}" { // empty struct
@@ -106,7 +124,7 @@ func (dst *GetLastMinedBlockRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetLastMinedBlockRIBSBSC
-	err = json.Unmarshal(data, &dst.GetLastMinedBlockRIBSBSC)
+	err = newStrictDecoder(data).Decode(&dst.GetLastMinedBlockRIBSBSC)
 	if err == nil {
 		jsonGetLastMinedBlockRIBSBSC, _ := json.Marshal(dst.GetLastMinedBlockRIBSBSC)
 		if string(jsonGetLastMinedBlockRIBSBSC) == "{}" { // empty struct
@@ -119,7 +137,7 @@ func (dst *GetLastMinedBlockRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetLastMinedBlockRIBSD
-	err = json.Unmarshal(data, &dst.GetLastMinedBlockRIBSD)
+	err = newStrictDecoder(data).Decode(&dst.GetLastMinedBlockRIBSD)
 	if err == nil {
 		jsonGetLastMinedBlockRIBSD, _ := json.Marshal(dst.GetLastMinedBlockRIBSD)
 		if string(jsonGetLastMinedBlockRIBSD) == "{}" { // empty struct
@@ -132,7 +150,7 @@ func (dst *GetLastMinedBlockRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetLastMinedBlockRIBSD2
-	err = json.Unmarshal(data, &dst.GetLastMinedBlockRIBSD2)
+	err = newStrictDecoder(data).Decode(&dst.GetLastMinedBlockRIBSD2)
 	if err == nil {
 		jsonGetLastMinedBlockRIBSD2, _ := json.Marshal(dst.GetLastMinedBlockRIBSD2)
 		if string(jsonGetLastMinedBlockRIBSD2) == "{}" { // empty struct
@@ -145,7 +163,7 @@ func (dst *GetLastMinedBlockRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetLastMinedBlockRIBSE
-	err = json.Unmarshal(data, &dst.GetLastMinedBlockRIBSE)
+	err = newStrictDecoder(data).Decode(&dst.GetLastMinedBlockRIBSE)
 	if err == nil {
 		jsonGetLastMinedBlockRIBSE, _ := json.Marshal(dst.GetLastMinedBlockRIBSE)
 		if string(jsonGetLastMinedBlockRIBSE) == "{}" { // empty struct
@@ -158,7 +176,7 @@ func (dst *GetLastMinedBlockRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetLastMinedBlockRIBSEC
-	err = json.Unmarshal(data, &dst.GetLastMinedBlockRIBSEC)
+	err = newStrictDecoder(data).Decode(&dst.GetLastMinedBlockRIBSEC)
 	if err == nil {
 		jsonGetLastMinedBlockRIBSEC, _ := json.Marshal(dst.GetLastMinedBlockRIBSEC)
 		if string(jsonGetLastMinedBlockRIBSEC) == "{}" { // empty struct
@@ -171,7 +189,7 @@ func (dst *GetLastMinedBlockRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetLastMinedBlockRIBSL
-	err = json.Unmarshal(data, &dst.GetLastMinedBlockRIBSL)
+	err = newStrictDecoder(data).Decode(&dst.GetLastMinedBlockRIBSL)
 	if err == nil {
 		jsonGetLastMinedBlockRIBSL, _ := json.Marshal(dst.GetLastMinedBlockRIBSL)
 		if string(jsonGetLastMinedBlockRIBSL) == "{}" { // empty struct
@@ -184,7 +202,7 @@ func (dst *GetLastMinedBlockRIBS) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into GetLastMinedBlockRIBSZ
-	err = json.Unmarshal(data, &dst.GetLastMinedBlockRIBSZ)
+	err = newStrictDecoder(data).Decode(&dst.GetLastMinedBlockRIBSZ)
 	if err == nil {
 		jsonGetLastMinedBlockRIBSZ, _ := json.Marshal(dst.GetLastMinedBlockRIBSZ)
 		if string(jsonGetLastMinedBlockRIBSZ) == "{}" { // empty struct
@@ -259,6 +277,9 @@ func (src GetLastMinedBlockRIBS) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetLastMinedBlockRIBS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.GetLastMinedBlockRIBSB != nil {
 		return obj.GetLastMinedBlockRIBSB
 	}

@@ -29,6 +29,8 @@ type GetTransactionRequestDetailsRI struct {
 	Recipients []GetTransactionRequestDetailsRIRecipients `json:"recipients"`
 	// Defines the total transaction amount.
 	TotalTransactionAmount string `json:"totalTransactionAmount"`
+	// Represents the unique identifier of a transaction, i.e. it could be transactionId in UTXO-based protocols like Bitcoin, and transaction hash in Ethereum blockchain.
+	TransactionId *string `json:"transactionId,omitempty"`
 	// Defines the status of the transaction request, e.g. pending.
 	TransactionRequestStatus string `json:"transactionRequestStatus"`
 	// Defines the transaction type, if it is for coins or tokens.
@@ -79,7 +81,7 @@ func (o *GetTransactionRequestDetailsRI) GetAdditionalDetails() string {
 // GetAdditionalDetailsOk returns a tuple with the AdditionalDetails field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionRequestDetailsRI) GetAdditionalDetailsOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.AdditionalDetails, true
@@ -103,7 +105,7 @@ func (o *GetTransactionRequestDetailsRI) GetBlockchain() string {
 // GetBlockchainOk returns a tuple with the Blockchain field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionRequestDetailsRI) GetBlockchainOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Blockchain, true
@@ -127,7 +129,7 @@ func (o *GetTransactionRequestDetailsRI) GetFeePriority() string {
 // GetFeePriorityOk returns a tuple with the FeePriority field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionRequestDetailsRI) GetFeePriorityOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.FeePriority, true
@@ -151,7 +153,7 @@ func (o *GetTransactionRequestDetailsRI) GetNetwork() string {
 // GetNetworkOk returns a tuple with the Network field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionRequestDetailsRI) GetNetworkOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Network, true
@@ -174,11 +176,11 @@ func (o *GetTransactionRequestDetailsRI) GetRecipients() []GetTransactionRequest
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionRequestDetailsRI) GetRecipientsOk() (*[]GetTransactionRequestDetailsRIRecipients, bool) {
-	if o == nil  {
+func (o *GetTransactionRequestDetailsRI) GetRecipientsOk() ([]GetTransactionRequestDetailsRIRecipients, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Recipients, true
+	return o.Recipients, true
 }
 
 // SetRecipients sets field value
@@ -199,7 +201,7 @@ func (o *GetTransactionRequestDetailsRI) GetTotalTransactionAmount() string {
 // GetTotalTransactionAmountOk returns a tuple with the TotalTransactionAmount field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionRequestDetailsRI) GetTotalTransactionAmountOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TotalTransactionAmount, true
@@ -208,6 +210,38 @@ func (o *GetTransactionRequestDetailsRI) GetTotalTransactionAmountOk() (*string,
 // SetTotalTransactionAmount sets field value
 func (o *GetTransactionRequestDetailsRI) SetTotalTransactionAmount(v string) {
 	o.TotalTransactionAmount = v
+}
+
+// GetTransactionId returns the TransactionId field value if set, zero value otherwise.
+func (o *GetTransactionRequestDetailsRI) GetTransactionId() string {
+	if o == nil || o.TransactionId == nil {
+		var ret string
+		return ret
+	}
+	return *o.TransactionId
+}
+
+// GetTransactionIdOk returns a tuple with the TransactionId field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *GetTransactionRequestDetailsRI) GetTransactionIdOk() (*string, bool) {
+	if o == nil || o.TransactionId == nil {
+		return nil, false
+	}
+	return o.TransactionId, true
+}
+
+// HasTransactionId returns a boolean if a field has been set.
+func (o *GetTransactionRequestDetailsRI) HasTransactionId() bool {
+	if o != nil && o.TransactionId != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTransactionId gets a reference to the given string and assigns it to the TransactionId field.
+func (o *GetTransactionRequestDetailsRI) SetTransactionId(v string) {
+	o.TransactionId = &v
 }
 
 // GetTransactionRequestStatus returns the TransactionRequestStatus field value
@@ -223,7 +257,7 @@ func (o *GetTransactionRequestDetailsRI) GetTransactionRequestStatus() string {
 // GetTransactionRequestStatusOk returns a tuple with the TransactionRequestStatus field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionRequestDetailsRI) GetTransactionRequestStatusOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionRequestStatus, true
@@ -247,7 +281,7 @@ func (o *GetTransactionRequestDetailsRI) GetTransactionType() string {
 // GetTransactionTypeOk returns a tuple with the TransactionType field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionRequestDetailsRI) GetTransactionTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionType, true
@@ -271,7 +305,7 @@ func (o *GetTransactionRequestDetailsRI) GetUnit() string {
 // GetUnitOk returns a tuple with the Unit field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionRequestDetailsRI) GetUnitOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Unit, true
@@ -295,7 +329,7 @@ func (o *GetTransactionRequestDetailsRI) GetWalletId() string {
 // GetWalletIdOk returns a tuple with the WalletId field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionRequestDetailsRI) GetWalletIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.WalletId, true
@@ -325,6 +359,9 @@ func (o GetTransactionRequestDetailsRI) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["totalTransactionAmount"] = o.TotalTransactionAmount
+	}
+	if o.TransactionId != nil {
+		toSerialize["transactionId"] = o.TransactionId
 	}
 	if true {
 		toSerialize["transactionRequestStatus"] = o.TransactionRequestStatus

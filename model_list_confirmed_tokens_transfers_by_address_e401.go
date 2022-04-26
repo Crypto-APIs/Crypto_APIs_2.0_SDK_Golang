@@ -24,12 +24,16 @@ type ListConfirmedTokensTransfersByAddressE401 struct {
 
 // InvalidApiKeyAsListConfirmedTokensTransfersByAddressE401 is a convenience function that returns InvalidApiKey wrapped in ListConfirmedTokensTransfersByAddressE401
 func InvalidApiKeyAsListConfirmedTokensTransfersByAddressE401(v *InvalidApiKey) ListConfirmedTokensTransfersByAddressE401 {
-	return ListConfirmedTokensTransfersByAddressE401{ InvalidApiKey: v}
+	return ListConfirmedTokensTransfersByAddressE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsListConfirmedTokensTransfersByAddressE401 is a convenience function that returns MissingApiKey wrapped in ListConfirmedTokensTransfersByAddressE401
 func MissingApiKeyAsListConfirmedTokensTransfersByAddressE401(v *MissingApiKey) ListConfirmedTokensTransfersByAddressE401 {
-	return ListConfirmedTokensTransfersByAddressE401{ MissingApiKey: v}
+	return ListConfirmedTokensTransfersByAddressE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *ListConfirmedTokensTransfersByAddressE401) UnmarshalJSON(data []byte)
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *ListConfirmedTokensTransfersByAddressE401) UnmarshalJSON(data []byte)
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src ListConfirmedTokensTransfersByAddressE401) MarshalJSON() ([]byte, erro
 
 // Get the actual instance
 func (obj *ListConfirmedTokensTransfersByAddressE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

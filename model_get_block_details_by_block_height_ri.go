@@ -69,7 +69,7 @@ func (o *GetBlockDetailsByBlockHeightRI) GetHash() string {
 // GetHashOk returns a tuple with the Hash field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRI) GetHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Hash, true
@@ -93,7 +93,7 @@ func (o *GetBlockDetailsByBlockHeightRI) GetHeight() int32 {
 // GetHeightOk returns a tuple with the Height field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRI) GetHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Height, true
@@ -117,7 +117,7 @@ func (o *GetBlockDetailsByBlockHeightRI) GetNextBlockHash() string {
 // GetNextBlockHashOk returns a tuple with the NextBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRI) GetNextBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.NextBlockHash, true
@@ -141,7 +141,7 @@ func (o *GetBlockDetailsByBlockHeightRI) GetPreviousBlockHash() string {
 // GetPreviousBlockHashOk returns a tuple with the PreviousBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRI) GetPreviousBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PreviousBlockHash, true
@@ -165,7 +165,7 @@ func (o *GetBlockDetailsByBlockHeightRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -189,7 +189,7 @@ func (o *GetBlockDetailsByBlockHeightRI) GetTransactionsCount() int32 {
 // GetTransactionsCountOk returns a tuple with the TransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRI) GetTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionsCount, true
@@ -213,7 +213,7 @@ func (o *GetBlockDetailsByBlockHeightRI) GetBlockchainSpecific() GetBlockDetails
 // GetBlockchainSpecificOk returns a tuple with the BlockchainSpecific field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightRI) GetBlockchainSpecificOk() (*GetBlockDetailsByBlockHeightRIBS, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockchainSpecific, true

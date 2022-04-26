@@ -33,57 +33,79 @@ type GetBlockDetailsByBlockHeightFromCallbackRIBS struct {
 
 // GetBlockDetailsByBlockHeightFromCallbackRIBSBAsGetBlockDetailsByBlockHeightFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHeightFromCallbackRIBSB wrapped in GetBlockDetailsByBlockHeightFromCallbackRIBS
 func GetBlockDetailsByBlockHeightFromCallbackRIBSBAsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBSB) GetBlockDetailsByBlockHeightFromCallbackRIBS {
-	return GetBlockDetailsByBlockHeightFromCallbackRIBS{ GetBlockDetailsByBlockHeightFromCallbackRIBSB: v}
+	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
+		GetBlockDetailsByBlockHeightFromCallbackRIBSB: v,
+	}
 }
 
 // GetBlockDetailsByBlockHeightFromCallbackRIBSBCAsGetBlockDetailsByBlockHeightFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHeightFromCallbackRIBSBC wrapped in GetBlockDetailsByBlockHeightFromCallbackRIBS
 func GetBlockDetailsByBlockHeightFromCallbackRIBSBCAsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBSBC) GetBlockDetailsByBlockHeightFromCallbackRIBS {
-	return GetBlockDetailsByBlockHeightFromCallbackRIBS{ GetBlockDetailsByBlockHeightFromCallbackRIBSBC: v}
+	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
+		GetBlockDetailsByBlockHeightFromCallbackRIBSBC: v,
+	}
 }
 
 // GetBlockDetailsByBlockHeightFromCallbackRIBSBSCAsGetBlockDetailsByBlockHeightFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHeightFromCallbackRIBSBSC wrapped in GetBlockDetailsByBlockHeightFromCallbackRIBS
 func GetBlockDetailsByBlockHeightFromCallbackRIBSBSCAsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBSBSC) GetBlockDetailsByBlockHeightFromCallbackRIBS {
-	return GetBlockDetailsByBlockHeightFromCallbackRIBS{ GetBlockDetailsByBlockHeightFromCallbackRIBSBSC: v}
+	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
+		GetBlockDetailsByBlockHeightFromCallbackRIBSBSC: v,
+	}
 }
 
 // GetBlockDetailsByBlockHeightFromCallbackRIBSDAsGetBlockDetailsByBlockHeightFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHeightFromCallbackRIBSD wrapped in GetBlockDetailsByBlockHeightFromCallbackRIBS
 func GetBlockDetailsByBlockHeightFromCallbackRIBSDAsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBSD) GetBlockDetailsByBlockHeightFromCallbackRIBS {
-	return GetBlockDetailsByBlockHeightFromCallbackRIBS{ GetBlockDetailsByBlockHeightFromCallbackRIBSD: v}
+	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
+		GetBlockDetailsByBlockHeightFromCallbackRIBSD: v,
+	}
 }
 
 // GetBlockDetailsByBlockHeightFromCallbackRIBSD2AsGetBlockDetailsByBlockHeightFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHeightFromCallbackRIBSD2 wrapped in GetBlockDetailsByBlockHeightFromCallbackRIBS
 func GetBlockDetailsByBlockHeightFromCallbackRIBSD2AsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBSD2) GetBlockDetailsByBlockHeightFromCallbackRIBS {
-	return GetBlockDetailsByBlockHeightFromCallbackRIBS{ GetBlockDetailsByBlockHeightFromCallbackRIBSD2: v}
+	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
+		GetBlockDetailsByBlockHeightFromCallbackRIBSD2: v,
+	}
 }
 
 // GetBlockDetailsByBlockHeightFromCallbackRIBSEAsGetBlockDetailsByBlockHeightFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHeightFromCallbackRIBSE wrapped in GetBlockDetailsByBlockHeightFromCallbackRIBS
 func GetBlockDetailsByBlockHeightFromCallbackRIBSEAsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBSE) GetBlockDetailsByBlockHeightFromCallbackRIBS {
-	return GetBlockDetailsByBlockHeightFromCallbackRIBS{ GetBlockDetailsByBlockHeightFromCallbackRIBSE: v}
+	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
+		GetBlockDetailsByBlockHeightFromCallbackRIBSE: v,
+	}
 }
 
 // GetBlockDetailsByBlockHeightFromCallbackRIBSECAsGetBlockDetailsByBlockHeightFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHeightFromCallbackRIBSEC wrapped in GetBlockDetailsByBlockHeightFromCallbackRIBS
 func GetBlockDetailsByBlockHeightFromCallbackRIBSECAsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBSEC) GetBlockDetailsByBlockHeightFromCallbackRIBS {
-	return GetBlockDetailsByBlockHeightFromCallbackRIBS{ GetBlockDetailsByBlockHeightFromCallbackRIBSEC: v}
+	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
+		GetBlockDetailsByBlockHeightFromCallbackRIBSEC: v,
+	}
 }
 
 // GetBlockDetailsByBlockHeightFromCallbackRIBSLAsGetBlockDetailsByBlockHeightFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHeightFromCallbackRIBSL wrapped in GetBlockDetailsByBlockHeightFromCallbackRIBS
 func GetBlockDetailsByBlockHeightFromCallbackRIBSLAsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetBlockDetailsByBlockHeightFromCallbackRIBS {
-	return GetBlockDetailsByBlockHeightFromCallbackRIBS{ GetBlockDetailsByBlockHeightFromCallbackRIBSL: v}
+	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
+		GetBlockDetailsByBlockHeightFromCallbackRIBSL: v,
+	}
 }
 
 // GetBlockDetailsByBlockHeightFromCallbackRIBSXAsGetBlockDetailsByBlockHeightFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHeightFromCallbackRIBSX wrapped in GetBlockDetailsByBlockHeightFromCallbackRIBS
 func GetBlockDetailsByBlockHeightFromCallbackRIBSXAsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBSX) GetBlockDetailsByBlockHeightFromCallbackRIBS {
-	return GetBlockDetailsByBlockHeightFromCallbackRIBS{ GetBlockDetailsByBlockHeightFromCallbackRIBSX: v}
+	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
+		GetBlockDetailsByBlockHeightFromCallbackRIBSX: v,
+	}
 }
 
 // GetBlockDetailsByBlockHeightFromCallbackRIBSZAsGetBlockDetailsByBlockHeightFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHeightFromCallbackRIBSZ wrapped in GetBlockDetailsByBlockHeightFromCallbackRIBS
 func GetBlockDetailsByBlockHeightFromCallbackRIBSZAsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBSZ) GetBlockDetailsByBlockHeightFromCallbackRIBS {
-	return GetBlockDetailsByBlockHeightFromCallbackRIBS{ GetBlockDetailsByBlockHeightFromCallbackRIBSZ: v}
+	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
+		GetBlockDetailsByBlockHeightFromCallbackRIBSZ: v,
+	}
 }
 
 // GetBlockDetailsByBlockHeightFromCallbackRIBSZ2AsGetBlockDetailsByBlockHeightFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHeightFromCallbackRIBSZ2 wrapped in GetBlockDetailsByBlockHeightFromCallbackRIBS
 func GetBlockDetailsByBlockHeightFromCallbackRIBSZ2AsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBSZ2) GetBlockDetailsByBlockHeightFromCallbackRIBS {
-	return GetBlockDetailsByBlockHeightFromCallbackRIBS{ GetBlockDetailsByBlockHeightFromCallbackRIBSZ2: v}
+	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
+		GetBlockDetailsByBlockHeightFromCallbackRIBSZ2: v,
+	}
 }
 
 
@@ -92,7 +114,7 @@ func (dst *GetBlockDetailsByBlockHeightFromCallbackRIBS) UnmarshalJSON(data []by
 	var err error
 	match := 0
 	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBSB
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHeightFromCallbackRIBSB)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBSB)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHeightFromCallbackRIBSB, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightFromCallbackRIBSB)
 		if string(jsonGetBlockDetailsByBlockHeightFromCallbackRIBSB) == "{}" { // empty struct
@@ -105,7 +127,7 @@ func (dst *GetBlockDetailsByBlockHeightFromCallbackRIBS) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBSBC
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHeightFromCallbackRIBSBC)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBSBC)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHeightFromCallbackRIBSBC, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightFromCallbackRIBSBC)
 		if string(jsonGetBlockDetailsByBlockHeightFromCallbackRIBSBC) == "{}" { // empty struct
@@ -118,7 +140,7 @@ func (dst *GetBlockDetailsByBlockHeightFromCallbackRIBS) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBSBSC
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHeightFromCallbackRIBSBSC)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBSBSC)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHeightFromCallbackRIBSBSC, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightFromCallbackRIBSBSC)
 		if string(jsonGetBlockDetailsByBlockHeightFromCallbackRIBSBSC) == "{}" { // empty struct
@@ -131,7 +153,7 @@ func (dst *GetBlockDetailsByBlockHeightFromCallbackRIBS) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBSD
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHeightFromCallbackRIBSD)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBSD)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHeightFromCallbackRIBSD, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightFromCallbackRIBSD)
 		if string(jsonGetBlockDetailsByBlockHeightFromCallbackRIBSD) == "{}" { // empty struct
@@ -144,7 +166,7 @@ func (dst *GetBlockDetailsByBlockHeightFromCallbackRIBS) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBSD2
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHeightFromCallbackRIBSD2)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBSD2)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHeightFromCallbackRIBSD2, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightFromCallbackRIBSD2)
 		if string(jsonGetBlockDetailsByBlockHeightFromCallbackRIBSD2) == "{}" { // empty struct
@@ -157,7 +179,7 @@ func (dst *GetBlockDetailsByBlockHeightFromCallbackRIBS) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBSE
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHeightFromCallbackRIBSE)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBSE)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHeightFromCallbackRIBSE, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightFromCallbackRIBSE)
 		if string(jsonGetBlockDetailsByBlockHeightFromCallbackRIBSE) == "{}" { // empty struct
@@ -170,7 +192,7 @@ func (dst *GetBlockDetailsByBlockHeightFromCallbackRIBS) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBSEC
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHeightFromCallbackRIBSEC)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBSEC)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHeightFromCallbackRIBSEC, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightFromCallbackRIBSEC)
 		if string(jsonGetBlockDetailsByBlockHeightFromCallbackRIBSEC) == "{}" { // empty struct
@@ -183,7 +205,7 @@ func (dst *GetBlockDetailsByBlockHeightFromCallbackRIBS) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBSL
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHeightFromCallbackRIBSL)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBSL)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHeightFromCallbackRIBSL, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightFromCallbackRIBSL)
 		if string(jsonGetBlockDetailsByBlockHeightFromCallbackRIBSL) == "{}" { // empty struct
@@ -196,7 +218,7 @@ func (dst *GetBlockDetailsByBlockHeightFromCallbackRIBS) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBSX
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHeightFromCallbackRIBSX)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBSX)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHeightFromCallbackRIBSX, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightFromCallbackRIBSX)
 		if string(jsonGetBlockDetailsByBlockHeightFromCallbackRIBSX) == "{}" { // empty struct
@@ -209,7 +231,7 @@ func (dst *GetBlockDetailsByBlockHeightFromCallbackRIBS) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBSZ
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHeightFromCallbackRIBSZ)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBSZ)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHeightFromCallbackRIBSZ, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightFromCallbackRIBSZ)
 		if string(jsonGetBlockDetailsByBlockHeightFromCallbackRIBSZ) == "{}" { // empty struct
@@ -222,7 +244,7 @@ func (dst *GetBlockDetailsByBlockHeightFromCallbackRIBS) UnmarshalJSON(data []by
 	}
 
 	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBSZ2
-	err = json.Unmarshal(data, &dst.GetBlockDetailsByBlockHeightFromCallbackRIBSZ2)
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBSZ2)
 	if err == nil {
 		jsonGetBlockDetailsByBlockHeightFromCallbackRIBSZ2, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightFromCallbackRIBSZ2)
 		if string(jsonGetBlockDetailsByBlockHeightFromCallbackRIBSZ2) == "{}" { // empty struct
@@ -307,6 +329,9 @@ func (src GetBlockDetailsByBlockHeightFromCallbackRIBS) MarshalJSON() ([]byte, e
 
 // Get the actual instance
 func (obj *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.GetBlockDetailsByBlockHeightFromCallbackRIBSB != nil {
 		return obj.GetBlockDetailsByBlockHeightFromCallbackRIBSB
 	}

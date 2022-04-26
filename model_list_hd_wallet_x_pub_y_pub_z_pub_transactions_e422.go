@@ -24,12 +24,16 @@ type ListHDWalletXPubYPubZPubTransactionsE422 struct {
 
 // InvalidRequestBodyStructureAsListHDWalletXPubYPubZPubTransactionsE422 is a convenience function that returns InvalidRequestBodyStructure wrapped in ListHDWalletXPubYPubZPubTransactionsE422
 func InvalidRequestBodyStructureAsListHDWalletXPubYPubZPubTransactionsE422(v *InvalidRequestBodyStructure) ListHDWalletXPubYPubZPubTransactionsE422 {
-	return ListHDWalletXPubYPubZPubTransactionsE422{ InvalidRequestBodyStructure: v}
+	return ListHDWalletXPubYPubZPubTransactionsE422{
+		InvalidRequestBodyStructure: v,
+	}
 }
 
 // XpubSyncInProgressAsListHDWalletXPubYPubZPubTransactionsE422 is a convenience function that returns XpubSyncInProgress wrapped in ListHDWalletXPubYPubZPubTransactionsE422
 func XpubSyncInProgressAsListHDWalletXPubYPubZPubTransactionsE422(v *XpubSyncInProgress) ListHDWalletXPubYPubZPubTransactionsE422 {
-	return ListHDWalletXPubYPubZPubTransactionsE422{ XpubSyncInProgress: v}
+	return ListHDWalletXPubYPubZPubTransactionsE422{
+		XpubSyncInProgress: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *ListHDWalletXPubYPubZPubTransactionsE422) UnmarshalJSON(data []byte) 
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidRequestBodyStructure
-	err = json.Unmarshal(data, &dst.InvalidRequestBodyStructure)
+	err = newStrictDecoder(data).Decode(&dst.InvalidRequestBodyStructure)
 	if err == nil {
 		jsonInvalidRequestBodyStructure, _ := json.Marshal(dst.InvalidRequestBodyStructure)
 		if string(jsonInvalidRequestBodyStructure) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *ListHDWalletXPubYPubZPubTransactionsE422) UnmarshalJSON(data []byte) 
 	}
 
 	// try to unmarshal data into XpubSyncInProgress
-	err = json.Unmarshal(data, &dst.XpubSyncInProgress)
+	err = newStrictDecoder(data).Decode(&dst.XpubSyncInProgress)
 	if err == nil {
 		jsonXpubSyncInProgress, _ := json.Marshal(dst.XpubSyncInProgress)
 		if string(jsonXpubSyncInProgress) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src ListHDWalletXPubYPubZPubTransactionsE422) MarshalJSON() ([]byte, error
 
 // Get the actual instance
 func (obj *ListHDWalletXPubYPubZPubTransactionsE422) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidRequestBodyStructure != nil {
 		return obj.InvalidRequestBodyStructure
 	}

@@ -23,14 +23,14 @@ type InlineResponse40029 struct {
 	RequestId string `json:"requestId"`
 	// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.
 	Context *string `json:"context,omitempty"`
-	Error GetZilliqaBlockDetailsByBlockHeightE400 `json:"error"`
+	Error ListUnconfirmedOmniTransactionsByPropertyIDE400 `json:"error"`
 }
 
 // NewInlineResponse40029 instantiates a new InlineResponse40029 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse40029(apiVersion string, requestId string, error_ GetZilliqaBlockDetailsByBlockHeightE400) *InlineResponse40029 {
+func NewInlineResponse40029(apiVersion string, requestId string, error_ ListUnconfirmedOmniTransactionsByPropertyIDE400) *InlineResponse40029 {
 	this := InlineResponse40029{}
 	this.ApiVersion = apiVersion
 	this.RequestId = requestId
@@ -59,7 +59,7 @@ func (o *InlineResponse40029) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40029) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *InlineResponse40029) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40029) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -127,9 +127,9 @@ func (o *InlineResponse40029) SetContext(v string) {
 }
 
 // GetError returns the Error field value
-func (o *InlineResponse40029) GetError() GetZilliqaBlockDetailsByBlockHeightE400 {
+func (o *InlineResponse40029) GetError() ListUnconfirmedOmniTransactionsByPropertyIDE400 {
 	if o == nil {
-		var ret GetZilliqaBlockDetailsByBlockHeightE400
+		var ret ListUnconfirmedOmniTransactionsByPropertyIDE400
 		return ret
 	}
 
@@ -138,15 +138,15 @@ func (o *InlineResponse40029) GetError() GetZilliqaBlockDetailsByBlockHeightE400
 
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse40029) GetErrorOk() (*GetZilliqaBlockDetailsByBlockHeightE400, bool) {
-	if o == nil  {
+func (o *InlineResponse40029) GetErrorOk() (*ListUnconfirmedOmniTransactionsByPropertyIDE400, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Error, true
 }
 
 // SetError sets field value
-func (o *InlineResponse40029) SetError(v GetZilliqaBlockDetailsByBlockHeightE400) {
+func (o *InlineResponse40029) SetError(v ListUnconfirmedOmniTransactionsByPropertyIDE400) {
 	o.Error = v
 }
 

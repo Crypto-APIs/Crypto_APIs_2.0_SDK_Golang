@@ -18,7 +18,7 @@ import (
 // ListAllUnconfirmedTransactionsRIBSD Dogecoin
 type ListAllUnconfirmedTransactionsRIBSD struct {
 	// Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid.
-	Locktime int32 `json:"locktime"`
+	Locktime int64 `json:"locktime"`
 	// Represents the total size of this transaction.
 	Size int32 `json:"size"`
 	// Defines the version of the transaction.
@@ -33,7 +33,7 @@ type ListAllUnconfirmedTransactionsRIBSD struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListAllUnconfirmedTransactionsRIBSD(locktime int32, size int32, version int32, vin []ListAllUnconfirmedTransactionsRIBSDVin, vout []GetTransactionDetailsByTransactionIDRIBSDVout) *ListAllUnconfirmedTransactionsRIBSD {
+func NewListAllUnconfirmedTransactionsRIBSD(locktime int64, size int32, version int32, vin []ListAllUnconfirmedTransactionsRIBSDVin, vout []GetTransactionDetailsByTransactionIDRIBSDVout) *ListAllUnconfirmedTransactionsRIBSD {
 	this := ListAllUnconfirmedTransactionsRIBSD{}
 	this.Locktime = locktime
 	this.Size = size
@@ -52,9 +52,9 @@ func NewListAllUnconfirmedTransactionsRIBSDWithDefaults() *ListAllUnconfirmedTra
 }
 
 // GetLocktime returns the Locktime field value
-func (o *ListAllUnconfirmedTransactionsRIBSD) GetLocktime() int32 {
+func (o *ListAllUnconfirmedTransactionsRIBSD) GetLocktime() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -63,15 +63,15 @@ func (o *ListAllUnconfirmedTransactionsRIBSD) GetLocktime() int32 {
 
 // GetLocktimeOk returns a tuple with the Locktime field value
 // and a boolean to check if the value has been set.
-func (o *ListAllUnconfirmedTransactionsRIBSD) GetLocktimeOk() (*int32, bool) {
-	if o == nil  {
+func (o *ListAllUnconfirmedTransactionsRIBSD) GetLocktimeOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Locktime, true
 }
 
 // SetLocktime sets field value
-func (o *ListAllUnconfirmedTransactionsRIBSD) SetLocktime(v int32) {
+func (o *ListAllUnconfirmedTransactionsRIBSD) SetLocktime(v int64) {
 	o.Locktime = v
 }
 
@@ -88,7 +88,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSD) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRIBSD) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -112,7 +112,7 @@ func (o *ListAllUnconfirmedTransactionsRIBSD) GetVersion() int32 {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *ListAllUnconfirmedTransactionsRIBSD) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -135,11 +135,11 @@ func (o *ListAllUnconfirmedTransactionsRIBSD) GetVin() []ListAllUnconfirmedTrans
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListAllUnconfirmedTransactionsRIBSD) GetVinOk() (*[]ListAllUnconfirmedTransactionsRIBSDVin, bool) {
-	if o == nil  {
+func (o *ListAllUnconfirmedTransactionsRIBSD) GetVinOk() ([]ListAllUnconfirmedTransactionsRIBSDVin, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vin, true
+	return o.Vin, true
 }
 
 // SetVin sets field value
@@ -159,11 +159,11 @@ func (o *ListAllUnconfirmedTransactionsRIBSD) GetVout() []GetTransactionDetailsB
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListAllUnconfirmedTransactionsRIBSD) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSDVout, bool) {
-	if o == nil  {
+func (o *ListAllUnconfirmedTransactionsRIBSD) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSDVout, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vout, true
+	return o.Vout, true
 }
 
 // SetVout sets field value

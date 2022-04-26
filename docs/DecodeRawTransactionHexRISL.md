@@ -1,0 +1,182 @@
+# DecodeRawTransactionHexRISL
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Locktime** | **int32** | Represents the time at which a particular transaction can be added to the blockchain | 
+**TransactionHash** | **string** | Represents the same as transactionId for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols hash is different from transactionId for SegWit transactions. | 
+**VSize** | **int32** | Represents the virtual size of this transaction. | 
+**Version** | **int32** | Represents transaction version number. | 
+**Vin** | [**[]DecodeRawTransactionHexRISLVin**](DecodeRawTransactionHexRISLVin.md) | Represents the transaction inputs. | 
+**Vout** | [**[]DecodeRawTransactionHexRISLVout**](DecodeRawTransactionHexRISLVout.md) | Represents the transaction outputs. | 
+**Weight** | Pointer to **int32** | Represents the size of a block, measured in weight units and including the segwit discount. | [optional] 
+
+## Methods
+
+### NewDecodeRawTransactionHexRISL
+
+`func NewDecodeRawTransactionHexRISL(locktime int32, transactionHash string, vSize int32, version int32, vin []DecodeRawTransactionHexRISLVin, vout []DecodeRawTransactionHexRISLVout, ) *DecodeRawTransactionHexRISL`
+
+NewDecodeRawTransactionHexRISL instantiates a new DecodeRawTransactionHexRISL object
+This constructor will assign default values to properties that have it defined,
+and makes sure properties required by API are set, but the set of arguments
+will change when the set of required properties is changed
+
+### NewDecodeRawTransactionHexRISLWithDefaults
+
+`func NewDecodeRawTransactionHexRISLWithDefaults() *DecodeRawTransactionHexRISL`
+
+NewDecodeRawTransactionHexRISLWithDefaults instantiates a new DecodeRawTransactionHexRISL object
+This constructor will only assign default values to properties that have it defined,
+but it doesn't guarantee that properties required by API are set
+
+### GetLocktime
+
+`func (o *DecodeRawTransactionHexRISL) GetLocktime() int32`
+
+GetLocktime returns the Locktime field if non-nil, zero value otherwise.
+
+### GetLocktimeOk
+
+`func (o *DecodeRawTransactionHexRISL) GetLocktimeOk() (*int32, bool)`
+
+GetLocktimeOk returns a tuple with the Locktime field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetLocktime
+
+`func (o *DecodeRawTransactionHexRISL) SetLocktime(v int32)`
+
+SetLocktime sets Locktime field to given value.
+
+
+### GetTransactionHash
+
+`func (o *DecodeRawTransactionHexRISL) GetTransactionHash() string`
+
+GetTransactionHash returns the TransactionHash field if non-nil, zero value otherwise.
+
+### GetTransactionHashOk
+
+`func (o *DecodeRawTransactionHexRISL) GetTransactionHashOk() (*string, bool)`
+
+GetTransactionHashOk returns a tuple with the TransactionHash field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransactionHash
+
+`func (o *DecodeRawTransactionHexRISL) SetTransactionHash(v string)`
+
+SetTransactionHash sets TransactionHash field to given value.
+
+
+### GetVSize
+
+`func (o *DecodeRawTransactionHexRISL) GetVSize() int32`
+
+GetVSize returns the VSize field if non-nil, zero value otherwise.
+
+### GetVSizeOk
+
+`func (o *DecodeRawTransactionHexRISL) GetVSizeOk() (*int32, bool)`
+
+GetVSizeOk returns a tuple with the VSize field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVSize
+
+`func (o *DecodeRawTransactionHexRISL) SetVSize(v int32)`
+
+SetVSize sets VSize field to given value.
+
+
+### GetVersion
+
+`func (o *DecodeRawTransactionHexRISL) GetVersion() int32`
+
+GetVersion returns the Version field if non-nil, zero value otherwise.
+
+### GetVersionOk
+
+`func (o *DecodeRawTransactionHexRISL) GetVersionOk() (*int32, bool)`
+
+GetVersionOk returns a tuple with the Version field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVersion
+
+`func (o *DecodeRawTransactionHexRISL) SetVersion(v int32)`
+
+SetVersion sets Version field to given value.
+
+
+### GetVin
+
+`func (o *DecodeRawTransactionHexRISL) GetVin() []DecodeRawTransactionHexRISLVin`
+
+GetVin returns the Vin field if non-nil, zero value otherwise.
+
+### GetVinOk
+
+`func (o *DecodeRawTransactionHexRISL) GetVinOk() (*[]DecodeRawTransactionHexRISLVin, bool)`
+
+GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVin
+
+`func (o *DecodeRawTransactionHexRISL) SetVin(v []DecodeRawTransactionHexRISLVin)`
+
+SetVin sets Vin field to given value.
+
+
+### GetVout
+
+`func (o *DecodeRawTransactionHexRISL) GetVout() []DecodeRawTransactionHexRISLVout`
+
+GetVout returns the Vout field if non-nil, zero value otherwise.
+
+### GetVoutOk
+
+`func (o *DecodeRawTransactionHexRISL) GetVoutOk() (*[]DecodeRawTransactionHexRISLVout, bool)`
+
+GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetVout
+
+`func (o *DecodeRawTransactionHexRISL) SetVout(v []DecodeRawTransactionHexRISLVout)`
+
+SetVout sets Vout field to given value.
+
+
+### GetWeight
+
+`func (o *DecodeRawTransactionHexRISL) GetWeight() int32`
+
+GetWeight returns the Weight field if non-nil, zero value otherwise.
+
+### GetWeightOk
+
+`func (o *DecodeRawTransactionHexRISL) GetWeightOk() (*int32, bool)`
+
+GetWeightOk returns a tuple with the Weight field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetWeight
+
+`func (o *DecodeRawTransactionHexRISL) SetWeight(v int32)`
+
+SetWeight sets Weight field to given value.
+
+### HasWeight
+
+`func (o *DecodeRawTransactionHexRISL) HasWeight() bool`
+
+HasWeight returns a boolean if a field has been set.
+
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

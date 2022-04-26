@@ -24,12 +24,16 @@ type GetHDWalletXPubYPubZPubDetailsE422 struct {
 
 // InvalidRequestBodyStructureAsGetHDWalletXPubYPubZPubDetailsE422 is a convenience function that returns InvalidRequestBodyStructure wrapped in GetHDWalletXPubYPubZPubDetailsE422
 func InvalidRequestBodyStructureAsGetHDWalletXPubYPubZPubDetailsE422(v *InvalidRequestBodyStructure) GetHDWalletXPubYPubZPubDetailsE422 {
-	return GetHDWalletXPubYPubZPubDetailsE422{ InvalidRequestBodyStructure: v}
+	return GetHDWalletXPubYPubZPubDetailsE422{
+		InvalidRequestBodyStructure: v,
+	}
 }
 
 // XpubSyncInProgressAsGetHDWalletXPubYPubZPubDetailsE422 is a convenience function that returns XpubSyncInProgress wrapped in GetHDWalletXPubYPubZPubDetailsE422
 func XpubSyncInProgressAsGetHDWalletXPubYPubZPubDetailsE422(v *XpubSyncInProgress) GetHDWalletXPubYPubZPubDetailsE422 {
-	return GetHDWalletXPubYPubZPubDetailsE422{ XpubSyncInProgress: v}
+	return GetHDWalletXPubYPubZPubDetailsE422{
+		XpubSyncInProgress: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *GetHDWalletXPubYPubZPubDetailsE422) UnmarshalJSON(data []byte) error 
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidRequestBodyStructure
-	err = json.Unmarshal(data, &dst.InvalidRequestBodyStructure)
+	err = newStrictDecoder(data).Decode(&dst.InvalidRequestBodyStructure)
 	if err == nil {
 		jsonInvalidRequestBodyStructure, _ := json.Marshal(dst.InvalidRequestBodyStructure)
 		if string(jsonInvalidRequestBodyStructure) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *GetHDWalletXPubYPubZPubDetailsE422) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into XpubSyncInProgress
-	err = json.Unmarshal(data, &dst.XpubSyncInProgress)
+	err = newStrictDecoder(data).Decode(&dst.XpubSyncInProgress)
 	if err == nil {
 		jsonXpubSyncInProgress, _ := json.Marshal(dst.XpubSyncInProgress)
 		if string(jsonXpubSyncInProgress) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src GetHDWalletXPubYPubZPubDetailsE422) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetHDWalletXPubYPubZPubDetailsE422) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidRequestBodyStructure != nil {
 		return obj.InvalidRequestBodyStructure
 	}

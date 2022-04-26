@@ -24,12 +24,16 @@ type BroadcastLocallySignedTransactionE409 struct {
 
 // AlreadyExistsAsBroadcastLocallySignedTransactionE409 is a convenience function that returns AlreadyExists wrapped in BroadcastLocallySignedTransactionE409
 func AlreadyExistsAsBroadcastLocallySignedTransactionE409(v *AlreadyExists) BroadcastLocallySignedTransactionE409 {
-	return BroadcastLocallySignedTransactionE409{ AlreadyExists: v}
+	return BroadcastLocallySignedTransactionE409{
+		AlreadyExists: v,
+	}
 }
 
 // InvalidDataAsBroadcastLocallySignedTransactionE409 is a convenience function that returns InvalidData wrapped in BroadcastLocallySignedTransactionE409
 func InvalidDataAsBroadcastLocallySignedTransactionE409(v *InvalidData) BroadcastLocallySignedTransactionE409 {
-	return BroadcastLocallySignedTransactionE409{ InvalidData: v}
+	return BroadcastLocallySignedTransactionE409{
+		InvalidData: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *BroadcastLocallySignedTransactionE409) UnmarshalJSON(data []byte) err
 	var err error
 	match := 0
 	// try to unmarshal data into AlreadyExists
-	err = json.Unmarshal(data, &dst.AlreadyExists)
+	err = newStrictDecoder(data).Decode(&dst.AlreadyExists)
 	if err == nil {
 		jsonAlreadyExists, _ := json.Marshal(dst.AlreadyExists)
 		if string(jsonAlreadyExists) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *BroadcastLocallySignedTransactionE409) UnmarshalJSON(data []byte) err
 	}
 
 	// try to unmarshal data into InvalidData
-	err = json.Unmarshal(data, &dst.InvalidData)
+	err = newStrictDecoder(data).Decode(&dst.InvalidData)
 	if err == nil {
 		jsonInvalidData, _ := json.Marshal(dst.InvalidData)
 		if string(jsonInvalidData) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src BroadcastLocallySignedTransactionE409) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *BroadcastLocallySignedTransactionE409) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.AlreadyExists != nil {
 		return obj.AlreadyExists
 	}

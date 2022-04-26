@@ -32,11 +32,11 @@ import (
 
 func main() {
     assetId := "5b1ea92e584bf50020130612" // string | Defines the unique ID of the specific asset.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AssetsApi.GetAssetDetailsByAssetID(context.Background(), assetId).Context(context).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AssetsApi.GetAssetDetailsByAssetID(context.Background(), assetId).Context(context).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.GetAssetDetailsByAssetID``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -104,11 +104,11 @@ import (
 
 func main() {
     assetSymbol := "BTC" // string | Specifies the asset's unique symbol in the Crypto APIs listings.
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AssetsApi.GetAssetDetailsByAssetSymbol(context.Background(), assetSymbol).Context(context).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AssetsApi.GetAssetDetailsByAssetSymbol(context.Background(), assetSymbol).Context(context).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.GetAssetDetailsByAssetSymbol``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -175,16 +175,16 @@ import (
 )
 
 func main() {
-    context := "context_example" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     assetType := "crypto" // string | Defines the type of the supported asset. This could be either \"crypto\" or \"fiat\". (optional)
     cryptoType := "coin" // string | Subtype of the crypto assets. Could be COIN or TOKEN (optional)
     limit := int32(50) // int32 | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
-    offset := int32(10) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
+    offset := int32(0) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
     waasEnabled := true // bool | Show only if WaaS is/not enabled (optional)
 
     configuration := openapiclient.NewConfiguration()
-    api_client := openapiclient.NewAPIClient(configuration)
-    resp, r, err := api_client.AssetsApi.ListAssetsDetails(context.Background()).Context(context).AssetType(assetType).CryptoType(cryptoType).Limit(limit).Offset(offset).WaasEnabled(waasEnabled).Execute()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.AssetsApi.ListAssetsDetails(context.Background()).Context(context).AssetType(assetType).CryptoType(cryptoType).Limit(limit).Offset(offset).WaasEnabled(waasEnabled).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AssetsApi.ListAssetsDetails``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)

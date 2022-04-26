@@ -18,7 +18,7 @@ import (
 // GetTransactionDetailsByTransactionIDRIBSL Litecoin
 type GetTransactionDetailsByTransactionIDRIBSL struct {
 	// Represents the time at which a particular transaction can be added to the blockchain.
-	Locktime int32 `json:"locktime"`
+	Locktime int64 `json:"locktime"`
 	// Represents the total size of this transaction.
 	Size int32 `json:"size"`
 	// Represents the virtual size of this transaction.
@@ -35,7 +35,7 @@ type GetTransactionDetailsByTransactionIDRIBSL struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDRIBSL(locktime int32, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSLVin, vout []GetTransactionDetailsByTransactionIDRIBSLVout) *GetTransactionDetailsByTransactionIDRIBSL {
+func NewGetTransactionDetailsByTransactionIDRIBSL(locktime int64, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSLVin, vout []GetTransactionDetailsByTransactionIDRIBSLVout) *GetTransactionDetailsByTransactionIDRIBSL {
 	this := GetTransactionDetailsByTransactionIDRIBSL{}
 	this.Locktime = locktime
 	this.Size = size
@@ -55,9 +55,9 @@ func NewGetTransactionDetailsByTransactionIDRIBSLWithDefaults() *GetTransactionD
 }
 
 // GetLocktime returns the Locktime field value
-func (o *GetTransactionDetailsByTransactionIDRIBSL) GetLocktime() int32 {
+func (o *GetTransactionDetailsByTransactionIDRIBSL) GetLocktime() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -66,15 +66,15 @@ func (o *GetTransactionDetailsByTransactionIDRIBSL) GetLocktime() int32 {
 
 // GetLocktimeOk returns a tuple with the Locktime field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDRIBSL) GetLocktimeOk() (*int32, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDRIBSL) GetLocktimeOk() (*int64, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Locktime, true
 }
 
 // SetLocktime sets field value
-func (o *GetTransactionDetailsByTransactionIDRIBSL) SetLocktime(v int32) {
+func (o *GetTransactionDetailsByTransactionIDRIBSL) SetLocktime(v int64) {
 	o.Locktime = v
 }
 
@@ -91,7 +91,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSL) GetSize() int32 {
 // GetSizeOk returns a tuple with the Size field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSL) GetSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Size, true
@@ -115,7 +115,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSL) GetVSize() int32 {
 // GetVSizeOk returns a tuple with the VSize field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSL) GetVSizeOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.VSize, true
@@ -139,7 +139,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSL) GetVersion() int32 {
 // GetVersionOk returns a tuple with the Version field value
 // and a boolean to check if the value has been set.
 func (o *GetTransactionDetailsByTransactionIDRIBSL) GetVersionOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Version, true
@@ -162,11 +162,11 @@ func (o *GetTransactionDetailsByTransactionIDRIBSL) GetVin() []GetTransactionDet
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDRIBSL) GetVinOk() (*[]GetTransactionDetailsByTransactionIDRIBSLVin, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDRIBSL) GetVinOk() ([]GetTransactionDetailsByTransactionIDRIBSLVin, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vin, true
+	return o.Vin, true
 }
 
 // SetVin sets field value
@@ -186,11 +186,11 @@ func (o *GetTransactionDetailsByTransactionIDRIBSL) GetVout() []GetTransactionDe
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDRIBSL) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSLVout, bool) {
-	if o == nil  {
+func (o *GetTransactionDetailsByTransactionIDRIBSL) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSLVout, bool) {
+	if o == nil {
 		return nil, false
 	}
-	return &o.Vout, true
+	return o.Vout, true
 }
 
 // SetVout sets field value

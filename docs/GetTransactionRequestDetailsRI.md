@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
 **Recipients** | [**[]GetTransactionRequestDetailsRIRecipients**](GetTransactionRequestDetailsRIRecipients.md) | Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
 **TotalTransactionAmount** | **string** | Defines the total transaction amount. | 
+**TransactionId** | Pointer to **string** | Represents the unique identifier of a transaction, i.e. it could be transactionId in UTXO-based protocols like Bitcoin, and transaction hash in Ethereum blockchain. | [optional] 
 **TransactionRequestStatus** | **string** | Defines the status of the transaction request, e.g. pending. | 
 **TransactionType** | **string** | Defines the transaction type, if it is for coins or tokens. | 
 **Unit** | **string** | Defines the unit of the amount. | 
@@ -153,6 +154,31 @@ and a boolean to check if the value has been set.
 
 SetTotalTransactionAmount sets TotalTransactionAmount field to given value.
 
+
+### GetTransactionId
+
+`func (o *GetTransactionRequestDetailsRI) GetTransactionId() string`
+
+GetTransactionId returns the TransactionId field if non-nil, zero value otherwise.
+
+### GetTransactionIdOk
+
+`func (o *GetTransactionRequestDetailsRI) GetTransactionIdOk() (*string, bool)`
+
+GetTransactionIdOk returns a tuple with the TransactionId field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTransactionId
+
+`func (o *GetTransactionRequestDetailsRI) SetTransactionId(v string)`
+
+SetTransactionId sets TransactionId field to given value.
+
+### HasTransactionId
+
+`func (o *GetTransactionRequestDetailsRI) HasTransactionId() bool`
+
+HasTransactionId returns a boolean if a field has been set.
 
 ### GetTransactionRequestStatus
 

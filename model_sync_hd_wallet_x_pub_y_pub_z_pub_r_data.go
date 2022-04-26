@@ -51,7 +51,7 @@ func (o *SyncHDWalletXPubYPubZPubRData) GetItem() SyncHDWalletXPubYPubZPubRI {
 // GetItemOk returns a tuple with the Item field value
 // and a boolean to check if the value has been set.
 func (o *SyncHDWalletXPubYPubZPubRData) GetItemOk() (*SyncHDWalletXPubYPubZPubRI, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Item, true

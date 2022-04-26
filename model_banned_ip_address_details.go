@@ -55,7 +55,7 @@ func (o *BannedIpAddressDetails) GetAttribute() string {
 // GetAttributeOk returns a tuple with the Attribute field value
 // and a boolean to check if the value has been set.
 func (o *BannedIpAddressDetails) GetAttributeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Attribute, true
@@ -79,7 +79,7 @@ func (o *BannedIpAddressDetails) GetMessage() string {
 // GetMessageOk returns a tuple with the Message field value
 // and a boolean to check if the value has been set.
 func (o *BannedIpAddressDetails) GetMessageOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Message, true

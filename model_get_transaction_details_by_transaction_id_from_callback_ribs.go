@@ -33,57 +33,79 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBS struct {
 
 // GetTransactionDetailsByTransactionIDFromCallbackRIBSBAsGetTransactionDetailsByTransactionIDFromCallbackRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDFromCallbackRIBSB wrapped in GetTransactionDetailsByTransactionIDFromCallbackRIBS
 func GetTransactionDetailsByTransactionIDFromCallbackRIBSBAsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBSB) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
-	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{ GetTransactionDetailsByTransactionIDFromCallbackRIBSB: v}
+	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
+		GetTransactionDetailsByTransactionIDFromCallbackRIBSB: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDFromCallbackRIBSBCAsGetTransactionDetailsByTransactionIDFromCallbackRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDFromCallbackRIBSBC wrapped in GetTransactionDetailsByTransactionIDFromCallbackRIBS
 func GetTransactionDetailsByTransactionIDFromCallbackRIBSBCAsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
-	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{ GetTransactionDetailsByTransactionIDFromCallbackRIBSBC: v}
+	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
+		GetTransactionDetailsByTransactionIDFromCallbackRIBSBC: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDFromCallbackRIBSBSCAsGetTransactionDetailsByTransactionIDFromCallbackRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDFromCallbackRIBSBSC wrapped in GetTransactionDetailsByTransactionIDFromCallbackRIBS
 func GetTransactionDetailsByTransactionIDFromCallbackRIBSBSCAsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBSBSC) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
-	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{ GetTransactionDetailsByTransactionIDFromCallbackRIBSBSC: v}
+	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
+		GetTransactionDetailsByTransactionIDFromCallbackRIBSBSC: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDFromCallbackRIBSDAsGetTransactionDetailsByTransactionIDFromCallbackRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDFromCallbackRIBSD wrapped in GetTransactionDetailsByTransactionIDFromCallbackRIBS
 func GetTransactionDetailsByTransactionIDFromCallbackRIBSDAsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
-	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{ GetTransactionDetailsByTransactionIDFromCallbackRIBSD: v}
+	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
+		GetTransactionDetailsByTransactionIDFromCallbackRIBSD: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDFromCallbackRIBSD2AsGetTransactionDetailsByTransactionIDFromCallbackRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDFromCallbackRIBSD2 wrapped in GetTransactionDetailsByTransactionIDFromCallbackRIBS
 func GetTransactionDetailsByTransactionIDFromCallbackRIBSD2AsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBSD2) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
-	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{ GetTransactionDetailsByTransactionIDFromCallbackRIBSD2: v}
+	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
+		GetTransactionDetailsByTransactionIDFromCallbackRIBSD2: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDFromCallbackRIBSEAsGetTransactionDetailsByTransactionIDFromCallbackRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDFromCallbackRIBSE wrapped in GetTransactionDetailsByTransactionIDFromCallbackRIBS
 func GetTransactionDetailsByTransactionIDFromCallbackRIBSEAsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBSE) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
-	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{ GetTransactionDetailsByTransactionIDFromCallbackRIBSE: v}
+	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
+		GetTransactionDetailsByTransactionIDFromCallbackRIBSE: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDFromCallbackRIBSECAsGetTransactionDetailsByTransactionIDFromCallbackRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDFromCallbackRIBSEC wrapped in GetTransactionDetailsByTransactionIDFromCallbackRIBS
 func GetTransactionDetailsByTransactionIDFromCallbackRIBSECAsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
-	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{ GetTransactionDetailsByTransactionIDFromCallbackRIBSEC: v}
+	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
+		GetTransactionDetailsByTransactionIDFromCallbackRIBSEC: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDFromCallbackRIBSLAsGetTransactionDetailsByTransactionIDFromCallbackRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDFromCallbackRIBSL wrapped in GetTransactionDetailsByTransactionIDFromCallbackRIBS
 func GetTransactionDetailsByTransactionIDFromCallbackRIBSLAsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
-	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{ GetTransactionDetailsByTransactionIDFromCallbackRIBSL: v}
+	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
+		GetTransactionDetailsByTransactionIDFromCallbackRIBSL: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDFromCallbackRIBSXAsGetTransactionDetailsByTransactionIDFromCallbackRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDFromCallbackRIBSX wrapped in GetTransactionDetailsByTransactionIDFromCallbackRIBS
 func GetTransactionDetailsByTransactionIDFromCallbackRIBSXAsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBSX) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
-	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{ GetTransactionDetailsByTransactionIDFromCallbackRIBSX: v}
+	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
+		GetTransactionDetailsByTransactionIDFromCallbackRIBSX: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDFromCallbackRIBSZAsGetTransactionDetailsByTransactionIDFromCallbackRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDFromCallbackRIBSZ wrapped in GetTransactionDetailsByTransactionIDFromCallbackRIBS
 func GetTransactionDetailsByTransactionIDFromCallbackRIBSZAsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
-	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{ GetTransactionDetailsByTransactionIDFromCallbackRIBSZ: v}
+	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
+		GetTransactionDetailsByTransactionIDFromCallbackRIBSZ: v,
+	}
 }
 
 // GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2AsGetTransactionDetailsByTransactionIDFromCallbackRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2 wrapped in GetTransactionDetailsByTransactionIDFromCallbackRIBS
 func GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2AsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
-	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{ GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2: v}
+	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
+		GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2: v,
+	}
 }
 
 
@@ -92,7 +114,7 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackRIBS) UnmarshalJSON(d
 	var err error
 	match := 0
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBSB
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSB)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSB)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSB, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSB)
 		if string(jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSB) == "{}" { // empty struct
@@ -105,7 +127,7 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackRIBS) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBSBC
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSBC)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSBC)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSBC, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSBC)
 		if string(jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSBC) == "{}" { // empty struct
@@ -118,7 +140,7 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackRIBS) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBSBSC
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSBSC)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSBSC)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSBSC, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSBSC)
 		if string(jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSBSC) == "{}" { // empty struct
@@ -131,7 +153,7 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackRIBS) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBSD
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSD)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSD)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSD, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSD)
 		if string(jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSD) == "{}" { // empty struct
@@ -144,7 +166,7 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackRIBS) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBSD2
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSD2)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSD2)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSD2, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSD2)
 		if string(jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSD2) == "{}" { // empty struct
@@ -157,7 +179,7 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackRIBS) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBSE
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSE)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSE)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSE, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSE)
 		if string(jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSE) == "{}" { // empty struct
@@ -170,7 +192,7 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackRIBS) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBSEC
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSEC)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSEC)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSEC, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSEC)
 		if string(jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSEC) == "{}" { // empty struct
@@ -183,7 +205,7 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackRIBS) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBSL
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSL)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSL)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSL, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSL)
 		if string(jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSL) == "{}" { // empty struct
@@ -196,7 +218,7 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackRIBS) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBSX
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSX)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSX)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSX, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSX)
 		if string(jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSX) == "{}" { // empty struct
@@ -209,7 +231,7 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackRIBS) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBSZ
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSZ)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSZ)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSZ, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSZ)
 		if string(jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSZ) == "{}" { // empty struct
@@ -222,7 +244,7 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackRIBS) UnmarshalJSON(d
 	}
 
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2
-	err = json.Unmarshal(data, &dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2)
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2)
 	if err == nil {
 		jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSZ2, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2)
 		if string(jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSZ2) == "{}" { // empty struct
@@ -307,6 +329,9 @@ func (src GetTransactionDetailsByTransactionIDFromCallbackRIBS) MarshalJSON() ([
 
 // Get the actual instance
 func (obj *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.GetTransactionDetailsByTransactionIDFromCallbackRIBSB != nil {
 		return obj.GetTransactionDetailsByTransactionIDFromCallbackRIBSB
 	}

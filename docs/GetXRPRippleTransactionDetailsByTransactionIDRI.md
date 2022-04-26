@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AdditionalData** | **string** | Represents additional data that may be needed. | 
-**DestinationTag** | Pointer to **int32** |  | [optional] 
+**DestinationTag** | Pointer to **int64** |  | [optional] 
 **Index** | **string** | Defines the index of the transaction, i.e. the consecutive place it takes in the blockchain. | 
 **MinedInBlockHash** | **string** | Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
 **MinedInBlockHeight** | **string** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **Receive** | [**GetXRPRippleTransactionDetailsByTransactionIDRIReceive**](GetXRPRippleTransactionDetailsByTransactionIDRIReceive.md) |  | 
 **Recipients** | [**[]GetXRPRippleTransactionDetailsByTransactionIDRIRecipients**](GetXRPRippleTransactionDetailsByTransactionIDRIRecipients.md) | Represents an object of addresses that receive the transactions. | 
 **Senders** | [**[]GetXRPRippleTransactionDetailsByTransactionIDRISenders**](GetXRPRippleTransactionDetailsByTransactionIDRISenders.md) | Represents an object of addresses that provide the funds. | 
-**Sequence** | **int32** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
+**Sequence** | **int64** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
 **Status** | Pointer to **string** | Defines the status of the transaction. | [optional] 
 **Timestamp** | **int32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
 **TransactionHash** | **string** | Represents the same as &#x60;transactionId&#x60; for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols &#x60;hash&#x60; is different from &#x60;transactionId&#x60; for SegWit transactions. | 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewGetXRPRippleTransactionDetailsByTransactionIDRI
 
-`func NewGetXRPRippleTransactionDetailsByTransactionIDRI(additionalData string, index string, minedInBlockHash string, minedInBlockHeight string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, recipients []GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, senders []GetXRPRippleTransactionDetailsByTransactionIDRISenders, sequence int32, timestamp int32, transactionHash string, type_ string, fee GetXRPRippleTransactionDetailsByTransactionIDRIFee, value GetXRPRippleTransactionDetailsByTransactionIDRIValue, ) *GetXRPRippleTransactionDetailsByTransactionIDRI`
+`func NewGetXRPRippleTransactionDetailsByTransactionIDRI(additionalData string, index string, minedInBlockHash string, minedInBlockHeight string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, recipients []GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, senders []GetXRPRippleTransactionDetailsByTransactionIDRISenders, sequence int64, timestamp int32, transactionHash string, type_ string, fee GetXRPRippleTransactionDetailsByTransactionIDRIFee, value GetXRPRippleTransactionDetailsByTransactionIDRIValue, ) *GetXRPRippleTransactionDetailsByTransactionIDRI`
 
 NewGetXRPRippleTransactionDetailsByTransactionIDRI instantiates a new GetXRPRippleTransactionDetailsByTransactionIDRI object
 This constructor will assign default values to properties that have it defined,
@@ -62,20 +62,20 @@ SetAdditionalData sets AdditionalData field to given value.
 
 ### GetDestinationTag
 
-`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetDestinationTag() int32`
+`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetDestinationTag() int64`
 
 GetDestinationTag returns the DestinationTag field if non-nil, zero value otherwise.
 
 ### GetDestinationTagOk
 
-`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetDestinationTagOk() (*int32, bool)`
+`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetDestinationTagOk() (*int64, bool)`
 
 GetDestinationTagOk returns a tuple with the DestinationTag field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDestinationTag
 
-`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetDestinationTag(v int32)`
+`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetDestinationTag(v int64)`
 
 SetDestinationTag sets DestinationTag field to given value.
 
@@ -227,20 +227,20 @@ SetSenders sets Senders field to given value.
 
 ### GetSequence
 
-`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSequence() int32`
+`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSequence() int64`
 
 GetSequence returns the Sequence field if non-nil, zero value otherwise.
 
 ### GetSequenceOk
 
-`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSequenceOk() (*int32, bool)`
+`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSequenceOk() (*int64, bool)`
 
 GetSequenceOk returns a tuple with the Sequence field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSequence
 
-`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetSequence(v int32)`
+`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetSequence(v int64)`
 
 SetSequence sets Sequence field to given value.
 

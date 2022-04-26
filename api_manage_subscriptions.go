@@ -13,23 +13,19 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // ManageSubscriptionsApiService ManageSubscriptionsApi service
 type ManageSubscriptionsApiService service
 
 type ApiActivateBlockchainEventSubscriptionRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ManageSubscriptionsApiService
 	referenceId string
 	context *string
@@ -41,12 +37,13 @@ func (r ApiActivateBlockchainEventSubscriptionRequest) Context(context string) A
 	r.context = &context
 	return r
 }
+
 func (r ApiActivateBlockchainEventSubscriptionRequest) ActivateBlockchainEventSubscriptionRB(activateBlockchainEventSubscriptionRB ActivateBlockchainEventSubscriptionRB) ApiActivateBlockchainEventSubscriptionRequest {
 	r.activateBlockchainEventSubscriptionRB = &activateBlockchainEventSubscriptionRB
 	return r
 }
 
-func (r ApiActivateBlockchainEventSubscriptionRequest) Execute() (ActivateBlockchainEventSubscriptionR, *_nethttp.Response, error) {
+func (r ApiActivateBlockchainEventSubscriptionRequest) Execute() (*ActivateBlockchainEventSubscriptionR, *http.Response, error) {
 	return r.ApiService.ActivateBlockchainEventSubscriptionExecute(r)
 }
 
@@ -55,11 +52,11 @@ ActivateBlockchainEventSubscription Activate Blockchain Event Subscription
 
 Through this endpoint customers can reactivate an event subscription (callback) which has been deactivated by the system. Deactivations could happen due to various reasons, most often "maximum retry attempts reached".
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param referenceId Represents a unique ID used to reference the specific callback subscription.
  @return ApiActivateBlockchainEventSubscriptionRequest
 */
-func (a *ManageSubscriptionsApiService) ActivateBlockchainEventSubscription(ctx _context.Context, referenceId string) ApiActivateBlockchainEventSubscriptionRequest {
+func (a *ManageSubscriptionsApiService) ActivateBlockchainEventSubscription(ctx context.Context, referenceId string) ApiActivateBlockchainEventSubscriptionRequest {
 	return ApiActivateBlockchainEventSubscriptionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -69,25 +66,25 @@ func (a *ManageSubscriptionsApiService) ActivateBlockchainEventSubscription(ctx 
 
 // Execute executes the request
 //  @return ActivateBlockchainEventSubscriptionR
-func (a *ManageSubscriptionsApiService) ActivateBlockchainEventSubscriptionExecute(r ApiActivateBlockchainEventSubscriptionRequest) (ActivateBlockchainEventSubscriptionR, *_nethttp.Response, error) {
+func (a *ManageSubscriptionsApiService) ActivateBlockchainEventSubscriptionExecute(r ApiActivateBlockchainEventSubscriptionRequest) (*ActivateBlockchainEventSubscriptionR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodPost
+		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ActivateBlockchainEventSubscriptionR
+		localVarReturnValue  *ActivateBlockchainEventSubscriptionR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ManageSubscriptionsApiService.ActivateBlockchainEventSubscription")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/subscriptions/{referenceId}/activate"
-	localVarPath = strings.Replace(localVarPath, "{"+"referenceId"+"}", _neturl.PathEscape(parameterToString(r.referenceId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"referenceId"+"}", url.PathEscape(parameterToString(r.referenceId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -135,20 +132,20 @@ func (a *ManageSubscriptionsApiService) ActivateBlockchainEventSubscriptionExecu
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40067
+			var v InlineResponse40081
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -158,7 +155,7 @@ func (a *ManageSubscriptionsApiService) ActivateBlockchainEventSubscriptionExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40167
+			var v InlineResponse40181
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -178,7 +175,7 @@ func (a *ManageSubscriptionsApiService) ActivateBlockchainEventSubscriptionExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40367
+			var v InlineResponse40381
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -251,7 +248,7 @@ func (a *ManageSubscriptionsApiService) ActivateBlockchainEventSubscriptionExecu
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -262,7 +259,7 @@ func (a *ManageSubscriptionsApiService) ActivateBlockchainEventSubscriptionExecu
 }
 
 type ApiDeleteBlockchainEventSubscriptionRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ManageSubscriptionsApiService
 	blockchain string
 	network string
@@ -276,7 +273,7 @@ func (r ApiDeleteBlockchainEventSubscriptionRequest) Context(context string) Api
 	return r
 }
 
-func (r ApiDeleteBlockchainEventSubscriptionRequest) Execute() (DeleteBlockchainEventSubscriptionR, *_nethttp.Response, error) {
+func (r ApiDeleteBlockchainEventSubscriptionRequest) Execute() (*DeleteBlockchainEventSubscriptionR, *http.Response, error) {
 	return r.ApiService.DeleteBlockchainEventSubscriptionExecute(r)
 }
 
@@ -291,13 +288,13 @@ Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow 
 
 {warning}Crypto APIs will notify the user **only when** the event occurs. There are cases when the specific event doesn't happen at all, or takes a long time to do so. A callback notification **will not** be sent if the event does not or cannot occur, or will take long time to occur.{/warning}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param referenceId Represents a unique ID used to reference the specific callback subscription.
  @return ApiDeleteBlockchainEventSubscriptionRequest
 */
-func (a *ManageSubscriptionsApiService) DeleteBlockchainEventSubscription(ctx _context.Context, blockchain string, network string, referenceId string) ApiDeleteBlockchainEventSubscriptionRequest {
+func (a *ManageSubscriptionsApiService) DeleteBlockchainEventSubscription(ctx context.Context, blockchain string, network string, referenceId string) ApiDeleteBlockchainEventSubscriptionRequest {
 	return ApiDeleteBlockchainEventSubscriptionRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -309,27 +306,27 @@ func (a *ManageSubscriptionsApiService) DeleteBlockchainEventSubscription(ctx _c
 
 // Execute executes the request
 //  @return DeleteBlockchainEventSubscriptionR
-func (a *ManageSubscriptionsApiService) DeleteBlockchainEventSubscriptionExecute(r ApiDeleteBlockchainEventSubscriptionRequest) (DeleteBlockchainEventSubscriptionR, *_nethttp.Response, error) {
+func (a *ManageSubscriptionsApiService) DeleteBlockchainEventSubscriptionExecute(r ApiDeleteBlockchainEventSubscriptionRequest) (*DeleteBlockchainEventSubscriptionR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodDelete
+		localVarHTTPMethod   = http.MethodDelete
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  DeleteBlockchainEventSubscriptionR
+		localVarReturnValue  *DeleteBlockchainEventSubscriptionR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ManageSubscriptionsApiService.DeleteBlockchainEventSubscription")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions/{referenceId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"referenceId"+"}", _neturl.PathEscape(parameterToString(r.referenceId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"referenceId"+"}", url.PathEscape(parameterToString(r.referenceId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -375,20 +372,20 @@ func (a *ManageSubscriptionsApiService) DeleteBlockchainEventSubscriptionExecute
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40068
+			var v InlineResponse40082
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -398,7 +395,7 @@ func (a *ManageSubscriptionsApiService) DeleteBlockchainEventSubscriptionExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40168
+			var v InlineResponse40182
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -418,7 +415,7 @@ func (a *ManageSubscriptionsApiService) DeleteBlockchainEventSubscriptionExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40368
+			var v InlineResponse40382
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -491,7 +488,235 @@ func (a *ManageSubscriptionsApiService) DeleteBlockchainEventSubscriptionExecute
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetBlockchainEventSubscriptionDetailsByReferenceIDRequest struct {
+	ctx context.Context
+	ApiService *ManageSubscriptionsApiService
+	referenceId string
+	context *string
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiGetBlockchainEventSubscriptionDetailsByReferenceIDRequest) Context(context string) ApiGetBlockchainEventSubscriptionDetailsByReferenceIDRequest {
+	r.context = &context
+	return r
+}
+
+func (r ApiGetBlockchainEventSubscriptionDetailsByReferenceIDRequest) Execute() (*GetBlockchainEventSubscriptionDetailsByReferenceIDR, *http.Response, error) {
+	return r.ApiService.GetBlockchainEventSubscriptionDetailsByReferenceIDExecute(r)
+}
+
+/*
+GetBlockchainEventSubscriptionDetailsByReferenceID Get Blockchain Event Subscription Details By Reference ID
+
+Through this endpoint the customer can get detailed information for a callback subscription by providing its reference ID.
+
+Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow the user to subscribe for one/a few/all and receive callback notifications when the specific event occurs.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param referenceId Represents a unique ID used to reference the specific callback subscription.
+ @return ApiGetBlockchainEventSubscriptionDetailsByReferenceIDRequest
+*/
+func (a *ManageSubscriptionsApiService) GetBlockchainEventSubscriptionDetailsByReferenceID(ctx context.Context, referenceId string) ApiGetBlockchainEventSubscriptionDetailsByReferenceIDRequest {
+	return ApiGetBlockchainEventSubscriptionDetailsByReferenceIDRequest{
+		ApiService: a,
+		ctx: ctx,
+		referenceId: referenceId,
+	}
+}
+
+// Execute executes the request
+//  @return GetBlockchainEventSubscriptionDetailsByReferenceIDR
+func (a *ManageSubscriptionsApiService) GetBlockchainEventSubscriptionDetailsByReferenceIDExecute(r ApiGetBlockchainEventSubscriptionDetailsByReferenceIDRequest) (*GetBlockchainEventSubscriptionDetailsByReferenceIDR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetBlockchainEventSubscriptionDetailsByReferenceIDR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ManageSubscriptionsApiService.GetBlockchainEventSubscriptionDetailsByReferenceID")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/blockchain-events/subscriptions/{referenceId}"
+	localVarPath = strings.Replace(localVarPath, "{"+"referenceId"+"}", url.PathEscape(parameterToString(r.referenceId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InlineResponse40080
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v InlineResponse40180
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v InlineResponse402
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v InlineResponse40380
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v InlineResponse4041
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v InlineResponse409
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v InlineResponse415
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v InlineResponse422
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v InlineResponse429
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InlineResponse500
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -502,7 +727,7 @@ func (a *ManageSubscriptionsApiService) DeleteBlockchainEventSubscriptionExecute
 }
 
 type ApiListBlockchainEventsSubscriptionsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *ManageSubscriptionsApiService
 	blockchain string
 	network string
@@ -516,18 +741,20 @@ func (r ApiListBlockchainEventsSubscriptionsRequest) Context(context string) Api
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListBlockchainEventsSubscriptionsRequest) Limit(limit int32) ApiListBlockchainEventsSubscriptionsRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListBlockchainEventsSubscriptionsRequest) Offset(offset int32) ApiListBlockchainEventsSubscriptionsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListBlockchainEventsSubscriptionsRequest) Execute() (ListBlockchainEventsSubscriptionsR, *_nethttp.Response, error) {
+func (r ApiListBlockchainEventsSubscriptionsRequest) Execute() (*ListBlockchainEventsSubscriptionsR, *http.Response, error) {
 	return r.ApiService.ListBlockchainEventsSubscriptionsExecute(r)
 }
 
@@ -540,12 +767,12 @@ Currently Crypto APIs 2.0 offers certain Blockchain event endpoints which allow 
 
 {note}To have an operational callback subscription, you need to first verify a domain for the Callback URL. Please see more information on Callbacks [here](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-url).{/note}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiListBlockchainEventsSubscriptionsRequest
 */
-func (a *ManageSubscriptionsApiService) ListBlockchainEventsSubscriptions(ctx _context.Context, blockchain string, network string) ApiListBlockchainEventsSubscriptionsRequest {
+func (a *ManageSubscriptionsApiService) ListBlockchainEventsSubscriptions(ctx context.Context, blockchain string, network string) ApiListBlockchainEventsSubscriptionsRequest {
 	return ApiListBlockchainEventsSubscriptionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -556,26 +783,26 @@ func (a *ManageSubscriptionsApiService) ListBlockchainEventsSubscriptions(ctx _c
 
 // Execute executes the request
 //  @return ListBlockchainEventsSubscriptionsR
-func (a *ManageSubscriptionsApiService) ListBlockchainEventsSubscriptionsExecute(r ApiListBlockchainEventsSubscriptionsRequest) (ListBlockchainEventsSubscriptionsR, *_nethttp.Response, error) {
+func (a *ManageSubscriptionsApiService) ListBlockchainEventsSubscriptionsExecute(r ApiListBlockchainEventsSubscriptionsRequest) (*ListBlockchainEventsSubscriptionsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListBlockchainEventsSubscriptionsR
+		localVarReturnValue  *ListBlockchainEventsSubscriptionsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ManageSubscriptionsApiService.ListBlockchainEventsSubscriptions")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/blockchain-events/{blockchain}/{network}/subscriptions"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -627,20 +854,20 @@ func (a *ManageSubscriptionsApiService) ListBlockchainEventsSubscriptionsExecute
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40066
+			var v InlineResponse40079
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -650,7 +877,7 @@ func (a *ManageSubscriptionsApiService) ListBlockchainEventsSubscriptionsExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40166
+			var v InlineResponse40179
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -670,7 +897,7 @@ func (a *ManageSubscriptionsApiService) ListBlockchainEventsSubscriptionsExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40366
+			var v InlineResponse40379
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -733,7 +960,7 @@ func (a *ManageSubscriptionsApiService) ListBlockchainEventsSubscriptionsExecute
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

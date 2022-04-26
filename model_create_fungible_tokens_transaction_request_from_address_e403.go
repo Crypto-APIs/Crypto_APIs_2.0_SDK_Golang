@@ -26,22 +26,30 @@ type CreateFungibleTokensTransactionRequestFromAddressE403 struct {
 
 // BannedIpAddressAsCreateFungibleTokensTransactionRequestFromAddressE403 is a convenience function that returns BannedIpAddress wrapped in CreateFungibleTokensTransactionRequestFromAddressE403
 func BannedIpAddressAsCreateFungibleTokensTransactionRequestFromAddressE403(v *BannedIpAddress) CreateFungibleTokensTransactionRequestFromAddressE403 {
-	return CreateFungibleTokensTransactionRequestFromAddressE403{ BannedIpAddress: v}
+	return CreateFungibleTokensTransactionRequestFromAddressE403{
+		BannedIpAddress: v,
+	}
 }
 
 // EndpointNotAllowedForApiKeyAsCreateFungibleTokensTransactionRequestFromAddressE403 is a convenience function that returns EndpointNotAllowedForApiKey wrapped in CreateFungibleTokensTransactionRequestFromAddressE403
 func EndpointNotAllowedForApiKeyAsCreateFungibleTokensTransactionRequestFromAddressE403(v *EndpointNotAllowedForApiKey) CreateFungibleTokensTransactionRequestFromAddressE403 {
-	return CreateFungibleTokensTransactionRequestFromAddressE403{ EndpointNotAllowedForApiKey: v}
+	return CreateFungibleTokensTransactionRequestFromAddressE403{
+		EndpointNotAllowedForApiKey: v,
+	}
 }
 
 // EndpointNotAllowedForPlanAsCreateFungibleTokensTransactionRequestFromAddressE403 is a convenience function that returns EndpointNotAllowedForPlan wrapped in CreateFungibleTokensTransactionRequestFromAddressE403
 func EndpointNotAllowedForPlanAsCreateFungibleTokensTransactionRequestFromAddressE403(v *EndpointNotAllowedForPlan) CreateFungibleTokensTransactionRequestFromAddressE403 {
-	return CreateFungibleTokensTransactionRequestFromAddressE403{ EndpointNotAllowedForPlan: v}
+	return CreateFungibleTokensTransactionRequestFromAddressE403{
+		EndpointNotAllowedForPlan: v,
+	}
 }
 
 // FeatureMainnetsNotAllowedForPlanAsCreateFungibleTokensTransactionRequestFromAddressE403 is a convenience function that returns FeatureMainnetsNotAllowedForPlan wrapped in CreateFungibleTokensTransactionRequestFromAddressE403
 func FeatureMainnetsNotAllowedForPlanAsCreateFungibleTokensTransactionRequestFromAddressE403(v *FeatureMainnetsNotAllowedForPlan) CreateFungibleTokensTransactionRequestFromAddressE403 {
-	return CreateFungibleTokensTransactionRequestFromAddressE403{ FeatureMainnetsNotAllowedForPlan: v}
+	return CreateFungibleTokensTransactionRequestFromAddressE403{
+		FeatureMainnetsNotAllowedForPlan: v,
+	}
 }
 
 
@@ -50,7 +58,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressE403) UnmarshalJSON(
 	var err error
 	match := 0
 	// try to unmarshal data into BannedIpAddress
-	err = json.Unmarshal(data, &dst.BannedIpAddress)
+	err = newStrictDecoder(data).Decode(&dst.BannedIpAddress)
 	if err == nil {
 		jsonBannedIpAddress, _ := json.Marshal(dst.BannedIpAddress)
 		if string(jsonBannedIpAddress) == "{}" { // empty struct
@@ -63,7 +71,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressE403) UnmarshalJSON(
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForApiKey
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForApiKey)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForApiKey)
 	if err == nil {
 		jsonEndpointNotAllowedForApiKey, _ := json.Marshal(dst.EndpointNotAllowedForApiKey)
 		if string(jsonEndpointNotAllowedForApiKey) == "{}" { // empty struct
@@ -76,7 +84,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressE403) UnmarshalJSON(
 	}
 
 	// try to unmarshal data into EndpointNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.EndpointNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.EndpointNotAllowedForPlan)
 	if err == nil {
 		jsonEndpointNotAllowedForPlan, _ := json.Marshal(dst.EndpointNotAllowedForPlan)
 		if string(jsonEndpointNotAllowedForPlan) == "{}" { // empty struct
@@ -89,7 +97,7 @@ func (dst *CreateFungibleTokensTransactionRequestFromAddressE403) UnmarshalJSON(
 	}
 
 	// try to unmarshal data into FeatureMainnetsNotAllowedForPlan
-	err = json.Unmarshal(data, &dst.FeatureMainnetsNotAllowedForPlan)
+	err = newStrictDecoder(data).Decode(&dst.FeatureMainnetsNotAllowedForPlan)
 	if err == nil {
 		jsonFeatureMainnetsNotAllowedForPlan, _ := json.Marshal(dst.FeatureMainnetsNotAllowedForPlan)
 		if string(jsonFeatureMainnetsNotAllowedForPlan) == "{}" { // empty struct
@@ -139,6 +147,9 @@ func (src CreateFungibleTokensTransactionRequestFromAddressE403) MarshalJSON() (
 
 // Get the actual instance
 func (obj *CreateFungibleTokensTransactionRequestFromAddressE403) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.BannedIpAddress != nil {
 		return obj.BannedIpAddress
 	}

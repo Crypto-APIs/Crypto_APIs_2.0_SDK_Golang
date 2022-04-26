@@ -24,12 +24,16 @@ type GetHDWalletXPubYPubZPubDetailsE401 struct {
 
 // InvalidApiKeyAsGetHDWalletXPubYPubZPubDetailsE401 is a convenience function that returns InvalidApiKey wrapped in GetHDWalletXPubYPubZPubDetailsE401
 func InvalidApiKeyAsGetHDWalletXPubYPubZPubDetailsE401(v *InvalidApiKey) GetHDWalletXPubYPubZPubDetailsE401 {
-	return GetHDWalletXPubYPubZPubDetailsE401{ InvalidApiKey: v}
+	return GetHDWalletXPubYPubZPubDetailsE401{
+		InvalidApiKey: v,
+	}
 }
 
 // MissingApiKeyAsGetHDWalletXPubYPubZPubDetailsE401 is a convenience function that returns MissingApiKey wrapped in GetHDWalletXPubYPubZPubDetailsE401
 func MissingApiKeyAsGetHDWalletXPubYPubZPubDetailsE401(v *MissingApiKey) GetHDWalletXPubYPubZPubDetailsE401 {
-	return GetHDWalletXPubYPubZPubDetailsE401{ MissingApiKey: v}
+	return GetHDWalletXPubYPubZPubDetailsE401{
+		MissingApiKey: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *GetHDWalletXPubYPubZPubDetailsE401) UnmarshalJSON(data []byte) error 
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidApiKey
-	err = json.Unmarshal(data, &dst.InvalidApiKey)
+	err = newStrictDecoder(data).Decode(&dst.InvalidApiKey)
 	if err == nil {
 		jsonInvalidApiKey, _ := json.Marshal(dst.InvalidApiKey)
 		if string(jsonInvalidApiKey) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *GetHDWalletXPubYPubZPubDetailsE401) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into MissingApiKey
-	err = json.Unmarshal(data, &dst.MissingApiKey)
+	err = newStrictDecoder(data).Decode(&dst.MissingApiKey)
 	if err == nil {
 		jsonMissingApiKey, _ := json.Marshal(dst.MissingApiKey)
 		if string(jsonMissingApiKey) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src GetHDWalletXPubYPubZPubDetailsE401) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetHDWalletXPubYPubZPubDetailsE401) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidApiKey != nil {
 		return obj.InvalidApiKey
 	}

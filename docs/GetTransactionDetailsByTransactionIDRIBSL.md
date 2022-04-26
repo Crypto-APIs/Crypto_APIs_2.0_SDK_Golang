@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Locktime** | **int32** | Represents the time at which a particular transaction can be added to the blockchain. | 
+**Locktime** | **int64** | Represents the time at which a particular transaction can be added to the blockchain. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Represents transaction version number. | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewGetTransactionDetailsByTransactionIDRIBSL
 
-`func NewGetTransactionDetailsByTransactionIDRIBSL(locktime int32, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSLVin, vout []GetTransactionDetailsByTransactionIDRIBSLVout, ) *GetTransactionDetailsByTransactionIDRIBSL`
+`func NewGetTransactionDetailsByTransactionIDRIBSL(locktime int64, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSLVin, vout []GetTransactionDetailsByTransactionIDRIBSLVout, ) *GetTransactionDetailsByTransactionIDRIBSL`
 
 NewGetTransactionDetailsByTransactionIDRIBSL instantiates a new GetTransactionDetailsByTransactionIDRIBSL object
 This constructor will assign default values to properties that have it defined,
@@ -32,20 +32,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetLocktime
 
-`func (o *GetTransactionDetailsByTransactionIDRIBSL) GetLocktime() int32`
+`func (o *GetTransactionDetailsByTransactionIDRIBSL) GetLocktime() int64`
 
 GetLocktime returns the Locktime field if non-nil, zero value otherwise.
 
 ### GetLocktimeOk
 
-`func (o *GetTransactionDetailsByTransactionIDRIBSL) GetLocktimeOk() (*int32, bool)`
+`func (o *GetTransactionDetailsByTransactionIDRIBSL) GetLocktimeOk() (*int64, bool)`
 
 GetLocktimeOk returns a tuple with the Locktime field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLocktime
 
-`func (o *GetTransactionDetailsByTransactionIDRIBSL) SetLocktime(v int32)`
+`func (o *GetTransactionDetailsByTransactionIDRIBSL) SetLocktime(v int64)`
 
 SetLocktime sets Locktime field to given value.
 

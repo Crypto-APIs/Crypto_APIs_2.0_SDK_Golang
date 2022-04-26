@@ -66,7 +66,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRI) GetHash() string {
 // GetHashOk returns a tuple with the Hash field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRI) GetHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Hash, true
@@ -90,7 +90,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRI) GetHeight() int32 {
 // GetHeightOk returns a tuple with the Height field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRI) GetHeightOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Height, true
@@ -114,7 +114,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRI) GetPreviousBlockHash() stri
 // GetPreviousBlockHashOk returns a tuple with the PreviousBlockHash field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRI) GetPreviousBlockHashOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.PreviousBlockHash, true
@@ -138,7 +138,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRI) GetTimestamp() int32 {
 // GetTimestampOk returns a tuple with the Timestamp field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRI) GetTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Timestamp, true
@@ -162,7 +162,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRI) GetTransactionsCount() int3
 // GetTransactionsCountOk returns a tuple with the TransactionsCount field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRI) GetTransactionsCountOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionsCount, true
@@ -186,7 +186,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRI) GetBlockchainSpecific() Get
 // GetBlockchainSpecificOk returns a tuple with the BlockchainSpecific field value
 // and a boolean to check if the value has been set.
 func (o *GetBlockDetailsByBlockHeightFromCallbackRI) GetBlockchainSpecificOk() (*GetBlockDetailsByBlockHeightFromCallbackRIBS, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.BlockchainSpecific, true

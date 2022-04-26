@@ -23,14 +23,14 @@ type InlineResponse40185 struct {
 	RequestId string `json:"requestId"`
 	// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user.
 	Context *string `json:"context,omitempty"`
-	Error BroadcastLocallySignedTransactionE401 `json:"error"`
+	Error GetBlockDetailsByBlockHashFromCallbackE401 `json:"error"`
 }
 
 // NewInlineResponse40185 instantiates a new InlineResponse40185 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInlineResponse40185(apiVersion string, requestId string, error_ BroadcastLocallySignedTransactionE401) *InlineResponse40185 {
+func NewInlineResponse40185(apiVersion string, requestId string, error_ GetBlockDetailsByBlockHashFromCallbackE401) *InlineResponse40185 {
 	this := InlineResponse40185{}
 	this.ApiVersion = apiVersion
 	this.RequestId = requestId
@@ -59,7 +59,7 @@ func (o *InlineResponse40185) GetApiVersion() string {
 // GetApiVersionOk returns a tuple with the ApiVersion field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40185) GetApiVersionOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ApiVersion, true
@@ -83,7 +83,7 @@ func (o *InlineResponse40185) GetRequestId() string {
 // GetRequestIdOk returns a tuple with the RequestId field value
 // and a boolean to check if the value has been set.
 func (o *InlineResponse40185) GetRequestIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.RequestId, true
@@ -127,9 +127,9 @@ func (o *InlineResponse40185) SetContext(v string) {
 }
 
 // GetError returns the Error field value
-func (o *InlineResponse40185) GetError() BroadcastLocallySignedTransactionE401 {
+func (o *InlineResponse40185) GetError() GetBlockDetailsByBlockHashFromCallbackE401 {
 	if o == nil {
-		var ret BroadcastLocallySignedTransactionE401
+		var ret GetBlockDetailsByBlockHashFromCallbackE401
 		return ret
 	}
 
@@ -138,15 +138,15 @@ func (o *InlineResponse40185) GetError() BroadcastLocallySignedTransactionE401 {
 
 // GetErrorOk returns a tuple with the Error field value
 // and a boolean to check if the value has been set.
-func (o *InlineResponse40185) GetErrorOk() (*BroadcastLocallySignedTransactionE401, bool) {
-	if o == nil  {
+func (o *InlineResponse40185) GetErrorOk() (*GetBlockDetailsByBlockHashFromCallbackE401, bool) {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Error, true
 }
 
 // SetError sets field value
-func (o *InlineResponse40185) SetError(v BroadcastLocallySignedTransactionE401) {
+func (o *InlineResponse40185) SetError(v GetBlockDetailsByBlockHashFromCallbackE401) {
 	o.Error = v
 }
 

@@ -13,23 +13,19 @@ package cryptoapis
 
 import (
 	"bytes"
-	_context "context"
-	_ioutil "io/ioutil"
-	_nethttp "net/http"
-	_neturl "net/url"
+	"context"
+	"io/ioutil"
+	"net/http"
+	"net/url"
 	"strings"
 )
 
-// Linger please
-var (
-	_ _context.Context
-)
 
 // InformativeApiService InformativeApi service
 type InformativeApiService service
 
 type ApiGetTransactionRequestDetailsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *InformativeApiService
 	transactionRequestId string
 	context *string
@@ -41,7 +37,7 @@ func (r ApiGetTransactionRequestDetailsRequest) Context(context string) ApiGetTr
 	return r
 }
 
-func (r ApiGetTransactionRequestDetailsRequest) Execute() (GetTransactionRequestDetailsR, *_nethttp.Response, error) {
+func (r ApiGetTransactionRequestDetailsRequest) Execute() (*GetTransactionRequestDetailsR, *http.Response, error) {
 	return r.ApiService.GetTransactionRequestDetailsExecute(r)
 }
 
@@ -52,11 +48,11 @@ Through this endpoint customers can obtain details on transaction request.
 
 {note}This regards **transaction requests**, which is not to be confused with **transactions**. Transaction requests may not be approved due to any reason, hence a transaction may not occur.{/note}
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param transactionRequestId Represents the unique ID of the transaction request.
  @return ApiGetTransactionRequestDetailsRequest
 */
-func (a *InformativeApiService) GetTransactionRequestDetails(ctx _context.Context, transactionRequestId string) ApiGetTransactionRequestDetailsRequest {
+func (a *InformativeApiService) GetTransactionRequestDetails(ctx context.Context, transactionRequestId string) ApiGetTransactionRequestDetailsRequest {
 	return ApiGetTransactionRequestDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -66,25 +62,25 @@ func (a *InformativeApiService) GetTransactionRequestDetails(ctx _context.Contex
 
 // Execute executes the request
 //  @return GetTransactionRequestDetailsR
-func (a *InformativeApiService) GetTransactionRequestDetailsExecute(r ApiGetTransactionRequestDetailsRequest) (GetTransactionRequestDetailsR, *_nethttp.Response, error) {
+func (a *InformativeApiService) GetTransactionRequestDetailsExecute(r ApiGetTransactionRequestDetailsRequest) (*GetTransactionRequestDetailsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetTransactionRequestDetailsR
+		localVarReturnValue  *GetTransactionRequestDetailsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InformativeApiService.GetTransactionRequestDetails")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/wallet-as-a-service/transactionRequests/{transactionRequestId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"transactionRequestId"+"}", _neturl.PathEscape(parameterToString(r.transactionRequestId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"transactionRequestId"+"}", url.PathEscape(parameterToString(r.transactionRequestId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -130,20 +126,20 @@ func (a *InformativeApiService) GetTransactionRequestDetailsExecute(r ApiGetTran
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40041
+			var v InlineResponse40044
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -153,7 +149,7 @@ func (a *InformativeApiService) GetTransactionRequestDetailsExecute(r ApiGetTran
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40141
+			var v InlineResponse40144
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -173,7 +169,7 @@ func (a *InformativeApiService) GetTransactionRequestDetailsExecute(r ApiGetTran
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40341
+			var v InlineResponse40344
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -236,7 +232,7 @@ func (a *InformativeApiService) GetTransactionRequestDetailsExecute(r ApiGetTran
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -247,7 +243,7 @@ func (a *InformativeApiService) GetTransactionRequestDetailsExecute(r ApiGetTran
 }
 
 type ApiGetWalletAssetDetailsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *InformativeApiService
 	blockchain string
 	network string
@@ -261,22 +257,22 @@ func (r ApiGetWalletAssetDetailsRequest) Context(context string) ApiGetWalletAss
 	return r
 }
 
-func (r ApiGetWalletAssetDetailsRequest) Execute() (GetWalletAssetDetailsR, *_nethttp.Response, error) {
+func (r ApiGetWalletAssetDetailsRequest) Execute() (*GetWalletAssetDetailsR, *http.Response, error) {
 	return r.ApiService.GetWalletAssetDetailsExecute(r)
 }
 
 /*
 GetWalletAssetDetails Get Wallet Asset Details
 
-Through this endpoint customers can obtain details about a specific Wallet/Vault.
+Through this endpoint customers can obtain details on all assets (coins, fungible tokens, non-fungible tokens) for the entire Wallet.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param walletId Defines the unique ID of the Wallet.
  @return ApiGetWalletAssetDetailsRequest
 */
-func (a *InformativeApiService) GetWalletAssetDetails(ctx _context.Context, blockchain string, network string, walletId string) ApiGetWalletAssetDetailsRequest {
+func (a *InformativeApiService) GetWalletAssetDetails(ctx context.Context, blockchain string, network string, walletId string) ApiGetWalletAssetDetailsRequest {
 	return ApiGetWalletAssetDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -288,27 +284,27 @@ func (a *InformativeApiService) GetWalletAssetDetails(ctx _context.Context, bloc
 
 // Execute executes the request
 //  @return GetWalletAssetDetailsR
-func (a *InformativeApiService) GetWalletAssetDetailsExecute(r ApiGetWalletAssetDetailsRequest) (GetWalletAssetDetailsR, *_nethttp.Response, error) {
+func (a *InformativeApiService) GetWalletAssetDetailsExecute(r ApiGetWalletAssetDetailsRequest) (*GetWalletAssetDetailsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetWalletAssetDetailsR
+		localVarReturnValue  *GetWalletAssetDetailsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InformativeApiService.GetWalletAssetDetails")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", _neturl.PathEscape(parameterToString(r.walletId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", url.PathEscape(parameterToString(r.walletId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -354,20 +350,20 @@ func (a *InformativeApiService) GetWalletAssetDetailsExecute(r ApiGetWalletAsset
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40035
+			var v InlineResponse40036
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -377,7 +373,7 @@ func (a *InformativeApiService) GetWalletAssetDetailsExecute(r ApiGetWalletAsset
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40135
+			var v InlineResponse40136
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -397,7 +393,7 @@ func (a *InformativeApiService) GetWalletAssetDetailsExecute(r ApiGetWalletAsset
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40335
+			var v InlineResponse40336
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -470,7 +466,7 @@ func (a *InformativeApiService) GetWalletAssetDetailsExecute(r ApiGetWalletAsset
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -481,7 +477,7 @@ func (a *InformativeApiService) GetWalletAssetDetailsExecute(r ApiGetWalletAsset
 }
 
 type ApiGetWalletTransactionDetailsByTransactionIDRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *InformativeApiService
 	blockchain string
 	network string
@@ -495,7 +491,7 @@ func (r ApiGetWalletTransactionDetailsByTransactionIDRequest) Context(context st
 	return r
 }
 
-func (r ApiGetWalletTransactionDetailsByTransactionIDRequest) Execute() (GetWalletTransactionDetailsByTransactionIDR, *_nethttp.Response, error) {
+func (r ApiGetWalletTransactionDetailsByTransactionIDRequest) Execute() (*GetWalletTransactionDetailsByTransactionIDR, *http.Response, error) {
 	return r.ApiService.GetWalletTransactionDetailsByTransactionIDExecute(r)
 }
 
@@ -504,13 +500,13 @@ GetWalletTransactionDetailsByTransactionID Get Wallet Transaction Details By Tra
 
 Through this endpoint users can obtain Wallet transaction information by providing a `transactionId`. Customers can receive information only for a transaction that has been made from their own wallet.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param transactionId Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
  @return ApiGetWalletTransactionDetailsByTransactionIDRequest
 */
-func (a *InformativeApiService) GetWalletTransactionDetailsByTransactionID(ctx _context.Context, blockchain string, network string, transactionId string) ApiGetWalletTransactionDetailsByTransactionIDRequest {
+func (a *InformativeApiService) GetWalletTransactionDetailsByTransactionID(ctx context.Context, blockchain string, network string, transactionId string) ApiGetWalletTransactionDetailsByTransactionIDRequest {
 	return ApiGetWalletTransactionDetailsByTransactionIDRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -522,27 +518,27 @@ func (a *InformativeApiService) GetWalletTransactionDetailsByTransactionID(ctx _
 
 // Execute executes the request
 //  @return GetWalletTransactionDetailsByTransactionIDR
-func (a *InformativeApiService) GetWalletTransactionDetailsByTransactionIDExecute(r ApiGetWalletTransactionDetailsByTransactionIDRequest) (GetWalletTransactionDetailsByTransactionIDR, *_nethttp.Response, error) {
+func (a *InformativeApiService) GetWalletTransactionDetailsByTransactionIDExecute(r ApiGetWalletTransactionDetailsByTransactionIDRequest) (*GetWalletTransactionDetailsByTransactionIDR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  GetWalletTransactionDetailsByTransactionIDR
+		localVarReturnValue  *GetWalletTransactionDetailsByTransactionIDR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InformativeApiService.GetWalletTransactionDetailsByTransactionID")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{blockchain}/{network}/transactions/{transactionId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"transactionId"+"}", _neturl.PathEscape(parameterToString(r.transactionId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"transactionId"+"}", url.PathEscape(parameterToString(r.transactionId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -588,20 +584,20 @@ func (a *InformativeApiService) GetWalletTransactionDetailsByTransactionIDExecut
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40046
+			var v InlineResponse40049
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -611,7 +607,7 @@ func (a *InformativeApiService) GetWalletTransactionDetailsByTransactionIDExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40146
+			var v InlineResponse40149
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -631,7 +627,7 @@ func (a *InformativeApiService) GetWalletTransactionDetailsByTransactionIDExecut
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40346
+			var v InlineResponse40349
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -704,7 +700,7 @@ func (a *InformativeApiService) GetWalletTransactionDetailsByTransactionIDExecut
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -714,71 +710,61 @@ func (a *InformativeApiService) GetWalletTransactionDetailsByTransactionIDExecut
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type ApiListDepositAddressesRequest struct {
-	ctx _context.Context
+type ApiListAllAssetsByWalletIDRequest struct {
+	ctx context.Context
 	ApiService *InformativeApiService
-	blockchain string
-	network string
 	walletId string
 	context *string
 }
 
 // In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
-func (r ApiListDepositAddressesRequest) Context(context string) ApiListDepositAddressesRequest {
+func (r ApiListAllAssetsByWalletIDRequest) Context(context string) ApiListAllAssetsByWalletIDRequest {
 	r.context = &context
 	return r
 }
 
-func (r ApiListDepositAddressesRequest) Execute() (ListDepositAddressesR, *_nethttp.Response, error) {
-	return r.ApiService.ListDepositAddressesExecute(r)
+func (r ApiListAllAssetsByWalletIDRequest) Execute() (*ListAllAssetsByWalletIDR, *http.Response, error) {
+	return r.ApiService.ListAllAssetsByWalletIDExecute(r)
 }
 
 /*
-ListDepositAddresses List Deposit Addresses
+ListAllAssetsByWalletID List All Assets By Wallet ID
 
-Through this endpoint customers can pull a list of Deposit/Receiving Addresses they have already generated.
+Through this endpoint customers can obtain information about available assets in one of their wallets, regardless of the blockchain protocol or network, by providing walletId.
 
-{note}Please note that listing data from the same type will apply pagination on the results.{/note}
-
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
- @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
- @param walletId Represents the unique ID of the specific Wallet.
- @return ApiListDepositAddressesRequest
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param walletId Defines the unique ID of the Wallet.
+ @return ApiListAllAssetsByWalletIDRequest
 */
-func (a *InformativeApiService) ListDepositAddresses(ctx _context.Context, blockchain string, network string, walletId string) ApiListDepositAddressesRequest {
-	return ApiListDepositAddressesRequest{
+func (a *InformativeApiService) ListAllAssetsByWalletID(ctx context.Context, walletId string) ApiListAllAssetsByWalletIDRequest {
+	return ApiListAllAssetsByWalletIDRequest{
 		ApiService: a,
 		ctx: ctx,
-		blockchain: blockchain,
-		network: network,
 		walletId: walletId,
 	}
 }
 
 // Execute executes the request
-//  @return ListDepositAddressesR
-func (a *InformativeApiService) ListDepositAddressesExecute(r ApiListDepositAddressesRequest) (ListDepositAddressesR, *_nethttp.Response, error) {
+//  @return ListAllAssetsByWalletIDR
+func (a *InformativeApiService) ListAllAssetsByWalletIDExecute(r ApiListAllAssetsByWalletIDRequest) (*ListAllAssetsByWalletIDR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListDepositAddressesR
+		localVarReturnValue  *ListAllAssetsByWalletIDR
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InformativeApiService.ListDepositAddresses")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InformativeApiService.ListAllAssetsByWalletID")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", _neturl.PathEscape(parameterToString(r.walletId, "")), -1)
+	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/assets"
+	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", url.PathEscape(parameterToString(r.walletId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -824,15 +810,483 @@ func (a *InformativeApiService) ListDepositAddressesExecute(r ApiListDepositAddr
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InlineResponse40039
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v InlineResponse40139
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v InlineResponse402
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v InlineResponse40339
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v InlineResponse4041
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v InlineResponse409
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v InlineResponse415
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v InlineResponse422
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v InlineResponse429
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InlineResponse500
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiListAllAssetsFromAllWalletsRequest struct {
+	ctx context.Context
+	ApiService *InformativeApiService
+	context *string
+	limit *int32
+	offset *int32
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiListAllAssetsFromAllWalletsRequest) Context(context string) ApiListAllAssetsFromAllWalletsRequest {
+	r.context = &context
+	return r
+}
+
+// Defines how many items should be returned in the response per page basis.
+func (r ApiListAllAssetsFromAllWalletsRequest) Limit(limit int32) ApiListAllAssetsFromAllWalletsRequest {
+	r.limit = &limit
+	return r
+}
+
+// The starting index of the response items, i.e. where the response should start listing the returned items.
+func (r ApiListAllAssetsFromAllWalletsRequest) Offset(offset int32) ApiListAllAssetsFromAllWalletsRequest {
+	r.offset = &offset
+	return r
+}
+
+func (r ApiListAllAssetsFromAllWalletsRequest) Execute() (*ListAllAssetsFromAllWalletsR, *http.Response, error) {
+	return r.ApiService.ListAllAssetsFromAllWalletsExecute(r)
+}
+
+/*
+ListAllAssetsFromAllWallets List All Assets From All Wallets
+
+Through this endpoint customers can obtain information about available assets in all of their wallets, regardless of the blockchain protocol or network.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @return ApiListAllAssetsFromAllWalletsRequest
+*/
+func (a *InformativeApiService) ListAllAssetsFromAllWallets(ctx context.Context) ApiListAllAssetsFromAllWalletsRequest {
+	return ApiListAllAssetsFromAllWalletsRequest{
+		ApiService: a,
+		ctx: ctx,
+	}
+}
+
+// Execute executes the request
+//  @return ListAllAssetsFromAllWalletsR
+func (a *InformativeApiService) ListAllAssetsFromAllWalletsExecute(r ApiListAllAssetsFromAllWalletsRequest) (*ListAllAssetsFromAllWalletsR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListAllAssetsFromAllWalletsR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InformativeApiService.ListAllAssetsFromAllWallets")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/wallet-as-a-service/wallets/all-assets"
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	if r.limit != nil {
+		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+	}
+	if r.offset != nil {
+		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v InlineResponse40038
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v InlineResponse40138
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v InlineResponse402
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v InlineResponse40338
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v InlineResponse409
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v InlineResponse415
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v InlineResponse422
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v InlineResponse429
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v InlineResponse500
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiListDepositAddressesRequest struct {
+	ctx context.Context
+	ApiService *InformativeApiService
+	blockchain string
+	network string
+	walletId string
+	context *string
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiListDepositAddressesRequest) Context(context string) ApiListDepositAddressesRequest {
+	r.context = &context
+	return r
+}
+
+func (r ApiListDepositAddressesRequest) Execute() (*ListDepositAddressesR, *http.Response, error) {
+	return r.ApiService.ListDepositAddressesExecute(r)
+}
+
+/*
+ListDepositAddresses List Deposit Addresses
+
+Through this endpoint customers can pull a list of Deposit/Receiving Addresses they have already generated.
+
+{note}Please note that listing data from the same type will apply pagination on the results.{/note}
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+ @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+ @param walletId Represents the unique ID of the specific Wallet.
+ @return ApiListDepositAddressesRequest
+*/
+func (a *InformativeApiService) ListDepositAddresses(ctx context.Context, blockchain string, network string, walletId string) ApiListDepositAddressesRequest {
+	return ApiListDepositAddressesRequest{
+		ApiService: a,
+		ctx: ctx,
+		blockchain: blockchain,
+		network: network,
+		walletId: walletId,
+	}
+}
+
+// Execute executes the request
+//  @return ListDepositAddressesR
+func (a *InformativeApiService) ListDepositAddressesExecute(r ApiListDepositAddressesRequest) (*ListDepositAddressesR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListDepositAddressesR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InformativeApiService.ListDepositAddresses")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses"
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", url.PathEscape(parameterToString(r.walletId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
@@ -940,7 +1394,7 @@ func (a *InformativeApiService) ListDepositAddressesExecute(r ApiListDepositAddr
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -951,7 +1405,7 @@ func (a *InformativeApiService) ListDepositAddressesExecute(r ApiListDepositAddr
 }
 
 type ApiListSupportedTokensRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *InformativeApiService
 	blockchain string
 	network string
@@ -965,18 +1419,20 @@ func (r ApiListSupportedTokensRequest) Context(context string) ApiListSupportedT
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListSupportedTokensRequest) Limit(limit int32) ApiListSupportedTokensRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListSupportedTokensRequest) Offset(offset int32) ApiListSupportedTokensRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListSupportedTokensRequest) Execute() (ListSupportedTokensR, *_nethttp.Response, error) {
+func (r ApiListSupportedTokensRequest) Execute() (*ListSupportedTokensR, *http.Response, error) {
 	return r.ApiService.ListSupportedTokensExecute(r)
 }
 
@@ -985,12 +1441,12 @@ ListSupportedTokens List Supported Tokens
 
 Through this endpoint customers can obtain information on multiple tokens at once.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @return ApiListSupportedTokensRequest
 */
-func (a *InformativeApiService) ListSupportedTokens(ctx _context.Context, blockchain string, network string) ApiListSupportedTokensRequest {
+func (a *InformativeApiService) ListSupportedTokens(ctx context.Context, blockchain string, network string) ApiListSupportedTokensRequest {
 	return ApiListSupportedTokensRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1001,26 +1457,26 @@ func (a *InformativeApiService) ListSupportedTokens(ctx _context.Context, blockc
 
 // Execute executes the request
 //  @return ListSupportedTokensR
-func (a *InformativeApiService) ListSupportedTokensExecute(r ApiListSupportedTokensRequest) (ListSupportedTokensR, *_nethttp.Response, error) {
+func (a *InformativeApiService) ListSupportedTokensExecute(r ApiListSupportedTokensRequest) (*ListSupportedTokensR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListSupportedTokensR
+		localVarReturnValue  *ListSupportedTokensR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InformativeApiService.ListSupportedTokens")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/wallet-as-a-service/info/{blockchain}/{network}/supported-tokens"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1072,20 +1528,20 @@ func (a *InformativeApiService) ListSupportedTokensExecute(r ApiListSupportedTok
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40034
+			var v InlineResponse40035
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1095,7 +1551,7 @@ func (a *InformativeApiService) ListSupportedTokensExecute(r ApiListSupportedTok
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40134
+			var v InlineResponse40135
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1115,7 +1571,7 @@ func (a *InformativeApiService) ListSupportedTokensExecute(r ApiListSupportedTok
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40334
+			var v InlineResponse40335
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1178,7 +1634,7 @@ func (a *InformativeApiService) ListSupportedTokensExecute(r ApiListSupportedTok
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}
@@ -1189,7 +1645,7 @@ func (a *InformativeApiService) ListSupportedTokensExecute(r ApiListSupportedTok
 }
 
 type ApiListWalletTransactionsRequest struct {
-	ctx _context.Context
+	ctx context.Context
 	ApiService *InformativeApiService
 	blockchain string
 	network string
@@ -1204,18 +1660,20 @@ func (r ApiListWalletTransactionsRequest) Context(context string) ApiListWalletT
 	r.context = &context
 	return r
 }
+
 // Defines how many items should be returned in the response per page basis.
 func (r ApiListWalletTransactionsRequest) Limit(limit int32) ApiListWalletTransactionsRequest {
 	r.limit = &limit
 	return r
 }
+
 // The starting index of the response items, i.e. where the response should start listing the returned items.
 func (r ApiListWalletTransactionsRequest) Offset(offset int32) ApiListWalletTransactionsRequest {
 	r.offset = &offset
 	return r
 }
 
-func (r ApiListWalletTransactionsRequest) Execute() (ListWalletTransactionsR, *_nethttp.Response, error) {
+func (r ApiListWalletTransactionsRequest) Execute() (*ListWalletTransactionsR, *http.Response, error) {
 	return r.ApiService.ListWalletTransactionsExecute(r)
 }
 
@@ -1224,13 +1682,13 @@ ListWalletTransactions List Wallet Transactions
 
 Through this endpoint customers can list Transactions from and to their Wallet. The data returned will include `transactionId`, `direction` of the transaction - incoming or outgoing, `amount` and more.
 
- @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
  @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
  @param walletId Represents the unique ID of the specific Wallet.
  @return ApiListWalletTransactionsRequest
 */
-func (a *InformativeApiService) ListWalletTransactions(ctx _context.Context, blockchain string, network string, walletId string) ApiListWalletTransactionsRequest {
+func (a *InformativeApiService) ListWalletTransactions(ctx context.Context, blockchain string, network string, walletId string) ApiListWalletTransactionsRequest {
 	return ApiListWalletTransactionsRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -1242,27 +1700,27 @@ func (a *InformativeApiService) ListWalletTransactions(ctx _context.Context, blo
 
 // Execute executes the request
 //  @return ListWalletTransactionsR
-func (a *InformativeApiService) ListWalletTransactionsExecute(r ApiListWalletTransactionsRequest) (ListWalletTransactionsR, *_nethttp.Response, error) {
+func (a *InformativeApiService) ListWalletTransactionsExecute(r ApiListWalletTransactionsRequest) (*ListWalletTransactionsR, *http.Response, error) {
 	var (
-		localVarHTTPMethod   = _nethttp.MethodGet
+		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  ListWalletTransactionsR
+		localVarReturnValue  *ListWalletTransactionsR
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "InformativeApiService.ListWalletTransactions")
 	if err != nil {
-		return localVarReturnValue, nil, GenericOpenAPIError{error: err.Error()}
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
 	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/transactions"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", _neturl.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", _neturl.PathEscape(parameterToString(r.network, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", _neturl.PathEscape(parameterToString(r.walletId, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", url.PathEscape(parameterToString(r.walletId, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := _neturl.Values{}
-	localVarFormParams := _neturl.Values{}
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
 
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
@@ -1314,20 +1772,20 @@ func (a *InformativeApiService) ListWalletTransactionsExecute(r ApiListWalletTra
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
-	localVarBody, err := _ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
 	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = _ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
 	if err != nil {
 		return localVarReturnValue, localVarHTTPResponse, err
 	}
 
 	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40045
+			var v InlineResponse40048
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1337,7 +1795,7 @@ func (a *InformativeApiService) ListWalletTransactionsExecute(r ApiListWalletTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40145
+			var v InlineResponse40148
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1357,7 +1815,7 @@ func (a *InformativeApiService) ListWalletTransactionsExecute(r ApiListWalletTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40345
+			var v InlineResponse40348
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1430,7 +1888,7 @@ func (a *InformativeApiService) ListWalletTransactionsExecute(r ApiListWalletTra
 
 	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 	if err != nil {
-		newErr := GenericOpenAPIError{
+		newErr := &GenericOpenAPIError{
 			body:  localVarBody,
 			error: err.Error(),
 		}

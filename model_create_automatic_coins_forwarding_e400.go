@@ -25,17 +25,23 @@ type CreateAutomaticCoinsForwardingE400 struct {
 
 // InvalidPaginationAsCreateAutomaticCoinsForwardingE400 is a convenience function that returns InvalidPagination wrapped in CreateAutomaticCoinsForwardingE400
 func InvalidPaginationAsCreateAutomaticCoinsForwardingE400(v *InvalidPagination) CreateAutomaticCoinsForwardingE400 {
-	return CreateAutomaticCoinsForwardingE400{ InvalidPagination: v}
+	return CreateAutomaticCoinsForwardingE400{
+		InvalidPagination: v,
+	}
 }
 
 // LimitGreaterThanAllowedAsCreateAutomaticCoinsForwardingE400 is a convenience function that returns LimitGreaterThanAllowed wrapped in CreateAutomaticCoinsForwardingE400
 func LimitGreaterThanAllowedAsCreateAutomaticCoinsForwardingE400(v *LimitGreaterThanAllowed) CreateAutomaticCoinsForwardingE400 {
-	return CreateAutomaticCoinsForwardingE400{ LimitGreaterThanAllowed: v}
+	return CreateAutomaticCoinsForwardingE400{
+		LimitGreaterThanAllowed: v,
+	}
 }
 
 // UriNotFoundAsCreateAutomaticCoinsForwardingE400 is a convenience function that returns UriNotFound wrapped in CreateAutomaticCoinsForwardingE400
 func UriNotFoundAsCreateAutomaticCoinsForwardingE400(v *UriNotFound) CreateAutomaticCoinsForwardingE400 {
-	return CreateAutomaticCoinsForwardingE400{ UriNotFound: v}
+	return CreateAutomaticCoinsForwardingE400{
+		UriNotFound: v,
+	}
 }
 
 
@@ -44,7 +50,7 @@ func (dst *CreateAutomaticCoinsForwardingE400) UnmarshalJSON(data []byte) error 
 	var err error
 	match := 0
 	// try to unmarshal data into InvalidPagination
-	err = json.Unmarshal(data, &dst.InvalidPagination)
+	err = newStrictDecoder(data).Decode(&dst.InvalidPagination)
 	if err == nil {
 		jsonInvalidPagination, _ := json.Marshal(dst.InvalidPagination)
 		if string(jsonInvalidPagination) == "{}" { // empty struct
@@ -57,7 +63,7 @@ func (dst *CreateAutomaticCoinsForwardingE400) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into LimitGreaterThanAllowed
-	err = json.Unmarshal(data, &dst.LimitGreaterThanAllowed)
+	err = newStrictDecoder(data).Decode(&dst.LimitGreaterThanAllowed)
 	if err == nil {
 		jsonLimitGreaterThanAllowed, _ := json.Marshal(dst.LimitGreaterThanAllowed)
 		if string(jsonLimitGreaterThanAllowed) == "{}" { // empty struct
@@ -70,7 +76,7 @@ func (dst *CreateAutomaticCoinsForwardingE400) UnmarshalJSON(data []byte) error 
 	}
 
 	// try to unmarshal data into UriNotFound
-	err = json.Unmarshal(data, &dst.UriNotFound)
+	err = newStrictDecoder(data).Decode(&dst.UriNotFound)
 	if err == nil {
 		jsonUriNotFound, _ := json.Marshal(dst.UriNotFound)
 		if string(jsonUriNotFound) == "{}" { // empty struct
@@ -115,6 +121,9 @@ func (src CreateAutomaticCoinsForwardingE400) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *CreateAutomaticCoinsForwardingE400) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.InvalidPagination != nil {
 		return obj.InvalidPagination
 	}

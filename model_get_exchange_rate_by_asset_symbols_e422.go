@@ -24,12 +24,16 @@ type GetExchangeRateByAssetSymbolsE422 struct {
 
 // CouldNotCalculateRateForPairAsGetExchangeRateByAssetSymbolsE422 is a convenience function that returns CouldNotCalculateRateForPair wrapped in GetExchangeRateByAssetSymbolsE422
 func CouldNotCalculateRateForPairAsGetExchangeRateByAssetSymbolsE422(v *CouldNotCalculateRateForPair) GetExchangeRateByAssetSymbolsE422 {
-	return GetExchangeRateByAssetSymbolsE422{ CouldNotCalculateRateForPair: v}
+	return GetExchangeRateByAssetSymbolsE422{
+		CouldNotCalculateRateForPair: v,
+	}
 }
 
 // InvalidRequestBodyStructureAsGetExchangeRateByAssetSymbolsE422 is a convenience function that returns InvalidRequestBodyStructure wrapped in GetExchangeRateByAssetSymbolsE422
 func InvalidRequestBodyStructureAsGetExchangeRateByAssetSymbolsE422(v *InvalidRequestBodyStructure) GetExchangeRateByAssetSymbolsE422 {
-	return GetExchangeRateByAssetSymbolsE422{ InvalidRequestBodyStructure: v}
+	return GetExchangeRateByAssetSymbolsE422{
+		InvalidRequestBodyStructure: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *GetExchangeRateByAssetSymbolsE422) UnmarshalJSON(data []byte) error {
 	var err error
 	match := 0
 	// try to unmarshal data into CouldNotCalculateRateForPair
-	err = json.Unmarshal(data, &dst.CouldNotCalculateRateForPair)
+	err = newStrictDecoder(data).Decode(&dst.CouldNotCalculateRateForPair)
 	if err == nil {
 		jsonCouldNotCalculateRateForPair, _ := json.Marshal(dst.CouldNotCalculateRateForPair)
 		if string(jsonCouldNotCalculateRateForPair) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *GetExchangeRateByAssetSymbolsE422) UnmarshalJSON(data []byte) error {
 	}
 
 	// try to unmarshal data into InvalidRequestBodyStructure
-	err = json.Unmarshal(data, &dst.InvalidRequestBodyStructure)
+	err = newStrictDecoder(data).Decode(&dst.InvalidRequestBodyStructure)
 	if err == nil {
 		jsonInvalidRequestBodyStructure, _ := json.Marshal(dst.InvalidRequestBodyStructure)
 		if string(jsonInvalidRequestBodyStructure) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src GetExchangeRateByAssetSymbolsE422) MarshalJSON() ([]byte, error) {
 
 // Get the actual instance
 func (obj *GetExchangeRateByAssetSymbolsE422) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.CouldNotCalculateRateForPair != nil {
 		return obj.CouldNotCalculateRateForPair
 	}

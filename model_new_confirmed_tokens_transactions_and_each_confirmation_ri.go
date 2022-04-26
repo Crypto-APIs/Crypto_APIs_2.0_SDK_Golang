@@ -19,7 +19,9 @@ import (
 type NewConfirmedTokensTransactionsAndEachConfirmationRI struct {
 	// Represents the address of the transaction, per which the result is returned.
 	Address string `json:"address"`
-	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
+	CallbackSecretKey *string `json:"callbackSecretKey,omitempty"`
+	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 	CallbackUrl string `json:"callbackUrl"`
 	// Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
 	ConfirmationsCount *int32 `json:"confirmationsCount,omitempty"`
@@ -27,6 +29,8 @@ type NewConfirmedTokensTransactionsAndEachConfirmationRI struct {
 	CreatedTimestamp int32 `json:"createdTimestamp"`
 	// Defines the type of the specific event available for the customer to subscribe to for callback notification.
 	EventType string `json:"eventType"`
+	// Defines whether the subscription is active or not. Set as boolean.
+	IsActive bool `json:"isActive"`
 	// Represents a unique ID used to reference the specific callback subscription.
 	ReferenceId string `json:"referenceId"`
 }
@@ -35,12 +39,13 @@ type NewConfirmedTokensTransactionsAndEachConfirmationRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNewConfirmedTokensTransactionsAndEachConfirmationRI(address string, callbackUrl string, createdTimestamp int32, eventType string, referenceId string) *NewConfirmedTokensTransactionsAndEachConfirmationRI {
+func NewNewConfirmedTokensTransactionsAndEachConfirmationRI(address string, callbackUrl string, createdTimestamp int32, eventType string, isActive bool, referenceId string) *NewConfirmedTokensTransactionsAndEachConfirmationRI {
 	this := NewConfirmedTokensTransactionsAndEachConfirmationRI{}
 	this.Address = address
 	this.CallbackUrl = callbackUrl
 	this.CreatedTimestamp = createdTimestamp
 	this.EventType = eventType
+	this.IsActive = isActive
 	this.ReferenceId = referenceId
 	return &this
 }
@@ -66,7 +71,7 @@ func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetAddress() strin
 // GetAddressOk returns a tuple with the Address field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetAddressOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.Address, true
@@ -75,6 +80,38 @@ func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetAddressOk() (*s
 // SetAddress sets field value
 func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) SetAddress(v string) {
 	o.Address = v
+}
+
+// GetCallbackSecretKey returns the CallbackSecretKey field value if set, zero value otherwise.
+func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetCallbackSecretKey() string {
+	if o == nil || o.CallbackSecretKey == nil {
+		var ret string
+		return ret
+	}
+	return *o.CallbackSecretKey
+}
+
+// GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetCallbackSecretKeyOk() (*string, bool) {
+	if o == nil || o.CallbackSecretKey == nil {
+		return nil, false
+	}
+	return o.CallbackSecretKey, true
+}
+
+// HasCallbackSecretKey returns a boolean if a field has been set.
+func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) HasCallbackSecretKey() bool {
+	if o != nil && o.CallbackSecretKey != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetCallbackSecretKey gets a reference to the given string and assigns it to the CallbackSecretKey field.
+func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) SetCallbackSecretKey(v string) {
+	o.CallbackSecretKey = &v
 }
 
 // GetCallbackUrl returns the CallbackUrl field value
@@ -90,7 +127,7 @@ func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetCallbackUrl() s
 // GetCallbackUrlOk returns a tuple with the CallbackUrl field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetCallbackUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackUrl, true
@@ -146,7 +183,7 @@ func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetCreatedTimestam
 // GetCreatedTimestampOk returns a tuple with the CreatedTimestamp field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetCreatedTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CreatedTimestamp, true
@@ -170,7 +207,7 @@ func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetEventType() str
 // GetEventTypeOk returns a tuple with the EventType field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetEventTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EventType, true
@@ -179,6 +216,30 @@ func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetEventTypeOk() (
 // SetEventType sets field value
 func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) SetEventType(v string) {
 	o.EventType = v
+}
+
+// GetIsActive returns the IsActive field value
+func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetIsActive() bool {
+	if o == nil {
+		var ret bool
+		return ret
+	}
+
+	return o.IsActive
+}
+
+// GetIsActiveOk returns a tuple with the IsActive field value
+// and a boolean to check if the value has been set.
+func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetIsActiveOk() (*bool, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.IsActive, true
+}
+
+// SetIsActive sets field value
+func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) SetIsActive(v bool) {
+	o.IsActive = v
 }
 
 // GetReferenceId returns the ReferenceId field value
@@ -194,7 +255,7 @@ func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetReferenceId() s
 // GetReferenceIdOk returns a tuple with the ReferenceId field value
 // and a boolean to check if the value has been set.
 func (o *NewConfirmedTokensTransactionsAndEachConfirmationRI) GetReferenceIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ReferenceId, true
@@ -210,6 +271,9 @@ func (o NewConfirmedTokensTransactionsAndEachConfirmationRI) MarshalJSON() ([]by
 	if true {
 		toSerialize["address"] = o.Address
 	}
+	if o.CallbackSecretKey != nil {
+		toSerialize["callbackSecretKey"] = o.CallbackSecretKey
+	}
 	if true {
 		toSerialize["callbackUrl"] = o.CallbackUrl
 	}
@@ -221,6 +285,9 @@ func (o NewConfirmedTokensTransactionsAndEachConfirmationRI) MarshalJSON() ([]by
 	}
 	if true {
 		toSerialize["eventType"] = o.EventType
+	}
+	if true {
+		toSerialize["isActive"] = o.IsActive
 	}
 	if true {
 		toSerialize["referenceId"] = o.ReferenceId

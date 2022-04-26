@@ -17,14 +17,10 @@ import (
 
 // MinedTransactionRI struct for MinedTransactionRI
 type MinedTransactionRI struct {
-	// Represents the address of the transaction.
-	Address string `json:"address"`
 	// Represents the Secret Key value provided by the customer. This field is used for security purposes during the callback notification, in order to prove the sender of the callback as Crypto APIs. For more information please see our [Documentation](https://developers.cryptoapis.io/technical-documentation/general-information/callbacks#callback-security).
 	CallbackSecretKey string `json:"callbackSecretKey"`
-	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs.
+	// Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. `We support ONLY httpS type of protocol`.
 	CallbackUrl string `json:"callbackUrl"`
-	// Represents the number of confirmations, i.e. the amount of blocks that have been built on top of this block.
-	ConfirmationsCount int32 `json:"confirmationsCount"`
 	// Defines the specific time/date when the subscription was created in Unix Timestamp.
 	CreatedTimestamp int32 `json:"createdTimestamp"`
 	// Defines the type of the specific event available for the customer to subscribe to for callback notification.
@@ -41,12 +37,10 @@ type MinedTransactionRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewMinedTransactionRI(address string, callbackSecretKey string, callbackUrl string, confirmationsCount int32, createdTimestamp int32, eventType string, isActive bool, referenceId string, transactionId string) *MinedTransactionRI {
+func NewMinedTransactionRI(callbackSecretKey string, callbackUrl string, createdTimestamp int32, eventType string, isActive bool, referenceId string, transactionId string) *MinedTransactionRI {
 	this := MinedTransactionRI{}
-	this.Address = address
 	this.CallbackSecretKey = callbackSecretKey
 	this.CallbackUrl = callbackUrl
-	this.ConfirmationsCount = confirmationsCount
 	this.CreatedTimestamp = createdTimestamp
 	this.EventType = eventType
 	this.IsActive = isActive
@@ -63,30 +57,6 @@ func NewMinedTransactionRIWithDefaults() *MinedTransactionRI {
 	return &this
 }
 
-// GetAddress returns the Address field value
-func (o *MinedTransactionRI) GetAddress() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Address
-}
-
-// GetAddressOk returns a tuple with the Address field value
-// and a boolean to check if the value has been set.
-func (o *MinedTransactionRI) GetAddressOk() (*string, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.Address, true
-}
-
-// SetAddress sets field value
-func (o *MinedTransactionRI) SetAddress(v string) {
-	o.Address = v
-}
-
 // GetCallbackSecretKey returns the CallbackSecretKey field value
 func (o *MinedTransactionRI) GetCallbackSecretKey() string {
 	if o == nil {
@@ -100,7 +70,7 @@ func (o *MinedTransactionRI) GetCallbackSecretKey() string {
 // GetCallbackSecretKeyOk returns a tuple with the CallbackSecretKey field value
 // and a boolean to check if the value has been set.
 func (o *MinedTransactionRI) GetCallbackSecretKeyOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackSecretKey, true
@@ -124,7 +94,7 @@ func (o *MinedTransactionRI) GetCallbackUrl() string {
 // GetCallbackUrlOk returns a tuple with the CallbackUrl field value
 // and a boolean to check if the value has been set.
 func (o *MinedTransactionRI) GetCallbackUrlOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CallbackUrl, true
@@ -133,30 +103,6 @@ func (o *MinedTransactionRI) GetCallbackUrlOk() (*string, bool) {
 // SetCallbackUrl sets field value
 func (o *MinedTransactionRI) SetCallbackUrl(v string) {
 	o.CallbackUrl = v
-}
-
-// GetConfirmationsCount returns the ConfirmationsCount field value
-func (o *MinedTransactionRI) GetConfirmationsCount() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.ConfirmationsCount
-}
-
-// GetConfirmationsCountOk returns a tuple with the ConfirmationsCount field value
-// and a boolean to check if the value has been set.
-func (o *MinedTransactionRI) GetConfirmationsCountOk() (*int32, bool) {
-	if o == nil  {
-		return nil, false
-	}
-	return &o.ConfirmationsCount, true
-}
-
-// SetConfirmationsCount sets field value
-func (o *MinedTransactionRI) SetConfirmationsCount(v int32) {
-	o.ConfirmationsCount = v
 }
 
 // GetCreatedTimestamp returns the CreatedTimestamp field value
@@ -172,7 +118,7 @@ func (o *MinedTransactionRI) GetCreatedTimestamp() int32 {
 // GetCreatedTimestampOk returns a tuple with the CreatedTimestamp field value
 // and a boolean to check if the value has been set.
 func (o *MinedTransactionRI) GetCreatedTimestampOk() (*int32, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.CreatedTimestamp, true
@@ -196,7 +142,7 @@ func (o *MinedTransactionRI) GetEventType() string {
 // GetEventTypeOk returns a tuple with the EventType field value
 // and a boolean to check if the value has been set.
 func (o *MinedTransactionRI) GetEventTypeOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.EventType, true
@@ -220,7 +166,7 @@ func (o *MinedTransactionRI) GetIsActive() bool {
 // GetIsActiveOk returns a tuple with the IsActive field value
 // and a boolean to check if the value has been set.
 func (o *MinedTransactionRI) GetIsActiveOk() (*bool, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.IsActive, true
@@ -244,7 +190,7 @@ func (o *MinedTransactionRI) GetReferenceId() string {
 // GetReferenceIdOk returns a tuple with the ReferenceId field value
 // and a boolean to check if the value has been set.
 func (o *MinedTransactionRI) GetReferenceIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.ReferenceId, true
@@ -268,7 +214,7 @@ func (o *MinedTransactionRI) GetTransactionId() string {
 // GetTransactionIdOk returns a tuple with the TransactionId field value
 // and a boolean to check if the value has been set.
 func (o *MinedTransactionRI) GetTransactionIdOk() (*string, bool) {
-	if o == nil  {
+	if o == nil {
 		return nil, false
 	}
 	return &o.TransactionId, true
@@ -282,16 +228,10 @@ func (o *MinedTransactionRI) SetTransactionId(v string) {
 func (o MinedTransactionRI) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
-		toSerialize["address"] = o.Address
-	}
-	if true {
 		toSerialize["callbackSecretKey"] = o.CallbackSecretKey
 	}
 	if true {
 		toSerialize["callbackUrl"] = o.CallbackUrl
-	}
-	if true {
-		toSerialize["confirmationsCount"] = o.ConfirmationsCount
 	}
 	if true {
 		toSerialize["createdTimestamp"] = o.CreatedTimestamp

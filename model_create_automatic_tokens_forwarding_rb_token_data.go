@@ -24,12 +24,16 @@ type CreateAutomaticTokensForwardingRBTokenData struct {
 
 // CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniTokenAsCreateAutomaticTokensForwardingRBTokenData is a convenience function that returns CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken wrapped in CreateAutomaticTokensForwardingRBTokenData
 func CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniTokenAsCreateAutomaticTokensForwardingRBTokenData(v *CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken) CreateAutomaticTokensForwardingRBTokenData {
-	return CreateAutomaticTokensForwardingRBTokenData{ CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken: v}
+	return CreateAutomaticTokensForwardingRBTokenData{
+		CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken: v,
+	}
 }
 
 // CreateAutomaticTokensForwardingRBTokenDataEthereumTokenAsCreateAutomaticTokensForwardingRBTokenData is a convenience function that returns CreateAutomaticTokensForwardingRBTokenDataEthereumToken wrapped in CreateAutomaticTokensForwardingRBTokenData
 func CreateAutomaticTokensForwardingRBTokenDataEthereumTokenAsCreateAutomaticTokensForwardingRBTokenData(v *CreateAutomaticTokensForwardingRBTokenDataEthereumToken) CreateAutomaticTokensForwardingRBTokenData {
-	return CreateAutomaticTokensForwardingRBTokenData{ CreateAutomaticTokensForwardingRBTokenDataEthereumToken: v}
+	return CreateAutomaticTokensForwardingRBTokenData{
+		CreateAutomaticTokensForwardingRBTokenDataEthereumToken: v,
+	}
 }
 
 
@@ -38,7 +42,7 @@ func (dst *CreateAutomaticTokensForwardingRBTokenData) UnmarshalJSON(data []byte
 	var err error
 	match := 0
 	// try to unmarshal data into CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken
-	err = json.Unmarshal(data, &dst.CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken)
+	err = newStrictDecoder(data).Decode(&dst.CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken)
 	if err == nil {
 		jsonCreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken, _ := json.Marshal(dst.CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken)
 		if string(jsonCreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken) == "{}" { // empty struct
@@ -51,7 +55,7 @@ func (dst *CreateAutomaticTokensForwardingRBTokenData) UnmarshalJSON(data []byte
 	}
 
 	// try to unmarshal data into CreateAutomaticTokensForwardingRBTokenDataEthereumToken
-	err = json.Unmarshal(data, &dst.CreateAutomaticTokensForwardingRBTokenDataEthereumToken)
+	err = newStrictDecoder(data).Decode(&dst.CreateAutomaticTokensForwardingRBTokenDataEthereumToken)
 	if err == nil {
 		jsonCreateAutomaticTokensForwardingRBTokenDataEthereumToken, _ := json.Marshal(dst.CreateAutomaticTokensForwardingRBTokenDataEthereumToken)
 		if string(jsonCreateAutomaticTokensForwardingRBTokenDataEthereumToken) == "{}" { // empty struct
@@ -91,6 +95,9 @@ func (src CreateAutomaticTokensForwardingRBTokenData) MarshalJSON() ([]byte, err
 
 // Get the actual instance
 func (obj *CreateAutomaticTokensForwardingRBTokenData) GetActualInstance() (interface{}) {
+	if obj == nil {
+		return nil
+	}
 	if obj.CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken != nil {
 		return obj.CreateAutomaticTokensForwardingRBTokenDataBitcoinOmniToken
 	}
