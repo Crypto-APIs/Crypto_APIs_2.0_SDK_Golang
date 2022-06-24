@@ -26,7 +26,7 @@ type CreateFungibleTokensTransactionRequestFromAddressRI struct {
 	// Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request.
 	Note *string `json:"note,omitempty"`
 	// Defines the destination for the transaction, i.e. the recipient(s).
-	Recipients []CreateFungibleTokensTransactionRequestFromAddressRIRecipients `json:"recipients"`
+	Recipients []CreateFungibleTokensTransactionRequestFromAddressRIRecipientsInner `json:"recipients"`
 	Senders CreateFungibleTokensTransactionRequestFromAddressRISenders `json:"senders"`
 	TokenTypeSpecificData CreateFungibleTokensTransactionRequestFromAddressRIS `json:"tokenTypeSpecificData"`
 	// Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.
@@ -37,7 +37,7 @@ type CreateFungibleTokensTransactionRequestFromAddressRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateFungibleTokensTransactionRequestFromAddressRI(callbackSecretKey string, callbackUrl string, feePriority string, recipients []CreateFungibleTokensTransactionRequestFromAddressRIRecipients, senders CreateFungibleTokensTransactionRequestFromAddressRISenders, tokenTypeSpecificData CreateFungibleTokensTransactionRequestFromAddressRIS, transactionRequestId string) *CreateFungibleTokensTransactionRequestFromAddressRI {
+func NewCreateFungibleTokensTransactionRequestFromAddressRI(callbackSecretKey string, callbackUrl string, feePriority string, recipients []CreateFungibleTokensTransactionRequestFromAddressRIRecipientsInner, senders CreateFungibleTokensTransactionRequestFromAddressRISenders, tokenTypeSpecificData CreateFungibleTokensTransactionRequestFromAddressRIS, transactionRequestId string) *CreateFungibleTokensTransactionRequestFromAddressRI {
 	this := CreateFungibleTokensTransactionRequestFromAddressRI{}
 	this.CallbackSecretKey = callbackSecretKey
 	this.CallbackUrl = callbackUrl
@@ -162,9 +162,9 @@ func (o *CreateFungibleTokensTransactionRequestFromAddressRI) SetNote(v string) 
 }
 
 // GetRecipients returns the Recipients field value
-func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetRecipients() []CreateFungibleTokensTransactionRequestFromAddressRIRecipients {
+func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetRecipients() []CreateFungibleTokensTransactionRequestFromAddressRIRecipientsInner {
 	if o == nil {
-		var ret []CreateFungibleTokensTransactionRequestFromAddressRIRecipients
+		var ret []CreateFungibleTokensTransactionRequestFromAddressRIRecipientsInner
 		return ret
 	}
 
@@ -173,7 +173,7 @@ func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetRecipients() []
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetRecipientsOk() ([]CreateFungibleTokensTransactionRequestFromAddressRIRecipients, bool) {
+func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetRecipientsOk() ([]CreateFungibleTokensTransactionRequestFromAddressRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -181,7 +181,7 @@ func (o *CreateFungibleTokensTransactionRequestFromAddressRI) GetRecipientsOk() 
 }
 
 // SetRecipients sets field value
-func (o *CreateFungibleTokensTransactionRequestFromAddressRI) SetRecipients(v []CreateFungibleTokensTransactionRequestFromAddressRIRecipients) {
+func (o *CreateFungibleTokensTransactionRequestFromAddressRI) SetRecipients(v []CreateFungibleTokensTransactionRequestFromAddressRIRecipientsInner) {
 	o.Recipients = v
 }
 

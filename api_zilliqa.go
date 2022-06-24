@@ -137,7 +137,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40043
+			var v GetLatestMinedZilliqaBlock400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -147,7 +147,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40143
+			var v GetLatestMinedZilliqaBlock401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -157,7 +157,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InlineResponse402
+			var v GetAddressDetails402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -167,7 +167,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40343
+			var v GetLatestMinedZilliqaBlock403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -177,7 +177,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v InlineResponse4042
+			var v ListTransactionsByBlockHeight404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -187,7 +187,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v GetAddressDetails409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -197,7 +197,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v InlineResponse415
+			var v GetAddressDetails415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -207,7 +207,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse422
+			var v GetAddressDetails422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -217,7 +217,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v InlineResponse429
+			var v GetAddressDetails429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -227,7 +227,7 @@ func (a *ZilliqaApiService) GetLatestMinedZilliqaBlockExecute(r ApiGetLatestMine
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v GetAddressDetails500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -367,7 +367,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse4003
+			var v GetZilliqaAddressDetails400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -377,7 +377,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse4013
+			var v GetZilliqaAddressDetails401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -387,7 +387,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InlineResponse402
+			var v GetAddressDetails402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -397,7 +397,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse4033
+			var v GetZilliqaAddressDetails403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -407,7 +407,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v GetAddressDetails409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -417,7 +417,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v InlineResponse415
+			var v GetAddressDetails415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -427,7 +427,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse422
+			var v GetAddressDetails422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -437,7 +437,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v InlineResponse429
+			var v GetAddressDetails429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -447,7 +447,7 @@ func (a *ZilliqaApiService) GetZilliqaAddressDetailsExecute(r ApiGetZilliqaAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v GetAddressDetails500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -587,7 +587,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40034
+			var v GetZilliqaBlockDetailsByBlockHash400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -597,7 +597,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40134
+			var v GetZilliqaBlockDetailsByBlockHash401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -607,7 +607,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InlineResponse402
+			var v GetAddressDetails402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -617,7 +617,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40334
+			var v GetZilliqaBlockDetailsByBlockHash403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -627,7 +627,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v InlineResponse4042
+			var v ListTransactionsByBlockHeight404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -637,7 +637,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v GetAddressDetails409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -647,7 +647,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v InlineResponse415
+			var v GetAddressDetails415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -657,7 +657,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse422
+			var v GetAddressDetails422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -667,7 +667,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v InlineResponse429
+			var v GetAddressDetails429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -677,7 +677,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHashExecute(r ApiGetZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v GetAddressDetails500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -817,7 +817,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40030
+			var v GetZilliqaBlockDetailsByBlockHeight400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -827,7 +827,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40130
+			var v GetZilliqaBlockDetailsByBlockHeight401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -837,7 +837,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InlineResponse402
+			var v GetAddressDetails402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -847,7 +847,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40330
+			var v GetZilliqaBlockDetailsByBlockHeight403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -857,7 +857,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v InlineResponse4042
+			var v ListTransactionsByBlockHeight404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -867,7 +867,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v GetAddressDetails409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -877,7 +877,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v InlineResponse415
+			var v GetAddressDetails415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -887,7 +887,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse422
+			var v GetAddressDetails422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -897,7 +897,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v InlineResponse429
+			var v GetAddressDetails429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -907,7 +907,7 @@ func (a *ZilliqaApiService) GetZilliqaBlockDetailsByBlockHeightExecute(r ApiGetZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v GetAddressDetails500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1047,7 +1047,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse4009
+			var v GetZilliqaTransactionDetailsByTransactionID400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1057,7 +1057,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse4019
+			var v GetZilliqaTransactionDetailsByTransactionID401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1067,7 +1067,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InlineResponse402
+			var v GetAddressDetails402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1077,7 +1077,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse4039
+			var v GetZilliqaTransactionDetailsByTransactionID403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1087,7 +1087,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 404 {
-			var v InlineResponse404
+			var v GetTransactionDetailsByTransactionID404Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1097,7 +1097,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v GetAddressDetails409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1107,7 +1107,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v InlineResponse415
+			var v GetAddressDetails415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1117,7 +1117,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse422
+			var v GetAddressDetails422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1127,7 +1127,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v InlineResponse429
+			var v GetAddressDetails429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1137,7 +1137,7 @@ func (a *ZilliqaApiService) GetZilliqaTransactionDetailsByTransactionIDExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v GetAddressDetails500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1297,7 +1297,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40014
+			var v ListZilliqaTransactionsByAddress400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1307,7 +1307,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40114
+			var v ListZilliqaTransactionsByAddress401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1317,7 +1317,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InlineResponse402
+			var v GetAddressDetails402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1327,7 +1327,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40314
+			var v ListZilliqaTransactionsByAddress403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1337,7 +1337,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v GetAddressDetails409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1347,7 +1347,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v InlineResponse415
+			var v GetAddressDetails415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1357,7 +1357,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse422
+			var v GetAddressDetails422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1367,7 +1367,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v InlineResponse429
+			var v GetAddressDetails429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1377,7 +1377,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByAddressExecute(r ApiListZil
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v GetAddressDetails500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1537,7 +1537,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40022
+			var v ListZilliqaTransactionsByBlockHash400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1547,7 +1547,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40122
+			var v ListZilliqaTransactionsByBlockHash401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1557,7 +1557,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InlineResponse402
+			var v GetAddressDetails402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1567,7 +1567,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40322
+			var v ListZilliqaTransactionsByBlockHash403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1577,7 +1577,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v GetAddressDetails409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1587,7 +1587,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v InlineResponse415
+			var v GetAddressDetails415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1597,7 +1597,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse422
+			var v GetAddressDetails422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1607,7 +1607,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v InlineResponse429
+			var v GetAddressDetails429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1617,7 +1617,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHashExecute(r ApiListZ
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v GetAddressDetails500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1777,7 +1777,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			error: localVarHTTPResponse.Status,
 		}
 		if localVarHTTPResponse.StatusCode == 400 {
-			var v InlineResponse40023
+			var v ListZilliqaTransactionsByBlockHeight400Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1787,7 +1787,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 401 {
-			var v InlineResponse40123
+			var v ListZilliqaTransactionsByBlockHeight401Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1797,7 +1797,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v InlineResponse402
+			var v GetAddressDetails402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1807,7 +1807,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 403 {
-			var v InlineResponse40323
+			var v ListZilliqaTransactionsByBlockHeight403Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1817,7 +1817,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v InlineResponse409
+			var v GetAddressDetails409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1827,7 +1827,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v InlineResponse415
+			var v GetAddressDetails415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1837,7 +1837,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v InlineResponse422
+			var v GetAddressDetails422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1847,7 +1847,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v InlineResponse429
+			var v GetAddressDetails429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1857,7 +1857,7 @@ func (a *ZilliqaApiService) ListZilliqaTransactionsByBlockHeightExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v InlineResponse500
+			var v GetAddressDetails500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

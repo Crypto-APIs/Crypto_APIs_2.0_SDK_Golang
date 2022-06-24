@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **ClassicAddress** | Pointer to **string** | Represents the public address, which is a compressed and shortened form of a public key. The classic address is shown when the source address is an x-Address. | [optional] 
 **FeePriority** | **string** | Represents the fee priority of the automation, whether it is \&quot;slow\&quot;, \&quot;standard\&quot; or \&quot;fast\&quot;. | 
 **Note** | Pointer to **string** | Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request. | [optional] 
-**Recipients** | [**[]CreateCoinsTransactionRequestFromAddressRIRecipients**](CreateCoinsTransactionRequestFromAddressRIRecipients.md) | Defines the destination for the transaction, i.e. the recipient(s). | 
+**Recipients** | [**[]CreateCoinsTransactionRequestFromAddressRIRecipientsInner**](CreateCoinsTransactionRequestFromAddressRIRecipientsInner.md) | Defines the destination for the transaction, i.e. the recipient(s). | 
 **Senders** | [**CreateCoinsTransactionRequestFromAddressRISenders**](CreateCoinsTransactionRequestFromAddressRISenders.md) |  | 
 **TransactionRequestId** | **string** | Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which &#x60;referenceId&#x60; concern that specific transaction request. | 
 **TransactionRequestStatus** | **string** | Defines the status of the transaction request, e.g. \&quot;created, \&quot;await_approval\&quot;, \&quot;pending\&quot;, \&quot;prepared\&quot;, \&quot;signed\&quot;, \&quot;broadcasted\&quot;, \&quot;success\&quot;, \&quot;failed\&quot;, \&quot;rejected\&quot;, mined\&quot;. | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewCreateCoinsTransactionRequestFromAddressRI
 
-`func NewCreateCoinsTransactionRequestFromAddressRI(feePriority string, recipients []CreateCoinsTransactionRequestFromAddressRIRecipients, senders CreateCoinsTransactionRequestFromAddressRISenders, transactionRequestId string, transactionRequestStatus string, ) *CreateCoinsTransactionRequestFromAddressRI`
+`func NewCreateCoinsTransactionRequestFromAddressRI(feePriority string, recipients []CreateCoinsTransactionRequestFromAddressRIRecipientsInner, senders CreateCoinsTransactionRequestFromAddressRISenders, transactionRequestId string, transactionRequestStatus string, ) *CreateCoinsTransactionRequestFromAddressRI`
 
 NewCreateCoinsTransactionRequestFromAddressRI instantiates a new CreateCoinsTransactionRequestFromAddressRI object
 This constructor will assign default values to properties that have it defined,
@@ -181,20 +181,20 @@ HasNote returns a boolean if a field has been set.
 
 ### GetRecipients
 
-`func (o *CreateCoinsTransactionRequestFromAddressRI) GetRecipients() []CreateCoinsTransactionRequestFromAddressRIRecipients`
+`func (o *CreateCoinsTransactionRequestFromAddressRI) GetRecipients() []CreateCoinsTransactionRequestFromAddressRIRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *CreateCoinsTransactionRequestFromAddressRI) GetRecipientsOk() (*[]CreateCoinsTransactionRequestFromAddressRIRecipients, bool)`
+`func (o *CreateCoinsTransactionRequestFromAddressRI) GetRecipientsOk() (*[]CreateCoinsTransactionRequestFromAddressRIRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *CreateCoinsTransactionRequestFromAddressRI) SetRecipients(v []CreateCoinsTransactionRequestFromAddressRIRecipients)`
+`func (o *CreateCoinsTransactionRequestFromAddressRI) SetRecipients(v []CreateCoinsTransactionRequestFromAddressRIRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 

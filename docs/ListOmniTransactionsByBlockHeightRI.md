@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **MinedInBlockHeight** | **int32** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
 **PositionInBlock** | **int32** | Represents the index position of the transaction in the specific block. | 
 **PropertyId** | **int32** | Represents the identifier of the tokens to send. | 
-**Recipients** | [**[]ListOmniTransactionsByBlockHeightRIRecipients**](ListOmniTransactionsByBlockHeightRIRecipients.md) | Represents an object of addresses that receive the transactions. | 
-**Senders** | [**[]ListOmniTransactionsByBlockHeightRISenders**](ListOmniTransactionsByBlockHeightRISenders.md) | Represents an object of addresses that provide the funds. | 
+**Recipients** | [**[]ListOmniTransactionsByBlockHeightRIRecipientsInner**](ListOmniTransactionsByBlockHeightRIRecipientsInner.md) | Represents an object of addresses that receive the transactions. | 
+**Senders** | [**[]ListOmniTransactionsByBlockHeightRISendersInner**](ListOmniTransactionsByBlockHeightRISendersInner.md) | Represents an object of addresses that provide the funds. | 
 **Timestamp** | **int32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
 **TransactionId** | **string** | Represents the unique identifier of a transaction, i.e. it could be &#x60;transactionId&#x60; in UTXO-based protocols like Bitcoin, and transaction &#x60;hash&#x60; in Ethereum blockchain. | 
 **Type** | **string** | Defines the type of the transaction as a string. | 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewListOmniTransactionsByBlockHeightRI
 
-`func NewListOmniTransactionsByBlockHeightRI(amount string, divisible bool, minedInBlockHash string, minedInBlockHeight int32, positionInBlock int32, propertyId int32, recipients []ListOmniTransactionsByBlockHeightRIRecipients, senders []ListOmniTransactionsByBlockHeightRISenders, timestamp int32, transactionId string, type_ string, typeInt int32, valid bool, version int32, fee ListOmniTransactionsByBlockHeightRIFee, ) *ListOmniTransactionsByBlockHeightRI`
+`func NewListOmniTransactionsByBlockHeightRI(amount string, divisible bool, minedInBlockHash string, minedInBlockHeight int32, positionInBlock int32, propertyId int32, recipients []ListOmniTransactionsByBlockHeightRIRecipientsInner, senders []ListOmniTransactionsByBlockHeightRISendersInner, timestamp int32, transactionId string, type_ string, typeInt int32, valid bool, version int32, fee ListOmniTransactionsByBlockHeightRIFee, ) *ListOmniTransactionsByBlockHeightRI`
 
 NewListOmniTransactionsByBlockHeightRI instantiates a new ListOmniTransactionsByBlockHeightRI object
 This constructor will assign default values to properties that have it defined,
@@ -161,40 +161,40 @@ SetPropertyId sets PropertyId field to given value.
 
 ### GetRecipients
 
-`func (o *ListOmniTransactionsByBlockHeightRI) GetRecipients() []ListOmniTransactionsByBlockHeightRIRecipients`
+`func (o *ListOmniTransactionsByBlockHeightRI) GetRecipients() []ListOmniTransactionsByBlockHeightRIRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *ListOmniTransactionsByBlockHeightRI) GetRecipientsOk() (*[]ListOmniTransactionsByBlockHeightRIRecipients, bool)`
+`func (o *ListOmniTransactionsByBlockHeightRI) GetRecipientsOk() (*[]ListOmniTransactionsByBlockHeightRIRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *ListOmniTransactionsByBlockHeightRI) SetRecipients(v []ListOmniTransactionsByBlockHeightRIRecipients)`
+`func (o *ListOmniTransactionsByBlockHeightRI) SetRecipients(v []ListOmniTransactionsByBlockHeightRIRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 
 
 ### GetSenders
 
-`func (o *ListOmniTransactionsByBlockHeightRI) GetSenders() []ListOmniTransactionsByBlockHeightRISenders`
+`func (o *ListOmniTransactionsByBlockHeightRI) GetSenders() []ListOmniTransactionsByBlockHeightRISendersInner`
 
 GetSenders returns the Senders field if non-nil, zero value otherwise.
 
 ### GetSendersOk
 
-`func (o *ListOmniTransactionsByBlockHeightRI) GetSendersOk() (*[]ListOmniTransactionsByBlockHeightRISenders, bool)`
+`func (o *ListOmniTransactionsByBlockHeightRI) GetSendersOk() (*[]ListOmniTransactionsByBlockHeightRISendersInner, bool)`
 
 GetSendersOk returns a tuple with the Senders field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSenders
 
-`func (o *ListOmniTransactionsByBlockHeightRI) SetSenders(v []ListOmniTransactionsByBlockHeightRISenders)`
+`func (o *ListOmniTransactionsByBlockHeightRI) SetSenders(v []ListOmniTransactionsByBlockHeightRISendersInner)`
 
 SetSenders sets Senders field to given value.
 

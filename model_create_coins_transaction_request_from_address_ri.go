@@ -30,7 +30,7 @@ type CreateCoinsTransactionRequestFromAddressRI struct {
 	// Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request.
 	Note *string `json:"note,omitempty"`
 	// Defines the destination for the transaction, i.e. the recipient(s).
-	Recipients []CreateCoinsTransactionRequestFromAddressRIRecipients `json:"recipients"`
+	Recipients []CreateCoinsTransactionRequestFromAddressRIRecipientsInner `json:"recipients"`
 	Senders CreateCoinsTransactionRequestFromAddressRISenders `json:"senders"`
 	// Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.
 	TransactionRequestId string `json:"transactionRequestId"`
@@ -42,7 +42,7 @@ type CreateCoinsTransactionRequestFromAddressRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateCoinsTransactionRequestFromAddressRI(feePriority string, recipients []CreateCoinsTransactionRequestFromAddressRIRecipients, senders CreateCoinsTransactionRequestFromAddressRISenders, transactionRequestId string, transactionRequestStatus string) *CreateCoinsTransactionRequestFromAddressRI {
+func NewCreateCoinsTransactionRequestFromAddressRI(feePriority string, recipients []CreateCoinsTransactionRequestFromAddressRIRecipientsInner, senders CreateCoinsTransactionRequestFromAddressRISenders, transactionRequestId string, transactionRequestStatus string) *CreateCoinsTransactionRequestFromAddressRI {
 	this := CreateCoinsTransactionRequestFromAddressRI{}
 	this.FeePriority = feePriority
 	this.Recipients = recipients
@@ -245,9 +245,9 @@ func (o *CreateCoinsTransactionRequestFromAddressRI) SetNote(v string) {
 }
 
 // GetRecipients returns the Recipients field value
-func (o *CreateCoinsTransactionRequestFromAddressRI) GetRecipients() []CreateCoinsTransactionRequestFromAddressRIRecipients {
+func (o *CreateCoinsTransactionRequestFromAddressRI) GetRecipients() []CreateCoinsTransactionRequestFromAddressRIRecipientsInner {
 	if o == nil {
-		var ret []CreateCoinsTransactionRequestFromAddressRIRecipients
+		var ret []CreateCoinsTransactionRequestFromAddressRIRecipientsInner
 		return ret
 	}
 
@@ -256,7 +256,7 @@ func (o *CreateCoinsTransactionRequestFromAddressRI) GetRecipients() []CreateCoi
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *CreateCoinsTransactionRequestFromAddressRI) GetRecipientsOk() ([]CreateCoinsTransactionRequestFromAddressRIRecipients, bool) {
+func (o *CreateCoinsTransactionRequestFromAddressRI) GetRecipientsOk() ([]CreateCoinsTransactionRequestFromAddressRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -264,7 +264,7 @@ func (o *CreateCoinsTransactionRequestFromAddressRI) GetRecipientsOk() ([]Create
 }
 
 // SetRecipients sets field value
-func (o *CreateCoinsTransactionRequestFromAddressRI) SetRecipients(v []CreateCoinsTransactionRequestFromAddressRIRecipients) {
+func (o *CreateCoinsTransactionRequestFromAddressRI) SetRecipients(v []CreateCoinsTransactionRequestFromAddressRIRecipientsInner) {
 	o.Recipients = v
 }
 

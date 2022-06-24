@@ -31,9 +31,9 @@ type GetZilliqaTransactionDetailsByTransactionIDRI struct {
 	// Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.
 	Nonce int32 `json:"nonce"`
 	// Represents an object of addresses that receive the transactions.
-	Recipients []GetZilliqaTransactionDetailsByTransactionIDRIRecipients `json:"recipients"`
+	Recipients []GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner `json:"recipients"`
 	// Represents an object of addresses that provide the funds.
-	Senders []GetZilliqaTransactionDetailsByTransactionIDRISenders `json:"senders"`
+	Senders []GetZilliqaTransactionDetailsByTransactionIDRISendersInner `json:"senders"`
 	// Defines the exact date/time when this block was mined in Unix Timestamp.
 	Timestamp int32 `json:"timestamp"`
 	// Defines the numeric representation of the transaction index.
@@ -46,7 +46,7 @@ type GetZilliqaTransactionDetailsByTransactionIDRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetZilliqaTransactionDetailsByTransactionIDRI(fee GetZilliqaTransactionDetailsByTransactionIDRIFee, gasLimit int32, gasPrice int32, gasUsed int32, minedInBlockHash string, minedInBlockHeight int32, nonce int32, recipients []GetZilliqaTransactionDetailsByTransactionIDRIRecipients, senders []GetZilliqaTransactionDetailsByTransactionIDRISenders, timestamp int32, transactionIndex int32, transactionStatus string) *GetZilliqaTransactionDetailsByTransactionIDRI {
+func NewGetZilliqaTransactionDetailsByTransactionIDRI(fee GetZilliqaTransactionDetailsByTransactionIDRIFee, gasLimit int32, gasPrice int32, gasUsed int32, minedInBlockHash string, minedInBlockHeight int32, nonce int32, recipients []GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner, senders []GetZilliqaTransactionDetailsByTransactionIDRISendersInner, timestamp int32, transactionIndex int32, transactionStatus string) *GetZilliqaTransactionDetailsByTransactionIDRI {
 	this := GetZilliqaTransactionDetailsByTransactionIDRI{}
 	this.Fee = fee
 	this.GasLimit = gasLimit
@@ -240,9 +240,9 @@ func (o *GetZilliqaTransactionDetailsByTransactionIDRI) SetNonce(v int32) {
 }
 
 // GetRecipients returns the Recipients field value
-func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetRecipients() []GetZilliqaTransactionDetailsByTransactionIDRIRecipients {
+func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetRecipients() []GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner {
 	if o == nil {
-		var ret []GetZilliqaTransactionDetailsByTransactionIDRIRecipients
+		var ret []GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner
 		return ret
 	}
 
@@ -251,7 +251,7 @@ func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetRecipients() []GetZil
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetRecipientsOk() ([]GetZilliqaTransactionDetailsByTransactionIDRIRecipients, bool) {
+func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetRecipientsOk() ([]GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -259,14 +259,14 @@ func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetRecipientsOk() ([]Get
 }
 
 // SetRecipients sets field value
-func (o *GetZilliqaTransactionDetailsByTransactionIDRI) SetRecipients(v []GetZilliqaTransactionDetailsByTransactionIDRIRecipients) {
+func (o *GetZilliqaTransactionDetailsByTransactionIDRI) SetRecipients(v []GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetSenders() []GetZilliqaTransactionDetailsByTransactionIDRISenders {
+func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetSenders() []GetZilliqaTransactionDetailsByTransactionIDRISendersInner {
 	if o == nil {
-		var ret []GetZilliqaTransactionDetailsByTransactionIDRISenders
+		var ret []GetZilliqaTransactionDetailsByTransactionIDRISendersInner
 		return ret
 	}
 
@@ -275,7 +275,7 @@ func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetSenders() []GetZilliq
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetSendersOk() ([]GetZilliqaTransactionDetailsByTransactionIDRISenders, bool) {
+func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetSendersOk() ([]GetZilliqaTransactionDetailsByTransactionIDRISendersInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -283,7 +283,7 @@ func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetSendersOk() ([]GetZil
 }
 
 // SetSenders sets field value
-func (o *GetZilliqaTransactionDetailsByTransactionIDRI) SetSenders(v []GetZilliqaTransactionDetailsByTransactionIDRISenders) {
+func (o *GetZilliqaTransactionDetailsByTransactionIDRI) SetSenders(v []GetZilliqaTransactionDetailsByTransactionIDRISendersInner) {
 	o.Senders = v
 }
 

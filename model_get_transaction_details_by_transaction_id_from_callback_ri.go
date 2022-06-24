@@ -24,9 +24,9 @@ type GetTransactionDetailsByTransactionIDFromCallbackRI struct {
 	// Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
 	MinedInBlockHeight int32 `json:"minedInBlockHeight"`
 	// Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Recipients []GetTransactionDetailsByTransactionIDFromCallbackRIRecipients `json:"recipients"`
+	Recipients []GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner `json:"recipients"`
 	// Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Senders []GetTransactionDetailsByTransactionIDFromCallbackRISenders `json:"senders"`
+	Senders []GetTransactionDetailsByTransactionIDFromCallbackRISendersInner `json:"senders"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
 	Timestamp int32 `json:"timestamp"`
 	// Represents the same as transactionId for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols hash is different from transactionId for SegWit transactions.
@@ -40,7 +40,7 @@ type GetTransactionDetailsByTransactionIDFromCallbackRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []GetTransactionDetailsByTransactionIDFromCallbackRIRecipients, senders []GetTransactionDetailsByTransactionIDFromCallbackRISenders, timestamp int32, transactionHash string, fee GetTransactionDetailsByTransactionIDFromCallbackRIFee, isConfirmed bool, blockchainSpecific GetTransactionDetailsByTransactionIDFromCallbackRIBS) *GetTransactionDetailsByTransactionIDFromCallbackRI {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner, senders []GetTransactionDetailsByTransactionIDFromCallbackRISendersInner, timestamp int32, transactionHash string, fee GetTransactionDetailsByTransactionIDFromCallbackRIFee, isConfirmed bool, blockchainSpecific GetTransactionDetailsByTransactionIDFromCallbackRIBS) *GetTransactionDetailsByTransactionIDFromCallbackRI {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRI{}
 	this.Index = index
 	this.MinedInBlockHash = minedInBlockHash
@@ -136,9 +136,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) SetMinedInBlockHeig
 }
 
 // GetRecipients returns the Recipients field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetRecipients() []GetTransactionDetailsByTransactionIDFromCallbackRIRecipients {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetRecipients() []GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDFromCallbackRIRecipients
+		var ret []GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner
 		return ret
 	}
 
@@ -147,7 +147,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetRecipients() []G
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetRecipientsOk() ([]GetTransactionDetailsByTransactionIDFromCallbackRIRecipients, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetRecipientsOk() ([]GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -155,14 +155,14 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetRecipientsOk() (
 }
 
 // SetRecipients sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) SetRecipients(v []GetTransactionDetailsByTransactionIDFromCallbackRIRecipients) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) SetRecipients(v []GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetSenders() []GetTransactionDetailsByTransactionIDFromCallbackRISenders {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetSenders() []GetTransactionDetailsByTransactionIDFromCallbackRISendersInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDFromCallbackRISenders
+		var ret []GetTransactionDetailsByTransactionIDFromCallbackRISendersInner
 		return ret
 	}
 
@@ -171,7 +171,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetSenders() []GetT
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetSendersOk() ([]GetTransactionDetailsByTransactionIDFromCallbackRISenders, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetSendersOk() ([]GetTransactionDetailsByTransactionIDFromCallbackRISendersInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -179,7 +179,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetSendersOk() ([]G
 }
 
 // SetSenders sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) SetSenders(v []GetTransactionDetailsByTransactionIDFromCallbackRISenders) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) SetSenders(v []GetTransactionDetailsByTransactionIDFromCallbackRISendersInner) {
 	o.Senders = v
 }
 

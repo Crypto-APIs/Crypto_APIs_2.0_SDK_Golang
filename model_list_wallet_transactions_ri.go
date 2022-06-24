@@ -21,14 +21,14 @@ type ListWalletTransactionsRI struct {
 	Direction string `json:"direction"`
 	Fee ListWalletTransactionsRIFee `json:"fee"`
 	// Represents fungible tokens'es detailed information
-	FungibleTokens []ListWalletTransactionsRIFungibleTokens `json:"fungibleTokens,omitempty"`
-	InternalTransactions []ListWalletTransactionsRIInternalTransactions `json:"internalTransactions,omitempty"`
+	FungibleTokens []ListWalletTransactionsRIFungibleTokensInner `json:"fungibleTokens,omitempty"`
+	InternalTransactions []ListWalletTransactionsRIInternalTransactionsInner `json:"internalTransactions,omitempty"`
 	// Represents non-fungible tokens'es detailed information.
-	NonFungibleTokens []ListWalletTransactionsRINonFungibleTokens `json:"nonFungibleTokens,omitempty"`
+	NonFungibleTokens []ListWalletTransactionsRINonFungibleTokensInner `json:"nonFungibleTokens,omitempty"`
 	// Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Recipients []ListWalletTransactionsRIRecipients `json:"recipients"`
+	Recipients []ListWalletTransactionsRIRecipientsInner `json:"recipients"`
 	// Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Senders []ListWalletTransactionsRISenders `json:"senders"`
+	Senders []ListWalletTransactionsRISendersInner `json:"senders"`
 	// Defines the status of the transaction, if it is confirmed or unconfirmed.
 	Status string `json:"status"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
@@ -42,7 +42,7 @@ type ListWalletTransactionsRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListWalletTransactionsRI(direction string, fee ListWalletTransactionsRIFee, recipients []ListWalletTransactionsRIRecipients, senders []ListWalletTransactionsRISenders, status string, timestamp int32, transactionId string, value ListWalletTransactionsRIValue) *ListWalletTransactionsRI {
+func NewListWalletTransactionsRI(direction string, fee ListWalletTransactionsRIFee, recipients []ListWalletTransactionsRIRecipientsInner, senders []ListWalletTransactionsRISendersInner, status string, timestamp int32, transactionId string, value ListWalletTransactionsRIValue) *ListWalletTransactionsRI {
 	this := ListWalletTransactionsRI{}
 	this.Direction = direction
 	this.Fee = fee
@@ -112,9 +112,9 @@ func (o *ListWalletTransactionsRI) SetFee(v ListWalletTransactionsRIFee) {
 }
 
 // GetFungibleTokens returns the FungibleTokens field value if set, zero value otherwise.
-func (o *ListWalletTransactionsRI) GetFungibleTokens() []ListWalletTransactionsRIFungibleTokens {
+func (o *ListWalletTransactionsRI) GetFungibleTokens() []ListWalletTransactionsRIFungibleTokensInner {
 	if o == nil || o.FungibleTokens == nil {
-		var ret []ListWalletTransactionsRIFungibleTokens
+		var ret []ListWalletTransactionsRIFungibleTokensInner
 		return ret
 	}
 	return o.FungibleTokens
@@ -122,7 +122,7 @@ func (o *ListWalletTransactionsRI) GetFungibleTokens() []ListWalletTransactionsR
 
 // GetFungibleTokensOk returns a tuple with the FungibleTokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListWalletTransactionsRI) GetFungibleTokensOk() ([]ListWalletTransactionsRIFungibleTokens, bool) {
+func (o *ListWalletTransactionsRI) GetFungibleTokensOk() ([]ListWalletTransactionsRIFungibleTokensInner, bool) {
 	if o == nil || o.FungibleTokens == nil {
 		return nil, false
 	}
@@ -138,15 +138,15 @@ func (o *ListWalletTransactionsRI) HasFungibleTokens() bool {
 	return false
 }
 
-// SetFungibleTokens gets a reference to the given []ListWalletTransactionsRIFungibleTokens and assigns it to the FungibleTokens field.
-func (o *ListWalletTransactionsRI) SetFungibleTokens(v []ListWalletTransactionsRIFungibleTokens) {
+// SetFungibleTokens gets a reference to the given []ListWalletTransactionsRIFungibleTokensInner and assigns it to the FungibleTokens field.
+func (o *ListWalletTransactionsRI) SetFungibleTokens(v []ListWalletTransactionsRIFungibleTokensInner) {
 	o.FungibleTokens = v
 }
 
 // GetInternalTransactions returns the InternalTransactions field value if set, zero value otherwise.
-func (o *ListWalletTransactionsRI) GetInternalTransactions() []ListWalletTransactionsRIInternalTransactions {
+func (o *ListWalletTransactionsRI) GetInternalTransactions() []ListWalletTransactionsRIInternalTransactionsInner {
 	if o == nil || o.InternalTransactions == nil {
-		var ret []ListWalletTransactionsRIInternalTransactions
+		var ret []ListWalletTransactionsRIInternalTransactionsInner
 		return ret
 	}
 	return o.InternalTransactions
@@ -154,7 +154,7 @@ func (o *ListWalletTransactionsRI) GetInternalTransactions() []ListWalletTransac
 
 // GetInternalTransactionsOk returns a tuple with the InternalTransactions field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListWalletTransactionsRI) GetInternalTransactionsOk() ([]ListWalletTransactionsRIInternalTransactions, bool) {
+func (o *ListWalletTransactionsRI) GetInternalTransactionsOk() ([]ListWalletTransactionsRIInternalTransactionsInner, bool) {
 	if o == nil || o.InternalTransactions == nil {
 		return nil, false
 	}
@@ -170,15 +170,15 @@ func (o *ListWalletTransactionsRI) HasInternalTransactions() bool {
 	return false
 }
 
-// SetInternalTransactions gets a reference to the given []ListWalletTransactionsRIInternalTransactions and assigns it to the InternalTransactions field.
-func (o *ListWalletTransactionsRI) SetInternalTransactions(v []ListWalletTransactionsRIInternalTransactions) {
+// SetInternalTransactions gets a reference to the given []ListWalletTransactionsRIInternalTransactionsInner and assigns it to the InternalTransactions field.
+func (o *ListWalletTransactionsRI) SetInternalTransactions(v []ListWalletTransactionsRIInternalTransactionsInner) {
 	o.InternalTransactions = v
 }
 
 // GetNonFungibleTokens returns the NonFungibleTokens field value if set, zero value otherwise.
-func (o *ListWalletTransactionsRI) GetNonFungibleTokens() []ListWalletTransactionsRINonFungibleTokens {
+func (o *ListWalletTransactionsRI) GetNonFungibleTokens() []ListWalletTransactionsRINonFungibleTokensInner {
 	if o == nil || o.NonFungibleTokens == nil {
-		var ret []ListWalletTransactionsRINonFungibleTokens
+		var ret []ListWalletTransactionsRINonFungibleTokensInner
 		return ret
 	}
 	return o.NonFungibleTokens
@@ -186,7 +186,7 @@ func (o *ListWalletTransactionsRI) GetNonFungibleTokens() []ListWalletTransactio
 
 // GetNonFungibleTokensOk returns a tuple with the NonFungibleTokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListWalletTransactionsRI) GetNonFungibleTokensOk() ([]ListWalletTransactionsRINonFungibleTokens, bool) {
+func (o *ListWalletTransactionsRI) GetNonFungibleTokensOk() ([]ListWalletTransactionsRINonFungibleTokensInner, bool) {
 	if o == nil || o.NonFungibleTokens == nil {
 		return nil, false
 	}
@@ -202,15 +202,15 @@ func (o *ListWalletTransactionsRI) HasNonFungibleTokens() bool {
 	return false
 }
 
-// SetNonFungibleTokens gets a reference to the given []ListWalletTransactionsRINonFungibleTokens and assigns it to the NonFungibleTokens field.
-func (o *ListWalletTransactionsRI) SetNonFungibleTokens(v []ListWalletTransactionsRINonFungibleTokens) {
+// SetNonFungibleTokens gets a reference to the given []ListWalletTransactionsRINonFungibleTokensInner and assigns it to the NonFungibleTokens field.
+func (o *ListWalletTransactionsRI) SetNonFungibleTokens(v []ListWalletTransactionsRINonFungibleTokensInner) {
 	o.NonFungibleTokens = v
 }
 
 // GetRecipients returns the Recipients field value
-func (o *ListWalletTransactionsRI) GetRecipients() []ListWalletTransactionsRIRecipients {
+func (o *ListWalletTransactionsRI) GetRecipients() []ListWalletTransactionsRIRecipientsInner {
 	if o == nil {
-		var ret []ListWalletTransactionsRIRecipients
+		var ret []ListWalletTransactionsRIRecipientsInner
 		return ret
 	}
 
@@ -219,7 +219,7 @@ func (o *ListWalletTransactionsRI) GetRecipients() []ListWalletTransactionsRIRec
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListWalletTransactionsRI) GetRecipientsOk() ([]ListWalletTransactionsRIRecipients, bool) {
+func (o *ListWalletTransactionsRI) GetRecipientsOk() ([]ListWalletTransactionsRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -227,14 +227,14 @@ func (o *ListWalletTransactionsRI) GetRecipientsOk() ([]ListWalletTransactionsRI
 }
 
 // SetRecipients sets field value
-func (o *ListWalletTransactionsRI) SetRecipients(v []ListWalletTransactionsRIRecipients) {
+func (o *ListWalletTransactionsRI) SetRecipients(v []ListWalletTransactionsRIRecipientsInner) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *ListWalletTransactionsRI) GetSenders() []ListWalletTransactionsRISenders {
+func (o *ListWalletTransactionsRI) GetSenders() []ListWalletTransactionsRISendersInner {
 	if o == nil {
-		var ret []ListWalletTransactionsRISenders
+		var ret []ListWalletTransactionsRISendersInner
 		return ret
 	}
 
@@ -243,7 +243,7 @@ func (o *ListWalletTransactionsRI) GetSenders() []ListWalletTransactionsRISender
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListWalletTransactionsRI) GetSendersOk() ([]ListWalletTransactionsRISenders, bool) {
+func (o *ListWalletTransactionsRI) GetSendersOk() ([]ListWalletTransactionsRISendersInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -251,7 +251,7 @@ func (o *ListWalletTransactionsRI) GetSendersOk() ([]ListWalletTransactionsRISen
 }
 
 // SetSenders sets field value
-func (o *ListWalletTransactionsRI) SetSenders(v []ListWalletTransactionsRISenders) {
+func (o *ListWalletTransactionsRI) SetSenders(v []ListWalletTransactionsRISendersInner) {
 	o.Senders = v
 }
 

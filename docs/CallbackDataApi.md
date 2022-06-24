@@ -5,8 +5,8 @@ All URIs are relative to *https://rest.cryptoapis.io/v2*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**GetAddressDetailsFromCallback**](CallbackDataApi.md#GetAddressDetailsFromCallback) | **Get** /blockchain-events/{blockchain}/{network}/addresses/{address} | Get Address Details From Callback
-[**GetBlockDetailsByBlockHashFromCallback**](CallbackDataApi.md#GetBlockDetailsByBlockHashFromCallback) | **Get** /blockcain-events/{blockchain}/{network}/blocks/hash/{blockHash} | Get Block Details By Block Hash From Callback
-[**GetBlockDetailsByBlockHeightFromCallback**](CallbackDataApi.md#GetBlockDetailsByBlockHeightFromCallback) | **Get** /blockcain-events/{blockchain}/{network}/blocks/height/{blockHeight} | Get Block Details By Block Height From Callback
+[**GetBlockDetailsByBlockHashFromCallback**](CallbackDataApi.md#GetBlockDetailsByBlockHashFromCallback) | **Get** /blockchain-events/{blockchain}/{network}/blocks/hash/{blockHash} | Get Block Details By Block Hash From Callback
+[**GetBlockDetailsByBlockHeightFromCallback**](CallbackDataApi.md#GetBlockDetailsByBlockHeightFromCallback) | **Get** /blockchain-events/{blockchain}/{network}/blocks/height/{blockHeight} | Get Block Details By Block Height From Callback
 [**GetTransactionDetailsByTransactionIDFromCallback**](CallbackDataApi.md#GetTransactionDetailsByTransactionIDFromCallback) | **Get** /blockchain-events/{blockchain}/{network}/transactions/{transactionId} | Get Transaction Details By Transaction ID From Callback
 
 

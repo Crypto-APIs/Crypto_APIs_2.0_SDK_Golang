@@ -12,14 +12,14 @@ Name | Type | Description | Notes
 **ValueBalance** | **string** | Defines the transaction value balance. | 
 **Version** | **int32** | Represents the transaction version number. | 
 **VersionGroupId** | **string** | Represents the transaction version group ID | 
-**Vin** | [**[]DecodeRawTransactionHexRISZVin**](DecodeRawTransactionHexRISZVin.md) | Represents the Inputs of the transaction | 
-**Vout** | [**[]DecodeRawTransactionHexRISZVout**](DecodeRawTransactionHexRISZVout.md) | Represents the Inputs of the transaction | 
+**Vin** | [**[]DecodeRawTransactionHexRISZVinInner**](DecodeRawTransactionHexRISZVinInner.md) | Represents the Inputs of the transaction | 
+**Vout** | [**[]DecodeRawTransactionHexRISZVoutInner**](DecodeRawTransactionHexRISZVoutInner.md) | Represents the Inputs of the transaction | 
 
 ## Methods
 
 ### NewDecodeRawTransactionHexRISZ
 
-`func NewDecodeRawTransactionHexRISZ(expiryHeight int32, locktime int32, overwintered bool, saplinged bool, transactionHash string, valueBalance string, version int32, versionGroupId string, vin []DecodeRawTransactionHexRISZVin, vout []DecodeRawTransactionHexRISZVout, ) *DecodeRawTransactionHexRISZ`
+`func NewDecodeRawTransactionHexRISZ(expiryHeight int32, locktime int32, overwintered bool, saplinged bool, transactionHash string, valueBalance string, version int32, versionGroupId string, vin []DecodeRawTransactionHexRISZVinInner, vout []DecodeRawTransactionHexRISZVoutInner, ) *DecodeRawTransactionHexRISZ`
 
 NewDecodeRawTransactionHexRISZ instantiates a new DecodeRawTransactionHexRISZ object
 This constructor will assign default values to properties that have it defined,
@@ -196,40 +196,40 @@ SetVersionGroupId sets VersionGroupId field to given value.
 
 ### GetVin
 
-`func (o *DecodeRawTransactionHexRISZ) GetVin() []DecodeRawTransactionHexRISZVin`
+`func (o *DecodeRawTransactionHexRISZ) GetVin() []DecodeRawTransactionHexRISZVinInner`
 
 GetVin returns the Vin field if non-nil, zero value otherwise.
 
 ### GetVinOk
 
-`func (o *DecodeRawTransactionHexRISZ) GetVinOk() (*[]DecodeRawTransactionHexRISZVin, bool)`
+`func (o *DecodeRawTransactionHexRISZ) GetVinOk() (*[]DecodeRawTransactionHexRISZVinInner, bool)`
 
 GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVin
 
-`func (o *DecodeRawTransactionHexRISZ) SetVin(v []DecodeRawTransactionHexRISZVin)`
+`func (o *DecodeRawTransactionHexRISZ) SetVin(v []DecodeRawTransactionHexRISZVinInner)`
 
 SetVin sets Vin field to given value.
 
 
 ### GetVout
 
-`func (o *DecodeRawTransactionHexRISZ) GetVout() []DecodeRawTransactionHexRISZVout`
+`func (o *DecodeRawTransactionHexRISZ) GetVout() []DecodeRawTransactionHexRISZVoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *DecodeRawTransactionHexRISZ) GetVoutOk() (*[]DecodeRawTransactionHexRISZVout, bool)`
+`func (o *DecodeRawTransactionHexRISZ) GetVoutOk() (*[]DecodeRawTransactionHexRISZVoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *DecodeRawTransactionHexRISZ) SetVout(v []DecodeRawTransactionHexRISZVout)`
+`func (o *DecodeRawTransactionHexRISZ) SetVout(v []DecodeRawTransactionHexRISZVoutInner)`
 
 SetVout sets Vout field to given value.
 

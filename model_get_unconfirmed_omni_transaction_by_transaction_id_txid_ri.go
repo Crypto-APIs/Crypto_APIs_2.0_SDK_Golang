@@ -26,9 +26,9 @@ type GetUnconfirmedOmniTransactionByTransactionIDTxidRI struct {
 	// Represents the identifier of the tokens to send.
 	PropertyId int32 `json:"propertyId"`
 	// Represents an object of addresses that receive the transactions.
-	Recipients []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients `json:"recipients"`
+	Recipients []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipientsInner `json:"recipients"`
 	// Represents an object of addresses that provide the funds.
-	Senders []GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders `json:"senders"`
+	Senders []GetUnconfirmedOmniTransactionByTransactionIDTxidRISendersInner `json:"senders"`
 	// Defines whether the transaction has been sent or not, as boolean. E.g. if set to \"true\", it means the transaction is sent.
 	Sent bool `json:"sent"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
@@ -48,7 +48,7 @@ type GetUnconfirmedOmniTransactionByTransactionIDTxidRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetUnconfirmedOmniTransactionByTransactionIDTxidRI(amount string, divisible bool, mined bool, propertyId int32, recipients []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients, senders []GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders, sent bool, timestamp int32, transactionId string, type_ string, typeInt int32, version int32, fee ListUnconfirmedOmniTransactionsByAddressRIFee) *GetUnconfirmedOmniTransactionByTransactionIDTxidRI {
+func NewGetUnconfirmedOmniTransactionByTransactionIDTxidRI(amount string, divisible bool, mined bool, propertyId int32, recipients []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipientsInner, senders []GetUnconfirmedOmniTransactionByTransactionIDTxidRISendersInner, sent bool, timestamp int32, transactionId string, type_ string, typeInt int32, version int32, fee ListUnconfirmedOmniTransactionsByAddressRIFee) *GetUnconfirmedOmniTransactionByTransactionIDTxidRI {
 	this := GetUnconfirmedOmniTransactionByTransactionIDTxidRI{}
 	this.Amount = amount
 	this.Divisible = divisible
@@ -171,9 +171,9 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) SetPropertyId(v int
 }
 
 // GetRecipients returns the Recipients field value
-func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetRecipients() []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients {
+func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetRecipients() []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipientsInner {
 	if o == nil {
-		var ret []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients
+		var ret []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipientsInner
 		return ret
 	}
 
@@ -182,7 +182,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetRecipients() []G
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetRecipientsOk() ([]GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients, bool) {
+func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetRecipientsOk() ([]GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -190,14 +190,14 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetRecipientsOk() (
 }
 
 // SetRecipients sets field value
-func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) SetRecipients(v []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients) {
+func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) SetRecipients(v []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipientsInner) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSenders() []GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders {
+func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSenders() []GetUnconfirmedOmniTransactionByTransactionIDTxidRISendersInner {
 	if o == nil {
-		var ret []GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders
+		var ret []GetUnconfirmedOmniTransactionByTransactionIDTxidRISendersInner
 		return ret
 	}
 
@@ -206,7 +206,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSenders() []GetU
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSendersOk() ([]GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders, bool) {
+func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSendersOk() ([]GetUnconfirmedOmniTransactionByTransactionIDTxidRISendersInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -214,7 +214,7 @@ func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSendersOk() ([]G
 }
 
 // SetSenders sets field value
-func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) SetSenders(v []GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders) {
+func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) SetSenders(v []GetUnconfirmedOmniTransactionByTransactionIDTxidRISendersInner) {
 	o.Senders = v
 }
 

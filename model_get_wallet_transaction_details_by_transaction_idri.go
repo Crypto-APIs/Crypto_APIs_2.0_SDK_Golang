@@ -26,9 +26,9 @@ type GetWalletTransactionDetailsByTransactionIDRI struct {
 	// Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
 	MinedInBlockHeight *int32 `json:"minedInBlockHeight,omitempty"`
 	// Object Array representation of transaction receivers
-	Recipients []GetWalletTransactionDetailsByTransactionIDRIRecipients `json:"recipients"`
+	Recipients []GetWalletTransactionDetailsByTransactionIDRIRecipientsInner `json:"recipients"`
 	// Object Array representation of transaction senders
-	Senders []GetWalletTransactionDetailsByTransactionIDRISenders `json:"senders"`
+	Senders []GetWalletTransactionDetailsByTransactionIDRISendersInner `json:"senders"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
 	Timestamp int32 `json:"timestamp"`
 	// Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
@@ -43,7 +43,7 @@ type GetWalletTransactionDetailsByTransactionIDRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetWalletTransactionDetailsByTransactionIDRI(index int32, isConfirmed bool, recipients []GetWalletTransactionDetailsByTransactionIDRIRecipients, senders []GetWalletTransactionDetailsByTransactionIDRISenders, timestamp int32, transactionHash string, transactionId string, fee GetWalletTransactionDetailsByTransactionIDRIFee, blockchainSpecific GetWalletTransactionDetailsByTransactionIDRIBS) *GetWalletTransactionDetailsByTransactionIDRI {
+func NewGetWalletTransactionDetailsByTransactionIDRI(index int32, isConfirmed bool, recipients []GetWalletTransactionDetailsByTransactionIDRIRecipientsInner, senders []GetWalletTransactionDetailsByTransactionIDRISendersInner, timestamp int32, transactionHash string, transactionId string, fee GetWalletTransactionDetailsByTransactionIDRIFee, blockchainSpecific GetWalletTransactionDetailsByTransactionIDRIBS) *GetWalletTransactionDetailsByTransactionIDRI {
 	this := GetWalletTransactionDetailsByTransactionIDRI{}
 	this.Index = index
 	this.IsConfirmed = isConfirmed
@@ -178,9 +178,9 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) SetMinedInBlockHeight(v i
 }
 
 // GetRecipients returns the Recipients field value
-func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipients() []GetWalletTransactionDetailsByTransactionIDRIRecipients {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipients() []GetWalletTransactionDetailsByTransactionIDRIRecipientsInner {
 	if o == nil {
-		var ret []GetWalletTransactionDetailsByTransactionIDRIRecipients
+		var ret []GetWalletTransactionDetailsByTransactionIDRIRecipientsInner
 		return ret
 	}
 
@@ -189,7 +189,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipients() []GetWall
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipientsOk() ([]GetWalletTransactionDetailsByTransactionIDRIRecipients, bool) {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipientsOk() ([]GetWalletTransactionDetailsByTransactionIDRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -197,14 +197,14 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipientsOk() ([]GetW
 }
 
 // SetRecipients sets field value
-func (o *GetWalletTransactionDetailsByTransactionIDRI) SetRecipients(v []GetWalletTransactionDetailsByTransactionIDRIRecipients) {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) SetRecipients(v []GetWalletTransactionDetailsByTransactionIDRIRecipientsInner) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSenders() []GetWalletTransactionDetailsByTransactionIDRISenders {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSenders() []GetWalletTransactionDetailsByTransactionIDRISendersInner {
 	if o == nil {
-		var ret []GetWalletTransactionDetailsByTransactionIDRISenders
+		var ret []GetWalletTransactionDetailsByTransactionIDRISendersInner
 		return ret
 	}
 
@@ -213,7 +213,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSenders() []GetWalletT
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSendersOk() ([]GetWalletTransactionDetailsByTransactionIDRISenders, bool) {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSendersOk() ([]GetWalletTransactionDetailsByTransactionIDRISendersInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -221,7 +221,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSendersOk() ([]GetWall
 }
 
 // SetSenders sets field value
-func (o *GetWalletTransactionDetailsByTransactionIDRI) SetSenders(v []GetWalletTransactionDetailsByTransactionIDRISenders) {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) SetSenders(v []GetWalletTransactionDetailsByTransactionIDRISendersInner) {
 	o.Senders = v
 }
 

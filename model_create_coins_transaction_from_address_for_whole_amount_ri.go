@@ -26,7 +26,7 @@ type CreateCoinsTransactionFromAddressForWholeAmountRI struct {
 	// Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request.Optional Transaction note with additional details
 	Note *string `json:"note,omitempty"`
 	// Defines the destination for the transaction, i.e. the recipient(s).
-	Recipients []CreateCoinsTransactionFromAddressForWholeAmountRIRecipients `json:"recipients"`
+	Recipients []CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner `json:"recipients"`
 	Senders CreateCoinsTransactionFromAddressForWholeAmountRISenders `json:"senders"`
 	// Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which `referenceId` concern that specific transaction request.
 	TransactionRequestId string `json:"transactionRequestId"`
@@ -38,7 +38,7 @@ type CreateCoinsTransactionFromAddressForWholeAmountRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateCoinsTransactionFromAddressForWholeAmountRI(feePriority string, recipients []CreateCoinsTransactionFromAddressForWholeAmountRIRecipients, senders CreateCoinsTransactionFromAddressForWholeAmountRISenders, transactionRequestId string, transactionRequestStatus string) *CreateCoinsTransactionFromAddressForWholeAmountRI {
+func NewCreateCoinsTransactionFromAddressForWholeAmountRI(feePriority string, recipients []CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner, senders CreateCoinsTransactionFromAddressForWholeAmountRISenders, transactionRequestId string, transactionRequestStatus string) *CreateCoinsTransactionFromAddressForWholeAmountRI {
 	this := CreateCoinsTransactionFromAddressForWholeAmountRI{}
 	this.FeePriority = feePriority
 	this.Recipients = recipients
@@ -177,9 +177,9 @@ func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) SetNote(v string) {
 }
 
 // GetRecipients returns the Recipients field value
-func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) GetRecipients() []CreateCoinsTransactionFromAddressForWholeAmountRIRecipients {
+func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) GetRecipients() []CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner {
 	if o == nil {
-		var ret []CreateCoinsTransactionFromAddressForWholeAmountRIRecipients
+		var ret []CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner
 		return ret
 	}
 
@@ -188,7 +188,7 @@ func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) GetRecipients() []Cr
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) GetRecipientsOk() ([]CreateCoinsTransactionFromAddressForWholeAmountRIRecipients, bool) {
+func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) GetRecipientsOk() ([]CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -196,7 +196,7 @@ func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) GetRecipientsOk() ([
 }
 
 // SetRecipients sets field value
-func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) SetRecipients(v []CreateCoinsTransactionFromAddressForWholeAmountRIRecipients) {
+func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) SetRecipients(v []CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner) {
 	o.Recipients = v
 }
 

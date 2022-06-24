@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **GasUsed** | **int32** | Defines how much of the gas for the block has been used. | 
 **MinedInBlockHeight** | **int32** | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \&quot;Genesis block\&quot;. | 
 **Nonce** | **int32** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
-**Recipients** | [**[]ListZilliqaTransactionsByAddressRIRecipients**](ListZilliqaTransactionsByAddressRIRecipients.md) | Defines an object array of the transaction recipients. | 
-**Senders** | [**[]ListZilliqaTransactionsByAddressRISenders**](ListZilliqaTransactionsByAddressRISenders.md) | Represents an object of addresses that provide the funds. | 
+**Recipients** | [**[]ListZilliqaTransactionsByAddressRIRecipientsInner**](ListZilliqaTransactionsByAddressRIRecipientsInner.md) | Defines an object array of the transaction recipients. | 
+**Senders** | [**[]ListZilliqaTransactionsByAddressRISendersInner**](ListZilliqaTransactionsByAddressRISendersInner.md) | Represents an object of addresses that provide the funds. | 
 **Timestamp** | **int32** | Defines the exact date/time when this block was mined in Unix Timestamp. | 
 **TransactionHash** | **string** | Represents the hash of the transaction, which is its unique identifier. | 
 **TransactionIndex** | **int32** | Defines the numeric representation of the transaction index. | 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewListZilliqaTransactionsByBlockHashRI
 
-`func NewListZilliqaTransactionsByBlockHashRI(fee GetZilliqaTransactionDetailsByTransactionIDRIFee, gasLimit int32, gasPrice int32, gasUsed int32, minedInBlockHeight int32, nonce int32, recipients []ListZilliqaTransactionsByAddressRIRecipients, senders []ListZilliqaTransactionsByAddressRISenders, timestamp int32, transactionHash string, transactionIndex int32, transactionStatus string, ) *ListZilliqaTransactionsByBlockHashRI`
+`func NewListZilliqaTransactionsByBlockHashRI(fee GetZilliqaTransactionDetailsByTransactionIDRIFee, gasLimit int32, gasPrice int32, gasUsed int32, minedInBlockHeight int32, nonce int32, recipients []ListZilliqaTransactionsByAddressRIRecipientsInner, senders []ListZilliqaTransactionsByAddressRISendersInner, timestamp int32, transactionHash string, transactionIndex int32, transactionStatus string, ) *ListZilliqaTransactionsByBlockHashRI`
 
 NewListZilliqaTransactionsByBlockHashRI instantiates a new ListZilliqaTransactionsByBlockHashRI object
 This constructor will assign default values to properties that have it defined,
@@ -158,40 +158,40 @@ SetNonce sets Nonce field to given value.
 
 ### GetRecipients
 
-`func (o *ListZilliqaTransactionsByBlockHashRI) GetRecipients() []ListZilliqaTransactionsByAddressRIRecipients`
+`func (o *ListZilliqaTransactionsByBlockHashRI) GetRecipients() []ListZilliqaTransactionsByAddressRIRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *ListZilliqaTransactionsByBlockHashRI) GetRecipientsOk() (*[]ListZilliqaTransactionsByAddressRIRecipients, bool)`
+`func (o *ListZilliqaTransactionsByBlockHashRI) GetRecipientsOk() (*[]ListZilliqaTransactionsByAddressRIRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *ListZilliqaTransactionsByBlockHashRI) SetRecipients(v []ListZilliqaTransactionsByAddressRIRecipients)`
+`func (o *ListZilliqaTransactionsByBlockHashRI) SetRecipients(v []ListZilliqaTransactionsByAddressRIRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 
 
 ### GetSenders
 
-`func (o *ListZilliqaTransactionsByBlockHashRI) GetSenders() []ListZilliqaTransactionsByAddressRISenders`
+`func (o *ListZilliqaTransactionsByBlockHashRI) GetSenders() []ListZilliqaTransactionsByAddressRISendersInner`
 
 GetSenders returns the Senders field if non-nil, zero value otherwise.
 
 ### GetSendersOk
 
-`func (o *ListZilliqaTransactionsByBlockHashRI) GetSendersOk() (*[]ListZilliqaTransactionsByAddressRISenders, bool)`
+`func (o *ListZilliqaTransactionsByBlockHashRI) GetSendersOk() (*[]ListZilliqaTransactionsByAddressRISendersInner, bool)`
 
 GetSendersOk returns a tuple with the Senders field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSenders
 
-`func (o *ListZilliqaTransactionsByBlockHashRI) SetSenders(v []ListZilliqaTransactionsByAddressRISenders)`
+`func (o *ListZilliqaTransactionsByBlockHashRI) SetSenders(v []ListZilliqaTransactionsByAddressRISendersInner)`
 
 SetSenders sets Senders field to given value.
 

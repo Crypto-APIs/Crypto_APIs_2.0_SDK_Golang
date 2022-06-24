@@ -25,9 +25,9 @@ type ListXRPRippleTransactionsByBlockHashRI struct {
 	// Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
 	MinedInBlockHeight int32 `json:"minedInBlockHeight"`
 	// Represents an object of addresses that receive the transactions.
-	Recipients []ListXRPRippleTransactionsByBlockHashRIRecipients `json:"recipients"`
+	Recipients []ListXRPRippleTransactionsByBlockHashRIRecipientsInner `json:"recipients"`
 	// Represents an object of addresses that provide the funds.
-	Senders []ListXRPRippleTransactionsByBlockHashRISenders `json:"senders"`
+	Senders []ListXRPRippleTransactionsByBlockHashRISendersInner `json:"senders"`
 	// Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
 	Sequence int64 `json:"sequence"`
 	// Defines the status of the transaction.
@@ -48,7 +48,7 @@ type ListXRPRippleTransactionsByBlockHashRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListXRPRippleTransactionsByBlockHashRI(index int32, minedInBlockHeight int32, recipients []ListXRPRippleTransactionsByBlockHashRIRecipients, senders []ListXRPRippleTransactionsByBlockHashRISenders, sequence int64, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByBlockHashRIFee, offer ListXRPRippleTransactionsByBlockHashRIOffer, receive ListXRPRippleTransactionsByBlockHashRIReceive, value ListXRPRippleTransactionsByBlockHashRIValue) *ListXRPRippleTransactionsByBlockHashRI {
+func NewListXRPRippleTransactionsByBlockHashRI(index int32, minedInBlockHeight int32, recipients []ListXRPRippleTransactionsByBlockHashRIRecipientsInner, senders []ListXRPRippleTransactionsByBlockHashRISendersInner, sequence int64, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByBlockHashRIFee, offer ListXRPRippleTransactionsByBlockHashRIOffer, receive ListXRPRippleTransactionsByBlockHashRIReceive, value ListXRPRippleTransactionsByBlockHashRIValue) *ListXRPRippleTransactionsByBlockHashRI {
 	this := ListXRPRippleTransactionsByBlockHashRI{}
 	this.Index = index
 	this.MinedInBlockHeight = minedInBlockHeight
@@ -187,9 +187,9 @@ func (o *ListXRPRippleTransactionsByBlockHashRI) SetMinedInBlockHeight(v int32) 
 }
 
 // GetRecipients returns the Recipients field value
-func (o *ListXRPRippleTransactionsByBlockHashRI) GetRecipients() []ListXRPRippleTransactionsByBlockHashRIRecipients {
+func (o *ListXRPRippleTransactionsByBlockHashRI) GetRecipients() []ListXRPRippleTransactionsByBlockHashRIRecipientsInner {
 	if o == nil {
-		var ret []ListXRPRippleTransactionsByBlockHashRIRecipients
+		var ret []ListXRPRippleTransactionsByBlockHashRIRecipientsInner
 		return ret
 	}
 
@@ -198,7 +198,7 @@ func (o *ListXRPRippleTransactionsByBlockHashRI) GetRecipients() []ListXRPRipple
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListXRPRippleTransactionsByBlockHashRI) GetRecipientsOk() ([]ListXRPRippleTransactionsByBlockHashRIRecipients, bool) {
+func (o *ListXRPRippleTransactionsByBlockHashRI) GetRecipientsOk() ([]ListXRPRippleTransactionsByBlockHashRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -206,14 +206,14 @@ func (o *ListXRPRippleTransactionsByBlockHashRI) GetRecipientsOk() ([]ListXRPRip
 }
 
 // SetRecipients sets field value
-func (o *ListXRPRippleTransactionsByBlockHashRI) SetRecipients(v []ListXRPRippleTransactionsByBlockHashRIRecipients) {
+func (o *ListXRPRippleTransactionsByBlockHashRI) SetRecipients(v []ListXRPRippleTransactionsByBlockHashRIRecipientsInner) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *ListXRPRippleTransactionsByBlockHashRI) GetSenders() []ListXRPRippleTransactionsByBlockHashRISenders {
+func (o *ListXRPRippleTransactionsByBlockHashRI) GetSenders() []ListXRPRippleTransactionsByBlockHashRISendersInner {
 	if o == nil {
-		var ret []ListXRPRippleTransactionsByBlockHashRISenders
+		var ret []ListXRPRippleTransactionsByBlockHashRISendersInner
 		return ret
 	}
 
@@ -222,7 +222,7 @@ func (o *ListXRPRippleTransactionsByBlockHashRI) GetSenders() []ListXRPRippleTra
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListXRPRippleTransactionsByBlockHashRI) GetSendersOk() ([]ListXRPRippleTransactionsByBlockHashRISenders, bool) {
+func (o *ListXRPRippleTransactionsByBlockHashRI) GetSendersOk() ([]ListXRPRippleTransactionsByBlockHashRISendersInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -230,7 +230,7 @@ func (o *ListXRPRippleTransactionsByBlockHashRI) GetSendersOk() ([]ListXRPRipple
 }
 
 // SetSenders sets field value
-func (o *ListXRPRippleTransactionsByBlockHashRI) SetSenders(v []ListXRPRippleTransactionsByBlockHashRISenders) {
+func (o *ListXRPRippleTransactionsByBlockHashRI) SetSenders(v []ListXRPRippleTransactionsByBlockHashRISendersInner) {
 	o.Senders = v
 }
 

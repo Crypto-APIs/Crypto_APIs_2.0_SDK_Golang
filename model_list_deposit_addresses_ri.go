@@ -23,20 +23,20 @@ type ListDepositAddressesRI struct {
 	// Defines the specific UNIX time when the deposit address was created.
 	CreatedTimestamp int32 `json:"createdTimestamp"`
 	// Represents fungible tokens'es detailed information
-	FungibleTokens []ListDepositAddressesRIFungibleTokens `json:"fungibleTokens"`
+	FungibleTokens []ListDepositAddressesRIFungibleTokensInner `json:"fungibleTokens"`
 	// Represents the index of the address in the wallet.
 	Index string `json:"index"`
 	// Represents a custom tag that customers can set up for their Wallets and addresses. E.g. custom label named \"Special addresses\".
 	Label string `json:"label"`
 	// Represents non-fungible tokens'es detailed information.
-	NonFungibleTokens []ListDepositAddressesRINonFungibleTokens `json:"nonFungibleTokens"`
+	NonFungibleTokens []ListDepositAddressesRINonFungibleTokensInner `json:"nonFungibleTokens"`
 }
 
 // NewListDepositAddressesRI instantiates a new ListDepositAddressesRI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListDepositAddressesRI(address string, confirmedBalance ListDepositAddressesRIConfirmedBalance, createdTimestamp int32, fungibleTokens []ListDepositAddressesRIFungibleTokens, index string, label string, nonFungibleTokens []ListDepositAddressesRINonFungibleTokens) *ListDepositAddressesRI {
+func NewListDepositAddressesRI(address string, confirmedBalance ListDepositAddressesRIConfirmedBalance, createdTimestamp int32, fungibleTokens []ListDepositAddressesRIFungibleTokensInner, index string, label string, nonFungibleTokens []ListDepositAddressesRINonFungibleTokensInner) *ListDepositAddressesRI {
 	this := ListDepositAddressesRI{}
 	this.Address = address
 	this.ConfirmedBalance = confirmedBalance
@@ -129,9 +129,9 @@ func (o *ListDepositAddressesRI) SetCreatedTimestamp(v int32) {
 }
 
 // GetFungibleTokens returns the FungibleTokens field value
-func (o *ListDepositAddressesRI) GetFungibleTokens() []ListDepositAddressesRIFungibleTokens {
+func (o *ListDepositAddressesRI) GetFungibleTokens() []ListDepositAddressesRIFungibleTokensInner {
 	if o == nil {
-		var ret []ListDepositAddressesRIFungibleTokens
+		var ret []ListDepositAddressesRIFungibleTokensInner
 		return ret
 	}
 
@@ -140,7 +140,7 @@ func (o *ListDepositAddressesRI) GetFungibleTokens() []ListDepositAddressesRIFun
 
 // GetFungibleTokensOk returns a tuple with the FungibleTokens field value
 // and a boolean to check if the value has been set.
-func (o *ListDepositAddressesRI) GetFungibleTokensOk() ([]ListDepositAddressesRIFungibleTokens, bool) {
+func (o *ListDepositAddressesRI) GetFungibleTokensOk() ([]ListDepositAddressesRIFungibleTokensInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -148,7 +148,7 @@ func (o *ListDepositAddressesRI) GetFungibleTokensOk() ([]ListDepositAddressesRI
 }
 
 // SetFungibleTokens sets field value
-func (o *ListDepositAddressesRI) SetFungibleTokens(v []ListDepositAddressesRIFungibleTokens) {
+func (o *ListDepositAddressesRI) SetFungibleTokens(v []ListDepositAddressesRIFungibleTokensInner) {
 	o.FungibleTokens = v
 }
 
@@ -201,9 +201,9 @@ func (o *ListDepositAddressesRI) SetLabel(v string) {
 }
 
 // GetNonFungibleTokens returns the NonFungibleTokens field value
-func (o *ListDepositAddressesRI) GetNonFungibleTokens() []ListDepositAddressesRINonFungibleTokens {
+func (o *ListDepositAddressesRI) GetNonFungibleTokens() []ListDepositAddressesRINonFungibleTokensInner {
 	if o == nil {
-		var ret []ListDepositAddressesRINonFungibleTokens
+		var ret []ListDepositAddressesRINonFungibleTokensInner
 		return ret
 	}
 
@@ -212,7 +212,7 @@ func (o *ListDepositAddressesRI) GetNonFungibleTokens() []ListDepositAddressesRI
 
 // GetNonFungibleTokensOk returns a tuple with the NonFungibleTokens field value
 // and a boolean to check if the value has been set.
-func (o *ListDepositAddressesRI) GetNonFungibleTokensOk() ([]ListDepositAddressesRINonFungibleTokens, bool) {
+func (o *ListDepositAddressesRI) GetNonFungibleTokensOk() ([]ListDepositAddressesRINonFungibleTokensInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -220,7 +220,7 @@ func (o *ListDepositAddressesRI) GetNonFungibleTokensOk() ([]ListDepositAddresse
 }
 
 // SetNonFungibleTokens sets field value
-func (o *ListDepositAddressesRI) SetNonFungibleTokens(v []ListDepositAddressesRINonFungibleTokens) {
+func (o *ListDepositAddressesRI) SetNonFungibleTokens(v []ListDepositAddressesRINonFungibleTokensInner) {
 	o.NonFungibleTokens = v
 }
 

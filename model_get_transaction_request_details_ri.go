@@ -26,7 +26,7 @@ type GetTransactionRequestDetailsRI struct {
 	// Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
 	Network string `json:"network"`
 	// Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Recipients []GetTransactionRequestDetailsRIRecipients `json:"recipients"`
+	Recipients []GetTransactionRequestDetailsRIRecipientsInner `json:"recipients"`
 	// Defines the total transaction amount.
 	TotalTransactionAmount string `json:"totalTransactionAmount"`
 	// Represents the unique identifier of a transaction, i.e. it could be transactionId in UTXO-based protocols like Bitcoin, and transaction hash in Ethereum blockchain.
@@ -45,7 +45,7 @@ type GetTransactionRequestDetailsRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionRequestDetailsRI(additionalDetails string, blockchain string, feePriority string, network string, recipients []GetTransactionRequestDetailsRIRecipients, totalTransactionAmount string, transactionRequestStatus string, transactionType string, unit string, walletId string) *GetTransactionRequestDetailsRI {
+func NewGetTransactionRequestDetailsRI(additionalDetails string, blockchain string, feePriority string, network string, recipients []GetTransactionRequestDetailsRIRecipientsInner, totalTransactionAmount string, transactionRequestStatus string, transactionType string, unit string, walletId string) *GetTransactionRequestDetailsRI {
 	this := GetTransactionRequestDetailsRI{}
 	this.AdditionalDetails = additionalDetails
 	this.Blockchain = blockchain
@@ -165,9 +165,9 @@ func (o *GetTransactionRequestDetailsRI) SetNetwork(v string) {
 }
 
 // GetRecipients returns the Recipients field value
-func (o *GetTransactionRequestDetailsRI) GetRecipients() []GetTransactionRequestDetailsRIRecipients {
+func (o *GetTransactionRequestDetailsRI) GetRecipients() []GetTransactionRequestDetailsRIRecipientsInner {
 	if o == nil {
-		var ret []GetTransactionRequestDetailsRIRecipients
+		var ret []GetTransactionRequestDetailsRIRecipientsInner
 		return ret
 	}
 
@@ -176,7 +176,7 @@ func (o *GetTransactionRequestDetailsRI) GetRecipients() []GetTransactionRequest
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionRequestDetailsRI) GetRecipientsOk() ([]GetTransactionRequestDetailsRIRecipients, bool) {
+func (o *GetTransactionRequestDetailsRI) GetRecipientsOk() ([]GetTransactionRequestDetailsRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -184,7 +184,7 @@ func (o *GetTransactionRequestDetailsRI) GetRecipientsOk() ([]GetTransactionRequ
 }
 
 // SetRecipients sets field value
-func (o *GetTransactionRequestDetailsRI) SetRecipients(v []GetTransactionRequestDetailsRIRecipients) {
+func (o *GetTransactionRequestDetailsRI) SetRecipients(v []GetTransactionRequestDetailsRIRecipientsInner) {
 	o.Recipients = v
 }
 

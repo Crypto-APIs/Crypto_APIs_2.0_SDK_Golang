@@ -21,7 +21,7 @@ type InvalidBlockchain struct {
 	Code string `json:"code"`
 	// Specifies the message of the error, i.e. why the error was returned, e.g. error 404 stands for “not found”.
 	Message string `json:"message"`
-	Details []BannedIpAddressDetails `json:"details,omitempty"`
+	Details []BannedIpAddressDetailsInner `json:"details,omitempty"`
 }
 
 // NewInvalidBlockchain instantiates a new InvalidBlockchain object
@@ -92,9 +92,9 @@ func (o *InvalidBlockchain) SetMessage(v string) {
 }
 
 // GetDetails returns the Details field value if set, zero value otherwise.
-func (o *InvalidBlockchain) GetDetails() []BannedIpAddressDetails {
+func (o *InvalidBlockchain) GetDetails() []BannedIpAddressDetailsInner {
 	if o == nil || o.Details == nil {
-		var ret []BannedIpAddressDetails
+		var ret []BannedIpAddressDetailsInner
 		return ret
 	}
 	return o.Details
@@ -102,7 +102,7 @@ func (o *InvalidBlockchain) GetDetails() []BannedIpAddressDetails {
 
 // GetDetailsOk returns a tuple with the Details field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *InvalidBlockchain) GetDetailsOk() ([]BannedIpAddressDetails, bool) {
+func (o *InvalidBlockchain) GetDetailsOk() ([]BannedIpAddressDetailsInner, bool) {
 	if o == nil || o.Details == nil {
 		return nil, false
 	}
@@ -118,8 +118,8 @@ func (o *InvalidBlockchain) HasDetails() bool {
 	return false
 }
 
-// SetDetails gets a reference to the given []BannedIpAddressDetails and assigns it to the Details field.
-func (o *InvalidBlockchain) SetDetails(v []BannedIpAddressDetails) {
+// SetDetails gets a reference to the given []BannedIpAddressDetailsInner and assigns it to the Details field.
+func (o *InvalidBlockchain) SetDetails(v []BannedIpAddressDetailsInner) {
 	o.Details = v
 }
 

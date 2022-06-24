@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **MinedInBlockHash** | **string** | Represents the hash of the block, which is its unique identifier. It represents a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
 **MinedInBlockHeight** | **int32** | Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \&quot;Genesis block\&quot;. | 
 **Nonce** | **int32** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender&#39;s address. | 
-**Recipients** | [**[]GetZilliqaTransactionDetailsByTransactionIDRIRecipients**](GetZilliqaTransactionDetailsByTransactionIDRIRecipients.md) | Represents an object of addresses that receive the transactions. | 
-**Senders** | [**[]GetZilliqaTransactionDetailsByTransactionIDRISenders**](GetZilliqaTransactionDetailsByTransactionIDRISenders.md) | Represents an object of addresses that provide the funds. | 
+**Recipients** | [**[]GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner**](GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner.md) | Represents an object of addresses that receive the transactions. | 
+**Senders** | [**[]GetZilliqaTransactionDetailsByTransactionIDRISendersInner**](GetZilliqaTransactionDetailsByTransactionIDRISendersInner.md) | Represents an object of addresses that provide the funds. | 
 **Timestamp** | **int32** | Defines the exact date/time when this block was mined in Unix Timestamp. | 
 **TransactionIndex** | **int32** | Defines the numeric representation of the transaction index. | 
 **TransactionStatus** | **string** | Defines the status of the transaction, whether it is e.g. pending or complete. | 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewGetZilliqaTransactionDetailsByTransactionIDRI
 
-`func NewGetZilliqaTransactionDetailsByTransactionIDRI(fee GetZilliqaTransactionDetailsByTransactionIDRIFee, gasLimit int32, gasPrice int32, gasUsed int32, minedInBlockHash string, minedInBlockHeight int32, nonce int32, recipients []GetZilliqaTransactionDetailsByTransactionIDRIRecipients, senders []GetZilliqaTransactionDetailsByTransactionIDRISenders, timestamp int32, transactionIndex int32, transactionStatus string, ) *GetZilliqaTransactionDetailsByTransactionIDRI`
+`func NewGetZilliqaTransactionDetailsByTransactionIDRI(fee GetZilliqaTransactionDetailsByTransactionIDRIFee, gasLimit int32, gasPrice int32, gasUsed int32, minedInBlockHash string, minedInBlockHeight int32, nonce int32, recipients []GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner, senders []GetZilliqaTransactionDetailsByTransactionIDRISendersInner, timestamp int32, transactionIndex int32, transactionStatus string, ) *GetZilliqaTransactionDetailsByTransactionIDRI`
 
 NewGetZilliqaTransactionDetailsByTransactionIDRI instantiates a new GetZilliqaTransactionDetailsByTransactionIDRI object
 This constructor will assign default values to properties that have it defined,
@@ -178,40 +178,40 @@ SetNonce sets Nonce field to given value.
 
 ### GetRecipients
 
-`func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetRecipients() []GetZilliqaTransactionDetailsByTransactionIDRIRecipients`
+`func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetRecipients() []GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetRecipientsOk() (*[]GetZilliqaTransactionDetailsByTransactionIDRIRecipients, bool)`
+`func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetRecipientsOk() (*[]GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *GetZilliqaTransactionDetailsByTransactionIDRI) SetRecipients(v []GetZilliqaTransactionDetailsByTransactionIDRIRecipients)`
+`func (o *GetZilliqaTransactionDetailsByTransactionIDRI) SetRecipients(v []GetZilliqaTransactionDetailsByTransactionIDRIRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 
 
 ### GetSenders
 
-`func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetSenders() []GetZilliqaTransactionDetailsByTransactionIDRISenders`
+`func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetSenders() []GetZilliqaTransactionDetailsByTransactionIDRISendersInner`
 
 GetSenders returns the Senders field if non-nil, zero value otherwise.
 
 ### GetSendersOk
 
-`func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetSendersOk() (*[]GetZilliqaTransactionDetailsByTransactionIDRISenders, bool)`
+`func (o *GetZilliqaTransactionDetailsByTransactionIDRI) GetSendersOk() (*[]GetZilliqaTransactionDetailsByTransactionIDRISendersInner, bool)`
 
 GetSendersOk returns a tuple with the Senders field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSenders
 
-`func (o *GetZilliqaTransactionDetailsByTransactionIDRI) SetSenders(v []GetZilliqaTransactionDetailsByTransactionIDRISenders)`
+`func (o *GetZilliqaTransactionDetailsByTransactionIDRI) SetSenders(v []GetZilliqaTransactionDetailsByTransactionIDRISendersInner)`
 
 SetSenders sets Senders field to given value.
 

@@ -24,16 +24,16 @@ type GetTransactionDetailsByTransactionIDRIBSD2 struct {
 	// Represents transaction version number.
 	Version int32 `json:"version"`
 	// Represents the transaction inputs.
-	Vin []GetTransactionDetailsByTransactionIDRIBSD2Vin `json:"vin"`
+	Vin []GetTransactionDetailsByTransactionIDRIBSD2VinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []GetTransactionDetailsByTransactionIDRIBSD2Vout `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDRIBSD2VoutInner `json:"vout"`
 }
 
 // NewGetTransactionDetailsByTransactionIDRIBSD2 instantiates a new GetTransactionDetailsByTransactionIDRIBSD2 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDRIBSD2(locktime int64, size int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSD2Vin, vout []GetTransactionDetailsByTransactionIDRIBSD2Vout) *GetTransactionDetailsByTransactionIDRIBSD2 {
+func NewGetTransactionDetailsByTransactionIDRIBSD2(locktime int64, size int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSD2VinInner, vout []GetTransactionDetailsByTransactionIDRIBSD2VoutInner) *GetTransactionDetailsByTransactionIDRIBSD2 {
 	this := GetTransactionDetailsByTransactionIDRIBSD2{}
 	this.Locktime = locktime
 	this.Size = size
@@ -124,9 +124,9 @@ func (o *GetTransactionDetailsByTransactionIDRIBSD2) SetVersion(v int32) {
 }
 
 // GetVin returns the Vin field value
-func (o *GetTransactionDetailsByTransactionIDRIBSD2) GetVin() []GetTransactionDetailsByTransactionIDRIBSD2Vin {
+func (o *GetTransactionDetailsByTransactionIDRIBSD2) GetVin() []GetTransactionDetailsByTransactionIDRIBSD2VinInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSD2Vin
+		var ret []GetTransactionDetailsByTransactionIDRIBSD2VinInner
 		return ret
 	}
 
@@ -135,7 +135,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSD2) GetVin() []GetTransactionDe
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDRIBSD2) GetVinOk() ([]GetTransactionDetailsByTransactionIDRIBSD2Vin, bool) {
+func (o *GetTransactionDetailsByTransactionIDRIBSD2) GetVinOk() ([]GetTransactionDetailsByTransactionIDRIBSD2VinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -143,14 +143,14 @@ func (o *GetTransactionDetailsByTransactionIDRIBSD2) GetVinOk() ([]GetTransactio
 }
 
 // SetVin sets field value
-func (o *GetTransactionDetailsByTransactionIDRIBSD2) SetVin(v []GetTransactionDetailsByTransactionIDRIBSD2Vin) {
+func (o *GetTransactionDetailsByTransactionIDRIBSD2) SetVin(v []GetTransactionDetailsByTransactionIDRIBSD2VinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *GetTransactionDetailsByTransactionIDRIBSD2) GetVout() []GetTransactionDetailsByTransactionIDRIBSD2Vout {
+func (o *GetTransactionDetailsByTransactionIDRIBSD2) GetVout() []GetTransactionDetailsByTransactionIDRIBSD2VoutInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSD2Vout
+		var ret []GetTransactionDetailsByTransactionIDRIBSD2VoutInner
 		return ret
 	}
 
@@ -159,7 +159,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSD2) GetVout() []GetTransactionD
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDRIBSD2) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSD2Vout, bool) {
+func (o *GetTransactionDetailsByTransactionIDRIBSD2) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSD2VoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -167,7 +167,7 @@ func (o *GetTransactionDetailsByTransactionIDRIBSD2) GetVoutOk() ([]GetTransacti
 }
 
 // SetVout sets field value
-func (o *GetTransactionDetailsByTransactionIDRIBSD2) SetVout(v []GetTransactionDetailsByTransactionIDRIBSD2Vout) {
+func (o *GetTransactionDetailsByTransactionIDRIBSD2) SetVout(v []GetTransactionDetailsByTransactionIDRIBSD2VoutInner) {
 	o.Vout = v
 }
 

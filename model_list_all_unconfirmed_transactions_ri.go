@@ -18,9 +18,9 @@ import (
 // ListAllUnconfirmedTransactionsRI struct for ListAllUnconfirmedTransactionsRI
 type ListAllUnconfirmedTransactionsRI struct {
 	// Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Recipients []ListUnconfirmedTransactionsByAddressRIRecipients `json:"recipients"`
+	Recipients []ListUnconfirmedTransactionsByAddressRIRecipientsInner `json:"recipients"`
 	// Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Senders []ListUnconfirmedTransactionsByAddressRISenders `json:"senders"`
+	Senders []ListUnconfirmedTransactionsByAddressRISendersInner `json:"senders"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
 	Timestamp int32 `json:"timestamp"`
 	// String representation of the transaction hash
@@ -34,7 +34,7 @@ type ListAllUnconfirmedTransactionsRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListAllUnconfirmedTransactionsRI(recipients []ListUnconfirmedTransactionsByAddressRIRecipients, senders []ListUnconfirmedTransactionsByAddressRISenders, timestamp int32, transactionHash string, transactionId string, blockchainSpecific ListAllUnconfirmedTransactionsRIBS) *ListAllUnconfirmedTransactionsRI {
+func NewListAllUnconfirmedTransactionsRI(recipients []ListUnconfirmedTransactionsByAddressRIRecipientsInner, senders []ListUnconfirmedTransactionsByAddressRISendersInner, timestamp int32, transactionHash string, transactionId string, blockchainSpecific ListAllUnconfirmedTransactionsRIBS) *ListAllUnconfirmedTransactionsRI {
 	this := ListAllUnconfirmedTransactionsRI{}
 	this.Recipients = recipients
 	this.Senders = senders
@@ -54,9 +54,9 @@ func NewListAllUnconfirmedTransactionsRIWithDefaults() *ListAllUnconfirmedTransa
 }
 
 // GetRecipients returns the Recipients field value
-func (o *ListAllUnconfirmedTransactionsRI) GetRecipients() []ListUnconfirmedTransactionsByAddressRIRecipients {
+func (o *ListAllUnconfirmedTransactionsRI) GetRecipients() []ListUnconfirmedTransactionsByAddressRIRecipientsInner {
 	if o == nil {
-		var ret []ListUnconfirmedTransactionsByAddressRIRecipients
+		var ret []ListUnconfirmedTransactionsByAddressRIRecipientsInner
 		return ret
 	}
 
@@ -65,7 +65,7 @@ func (o *ListAllUnconfirmedTransactionsRI) GetRecipients() []ListUnconfirmedTran
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListAllUnconfirmedTransactionsRI) GetRecipientsOk() ([]ListUnconfirmedTransactionsByAddressRIRecipients, bool) {
+func (o *ListAllUnconfirmedTransactionsRI) GetRecipientsOk() ([]ListUnconfirmedTransactionsByAddressRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -73,14 +73,14 @@ func (o *ListAllUnconfirmedTransactionsRI) GetRecipientsOk() ([]ListUnconfirmedT
 }
 
 // SetRecipients sets field value
-func (o *ListAllUnconfirmedTransactionsRI) SetRecipients(v []ListUnconfirmedTransactionsByAddressRIRecipients) {
+func (o *ListAllUnconfirmedTransactionsRI) SetRecipients(v []ListUnconfirmedTransactionsByAddressRIRecipientsInner) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *ListAllUnconfirmedTransactionsRI) GetSenders() []ListUnconfirmedTransactionsByAddressRISenders {
+func (o *ListAllUnconfirmedTransactionsRI) GetSenders() []ListUnconfirmedTransactionsByAddressRISendersInner {
 	if o == nil {
-		var ret []ListUnconfirmedTransactionsByAddressRISenders
+		var ret []ListUnconfirmedTransactionsByAddressRISendersInner
 		return ret
 	}
 
@@ -89,7 +89,7 @@ func (o *ListAllUnconfirmedTransactionsRI) GetSenders() []ListUnconfirmedTransac
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListAllUnconfirmedTransactionsRI) GetSendersOk() ([]ListUnconfirmedTransactionsByAddressRISenders, bool) {
+func (o *ListAllUnconfirmedTransactionsRI) GetSendersOk() ([]ListUnconfirmedTransactionsByAddressRISendersInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -97,7 +97,7 @@ func (o *ListAllUnconfirmedTransactionsRI) GetSendersOk() ([]ListUnconfirmedTran
 }
 
 // SetSenders sets field value
-func (o *ListAllUnconfirmedTransactionsRI) SetSenders(v []ListUnconfirmedTransactionsByAddressRISenders) {
+func (o *ListAllUnconfirmedTransactionsRI) SetSenders(v []ListUnconfirmedTransactionsByAddressRISendersInner) {
 	o.Senders = v
 }
 

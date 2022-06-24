@@ -32,11 +32,11 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSZ struct {
 	// Represents the total size of this transaction.
 	Size int32 `json:"size"`
 	// Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
-	VJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit `json:"vJoinSplit"`
+	VJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner `json:"vJoinSplit"`
 	// Object Array representation of transaction output descriptions
-	VShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput `json:"vShieldedOutput"`
+	VShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner `json:"vShieldedOutput"`
 	// Object Array representation of transaction spend descriptions
-	VShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend `json:"vShieldedSpend"`
+	VShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner `json:"vShieldedSpend"`
 	// String representation of the transaction value balance
 	ValueBalance string `json:"valueBalance"`
 	// Defines the version of the transaction.
@@ -44,16 +44,16 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSZ struct {
 	// Represents the transaction version group ID
 	VersionGroupId string `json:"versionGroupId"`
 	// Object Array representation of transaction inputs
-	Vin []GetTransactionDetailsByTransactionIDRIBSZVin `json:"vin"`
+	Vin []GetTransactionDetailsByTransactionIDRIBSZVinInner `json:"vin"`
 	// Object Array representation of transaction outputs
-	Vout []GetTransactionDetailsByTransactionIDRIBSZVout `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDRIBSZVoutInner `json:"vout"`
 }
 
 // NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBSZ object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int64, overwintered bool, size int32, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []GetTransactionDetailsByTransactionIDRIBSZVin, vout []GetTransactionDetailsByTransactionIDRIBSZVout) *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int64, overwintered bool, size int32, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, valueBalance string, version int32, versionGroupId string, vin []GetTransactionDetailsByTransactionIDRIBSZVinInner, vout []GetTransactionDetailsByTransactionIDRIBSZVoutInner) *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRIBSZ{}
 	this.BindingSig = bindingSig
 	this.ExpiryHeight = expiryHeight
@@ -250,9 +250,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetSize(v int32)
 }
 
 // GetVJoinSplit returns the VJoinSplit field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVJoinSplit() []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVJoinSplit() []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit
+		var ret []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner
 		return ret
 	}
 
@@ -261,7 +261,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVJoinSplit() 
 
 // GetVJoinSplitOk returns a tuple with the VJoinSplit field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVJoinSplitOk() ([]GetTransactionDetailsByTransactionIDRIBSZVJoinSplit, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVJoinSplitOk() ([]GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -269,14 +269,14 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVJoinSplitOk(
 }
 
 // SetVJoinSplit sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVJoinSplit(v []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVJoinSplit(v []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner) {
 	o.VJoinSplit = v
 }
 
 // GetVShieldedOutput returns the VShieldedOutput field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedOutput() []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedOutput() []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
+		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner
 		return ret
 	}
 
@@ -285,7 +285,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedOutp
 
 // GetVShieldedOutputOk returns a tuple with the VShieldedOutput field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedOutputOk() ([]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedOutputOk() ([]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -293,14 +293,14 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedOutp
 }
 
 // SetVShieldedOutput sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVShieldedOutput(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVShieldedOutput(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner) {
 	o.VShieldedOutput = v
 }
 
 // GetVShieldedSpend returns the VShieldedSpend field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedSpend() []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedSpend() []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
+		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner
 		return ret
 	}
 
@@ -309,7 +309,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedSpen
 
 // GetVShieldedSpendOk returns a tuple with the VShieldedSpend field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedSpendOk() ([]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedSpendOk() ([]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -317,7 +317,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVShieldedSpen
 }
 
 // SetVShieldedSpend sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVShieldedSpend(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVShieldedSpend(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner) {
 	o.VShieldedSpend = v
 }
 
@@ -394,9 +394,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVersionGroupI
 }
 
 // GetVin returns the Vin field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVin() []GetTransactionDetailsByTransactionIDRIBSZVin {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVin() []GetTransactionDetailsByTransactionIDRIBSZVinInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSZVin
+		var ret []GetTransactionDetailsByTransactionIDRIBSZVinInner
 		return ret
 	}
 
@@ -405,7 +405,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVin() []GetTr
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVinOk() ([]GetTransactionDetailsByTransactionIDRIBSZVin, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVinOk() ([]GetTransactionDetailsByTransactionIDRIBSZVinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -413,14 +413,14 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVinOk() ([]Ge
 }
 
 // SetVin sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVin(v []GetTransactionDetailsByTransactionIDRIBSZVin) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVin(v []GetTransactionDetailsByTransactionIDRIBSZVinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVout() []GetTransactionDetailsByTransactionIDRIBSZVout {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVout() []GetTransactionDetailsByTransactionIDRIBSZVoutInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSZVout
+		var ret []GetTransactionDetailsByTransactionIDRIBSZVoutInner
 		return ret
 	}
 
@@ -429,7 +429,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVout() []GetT
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSZVout, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSZVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -437,7 +437,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVoutOk() ([]G
 }
 
 // SetVout sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVout(v []GetTransactionDetailsByTransactionIDRIBSZVout) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVout(v []GetTransactionDetailsByTransactionIDRIBSZVoutInner) {
 	o.Vout = v
 }
 

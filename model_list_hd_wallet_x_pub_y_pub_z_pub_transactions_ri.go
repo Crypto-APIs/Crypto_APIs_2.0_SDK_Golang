@@ -24,9 +24,9 @@ type ListHDWalletXPubYPubZPubTransactionsRI struct {
 	// Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
 	MinedInBlockHeight int32 `json:"minedInBlockHeight"`
 	// Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Recipients []ListHDWalletXPubYPubZPubTransactionsRIRecipients `json:"recipients"`
+	Recipients []ListHDWalletXPubYPubZPubTransactionsRIRecipientsInner `json:"recipients"`
 	// Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Senders []ListHDWalletXPubYPubZPubTransactionsRISenders `json:"senders"`
+	Senders []ListHDWalletXPubYPubZPubTransactionsRISendersInner `json:"senders"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
 	Timestamp int32 `json:"timestamp"`
 	// Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
@@ -40,7 +40,7 @@ type ListHDWalletXPubYPubZPubTransactionsRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListHDWalletXPubYPubZPubTransactionsRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []ListHDWalletXPubYPubZPubTransactionsRIRecipients, senders []ListHDWalletXPubYPubZPubTransactionsRISenders, timestamp int32, transactionHash string, transactionId string, fee ListHDWalletXPubYPubZPubTransactionsRIFee) *ListHDWalletXPubYPubZPubTransactionsRI {
+func NewListHDWalletXPubYPubZPubTransactionsRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []ListHDWalletXPubYPubZPubTransactionsRIRecipientsInner, senders []ListHDWalletXPubYPubZPubTransactionsRISendersInner, timestamp int32, transactionHash string, transactionId string, fee ListHDWalletXPubYPubZPubTransactionsRIFee) *ListHDWalletXPubYPubZPubTransactionsRI {
 	this := ListHDWalletXPubYPubZPubTransactionsRI{}
 	this.Index = index
 	this.MinedInBlockHash = minedInBlockHash
@@ -135,9 +135,9 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) SetMinedInBlockHeight(v int32) 
 }
 
 // GetRecipients returns the Recipients field value
-func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetRecipients() []ListHDWalletXPubYPubZPubTransactionsRIRecipients {
+func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetRecipients() []ListHDWalletXPubYPubZPubTransactionsRIRecipientsInner {
 	if o == nil {
-		var ret []ListHDWalletXPubYPubZPubTransactionsRIRecipients
+		var ret []ListHDWalletXPubYPubZPubTransactionsRIRecipientsInner
 		return ret
 	}
 
@@ -146,7 +146,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetRecipients() []ListHDWalletX
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetRecipientsOk() ([]ListHDWalletXPubYPubZPubTransactionsRIRecipients, bool) {
+func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetRecipientsOk() ([]ListHDWalletXPubYPubZPubTransactionsRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -154,14 +154,14 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetRecipientsOk() ([]ListHDWall
 }
 
 // SetRecipients sets field value
-func (o *ListHDWalletXPubYPubZPubTransactionsRI) SetRecipients(v []ListHDWalletXPubYPubZPubTransactionsRIRecipients) {
+func (o *ListHDWalletXPubYPubZPubTransactionsRI) SetRecipients(v []ListHDWalletXPubYPubZPubTransactionsRIRecipientsInner) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetSenders() []ListHDWalletXPubYPubZPubTransactionsRISenders {
+func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetSenders() []ListHDWalletXPubYPubZPubTransactionsRISendersInner {
 	if o == nil {
-		var ret []ListHDWalletXPubYPubZPubTransactionsRISenders
+		var ret []ListHDWalletXPubYPubZPubTransactionsRISendersInner
 		return ret
 	}
 
@@ -170,7 +170,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetSenders() []ListHDWalletXPub
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetSendersOk() ([]ListHDWalletXPubYPubZPubTransactionsRISenders, bool) {
+func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetSendersOk() ([]ListHDWalletXPubYPubZPubTransactionsRISendersInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -178,7 +178,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetSendersOk() ([]ListHDWalletX
 }
 
 // SetSenders sets field value
-func (o *ListHDWalletXPubYPubZPubTransactionsRI) SetSenders(v []ListHDWalletXPubYPubZPubTransactionsRISenders) {
+func (o *ListHDWalletXPubYPubZPubTransactionsRI) SetSenders(v []ListHDWalletXPubYPubZPubTransactionsRISendersInner) {
 	o.Senders = v
 }
 

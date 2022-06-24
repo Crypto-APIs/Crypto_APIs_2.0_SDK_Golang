@@ -21,7 +21,7 @@ type CouldNotCalculateRateForPair struct {
 	Code string `json:"code"`
 	// Specifies the message of the error, i.e. why the error was returned, e.g. error 404 stands for “not found”.
 	Message string `json:"message"`
-	Details []BannedIpAddressDetails `json:"details,omitempty"`
+	Details []BannedIpAddressDetailsInner `json:"details,omitempty"`
 }
 
 // NewCouldNotCalculateRateForPair instantiates a new CouldNotCalculateRateForPair object
@@ -92,9 +92,9 @@ func (o *CouldNotCalculateRateForPair) SetMessage(v string) {
 }
 
 // GetDetails returns the Details field value if set, zero value otherwise.
-func (o *CouldNotCalculateRateForPair) GetDetails() []BannedIpAddressDetails {
+func (o *CouldNotCalculateRateForPair) GetDetails() []BannedIpAddressDetailsInner {
 	if o == nil || o.Details == nil {
-		var ret []BannedIpAddressDetails
+		var ret []BannedIpAddressDetailsInner
 		return ret
 	}
 	return o.Details
@@ -102,7 +102,7 @@ func (o *CouldNotCalculateRateForPair) GetDetails() []BannedIpAddressDetails {
 
 // GetDetailsOk returns a tuple with the Details field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CouldNotCalculateRateForPair) GetDetailsOk() ([]BannedIpAddressDetails, bool) {
+func (o *CouldNotCalculateRateForPair) GetDetailsOk() ([]BannedIpAddressDetailsInner, bool) {
 	if o == nil || o.Details == nil {
 		return nil, false
 	}
@@ -118,8 +118,8 @@ func (o *CouldNotCalculateRateForPair) HasDetails() bool {
 	return false
 }
 
-// SetDetails gets a reference to the given []BannedIpAddressDetails and assigns it to the Details field.
-func (o *CouldNotCalculateRateForPair) SetDetails(v []BannedIpAddressDetails) {
+// SetDetails gets a reference to the given []BannedIpAddressDetailsInner and assigns it to the Details field.
+func (o *CouldNotCalculateRateForPair) SetDetails(v []BannedIpAddressDetailsInner) {
 	o.Details = v
 }
 

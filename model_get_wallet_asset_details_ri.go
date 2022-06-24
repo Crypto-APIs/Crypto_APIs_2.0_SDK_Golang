@@ -21,11 +21,11 @@ type GetWalletAssetDetailsRI struct {
 	// Specifies the count of deposit addresses in the Wallet.
 	DepositAddressesCount int32 `json:"depositAddressesCount"`
 	// Represents fungible tokens'es detailed information
-	FungibleTokens []GetWalletAssetDetailsRIFungibleTokens `json:"fungibleTokens"`
+	FungibleTokens []GetWalletAssetDetailsRIFungibleTokensInner `json:"fungibleTokens"`
 	// Defines the name of the Wallet given to it by the user.
 	Name string `json:"name"`
 	// Represents non-fungible tokens'es detailed information.
-	NonFungibleTokens []GetWalletAssetDetailsRINonFungibleTokens `json:"nonFungibleTokens"`
+	NonFungibleTokens []GetWalletAssetDetailsRINonFungibleTokensInner `json:"nonFungibleTokens"`
 	RecievedConfirmedAmount GetWalletAssetDetailsRIRecievedConfirmedAmount `json:"recievedConfirmedAmount"`
 	SentConfirmedAmount GetWalletAssetDetailsRISentConfirmedAmount `json:"sentConfirmedAmount"`
 }
@@ -34,7 +34,7 @@ type GetWalletAssetDetailsRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetWalletAssetDetailsRI(confirmedBalance GetWalletAssetDetailsRIConfirmedBalance, depositAddressesCount int32, fungibleTokens []GetWalletAssetDetailsRIFungibleTokens, name string, nonFungibleTokens []GetWalletAssetDetailsRINonFungibleTokens, recievedConfirmedAmount GetWalletAssetDetailsRIRecievedConfirmedAmount, sentConfirmedAmount GetWalletAssetDetailsRISentConfirmedAmount) *GetWalletAssetDetailsRI {
+func NewGetWalletAssetDetailsRI(confirmedBalance GetWalletAssetDetailsRIConfirmedBalance, depositAddressesCount int32, fungibleTokens []GetWalletAssetDetailsRIFungibleTokensInner, name string, nonFungibleTokens []GetWalletAssetDetailsRINonFungibleTokensInner, recievedConfirmedAmount GetWalletAssetDetailsRIRecievedConfirmedAmount, sentConfirmedAmount GetWalletAssetDetailsRISentConfirmedAmount) *GetWalletAssetDetailsRI {
 	this := GetWalletAssetDetailsRI{}
 	this.ConfirmedBalance = confirmedBalance
 	this.DepositAddressesCount = depositAddressesCount
@@ -103,9 +103,9 @@ func (o *GetWalletAssetDetailsRI) SetDepositAddressesCount(v int32) {
 }
 
 // GetFungibleTokens returns the FungibleTokens field value
-func (o *GetWalletAssetDetailsRI) GetFungibleTokens() []GetWalletAssetDetailsRIFungibleTokens {
+func (o *GetWalletAssetDetailsRI) GetFungibleTokens() []GetWalletAssetDetailsRIFungibleTokensInner {
 	if o == nil {
-		var ret []GetWalletAssetDetailsRIFungibleTokens
+		var ret []GetWalletAssetDetailsRIFungibleTokensInner
 		return ret
 	}
 
@@ -114,7 +114,7 @@ func (o *GetWalletAssetDetailsRI) GetFungibleTokens() []GetWalletAssetDetailsRIF
 
 // GetFungibleTokensOk returns a tuple with the FungibleTokens field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletAssetDetailsRI) GetFungibleTokensOk() ([]GetWalletAssetDetailsRIFungibleTokens, bool) {
+func (o *GetWalletAssetDetailsRI) GetFungibleTokensOk() ([]GetWalletAssetDetailsRIFungibleTokensInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -122,7 +122,7 @@ func (o *GetWalletAssetDetailsRI) GetFungibleTokensOk() ([]GetWalletAssetDetails
 }
 
 // SetFungibleTokens sets field value
-func (o *GetWalletAssetDetailsRI) SetFungibleTokens(v []GetWalletAssetDetailsRIFungibleTokens) {
+func (o *GetWalletAssetDetailsRI) SetFungibleTokens(v []GetWalletAssetDetailsRIFungibleTokensInner) {
 	o.FungibleTokens = v
 }
 
@@ -151,9 +151,9 @@ func (o *GetWalletAssetDetailsRI) SetName(v string) {
 }
 
 // GetNonFungibleTokens returns the NonFungibleTokens field value
-func (o *GetWalletAssetDetailsRI) GetNonFungibleTokens() []GetWalletAssetDetailsRINonFungibleTokens {
+func (o *GetWalletAssetDetailsRI) GetNonFungibleTokens() []GetWalletAssetDetailsRINonFungibleTokensInner {
 	if o == nil {
-		var ret []GetWalletAssetDetailsRINonFungibleTokens
+		var ret []GetWalletAssetDetailsRINonFungibleTokensInner
 		return ret
 	}
 
@@ -162,7 +162,7 @@ func (o *GetWalletAssetDetailsRI) GetNonFungibleTokens() []GetWalletAssetDetails
 
 // GetNonFungibleTokensOk returns a tuple with the NonFungibleTokens field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletAssetDetailsRI) GetNonFungibleTokensOk() ([]GetWalletAssetDetailsRINonFungibleTokens, bool) {
+func (o *GetWalletAssetDetailsRI) GetNonFungibleTokensOk() ([]GetWalletAssetDetailsRINonFungibleTokensInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -170,7 +170,7 @@ func (o *GetWalletAssetDetailsRI) GetNonFungibleTokensOk() ([]GetWalletAssetDeta
 }
 
 // SetNonFungibleTokens sets field value
-func (o *GetWalletAssetDetailsRI) SetNonFungibleTokens(v []GetWalletAssetDetailsRINonFungibleTokens) {
+func (o *GetWalletAssetDetailsRI) SetNonFungibleTokens(v []GetWalletAssetDetailsRINonFungibleTokensInner) {
 	o.NonFungibleTokens = v
 }
 

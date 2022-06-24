@@ -24,16 +24,16 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSD struct {
 	// Represents transaction version number.
 	Version int32 `json:"version"`
 	// Represents the transaction inputs.
-	Vin []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVin `json:"vin"`
+	Vin []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []GetTransactionDetailsByTransactionIDRIBSD2Vout `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDRIBSD2VoutInner `json:"vout"`
 }
 
 // NewGetTransactionDetailsByTransactionIDFromCallbackRIBSD instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBSD object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSD(locktime int64, size int32, version int32, vin []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVin, vout []GetTransactionDetailsByTransactionIDRIBSD2Vout) *GetTransactionDetailsByTransactionIDFromCallbackRIBSD {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSD(locktime int64, size int32, version int32, vin []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVinInner, vout []GetTransactionDetailsByTransactionIDRIBSD2VoutInner) *GetTransactionDetailsByTransactionIDFromCallbackRIBSD {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRIBSD{}
 	this.Locktime = locktime
 	this.Size = size
@@ -124,9 +124,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) SetVersion(v int
 }
 
 // GetVin returns the Vin field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVin() []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVin {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVin() []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVinInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVin
+		var ret []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVinInner
 		return ret
 	}
 
@@ -135,7 +135,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVin() []GetTr
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVinOk() ([]GetTransactionDetailsByTransactionIDFromCallbackRIBSDVin, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVinOk() ([]GetTransactionDetailsByTransactionIDFromCallbackRIBSDVinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -143,14 +143,14 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVinOk() ([]Ge
 }
 
 // SetVin sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) SetVin(v []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVin) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) SetVin(v []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVout() []GetTransactionDetailsByTransactionIDRIBSD2Vout {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVout() []GetTransactionDetailsByTransactionIDRIBSD2VoutInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSD2Vout
+		var ret []GetTransactionDetailsByTransactionIDRIBSD2VoutInner
 		return ret
 	}
 
@@ -159,7 +159,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVout() []GetT
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSD2Vout, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSD2VoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -167,7 +167,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVoutOk() ([]G
 }
 
 // SetVout sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDRIBSD2Vout) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDRIBSD2VoutInner) {
 	o.Vout = v
 }
 

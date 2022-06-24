@@ -24,9 +24,9 @@ type ListConfirmedTransactionsByAddressRI struct {
 	// Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
 	MinedInBlockHeight *int32 `json:"minedInBlockHeight,omitempty"`
 	// Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Recipients []GetTransactionDetailsByTransactionIDRIRecipients `json:"recipients"`
+	Recipients []GetTransactionDetailsByTransactionIDRIRecipientsInner `json:"recipients"`
 	// Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Senders []GetTransactionDetailsByTransactionIDRISenders `json:"senders"`
+	Senders []GetTransactionDetailsByTransactionIDRISendersInner `json:"senders"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
 	Timestamp int32 `json:"timestamp"`
 	// Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
@@ -41,7 +41,7 @@ type ListConfirmedTransactionsByAddressRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListConfirmedTransactionsByAddressRI(index int32, recipients []GetTransactionDetailsByTransactionIDRIRecipients, senders []GetTransactionDetailsByTransactionIDRISenders, timestamp int32, transactionHash string, transactionId string, fee ListConfirmedTransactionsByAddressRIFee, blockchainSpecific ListConfirmedTransactionsByAddressRIBS) *ListConfirmedTransactionsByAddressRI {
+func NewListConfirmedTransactionsByAddressRI(index int32, recipients []GetTransactionDetailsByTransactionIDRIRecipientsInner, senders []GetTransactionDetailsByTransactionIDRISendersInner, timestamp int32, transactionHash string, transactionId string, fee ListConfirmedTransactionsByAddressRIFee, blockchainSpecific ListConfirmedTransactionsByAddressRIBS) *ListConfirmedTransactionsByAddressRI {
 	this := ListConfirmedTransactionsByAddressRI{}
 	this.Index = index
 	this.Recipients = recipients
@@ -151,9 +151,9 @@ func (o *ListConfirmedTransactionsByAddressRI) SetMinedInBlockHeight(v int32) {
 }
 
 // GetRecipients returns the Recipients field value
-func (o *ListConfirmedTransactionsByAddressRI) GetRecipients() []GetTransactionDetailsByTransactionIDRIRecipients {
+func (o *ListConfirmedTransactionsByAddressRI) GetRecipients() []GetTransactionDetailsByTransactionIDRIRecipientsInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIRecipients
+		var ret []GetTransactionDetailsByTransactionIDRIRecipientsInner
 		return ret
 	}
 
@@ -162,7 +162,7 @@ func (o *ListConfirmedTransactionsByAddressRI) GetRecipients() []GetTransactionD
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressRI) GetRecipientsOk() ([]GetTransactionDetailsByTransactionIDRIRecipients, bool) {
+func (o *ListConfirmedTransactionsByAddressRI) GetRecipientsOk() ([]GetTransactionDetailsByTransactionIDRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -170,14 +170,14 @@ func (o *ListConfirmedTransactionsByAddressRI) GetRecipientsOk() ([]GetTransacti
 }
 
 // SetRecipients sets field value
-func (o *ListConfirmedTransactionsByAddressRI) SetRecipients(v []GetTransactionDetailsByTransactionIDRIRecipients) {
+func (o *ListConfirmedTransactionsByAddressRI) SetRecipients(v []GetTransactionDetailsByTransactionIDRIRecipientsInner) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *ListConfirmedTransactionsByAddressRI) GetSenders() []GetTransactionDetailsByTransactionIDRISenders {
+func (o *ListConfirmedTransactionsByAddressRI) GetSenders() []GetTransactionDetailsByTransactionIDRISendersInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRISenders
+		var ret []GetTransactionDetailsByTransactionIDRISendersInner
 		return ret
 	}
 
@@ -186,7 +186,7 @@ func (o *ListConfirmedTransactionsByAddressRI) GetSenders() []GetTransactionDeta
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressRI) GetSendersOk() ([]GetTransactionDetailsByTransactionIDRISenders, bool) {
+func (o *ListConfirmedTransactionsByAddressRI) GetSendersOk() ([]GetTransactionDetailsByTransactionIDRISendersInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -194,7 +194,7 @@ func (o *ListConfirmedTransactionsByAddressRI) GetSendersOk() ([]GetTransactionD
 }
 
 // SetSenders sets field value
-func (o *ListConfirmedTransactionsByAddressRI) SetSenders(v []GetTransactionDetailsByTransactionIDRISenders) {
+func (o *ListConfirmedTransactionsByAddressRI) SetSenders(v []GetTransactionDetailsByTransactionIDRISendersInner) {
 	o.Senders = v
 }
 

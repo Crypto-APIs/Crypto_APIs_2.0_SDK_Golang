@@ -24,16 +24,16 @@ type ListUnconfirmedTransactionsByAddressRIBSD struct {
 	// Numeric representation of the transaction version
 	Version int32 `json:"version"`
 	// Represents the transaction inputs.
-	Vin []ListUnconfirmedTransactionsByAddressRIBSDVin `json:"vin"`
+	Vin []ListUnconfirmedTransactionsByAddressRIBSDVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []GetTransactionDetailsByTransactionIDRIBSDVout `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDRIBSDVoutInner `json:"vout"`
 }
 
 // NewListUnconfirmedTransactionsByAddressRIBSD instantiates a new ListUnconfirmedTransactionsByAddressRIBSD object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListUnconfirmedTransactionsByAddressRIBSD(locktime int64, size int32, version int32, vin []ListUnconfirmedTransactionsByAddressRIBSDVin, vout []GetTransactionDetailsByTransactionIDRIBSDVout) *ListUnconfirmedTransactionsByAddressRIBSD {
+func NewListUnconfirmedTransactionsByAddressRIBSD(locktime int64, size int32, version int32, vin []ListUnconfirmedTransactionsByAddressRIBSDVinInner, vout []GetTransactionDetailsByTransactionIDRIBSDVoutInner) *ListUnconfirmedTransactionsByAddressRIBSD {
 	this := ListUnconfirmedTransactionsByAddressRIBSD{}
 	this.Locktime = locktime
 	this.Size = size
@@ -124,9 +124,9 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSD) SetVersion(v int32) {
 }
 
 // GetVin returns the Vin field value
-func (o *ListUnconfirmedTransactionsByAddressRIBSD) GetVin() []ListUnconfirmedTransactionsByAddressRIBSDVin {
+func (o *ListUnconfirmedTransactionsByAddressRIBSD) GetVin() []ListUnconfirmedTransactionsByAddressRIBSDVinInner {
 	if o == nil {
-		var ret []ListUnconfirmedTransactionsByAddressRIBSDVin
+		var ret []ListUnconfirmedTransactionsByAddressRIBSDVinInner
 		return ret
 	}
 
@@ -135,7 +135,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSD) GetVin() []ListUnconfirmedTr
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListUnconfirmedTransactionsByAddressRIBSD) GetVinOk() ([]ListUnconfirmedTransactionsByAddressRIBSDVin, bool) {
+func (o *ListUnconfirmedTransactionsByAddressRIBSD) GetVinOk() ([]ListUnconfirmedTransactionsByAddressRIBSDVinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -143,14 +143,14 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSD) GetVinOk() ([]ListUnconfirme
 }
 
 // SetVin sets field value
-func (o *ListUnconfirmedTransactionsByAddressRIBSD) SetVin(v []ListUnconfirmedTransactionsByAddressRIBSDVin) {
+func (o *ListUnconfirmedTransactionsByAddressRIBSD) SetVin(v []ListUnconfirmedTransactionsByAddressRIBSDVinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *ListUnconfirmedTransactionsByAddressRIBSD) GetVout() []GetTransactionDetailsByTransactionIDRIBSDVout {
+func (o *ListUnconfirmedTransactionsByAddressRIBSD) GetVout() []GetTransactionDetailsByTransactionIDRIBSDVoutInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSDVout
+		var ret []GetTransactionDetailsByTransactionIDRIBSDVoutInner
 		return ret
 	}
 
@@ -159,7 +159,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSD) GetVout() []GetTransactionDe
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListUnconfirmedTransactionsByAddressRIBSD) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSDVout, bool) {
+func (o *ListUnconfirmedTransactionsByAddressRIBSD) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSDVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -167,7 +167,7 @@ func (o *ListUnconfirmedTransactionsByAddressRIBSD) GetVoutOk() ([]GetTransactio
 }
 
 // SetVout sets field value
-func (o *ListUnconfirmedTransactionsByAddressRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDRIBSDVout) {
+func (o *ListUnconfirmedTransactionsByAddressRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDRIBSDVoutInner) {
 	o.Vout = v
 }
 

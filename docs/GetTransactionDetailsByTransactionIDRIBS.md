@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Size** | **int32** | Represents the total size of this transaction. | 
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Defines the version of the transaction. | 
-**Vin** | [**[]GetTransactionDetailsByTransactionIDRIBSZVin**](GetTransactionDetailsByTransactionIDRIBSZVin.md) | Object Array representation of transaction inputs | 
-**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSZVout**](GetTransactionDetailsByTransactionIDRIBSZVout.md) | Object Array representation of transaction outputs | 
+**Vin** | [**[]GetTransactionDetailsByTransactionIDRIBSZVinInner**](GetTransactionDetailsByTransactionIDRIBSZVinInner.md) | Object Array representation of transaction inputs | 
+**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSZVoutInner**](GetTransactionDetailsByTransactionIDRIBSZVoutInner.md) | Object Array representation of transaction outputs | 
 **Contract** | **string** | Represents the specific transaction contract | 
 **GasLimit** | **string** | Represents the amount of gas used by this specific transaction alone. | 
 **GasPrice** | [**GetTransactionDetailsByTransactionIDRIBSBSCGasPrice**](GetTransactionDetailsByTransactionIDRIBSBSCGasPrice.md) |  | 
@@ -22,9 +22,9 @@ Name | Type | Description | Notes
 **JoinSplitPubKey** | **string** | Represents an encoding of a JoinSplitSig public validating key. | 
 **JoinSplitSig** | **string** | Is used to sign transactions that contain at least one JoinSplit description. | 
 **Overwintered** | **bool** | \&quot;Overwinter\&quot; is the network upgrade for the Zcash blockchain. | 
-**VJoinSplit** | [**[]GetTransactionDetailsByTransactionIDRIBSZVJoinSplit**](GetTransactionDetailsByTransactionIDRIBSZVJoinSplit.md) | Represents a sequence of JoinSplit descriptions using BCTV14 proofs. | 
-**VShieldedOutput** | [**[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput**](GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput.md) | Object Array representation of transaction output descriptions | 
-**VShieldedSpend** | [**[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend**](GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend.md) | Object Array representation of transaction spend descriptions | 
+**VJoinSplit** | [**[]GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner**](GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner.md) | Represents a sequence of JoinSplit descriptions using BCTV14 proofs. | 
+**VShieldedOutput** | [**[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner**](GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner.md) | Object Array representation of transaction output descriptions | 
+**VShieldedSpend** | [**[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner**](GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner.md) | Object Array representation of transaction spend descriptions | 
 **ValueBalance** | **string** | String representation of the transaction value balance | 
 **VersionGroupId** | **string** | Represents the transaction version group ID. | 
 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewGetTransactionDetailsByTransactionIDRIBS
 
-`func NewGetTransactionDetailsByTransactionIDRIBS(locktime int64, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSZVin, vout []GetTransactionDetailsByTransactionIDRIBSZVout, contract string, gasLimit string, gasPrice GetTransactionDetailsByTransactionIDRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, versionGroupId string, ) *GetTransactionDetailsByTransactionIDRIBS`
+`func NewGetTransactionDetailsByTransactionIDRIBS(locktime int64, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSZVinInner, vout []GetTransactionDetailsByTransactionIDRIBSZVoutInner, contract string, gasLimit string, gasPrice GetTransactionDetailsByTransactionIDRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, valueBalance string, versionGroupId string, ) *GetTransactionDetailsByTransactionIDRIBS`
 
 NewGetTransactionDetailsByTransactionIDRIBS instantiates a new GetTransactionDetailsByTransactionIDRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -129,40 +129,40 @@ SetVersion sets Version field to given value.
 
 ### GetVin
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVin() []GetTransactionDetailsByTransactionIDRIBSZVin`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVin() []GetTransactionDetailsByTransactionIDRIBSZVinInner`
 
 GetVin returns the Vin field if non-nil, zero value otherwise.
 
 ### GetVinOk
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVinOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVin, bool)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVinOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVinInner, bool)`
 
 GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVin
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) SetVin(v []GetTransactionDetailsByTransactionIDRIBSZVin)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) SetVin(v []GetTransactionDetailsByTransactionIDRIBSZVinInner)`
 
 SetVin sets Vin field to given value.
 
 
 ### GetVout
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVout() []GetTransactionDetailsByTransactionIDRIBSZVout`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVout() []GetTransactionDetailsByTransactionIDRIBSZVoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVout, bool)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) SetVout(v []GetTransactionDetailsByTransactionIDRIBSZVout)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) SetVout(v []GetTransactionDetailsByTransactionIDRIBSZVoutInner)`
 
 SetVout sets Vout field to given value.
 
@@ -409,60 +409,60 @@ SetOverwintered sets Overwintered field to given value.
 
 ### GetVJoinSplit
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVJoinSplit() []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVJoinSplit() []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner`
 
 GetVJoinSplit returns the VJoinSplit field if non-nil, zero value otherwise.
 
 ### GetVJoinSplitOk
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVJoinSplitOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVJoinSplit, bool)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVJoinSplitOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner, bool)`
 
 GetVJoinSplitOk returns a tuple with the VJoinSplit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVJoinSplit
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) SetVJoinSplit(v []GetTransactionDetailsByTransactionIDRIBSZVJoinSplit)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) SetVJoinSplit(v []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner)`
 
 SetVJoinSplit sets VJoinSplit field to given value.
 
 
 ### GetVShieldedOutput
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVShieldedOutput() []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVShieldedOutput() []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner`
 
 GetVShieldedOutput returns the VShieldedOutput field if non-nil, zero value otherwise.
 
 ### GetVShieldedOutputOk
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVShieldedOutputOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, bool)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVShieldedOutputOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, bool)`
 
 GetVShieldedOutputOk returns a tuple with the VShieldedOutput field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVShieldedOutput
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) SetVShieldedOutput(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) SetVShieldedOutput(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner)`
 
 SetVShieldedOutput sets VShieldedOutput field to given value.
 
 
 ### GetVShieldedSpend
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVShieldedSpend() []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVShieldedSpend() []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner`
 
 GetVShieldedSpend returns the VShieldedSpend field if non-nil, zero value otherwise.
 
 ### GetVShieldedSpendOk
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVShieldedSpendOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, bool)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) GetVShieldedSpendOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, bool)`
 
 GetVShieldedSpendOk returns a tuple with the VShieldedSpend field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVShieldedSpend
 
-`func (o *GetTransactionDetailsByTransactionIDRIBS) SetVShieldedSpend(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend)`
+`func (o *GetTransactionDetailsByTransactionIDRIBS) SetVShieldedSpend(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner)`
 
 SetVShieldedSpend sets VShieldedSpend field to given value.
 

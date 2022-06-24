@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Locktime** | **int64** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **Version** | **int32** | Represents the transaction&#39;s version number. | 
-**Vin** | [**[]ListConfirmedTransactionsByAddressRIBSBCVin**](ListConfirmedTransactionsByAddressRIBSBCVin.md) | Represents the transaction inputs. | 
-**Vout** | Pointer to [**[]GetTransactionDetailsByTransactionIDRIBSBCVout**](GetTransactionDetailsByTransactionIDRIBSBCVout.md) | Represents the transaction outputs. | [optional] 
+**Vin** | [**[]ListConfirmedTransactionsByAddressRIBSBCVinInner**](ListConfirmedTransactionsByAddressRIBSBCVinInner.md) | Represents the transaction inputs. | 
+**Vout** | Pointer to [**[]GetTransactionDetailsByTransactionIDRIBSBCVoutInner**](GetTransactionDetailsByTransactionIDRIBSBCVoutInner.md) | Represents the transaction outputs. | [optional] 
 
 ## Methods
 
 ### NewListConfirmedTransactionsByAddressRIBSBC
 
-`func NewListConfirmedTransactionsByAddressRIBSBC(locktime int64, size int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSBCVin, ) *ListConfirmedTransactionsByAddressRIBSBC`
+`func NewListConfirmedTransactionsByAddressRIBSBC(locktime int64, size int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSBCVinInner, ) *ListConfirmedTransactionsByAddressRIBSBC`
 
 NewListConfirmedTransactionsByAddressRIBSBC instantiates a new ListConfirmedTransactionsByAddressRIBSBC object
 This constructor will assign default values to properties that have it defined,
@@ -91,40 +91,40 @@ SetVersion sets Version field to given value.
 
 ### GetVin
 
-`func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVin() []ListConfirmedTransactionsByAddressRIBSBCVin`
+`func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVin() []ListConfirmedTransactionsByAddressRIBSBCVinInner`
 
 GetVin returns the Vin field if non-nil, zero value otherwise.
 
 ### GetVinOk
 
-`func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVinOk() (*[]ListConfirmedTransactionsByAddressRIBSBCVin, bool)`
+`func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVinOk() (*[]ListConfirmedTransactionsByAddressRIBSBCVinInner, bool)`
 
 GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVin
 
-`func (o *ListConfirmedTransactionsByAddressRIBSBC) SetVin(v []ListConfirmedTransactionsByAddressRIBSBCVin)`
+`func (o *ListConfirmedTransactionsByAddressRIBSBC) SetVin(v []ListConfirmedTransactionsByAddressRIBSBCVinInner)`
 
 SetVin sets Vin field to given value.
 
 
 ### GetVout
 
-`func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVout() []GetTransactionDetailsByTransactionIDRIBSBCVout`
+`func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVout() []GetTransactionDetailsByTransactionIDRIBSBCVoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSBCVout, bool)`
+`func (o *ListConfirmedTransactionsByAddressRIBSBC) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSBCVoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *ListConfirmedTransactionsByAddressRIBSBC) SetVout(v []GetTransactionDetailsByTransactionIDRIBSBCVout)`
+`func (o *ListConfirmedTransactionsByAddressRIBSBC) SetVout(v []GetTransactionDetailsByTransactionIDRIBSBCVoutInner)`
 
 SetVout sets Vout field to given value.
 

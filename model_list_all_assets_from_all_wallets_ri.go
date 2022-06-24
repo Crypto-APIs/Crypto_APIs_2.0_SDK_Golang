@@ -17,11 +17,11 @@ import (
 
 // ListAllAssetsFromAllWalletsRI struct for ListAllAssetsFromAllWalletsRI
 type ListAllAssetsFromAllWalletsRI struct {
-	Coins []ListAllAssetsFromAllWalletsRICoins `json:"coins"`
+	Coins []ListAllAssetsFromAllWalletsRICoinsInner `json:"coins"`
 	// Represents fungible tokens'es detailed information
-	FungibleTokens []ListAllAssetsFromAllWalletsRIFungibleTokens `json:"fungibleTokens"`
+	FungibleTokens []ListAllAssetsFromAllWalletsRIFungibleTokensInner `json:"fungibleTokens"`
 	// Represents non-fungible tokens'es detailed information.
-	NonFungibleTokens []ListAllAssetsFromAllWalletsRINonFungibleTokens `json:"nonFungibleTokens"`
+	NonFungibleTokens []ListAllAssetsFromAllWalletsRINonFungibleTokensInner `json:"nonFungibleTokens"`
 	// Defines the unique ID of the Wallet.
 	WalletId string `json:"walletId"`
 	// Represents the name of the wallet.
@@ -32,7 +32,7 @@ type ListAllAssetsFromAllWalletsRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListAllAssetsFromAllWalletsRI(coins []ListAllAssetsFromAllWalletsRICoins, fungibleTokens []ListAllAssetsFromAllWalletsRIFungibleTokens, nonFungibleTokens []ListAllAssetsFromAllWalletsRINonFungibleTokens, walletId string, walletName string) *ListAllAssetsFromAllWalletsRI {
+func NewListAllAssetsFromAllWalletsRI(coins []ListAllAssetsFromAllWalletsRICoinsInner, fungibleTokens []ListAllAssetsFromAllWalletsRIFungibleTokensInner, nonFungibleTokens []ListAllAssetsFromAllWalletsRINonFungibleTokensInner, walletId string, walletName string) *ListAllAssetsFromAllWalletsRI {
 	this := ListAllAssetsFromAllWalletsRI{}
 	this.Coins = coins
 	this.FungibleTokens = fungibleTokens
@@ -51,9 +51,9 @@ func NewListAllAssetsFromAllWalletsRIWithDefaults() *ListAllAssetsFromAllWallets
 }
 
 // GetCoins returns the Coins field value
-func (o *ListAllAssetsFromAllWalletsRI) GetCoins() []ListAllAssetsFromAllWalletsRICoins {
+func (o *ListAllAssetsFromAllWalletsRI) GetCoins() []ListAllAssetsFromAllWalletsRICoinsInner {
 	if o == nil {
-		var ret []ListAllAssetsFromAllWalletsRICoins
+		var ret []ListAllAssetsFromAllWalletsRICoinsInner
 		return ret
 	}
 
@@ -62,7 +62,7 @@ func (o *ListAllAssetsFromAllWalletsRI) GetCoins() []ListAllAssetsFromAllWallets
 
 // GetCoinsOk returns a tuple with the Coins field value
 // and a boolean to check if the value has been set.
-func (o *ListAllAssetsFromAllWalletsRI) GetCoinsOk() ([]ListAllAssetsFromAllWalletsRICoins, bool) {
+func (o *ListAllAssetsFromAllWalletsRI) GetCoinsOk() ([]ListAllAssetsFromAllWalletsRICoinsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -70,14 +70,14 @@ func (o *ListAllAssetsFromAllWalletsRI) GetCoinsOk() ([]ListAllAssetsFromAllWall
 }
 
 // SetCoins sets field value
-func (o *ListAllAssetsFromAllWalletsRI) SetCoins(v []ListAllAssetsFromAllWalletsRICoins) {
+func (o *ListAllAssetsFromAllWalletsRI) SetCoins(v []ListAllAssetsFromAllWalletsRICoinsInner) {
 	o.Coins = v
 }
 
 // GetFungibleTokens returns the FungibleTokens field value
-func (o *ListAllAssetsFromAllWalletsRI) GetFungibleTokens() []ListAllAssetsFromAllWalletsRIFungibleTokens {
+func (o *ListAllAssetsFromAllWalletsRI) GetFungibleTokens() []ListAllAssetsFromAllWalletsRIFungibleTokensInner {
 	if o == nil {
-		var ret []ListAllAssetsFromAllWalletsRIFungibleTokens
+		var ret []ListAllAssetsFromAllWalletsRIFungibleTokensInner
 		return ret
 	}
 
@@ -86,7 +86,7 @@ func (o *ListAllAssetsFromAllWalletsRI) GetFungibleTokens() []ListAllAssetsFromA
 
 // GetFungibleTokensOk returns a tuple with the FungibleTokens field value
 // and a boolean to check if the value has been set.
-func (o *ListAllAssetsFromAllWalletsRI) GetFungibleTokensOk() ([]ListAllAssetsFromAllWalletsRIFungibleTokens, bool) {
+func (o *ListAllAssetsFromAllWalletsRI) GetFungibleTokensOk() ([]ListAllAssetsFromAllWalletsRIFungibleTokensInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -94,14 +94,14 @@ func (o *ListAllAssetsFromAllWalletsRI) GetFungibleTokensOk() ([]ListAllAssetsFr
 }
 
 // SetFungibleTokens sets field value
-func (o *ListAllAssetsFromAllWalletsRI) SetFungibleTokens(v []ListAllAssetsFromAllWalletsRIFungibleTokens) {
+func (o *ListAllAssetsFromAllWalletsRI) SetFungibleTokens(v []ListAllAssetsFromAllWalletsRIFungibleTokensInner) {
 	o.FungibleTokens = v
 }
 
 // GetNonFungibleTokens returns the NonFungibleTokens field value
-func (o *ListAllAssetsFromAllWalletsRI) GetNonFungibleTokens() []ListAllAssetsFromAllWalletsRINonFungibleTokens {
+func (o *ListAllAssetsFromAllWalletsRI) GetNonFungibleTokens() []ListAllAssetsFromAllWalletsRINonFungibleTokensInner {
 	if o == nil {
-		var ret []ListAllAssetsFromAllWalletsRINonFungibleTokens
+		var ret []ListAllAssetsFromAllWalletsRINonFungibleTokensInner
 		return ret
 	}
 
@@ -110,7 +110,7 @@ func (o *ListAllAssetsFromAllWalletsRI) GetNonFungibleTokens() []ListAllAssetsFr
 
 // GetNonFungibleTokensOk returns a tuple with the NonFungibleTokens field value
 // and a boolean to check if the value has been set.
-func (o *ListAllAssetsFromAllWalletsRI) GetNonFungibleTokensOk() ([]ListAllAssetsFromAllWalletsRINonFungibleTokens, bool) {
+func (o *ListAllAssetsFromAllWalletsRI) GetNonFungibleTokensOk() ([]ListAllAssetsFromAllWalletsRINonFungibleTokensInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -118,7 +118,7 @@ func (o *ListAllAssetsFromAllWalletsRI) GetNonFungibleTokensOk() ([]ListAllAsset
 }
 
 // SetNonFungibleTokens sets field value
-func (o *ListAllAssetsFromAllWalletsRI) SetNonFungibleTokens(v []ListAllAssetsFromAllWalletsRINonFungibleTokens) {
+func (o *ListAllAssetsFromAllWalletsRI) SetNonFungibleTokens(v []ListAllAssetsFromAllWalletsRINonFungibleTokensInner) {
 	o.NonFungibleTokens = v
 }
 

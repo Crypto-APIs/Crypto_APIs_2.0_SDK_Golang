@@ -21,7 +21,7 @@ type CoinsForwardingAutomationsLimitReached struct {
 	Code string `json:"code"`
 	// Specifies the message of the error, i.e. why the error was returned, e.g. error 404 stands for “not found”.
 	Message string `json:"message"`
-	Details []BannedIpAddressDetails `json:"details,omitempty"`
+	Details []BannedIpAddressDetailsInner `json:"details,omitempty"`
 }
 
 // NewCoinsForwardingAutomationsLimitReached instantiates a new CoinsForwardingAutomationsLimitReached object
@@ -92,9 +92,9 @@ func (o *CoinsForwardingAutomationsLimitReached) SetMessage(v string) {
 }
 
 // GetDetails returns the Details field value if set, zero value otherwise.
-func (o *CoinsForwardingAutomationsLimitReached) GetDetails() []BannedIpAddressDetails {
+func (o *CoinsForwardingAutomationsLimitReached) GetDetails() []BannedIpAddressDetailsInner {
 	if o == nil || o.Details == nil {
-		var ret []BannedIpAddressDetails
+		var ret []BannedIpAddressDetailsInner
 		return ret
 	}
 	return o.Details
@@ -102,7 +102,7 @@ func (o *CoinsForwardingAutomationsLimitReached) GetDetails() []BannedIpAddressD
 
 // GetDetailsOk returns a tuple with the Details field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *CoinsForwardingAutomationsLimitReached) GetDetailsOk() ([]BannedIpAddressDetails, bool) {
+func (o *CoinsForwardingAutomationsLimitReached) GetDetailsOk() ([]BannedIpAddressDetailsInner, bool) {
 	if o == nil || o.Details == nil {
 		return nil, false
 	}
@@ -118,8 +118,8 @@ func (o *CoinsForwardingAutomationsLimitReached) HasDetails() bool {
 	return false
 }
 
-// SetDetails gets a reference to the given []BannedIpAddressDetails and assigns it to the Details field.
-func (o *CoinsForwardingAutomationsLimitReached) SetDetails(v []BannedIpAddressDetails) {
+// SetDetails gets a reference to the given []BannedIpAddressDetailsInner and assigns it to the Details field.
+func (o *CoinsForwardingAutomationsLimitReached) SetDetails(v []BannedIpAddressDetailsInner) {
 	o.Details = v
 }
 

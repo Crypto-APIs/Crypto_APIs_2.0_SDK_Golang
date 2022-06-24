@@ -24,16 +24,16 @@ type ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2 struct {
 	// Represents the transaction's version number.
 	Version int32 `json:"version"`
 	// Represents the transaction inputs.
-	Vin []ListConfirmedTransactionsByAddressRIBSD2Vin `json:"vin"`
+	Vin []ListConfirmedTransactionsByAddressRIBSD2VinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []ListConfirmedTransactionsByAddressRIBSD2Vout `json:"vout"`
+	Vout []ListConfirmedTransactionsByAddressRIBSD2VoutInner `json:"vout"`
 }
 
 // NewListConfirmedTransactionsByAddressAndTimeRangeRIBSD2 instantiates a new ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListConfirmedTransactionsByAddressAndTimeRangeRIBSD2(locktime int64, size int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSD2Vin, vout []ListConfirmedTransactionsByAddressRIBSD2Vout) *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2 {
+func NewListConfirmedTransactionsByAddressAndTimeRangeRIBSD2(locktime int64, size int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSD2VinInner, vout []ListConfirmedTransactionsByAddressRIBSD2VoutInner) *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2 {
 	this := ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2{}
 	this.Locktime = locktime
 	this.Size = size
@@ -124,9 +124,9 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) SetVersion(v int3
 }
 
 // GetVin returns the Vin field value
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) GetVin() []ListConfirmedTransactionsByAddressRIBSD2Vin {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) GetVin() []ListConfirmedTransactionsByAddressRIBSD2VinInner {
 	if o == nil {
-		var ret []ListConfirmedTransactionsByAddressRIBSD2Vin
+		var ret []ListConfirmedTransactionsByAddressRIBSD2VinInner
 		return ret
 	}
 
@@ -135,7 +135,7 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) GetVin() []ListCo
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) GetVinOk() ([]ListConfirmedTransactionsByAddressRIBSD2Vin, bool) {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) GetVinOk() ([]ListConfirmedTransactionsByAddressRIBSD2VinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -143,14 +143,14 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) GetVinOk() ([]Lis
 }
 
 // SetVin sets field value
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) SetVin(v []ListConfirmedTransactionsByAddressRIBSD2Vin) {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) SetVin(v []ListConfirmedTransactionsByAddressRIBSD2VinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) GetVout() []ListConfirmedTransactionsByAddressRIBSD2Vout {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) GetVout() []ListConfirmedTransactionsByAddressRIBSD2VoutInner {
 	if o == nil {
-		var ret []ListConfirmedTransactionsByAddressRIBSD2Vout
+		var ret []ListConfirmedTransactionsByAddressRIBSD2VoutInner
 		return ret
 	}
 
@@ -159,7 +159,7 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) GetVout() []ListC
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) GetVoutOk() ([]ListConfirmedTransactionsByAddressRIBSD2Vout, bool) {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) GetVoutOk() ([]ListConfirmedTransactionsByAddressRIBSD2VoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -167,7 +167,7 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) GetVoutOk() ([]Li
 }
 
 // SetVout sets field value
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) SetVout(v []ListConfirmedTransactionsByAddressRIBSD2Vout) {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD2) SetVout(v []ListConfirmedTransactionsByAddressRIBSD2VoutInner) {
 	o.Vout = v
 }
 

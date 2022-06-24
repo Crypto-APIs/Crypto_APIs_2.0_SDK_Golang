@@ -26,9 +26,9 @@ type DecodeRawTransactionHexRISD struct {
 	// Represents transaction version number.
 	Version int32 `json:"version"`
 	// Represents the transaction inputs.
-	Vin []DecodeRawTransactionHexRISDVin `json:"vin"`
+	Vin []DecodeRawTransactionHexRISDVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []DecodeRawTransactionHexRISDVout `json:"vout"`
+	Vout []DecodeRawTransactionHexRISDVoutInner `json:"vout"`
 	// Represents the size of a block, measured in weight units and including the segwit discount.
 	Weight *int32 `json:"weight,omitempty"`
 }
@@ -37,7 +37,7 @@ type DecodeRawTransactionHexRISD struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDecodeRawTransactionHexRISD(locktime int32, transactionHash string, vSize int32, version int32, vin []DecodeRawTransactionHexRISDVin, vout []DecodeRawTransactionHexRISDVout) *DecodeRawTransactionHexRISD {
+func NewDecodeRawTransactionHexRISD(locktime int32, transactionHash string, vSize int32, version int32, vin []DecodeRawTransactionHexRISDVinInner, vout []DecodeRawTransactionHexRISDVoutInner) *DecodeRawTransactionHexRISD {
 	this := DecodeRawTransactionHexRISD{}
 	this.Locktime = locktime
 	this.TransactionHash = transactionHash
@@ -153,9 +153,9 @@ func (o *DecodeRawTransactionHexRISD) SetVersion(v int32) {
 }
 
 // GetVin returns the Vin field value
-func (o *DecodeRawTransactionHexRISD) GetVin() []DecodeRawTransactionHexRISDVin {
+func (o *DecodeRawTransactionHexRISD) GetVin() []DecodeRawTransactionHexRISDVinInner {
 	if o == nil {
-		var ret []DecodeRawTransactionHexRISDVin
+		var ret []DecodeRawTransactionHexRISDVinInner
 		return ret
 	}
 
@@ -164,7 +164,7 @@ func (o *DecodeRawTransactionHexRISD) GetVin() []DecodeRawTransactionHexRISDVin 
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *DecodeRawTransactionHexRISD) GetVinOk() ([]DecodeRawTransactionHexRISDVin, bool) {
+func (o *DecodeRawTransactionHexRISD) GetVinOk() ([]DecodeRawTransactionHexRISDVinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -172,14 +172,14 @@ func (o *DecodeRawTransactionHexRISD) GetVinOk() ([]DecodeRawTransactionHexRISDV
 }
 
 // SetVin sets field value
-func (o *DecodeRawTransactionHexRISD) SetVin(v []DecodeRawTransactionHexRISDVin) {
+func (o *DecodeRawTransactionHexRISD) SetVin(v []DecodeRawTransactionHexRISDVinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *DecodeRawTransactionHexRISD) GetVout() []DecodeRawTransactionHexRISDVout {
+func (o *DecodeRawTransactionHexRISD) GetVout() []DecodeRawTransactionHexRISDVoutInner {
 	if o == nil {
-		var ret []DecodeRawTransactionHexRISDVout
+		var ret []DecodeRawTransactionHexRISDVoutInner
 		return ret
 	}
 
@@ -188,7 +188,7 @@ func (o *DecodeRawTransactionHexRISD) GetVout() []DecodeRawTransactionHexRISDVou
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *DecodeRawTransactionHexRISD) GetVoutOk() ([]DecodeRawTransactionHexRISDVout, bool) {
+func (o *DecodeRawTransactionHexRISD) GetVoutOk() ([]DecodeRawTransactionHexRISDVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -196,7 +196,7 @@ func (o *DecodeRawTransactionHexRISD) GetVoutOk() ([]DecodeRawTransactionHexRISD
 }
 
 // SetVout sets field value
-func (o *DecodeRawTransactionHexRISD) SetVout(v []DecodeRawTransactionHexRISDVout) {
+func (o *DecodeRawTransactionHexRISD) SetVout(v []DecodeRawTransactionHexRISDVoutInner) {
 	o.Vout = v
 }
 

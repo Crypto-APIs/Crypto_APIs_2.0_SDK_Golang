@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **Divisible** | **bool** | Defines whether the attribute can be divisible or not, as boolean. E.g., if it is \&quot;true\&quot;, the attribute is divisible. | 
 **Mined** | **bool** | Defines whether the transaction has been mined or not, as boolean. E.g. if set to \&quot;true\&quot;, it means the transaction is mined. | 
 **PropertyId** | **int32** | Represents the identifier of the tokens to send. | 
-**Recipients** | [**[]GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients**](GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients.md) | Represents an object of addresses that receive the transactions. | 
-**Senders** | [**[]GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders**](GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders.md) | Represents an object of addresses that provide the funds. | 
+**Recipients** | [**[]GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipientsInner**](GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipientsInner.md) | Represents an object of addresses that receive the transactions. | 
+**Senders** | [**[]GetUnconfirmedOmniTransactionByTransactionIDTxidRISendersInner**](GetUnconfirmedOmniTransactionByTransactionIDTxidRISendersInner.md) | Represents an object of addresses that provide the funds. | 
 **Sent** | **bool** | Defines whether the transaction has been sent or not, as boolean. E.g. if set to \&quot;true\&quot;, it means the transaction is sent. | 
 **Timestamp** | **int32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
 **TransactionId** | **string** | String representation of the transaction identifier (txid) | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewGetUnconfirmedOmniTransactionByTransactionIDTxidRI
 
-`func NewGetUnconfirmedOmniTransactionByTransactionIDTxidRI(amount string, divisible bool, mined bool, propertyId int32, recipients []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients, senders []GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders, sent bool, timestamp int32, transactionId string, type_ string, typeInt int32, version int32, fee ListUnconfirmedOmniTransactionsByAddressRIFee, ) *GetUnconfirmedOmniTransactionByTransactionIDTxidRI`
+`func NewGetUnconfirmedOmniTransactionByTransactionIDTxidRI(amount string, divisible bool, mined bool, propertyId int32, recipients []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipientsInner, senders []GetUnconfirmedOmniTransactionByTransactionIDTxidRISendersInner, sent bool, timestamp int32, transactionId string, type_ string, typeInt int32, version int32, fee ListUnconfirmedOmniTransactionsByAddressRIFee, ) *GetUnconfirmedOmniTransactionByTransactionIDTxidRI`
 
 NewGetUnconfirmedOmniTransactionByTransactionIDTxidRI instantiates a new GetUnconfirmedOmniTransactionByTransactionIDTxidRI object
 This constructor will assign default values to properties that have it defined,
@@ -119,40 +119,40 @@ SetPropertyId sets PropertyId field to given value.
 
 ### GetRecipients
 
-`func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetRecipients() []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients`
+`func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetRecipients() []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetRecipientsOk() (*[]GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients, bool)`
+`func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetRecipientsOk() (*[]GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) SetRecipients(v []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipients)`
+`func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) SetRecipients(v []GetUnconfirmedOmniTransactionByTransactionIDTxidRIRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 
 
 ### GetSenders
 
-`func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSenders() []GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders`
+`func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSenders() []GetUnconfirmedOmniTransactionByTransactionIDTxidRISendersInner`
 
 GetSenders returns the Senders field if non-nil, zero value otherwise.
 
 ### GetSendersOk
 
-`func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSendersOk() (*[]GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders, bool)`
+`func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) GetSendersOk() (*[]GetUnconfirmedOmniTransactionByTransactionIDTxidRISendersInner, bool)`
 
 GetSendersOk returns a tuple with the Senders field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSenders
 
-`func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) SetSenders(v []GetUnconfirmedOmniTransactionByTransactionIDTxidRISenders)`
+`func (o *GetUnconfirmedOmniTransactionByTransactionIDTxidRI) SetSenders(v []GetUnconfirmedOmniTransactionByTransactionIDTxidRISendersInner)`
 
 SetSenders sets Senders field to given value.
 

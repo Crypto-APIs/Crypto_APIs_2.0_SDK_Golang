@@ -30,7 +30,7 @@ type GetBlockchainEventSubscriptionDetailsByReferenceIDRI struct {
 	// Defines the specific time/date when the subscription was created in Unix Timestamp.
 	CreatedTimestamp int32 `json:"createdTimestamp"`
 	// Represents the deactivation reason details, available when a blockchain event subscription has status isActive - false.
-	DeactivationReasons []ListBlockchainEventsSubscriptionsRIDeactivationReasons `json:"deactivationReasons,omitempty"`
+	DeactivationReasons []ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner `json:"deactivationReasons,omitempty"`
 	// Defines the type of the specific event available for the customer to subscribe to for callback notification.
 	EventType string `json:"eventType"`
 	// Defines whether the subscription is active or not. Set as boolean.
@@ -236,9 +236,9 @@ func (o *GetBlockchainEventSubscriptionDetailsByReferenceIDRI) SetCreatedTimesta
 }
 
 // GetDeactivationReasons returns the DeactivationReasons field value if set, zero value otherwise.
-func (o *GetBlockchainEventSubscriptionDetailsByReferenceIDRI) GetDeactivationReasons() []ListBlockchainEventsSubscriptionsRIDeactivationReasons {
+func (o *GetBlockchainEventSubscriptionDetailsByReferenceIDRI) GetDeactivationReasons() []ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner {
 	if o == nil || o.DeactivationReasons == nil {
-		var ret []ListBlockchainEventsSubscriptionsRIDeactivationReasons
+		var ret []ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner
 		return ret
 	}
 	return o.DeactivationReasons
@@ -246,7 +246,7 @@ func (o *GetBlockchainEventSubscriptionDetailsByReferenceIDRI) GetDeactivationRe
 
 // GetDeactivationReasonsOk returns a tuple with the DeactivationReasons field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetBlockchainEventSubscriptionDetailsByReferenceIDRI) GetDeactivationReasonsOk() ([]ListBlockchainEventsSubscriptionsRIDeactivationReasons, bool) {
+func (o *GetBlockchainEventSubscriptionDetailsByReferenceIDRI) GetDeactivationReasonsOk() ([]ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner, bool) {
 	if o == nil || o.DeactivationReasons == nil {
 		return nil, false
 	}
@@ -262,8 +262,8 @@ func (o *GetBlockchainEventSubscriptionDetailsByReferenceIDRI) HasDeactivationRe
 	return false
 }
 
-// SetDeactivationReasons gets a reference to the given []ListBlockchainEventsSubscriptionsRIDeactivationReasons and assigns it to the DeactivationReasons field.
-func (o *GetBlockchainEventSubscriptionDetailsByReferenceIDRI) SetDeactivationReasons(v []ListBlockchainEventsSubscriptionsRIDeactivationReasons) {
+// SetDeactivationReasons gets a reference to the given []ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner and assigns it to the DeactivationReasons field.
+func (o *GetBlockchainEventSubscriptionDetailsByReferenceIDRI) SetDeactivationReasons(v []ListBlockchainEventsSubscriptionsRIDeactivationReasonsInner) {
 	o.DeactivationReasons = v
 }
 

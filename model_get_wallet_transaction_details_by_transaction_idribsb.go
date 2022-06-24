@@ -26,16 +26,16 @@ type GetWalletTransactionDetailsByTransactionIDRIBSB struct {
 	// Represents the transaction version number.
 	Version int32 `json:"version"`
 	// Object Array representation of transaction inputs
-	Vin []GetWalletTransactionDetailsByTransactionIDRIBSBVin `json:"vin"`
+	Vin []GetWalletTransactionDetailsByTransactionIDRIBSBVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []GetWalletTransactionDetailsByTransactionIDRIBSBVout `json:"vout"`
+	Vout []GetWalletTransactionDetailsByTransactionIDRIBSBVoutInner `json:"vout"`
 }
 
 // NewGetWalletTransactionDetailsByTransactionIDRIBSB instantiates a new GetWalletTransactionDetailsByTransactionIDRIBSB object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetWalletTransactionDetailsByTransactionIDRIBSB(locktime int64, size int32, vSize int32, version int32, vin []GetWalletTransactionDetailsByTransactionIDRIBSBVin, vout []GetWalletTransactionDetailsByTransactionIDRIBSBVout) *GetWalletTransactionDetailsByTransactionIDRIBSB {
+func NewGetWalletTransactionDetailsByTransactionIDRIBSB(locktime int64, size int32, vSize int32, version int32, vin []GetWalletTransactionDetailsByTransactionIDRIBSBVinInner, vout []GetWalletTransactionDetailsByTransactionIDRIBSBVoutInner) *GetWalletTransactionDetailsByTransactionIDRIBSB {
 	this := GetWalletTransactionDetailsByTransactionIDRIBSB{}
 	this.Locktime = locktime
 	this.Size = size
@@ -151,9 +151,9 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) SetVersion(v int32) {
 }
 
 // GetVin returns the Vin field value
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) GetVin() []GetWalletTransactionDetailsByTransactionIDRIBSBVin {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) GetVin() []GetWalletTransactionDetailsByTransactionIDRIBSBVinInner {
 	if o == nil {
-		var ret []GetWalletTransactionDetailsByTransactionIDRIBSBVin
+		var ret []GetWalletTransactionDetailsByTransactionIDRIBSBVinInner
 		return ret
 	}
 
@@ -162,7 +162,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) GetVin() []GetWalletTr
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) GetVinOk() ([]GetWalletTransactionDetailsByTransactionIDRIBSBVin, bool) {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) GetVinOk() ([]GetWalletTransactionDetailsByTransactionIDRIBSBVinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -170,14 +170,14 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) GetVinOk() ([]GetWalle
 }
 
 // SetVin sets field value
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) SetVin(v []GetWalletTransactionDetailsByTransactionIDRIBSBVin) {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) SetVin(v []GetWalletTransactionDetailsByTransactionIDRIBSBVinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) GetVout() []GetWalletTransactionDetailsByTransactionIDRIBSBVout {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) GetVout() []GetWalletTransactionDetailsByTransactionIDRIBSBVoutInner {
 	if o == nil {
-		var ret []GetWalletTransactionDetailsByTransactionIDRIBSBVout
+		var ret []GetWalletTransactionDetailsByTransactionIDRIBSBVoutInner
 		return ret
 	}
 
@@ -186,7 +186,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) GetVout() []GetWalletT
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) GetVoutOk() ([]GetWalletTransactionDetailsByTransactionIDRIBSBVout, bool) {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) GetVoutOk() ([]GetWalletTransactionDetailsByTransactionIDRIBSBVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -194,7 +194,7 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) GetVoutOk() ([]GetWall
 }
 
 // SetVout sets field value
-func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) SetVout(v []GetWalletTransactionDetailsByTransactionIDRIBSBVout) {
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSB) SetVout(v []GetWalletTransactionDetailsByTransactionIDRIBSBVoutInner) {
 	o.Vout = v
 }
 

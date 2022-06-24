@@ -24,16 +24,16 @@ type ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC struct {
 	// Represents the transaction's version number.
 	Version int32 `json:"version"`
 	// Represents the transaction inputs.
-	Vin []ListConfirmedTransactionsByAddressRIBSBCVin `json:"vin"`
+	Vin []ListConfirmedTransactionsByAddressRIBSBCVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []GetTransactionDetailsByTransactionIDRIBSBCVout `json:"vout,omitempty"`
+	Vout []GetTransactionDetailsByTransactionIDRIBSBCVoutInner `json:"vout,omitempty"`
 }
 
 // NewListConfirmedTransactionsByAddressAndTimeRangeRIBSBC instantiates a new ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListConfirmedTransactionsByAddressAndTimeRangeRIBSBC(locktime int64, size int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSBCVin) *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC {
+func NewListConfirmedTransactionsByAddressAndTimeRangeRIBSBC(locktime int64, size int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSBCVinInner) *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC {
 	this := ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC{}
 	this.Locktime = locktime
 	this.Size = size
@@ -123,9 +123,9 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) SetVersion(v int3
 }
 
 // GetVin returns the Vin field value
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) GetVin() []ListConfirmedTransactionsByAddressRIBSBCVin {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) GetVin() []ListConfirmedTransactionsByAddressRIBSBCVinInner {
 	if o == nil {
-		var ret []ListConfirmedTransactionsByAddressRIBSBCVin
+		var ret []ListConfirmedTransactionsByAddressRIBSBCVinInner
 		return ret
 	}
 
@@ -134,7 +134,7 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) GetVin() []ListCo
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) GetVinOk() ([]ListConfirmedTransactionsByAddressRIBSBCVin, bool) {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) GetVinOk() ([]ListConfirmedTransactionsByAddressRIBSBCVinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -142,14 +142,14 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) GetVinOk() ([]Lis
 }
 
 // SetVin sets field value
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) SetVin(v []ListConfirmedTransactionsByAddressRIBSBCVin) {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) SetVin(v []ListConfirmedTransactionsByAddressRIBSBCVinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value if set, zero value otherwise.
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) GetVout() []GetTransactionDetailsByTransactionIDRIBSBCVout {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) GetVout() []GetTransactionDetailsByTransactionIDRIBSBCVoutInner {
 	if o == nil || o.Vout == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSBCVout
+		var ret []GetTransactionDetailsByTransactionIDRIBSBCVoutInner
 		return ret
 	}
 	return o.Vout
@@ -157,7 +157,7 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) GetVout() []GetTr
 
 // GetVoutOk returns a tuple with the Vout field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSBCVout, bool) {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSBCVoutInner, bool) {
 	if o == nil || o.Vout == nil {
 		return nil, false
 	}
@@ -173,8 +173,8 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) HasVout() bool {
 	return false
 }
 
-// SetVout gets a reference to the given []GetTransactionDetailsByTransactionIDRIBSBCVout and assigns it to the Vout field.
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) SetVout(v []GetTransactionDetailsByTransactionIDRIBSBCVout) {
+// SetVout gets a reference to the given []GetTransactionDetailsByTransactionIDRIBSBCVoutInner and assigns it to the Vout field.
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSBC) SetVout(v []GetTransactionDetailsByTransactionIDRIBSBCVoutInner) {
 	o.Vout = v
 }
 

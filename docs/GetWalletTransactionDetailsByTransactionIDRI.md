@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **IsConfirmed** | **bool** | Represents the state of the transaction whether it is confirmed or not confirmed. | 
 **MinedInBlockHash** | Pointer to **string** | Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | [optional] 
 **MinedInBlockHeight** | Pointer to **int32** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | [optional] 
-**Recipients** | [**[]GetWalletTransactionDetailsByTransactionIDRIRecipients**](GetWalletTransactionDetailsByTransactionIDRIRecipients.md) | Object Array representation of transaction receivers | 
-**Senders** | [**[]GetWalletTransactionDetailsByTransactionIDRISenders**](GetWalletTransactionDetailsByTransactionIDRISenders.md) | Object Array representation of transaction senders | 
+**Recipients** | [**[]GetWalletTransactionDetailsByTransactionIDRIRecipientsInner**](GetWalletTransactionDetailsByTransactionIDRIRecipientsInner.md) | Object Array representation of transaction receivers | 
+**Senders** | [**[]GetWalletTransactionDetailsByTransactionIDRISendersInner**](GetWalletTransactionDetailsByTransactionIDRISendersInner.md) | Object Array representation of transaction senders | 
 **Timestamp** | **int32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
 **TransactionHash** | **string** | Represents the same as &#x60;transactionId&#x60; for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols &#x60;hash&#x60; is different from &#x60;transactionId&#x60; for SegWit transactions. | 
 **TransactionId** | **string** | Represents the unique identifier of a transaction, i.e. it could be &#x60;transactionId&#x60; in UTXO-based protocols like Bitcoin, and transaction &#x60;hash&#x60; in Ethereum blockchain. | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewGetWalletTransactionDetailsByTransactionIDRI
 
-`func NewGetWalletTransactionDetailsByTransactionIDRI(index int32, isConfirmed bool, recipients []GetWalletTransactionDetailsByTransactionIDRIRecipients, senders []GetWalletTransactionDetailsByTransactionIDRISenders, timestamp int32, transactionHash string, transactionId string, fee GetWalletTransactionDetailsByTransactionIDRIFee, blockchainSpecific GetWalletTransactionDetailsByTransactionIDRIBS, ) *GetWalletTransactionDetailsByTransactionIDRI`
+`func NewGetWalletTransactionDetailsByTransactionIDRI(index int32, isConfirmed bool, recipients []GetWalletTransactionDetailsByTransactionIDRIRecipientsInner, senders []GetWalletTransactionDetailsByTransactionIDRISendersInner, timestamp int32, transactionHash string, transactionId string, fee GetWalletTransactionDetailsByTransactionIDRIFee, blockchainSpecific GetWalletTransactionDetailsByTransactionIDRIBS, ) *GetWalletTransactionDetailsByTransactionIDRI`
 
 NewGetWalletTransactionDetailsByTransactionIDRI instantiates a new GetWalletTransactionDetailsByTransactionIDRI object
 This constructor will assign default values to properties that have it defined,
@@ -127,40 +127,40 @@ HasMinedInBlockHeight returns a boolean if a field has been set.
 
 ### GetRecipients
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipients() []GetWalletTransactionDetailsByTransactionIDRIRecipients`
+`func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipients() []GetWalletTransactionDetailsByTransactionIDRIRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipientsOk() (*[]GetWalletTransactionDetailsByTransactionIDRIRecipients, bool)`
+`func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipientsOk() (*[]GetWalletTransactionDetailsByTransactionIDRIRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRI) SetRecipients(v []GetWalletTransactionDetailsByTransactionIDRIRecipients)`
+`func (o *GetWalletTransactionDetailsByTransactionIDRI) SetRecipients(v []GetWalletTransactionDetailsByTransactionIDRIRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 
 
 ### GetSenders
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSenders() []GetWalletTransactionDetailsByTransactionIDRISenders`
+`func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSenders() []GetWalletTransactionDetailsByTransactionIDRISendersInner`
 
 GetSenders returns the Senders field if non-nil, zero value otherwise.
 
 ### GetSendersOk
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSendersOk() (*[]GetWalletTransactionDetailsByTransactionIDRISenders, bool)`
+`func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSendersOk() (*[]GetWalletTransactionDetailsByTransactionIDRISendersInner, bool)`
 
 GetSendersOk returns a tuple with the Senders field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSenders
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRI) SetSenders(v []GetWalletTransactionDetailsByTransactionIDRISenders)`
+`func (o *GetWalletTransactionDetailsByTransactionIDRI) SetSenders(v []GetWalletTransactionDetailsByTransactionIDRISendersInner)`
 
 SetSenders sets Senders field to given value.
 

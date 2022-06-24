@@ -18,9 +18,9 @@ import (
 // GetHDWalletXPubYPubZPubAssetsRI struct for GetHDWalletXPubYPubZPubAssetsRI
 type GetHDWalletXPubYPubZPubAssetsRI struct {
 	// Represents fungible tokens'es detailed information
-	FungibleTokens []GetHDWalletXPubYPubZPubAssetsRIFungibleTokens `json:"fungibleTokens,omitempty"`
+	FungibleTokens []GetHDWalletXPubYPubZPubAssetsRIFungibleTokensInner `json:"fungibleTokens,omitempty"`
 	// Represents non-fungible tokens'es detailed information.
-	NonFungibleTokens []GetHDWalletXPubYPubZPubAssetsRINonFungibleTokens `json:"nonFungibleTokens,omitempty"`
+	NonFungibleTokens []GetHDWalletXPubYPubZPubAssetsRINonFungibleTokensInner `json:"nonFungibleTokens,omitempty"`
 	ConfirmedBalance GetHDWalletXPubYPubZPubAssetsRIConfirmedBalance `json:"confirmedBalance"`
 }
 
@@ -43,9 +43,9 @@ func NewGetHDWalletXPubYPubZPubAssetsRIWithDefaults() *GetHDWalletXPubYPubZPubAs
 }
 
 // GetFungibleTokens returns the FungibleTokens field value if set, zero value otherwise.
-func (o *GetHDWalletXPubYPubZPubAssetsRI) GetFungibleTokens() []GetHDWalletXPubYPubZPubAssetsRIFungibleTokens {
+func (o *GetHDWalletXPubYPubZPubAssetsRI) GetFungibleTokens() []GetHDWalletXPubYPubZPubAssetsRIFungibleTokensInner {
 	if o == nil || o.FungibleTokens == nil {
-		var ret []GetHDWalletXPubYPubZPubAssetsRIFungibleTokens
+		var ret []GetHDWalletXPubYPubZPubAssetsRIFungibleTokensInner
 		return ret
 	}
 	return o.FungibleTokens
@@ -53,7 +53,7 @@ func (o *GetHDWalletXPubYPubZPubAssetsRI) GetFungibleTokens() []GetHDWalletXPubY
 
 // GetFungibleTokensOk returns a tuple with the FungibleTokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetHDWalletXPubYPubZPubAssetsRI) GetFungibleTokensOk() ([]GetHDWalletXPubYPubZPubAssetsRIFungibleTokens, bool) {
+func (o *GetHDWalletXPubYPubZPubAssetsRI) GetFungibleTokensOk() ([]GetHDWalletXPubYPubZPubAssetsRIFungibleTokensInner, bool) {
 	if o == nil || o.FungibleTokens == nil {
 		return nil, false
 	}
@@ -69,15 +69,15 @@ func (o *GetHDWalletXPubYPubZPubAssetsRI) HasFungibleTokens() bool {
 	return false
 }
 
-// SetFungibleTokens gets a reference to the given []GetHDWalletXPubYPubZPubAssetsRIFungibleTokens and assigns it to the FungibleTokens field.
-func (o *GetHDWalletXPubYPubZPubAssetsRI) SetFungibleTokens(v []GetHDWalletXPubYPubZPubAssetsRIFungibleTokens) {
+// SetFungibleTokens gets a reference to the given []GetHDWalletXPubYPubZPubAssetsRIFungibleTokensInner and assigns it to the FungibleTokens field.
+func (o *GetHDWalletXPubYPubZPubAssetsRI) SetFungibleTokens(v []GetHDWalletXPubYPubZPubAssetsRIFungibleTokensInner) {
 	o.FungibleTokens = v
 }
 
 // GetNonFungibleTokens returns the NonFungibleTokens field value if set, zero value otherwise.
-func (o *GetHDWalletXPubYPubZPubAssetsRI) GetNonFungibleTokens() []GetHDWalletXPubYPubZPubAssetsRINonFungibleTokens {
+func (o *GetHDWalletXPubYPubZPubAssetsRI) GetNonFungibleTokens() []GetHDWalletXPubYPubZPubAssetsRINonFungibleTokensInner {
 	if o == nil || o.NonFungibleTokens == nil {
-		var ret []GetHDWalletXPubYPubZPubAssetsRINonFungibleTokens
+		var ret []GetHDWalletXPubYPubZPubAssetsRINonFungibleTokensInner
 		return ret
 	}
 	return o.NonFungibleTokens
@@ -85,7 +85,7 @@ func (o *GetHDWalletXPubYPubZPubAssetsRI) GetNonFungibleTokens() []GetHDWalletXP
 
 // GetNonFungibleTokensOk returns a tuple with the NonFungibleTokens field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetHDWalletXPubYPubZPubAssetsRI) GetNonFungibleTokensOk() ([]GetHDWalletXPubYPubZPubAssetsRINonFungibleTokens, bool) {
+func (o *GetHDWalletXPubYPubZPubAssetsRI) GetNonFungibleTokensOk() ([]GetHDWalletXPubYPubZPubAssetsRINonFungibleTokensInner, bool) {
 	if o == nil || o.NonFungibleTokens == nil {
 		return nil, false
 	}
@@ -101,8 +101,8 @@ func (o *GetHDWalletXPubYPubZPubAssetsRI) HasNonFungibleTokens() bool {
 	return false
 }
 
-// SetNonFungibleTokens gets a reference to the given []GetHDWalletXPubYPubZPubAssetsRINonFungibleTokens and assigns it to the NonFungibleTokens field.
-func (o *GetHDWalletXPubYPubZPubAssetsRI) SetNonFungibleTokens(v []GetHDWalletXPubYPubZPubAssetsRINonFungibleTokens) {
+// SetNonFungibleTokens gets a reference to the given []GetHDWalletXPubYPubZPubAssetsRINonFungibleTokensInner and assigns it to the NonFungibleTokens field.
+func (o *GetHDWalletXPubYPubZPubAssetsRI) SetNonFungibleTokens(v []GetHDWalletXPubYPubZPubAssetsRINonFungibleTokensInner) {
 	o.NonFungibleTokens = v
 }
 

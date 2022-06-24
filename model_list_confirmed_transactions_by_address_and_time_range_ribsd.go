@@ -24,16 +24,16 @@ type ListConfirmedTransactionsByAddressAndTimeRangeRIBSD struct {
 	// Represents the transaction's version number.
 	Version int32 `json:"version"`
 	// Represents the transaction inputs.
-	Vin []ListConfirmedTransactionsByAddressRIBSDVin `json:"vin"`
+	Vin []ListConfirmedTransactionsByAddressRIBSDVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []GetTransactionDetailsByTransactionIDRIBSDVout `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDRIBSDVoutInner `json:"vout"`
 }
 
 // NewListConfirmedTransactionsByAddressAndTimeRangeRIBSD instantiates a new ListConfirmedTransactionsByAddressAndTimeRangeRIBSD object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListConfirmedTransactionsByAddressAndTimeRangeRIBSD(locktime int64, size int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSDVin, vout []GetTransactionDetailsByTransactionIDRIBSDVout) *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD {
+func NewListConfirmedTransactionsByAddressAndTimeRangeRIBSD(locktime int64, size int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSDVinInner, vout []GetTransactionDetailsByTransactionIDRIBSDVoutInner) *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD {
 	this := ListConfirmedTransactionsByAddressAndTimeRangeRIBSD{}
 	this.Locktime = locktime
 	this.Size = size
@@ -124,9 +124,9 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) SetVersion(v int32
 }
 
 // GetVin returns the Vin field value
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVin() []ListConfirmedTransactionsByAddressRIBSDVin {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVin() []ListConfirmedTransactionsByAddressRIBSDVinInner {
 	if o == nil {
-		var ret []ListConfirmedTransactionsByAddressRIBSDVin
+		var ret []ListConfirmedTransactionsByAddressRIBSDVinInner
 		return ret
 	}
 
@@ -135,7 +135,7 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVin() []ListCon
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVinOk() ([]ListConfirmedTransactionsByAddressRIBSDVin, bool) {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVinOk() ([]ListConfirmedTransactionsByAddressRIBSDVinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -143,14 +143,14 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVinOk() ([]List
 }
 
 // SetVin sets field value
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) SetVin(v []ListConfirmedTransactionsByAddressRIBSDVin) {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) SetVin(v []ListConfirmedTransactionsByAddressRIBSDVinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVout() []GetTransactionDetailsByTransactionIDRIBSDVout {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVout() []GetTransactionDetailsByTransactionIDRIBSDVoutInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSDVout
+		var ret []GetTransactionDetailsByTransactionIDRIBSDVoutInner
 		return ret
 	}
 
@@ -159,7 +159,7 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVout() []GetTra
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSDVout, bool) {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSDVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -167,7 +167,7 @@ func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVoutOk() ([]Get
 }
 
 // SetVout sets field value
-func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDRIBSDVout) {
+func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDRIBSDVoutInner) {
 	o.Vout = v
 }
 

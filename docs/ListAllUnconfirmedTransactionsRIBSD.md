@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Locktime** | **int64** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **Version** | **int32** | Defines the version of the transaction. | 
-**Vin** | [**[]ListAllUnconfirmedTransactionsRIBSDVin**](ListAllUnconfirmedTransactionsRIBSDVin.md) | Represents the transaction inputs. | 
-**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSDVout**](GetTransactionDetailsByTransactionIDRIBSDVout.md) | Represents the transaction outputs. | 
+**Vin** | [**[]ListAllUnconfirmedTransactionsRIBSDVinInner**](ListAllUnconfirmedTransactionsRIBSDVinInner.md) | Represents the transaction inputs. | 
+**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSDVoutInner**](GetTransactionDetailsByTransactionIDRIBSDVoutInner.md) | Represents the transaction outputs. | 
 
 ## Methods
 
 ### NewListAllUnconfirmedTransactionsRIBSD
 
-`func NewListAllUnconfirmedTransactionsRIBSD(locktime int64, size int32, version int32, vin []ListAllUnconfirmedTransactionsRIBSDVin, vout []GetTransactionDetailsByTransactionIDRIBSDVout, ) *ListAllUnconfirmedTransactionsRIBSD`
+`func NewListAllUnconfirmedTransactionsRIBSD(locktime int64, size int32, version int32, vin []ListAllUnconfirmedTransactionsRIBSDVinInner, vout []GetTransactionDetailsByTransactionIDRIBSDVoutInner, ) *ListAllUnconfirmedTransactionsRIBSD`
 
 NewListAllUnconfirmedTransactionsRIBSD instantiates a new ListAllUnconfirmedTransactionsRIBSD object
 This constructor will assign default values to properties that have it defined,
@@ -91,40 +91,40 @@ SetVersion sets Version field to given value.
 
 ### GetVin
 
-`func (o *ListAllUnconfirmedTransactionsRIBSD) GetVin() []ListAllUnconfirmedTransactionsRIBSDVin`
+`func (o *ListAllUnconfirmedTransactionsRIBSD) GetVin() []ListAllUnconfirmedTransactionsRIBSDVinInner`
 
 GetVin returns the Vin field if non-nil, zero value otherwise.
 
 ### GetVinOk
 
-`func (o *ListAllUnconfirmedTransactionsRIBSD) GetVinOk() (*[]ListAllUnconfirmedTransactionsRIBSDVin, bool)`
+`func (o *ListAllUnconfirmedTransactionsRIBSD) GetVinOk() (*[]ListAllUnconfirmedTransactionsRIBSDVinInner, bool)`
 
 GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVin
 
-`func (o *ListAllUnconfirmedTransactionsRIBSD) SetVin(v []ListAllUnconfirmedTransactionsRIBSDVin)`
+`func (o *ListAllUnconfirmedTransactionsRIBSD) SetVin(v []ListAllUnconfirmedTransactionsRIBSDVinInner)`
 
 SetVin sets Vin field to given value.
 
 
 ### GetVout
 
-`func (o *ListAllUnconfirmedTransactionsRIBSD) GetVout() []GetTransactionDetailsByTransactionIDRIBSDVout`
+`func (o *ListAllUnconfirmedTransactionsRIBSD) GetVout() []GetTransactionDetailsByTransactionIDRIBSDVoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *ListAllUnconfirmedTransactionsRIBSD) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSDVout, bool)`
+`func (o *ListAllUnconfirmedTransactionsRIBSD) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSDVoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *ListAllUnconfirmedTransactionsRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDRIBSDVout)`
+`func (o *ListAllUnconfirmedTransactionsRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDRIBSDVoutInner)`
 
 SetVout sets Vout field to given value.
 

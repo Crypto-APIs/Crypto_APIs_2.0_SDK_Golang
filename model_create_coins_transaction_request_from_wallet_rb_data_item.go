@@ -28,14 +28,14 @@ type CreateCoinsTransactionRequestFromWalletRBDataItem struct {
 	// Refers to a model of a UTXO spending strategy, where customers can choose how to spend their transaction outputs from multiple Bitcoin addresses. Two options available - \"minimize-dust\" (select lower amounts from multiple addresses) or \"optimize-size\" (select higher amounts from less addresses).
 	PrepareStrategy *string `json:"prepareStrategy,omitempty"`
 	// Defines the destination of the transaction, whether it is incoming or outgoing.
-	Recipients []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients `json:"recipients"`
+	Recipients []CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner `json:"recipients"`
 }
 
 // NewCreateCoinsTransactionRequestFromWalletRBDataItem instantiates a new CreateCoinsTransactionRequestFromWalletRBDataItem object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCreateCoinsTransactionRequestFromWalletRBDataItem(feePriority string, recipients []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients) *CreateCoinsTransactionRequestFromWalletRBDataItem {
+func NewCreateCoinsTransactionRequestFromWalletRBDataItem(feePriority string, recipients []CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner) *CreateCoinsTransactionRequestFromWalletRBDataItem {
 	this := CreateCoinsTransactionRequestFromWalletRBDataItem{}
 	this.FeePriority = feePriority
 	var prepareStrategy string = "minimize-dust"
@@ -207,9 +207,9 @@ func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetPrepareStrategy(v
 }
 
 // GetRecipients returns the Recipients field value
-func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipients() []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients {
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipients() []CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner {
 	if o == nil {
-		var ret []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients
+		var ret []CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner
 		return ret
 	}
 
@@ -218,7 +218,7 @@ func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipients() []Cr
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipientsOk() ([]CreateCoinsTransactionRequestFromWalletRBDataItemRecipients, bool) {
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipientsOk() ([]CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -226,7 +226,7 @@ func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipientsOk() ([
 }
 
 // SetRecipients sets field value
-func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetRecipients(v []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients) {
+func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetRecipients(v []CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner) {
 	o.Recipients = v
 }
 

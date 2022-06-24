@@ -26,16 +26,16 @@ type ListConfirmedTransactionsByAddressRIBSL struct {
 	// Represents the transaction's version number.
 	Version int32 `json:"version"`
 	// Represents the transaction inputs.
-	Vin []ListConfirmedTransactionsByAddressRIBSLVin `json:"vin"`
+	Vin []ListConfirmedTransactionsByAddressRIBSLVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []GetTransactionDetailsByTransactionIDRIBSLVout `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDRIBSLVoutInner `json:"vout"`
 }
 
 // NewListConfirmedTransactionsByAddressRIBSL instantiates a new ListConfirmedTransactionsByAddressRIBSL object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListConfirmedTransactionsByAddressRIBSL(locktime int64, size int32, vSize int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSLVin, vout []GetTransactionDetailsByTransactionIDRIBSLVout) *ListConfirmedTransactionsByAddressRIBSL {
+func NewListConfirmedTransactionsByAddressRIBSL(locktime int64, size int32, vSize int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSLVinInner, vout []GetTransactionDetailsByTransactionIDRIBSLVoutInner) *ListConfirmedTransactionsByAddressRIBSL {
 	this := ListConfirmedTransactionsByAddressRIBSL{}
 	this.Locktime = locktime
 	this.Size = size
@@ -151,9 +151,9 @@ func (o *ListConfirmedTransactionsByAddressRIBSL) SetVersion(v int32) {
 }
 
 // GetVin returns the Vin field value
-func (o *ListConfirmedTransactionsByAddressRIBSL) GetVin() []ListConfirmedTransactionsByAddressRIBSLVin {
+func (o *ListConfirmedTransactionsByAddressRIBSL) GetVin() []ListConfirmedTransactionsByAddressRIBSLVinInner {
 	if o == nil {
-		var ret []ListConfirmedTransactionsByAddressRIBSLVin
+		var ret []ListConfirmedTransactionsByAddressRIBSLVinInner
 		return ret
 	}
 
@@ -162,7 +162,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSL) GetVin() []ListConfirmedTransa
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressRIBSL) GetVinOk() ([]ListConfirmedTransactionsByAddressRIBSLVin, bool) {
+func (o *ListConfirmedTransactionsByAddressRIBSL) GetVinOk() ([]ListConfirmedTransactionsByAddressRIBSLVinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -170,14 +170,14 @@ func (o *ListConfirmedTransactionsByAddressRIBSL) GetVinOk() ([]ListConfirmedTra
 }
 
 // SetVin sets field value
-func (o *ListConfirmedTransactionsByAddressRIBSL) SetVin(v []ListConfirmedTransactionsByAddressRIBSLVin) {
+func (o *ListConfirmedTransactionsByAddressRIBSL) SetVin(v []ListConfirmedTransactionsByAddressRIBSLVinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *ListConfirmedTransactionsByAddressRIBSL) GetVout() []GetTransactionDetailsByTransactionIDRIBSLVout {
+func (o *ListConfirmedTransactionsByAddressRIBSL) GetVout() []GetTransactionDetailsByTransactionIDRIBSLVoutInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSLVout
+		var ret []GetTransactionDetailsByTransactionIDRIBSLVoutInner
 		return ret
 	}
 
@@ -186,7 +186,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSL) GetVout() []GetTransactionDeta
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressRIBSL) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSLVout, bool) {
+func (o *ListConfirmedTransactionsByAddressRIBSL) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSLVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -194,7 +194,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSL) GetVoutOk() ([]GetTransactionD
 }
 
 // SetVout sets field value
-func (o *ListConfirmedTransactionsByAddressRIBSL) SetVout(v []GetTransactionDetailsByTransactionIDRIBSLVout) {
+func (o *ListConfirmedTransactionsByAddressRIBSL) SetVout(v []GetTransactionDetailsByTransactionIDRIBSLVoutInner) {
 	o.Vout = v
 }
 

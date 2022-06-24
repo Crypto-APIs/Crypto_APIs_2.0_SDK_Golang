@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **MinedInBlockHeight** | **string** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
 **Offer** | [**GetXRPRippleTransactionDetailsByTransactionIDRIOffer**](GetXRPRippleTransactionDetailsByTransactionIDRIOffer.md) |  | 
 **Receive** | [**GetXRPRippleTransactionDetailsByTransactionIDRIReceive**](GetXRPRippleTransactionDetailsByTransactionIDRIReceive.md) |  | 
-**Recipients** | [**[]GetXRPRippleTransactionDetailsByTransactionIDRIRecipients**](GetXRPRippleTransactionDetailsByTransactionIDRIRecipients.md) | Represents an object of addresses that receive the transactions. | 
-**Senders** | [**[]GetXRPRippleTransactionDetailsByTransactionIDRISenders**](GetXRPRippleTransactionDetailsByTransactionIDRISenders.md) | Represents an object of addresses that provide the funds. | 
+**Recipients** | [**[]GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner**](GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner.md) | Represents an object of addresses that receive the transactions. | 
+**Senders** | [**[]GetXRPRippleTransactionDetailsByTransactionIDRISendersInner**](GetXRPRippleTransactionDetailsByTransactionIDRISendersInner.md) | Represents an object of addresses that provide the funds. | 
 **Sequence** | **int64** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
 **Status** | Pointer to **string** | Defines the status of the transaction. | [optional] 
 **Timestamp** | **int32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewGetXRPRippleTransactionDetailsByTransactionIDRI
 
-`func NewGetXRPRippleTransactionDetailsByTransactionIDRI(additionalData string, index string, minedInBlockHash string, minedInBlockHeight string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, recipients []GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, senders []GetXRPRippleTransactionDetailsByTransactionIDRISenders, sequence int64, timestamp int32, transactionHash string, type_ string, fee GetXRPRippleTransactionDetailsByTransactionIDRIFee, value GetXRPRippleTransactionDetailsByTransactionIDRIValue, ) *GetXRPRippleTransactionDetailsByTransactionIDRI`
+`func NewGetXRPRippleTransactionDetailsByTransactionIDRI(additionalData string, index string, minedInBlockHash string, minedInBlockHeight string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, recipients []GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner, senders []GetXRPRippleTransactionDetailsByTransactionIDRISendersInner, sequence int64, timestamp int32, transactionHash string, type_ string, fee GetXRPRippleTransactionDetailsByTransactionIDRIFee, value GetXRPRippleTransactionDetailsByTransactionIDRIValue, ) *GetXRPRippleTransactionDetailsByTransactionIDRI`
 
 NewGetXRPRippleTransactionDetailsByTransactionIDRI instantiates a new GetXRPRippleTransactionDetailsByTransactionIDRI object
 This constructor will assign default values to properties that have it defined,
@@ -187,40 +187,40 @@ SetReceive sets Receive field to given value.
 
 ### GetRecipients
 
-`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetRecipients() []GetXRPRippleTransactionDetailsByTransactionIDRIRecipients`
+`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetRecipients() []GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetRecipientsOk() (*[]GetXRPRippleTransactionDetailsByTransactionIDRIRecipients, bool)`
+`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetRecipientsOk() (*[]GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetRecipients(v []GetXRPRippleTransactionDetailsByTransactionIDRIRecipients)`
+`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetRecipients(v []GetXRPRippleTransactionDetailsByTransactionIDRIRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 
 
 ### GetSenders
 
-`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSenders() []GetXRPRippleTransactionDetailsByTransactionIDRISenders`
+`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSenders() []GetXRPRippleTransactionDetailsByTransactionIDRISendersInner`
 
 GetSenders returns the Senders field if non-nil, zero value otherwise.
 
 ### GetSendersOk
 
-`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSendersOk() (*[]GetXRPRippleTransactionDetailsByTransactionIDRISenders, bool)`
+`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) GetSendersOk() (*[]GetXRPRippleTransactionDetailsByTransactionIDRISendersInner, bool)`
 
 GetSendersOk returns a tuple with the Senders field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSenders
 
-`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetSenders(v []GetXRPRippleTransactionDetailsByTransactionIDRISenders)`
+`func (o *GetXRPRippleTransactionDetailsByTransactionIDRI) SetSenders(v []GetXRPRippleTransactionDetailsByTransactionIDRISendersInner)`
 
 SetSenders sets Senders field to given value.
 

@@ -24,9 +24,9 @@ type ListTransactionsByBlockHashRI struct {
 	// Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
 	MinedInBlockHeight int32 `json:"minedInBlockHeight"`
 	// Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Recipients []ListTransactionsByBlockHashRIRecipients `json:"recipients"`
+	Recipients []ListTransactionsByBlockHashRIRecipientsInner `json:"recipients"`
 	// Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
-	Senders []ListTransactionsByBlockHashRISenders `json:"senders"`
+	Senders []ListTransactionsByBlockHashRISendersInner `json:"senders"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
 	Timestamp int32 `json:"timestamp"`
 	// Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
@@ -41,7 +41,7 @@ type ListTransactionsByBlockHashRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListTransactionsByBlockHashRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []ListTransactionsByBlockHashRIRecipients, senders []ListTransactionsByBlockHashRISenders, timestamp int32, transactionHash string, transactionId string, fee ListTransactionsByBlockHashRIFee, blockchainSpecific ListTransactionsByBlockHashRIBS) *ListTransactionsByBlockHashRI {
+func NewListTransactionsByBlockHashRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []ListTransactionsByBlockHashRIRecipientsInner, senders []ListTransactionsByBlockHashRISendersInner, timestamp int32, transactionHash string, transactionId string, fee ListTransactionsByBlockHashRIFee, blockchainSpecific ListTransactionsByBlockHashRIBS) *ListTransactionsByBlockHashRI {
 	this := ListTransactionsByBlockHashRI{}
 	this.Index = index
 	this.MinedInBlockHash = minedInBlockHash
@@ -137,9 +137,9 @@ func (o *ListTransactionsByBlockHashRI) SetMinedInBlockHeight(v int32) {
 }
 
 // GetRecipients returns the Recipients field value
-func (o *ListTransactionsByBlockHashRI) GetRecipients() []ListTransactionsByBlockHashRIRecipients {
+func (o *ListTransactionsByBlockHashRI) GetRecipients() []ListTransactionsByBlockHashRIRecipientsInner {
 	if o == nil {
-		var ret []ListTransactionsByBlockHashRIRecipients
+		var ret []ListTransactionsByBlockHashRIRecipientsInner
 		return ret
 	}
 
@@ -148,7 +148,7 @@ func (o *ListTransactionsByBlockHashRI) GetRecipients() []ListTransactionsByBloc
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRI) GetRecipientsOk() ([]ListTransactionsByBlockHashRIRecipients, bool) {
+func (o *ListTransactionsByBlockHashRI) GetRecipientsOk() ([]ListTransactionsByBlockHashRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -156,14 +156,14 @@ func (o *ListTransactionsByBlockHashRI) GetRecipientsOk() ([]ListTransactionsByB
 }
 
 // SetRecipients sets field value
-func (o *ListTransactionsByBlockHashRI) SetRecipients(v []ListTransactionsByBlockHashRIRecipients) {
+func (o *ListTransactionsByBlockHashRI) SetRecipients(v []ListTransactionsByBlockHashRIRecipientsInner) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *ListTransactionsByBlockHashRI) GetSenders() []ListTransactionsByBlockHashRISenders {
+func (o *ListTransactionsByBlockHashRI) GetSenders() []ListTransactionsByBlockHashRISendersInner {
 	if o == nil {
-		var ret []ListTransactionsByBlockHashRISenders
+		var ret []ListTransactionsByBlockHashRISendersInner
 		return ret
 	}
 
@@ -172,7 +172,7 @@ func (o *ListTransactionsByBlockHashRI) GetSenders() []ListTransactionsByBlockHa
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRI) GetSendersOk() ([]ListTransactionsByBlockHashRISenders, bool) {
+func (o *ListTransactionsByBlockHashRI) GetSendersOk() ([]ListTransactionsByBlockHashRISendersInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -180,7 +180,7 @@ func (o *ListTransactionsByBlockHashRI) GetSendersOk() ([]ListTransactionsByBloc
 }
 
 // SetSenders sets field value
-func (o *ListTransactionsByBlockHashRI) SetSenders(v []ListTransactionsByBlockHashRISenders) {
+func (o *ListTransactionsByBlockHashRI) SetSenders(v []ListTransactionsByBlockHashRISendersInner) {
 	o.Senders = v
 }
 

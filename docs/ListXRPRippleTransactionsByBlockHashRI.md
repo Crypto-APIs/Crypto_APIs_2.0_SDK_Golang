@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **DestinationTag** | Pointer to **int64** |  | [optional] 
 **Index** | **int32** | Represents the index position of the transaction in the specific block. | 
 **MinedInBlockHeight** | **int32** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
-**Recipients** | [**[]ListXRPRippleTransactionsByBlockHashRIRecipients**](ListXRPRippleTransactionsByBlockHashRIRecipients.md) | Represents an object of addresses that receive the transactions. | 
-**Senders** | [**[]ListXRPRippleTransactionsByBlockHashRISenders**](ListXRPRippleTransactionsByBlockHashRISenders.md) | Represents an object of addresses that provide the funds. | 
+**Recipients** | [**[]ListXRPRippleTransactionsByBlockHashRIRecipientsInner**](ListXRPRippleTransactionsByBlockHashRIRecipientsInner.md) | Represents an object of addresses that receive the transactions. | 
+**Senders** | [**[]ListXRPRippleTransactionsByBlockHashRISendersInner**](ListXRPRippleTransactionsByBlockHashRISendersInner.md) | Represents an object of addresses that provide the funds. | 
 **Sequence** | **int64** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | 
 **Status** | **string** | Defines the status of the transaction. | 
 **Timestamp** | **int32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
@@ -24,7 +24,7 @@ Name | Type | Description | Notes
 
 ### NewListXRPRippleTransactionsByBlockHashRI
 
-`func NewListXRPRippleTransactionsByBlockHashRI(index int32, minedInBlockHeight int32, recipients []ListXRPRippleTransactionsByBlockHashRIRecipients, senders []ListXRPRippleTransactionsByBlockHashRISenders, sequence int64, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByBlockHashRIFee, offer ListXRPRippleTransactionsByBlockHashRIOffer, receive ListXRPRippleTransactionsByBlockHashRIReceive, value ListXRPRippleTransactionsByBlockHashRIValue, ) *ListXRPRippleTransactionsByBlockHashRI`
+`func NewListXRPRippleTransactionsByBlockHashRI(index int32, minedInBlockHeight int32, recipients []ListXRPRippleTransactionsByBlockHashRIRecipientsInner, senders []ListXRPRippleTransactionsByBlockHashRISendersInner, sequence int64, status string, timestamp int32, transactionHash string, type_ string, fee ListXRPRippleTransactionsByBlockHashRIFee, offer ListXRPRippleTransactionsByBlockHashRIOffer, receive ListXRPRippleTransactionsByBlockHashRIReceive, value ListXRPRippleTransactionsByBlockHashRIValue, ) *ListXRPRippleTransactionsByBlockHashRI`
 
 NewListXRPRippleTransactionsByBlockHashRI instantiates a new ListXRPRippleTransactionsByBlockHashRI object
 This constructor will assign default values to properties that have it defined,
@@ -131,40 +131,40 @@ SetMinedInBlockHeight sets MinedInBlockHeight field to given value.
 
 ### GetRecipients
 
-`func (o *ListXRPRippleTransactionsByBlockHashRI) GetRecipients() []ListXRPRippleTransactionsByBlockHashRIRecipients`
+`func (o *ListXRPRippleTransactionsByBlockHashRI) GetRecipients() []ListXRPRippleTransactionsByBlockHashRIRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *ListXRPRippleTransactionsByBlockHashRI) GetRecipientsOk() (*[]ListXRPRippleTransactionsByBlockHashRIRecipients, bool)`
+`func (o *ListXRPRippleTransactionsByBlockHashRI) GetRecipientsOk() (*[]ListXRPRippleTransactionsByBlockHashRIRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *ListXRPRippleTransactionsByBlockHashRI) SetRecipients(v []ListXRPRippleTransactionsByBlockHashRIRecipients)`
+`func (o *ListXRPRippleTransactionsByBlockHashRI) SetRecipients(v []ListXRPRippleTransactionsByBlockHashRIRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 
 
 ### GetSenders
 
-`func (o *ListXRPRippleTransactionsByBlockHashRI) GetSenders() []ListXRPRippleTransactionsByBlockHashRISenders`
+`func (o *ListXRPRippleTransactionsByBlockHashRI) GetSenders() []ListXRPRippleTransactionsByBlockHashRISendersInner`
 
 GetSenders returns the Senders field if non-nil, zero value otherwise.
 
 ### GetSendersOk
 
-`func (o *ListXRPRippleTransactionsByBlockHashRI) GetSendersOk() (*[]ListXRPRippleTransactionsByBlockHashRISenders, bool)`
+`func (o *ListXRPRippleTransactionsByBlockHashRI) GetSendersOk() (*[]ListXRPRippleTransactionsByBlockHashRISendersInner, bool)`
 
 GetSendersOk returns a tuple with the Senders field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSenders
 
-`func (o *ListXRPRippleTransactionsByBlockHashRI) SetSenders(v []ListXRPRippleTransactionsByBlockHashRISenders)`
+`func (o *ListXRPRippleTransactionsByBlockHashRI) SetSenders(v []ListXRPRippleTransactionsByBlockHashRISendersInner)`
 
 SetSenders sets Senders field to given value.
 

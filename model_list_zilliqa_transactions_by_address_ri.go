@@ -31,9 +31,9 @@ type ListZilliqaTransactionsByAddressRI struct {
 	// Represents a random value that can be adjusted to satisfy the Proof of Work.
 	Nonce int32 `json:"nonce"`
 	// Defines an object array of the transaction recipients.
-	Recipients []ListZilliqaTransactionsByAddressRIRecipients `json:"recipients"`
+	Recipients []ListZilliqaTransactionsByAddressRIRecipientsInner `json:"recipients"`
 	// Represents an object of addresses that provide the funds.
-	Senders []ListZilliqaTransactionsByAddressRISenders `json:"senders"`
+	Senders []ListZilliqaTransactionsByAddressRISendersInner `json:"senders"`
 	// Defines the exact date/time when this block was mined in Unix Timestamp.
 	Timestamp int32 `json:"timestamp"`
 	// Represents the hash of the transaction, which is its unique identifier.
@@ -48,7 +48,7 @@ type ListZilliqaTransactionsByAddressRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListZilliqaTransactionsByAddressRI(fee GetZilliqaTransactionDetailsByTransactionIDRIFee, gasLimit int32, gasPrice int32, gasUsed int32, minedInBlockHash string, minedInBlockHeight int32, nonce int32, recipients []ListZilliqaTransactionsByAddressRIRecipients, senders []ListZilliqaTransactionsByAddressRISenders, timestamp int32, transactionHash string, transactionIndex int32, transactionStatus string) *ListZilliqaTransactionsByAddressRI {
+func NewListZilliqaTransactionsByAddressRI(fee GetZilliqaTransactionDetailsByTransactionIDRIFee, gasLimit int32, gasPrice int32, gasUsed int32, minedInBlockHash string, minedInBlockHeight int32, nonce int32, recipients []ListZilliqaTransactionsByAddressRIRecipientsInner, senders []ListZilliqaTransactionsByAddressRISendersInner, timestamp int32, transactionHash string, transactionIndex int32, transactionStatus string) *ListZilliqaTransactionsByAddressRI {
 	this := ListZilliqaTransactionsByAddressRI{}
 	this.Fee = fee
 	this.GasLimit = gasLimit
@@ -243,9 +243,9 @@ func (o *ListZilliqaTransactionsByAddressRI) SetNonce(v int32) {
 }
 
 // GetRecipients returns the Recipients field value
-func (o *ListZilliqaTransactionsByAddressRI) GetRecipients() []ListZilliqaTransactionsByAddressRIRecipients {
+func (o *ListZilliqaTransactionsByAddressRI) GetRecipients() []ListZilliqaTransactionsByAddressRIRecipientsInner {
 	if o == nil {
-		var ret []ListZilliqaTransactionsByAddressRIRecipients
+		var ret []ListZilliqaTransactionsByAddressRIRecipientsInner
 		return ret
 	}
 
@@ -254,7 +254,7 @@ func (o *ListZilliqaTransactionsByAddressRI) GetRecipients() []ListZilliqaTransa
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListZilliqaTransactionsByAddressRI) GetRecipientsOk() ([]ListZilliqaTransactionsByAddressRIRecipients, bool) {
+func (o *ListZilliqaTransactionsByAddressRI) GetRecipientsOk() ([]ListZilliqaTransactionsByAddressRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -262,14 +262,14 @@ func (o *ListZilliqaTransactionsByAddressRI) GetRecipientsOk() ([]ListZilliqaTra
 }
 
 // SetRecipients sets field value
-func (o *ListZilliqaTransactionsByAddressRI) SetRecipients(v []ListZilliqaTransactionsByAddressRIRecipients) {
+func (o *ListZilliqaTransactionsByAddressRI) SetRecipients(v []ListZilliqaTransactionsByAddressRIRecipientsInner) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *ListZilliqaTransactionsByAddressRI) GetSenders() []ListZilliqaTransactionsByAddressRISenders {
+func (o *ListZilliqaTransactionsByAddressRI) GetSenders() []ListZilliqaTransactionsByAddressRISendersInner {
 	if o == nil {
-		var ret []ListZilliqaTransactionsByAddressRISenders
+		var ret []ListZilliqaTransactionsByAddressRISendersInner
 		return ret
 	}
 
@@ -278,7 +278,7 @@ func (o *ListZilliqaTransactionsByAddressRI) GetSenders() []ListZilliqaTransacti
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListZilliqaTransactionsByAddressRI) GetSendersOk() ([]ListZilliqaTransactionsByAddressRISenders, bool) {
+func (o *ListZilliqaTransactionsByAddressRI) GetSendersOk() ([]ListZilliqaTransactionsByAddressRISendersInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -286,7 +286,7 @@ func (o *ListZilliqaTransactionsByAddressRI) GetSendersOk() ([]ListZilliqaTransa
 }
 
 // SetSenders sets field value
-func (o *ListZilliqaTransactionsByAddressRI) SetSenders(v []ListZilliqaTransactionsByAddressRISenders) {
+func (o *ListZilliqaTransactionsByAddressRI) SetSenders(v []ListZilliqaTransactionsByAddressRISendersInner) {
 	o.Senders = v
 }
 

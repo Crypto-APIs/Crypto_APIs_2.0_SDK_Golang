@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 **Index** | **int32** | Represents the index position of the transaction in the specific block. | 
 **MinedInBlockHash** | **string** | Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
 **MinedInBlockHeight** | **int32** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
-**Recipients** | [**[]GetTransactionDetailsByTransactionIDFromCallbackRIRecipients**](GetTransactionDetailsByTransactionIDFromCallbackRIRecipients.md) | Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
-**Senders** | [**[]GetTransactionDetailsByTransactionIDFromCallbackRISenders**](GetTransactionDetailsByTransactionIDFromCallbackRISenders.md) | Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
+**Recipients** | [**[]GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner**](GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner.md) | Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
+**Senders** | [**[]GetTransactionDetailsByTransactionIDFromCallbackRISendersInner**](GetTransactionDetailsByTransactionIDFromCallbackRISendersInner.md) | Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
 **Timestamp** | **int32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
 **TransactionHash** | **string** | Represents the same as transactionId for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols hash is different from transactionId for SegWit transactions. | 
 **Fee** | [**GetTransactionDetailsByTransactionIDFromCallbackRIFee**](GetTransactionDetailsByTransactionIDFromCallbackRIFee.md) |  | 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewGetTransactionDetailsByTransactionIDFromCallbackRI
 
-`func NewGetTransactionDetailsByTransactionIDFromCallbackRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []GetTransactionDetailsByTransactionIDFromCallbackRIRecipients, senders []GetTransactionDetailsByTransactionIDFromCallbackRISenders, timestamp int32, transactionHash string, fee GetTransactionDetailsByTransactionIDFromCallbackRIFee, isConfirmed bool, blockchainSpecific GetTransactionDetailsByTransactionIDFromCallbackRIBS, ) *GetTransactionDetailsByTransactionIDFromCallbackRI`
+`func NewGetTransactionDetailsByTransactionIDFromCallbackRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner, senders []GetTransactionDetailsByTransactionIDFromCallbackRISendersInner, timestamp int32, transactionHash string, fee GetTransactionDetailsByTransactionIDFromCallbackRIFee, isConfirmed bool, blockchainSpecific GetTransactionDetailsByTransactionIDFromCallbackRIBS, ) *GetTransactionDetailsByTransactionIDFromCallbackRI`
 
 NewGetTransactionDetailsByTransactionIDFromCallbackRI instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRI object
 This constructor will assign default values to properties that have it defined,
@@ -96,40 +96,40 @@ SetMinedInBlockHeight sets MinedInBlockHeight field to given value.
 
 ### GetRecipients
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetRecipients() []GetTransactionDetailsByTransactionIDFromCallbackRIRecipients`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetRecipients() []GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetRecipientsOk() (*[]GetTransactionDetailsByTransactionIDFromCallbackRIRecipients, bool)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetRecipientsOk() (*[]GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) SetRecipients(v []GetTransactionDetailsByTransactionIDFromCallbackRIRecipients)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) SetRecipients(v []GetTransactionDetailsByTransactionIDFromCallbackRIRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 
 
 ### GetSenders
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetSenders() []GetTransactionDetailsByTransactionIDFromCallbackRISenders`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetSenders() []GetTransactionDetailsByTransactionIDFromCallbackRISendersInner`
 
 GetSenders returns the Senders field if non-nil, zero value otherwise.
 
 ### GetSendersOk
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetSendersOk() (*[]GetTransactionDetailsByTransactionIDFromCallbackRISenders, bool)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) GetSendersOk() (*[]GetTransactionDetailsByTransactionIDFromCallbackRISendersInner, bool)`
 
 GetSendersOk returns a tuple with the Senders field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSenders
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) SetSenders(v []GetTransactionDetailsByTransactionIDFromCallbackRISenders)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRI) SetSenders(v []GetTransactionDetailsByTransactionIDFromCallbackRISendersInner)`
 
 SetSenders sets Senders field to given value.
 

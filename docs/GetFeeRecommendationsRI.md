@@ -8,13 +8,13 @@ Name | Type | Description | Notes
 **Fast** | **string** | Fast fee per byte calculated from unconfirmed transactions | 
 **Slow** | **string** | Slow fee per byte calculated from unconfirmed transactions | 
 **Standard** | **string** | Standard fee per byte calculated from unconfirmed transactions | 
-**FeeCushionMultiplier** | **string** | Represents the fee cushion multiplier used to multiply the base fee. | 
+**FeeMultiplier** | Pointer to **string** | Represents the fee cushion multiplier used to multiply the base fee. | [optional] 
 
 ## Methods
 
 ### NewGetFeeRecommendationsRI
 
-`func NewGetFeeRecommendationsRI(unit string, fast string, slow string, standard string, feeCushionMultiplier string, ) *GetFeeRecommendationsRI`
+`func NewGetFeeRecommendationsRI(unit string, fast string, slow string, standard string, ) *GetFeeRecommendationsRI`
 
 NewGetFeeRecommendationsRI instantiates a new GetFeeRecommendationsRI object
 This constructor will assign default values to properties that have it defined,
@@ -109,25 +109,30 @@ and a boolean to check if the value has been set.
 SetStandard sets Standard field to given value.
 
 
-### GetFeeCushionMultiplier
+### GetFeeMultiplier
 
-`func (o *GetFeeRecommendationsRI) GetFeeCushionMultiplier() string`
+`func (o *GetFeeRecommendationsRI) GetFeeMultiplier() string`
 
-GetFeeCushionMultiplier returns the FeeCushionMultiplier field if non-nil, zero value otherwise.
+GetFeeMultiplier returns the FeeMultiplier field if non-nil, zero value otherwise.
 
-### GetFeeCushionMultiplierOk
+### GetFeeMultiplierOk
 
-`func (o *GetFeeRecommendationsRI) GetFeeCushionMultiplierOk() (*string, bool)`
+`func (o *GetFeeRecommendationsRI) GetFeeMultiplierOk() (*string, bool)`
 
-GetFeeCushionMultiplierOk returns a tuple with the FeeCushionMultiplier field if it's non-nil, zero value otherwise
+GetFeeMultiplierOk returns a tuple with the FeeMultiplier field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
-### SetFeeCushionMultiplier
+### SetFeeMultiplier
 
-`func (o *GetFeeRecommendationsRI) SetFeeCushionMultiplier(v string)`
+`func (o *GetFeeRecommendationsRI) SetFeeMultiplier(v string)`
 
-SetFeeCushionMultiplier sets FeeCushionMultiplier field to given value.
+SetFeeMultiplier sets FeeMultiplier field to given value.
 
+### HasFeeMultiplier
+
+`func (o *GetFeeRecommendationsRI) HasFeeMultiplier() bool`
+
+HasFeeMultiplier returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

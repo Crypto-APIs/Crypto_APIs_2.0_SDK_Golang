@@ -18,14 +18,14 @@ import (
 // DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI struct for DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI
 type DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI struct {
 	// Represents the address details.
-	Addresses []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses `json:"addresses"`
+	Addresses []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner `json:"addresses"`
 }
 
 // NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI instantiates a new DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI(addresses []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses) *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI {
+func NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI(addresses []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI {
 	this := DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI{}
 	this.Addresses = addresses
 	return &this
@@ -40,9 +40,9 @@ func NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIWithDefaults() *De
 }
 
 // GetAddresses returns the Addresses field value
-func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) GetAddresses() []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses {
+func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) GetAddresses() []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner {
 	if o == nil {
-		var ret []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses
+		var ret []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner
 		return ret
 	}
 
@@ -51,7 +51,7 @@ func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) GetAddresses() 
 
 // GetAddressesOk returns a tuple with the Addresses field value
 // and a boolean to check if the value has been set.
-func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) GetAddressesOk() ([]DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses, bool) {
+func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) GetAddressesOk() ([]DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -59,7 +59,7 @@ func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) GetAddressesOk(
 }
 
 // SetAddresses sets field value
-func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) SetAddresses(v []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses) {
+func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) SetAddresses(v []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) {
 	o.Addresses = v
 }
 

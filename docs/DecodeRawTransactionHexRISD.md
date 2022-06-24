@@ -8,15 +8,15 @@ Name | Type | Description | Notes
 **TransactionHash** | **string** | Represents the same as transactionId for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols hash is different from transactionId for SegWit transactions. | 
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Represents transaction version number. | 
-**Vin** | [**[]DecodeRawTransactionHexRISDVin**](DecodeRawTransactionHexRISDVin.md) | Represents the transaction inputs. | 
-**Vout** | [**[]DecodeRawTransactionHexRISDVout**](DecodeRawTransactionHexRISDVout.md) | Represents the transaction outputs. | 
+**Vin** | [**[]DecodeRawTransactionHexRISDVinInner**](DecodeRawTransactionHexRISDVinInner.md) | Represents the transaction inputs. | 
+**Vout** | [**[]DecodeRawTransactionHexRISDVoutInner**](DecodeRawTransactionHexRISDVoutInner.md) | Represents the transaction outputs. | 
 **Weight** | Pointer to **int32** | Represents the size of a block, measured in weight units and including the segwit discount. | [optional] 
 
 ## Methods
 
 ### NewDecodeRawTransactionHexRISD
 
-`func NewDecodeRawTransactionHexRISD(locktime int32, transactionHash string, vSize int32, version int32, vin []DecodeRawTransactionHexRISDVin, vout []DecodeRawTransactionHexRISDVout, ) *DecodeRawTransactionHexRISD`
+`func NewDecodeRawTransactionHexRISD(locktime int32, transactionHash string, vSize int32, version int32, vin []DecodeRawTransactionHexRISDVinInner, vout []DecodeRawTransactionHexRISDVoutInner, ) *DecodeRawTransactionHexRISD`
 
 NewDecodeRawTransactionHexRISD instantiates a new DecodeRawTransactionHexRISD object
 This constructor will assign default values to properties that have it defined,
@@ -113,40 +113,40 @@ SetVersion sets Version field to given value.
 
 ### GetVin
 
-`func (o *DecodeRawTransactionHexRISD) GetVin() []DecodeRawTransactionHexRISDVin`
+`func (o *DecodeRawTransactionHexRISD) GetVin() []DecodeRawTransactionHexRISDVinInner`
 
 GetVin returns the Vin field if non-nil, zero value otherwise.
 
 ### GetVinOk
 
-`func (o *DecodeRawTransactionHexRISD) GetVinOk() (*[]DecodeRawTransactionHexRISDVin, bool)`
+`func (o *DecodeRawTransactionHexRISD) GetVinOk() (*[]DecodeRawTransactionHexRISDVinInner, bool)`
 
 GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVin
 
-`func (o *DecodeRawTransactionHexRISD) SetVin(v []DecodeRawTransactionHexRISDVin)`
+`func (o *DecodeRawTransactionHexRISD) SetVin(v []DecodeRawTransactionHexRISDVinInner)`
 
 SetVin sets Vin field to given value.
 
 
 ### GetVout
 
-`func (o *DecodeRawTransactionHexRISD) GetVout() []DecodeRawTransactionHexRISDVout`
+`func (o *DecodeRawTransactionHexRISD) GetVout() []DecodeRawTransactionHexRISDVoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *DecodeRawTransactionHexRISD) GetVoutOk() (*[]DecodeRawTransactionHexRISDVout, bool)`
+`func (o *DecodeRawTransactionHexRISD) GetVoutOk() (*[]DecodeRawTransactionHexRISDVoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *DecodeRawTransactionHexRISD) SetVout(v []DecodeRawTransactionHexRISDVout)`
+`func (o *DecodeRawTransactionHexRISD) SetVout(v []DecodeRawTransactionHexRISDVoutInner)`
 
 SetVout sets Vout field to given value.
 

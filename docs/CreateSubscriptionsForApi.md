@@ -8,8 +8,11 @@ Method | HTTP request | Description
 [**NewBlock**](CreateSubscriptionsForApi.md#NewBlock) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/block-mined | New Block
 [**NewConfirmedCoinsTransactions**](CreateSubscriptionsForApi.md#NewConfirmedCoinsTransactions) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-confirmed | New confirmed coins transactions
 [**NewConfirmedCoinsTransactionsAndEachConfirmation**](CreateSubscriptionsForApi.md#NewConfirmedCoinsTransactionsAndEachConfirmation) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-confirmed-each-confirmation | New confirmed coins transactions and each confirmation
+[**NewConfirmedCoinsTransactionsForSpecificAmount**](CreateSubscriptionsForApi.md#NewConfirmedCoinsTransactionsForSpecificAmount) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/coins-transactions-for-specific-amount | New Confirmed Coins Transactions For Specific Amount
 [**NewConfirmedInternalTransactions**](CreateSubscriptionsForApi.md#NewConfirmedInternalTransactions) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed | New confirmed internal transactions
 [**NewConfirmedInternalTransactionsAndEachConfirmation**](CreateSubscriptionsForApi.md#NewConfirmedInternalTransactionsAndEachConfirmation) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/address-internal-transactions-confirmed-each-confirmation | New confirmed internal transactions and each confirmation
+[**NewConfirmedInternalTransactionsForSpecificAmount**](CreateSubscriptionsForApi.md#NewConfirmedInternalTransactionsForSpecificAmount) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/internal-transactions-for-specific-amount | New Confirmed Internal Transactions For Specific Amount
+[**NewConfirmedTokenTransactionsForSpecificAmount**](CreateSubscriptionsForApi.md#NewConfirmedTokenTransactionsForSpecificAmount) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/tokens-transfers-for-specific-amount | New Confirmed Token Transactions For Specific Amount
 [**NewConfirmedTokensTransactions**](CreateSubscriptionsForApi.md#NewConfirmedTokensTransactions) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/address-tokens-transactions-confirmed | New confirmed tokens transactions
 [**NewConfirmedTokensTransactionsAndEachConfirmation**](CreateSubscriptionsForApi.md#NewConfirmedTokensTransactionsAndEachConfirmation) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/address-tokens-transactions-confirmed-each-confirmation | New confirmed tokens transactions and each confirmation
 [**NewUnconfirmedCoinsTransactions**](CreateSubscriptionsForApi.md#NewUnconfirmedCoinsTransactions) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-unconfirmed | New unconfirmed coins transactions
@@ -325,6 +328,83 @@ Name | Type | Description  | Notes
 [[Back to README]](../README.md)
 
 
+## NewConfirmedCoinsTransactionsForSpecificAmount
+
+> NewConfirmedCoinsTransactionsForSpecificAmountR NewConfirmedCoinsTransactionsForSpecificAmount(ctx, blockchain, network).Context(context).NewConfirmedCoinsTransactionsForSpecificAmountRB(newConfirmedCoinsTransactionsForSpecificAmountRB).Execute()
+
+New Confirmed Coins Transactions For Specific Amount
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    newConfirmedCoinsTransactionsForSpecificAmountRB := *openapiclient.NewNewConfirmedCoinsTransactionsForSpecificAmountRB(*openapiclient.NewNewConfirmedCoinsTransactionsForSpecificAmountRBData(*openapiclient.NewNewConfirmedCoinsTransactionsForSpecificAmountRBDataItem(int64(2), "https://example.com"))) // NewConfirmedCoinsTransactionsForSpecificAmountRB |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.NewConfirmedCoinsTransactionsForSpecificAmount(context.Background(), blockchain, network).Context(context).NewConfirmedCoinsTransactionsForSpecificAmountRB(newConfirmedCoinsTransactionsForSpecificAmountRB).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.NewConfirmedCoinsTransactionsForSpecificAmount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `NewConfirmedCoinsTransactionsForSpecificAmount`: NewConfirmedCoinsTransactionsForSpecificAmountR
+    fmt.Fprintf(os.Stdout, "Response from `CreateSubscriptionsForApi.NewConfirmedCoinsTransactionsForSpecificAmount`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**blockchain** | **string** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+**network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiNewConfirmedCoinsTransactionsForSpecificAmountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
+ **newConfirmedCoinsTransactionsForSpecificAmountRB** | [**NewConfirmedCoinsTransactionsForSpecificAmountRB**](NewConfirmedCoinsTransactionsForSpecificAmountRB.md) |  | 
+
+### Return type
+
+[**NewConfirmedCoinsTransactionsForSpecificAmountR**](NewConfirmedCoinsTransactionsForSpecificAmountR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
 ## NewConfirmedInternalTransactions
 
 > NewConfirmedInternalTransactionsR NewConfirmedInternalTransactions(ctx, blockchain, network).Context(context).NewConfirmedInternalTransactionsRB(newConfirmedInternalTransactionsRB).Execute()
@@ -464,6 +544,160 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**NewConfirmedInternalTransactionsAndEachConfirmationR**](NewConfirmedInternalTransactionsAndEachConfirmationR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## NewConfirmedInternalTransactionsForSpecificAmount
+
+> NewConfirmedInternalTransactionsForSpecificAmountR NewConfirmedInternalTransactionsForSpecificAmount(ctx, blockchain, network).Context(context).NewConfirmedInternalTransactionsForSpecificAmountRB(newConfirmedInternalTransactionsForSpecificAmountRB).Execute()
+
+New Confirmed Internal Transactions For Specific Amount
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    blockchain := "ethereum" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network := "ropsten" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    newConfirmedInternalTransactionsForSpecificAmountRB := *openapiclient.NewNewConfirmedInternalTransactionsForSpecificAmountRB(*openapiclient.NewNewConfirmedInternalTransactionsForSpecificAmountRBData(*openapiclient.NewNewConfirmedInternalTransactionsForSpecificAmountRBDataItem(int64(3), "https://example.com"))) // NewConfirmedInternalTransactionsForSpecificAmountRB |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.NewConfirmedInternalTransactionsForSpecificAmount(context.Background(), blockchain, network).Context(context).NewConfirmedInternalTransactionsForSpecificAmountRB(newConfirmedInternalTransactionsForSpecificAmountRB).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.NewConfirmedInternalTransactionsForSpecificAmount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `NewConfirmedInternalTransactionsForSpecificAmount`: NewConfirmedInternalTransactionsForSpecificAmountR
+    fmt.Fprintf(os.Stdout, "Response from `CreateSubscriptionsForApi.NewConfirmedInternalTransactionsForSpecificAmount`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**blockchain** | **string** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+**network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiNewConfirmedInternalTransactionsForSpecificAmountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
+ **newConfirmedInternalTransactionsForSpecificAmountRB** | [**NewConfirmedInternalTransactionsForSpecificAmountRB**](NewConfirmedInternalTransactionsForSpecificAmountRB.md) |  | 
+
+### Return type
+
+[**NewConfirmedInternalTransactionsForSpecificAmountR**](NewConfirmedInternalTransactionsForSpecificAmountR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## NewConfirmedTokenTransactionsForSpecificAmount
+
+> NewConfirmedTokenTransactionsForSpecificAmountR NewConfirmedTokenTransactionsForSpecificAmount(ctx, blockchain, network).Context(context).NewConfirmedTokenTransactionsForSpecificAmountRB(newConfirmedTokenTransactionsForSpecificAmountRB).Execute()
+
+New Confirmed Token Transactions For Specific Amount
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    blockchain := "ethereum" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network := "ropsten" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    newConfirmedTokenTransactionsForSpecificAmountRB := *openapiclient.NewNewConfirmedTokenTransactionsForSpecificAmountRB(*openapiclient.NewNewConfirmedTokenTransactionsForSpecificAmountRBData(*openapiclient.NewNewConfirmedTokenTransactionsForSpecificAmountRBDataItem(int64(2), "https://example.com", "0x7495fede000c8a3b77eeae09cf70fa94cd2d53f5"))) // NewConfirmedTokenTransactionsForSpecificAmountRB |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.NewConfirmedTokenTransactionsForSpecificAmount(context.Background(), blockchain, network).Context(context).NewConfirmedTokenTransactionsForSpecificAmountRB(newConfirmedTokenTransactionsForSpecificAmountRB).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.NewConfirmedTokenTransactionsForSpecificAmount``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `NewConfirmedTokenTransactionsForSpecificAmount`: NewConfirmedTokenTransactionsForSpecificAmountR
+    fmt.Fprintf(os.Stdout, "Response from `CreateSubscriptionsForApi.NewConfirmedTokenTransactionsForSpecificAmount`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**blockchain** | **string** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+**network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiNewConfirmedTokenTransactionsForSpecificAmountRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
+ **newConfirmedTokenTransactionsForSpecificAmountRB** | [**NewConfirmedTokenTransactionsForSpecificAmountRB**](NewConfirmedTokenTransactionsForSpecificAmountRB.md) |  | 
+
+### Return type
+
+[**NewConfirmedTokenTransactionsForSpecificAmountR**](NewConfirmedTokenTransactionsForSpecificAmountR.md)
 
 ### Authorization
 

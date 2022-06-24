@@ -28,9 +28,9 @@ type ListOmniTransactionsByAddressRI struct {
 	// Represents the identifier of the tokens to send.
 	PropertyId int32 `json:"propertyId"`
 	// Represents an object of addresses that receive the transactions.
-	Recipients []ListOmniTransactionsByAddressRIRecipients `json:"recipients"`
+	Recipients []ListOmniTransactionsByAddressRIRecipientsInner `json:"recipients"`
 	// Represents an object of addresses that provide the funds.
-	Senders []ListOmniTransactionsByAddressRISenders `json:"senders"`
+	Senders []ListOmniTransactionsByAddressRISendersInner `json:"senders"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
 	Timestamp int32 `json:"timestamp"`
 	// Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
@@ -50,7 +50,7 @@ type ListOmniTransactionsByAddressRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListOmniTransactionsByAddressRI(amount string, divisible bool, minedInBlockHash string, minedInBlockHeight int32, propertyId int32, recipients []ListOmniTransactionsByAddressRIRecipients, senders []ListOmniTransactionsByAddressRISenders, timestamp int32, transactionId string, type_ string, typeInt int32, valid bool, version int32, fee ListOmniTransactionsByAddressRIFee) *ListOmniTransactionsByAddressRI {
+func NewListOmniTransactionsByAddressRI(amount string, divisible bool, minedInBlockHash string, minedInBlockHeight int32, propertyId int32, recipients []ListOmniTransactionsByAddressRIRecipientsInner, senders []ListOmniTransactionsByAddressRISendersInner, timestamp int32, transactionId string, type_ string, typeInt int32, valid bool, version int32, fee ListOmniTransactionsByAddressRIFee) *ListOmniTransactionsByAddressRI {
 	this := ListOmniTransactionsByAddressRI{}
 	this.Amount = amount
 	this.Divisible = divisible
@@ -198,9 +198,9 @@ func (o *ListOmniTransactionsByAddressRI) SetPropertyId(v int32) {
 }
 
 // GetRecipients returns the Recipients field value
-func (o *ListOmniTransactionsByAddressRI) GetRecipients() []ListOmniTransactionsByAddressRIRecipients {
+func (o *ListOmniTransactionsByAddressRI) GetRecipients() []ListOmniTransactionsByAddressRIRecipientsInner {
 	if o == nil {
-		var ret []ListOmniTransactionsByAddressRIRecipients
+		var ret []ListOmniTransactionsByAddressRIRecipientsInner
 		return ret
 	}
 
@@ -209,7 +209,7 @@ func (o *ListOmniTransactionsByAddressRI) GetRecipients() []ListOmniTransactions
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListOmniTransactionsByAddressRI) GetRecipientsOk() ([]ListOmniTransactionsByAddressRIRecipients, bool) {
+func (o *ListOmniTransactionsByAddressRI) GetRecipientsOk() ([]ListOmniTransactionsByAddressRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -217,14 +217,14 @@ func (o *ListOmniTransactionsByAddressRI) GetRecipientsOk() ([]ListOmniTransacti
 }
 
 // SetRecipients sets field value
-func (o *ListOmniTransactionsByAddressRI) SetRecipients(v []ListOmniTransactionsByAddressRIRecipients) {
+func (o *ListOmniTransactionsByAddressRI) SetRecipients(v []ListOmniTransactionsByAddressRIRecipientsInner) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *ListOmniTransactionsByAddressRI) GetSenders() []ListOmniTransactionsByAddressRISenders {
+func (o *ListOmniTransactionsByAddressRI) GetSenders() []ListOmniTransactionsByAddressRISendersInner {
 	if o == nil {
-		var ret []ListOmniTransactionsByAddressRISenders
+		var ret []ListOmniTransactionsByAddressRISendersInner
 		return ret
 	}
 
@@ -233,7 +233,7 @@ func (o *ListOmniTransactionsByAddressRI) GetSenders() []ListOmniTransactionsByA
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListOmniTransactionsByAddressRI) GetSendersOk() ([]ListOmniTransactionsByAddressRISenders, bool) {
+func (o *ListOmniTransactionsByAddressRI) GetSendersOk() ([]ListOmniTransactionsByAddressRISendersInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -241,7 +241,7 @@ func (o *ListOmniTransactionsByAddressRI) GetSendersOk() ([]ListOmniTransactions
 }
 
 // SetSenders sets field value
-func (o *ListOmniTransactionsByAddressRI) SetSenders(v []ListOmniTransactionsByAddressRISenders) {
+func (o *ListOmniTransactionsByAddressRI) SetSenders(v []ListOmniTransactionsByAddressRISendersInner) {
 	o.Senders = v
 }
 

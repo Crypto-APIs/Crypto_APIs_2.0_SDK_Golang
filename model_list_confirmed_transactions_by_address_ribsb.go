@@ -26,16 +26,16 @@ type ListConfirmedTransactionsByAddressRIBSB struct {
 	// Defines the version of the transaction.
 	Version int32 `json:"version"`
 	// Represents the transaction inputs.
-	Vin []ListConfirmedTransactionsByAddressRIBSBVin `json:"vin"`
+	Vin []ListConfirmedTransactionsByAddressRIBSBVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []ListConfirmedTransactionsByAddressRIBSBVout `json:"vout"`
+	Vout []ListConfirmedTransactionsByAddressRIBSBVoutInner `json:"vout"`
 }
 
 // NewListConfirmedTransactionsByAddressRIBSB instantiates a new ListConfirmedTransactionsByAddressRIBSB object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListConfirmedTransactionsByAddressRIBSB(locktime int64, size int32, vSize int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSBVin, vout []ListConfirmedTransactionsByAddressRIBSBVout) *ListConfirmedTransactionsByAddressRIBSB {
+func NewListConfirmedTransactionsByAddressRIBSB(locktime int64, size int32, vSize int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSBVinInner, vout []ListConfirmedTransactionsByAddressRIBSBVoutInner) *ListConfirmedTransactionsByAddressRIBSB {
 	this := ListConfirmedTransactionsByAddressRIBSB{}
 	this.Locktime = locktime
 	this.Size = size
@@ -151,9 +151,9 @@ func (o *ListConfirmedTransactionsByAddressRIBSB) SetVersion(v int32) {
 }
 
 // GetVin returns the Vin field value
-func (o *ListConfirmedTransactionsByAddressRIBSB) GetVin() []ListConfirmedTransactionsByAddressRIBSBVin {
+func (o *ListConfirmedTransactionsByAddressRIBSB) GetVin() []ListConfirmedTransactionsByAddressRIBSBVinInner {
 	if o == nil {
-		var ret []ListConfirmedTransactionsByAddressRIBSBVin
+		var ret []ListConfirmedTransactionsByAddressRIBSBVinInner
 		return ret
 	}
 
@@ -162,7 +162,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSB) GetVin() []ListConfirmedTransa
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressRIBSB) GetVinOk() ([]ListConfirmedTransactionsByAddressRIBSBVin, bool) {
+func (o *ListConfirmedTransactionsByAddressRIBSB) GetVinOk() ([]ListConfirmedTransactionsByAddressRIBSBVinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -170,14 +170,14 @@ func (o *ListConfirmedTransactionsByAddressRIBSB) GetVinOk() ([]ListConfirmedTra
 }
 
 // SetVin sets field value
-func (o *ListConfirmedTransactionsByAddressRIBSB) SetVin(v []ListConfirmedTransactionsByAddressRIBSBVin) {
+func (o *ListConfirmedTransactionsByAddressRIBSB) SetVin(v []ListConfirmedTransactionsByAddressRIBSBVinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *ListConfirmedTransactionsByAddressRIBSB) GetVout() []ListConfirmedTransactionsByAddressRIBSBVout {
+func (o *ListConfirmedTransactionsByAddressRIBSB) GetVout() []ListConfirmedTransactionsByAddressRIBSBVoutInner {
 	if o == nil {
-		var ret []ListConfirmedTransactionsByAddressRIBSBVout
+		var ret []ListConfirmedTransactionsByAddressRIBSBVoutInner
 		return ret
 	}
 
@@ -186,7 +186,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSB) GetVout() []ListConfirmedTrans
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTransactionsByAddressRIBSB) GetVoutOk() ([]ListConfirmedTransactionsByAddressRIBSBVout, bool) {
+func (o *ListConfirmedTransactionsByAddressRIBSB) GetVoutOk() ([]ListConfirmedTransactionsByAddressRIBSBVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -194,7 +194,7 @@ func (o *ListConfirmedTransactionsByAddressRIBSB) GetVoutOk() ([]ListConfirmedTr
 }
 
 // SetVout sets field value
-func (o *ListConfirmedTransactionsByAddressRIBSB) SetVout(v []ListConfirmedTransactionsByAddressRIBSBVout) {
+func (o *ListConfirmedTransactionsByAddressRIBSB) SetVout(v []ListConfirmedTransactionsByAddressRIBSBVoutInner) {
 	o.Vout = v
 }
 

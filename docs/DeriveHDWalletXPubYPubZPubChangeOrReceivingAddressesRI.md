@@ -4,13 +4,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Addresses** | [**[]DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses**](DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses.md) | Represents the address details. | 
+**Addresses** | [**[]DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner**](DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner.md) | Represents the address details. | 
 
 ## Methods
 
 ### NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI
 
-`func NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI(addresses []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses, ) *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI`
+`func NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI(addresses []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner, ) *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI`
 
 NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI instantiates a new DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI object
 This constructor will assign default values to properties that have it defined,
@@ -27,20 +27,20 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetAddresses
 
-`func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) GetAddresses() []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses`
+`func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) GetAddresses() []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner`
 
 GetAddresses returns the Addresses field if non-nil, zero value otherwise.
 
 ### GetAddressesOk
 
-`func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) GetAddressesOk() (*[]DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses, bool)`
+`func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) GetAddressesOk() (*[]DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner, bool)`
 
 GetAddressesOk returns a tuple with the Addresses field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAddresses
 
-`func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) SetAddresses(v []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddresses)`
+`func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRI) SetAddresses(v []DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner)`
 
 SetAddresses sets Addresses field to given value.
 

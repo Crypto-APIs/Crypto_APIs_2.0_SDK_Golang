@@ -30,9 +30,9 @@ type ListOmniTransactionsByBlockHeightRI struct {
 	// Represents the identifier of the tokens to send.
 	PropertyId int32 `json:"propertyId"`
 	// Represents an object of addresses that receive the transactions.
-	Recipients []ListOmniTransactionsByBlockHeightRIRecipients `json:"recipients"`
+	Recipients []ListOmniTransactionsByBlockHeightRIRecipientsInner `json:"recipients"`
 	// Represents an object of addresses that provide the funds.
-	Senders []ListOmniTransactionsByBlockHeightRISenders `json:"senders"`
+	Senders []ListOmniTransactionsByBlockHeightRISendersInner `json:"senders"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
 	Timestamp int32 `json:"timestamp"`
 	// Represents the unique identifier of a transaction, i.e. it could be `transactionId` in UTXO-based protocols like Bitcoin, and transaction `hash` in Ethereum blockchain.
@@ -52,7 +52,7 @@ type ListOmniTransactionsByBlockHeightRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListOmniTransactionsByBlockHeightRI(amount string, divisible bool, minedInBlockHash string, minedInBlockHeight int32, positionInBlock int32, propertyId int32, recipients []ListOmniTransactionsByBlockHeightRIRecipients, senders []ListOmniTransactionsByBlockHeightRISenders, timestamp int32, transactionId string, type_ string, typeInt int32, valid bool, version int32, fee ListOmniTransactionsByBlockHeightRIFee) *ListOmniTransactionsByBlockHeightRI {
+func NewListOmniTransactionsByBlockHeightRI(amount string, divisible bool, minedInBlockHash string, minedInBlockHeight int32, positionInBlock int32, propertyId int32, recipients []ListOmniTransactionsByBlockHeightRIRecipientsInner, senders []ListOmniTransactionsByBlockHeightRISendersInner, timestamp int32, transactionId string, type_ string, typeInt int32, valid bool, version int32, fee ListOmniTransactionsByBlockHeightRIFee) *ListOmniTransactionsByBlockHeightRI {
 	this := ListOmniTransactionsByBlockHeightRI{}
 	this.Amount = amount
 	this.Divisible = divisible
@@ -225,9 +225,9 @@ func (o *ListOmniTransactionsByBlockHeightRI) SetPropertyId(v int32) {
 }
 
 // GetRecipients returns the Recipients field value
-func (o *ListOmniTransactionsByBlockHeightRI) GetRecipients() []ListOmniTransactionsByBlockHeightRIRecipients {
+func (o *ListOmniTransactionsByBlockHeightRI) GetRecipients() []ListOmniTransactionsByBlockHeightRIRecipientsInner {
 	if o == nil {
-		var ret []ListOmniTransactionsByBlockHeightRIRecipients
+		var ret []ListOmniTransactionsByBlockHeightRIRecipientsInner
 		return ret
 	}
 
@@ -236,7 +236,7 @@ func (o *ListOmniTransactionsByBlockHeightRI) GetRecipients() []ListOmniTransact
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *ListOmniTransactionsByBlockHeightRI) GetRecipientsOk() ([]ListOmniTransactionsByBlockHeightRIRecipients, bool) {
+func (o *ListOmniTransactionsByBlockHeightRI) GetRecipientsOk() ([]ListOmniTransactionsByBlockHeightRIRecipientsInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -244,14 +244,14 @@ func (o *ListOmniTransactionsByBlockHeightRI) GetRecipientsOk() ([]ListOmniTrans
 }
 
 // SetRecipients sets field value
-func (o *ListOmniTransactionsByBlockHeightRI) SetRecipients(v []ListOmniTransactionsByBlockHeightRIRecipients) {
+func (o *ListOmniTransactionsByBlockHeightRI) SetRecipients(v []ListOmniTransactionsByBlockHeightRIRecipientsInner) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *ListOmniTransactionsByBlockHeightRI) GetSenders() []ListOmniTransactionsByBlockHeightRISenders {
+func (o *ListOmniTransactionsByBlockHeightRI) GetSenders() []ListOmniTransactionsByBlockHeightRISendersInner {
 	if o == nil {
-		var ret []ListOmniTransactionsByBlockHeightRISenders
+		var ret []ListOmniTransactionsByBlockHeightRISendersInner
 		return ret
 	}
 
@@ -260,7 +260,7 @@ func (o *ListOmniTransactionsByBlockHeightRI) GetSenders() []ListOmniTransaction
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *ListOmniTransactionsByBlockHeightRI) GetSendersOk() ([]ListOmniTransactionsByBlockHeightRISenders, bool) {
+func (o *ListOmniTransactionsByBlockHeightRI) GetSendersOk() ([]ListOmniTransactionsByBlockHeightRISendersInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -268,7 +268,7 @@ func (o *ListOmniTransactionsByBlockHeightRI) GetSendersOk() ([]ListOmniTransact
 }
 
 // SetSenders sets field value
-func (o *ListOmniTransactionsByBlockHeightRI) SetSenders(v []ListOmniTransactionsByBlockHeightRISenders) {
+func (o *ListOmniTransactionsByBlockHeightRI) SetSenders(v []ListOmniTransactionsByBlockHeightRISendersInner) {
 	o.Senders = v
 }
 

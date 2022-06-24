@@ -26,20 +26,19 @@ type GetFeeRecommendationsRI struct {
 	// Standard fee per byte calculated from unconfirmed transactions
 	Standard string `json:"standard"`
 	// Represents the fee cushion multiplier used to multiply the base fee.
-	FeeCushionMultiplier string `json:"feeCushionMultiplier"`
+	FeeMultiplier *string `json:"feeMultiplier,omitempty"`
 }
 
 // NewGetFeeRecommendationsRI instantiates a new GetFeeRecommendationsRI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetFeeRecommendationsRI(unit string, fast string, slow string, standard string, feeCushionMultiplier string) *GetFeeRecommendationsRI {
+func NewGetFeeRecommendationsRI(unit string, fast string, slow string, standard string) *GetFeeRecommendationsRI {
 	this := GetFeeRecommendationsRI{}
 	this.Unit = unit
 	this.Fast = fast
 	this.Slow = slow
 	this.Standard = standard
-	this.FeeCushionMultiplier = feeCushionMultiplier
 	return &this
 }
 
@@ -147,28 +146,36 @@ func (o *GetFeeRecommendationsRI) SetStandard(v string) {
 	o.Standard = v
 }
 
-// GetFeeCushionMultiplier returns the FeeCushionMultiplier field value
-func (o *GetFeeRecommendationsRI) GetFeeCushionMultiplier() string {
-	if o == nil {
+// GetFeeMultiplier returns the FeeMultiplier field value if set, zero value otherwise.
+func (o *GetFeeRecommendationsRI) GetFeeMultiplier() string {
+	if o == nil || o.FeeMultiplier == nil {
 		var ret string
 		return ret
 	}
-
-	return o.FeeCushionMultiplier
+	return *o.FeeMultiplier
 }
 
-// GetFeeCushionMultiplierOk returns a tuple with the FeeCushionMultiplier field value
+// GetFeeMultiplierOk returns a tuple with the FeeMultiplier field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *GetFeeRecommendationsRI) GetFeeCushionMultiplierOk() (*string, bool) {
-	if o == nil {
+func (o *GetFeeRecommendationsRI) GetFeeMultiplierOk() (*string, bool) {
+	if o == nil || o.FeeMultiplier == nil {
 		return nil, false
 	}
-	return &o.FeeCushionMultiplier, true
+	return o.FeeMultiplier, true
 }
 
-// SetFeeCushionMultiplier sets field value
-func (o *GetFeeRecommendationsRI) SetFeeCushionMultiplier(v string) {
-	o.FeeCushionMultiplier = v
+// HasFeeMultiplier returns a boolean if a field has been set.
+func (o *GetFeeRecommendationsRI) HasFeeMultiplier() bool {
+	if o != nil && o.FeeMultiplier != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetFeeMultiplier gets a reference to the given string and assigns it to the FeeMultiplier field.
+func (o *GetFeeRecommendationsRI) SetFeeMultiplier(v string) {
+	o.FeeMultiplier = &v
 }
 
 func (o GetFeeRecommendationsRI) MarshalJSON() ([]byte, error) {
@@ -185,8 +192,8 @@ func (o GetFeeRecommendationsRI) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["standard"] = o.Standard
 	}
-	if true {
-		toSerialize["feeCushionMultiplier"] = o.FeeCushionMultiplier
+	if o.FeeMultiplier != nil {
+		toSerialize["feeMultiplier"] = o.FeeMultiplier
 	}
 	return json.Marshal(toSerialize)
 }

@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Locktime** | **int64** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **Version** | **int32** | Represents the transaction&#39;s version number. | 
-**Vin** | [**[]ListUnconfirmedTransactionsByAddressRIBSBCVin**](ListUnconfirmedTransactionsByAddressRIBSBCVin.md) | Represents the transaction inputs. | 
-**Vout** | [**[]ListUnconfirmedTransactionsByAddressRIBSBCVout**](ListUnconfirmedTransactionsByAddressRIBSBCVout.md) | Represents the transaction outputs. | 
+**Vin** | [**[]ListUnconfirmedTransactionsByAddressRIBSBCVinInner**](ListUnconfirmedTransactionsByAddressRIBSBCVinInner.md) | Represents the transaction inputs. | 
+**Vout** | [**[]ListUnconfirmedTransactionsByAddressRIBSBCVoutInner**](ListUnconfirmedTransactionsByAddressRIBSBCVoutInner.md) | Represents the transaction outputs. | 
 
 ## Methods
 
 ### NewListUnconfirmedTransactionsByAddressRIBSBC
 
-`func NewListUnconfirmedTransactionsByAddressRIBSBC(locktime int64, size int32, version int32, vin []ListUnconfirmedTransactionsByAddressRIBSBCVin, vout []ListUnconfirmedTransactionsByAddressRIBSBCVout, ) *ListUnconfirmedTransactionsByAddressRIBSBC`
+`func NewListUnconfirmedTransactionsByAddressRIBSBC(locktime int64, size int32, version int32, vin []ListUnconfirmedTransactionsByAddressRIBSBCVinInner, vout []ListUnconfirmedTransactionsByAddressRIBSBCVoutInner, ) *ListUnconfirmedTransactionsByAddressRIBSBC`
 
 NewListUnconfirmedTransactionsByAddressRIBSBC instantiates a new ListUnconfirmedTransactionsByAddressRIBSBC object
 This constructor will assign default values to properties that have it defined,
@@ -91,40 +91,40 @@ SetVersion sets Version field to given value.
 
 ### GetVin
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBSBC) GetVin() []ListUnconfirmedTransactionsByAddressRIBSBCVin`
+`func (o *ListUnconfirmedTransactionsByAddressRIBSBC) GetVin() []ListUnconfirmedTransactionsByAddressRIBSBCVinInner`
 
 GetVin returns the Vin field if non-nil, zero value otherwise.
 
 ### GetVinOk
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBSBC) GetVinOk() (*[]ListUnconfirmedTransactionsByAddressRIBSBCVin, bool)`
+`func (o *ListUnconfirmedTransactionsByAddressRIBSBC) GetVinOk() (*[]ListUnconfirmedTransactionsByAddressRIBSBCVinInner, bool)`
 
 GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVin
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBSBC) SetVin(v []ListUnconfirmedTransactionsByAddressRIBSBCVin)`
+`func (o *ListUnconfirmedTransactionsByAddressRIBSBC) SetVin(v []ListUnconfirmedTransactionsByAddressRIBSBCVinInner)`
 
 SetVin sets Vin field to given value.
 
 
 ### GetVout
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBSBC) GetVout() []ListUnconfirmedTransactionsByAddressRIBSBCVout`
+`func (o *ListUnconfirmedTransactionsByAddressRIBSBC) GetVout() []ListUnconfirmedTransactionsByAddressRIBSBCVoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBSBC) GetVoutOk() (*[]ListUnconfirmedTransactionsByAddressRIBSBCVout, bool)`
+`func (o *ListUnconfirmedTransactionsByAddressRIBSBC) GetVoutOk() (*[]ListUnconfirmedTransactionsByAddressRIBSBCVoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *ListUnconfirmedTransactionsByAddressRIBSBC) SetVout(v []ListUnconfirmedTransactionsByAddressRIBSBCVout)`
+`func (o *ListUnconfirmedTransactionsByAddressRIBSBC) SetVout(v []ListUnconfirmedTransactionsByAddressRIBSBCVoutInner)`
 
 SetVout sets Vout field to given value.
 

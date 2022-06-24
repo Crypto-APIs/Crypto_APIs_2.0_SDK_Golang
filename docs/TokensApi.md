@@ -197,8 +197,8 @@ func main() {
     network := "ropsten" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     address := "0x033ef6db9fbd0ee60e2931906b987fe0280471a0" // string | Represents the public address, which is a compressed and shortened form of a public key.
     context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    limit := int32(50) // int32 | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
-    offset := int32(0) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
+    limit := int64(50) // int64 | Defines how many items should be returned in the response per page basis. (optional) (default to 50)
+    offset := int64(0) // int64 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional) (default to 0)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -233,8 +233,8 @@ Name | Type | Description  | Notes
 
 
  **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
- **limit** | **int32** | Defines how many items should be returned in the response per page basis. | [default to 50]
- **offset** | **int32** | The starting index of the response items, i.e. where the response should start listing the returned items. | [default to 0]
+ **limit** | **int64** | Defines how many items should be returned in the response per page basis. | [default to 50]
+ **offset** | **int64** | The starting index of the response items, i.e. where the response should start listing the returned items. | [default to 0]
 
 ### Return type
 

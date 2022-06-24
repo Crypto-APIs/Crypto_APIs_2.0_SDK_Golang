@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **CallbackUrl** | Pointer to **string** | Represents the URL that is set by the customer where the callback will be received at. The callback notification will be received only if and when the event occurs. &#x60;We support ONLY httpS type of protocol&#x60;. | [optional] 
 **FeePriority** | **string** | Represents the fee priority of the automation, whether it is \&quot;slow\&quot;, \&quot;standard\&quot; or \&quot;fast\&quot;. | 
 **Note** | Pointer to **string** | Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request.Optional Transaction note with additional details | [optional] 
-**Recipients** | [**[]CreateCoinsTransactionFromAddressForWholeAmountRIRecipients**](CreateCoinsTransactionFromAddressForWholeAmountRIRecipients.md) | Defines the destination for the transaction, i.e. the recipient(s). | 
+**Recipients** | [**[]CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner**](CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner.md) | Defines the destination for the transaction, i.e. the recipient(s). | 
 **Senders** | [**CreateCoinsTransactionFromAddressForWholeAmountRISenders**](CreateCoinsTransactionFromAddressForWholeAmountRISenders.md) |  | 
 **TransactionRequestId** | **string** | Represents a unique identifier of the transaction request (the request sent to make a transaction), which helps in identifying which callback and which &#x60;referenceId&#x60; concern that specific transaction request. | 
 **TransactionRequestStatus** | **string** | Defines the status of the transaction, e.g. \&quot;created, \&quot;await_approval\&quot;, \&quot;pending\&quot;, \&quot;prepared\&quot;, \&quot;signed\&quot;, \&quot;broadcasted\&quot;, \&quot;success\&quot;, \&quot;failed\&quot;, \&quot;rejected\&quot;, mined\&quot;. | 
@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 
 ### NewCreateCoinsTransactionFromAddressForWholeAmountRI
 
-`func NewCreateCoinsTransactionFromAddressForWholeAmountRI(feePriority string, recipients []CreateCoinsTransactionFromAddressForWholeAmountRIRecipients, senders CreateCoinsTransactionFromAddressForWholeAmountRISenders, transactionRequestId string, transactionRequestStatus string, ) *CreateCoinsTransactionFromAddressForWholeAmountRI`
+`func NewCreateCoinsTransactionFromAddressForWholeAmountRI(feePriority string, recipients []CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner, senders CreateCoinsTransactionFromAddressForWholeAmountRISenders, transactionRequestId string, transactionRequestStatus string, ) *CreateCoinsTransactionFromAddressForWholeAmountRI`
 
 NewCreateCoinsTransactionFromAddressForWholeAmountRI instantiates a new CreateCoinsTransactionFromAddressForWholeAmountRI object
 This constructor will assign default values to properties that have it defined,
@@ -129,20 +129,20 @@ HasNote returns a boolean if a field has been set.
 
 ### GetRecipients
 
-`func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) GetRecipients() []CreateCoinsTransactionFromAddressForWholeAmountRIRecipients`
+`func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) GetRecipients() []CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) GetRecipientsOk() (*[]CreateCoinsTransactionFromAddressForWholeAmountRIRecipients, bool)`
+`func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) GetRecipientsOk() (*[]CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) SetRecipients(v []CreateCoinsTransactionFromAddressForWholeAmountRIRecipients)`
+`func (o *CreateCoinsTransactionFromAddressForWholeAmountRI) SetRecipients(v []CreateCoinsTransactionFromAddressForWholeAmountRIRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 

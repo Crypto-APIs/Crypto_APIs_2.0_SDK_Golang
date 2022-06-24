@@ -7,16 +7,16 @@ Name | Type | Description | Notes
 **Address** | **string** | Specifies the specific address&#39;s unique string value. | 
 **ConfirmedBalance** | [**ListDepositAddressesRIConfirmedBalance**](ListDepositAddressesRIConfirmedBalance.md) |  | 
 **CreatedTimestamp** | **int32** | Defines the specific UNIX time when the deposit address was created. | 
-**FungibleTokens** | [**[]ListDepositAddressesRIFungibleTokens**](ListDepositAddressesRIFungibleTokens.md) | Represents fungible tokens&#39;es detailed information | 
+**FungibleTokens** | [**[]ListDepositAddressesRIFungibleTokensInner**](ListDepositAddressesRIFungibleTokensInner.md) | Represents fungible tokens&#39;es detailed information | 
 **Index** | **string** | Represents the index of the address in the wallet. | 
 **Label** | **string** | Represents a custom tag that customers can set up for their Wallets and addresses. E.g. custom label named \&quot;Special addresses\&quot;. | 
-**NonFungibleTokens** | [**[]ListDepositAddressesRINonFungibleTokens**](ListDepositAddressesRINonFungibleTokens.md) | Represents non-fungible tokens&#39;es detailed information. | 
+**NonFungibleTokens** | [**[]ListDepositAddressesRINonFungibleTokensInner**](ListDepositAddressesRINonFungibleTokensInner.md) | Represents non-fungible tokens&#39;es detailed information. | 
 
 ## Methods
 
 ### NewListDepositAddressesRI
 
-`func NewListDepositAddressesRI(address string, confirmedBalance ListDepositAddressesRIConfirmedBalance, createdTimestamp int32, fungibleTokens []ListDepositAddressesRIFungibleTokens, index string, label string, nonFungibleTokens []ListDepositAddressesRINonFungibleTokens, ) *ListDepositAddressesRI`
+`func NewListDepositAddressesRI(address string, confirmedBalance ListDepositAddressesRIConfirmedBalance, createdTimestamp int32, fungibleTokens []ListDepositAddressesRIFungibleTokensInner, index string, label string, nonFungibleTokens []ListDepositAddressesRINonFungibleTokensInner, ) *ListDepositAddressesRI`
 
 NewListDepositAddressesRI instantiates a new ListDepositAddressesRI object
 This constructor will assign default values to properties that have it defined,
@@ -93,20 +93,20 @@ SetCreatedTimestamp sets CreatedTimestamp field to given value.
 
 ### GetFungibleTokens
 
-`func (o *ListDepositAddressesRI) GetFungibleTokens() []ListDepositAddressesRIFungibleTokens`
+`func (o *ListDepositAddressesRI) GetFungibleTokens() []ListDepositAddressesRIFungibleTokensInner`
 
 GetFungibleTokens returns the FungibleTokens field if non-nil, zero value otherwise.
 
 ### GetFungibleTokensOk
 
-`func (o *ListDepositAddressesRI) GetFungibleTokensOk() (*[]ListDepositAddressesRIFungibleTokens, bool)`
+`func (o *ListDepositAddressesRI) GetFungibleTokensOk() (*[]ListDepositAddressesRIFungibleTokensInner, bool)`
 
 GetFungibleTokensOk returns a tuple with the FungibleTokens field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFungibleTokens
 
-`func (o *ListDepositAddressesRI) SetFungibleTokens(v []ListDepositAddressesRIFungibleTokens)`
+`func (o *ListDepositAddressesRI) SetFungibleTokens(v []ListDepositAddressesRIFungibleTokensInner)`
 
 SetFungibleTokens sets FungibleTokens field to given value.
 
@@ -153,20 +153,20 @@ SetLabel sets Label field to given value.
 
 ### GetNonFungibleTokens
 
-`func (o *ListDepositAddressesRI) GetNonFungibleTokens() []ListDepositAddressesRINonFungibleTokens`
+`func (o *ListDepositAddressesRI) GetNonFungibleTokens() []ListDepositAddressesRINonFungibleTokensInner`
 
 GetNonFungibleTokens returns the NonFungibleTokens field if non-nil, zero value otherwise.
 
 ### GetNonFungibleTokensOk
 
-`func (o *ListDepositAddressesRI) GetNonFungibleTokensOk() (*[]ListDepositAddressesRINonFungibleTokens, bool)`
+`func (o *ListDepositAddressesRI) GetNonFungibleTokensOk() (*[]ListDepositAddressesRINonFungibleTokensInner, bool)`
 
 GetNonFungibleTokensOk returns a tuple with the NonFungibleTokens field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNonFungibleTokens
 
-`func (o *ListDepositAddressesRI) SetNonFungibleTokens(v []ListDepositAddressesRINonFungibleTokens)`
+`func (o *ListDepositAddressesRI) SetNonFungibleTokens(v []ListDepositAddressesRINonFungibleTokensInner)`
 
 SetNonFungibleTokens sets NonFungibleTokens field to given value.
 

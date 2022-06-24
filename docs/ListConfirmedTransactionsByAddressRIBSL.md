@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **Size** | **int32** | Represents the total size of this transaction. | 
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Represents the transaction&#39;s version number. | 
-**Vin** | [**[]ListConfirmedTransactionsByAddressRIBSLVin**](ListConfirmedTransactionsByAddressRIBSLVin.md) | Represents the transaction inputs. | 
-**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSLVout**](GetTransactionDetailsByTransactionIDRIBSLVout.md) | Represents the transaction outputs. | 
+**Vin** | [**[]ListConfirmedTransactionsByAddressRIBSLVinInner**](ListConfirmedTransactionsByAddressRIBSLVinInner.md) | Represents the transaction inputs. | 
+**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSLVoutInner**](GetTransactionDetailsByTransactionIDRIBSLVoutInner.md) | Represents the transaction outputs. | 
 
 ## Methods
 
 ### NewListConfirmedTransactionsByAddressRIBSL
 
-`func NewListConfirmedTransactionsByAddressRIBSL(locktime int64, size int32, vSize int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSLVin, vout []GetTransactionDetailsByTransactionIDRIBSLVout, ) *ListConfirmedTransactionsByAddressRIBSL`
+`func NewListConfirmedTransactionsByAddressRIBSL(locktime int64, size int32, vSize int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSLVinInner, vout []GetTransactionDetailsByTransactionIDRIBSLVoutInner, ) *ListConfirmedTransactionsByAddressRIBSL`
 
 NewListConfirmedTransactionsByAddressRIBSL instantiates a new ListConfirmedTransactionsByAddressRIBSL object
 This constructor will assign default values to properties that have it defined,
@@ -112,40 +112,40 @@ SetVersion sets Version field to given value.
 
 ### GetVin
 
-`func (o *ListConfirmedTransactionsByAddressRIBSL) GetVin() []ListConfirmedTransactionsByAddressRIBSLVin`
+`func (o *ListConfirmedTransactionsByAddressRIBSL) GetVin() []ListConfirmedTransactionsByAddressRIBSLVinInner`
 
 GetVin returns the Vin field if non-nil, zero value otherwise.
 
 ### GetVinOk
 
-`func (o *ListConfirmedTransactionsByAddressRIBSL) GetVinOk() (*[]ListConfirmedTransactionsByAddressRIBSLVin, bool)`
+`func (o *ListConfirmedTransactionsByAddressRIBSL) GetVinOk() (*[]ListConfirmedTransactionsByAddressRIBSLVinInner, bool)`
 
 GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVin
 
-`func (o *ListConfirmedTransactionsByAddressRIBSL) SetVin(v []ListConfirmedTransactionsByAddressRIBSLVin)`
+`func (o *ListConfirmedTransactionsByAddressRIBSL) SetVin(v []ListConfirmedTransactionsByAddressRIBSLVinInner)`
 
 SetVin sets Vin field to given value.
 
 
 ### GetVout
 
-`func (o *ListConfirmedTransactionsByAddressRIBSL) GetVout() []GetTransactionDetailsByTransactionIDRIBSLVout`
+`func (o *ListConfirmedTransactionsByAddressRIBSL) GetVout() []GetTransactionDetailsByTransactionIDRIBSLVoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *ListConfirmedTransactionsByAddressRIBSL) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSLVout, bool)`
+`func (o *ListConfirmedTransactionsByAddressRIBSL) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSLVoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *ListConfirmedTransactionsByAddressRIBSL) SetVout(v []GetTransactionDetailsByTransactionIDRIBSLVout)`
+`func (o *ListConfirmedTransactionsByAddressRIBSL) SetVout(v []GetTransactionDetailsByTransactionIDRIBSLVoutInner)`
 
 SetVout sets Vout field to given value.
 

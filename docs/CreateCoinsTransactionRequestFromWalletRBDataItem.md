@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **FeePriority** | **string** | Represents the fee priority of the automation, whether it is \&quot;slow\&quot;, \&quot;standard\&quot; or \&quot;fast\&quot;. | 
 **Note** | Pointer to **string** | Represents an optional note to add a free text in, explaining or providing additional detail on the transaction request. | [optional] 
 **PrepareStrategy** | Pointer to **string** | Refers to a model of a UTXO spending strategy, where customers can choose how to spend their transaction outputs from multiple Bitcoin addresses. Two options available - \&quot;minimize-dust\&quot; (select lower amounts from multiple addresses) or \&quot;optimize-size\&quot; (select higher amounts from less addresses). | [optional] [default to "minimize-dust"]
-**Recipients** | [**[]CreateCoinsTransactionRequestFromWalletRBDataItemRecipients**](CreateCoinsTransactionRequestFromWalletRBDataItemRecipients.md) | Defines the destination of the transaction, whether it is incoming or outgoing. | 
+**Recipients** | [**[]CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner**](CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner.md) | Defines the destination of the transaction, whether it is incoming or outgoing. | 
 
 ## Methods
 
 ### NewCreateCoinsTransactionRequestFromWalletRBDataItem
 
-`func NewCreateCoinsTransactionRequestFromWalletRBDataItem(feePriority string, recipients []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients, ) *CreateCoinsTransactionRequestFromWalletRBDataItem`
+`func NewCreateCoinsTransactionRequestFromWalletRBDataItem(feePriority string, recipients []CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner, ) *CreateCoinsTransactionRequestFromWalletRBDataItem`
 
 NewCreateCoinsTransactionRequestFromWalletRBDataItem instantiates a new CreateCoinsTransactionRequestFromWalletRBDataItem object
 This constructor will assign default values to properties that have it defined,
@@ -152,20 +152,20 @@ HasPrepareStrategy returns a boolean if a field has been set.
 
 ### GetRecipients
 
-`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipients() []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients`
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipients() []CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipientsOk() (*[]CreateCoinsTransactionRequestFromWalletRBDataItemRecipients, bool)`
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) GetRecipientsOk() (*[]CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetRecipients(v []CreateCoinsTransactionRequestFromWalletRBDataItemRecipients)`
+`func (o *CreateCoinsTransactionRequestFromWalletRBDataItem) SetRecipients(v []CreateCoinsTransactionRequestFromWalletRBDataItemRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 

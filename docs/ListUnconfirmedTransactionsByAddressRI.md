@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Recipients** | [**[]ListUnconfirmedTransactionsByAddressRIRecipients**](ListUnconfirmedTransactionsByAddressRIRecipients.md) | Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
-**Senders** | [**[]ListUnconfirmedTransactionsByAddressRISenders**](ListUnconfirmedTransactionsByAddressRISenders.md) | Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
+**Recipients** | [**[]ListUnconfirmedTransactionsByAddressRIRecipientsInner**](ListUnconfirmedTransactionsByAddressRIRecipientsInner.md) | Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
+**Senders** | [**[]ListUnconfirmedTransactionsByAddressRISendersInner**](ListUnconfirmedTransactionsByAddressRISendersInner.md) | Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
 **Timestamp** | **int32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
 **TransactionHash** | **string** | Represents the same as &#x60;transactionId&#x60; for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols &#x60;hash&#x60; is different from &#x60;transactionId&#x60; for SegWit transactions. | 
 **TransactionId** | **string** | Represents the unique identifier of a transaction, i.e. it could be &#x60;transactionId&#x60; in UTXO-based protocols like Bitcoin, and transaction &#x60;hash&#x60; in Ethereum blockchain. | 
@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 
 ### NewListUnconfirmedTransactionsByAddressRI
 
-`func NewListUnconfirmedTransactionsByAddressRI(recipients []ListUnconfirmedTransactionsByAddressRIRecipients, senders []ListUnconfirmedTransactionsByAddressRISenders, timestamp int32, transactionHash string, transactionId string, blockchainSpecific ListUnconfirmedTransactionsByAddressRIBS, ) *ListUnconfirmedTransactionsByAddressRI`
+`func NewListUnconfirmedTransactionsByAddressRI(recipients []ListUnconfirmedTransactionsByAddressRIRecipientsInner, senders []ListUnconfirmedTransactionsByAddressRISendersInner, timestamp int32, transactionHash string, transactionId string, blockchainSpecific ListUnconfirmedTransactionsByAddressRIBS, ) *ListUnconfirmedTransactionsByAddressRI`
 
 NewListUnconfirmedTransactionsByAddressRI instantiates a new ListUnconfirmedTransactionsByAddressRI object
 This constructor will assign default values to properties that have it defined,
@@ -32,40 +32,40 @@ but it doesn't guarantee that properties required by API are set
 
 ### GetRecipients
 
-`func (o *ListUnconfirmedTransactionsByAddressRI) GetRecipients() []ListUnconfirmedTransactionsByAddressRIRecipients`
+`func (o *ListUnconfirmedTransactionsByAddressRI) GetRecipients() []ListUnconfirmedTransactionsByAddressRIRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *ListUnconfirmedTransactionsByAddressRI) GetRecipientsOk() (*[]ListUnconfirmedTransactionsByAddressRIRecipients, bool)`
+`func (o *ListUnconfirmedTransactionsByAddressRI) GetRecipientsOk() (*[]ListUnconfirmedTransactionsByAddressRIRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *ListUnconfirmedTransactionsByAddressRI) SetRecipients(v []ListUnconfirmedTransactionsByAddressRIRecipients)`
+`func (o *ListUnconfirmedTransactionsByAddressRI) SetRecipients(v []ListUnconfirmedTransactionsByAddressRIRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 
 
 ### GetSenders
 
-`func (o *ListUnconfirmedTransactionsByAddressRI) GetSenders() []ListUnconfirmedTransactionsByAddressRISenders`
+`func (o *ListUnconfirmedTransactionsByAddressRI) GetSenders() []ListUnconfirmedTransactionsByAddressRISendersInner`
 
 GetSenders returns the Senders field if non-nil, zero value otherwise.
 
 ### GetSendersOk
 
-`func (o *ListUnconfirmedTransactionsByAddressRI) GetSendersOk() (*[]ListUnconfirmedTransactionsByAddressRISenders, bool)`
+`func (o *ListUnconfirmedTransactionsByAddressRI) GetSendersOk() (*[]ListUnconfirmedTransactionsByAddressRISendersInner, bool)`
 
 GetSendersOk returns a tuple with the Senders field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSenders
 
-`func (o *ListUnconfirmedTransactionsByAddressRI) SetSenders(v []ListUnconfirmedTransactionsByAddressRISenders)`
+`func (o *ListUnconfirmedTransactionsByAddressRI) SetSenders(v []ListUnconfirmedTransactionsByAddressRISendersInner)`
 
 SetSenders sets Senders field to given value.
 

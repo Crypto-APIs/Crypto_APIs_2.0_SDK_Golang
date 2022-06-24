@@ -24,16 +24,16 @@ type ListTransactionsByBlockHeightRIBSD struct {
 	// Represents transaction version number.
 	Version int32 `json:"version"`
 	// Represents the transaction inputs.
-	Vin []ListTransactionsByBlockHeightRIBSDVin `json:"vin"`
+	Vin []ListTransactionsByBlockHeightRIBSDVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []ListTransactionsByBlockHeightRIBSDVout `json:"vout"`
+	Vout []ListTransactionsByBlockHeightRIBSDVoutInner `json:"vout"`
 }
 
 // NewListTransactionsByBlockHeightRIBSD instantiates a new ListTransactionsByBlockHeightRIBSD object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListTransactionsByBlockHeightRIBSD(locktime int64, size int32, version int32, vin []ListTransactionsByBlockHeightRIBSDVin, vout []ListTransactionsByBlockHeightRIBSDVout) *ListTransactionsByBlockHeightRIBSD {
+func NewListTransactionsByBlockHeightRIBSD(locktime int64, size int32, version int32, vin []ListTransactionsByBlockHeightRIBSDVinInner, vout []ListTransactionsByBlockHeightRIBSDVoutInner) *ListTransactionsByBlockHeightRIBSD {
 	this := ListTransactionsByBlockHeightRIBSD{}
 	this.Locktime = locktime
 	this.Size = size
@@ -124,9 +124,9 @@ func (o *ListTransactionsByBlockHeightRIBSD) SetVersion(v int32) {
 }
 
 // GetVin returns the Vin field value
-func (o *ListTransactionsByBlockHeightRIBSD) GetVin() []ListTransactionsByBlockHeightRIBSDVin {
+func (o *ListTransactionsByBlockHeightRIBSD) GetVin() []ListTransactionsByBlockHeightRIBSDVinInner {
 	if o == nil {
-		var ret []ListTransactionsByBlockHeightRIBSDVin
+		var ret []ListTransactionsByBlockHeightRIBSDVinInner
 		return ret
 	}
 
@@ -135,7 +135,7 @@ func (o *ListTransactionsByBlockHeightRIBSD) GetVin() []ListTransactionsByBlockH
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHeightRIBSD) GetVinOk() ([]ListTransactionsByBlockHeightRIBSDVin, bool) {
+func (o *ListTransactionsByBlockHeightRIBSD) GetVinOk() ([]ListTransactionsByBlockHeightRIBSDVinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -143,14 +143,14 @@ func (o *ListTransactionsByBlockHeightRIBSD) GetVinOk() ([]ListTransactionsByBlo
 }
 
 // SetVin sets field value
-func (o *ListTransactionsByBlockHeightRIBSD) SetVin(v []ListTransactionsByBlockHeightRIBSDVin) {
+func (o *ListTransactionsByBlockHeightRIBSD) SetVin(v []ListTransactionsByBlockHeightRIBSDVinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *ListTransactionsByBlockHeightRIBSD) GetVout() []ListTransactionsByBlockHeightRIBSDVout {
+func (o *ListTransactionsByBlockHeightRIBSD) GetVout() []ListTransactionsByBlockHeightRIBSDVoutInner {
 	if o == nil {
-		var ret []ListTransactionsByBlockHeightRIBSDVout
+		var ret []ListTransactionsByBlockHeightRIBSDVoutInner
 		return ret
 	}
 
@@ -159,7 +159,7 @@ func (o *ListTransactionsByBlockHeightRIBSD) GetVout() []ListTransactionsByBlock
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHeightRIBSD) GetVoutOk() ([]ListTransactionsByBlockHeightRIBSDVout, bool) {
+func (o *ListTransactionsByBlockHeightRIBSD) GetVoutOk() ([]ListTransactionsByBlockHeightRIBSDVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -167,7 +167,7 @@ func (o *ListTransactionsByBlockHeightRIBSD) GetVoutOk() ([]ListTransactionsByBl
 }
 
 // SetVout sets field value
-func (o *ListTransactionsByBlockHeightRIBSD) SetVout(v []ListTransactionsByBlockHeightRIBSDVout) {
+func (o *ListTransactionsByBlockHeightRIBSD) SetVout(v []ListTransactionsByBlockHeightRIBSDVoutInner) {
 	o.Vout = v
 }
 

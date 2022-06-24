@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Code** | **string** | Specifies an error code, e.g. error 404. | 
 **Message** | **string** | Specifies the message of the error, i.e. why the error was returned, e.g. error 404 stands for “not found”. | 
-**Details** | Pointer to [**[]BannedIpAddressDetails**](BannedIpAddressDetails.md) |  | [optional] 
+**Details** | Pointer to [**[]BannedIpAddressDetailsInner**](BannedIpAddressDetailsInner.md) |  | [optional] 
 
 ## Methods
 
@@ -69,20 +69,20 @@ SetMessage sets Message field to given value.
 
 ### GetDetails
 
-`func (o *ListTokensByAddressE400) GetDetails() []BannedIpAddressDetails`
+`func (o *ListTokensByAddressE400) GetDetails() []BannedIpAddressDetailsInner`
 
 GetDetails returns the Details field if non-nil, zero value otherwise.
 
 ### GetDetailsOk
 
-`func (o *ListTokensByAddressE400) GetDetailsOk() (*[]BannedIpAddressDetails, bool)`
+`func (o *ListTokensByAddressE400) GetDetailsOk() (*[]BannedIpAddressDetailsInner, bool)`
 
 GetDetailsOk returns a tuple with the Details field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetDetails
 
-`func (o *ListTokensByAddressE400) SetDetails(v []BannedIpAddressDetails)`
+`func (o *ListTokensByAddressE400) SetDetails(v []BannedIpAddressDetailsInner)`
 
 SetDetails sets Details field to given value.
 

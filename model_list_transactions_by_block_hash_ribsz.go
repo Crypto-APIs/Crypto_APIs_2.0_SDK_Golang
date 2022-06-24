@@ -32,11 +32,11 @@ type ListTransactionsByBlockHashRIBSZ struct {
 	// Represents the total size of this transaction.
 	Size int32 `json:"size"`
 	// Represents a sequence of JoinSplit descriptions using BCTV14 proofs.
-	VJoinSplit []ListTransactionsByBlockHashRIBSZVJoinSplit `json:"vJoinSplit"`
+	VJoinSplit []ListTransactionsByBlockHashRIBSZVJoinSplitInner `json:"vJoinSplit"`
 	// Object Array representation of transaction output descriptions
-	VShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput `json:"vShieldedOutput"`
+	VShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner `json:"vShieldedOutput"`
 	// Object Array representation of transaction spend descriptions
-	VShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend `json:"vShieldedSpend"`
+	VShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner `json:"vShieldedSpend"`
 	// Defines the transaction value balance.
 	ValueBalance string `json:"valueBalance"`
 	// Numeric representation of the transaction Represents the transaction version number.
@@ -44,16 +44,16 @@ type ListTransactionsByBlockHashRIBSZ struct {
 	// Represents the transaction version group ID.
 	VersionGroupId string `json:"versionGroupId"`
 	// Object Array representation of transaction inputs
-	Vin []ListTransactionsByBlockHashRIBSZVin `json:"vin"`
+	Vin []ListTransactionsByBlockHashRIBSZVinInner `json:"vin"`
 	// Object Array representation of transaction outputs
-	Vout []GetTransactionDetailsByTransactionIDRIBSZVout `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDRIBSZVoutInner `json:"vout"`
 }
 
 // NewListTransactionsByBlockHashRIBSZ instantiates a new ListTransactionsByBlockHashRIBSZ object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListTransactionsByBlockHashRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int64, overwintered bool, size int32, vJoinSplit []ListTransactionsByBlockHashRIBSZVJoinSplit, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, valueBalance string, version int32, versionGroupId string, vin []ListTransactionsByBlockHashRIBSZVin, vout []GetTransactionDetailsByTransactionIDRIBSZVout) *ListTransactionsByBlockHashRIBSZ {
+func NewListTransactionsByBlockHashRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int64, overwintered bool, size int32, vJoinSplit []ListTransactionsByBlockHashRIBSZVJoinSplitInner, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, valueBalance string, version int32, versionGroupId string, vin []ListTransactionsByBlockHashRIBSZVinInner, vout []GetTransactionDetailsByTransactionIDRIBSZVoutInner) *ListTransactionsByBlockHashRIBSZ {
 	this := ListTransactionsByBlockHashRIBSZ{}
 	this.BindingSig = bindingSig
 	this.ExpiryHeight = expiryHeight
@@ -250,9 +250,9 @@ func (o *ListTransactionsByBlockHashRIBSZ) SetSize(v int32) {
 }
 
 // GetVJoinSplit returns the VJoinSplit field value
-func (o *ListTransactionsByBlockHashRIBSZ) GetVJoinSplit() []ListTransactionsByBlockHashRIBSZVJoinSplit {
+func (o *ListTransactionsByBlockHashRIBSZ) GetVJoinSplit() []ListTransactionsByBlockHashRIBSZVJoinSplitInner {
 	if o == nil {
-		var ret []ListTransactionsByBlockHashRIBSZVJoinSplit
+		var ret []ListTransactionsByBlockHashRIBSZVJoinSplitInner
 		return ret
 	}
 
@@ -261,7 +261,7 @@ func (o *ListTransactionsByBlockHashRIBSZ) GetVJoinSplit() []ListTransactionsByB
 
 // GetVJoinSplitOk returns a tuple with the VJoinSplit field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSZ) GetVJoinSplitOk() ([]ListTransactionsByBlockHashRIBSZVJoinSplit, bool) {
+func (o *ListTransactionsByBlockHashRIBSZ) GetVJoinSplitOk() ([]ListTransactionsByBlockHashRIBSZVJoinSplitInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -269,14 +269,14 @@ func (o *ListTransactionsByBlockHashRIBSZ) GetVJoinSplitOk() ([]ListTransactions
 }
 
 // SetVJoinSplit sets field value
-func (o *ListTransactionsByBlockHashRIBSZ) SetVJoinSplit(v []ListTransactionsByBlockHashRIBSZVJoinSplit) {
+func (o *ListTransactionsByBlockHashRIBSZ) SetVJoinSplit(v []ListTransactionsByBlockHashRIBSZVJoinSplitInner) {
 	o.VJoinSplit = v
 }
 
 // GetVShieldedOutput returns the VShieldedOutput field value
-func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedOutput() []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput {
+func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedOutput() []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput
+		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner
 		return ret
 	}
 
@@ -285,7 +285,7 @@ func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedOutput() []GetTransaction
 
 // GetVShieldedOutputOk returns a tuple with the VShieldedOutput field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedOutputOk() ([]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput, bool) {
+func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedOutputOk() ([]GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -293,14 +293,14 @@ func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedOutputOk() ([]GetTransact
 }
 
 // SetVShieldedOutput sets field value
-func (o *ListTransactionsByBlockHashRIBSZ) SetVShieldedOutput(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutput) {
+func (o *ListTransactionsByBlockHashRIBSZ) SetVShieldedOutput(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner) {
 	o.VShieldedOutput = v
 }
 
 // GetVShieldedSpend returns the VShieldedSpend field value
-func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedSpend() []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend {
+func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedSpend() []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend
+		var ret []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner
 		return ret
 	}
 
@@ -309,7 +309,7 @@ func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedSpend() []GetTransactionD
 
 // GetVShieldedSpendOk returns a tuple with the VShieldedSpend field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedSpendOk() ([]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend, bool) {
+func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedSpendOk() ([]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -317,7 +317,7 @@ func (o *ListTransactionsByBlockHashRIBSZ) GetVShieldedSpendOk() ([]GetTransacti
 }
 
 // SetVShieldedSpend sets field value
-func (o *ListTransactionsByBlockHashRIBSZ) SetVShieldedSpend(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpend) {
+func (o *ListTransactionsByBlockHashRIBSZ) SetVShieldedSpend(v []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner) {
 	o.VShieldedSpend = v
 }
 
@@ -394,9 +394,9 @@ func (o *ListTransactionsByBlockHashRIBSZ) SetVersionGroupId(v string) {
 }
 
 // GetVin returns the Vin field value
-func (o *ListTransactionsByBlockHashRIBSZ) GetVin() []ListTransactionsByBlockHashRIBSZVin {
+func (o *ListTransactionsByBlockHashRIBSZ) GetVin() []ListTransactionsByBlockHashRIBSZVinInner {
 	if o == nil {
-		var ret []ListTransactionsByBlockHashRIBSZVin
+		var ret []ListTransactionsByBlockHashRIBSZVinInner
 		return ret
 	}
 
@@ -405,7 +405,7 @@ func (o *ListTransactionsByBlockHashRIBSZ) GetVin() []ListTransactionsByBlockHas
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSZ) GetVinOk() ([]ListTransactionsByBlockHashRIBSZVin, bool) {
+func (o *ListTransactionsByBlockHashRIBSZ) GetVinOk() ([]ListTransactionsByBlockHashRIBSZVinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -413,14 +413,14 @@ func (o *ListTransactionsByBlockHashRIBSZ) GetVinOk() ([]ListTransactionsByBlock
 }
 
 // SetVin sets field value
-func (o *ListTransactionsByBlockHashRIBSZ) SetVin(v []ListTransactionsByBlockHashRIBSZVin) {
+func (o *ListTransactionsByBlockHashRIBSZ) SetVin(v []ListTransactionsByBlockHashRIBSZVinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *ListTransactionsByBlockHashRIBSZ) GetVout() []GetTransactionDetailsByTransactionIDRIBSZVout {
+func (o *ListTransactionsByBlockHashRIBSZ) GetVout() []GetTransactionDetailsByTransactionIDRIBSZVoutInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSZVout
+		var ret []GetTransactionDetailsByTransactionIDRIBSZVoutInner
 		return ret
 	}
 
@@ -429,7 +429,7 @@ func (o *ListTransactionsByBlockHashRIBSZ) GetVout() []GetTransactionDetailsByTr
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSZ) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSZVout, bool) {
+func (o *ListTransactionsByBlockHashRIBSZ) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSZVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -437,7 +437,7 @@ func (o *ListTransactionsByBlockHashRIBSZ) GetVoutOk() ([]GetTransactionDetailsB
 }
 
 // SetVout sets field value
-func (o *ListTransactionsByBlockHashRIBSZ) SetVout(v []GetTransactionDetailsByTransactionIDRIBSZVout) {
+func (o *ListTransactionsByBlockHashRIBSZ) SetVout(v []GetTransactionDetailsByTransactionIDRIBSZVoutInner) {
 	o.Vout = v
 }
 

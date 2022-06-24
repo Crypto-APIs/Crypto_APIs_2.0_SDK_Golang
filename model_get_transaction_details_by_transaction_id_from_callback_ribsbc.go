@@ -24,16 +24,16 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSBC struct {
 	// Represents transaction version number.
 	Version int32 `json:"version"`
 	// Represents the transaction inputs.
-	Vin []GetTransactionDetailsByTransactionIDRIBSBCVin `json:"vin"`
+	Vin []GetTransactionDetailsByTransactionIDRIBSBCVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []GetTransactionDetailsByTransactionIDRIBSBCVout `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDRIBSBCVoutInner `json:"vout"`
 }
 
 // NewGetTransactionDetailsByTransactionIDFromCallbackRIBSBC instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBSBC object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSBC(locktime int64, size int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSBCVin, vout []GetTransactionDetailsByTransactionIDRIBSBCVout) *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSBC(locktime int64, size int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSBCVinInner, vout []GetTransactionDetailsByTransactionIDRIBSBCVoutInner) *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRIBSBC{}
 	this.Locktime = locktime
 	this.Size = size
@@ -124,9 +124,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) SetVersion(v in
 }
 
 // GetVin returns the Vin field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVin() []GetTransactionDetailsByTransactionIDRIBSBCVin {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVin() []GetTransactionDetailsByTransactionIDRIBSBCVinInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSBCVin
+		var ret []GetTransactionDetailsByTransactionIDRIBSBCVinInner
 		return ret
 	}
 
@@ -135,7 +135,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVin() []GetT
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVinOk() ([]GetTransactionDetailsByTransactionIDRIBSBCVin, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVinOk() ([]GetTransactionDetailsByTransactionIDRIBSBCVinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -143,14 +143,14 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVinOk() ([]G
 }
 
 // SetVin sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) SetVin(v []GetTransactionDetailsByTransactionIDRIBSBCVin) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) SetVin(v []GetTransactionDetailsByTransactionIDRIBSBCVinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVout() []GetTransactionDetailsByTransactionIDRIBSBCVout {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVout() []GetTransactionDetailsByTransactionIDRIBSBCVoutInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSBCVout
+		var ret []GetTransactionDetailsByTransactionIDRIBSBCVoutInner
 		return ret
 	}
 
@@ -159,7 +159,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVout() []Get
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSBCVout, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSBCVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -167,7 +167,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVoutOk() ([]
 }
 
 // SetVout sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) SetVout(v []GetTransactionDetailsByTransactionIDRIBSBCVout) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) SetVout(v []GetTransactionDetailsByTransactionIDRIBSBCVoutInner) {
 	o.Vout = v
 }
 

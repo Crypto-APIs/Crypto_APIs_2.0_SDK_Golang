@@ -26,16 +26,16 @@ type ListTransactionsByBlockHashRIBSL struct {
 	// Represents transaction version number.
 	Version int32 `json:"version"`
 	// Represents the transaction inputs.
-	Vin []ListTransactionsByBlockHashRIBSLVin `json:"vin"`
+	Vin []ListTransactionsByBlockHashRIBSLVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []ListTransactionsByBlockHashRIBSLVout `json:"vout"`
+	Vout []ListTransactionsByBlockHashRIBSLVoutInner `json:"vout"`
 }
 
 // NewListTransactionsByBlockHashRIBSL instantiates a new ListTransactionsByBlockHashRIBSL object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListTransactionsByBlockHashRIBSL(locktime int64, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHashRIBSLVin, vout []ListTransactionsByBlockHashRIBSLVout) *ListTransactionsByBlockHashRIBSL {
+func NewListTransactionsByBlockHashRIBSL(locktime int64, size int32, vSize int32, version int32, vin []ListTransactionsByBlockHashRIBSLVinInner, vout []ListTransactionsByBlockHashRIBSLVoutInner) *ListTransactionsByBlockHashRIBSL {
 	this := ListTransactionsByBlockHashRIBSL{}
 	this.Locktime = locktime
 	this.Size = size
@@ -151,9 +151,9 @@ func (o *ListTransactionsByBlockHashRIBSL) SetVersion(v int32) {
 }
 
 // GetVin returns the Vin field value
-func (o *ListTransactionsByBlockHashRIBSL) GetVin() []ListTransactionsByBlockHashRIBSLVin {
+func (o *ListTransactionsByBlockHashRIBSL) GetVin() []ListTransactionsByBlockHashRIBSLVinInner {
 	if o == nil {
-		var ret []ListTransactionsByBlockHashRIBSLVin
+		var ret []ListTransactionsByBlockHashRIBSLVinInner
 		return ret
 	}
 
@@ -162,7 +162,7 @@ func (o *ListTransactionsByBlockHashRIBSL) GetVin() []ListTransactionsByBlockHas
 
 // GetVinOk returns a tuple with the Vin field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSL) GetVinOk() ([]ListTransactionsByBlockHashRIBSLVin, bool) {
+func (o *ListTransactionsByBlockHashRIBSL) GetVinOk() ([]ListTransactionsByBlockHashRIBSLVinInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -170,14 +170,14 @@ func (o *ListTransactionsByBlockHashRIBSL) GetVinOk() ([]ListTransactionsByBlock
 }
 
 // SetVin sets field value
-func (o *ListTransactionsByBlockHashRIBSL) SetVin(v []ListTransactionsByBlockHashRIBSLVin) {
+func (o *ListTransactionsByBlockHashRIBSL) SetVin(v []ListTransactionsByBlockHashRIBSLVinInner) {
 	o.Vin = v
 }
 
 // GetVout returns the Vout field value
-func (o *ListTransactionsByBlockHashRIBSL) GetVout() []ListTransactionsByBlockHashRIBSLVout {
+func (o *ListTransactionsByBlockHashRIBSL) GetVout() []ListTransactionsByBlockHashRIBSLVoutInner {
 	if o == nil {
-		var ret []ListTransactionsByBlockHashRIBSLVout
+		var ret []ListTransactionsByBlockHashRIBSLVoutInner
 		return ret
 	}
 
@@ -186,7 +186,7 @@ func (o *ListTransactionsByBlockHashRIBSL) GetVout() []ListTransactionsByBlockHa
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *ListTransactionsByBlockHashRIBSL) GetVoutOk() ([]ListTransactionsByBlockHashRIBSLVout, bool) {
+func (o *ListTransactionsByBlockHashRIBSL) GetVoutOk() ([]ListTransactionsByBlockHashRIBSLVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -194,7 +194,7 @@ func (o *ListTransactionsByBlockHashRIBSL) GetVoutOk() ([]ListTransactionsByBloc
 }
 
 // SetVout sets field value
-func (o *ListTransactionsByBlockHashRIBSL) SetVout(v []ListTransactionsByBlockHashRIBSLVout) {
+func (o *ListTransactionsByBlockHashRIBSL) SetVout(v []ListTransactionsByBlockHashRIBSLVoutInner) {
 	o.Vout = v
 }
 

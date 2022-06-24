@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Locktime** | **int64** | Represents the locktime on the transaction on the specific blockchain, i.e. the blockheight at which the transaction is valid. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **Version** | **int32** | Represents the transaction&#39;s version number. | 
-**Vin** | [**[]ListConfirmedTransactionsByAddressRIBSDVin**](ListConfirmedTransactionsByAddressRIBSDVin.md) | Represents the transaction inputs. | 
-**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSDVout**](GetTransactionDetailsByTransactionIDRIBSDVout.md) | Represents the transaction outputs. | 
+**Vin** | [**[]ListConfirmedTransactionsByAddressRIBSDVinInner**](ListConfirmedTransactionsByAddressRIBSDVinInner.md) | Represents the transaction inputs. | 
+**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSDVoutInner**](GetTransactionDetailsByTransactionIDRIBSDVoutInner.md) | Represents the transaction outputs. | 
 
 ## Methods
 
 ### NewListConfirmedTransactionsByAddressAndTimeRangeRIBSD
 
-`func NewListConfirmedTransactionsByAddressAndTimeRangeRIBSD(locktime int64, size int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSDVin, vout []GetTransactionDetailsByTransactionIDRIBSDVout, ) *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD`
+`func NewListConfirmedTransactionsByAddressAndTimeRangeRIBSD(locktime int64, size int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSDVinInner, vout []GetTransactionDetailsByTransactionIDRIBSDVoutInner, ) *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD`
 
 NewListConfirmedTransactionsByAddressAndTimeRangeRIBSD instantiates a new ListConfirmedTransactionsByAddressAndTimeRangeRIBSD object
 This constructor will assign default values to properties that have it defined,
@@ -91,40 +91,40 @@ SetVersion sets Version field to given value.
 
 ### GetVin
 
-`func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVin() []ListConfirmedTransactionsByAddressRIBSDVin`
+`func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVin() []ListConfirmedTransactionsByAddressRIBSDVinInner`
 
 GetVin returns the Vin field if non-nil, zero value otherwise.
 
 ### GetVinOk
 
-`func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVinOk() (*[]ListConfirmedTransactionsByAddressRIBSDVin, bool)`
+`func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVinOk() (*[]ListConfirmedTransactionsByAddressRIBSDVinInner, bool)`
 
 GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVin
 
-`func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) SetVin(v []ListConfirmedTransactionsByAddressRIBSDVin)`
+`func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) SetVin(v []ListConfirmedTransactionsByAddressRIBSDVinInner)`
 
 SetVin sets Vin field to given value.
 
 
 ### GetVout
 
-`func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVout() []GetTransactionDetailsByTransactionIDRIBSDVout`
+`func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVout() []GetTransactionDetailsByTransactionIDRIBSDVoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSDVout, bool)`
+`func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSDVoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDRIBSDVout)`
+`func (o *ListConfirmedTransactionsByAddressAndTimeRangeRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDRIBSDVoutInner)`
 
 SetVout sets Vout field to given value.
 

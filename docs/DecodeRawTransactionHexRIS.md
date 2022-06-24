@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **TransactionHash** | **string** | Represents the same as transactionId for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols hash is different from transactionId for SegWit transactions. | 
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Represents the transaction version number. | 
-**Vin** | [**[]DecodeRawTransactionHexRISZVin**](DecodeRawTransactionHexRISZVin.md) | Represents the Inputs of the transaction | 
-**Vout** | [**[]DecodeRawTransactionHexRISZVout**](DecodeRawTransactionHexRISZVout.md) | Represents the Inputs of the transaction | 
+**Vin** | [**[]DecodeRawTransactionHexRISZVinInner**](DecodeRawTransactionHexRISZVinInner.md) | Represents the Inputs of the transaction | 
+**Vout** | [**[]DecodeRawTransactionHexRISZVoutInner**](DecodeRawTransactionHexRISZVoutInner.md) | Represents the Inputs of the transaction | 
 **Weight** | Pointer to **int32** | Represents the size of a block, measured in weight units and including the segwit discount. | [optional] 
 **ApproximateFee** | Pointer to **string** | Defines the approximate fee value. When isConfirmed is True - Defines the amount of the transaction fee When isConfirmed is False - For ETH-based blockchains this attribute represents the max fee value. | [optional] 
 **ApproximateMinimumRequiredFee** | Pointer to **string** | Defines the approximate minimum fee that is required for the transaction. | [optional] 
@@ -37,7 +37,7 @@ Name | Type | Description | Notes
 
 ### NewDecodeRawTransactionHexRIS
 
-`func NewDecodeRawTransactionHexRIS(locktime int32, transactionHash string, vSize int32, version int32, vin []DecodeRawTransactionHexRISZVin, vout []DecodeRawTransactionHexRISZVout, gasLimit string, nonce int32, recipient string, sender string, type_ int32, expiryHeight int32, overwintered bool, saplinged bool, valueBalance string, versionGroupId string, ) *DecodeRawTransactionHexRIS`
+`func NewDecodeRawTransactionHexRIS(locktime int32, transactionHash string, vSize int32, version int32, vin []DecodeRawTransactionHexRISZVinInner, vout []DecodeRawTransactionHexRISZVoutInner, gasLimit string, nonce int32, recipient string, sender string, type_ int32, expiryHeight int32, overwintered bool, saplinged bool, valueBalance string, versionGroupId string, ) *DecodeRawTransactionHexRIS`
 
 NewDecodeRawTransactionHexRIS instantiates a new DecodeRawTransactionHexRIS object
 This constructor will assign default values to properties that have it defined,
@@ -134,40 +134,40 @@ SetVersion sets Version field to given value.
 
 ### GetVin
 
-`func (o *DecodeRawTransactionHexRIS) GetVin() []DecodeRawTransactionHexRISZVin`
+`func (o *DecodeRawTransactionHexRIS) GetVin() []DecodeRawTransactionHexRISZVinInner`
 
 GetVin returns the Vin field if non-nil, zero value otherwise.
 
 ### GetVinOk
 
-`func (o *DecodeRawTransactionHexRIS) GetVinOk() (*[]DecodeRawTransactionHexRISZVin, bool)`
+`func (o *DecodeRawTransactionHexRIS) GetVinOk() (*[]DecodeRawTransactionHexRISZVinInner, bool)`
 
 GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVin
 
-`func (o *DecodeRawTransactionHexRIS) SetVin(v []DecodeRawTransactionHexRISZVin)`
+`func (o *DecodeRawTransactionHexRIS) SetVin(v []DecodeRawTransactionHexRISZVinInner)`
 
 SetVin sets Vin field to given value.
 
 
 ### GetVout
 
-`func (o *DecodeRawTransactionHexRIS) GetVout() []DecodeRawTransactionHexRISZVout`
+`func (o *DecodeRawTransactionHexRIS) GetVout() []DecodeRawTransactionHexRISZVoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *DecodeRawTransactionHexRIS) GetVoutOk() (*[]DecodeRawTransactionHexRISZVout, bool)`
+`func (o *DecodeRawTransactionHexRIS) GetVoutOk() (*[]DecodeRawTransactionHexRISZVoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *DecodeRawTransactionHexRIS) SetVout(v []DecodeRawTransactionHexRISZVout)`
+`func (o *DecodeRawTransactionHexRIS) SetVout(v []DecodeRawTransactionHexRISZVoutInner)`
 
 SetVout sets Vout field to given value.
 

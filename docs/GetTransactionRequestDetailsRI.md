@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Blockchain** | **string** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
 **FeePriority** | **string** | Defines the priority for the fee, if it is \&quot;slow\&quot;, \&quot;standard\&quot; or \&quot;fast\&quot;. | 
 **Network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
-**Recipients** | [**[]GetTransactionRequestDetailsRIRecipients**](GetTransactionRequestDetailsRIRecipients.md) | Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
+**Recipients** | [**[]GetTransactionRequestDetailsRIRecipientsInner**](GetTransactionRequestDetailsRIRecipientsInner.md) | Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
 **TotalTransactionAmount** | **string** | Defines the total transaction amount. | 
 **TransactionId** | Pointer to **string** | Represents the unique identifier of a transaction, i.e. it could be transactionId in UTXO-based protocols like Bitcoin, and transaction hash in Ethereum blockchain. | [optional] 
 **TransactionRequestStatus** | **string** | Defines the status of the transaction request, e.g. pending. | 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewGetTransactionRequestDetailsRI
 
-`func NewGetTransactionRequestDetailsRI(additionalDetails string, blockchain string, feePriority string, network string, recipients []GetTransactionRequestDetailsRIRecipients, totalTransactionAmount string, transactionRequestStatus string, transactionType string, unit string, walletId string, ) *GetTransactionRequestDetailsRI`
+`func NewGetTransactionRequestDetailsRI(additionalDetails string, blockchain string, feePriority string, network string, recipients []GetTransactionRequestDetailsRIRecipientsInner, totalTransactionAmount string, transactionRequestStatus string, transactionType string, unit string, walletId string, ) *GetTransactionRequestDetailsRI`
 
 NewGetTransactionRequestDetailsRI instantiates a new GetTransactionRequestDetailsRI object
 This constructor will assign default values to properties that have it defined,
@@ -117,20 +117,20 @@ SetNetwork sets Network field to given value.
 
 ### GetRecipients
 
-`func (o *GetTransactionRequestDetailsRI) GetRecipients() []GetTransactionRequestDetailsRIRecipients`
+`func (o *GetTransactionRequestDetailsRI) GetRecipients() []GetTransactionRequestDetailsRIRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *GetTransactionRequestDetailsRI) GetRecipientsOk() (*[]GetTransactionRequestDetailsRIRecipients, bool)`
+`func (o *GetTransactionRequestDetailsRI) GetRecipientsOk() (*[]GetTransactionRequestDetailsRIRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *GetTransactionRequestDetailsRI) SetRecipients(v []GetTransactionRequestDetailsRIRecipients)`
+`func (o *GetTransactionRequestDetailsRI) SetRecipients(v []GetTransactionRequestDetailsRIRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 

@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **MinedInBlockHash** | **string** | Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
 **MinedInBlockHeight** | **int32** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
 **PropertyId** | **int32** | Represents the identifier of the tokens to send. | 
-**Recipients** | [**[]ListOmniTransactionsByAddressRIRecipients**](ListOmniTransactionsByAddressRIRecipients.md) | Represents an object of addresses that receive the transactions. | 
-**Senders** | [**[]GetOmniTransactionDetailsByTransactionIDTxidRISenders**](GetOmniTransactionDetailsByTransactionIDTxidRISenders.md) | Represents an object of addresses that provide the funds. | 
+**Recipients** | [**[]ListOmniTransactionsByAddressRIRecipientsInner**](ListOmniTransactionsByAddressRIRecipientsInner.md) | Represents an object of addresses that receive the transactions. | 
+**Senders** | [**[]GetOmniTransactionDetailsByTransactionIDTxidRISendersInner**](GetOmniTransactionDetailsByTransactionIDTxidRISendersInner.md) | Represents an object of addresses that provide the funds. | 
 **Timestamp** | **int32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
 **TransactionId** | **string** | Represents the unique identifier of a transaction, i.e. it could be &#x60;transactionId&#x60; in UTXO-based protocols like Bitcoin, and transaction &#x60;hash&#x60; in Ethereum blockchain. | 
 **Type** | **string** | Defines the type of the transaction as a string. | 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewGetOmniTransactionDetailsByTransactionIDTxidRI
 
-`func NewGetOmniTransactionDetailsByTransactionIDTxidRI(amount string, divisible bool, minedInBlockHash string, minedInBlockHeight int32, propertyId int32, recipients []ListOmniTransactionsByAddressRIRecipients, senders []GetOmniTransactionDetailsByTransactionIDTxidRISenders, timestamp int32, transactionId string, type_ string, typeInt int32, valid bool, version int32, fee ListUnconfirmedOmniTransactionsByAddressRIFee, ) *GetOmniTransactionDetailsByTransactionIDTxidRI`
+`func NewGetOmniTransactionDetailsByTransactionIDTxidRI(amount string, divisible bool, minedInBlockHash string, minedInBlockHeight int32, propertyId int32, recipients []ListOmniTransactionsByAddressRIRecipientsInner, senders []GetOmniTransactionDetailsByTransactionIDTxidRISendersInner, timestamp int32, transactionId string, type_ string, typeInt int32, valid bool, version int32, fee ListUnconfirmedOmniTransactionsByAddressRIFee, ) *GetOmniTransactionDetailsByTransactionIDTxidRI`
 
 NewGetOmniTransactionDetailsByTransactionIDTxidRI instantiates a new GetOmniTransactionDetailsByTransactionIDTxidRI object
 This constructor will assign default values to properties that have it defined,
@@ -140,40 +140,40 @@ SetPropertyId sets PropertyId field to given value.
 
 ### GetRecipients
 
-`func (o *GetOmniTransactionDetailsByTransactionIDTxidRI) GetRecipients() []ListOmniTransactionsByAddressRIRecipients`
+`func (o *GetOmniTransactionDetailsByTransactionIDTxidRI) GetRecipients() []ListOmniTransactionsByAddressRIRecipientsInner`
 
 GetRecipients returns the Recipients field if non-nil, zero value otherwise.
 
 ### GetRecipientsOk
 
-`func (o *GetOmniTransactionDetailsByTransactionIDTxidRI) GetRecipientsOk() (*[]ListOmniTransactionsByAddressRIRecipients, bool)`
+`func (o *GetOmniTransactionDetailsByTransactionIDTxidRI) GetRecipientsOk() (*[]ListOmniTransactionsByAddressRIRecipientsInner, bool)`
 
 GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRecipients
 
-`func (o *GetOmniTransactionDetailsByTransactionIDTxidRI) SetRecipients(v []ListOmniTransactionsByAddressRIRecipients)`
+`func (o *GetOmniTransactionDetailsByTransactionIDTxidRI) SetRecipients(v []ListOmniTransactionsByAddressRIRecipientsInner)`
 
 SetRecipients sets Recipients field to given value.
 
 
 ### GetSenders
 
-`func (o *GetOmniTransactionDetailsByTransactionIDTxidRI) GetSenders() []GetOmniTransactionDetailsByTransactionIDTxidRISenders`
+`func (o *GetOmniTransactionDetailsByTransactionIDTxidRI) GetSenders() []GetOmniTransactionDetailsByTransactionIDTxidRISendersInner`
 
 GetSenders returns the Senders field if non-nil, zero value otherwise.
 
 ### GetSendersOk
 
-`func (o *GetOmniTransactionDetailsByTransactionIDTxidRI) GetSendersOk() (*[]GetOmniTransactionDetailsByTransactionIDTxidRISenders, bool)`
+`func (o *GetOmniTransactionDetailsByTransactionIDTxidRI) GetSendersOk() (*[]GetOmniTransactionDetailsByTransactionIDTxidRISendersInner, bool)`
 
 GetSendersOk returns a tuple with the Senders field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSenders
 
-`func (o *GetOmniTransactionDetailsByTransactionIDTxidRI) SetSenders(v []GetOmniTransactionDetailsByTransactionIDTxidRISenders)`
+`func (o *GetOmniTransactionDetailsByTransactionIDTxidRI) SetSenders(v []GetOmniTransactionDetailsByTransactionIDTxidRISendersInner)`
 
 SetSenders sets Senders field to given value.
 

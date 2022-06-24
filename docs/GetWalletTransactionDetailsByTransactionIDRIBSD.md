@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Locktime** | **int64** | Represents the time at which a particular transaction can be added to the blockchain. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **Version** | **int32** | Represents the transaction version number. | 
-**Vin** | [**[]GetWalletTransactionDetailsByTransactionIDRIBSDVin**](GetWalletTransactionDetailsByTransactionIDRIBSDVin.md) | Object Array representation of transaction inputs | 
-**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSDVout**](GetTransactionDetailsByTransactionIDRIBSDVout.md) | Object Array representation of transaction outputs | 
+**Vin** | [**[]GetWalletTransactionDetailsByTransactionIDRIBSDVinInner**](GetWalletTransactionDetailsByTransactionIDRIBSDVinInner.md) | Object Array representation of transaction inputs | 
+**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSDVoutInner**](GetTransactionDetailsByTransactionIDRIBSDVoutInner.md) | Object Array representation of transaction outputs | 
 
 ## Methods
 
 ### NewGetWalletTransactionDetailsByTransactionIDRIBSD
 
-`func NewGetWalletTransactionDetailsByTransactionIDRIBSD(locktime int64, size int32, version int32, vin []GetWalletTransactionDetailsByTransactionIDRIBSDVin, vout []GetTransactionDetailsByTransactionIDRIBSDVout, ) *GetWalletTransactionDetailsByTransactionIDRIBSD`
+`func NewGetWalletTransactionDetailsByTransactionIDRIBSD(locktime int64, size int32, version int32, vin []GetWalletTransactionDetailsByTransactionIDRIBSDVinInner, vout []GetTransactionDetailsByTransactionIDRIBSDVoutInner, ) *GetWalletTransactionDetailsByTransactionIDRIBSD`
 
 NewGetWalletTransactionDetailsByTransactionIDRIBSD instantiates a new GetWalletTransactionDetailsByTransactionIDRIBSD object
 This constructor will assign default values to properties that have it defined,
@@ -91,40 +91,40 @@ SetVersion sets Version field to given value.
 
 ### GetVin
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRIBSD) GetVin() []GetWalletTransactionDetailsByTransactionIDRIBSDVin`
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBSD) GetVin() []GetWalletTransactionDetailsByTransactionIDRIBSDVinInner`
 
 GetVin returns the Vin field if non-nil, zero value otherwise.
 
 ### GetVinOk
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRIBSD) GetVinOk() (*[]GetWalletTransactionDetailsByTransactionIDRIBSDVin, bool)`
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBSD) GetVinOk() (*[]GetWalletTransactionDetailsByTransactionIDRIBSDVinInner, bool)`
 
 GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVin
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRIBSD) SetVin(v []GetWalletTransactionDetailsByTransactionIDRIBSDVin)`
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBSD) SetVin(v []GetWalletTransactionDetailsByTransactionIDRIBSDVinInner)`
 
 SetVin sets Vin field to given value.
 
 
 ### GetVout
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRIBSD) GetVout() []GetTransactionDetailsByTransactionIDRIBSDVout`
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBSD) GetVout() []GetTransactionDetailsByTransactionIDRIBSDVoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRIBSD) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSDVout, bool)`
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBSD) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSDVoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDRIBSDVout)`
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDRIBSDVoutInner)`
 
 SetVout sets Vout field to given value.
 

@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Locktime** | **int64** | Represents the time at which a particular transaction can be added to the blockchain. | 
 **Size** | **int32** | Represents the total size of this transaction. | 
 **Version** | **int32** | Represents transaction version number. | 
-**Vin** | [**[]ListTransactionsByBlockHashRIBSD2Vin**](ListTransactionsByBlockHashRIBSD2Vin.md) | Represents the transaction inputs. | 
-**Vout** | [**[]ListTransactionsByBlockHashRIBSD2Vout**](ListTransactionsByBlockHashRIBSD2Vout.md) | Represents the transaction outputs. | 
+**Vin** | [**[]ListTransactionsByBlockHashRIBSD2VinInner**](ListTransactionsByBlockHashRIBSD2VinInner.md) | Represents the transaction inputs. | 
+**Vout** | [**[]ListTransactionsByBlockHashRIBSD2VoutInner**](ListTransactionsByBlockHashRIBSD2VoutInner.md) | Represents the transaction outputs. | 
 
 ## Methods
 
 ### NewListTransactionsByBlockHashRIBSD2
 
-`func NewListTransactionsByBlockHashRIBSD2(locktime int64, size int32, version int32, vin []ListTransactionsByBlockHashRIBSD2Vin, vout []ListTransactionsByBlockHashRIBSD2Vout, ) *ListTransactionsByBlockHashRIBSD2`
+`func NewListTransactionsByBlockHashRIBSD2(locktime int64, size int32, version int32, vin []ListTransactionsByBlockHashRIBSD2VinInner, vout []ListTransactionsByBlockHashRIBSD2VoutInner, ) *ListTransactionsByBlockHashRIBSD2`
 
 NewListTransactionsByBlockHashRIBSD2 instantiates a new ListTransactionsByBlockHashRIBSD2 object
 This constructor will assign default values to properties that have it defined,
@@ -91,40 +91,40 @@ SetVersion sets Version field to given value.
 
 ### GetVin
 
-`func (o *ListTransactionsByBlockHashRIBSD2) GetVin() []ListTransactionsByBlockHashRIBSD2Vin`
+`func (o *ListTransactionsByBlockHashRIBSD2) GetVin() []ListTransactionsByBlockHashRIBSD2VinInner`
 
 GetVin returns the Vin field if non-nil, zero value otherwise.
 
 ### GetVinOk
 
-`func (o *ListTransactionsByBlockHashRIBSD2) GetVinOk() (*[]ListTransactionsByBlockHashRIBSD2Vin, bool)`
+`func (o *ListTransactionsByBlockHashRIBSD2) GetVinOk() (*[]ListTransactionsByBlockHashRIBSD2VinInner, bool)`
 
 GetVinOk returns a tuple with the Vin field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVin
 
-`func (o *ListTransactionsByBlockHashRIBSD2) SetVin(v []ListTransactionsByBlockHashRIBSD2Vin)`
+`func (o *ListTransactionsByBlockHashRIBSD2) SetVin(v []ListTransactionsByBlockHashRIBSD2VinInner)`
 
 SetVin sets Vin field to given value.
 
 
 ### GetVout
 
-`func (o *ListTransactionsByBlockHashRIBSD2) GetVout() []ListTransactionsByBlockHashRIBSD2Vout`
+`func (o *ListTransactionsByBlockHashRIBSD2) GetVout() []ListTransactionsByBlockHashRIBSD2VoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *ListTransactionsByBlockHashRIBSD2) GetVoutOk() (*[]ListTransactionsByBlockHashRIBSD2Vout, bool)`
+`func (o *ListTransactionsByBlockHashRIBSD2) GetVoutOk() (*[]ListTransactionsByBlockHashRIBSD2VoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *ListTransactionsByBlockHashRIBSD2) SetVout(v []ListTransactionsByBlockHashRIBSD2Vout)`
+`func (o *ListTransactionsByBlockHashRIBSD2) SetVout(v []ListTransactionsByBlockHashRIBSD2VoutInner)`
 
 SetVout sets Vout field to given value.
 
