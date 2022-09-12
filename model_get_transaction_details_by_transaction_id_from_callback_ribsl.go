@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -28,14 +28,14 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSL struct {
 	// Represents the transaction inputs.
 	Vin []GetTransactionDetailsByTransactionIDRIBSLVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []GetTransactionDetailsByTransactionIDRIBSLVoutInner `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDFromCallbackRIBSLVoutInner `json:"vout"`
 }
 
 // NewGetTransactionDetailsByTransactionIDFromCallbackRIBSL instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBSL object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSL(locktime int64, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSLVinInner, vout []GetTransactionDetailsByTransactionIDRIBSLVoutInner) *GetTransactionDetailsByTransactionIDFromCallbackRIBSL {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSL(locktime int64, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSLVinInner, vout []GetTransactionDetailsByTransactionIDFromCallbackRIBSLVoutInner) *GetTransactionDetailsByTransactionIDFromCallbackRIBSL {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRIBSL{}
 	this.Locktime = locktime
 	this.Size = size
@@ -175,9 +175,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) SetVin(v []GetTr
 }
 
 // GetVout returns the Vout field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) GetVout() []GetTransactionDetailsByTransactionIDRIBSLVoutInner {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) GetVout() []GetTransactionDetailsByTransactionIDFromCallbackRIBSLVoutInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSLVoutInner
+		var ret []GetTransactionDetailsByTransactionIDFromCallbackRIBSLVoutInner
 		return ret
 	}
 
@@ -186,7 +186,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) GetVout() []GetT
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSLVoutInner, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) GetVoutOk() ([]GetTransactionDetailsByTransactionIDFromCallbackRIBSLVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -194,7 +194,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) GetVoutOk() ([]G
 }
 
 // SetVout sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) SetVout(v []GetTransactionDetailsByTransactionIDRIBSLVoutInner) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) SetVout(v []GetTransactionDetailsByTransactionIDFromCallbackRIBSLVoutInner) {
 	o.Vout = v
 }
 

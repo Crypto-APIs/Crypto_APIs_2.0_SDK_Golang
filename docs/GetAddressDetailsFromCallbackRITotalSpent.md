@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Amount** | Pointer to **string** | Defines the total amount of all spent by this address coins, based on confirmed transactions. | [optional] 
-**Unit** | Pointer to **string** | Represents the unit of the total spent amount. | [optional] 
+**Amount** | **string** | Defines the total amount of all spent by this address coins, based on confirmed transactions. | 
+**Unit** | **string** | Represents the unit of the total spent amount. | 
 
 ## Methods
 
 ### NewGetAddressDetailsFromCallbackRITotalSpent
 
-`func NewGetAddressDetailsFromCallbackRITotalSpent() *GetAddressDetailsFromCallbackRITotalSpent`
+`func NewGetAddressDetailsFromCallbackRITotalSpent(amount string, unit string, ) *GetAddressDetailsFromCallbackRITotalSpent`
 
 NewGetAddressDetailsFromCallbackRITotalSpent instantiates a new GetAddressDetailsFromCallbackRITotalSpent object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetAmount sets Amount field to given value.
 
-### HasAmount
-
-`func (o *GetAddressDetailsFromCallbackRITotalSpent) HasAmount() bool`
-
-HasAmount returns a boolean if a field has been set.
 
 ### GetUnit
 
@@ -70,11 +65,6 @@ and a boolean to check if the value has been set.
 
 SetUnit sets Unit field to given value.
 
-### HasUnit
-
-`func (o *GetAddressDetailsFromCallbackRITotalSpent) HasUnit() bool`
-
-HasUnit returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

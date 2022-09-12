@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -27,6 +27,7 @@ type GetBlockDetailsByBlockHashRIBS struct {
 	GetBlockDetailsByBlockHashRIBSEC *GetBlockDetailsByBlockHashRIBSEC
 	GetBlockDetailsByBlockHashRIBSL *GetBlockDetailsByBlockHashRIBSL
 	GetBlockDetailsByBlockHashRIBSZ *GetBlockDetailsByBlockHashRIBSZ
+	GetBlockDetailsByBlockHashRIBSZ2 *GetBlockDetailsByBlockHashRIBSZ2
 }
 
 // GetBlockDetailsByBlockHashRIBSBAsGetBlockDetailsByBlockHashRIBS is a convenience function that returns GetBlockDetailsByBlockHashRIBSB wrapped in GetBlockDetailsByBlockHashRIBS
@@ -89,6 +90,13 @@ func GetBlockDetailsByBlockHashRIBSLAsGetBlockDetailsByBlockHashRIBS(v *GetBlock
 func GetBlockDetailsByBlockHashRIBSZAsGetBlockDetailsByBlockHashRIBS(v *GetBlockDetailsByBlockHashRIBSZ) GetBlockDetailsByBlockHashRIBS {
 	return GetBlockDetailsByBlockHashRIBS{
 		GetBlockDetailsByBlockHashRIBSZ: v,
+	}
+}
+
+// GetBlockDetailsByBlockHashRIBSZ2AsGetBlockDetailsByBlockHashRIBS is a convenience function that returns GetBlockDetailsByBlockHashRIBSZ2 wrapped in GetBlockDetailsByBlockHashRIBS
+func GetBlockDetailsByBlockHashRIBSZ2AsGetBlockDetailsByBlockHashRIBS(v *GetBlockDetailsByBlockHashRIBSZ2) GetBlockDetailsByBlockHashRIBS {
+	return GetBlockDetailsByBlockHashRIBS{
+		GetBlockDetailsByBlockHashRIBSZ2: v,
 	}
 }
 
@@ -214,6 +222,19 @@ func (dst *GetBlockDetailsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 		dst.GetBlockDetailsByBlockHashRIBSZ = nil
 	}
 
+	// try to unmarshal data into GetBlockDetailsByBlockHashRIBSZ2
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHashRIBSZ2)
+	if err == nil {
+		jsonGetBlockDetailsByBlockHashRIBSZ2, _ := json.Marshal(dst.GetBlockDetailsByBlockHashRIBSZ2)
+		if string(jsonGetBlockDetailsByBlockHashRIBSZ2) == "{}" { // empty struct
+			dst.GetBlockDetailsByBlockHashRIBSZ2 = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.GetBlockDetailsByBlockHashRIBSZ2 = nil
+	}
+
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.GetBlockDetailsByBlockHashRIBSB = nil
@@ -225,6 +246,7 @@ func (dst *GetBlockDetailsByBlockHashRIBS) UnmarshalJSON(data []byte) error {
 		dst.GetBlockDetailsByBlockHashRIBSEC = nil
 		dst.GetBlockDetailsByBlockHashRIBSL = nil
 		dst.GetBlockDetailsByBlockHashRIBSZ = nil
+		dst.GetBlockDetailsByBlockHashRIBSZ2 = nil
 
 		return fmt.Errorf("Data matches more than one schema in oneOf(GetBlockDetailsByBlockHashRIBS)")
 	} else if match == 1 {
@@ -272,6 +294,10 @@ func (src GetBlockDetailsByBlockHashRIBS) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.GetBlockDetailsByBlockHashRIBSZ)
 	}
 
+	if src.GetBlockDetailsByBlockHashRIBSZ2 != nil {
+		return json.Marshal(&src.GetBlockDetailsByBlockHashRIBSZ2)
+	}
+
 	return nil, nil // no data in oneOf schemas
 }
 
@@ -314,6 +340,10 @@ func (obj *GetBlockDetailsByBlockHashRIBS) GetActualInstance() (interface{}) {
 
 	if obj.GetBlockDetailsByBlockHashRIBSZ != nil {
 		return obj.GetBlockDetailsByBlockHashRIBSZ
+	}
+
+	if obj.GetBlockDetailsByBlockHashRIBSZ2 != nil {
+		return obj.GetBlockDetailsByBlockHashRIBSZ2
 	}
 
 	// all schemas are nil

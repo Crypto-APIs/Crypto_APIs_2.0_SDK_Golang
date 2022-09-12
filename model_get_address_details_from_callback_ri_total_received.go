@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -18,17 +18,19 @@ import (
 // GetAddressDetailsFromCallbackRITotalReceived struct for GetAddressDetailsFromCallbackRITotalReceived
 type GetAddressDetailsFromCallbackRITotalReceived struct {
 	// Defines the total amount of all coins received to the address, based on confirmed transactions.
-	Amount *string `json:"amount,omitempty"`
+	Amount string `json:"amount"`
 	// Represents the unit of the total received amount.
-	Unit *string `json:"unit,omitempty"`
+	Unit string `json:"unit"`
 }
 
 // NewGetAddressDetailsFromCallbackRITotalReceived instantiates a new GetAddressDetailsFromCallbackRITotalReceived object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetAddressDetailsFromCallbackRITotalReceived() *GetAddressDetailsFromCallbackRITotalReceived {
+func NewGetAddressDetailsFromCallbackRITotalReceived(amount string, unit string) *GetAddressDetailsFromCallbackRITotalReceived {
 	this := GetAddressDetailsFromCallbackRITotalReceived{}
+	this.Amount = amount
+	this.Unit = unit
 	return &this
 }
 
@@ -40,76 +42,60 @@ func NewGetAddressDetailsFromCallbackRITotalReceivedWithDefaults() *GetAddressDe
 	return &this
 }
 
-// GetAmount returns the Amount field value if set, zero value otherwise.
+// GetAmount returns the Amount field value
 func (o *GetAddressDetailsFromCallbackRITotalReceived) GetAmount() string {
-	if o == nil || o.Amount == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Amount
+
+	return o.Amount
 }
 
-// GetAmountOk returns a tuple with the Amount field value if set, nil otherwise
+// GetAmountOk returns a tuple with the Amount field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsFromCallbackRITotalReceived) GetAmountOk() (*string, bool) {
-	if o == nil || o.Amount == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Amount, true
+	return &o.Amount, true
 }
 
-// HasAmount returns a boolean if a field has been set.
-func (o *GetAddressDetailsFromCallbackRITotalReceived) HasAmount() bool {
-	if o != nil && o.Amount != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetAmount gets a reference to the given string and assigns it to the Amount field.
+// SetAmount sets field value
 func (o *GetAddressDetailsFromCallbackRITotalReceived) SetAmount(v string) {
-	o.Amount = &v
+	o.Amount = v
 }
 
-// GetUnit returns the Unit field value if set, zero value otherwise.
+// GetUnit returns the Unit field value
 func (o *GetAddressDetailsFromCallbackRITotalReceived) GetUnit() string {
-	if o == nil || o.Unit == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.Unit
+
+	return o.Unit
 }
 
-// GetUnitOk returns a tuple with the Unit field value if set, nil otherwise
+// GetUnitOk returns a tuple with the Unit field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsFromCallbackRITotalReceived) GetUnitOk() (*string, bool) {
-	if o == nil || o.Unit == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Unit, true
+	return &o.Unit, true
 }
 
-// HasUnit returns a boolean if a field has been set.
-func (o *GetAddressDetailsFromCallbackRITotalReceived) HasUnit() bool {
-	if o != nil && o.Unit != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetUnit gets a reference to the given string and assigns it to the Unit field.
+// SetUnit sets field value
 func (o *GetAddressDetailsFromCallbackRITotalReceived) SetUnit(v string) {
-	o.Unit = &v
+	o.Unit = v
 }
 
 func (o GetAddressDetailsFromCallbackRITotalReceived) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Amount != nil {
+	if true {
 		toSerialize["amount"] = o.Amount
 	}
-	if o.Unit != nil {
+	if true {
 		toSerialize["unit"] = o.Unit
 	}
 	return json.Marshal(toSerialize)

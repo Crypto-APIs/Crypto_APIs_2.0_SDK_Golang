@@ -9,14 +9,16 @@ Name | Type | Description | Notes
 **GasPrice** | [**ListConfirmedTransactionsByAddressRIBSECGasPrice**](ListConfirmedTransactionsByAddressRIBSECGasPrice.md) |  | 
 **GasUsed** | **string** | Represents the exact unit of gas that was used for the transaction. | 
 **InputData** | **string** | Represents additional information that is required for the transaction. | 
+**InternalTransactionsCount** | **int32** | Represents the total internal transactions count. | 
 **Nonce** | **int32** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender&#39;s address. | 
+**TokenTransfersCount** | **int32** | Represents the total token transfers count. | 
 **TransactionStatus** | **string** | String representation of the transaction status | 
 
 ## Methods
 
 ### NewListConfirmedTransactionsByAddressRIBSEC
 
-`func NewListConfirmedTransactionsByAddressRIBSEC(contract string, gasLimit string, gasPrice ListConfirmedTransactionsByAddressRIBSECGasPrice, gasUsed string, inputData string, nonce int32, transactionStatus string, ) *ListConfirmedTransactionsByAddressRIBSEC`
+`func NewListConfirmedTransactionsByAddressRIBSEC(contract string, gasLimit string, gasPrice ListConfirmedTransactionsByAddressRIBSECGasPrice, gasUsed string, inputData string, internalTransactionsCount int32, nonce int32, tokenTransfersCount int32, transactionStatus string, ) *ListConfirmedTransactionsByAddressRIBSEC`
 
 NewListConfirmedTransactionsByAddressRIBSEC instantiates a new ListConfirmedTransactionsByAddressRIBSEC object
 This constructor will assign default values to properties that have it defined,
@@ -131,6 +133,26 @@ and a boolean to check if the value has been set.
 SetInputData sets InputData field to given value.
 
 
+### GetInternalTransactionsCount
+
+`func (o *ListConfirmedTransactionsByAddressRIBSEC) GetInternalTransactionsCount() int32`
+
+GetInternalTransactionsCount returns the InternalTransactionsCount field if non-nil, zero value otherwise.
+
+### GetInternalTransactionsCountOk
+
+`func (o *ListConfirmedTransactionsByAddressRIBSEC) GetInternalTransactionsCountOk() (*int32, bool)`
+
+GetInternalTransactionsCountOk returns a tuple with the InternalTransactionsCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInternalTransactionsCount
+
+`func (o *ListConfirmedTransactionsByAddressRIBSEC) SetInternalTransactionsCount(v int32)`
+
+SetInternalTransactionsCount sets InternalTransactionsCount field to given value.
+
+
 ### GetNonce
 
 `func (o *ListConfirmedTransactionsByAddressRIBSEC) GetNonce() int32`
@@ -149,6 +171,26 @@ and a boolean to check if the value has been set.
 `func (o *ListConfirmedTransactionsByAddressRIBSEC) SetNonce(v int32)`
 
 SetNonce sets Nonce field to given value.
+
+
+### GetTokenTransfersCount
+
+`func (o *ListConfirmedTransactionsByAddressRIBSEC) GetTokenTransfersCount() int32`
+
+GetTokenTransfersCount returns the TokenTransfersCount field if non-nil, zero value otherwise.
+
+### GetTokenTransfersCountOk
+
+`func (o *ListConfirmedTransactionsByAddressRIBSEC) GetTokenTransfersCountOk() (*int32, bool)`
+
+GetTokenTransfersCountOk returns a tuple with the TokenTransfersCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTokenTransfersCount
+
+`func (o *ListConfirmedTransactionsByAddressRIBSEC) SetTokenTransfersCount(v int32)`
+
+SetTokenTransfersCount sets TokenTransfersCount field to given value.
 
 
 ### GetTransactionStatus

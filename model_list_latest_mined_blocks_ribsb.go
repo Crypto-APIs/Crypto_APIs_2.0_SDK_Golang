@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -26,7 +26,7 @@ type ListLatestMinedBlocksRIBSB struct {
 	// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
 	MerkleRoot string `json:"merkleRoot"`
 	// Represents a random value that can be adjusted to satisfy the proof of work
-	Nonce *int32 `json:"nonce,omitempty"`
+	Nonce *int64 `json:"nonce,omitempty"`
 	// Represents the block size
 	Size *int32 `json:"size,omitempty"`
 	// Defines the numeric representation of the block size excluding the witness data.
@@ -168,9 +168,9 @@ func (o *ListLatestMinedBlocksRIBSB) SetMerkleRoot(v string) {
 }
 
 // GetNonce returns the Nonce field value if set, zero value otherwise.
-func (o *ListLatestMinedBlocksRIBSB) GetNonce() int32 {
+func (o *ListLatestMinedBlocksRIBSB) GetNonce() int64 {
 	if o == nil || o.Nonce == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 	return *o.Nonce
@@ -178,7 +178,7 @@ func (o *ListLatestMinedBlocksRIBSB) GetNonce() int32 {
 
 // GetNonceOk returns a tuple with the Nonce field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ListLatestMinedBlocksRIBSB) GetNonceOk() (*int32, bool) {
+func (o *ListLatestMinedBlocksRIBSB) GetNonceOk() (*int64, bool) {
 	if o == nil || o.Nonce == nil {
 		return nil, false
 	}
@@ -194,8 +194,8 @@ func (o *ListLatestMinedBlocksRIBSB) HasNonce() bool {
 	return false
 }
 
-// SetNonce gets a reference to the given int32 and assigns it to the Nonce field.
-func (o *ListLatestMinedBlocksRIBSB) SetNonce(v int32) {
+// SetNonce gets a reference to the given int64 and assigns it to the Nonce field.
+func (o *ListLatestMinedBlocksRIBSB) SetNonce(v int64) {
 	o.Nonce = &v
 }
 

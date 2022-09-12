@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -26,14 +26,14 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSD struct {
 	// Represents the transaction inputs.
 	Vin []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []GetTransactionDetailsByTransactionIDRIBSD2VoutInner `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVoutInner `json:"vout"`
 }
 
 // NewGetTransactionDetailsByTransactionIDFromCallbackRIBSD instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBSD object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSD(locktime int64, size int32, version int32, vin []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVinInner, vout []GetTransactionDetailsByTransactionIDRIBSD2VoutInner) *GetTransactionDetailsByTransactionIDFromCallbackRIBSD {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSD(locktime int64, size int32, version int32, vin []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVinInner, vout []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVoutInner) *GetTransactionDetailsByTransactionIDFromCallbackRIBSD {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRIBSD{}
 	this.Locktime = locktime
 	this.Size = size
@@ -148,9 +148,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) SetVin(v []GetTr
 }
 
 // GetVout returns the Vout field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVout() []GetTransactionDetailsByTransactionIDRIBSD2VoutInner {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVout() []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVoutInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSD2VoutInner
+		var ret []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVoutInner
 		return ret
 	}
 
@@ -159,7 +159,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVout() []GetT
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSD2VoutInner, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVoutOk() ([]GetTransactionDetailsByTransactionIDFromCallbackRIBSDVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -167,7 +167,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) GetVoutOk() ([]G
 }
 
 // SetVout sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDRIBSD2VoutInner) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD) SetVout(v []GetTransactionDetailsByTransactionIDFromCallbackRIBSDVoutInner) {
 	o.Vout = v
 }
 

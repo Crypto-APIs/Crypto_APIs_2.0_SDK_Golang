@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -177,7 +177,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -207,7 +207,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -217,7 +217,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -227,7 +227,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -237,7 +237,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionFromAddressForWholeAmount
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -413,7 +413,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -443,7 +443,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -453,7 +453,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -463,7 +463,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -473,7 +473,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -647,7 +647,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -677,7 +677,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -687,7 +687,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -697,7 +697,7 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -707,7 +707,243 @@ func (a *TransactionsApiService) CreateCoinsTransactionRequestFromWalletExecute(
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRequest struct {
+	ctx context.Context
+	ApiService *TransactionsApiService
+	blockchain string
+	network string
+	senderAddress string
+	walletId string
+	context *string
+	createFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRB *CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRB
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiCreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRequest) Context(context string) ApiCreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRequest {
+	r.context = &context
+	return r
+}
+
+func (r ApiCreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRequest) CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRB(createFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRB CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRB) ApiCreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRequest {
+	r.createFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRB = &createFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRB
+	return r
+}
+
+func (r ApiCreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRequest) Execute() (*CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityR, *http.Response, error) {
+	return r.ApiService.CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityExecute(r)
+}
+
+/*
+CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriority Create Fungible Token Transaction Request From Address Without Fee Priority
+
+Through this endpoint customers can make a single feeless token transaction on the Tron blockchain protocol. TRX transactions burn certain resources called Bandwidth and Energy. Each account has 1500 bandwidth free for use every 24 hours and more can be obtained by staking TRX. The unit price of Energy is 280 SUN and of bandwidth - 1000 SUN. If the resources are insufficient, TRX will be burned to pay for them.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+ @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+ @param senderAddress Defines the specific source address for the transaction.
+ @param walletId Defines the unique ID of the Wallet.
+ @return ApiCreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRequest
+*/
+func (a *TransactionsApiService) CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriority(ctx context.Context, blockchain string, network string, senderAddress string, walletId string) ApiCreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRequest {
+	return ApiCreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRequest{
+		ApiService: a,
+		ctx: ctx,
+		blockchain: blockchain,
+		network: network,
+		senderAddress: senderAddress,
+		walletId: walletId,
+	}
+}
+
+// Execute executes the request
+//  @return CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityR
+func (a *TransactionsApiService) CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityExecute(r ApiCreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRequest) (*CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriorityR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TransactionsApiService.CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriority")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{senderAddress}/feeless-token-transaction-requests"
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"senderAddress"+"}", url.PathEscape(parameterToString(r.senderAddress, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", url.PathEscape(parameterToString(r.walletId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.createFungibleTokenTransactionRequestFromAddressWithoutFeePriorityRB
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriority400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriority401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v ConvertBitcoinCashAddress402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriority403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v CreateFungibleTokenTransactionRequestFromAddressWithoutFeePriority409Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ConvertBitcoinCashAddress415Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ConvertBitcoinCashAddress422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ConvertBitcoinCashAddress429Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -887,7 +1123,7 @@ func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -917,7 +1153,7 @@ func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -927,7 +1163,7 @@ func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -937,7 +1173,7 @@ func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -947,7 +1183,243 @@ func (a *TransactionsApiService) CreateFungibleTokensTransactionRequestFromAddre
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiCreateSingleTransactionRequestFromAddressWithoutFeePriorityRequest struct {
+	ctx context.Context
+	ApiService *TransactionsApiService
+	address string
+	blockchain string
+	network string
+	walletId string
+	context *string
+	createSingleTransactionRequestFromAddressWithoutFeePriorityRB *CreateSingleTransactionRequestFromAddressWithoutFeePriorityRB
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiCreateSingleTransactionRequestFromAddressWithoutFeePriorityRequest) Context(context string) ApiCreateSingleTransactionRequestFromAddressWithoutFeePriorityRequest {
+	r.context = &context
+	return r
+}
+
+func (r ApiCreateSingleTransactionRequestFromAddressWithoutFeePriorityRequest) CreateSingleTransactionRequestFromAddressWithoutFeePriorityRB(createSingleTransactionRequestFromAddressWithoutFeePriorityRB CreateSingleTransactionRequestFromAddressWithoutFeePriorityRB) ApiCreateSingleTransactionRequestFromAddressWithoutFeePriorityRequest {
+	r.createSingleTransactionRequestFromAddressWithoutFeePriorityRB = &createSingleTransactionRequestFromAddressWithoutFeePriorityRB
+	return r
+}
+
+func (r ApiCreateSingleTransactionRequestFromAddressWithoutFeePriorityRequest) Execute() (*CreateSingleTransactionRequestFromAddressWithoutFeePriorityR, *http.Response, error) {
+	return r.ApiService.CreateSingleTransactionRequestFromAddressWithoutFeePriorityExecute(r)
+}
+
+/*
+CreateSingleTransactionRequestFromAddressWithoutFeePriority Create Single Transaction Request From Address Without Fee Priority
+
+Through this endpoint users can create a new single transaction request from one address to another. The difference between this endpoint and "Create Coins Transaction Request from Address"  is that for Tron blockchain there is no Fee Priority that defines how fast a transaction can be mined.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param address Defines the specific source address for the transaction.
+ @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+ @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+ @param walletId Represents the sender's specific and unique Wallet ID of the sender.
+ @return ApiCreateSingleTransactionRequestFromAddressWithoutFeePriorityRequest
+*/
+func (a *TransactionsApiService) CreateSingleTransactionRequestFromAddressWithoutFeePriority(ctx context.Context, address string, blockchain string, network string, walletId string) ApiCreateSingleTransactionRequestFromAddressWithoutFeePriorityRequest {
+	return ApiCreateSingleTransactionRequestFromAddressWithoutFeePriorityRequest{
+		ApiService: a,
+		ctx: ctx,
+		address: address,
+		blockchain: blockchain,
+		network: network,
+		walletId: walletId,
+	}
+}
+
+// Execute executes the request
+//  @return CreateSingleTransactionRequestFromAddressWithoutFeePriorityR
+func (a *TransactionsApiService) CreateSingleTransactionRequestFromAddressWithoutFeePriorityExecute(r ApiCreateSingleTransactionRequestFromAddressWithoutFeePriorityRequest) (*CreateSingleTransactionRequestFromAddressWithoutFeePriorityR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *CreateSingleTransactionRequestFromAddressWithoutFeePriorityR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "TransactionsApiService.CreateSingleTransactionRequestFromAddressWithoutFeePriority")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/wallet-as-a-service/wallets/{walletId}/{blockchain}/{network}/addresses/{address}/feeless-transaction-requests"
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"walletId"+"}", url.PathEscape(parameterToString(r.walletId, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.createSingleTransactionRequestFromAddressWithoutFeePriorityRB
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v CreateSingleTransactionRequestFromAddressWithoutFeePriority400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v CreateSingleTransactionRequestFromAddressWithoutFeePriority401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v ConvertBitcoinCashAddress402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v CreateSingleTransactionRequestFromAddressWithoutFeePriority403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v CreateSingleTransactionRequestFromAddressWithoutFeePriority409Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ConvertBitcoinCashAddress415Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ConvertBitcoinCashAddress422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ConvertBitcoinCashAddress429Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

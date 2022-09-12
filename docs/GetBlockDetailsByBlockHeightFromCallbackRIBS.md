@@ -6,9 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Bits** | **string** | Represents a specific sub-unit of Zcash. Bits have two-decimal precision | 
 **Chainwork** | **string** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | 
-**Difficulty** | **string** | Defines how difficult it is for a specific miner to mine the block. | 
+**Difficulty** | **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
 **MerkleRoot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
-**Nonce** | **string** | Represents a random value that can be adjusted to satisfy the proof of work | 
+**Nonce** | **string** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender&#39;s address. | 
 **Size** | **int32** | Represents the total size of the block in Bytes. | 
 **StrippedSize** | **int32** | Defines the numeric representation of the block size excluding the witness data. | 
 **Version** | **int32** | Represents the transaction version number. | 
@@ -16,24 +16,27 @@ Name | Type | Description | Notes
 **Weight** | **int32** | Represents a measurement to compare the size of different transactions to each other in proportion to the block size limit. | 
 **Strippedsize** | **int32** | Defines the numeric representation of the block size excluding the witness data. | 
 **ExtraData** | **string** | Represents any data that can be included by the miner in the block. | 
-**GasLimit** | **int32** | Represents the maximum amount of gas allowed in the block in order to determine how many transactions it can fit. | 
-**GasUsed** | **int32** | Defines how much of the gas for the block has been used. | 
+**GasLimit** | **string** | Represents the amount of gas used by this specific transaction alone. | 
+**GasUsed** | **string** | Represents the exact unit of gas that was used for the transaction. | 
 **MinedInSeconds** | **int32** | Specifies the amount of time required for the block to be mined in seconds. | 
 **Sha3Uncles** | **string** | Defines the combined hash of all uncles for a given parent. | 
 **TotalDifficulty** | **string** | Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block. | 
-**Uncles** | Pointer to **[]string** |  | [optional] 
+**Uncles** | **[]string** |  | 
 **DsBlock** | **int32** | Represents the Directory Service block which contains metadata about the miners who participate in the consensus protocol. | 
 **DsDifficulty** | **string** | Defines how difficult it is to mine the dsBlocks. | 
 **DsLeader** | **string** | Represents a part of the DS Committee which leads the consensus protocol for the epoch. | 
 **MicroBlocks** | **[]string** |  | 
 **TotalCoins** | [**GetLatestMinedXRPRippleBlockRITotalCoins**](GetLatestMinedXRPRippleBlockRITotalCoins.md) |  | 
 **TotalFees** | [**GetLatestMinedXRPRippleBlockRITotalFees**](GetLatestMinedXRPRippleBlockRITotalFees.md) |  | 
+**BandwidthUsed** | **string** | Represents the bandwidth used for the transaction. | 
+**BurnedTrx** | **string** | Represents the block burned TRX. | 
+**EnergyUsed** | **string** | Representats the used energy for the transaction. | 
 
 ## Methods
 
 ### NewGetBlockDetailsByBlockHeightFromCallbackRIBS
 
-`func NewGetBlockDetailsByBlockHeightFromCallbackRIBS(bits string, chainwork string, difficulty string, merkleRoot string, nonce string, size int32, strippedSize int32, version int32, versionHex string, weight int32, strippedsize int32, extraData string, gasLimit int32, gasUsed int32, minedInSeconds int32, sha3Uncles string, totalDifficulty string, dsBlock int32, dsDifficulty string, dsLeader string, microBlocks []string, totalCoins GetLatestMinedXRPRippleBlockRITotalCoins, totalFees GetLatestMinedXRPRippleBlockRITotalFees, ) *GetBlockDetailsByBlockHeightFromCallbackRIBS`
+`func NewGetBlockDetailsByBlockHeightFromCallbackRIBS(bits string, chainwork string, difficulty string, merkleRoot string, nonce string, size int32, strippedSize int32, version int32, versionHex string, weight int32, strippedsize int32, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, totalDifficulty string, uncles []string, dsBlock int32, dsDifficulty string, dsLeader string, microBlocks []string, totalCoins GetLatestMinedXRPRippleBlockRITotalCoins, totalFees GetLatestMinedXRPRippleBlockRITotalFees, bandwidthUsed string, burnedTrx string, energyUsed string, ) *GetBlockDetailsByBlockHeightFromCallbackRIBS`
 
 NewGetBlockDetailsByBlockHeightFromCallbackRIBS instantiates a new GetBlockDetailsByBlockHeightFromCallbackRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -290,40 +293,40 @@ SetExtraData sets ExtraData field to given value.
 
 ### GetGasLimit
 
-`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetGasLimit() int32`
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetGasLimit() string`
 
 GetGasLimit returns the GasLimit field if non-nil, zero value otherwise.
 
 ### GetGasLimitOk
 
-`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetGasLimitOk() (*int32, bool)`
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetGasLimitOk() (*string, bool)`
 
 GetGasLimitOk returns a tuple with the GasLimit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGasLimit
 
-`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) SetGasLimit(v int32)`
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) SetGasLimit(v string)`
 
 SetGasLimit sets GasLimit field to given value.
 
 
 ### GetGasUsed
 
-`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetGasUsed() int32`
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetGasUsed() string`
 
 GetGasUsed returns the GasUsed field if non-nil, zero value otherwise.
 
 ### GetGasUsedOk
 
-`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetGasUsedOk() (*int32, bool)`
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetGasUsedOk() (*string, bool)`
 
 GetGasUsedOk returns a tuple with the GasUsed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGasUsed
 
-`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) SetGasUsed(v int32)`
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) SetGasUsed(v string)`
 
 SetGasUsed sets GasUsed field to given value.
 
@@ -407,11 +410,6 @@ and a boolean to check if the value has been set.
 
 SetUncles sets Uncles field to given value.
 
-### HasUncles
-
-`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) HasUncles() bool`
-
-HasUncles returns a boolean if a field has been set.
 
 ### GetDsBlock
 
@@ -531,6 +529,66 @@ and a boolean to check if the value has been set.
 `func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) SetTotalFees(v GetLatestMinedXRPRippleBlockRITotalFees)`
 
 SetTotalFees sets TotalFees field to given value.
+
+
+### GetBandwidthUsed
+
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetBandwidthUsed() string`
+
+GetBandwidthUsed returns the BandwidthUsed field if non-nil, zero value otherwise.
+
+### GetBandwidthUsedOk
+
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetBandwidthUsedOk() (*string, bool)`
+
+GetBandwidthUsedOk returns a tuple with the BandwidthUsed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBandwidthUsed
+
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) SetBandwidthUsed(v string)`
+
+SetBandwidthUsed sets BandwidthUsed field to given value.
+
+
+### GetBurnedTrx
+
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetBurnedTrx() string`
+
+GetBurnedTrx returns the BurnedTrx field if non-nil, zero value otherwise.
+
+### GetBurnedTrxOk
+
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetBurnedTrxOk() (*string, bool)`
+
+GetBurnedTrxOk returns a tuple with the BurnedTrx field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBurnedTrx
+
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) SetBurnedTrx(v string)`
+
+SetBurnedTrx sets BurnedTrx field to given value.
+
+
+### GetEnergyUsed
+
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetEnergyUsed() string`
+
+GetEnergyUsed returns the EnergyUsed field if non-nil, zero value otherwise.
+
+### GetEnergyUsedOk
+
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetEnergyUsedOk() (*string, bool)`
+
+GetEnergyUsedOk returns a tuple with the EnergyUsed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnergyUsed
+
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBS) SetEnergyUsed(v string)`
+
+SetEnergyUsed sets EnergyUsed field to given value.
 
 
 

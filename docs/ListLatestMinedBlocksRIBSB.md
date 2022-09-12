@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Chainwork** | **string** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | 
 **Difficulty** | Pointer to **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | [optional] 
 **MerkleRoot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
-**Nonce** | Pointer to **int32** | Represents a random value that can be adjusted to satisfy the proof of work | [optional] 
+**Nonce** | Pointer to **int64** | Represents a random value that can be adjusted to satisfy the proof of work | [optional] 
 **Size** | Pointer to **int32** | Represents the block size | [optional] 
 **StrippedSize** | **int32** | Defines the numeric representation of the block size excluding the witness data. | 
 **Version** | **int32** | Represents the version of the specific block on the blockchain. | 
@@ -121,20 +121,20 @@ SetMerkleRoot sets MerkleRoot field to given value.
 
 ### GetNonce
 
-`func (o *ListLatestMinedBlocksRIBSB) GetNonce() int32`
+`func (o *ListLatestMinedBlocksRIBSB) GetNonce() int64`
 
 GetNonce returns the Nonce field if non-nil, zero value otherwise.
 
 ### GetNonceOk
 
-`func (o *ListLatestMinedBlocksRIBSB) GetNonceOk() (*int32, bool)`
+`func (o *ListLatestMinedBlocksRIBSB) GetNonceOk() (*int64, bool)`
 
 GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNonce
 
-`func (o *ListLatestMinedBlocksRIBSB) SetNonce(v int32)`
+`func (o *ListLatestMinedBlocksRIBSB) SetNonce(v int64)`
 
 SetNonce sets Nonce field to given value.
 

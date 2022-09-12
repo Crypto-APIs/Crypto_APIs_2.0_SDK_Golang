@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -167,7 +167,7 @@ func (a *TokensApiService) GetTokenDetailsByContractAddressExecute(r ApiGetToken
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -187,7 +187,7 @@ func (a *TokensApiService) GetTokenDetailsByContractAddressExecute(r ApiGetToken
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -197,7 +197,7 @@ func (a *TokensApiService) GetTokenDetailsByContractAddressExecute(r ApiGetToken
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -207,7 +207,7 @@ func (a *TokensApiService) GetTokenDetailsByContractAddressExecute(r ApiGetToken
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -217,7 +217,7 @@ func (a *TokensApiService) GetTokenDetailsByContractAddressExecute(r ApiGetToken
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -227,7 +227,7 @@ func (a *TokensApiService) GetTokenDetailsByContractAddressExecute(r ApiGetToken
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -257,8 +257,8 @@ type ApiListConfirmedTokensTransfersByAddressRequest struct {
 	network string
 	address string
 	context *string
-	limit *int32
-	offset *int32
+	limit *int64
+	offset *int64
 }
 
 // In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
@@ -268,13 +268,13 @@ func (r ApiListConfirmedTokensTransfersByAddressRequest) Context(context string)
 }
 
 // Defines how many items should be returned in the response per page basis.
-func (r ApiListConfirmedTokensTransfersByAddressRequest) Limit(limit int32) ApiListConfirmedTokensTransfersByAddressRequest {
+func (r ApiListConfirmedTokensTransfersByAddressRequest) Limit(limit int64) ApiListConfirmedTokensTransfersByAddressRequest {
 	r.limit = &limit
 	return r
 }
 
 // The starting index of the response items, i.e. where the response should start listing the returned items.
-func (r ApiListConfirmedTokensTransfersByAddressRequest) Offset(offset int32) ApiListConfirmedTokensTransfersByAddressRequest {
+func (r ApiListConfirmedTokensTransfersByAddressRequest) Offset(offset int64) ApiListConfirmedTokensTransfersByAddressRequest {
 	r.offset = &offset
 	return r
 }
@@ -413,7 +413,7 @@ func (a *TokensApiService) ListConfirmedTokensTransfersByAddressExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -433,7 +433,7 @@ func (a *TokensApiService) ListConfirmedTokensTransfersByAddressExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -443,7 +443,7 @@ func (a *TokensApiService) ListConfirmedTokensTransfersByAddressExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -453,7 +453,7 @@ func (a *TokensApiService) ListConfirmedTokensTransfersByAddressExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -463,7 +463,7 @@ func (a *TokensApiService) ListConfirmedTokensTransfersByAddressExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -473,7 +473,7 @@ func (a *TokensApiService) ListConfirmedTokensTransfersByAddressExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -657,7 +657,7 @@ func (a *TokensApiService) ListTokensByAddressExecute(r ApiListTokensByAddressRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -677,7 +677,7 @@ func (a *TokensApiService) ListTokensByAddressExecute(r ApiListTokensByAddressRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -687,7 +687,7 @@ func (a *TokensApiService) ListTokensByAddressExecute(r ApiListTokensByAddressRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -697,7 +697,7 @@ func (a *TokensApiService) ListTokensByAddressExecute(r ApiListTokensByAddressRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -707,7 +707,7 @@ func (a *TokensApiService) ListTokensByAddressExecute(r ApiListTokensByAddressRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -717,7 +717,7 @@ func (a *TokensApiService) ListTokensByAddressExecute(r ApiListTokensByAddressRe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -747,8 +747,8 @@ type ApiListTokensTransfersByTransactionHashRequest struct {
 	network string
 	transactionHash string
 	context *string
-	limit *int32
-	offset *int32
+	limit *int64
+	offset *int64
 }
 
 // In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
@@ -758,13 +758,13 @@ func (r ApiListTokensTransfersByTransactionHashRequest) Context(context string) 
 }
 
 // Defines how many items should be returned in the response per page basis.
-func (r ApiListTokensTransfersByTransactionHashRequest) Limit(limit int32) ApiListTokensTransfersByTransactionHashRequest {
+func (r ApiListTokensTransfersByTransactionHashRequest) Limit(limit int64) ApiListTokensTransfersByTransactionHashRequest {
 	r.limit = &limit
 	return r
 }
 
 // The starting index of the response items, i.e. where the response should start listing the returned items.
-func (r ApiListTokensTransfersByTransactionHashRequest) Offset(offset int32) ApiListTokensTransfersByTransactionHashRequest {
+func (r ApiListTokensTransfersByTransactionHashRequest) Offset(offset int64) ApiListTokensTransfersByTransactionHashRequest {
 	r.offset = &offset
 	return r
 }
@@ -903,7 +903,7 @@ func (a *TokensApiService) ListTokensTransfersByTransactionHashExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -923,7 +923,7 @@ func (a *TokensApiService) ListTokensTransfersByTransactionHashExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -933,7 +933,7 @@ func (a *TokensApiService) ListTokensTransfersByTransactionHashExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -943,7 +943,7 @@ func (a *TokensApiService) ListTokensTransfersByTransactionHashExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -953,7 +953,7 @@ func (a *TokensApiService) ListTokensTransfersByTransactionHashExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -963,7 +963,7 @@ func (a *TokensApiService) ListTokensTransfersByTransactionHashExecute(r ApiList
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -993,8 +993,8 @@ type ApiListUnconfirmedTokensTransfersByAddressRequest struct {
 	network string
 	address string
 	context *string
-	limit *int32
-	offset *int32
+	limit *int64
+	offset *int64
 }
 
 // In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
@@ -1004,13 +1004,13 @@ func (r ApiListUnconfirmedTokensTransfersByAddressRequest) Context(context strin
 }
 
 // Defines how many items should be returned in the response per page basis.
-func (r ApiListUnconfirmedTokensTransfersByAddressRequest) Limit(limit int32) ApiListUnconfirmedTokensTransfersByAddressRequest {
+func (r ApiListUnconfirmedTokensTransfersByAddressRequest) Limit(limit int64) ApiListUnconfirmedTokensTransfersByAddressRequest {
 	r.limit = &limit
 	return r
 }
 
 // The starting index of the response items, i.e. where the response should start listing the returned items.
-func (r ApiListUnconfirmedTokensTransfersByAddressRequest) Offset(offset int32) ApiListUnconfirmedTokensTransfersByAddressRequest {
+func (r ApiListUnconfirmedTokensTransfersByAddressRequest) Offset(offset int64) ApiListUnconfirmedTokensTransfersByAddressRequest {
 	r.offset = &offset
 	return r
 }
@@ -1149,7 +1149,7 @@ func (a *TokensApiService) ListUnconfirmedTokensTransfersByAddressExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1169,7 +1169,7 @@ func (a *TokensApiService) ListUnconfirmedTokensTransfersByAddressExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1179,7 +1179,7 @@ func (a *TokensApiService) ListUnconfirmedTokensTransfersByAddressExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1189,7 +1189,7 @@ func (a *TokensApiService) ListUnconfirmedTokensTransfersByAddressExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1199,7 +1199,7 @@ func (a *TokensApiService) ListUnconfirmedTokensTransfersByAddressExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1209,7 +1209,7 @@ func (a *TokensApiService) ListUnconfirmedTokensTransfersByAddressExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

@@ -1,10 +1,11 @@
 # \FeaturesApi
 
-All URIs are relative to *https://rest.cryptoapis.io/v2*
+All URIs are relative to *https://rest.cryptoapis.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**BroadcastLocallySignedTransaction**](FeaturesApi.md#BroadcastLocallySignedTransaction) | **Post** /blockchain-tools/{blockchain}/{network}/transactions/broadcast | Broadcast Locally Signed Transaction
+[**ConvertBitcoinCashAddress**](FeaturesApi.md#ConvertBitcoinCashAddress) | **Post** /blockchain-tools/{blockchain}/{network}/address/convert | Convert Bitcoin Cash Address
 [**DecodeRawTransactionHex**](FeaturesApi.md#DecodeRawTransactionHex) | **Post** /blockchain-tools/{blockchain}/{network}/decode-raw-transaction | Decode Raw Transaction Hex
 [**DecodeXAddress**](FeaturesApi.md#DecodeXAddress) | **Get** /blockchain-tools/{blockchain}/{network}/decode-x-address/{xAddress} | Decode X-Address
 [**DeriveHDWalletXPubYPubZPubChangeOrReceivingAddresses**](FeaturesApi.md#DeriveHDWalletXPubYPubZPubChangeOrReceivingAddresses) | **Get** /blockchain-tools/{blockchain}/{network}/hd/{extendedPublicKey}/addresses/derive-address | Derive HD Wallet (xPub, yPub, zPub) Change Or Receiving Addresses
@@ -78,6 +79,83 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**BroadcastLocallySignedTransactionR**](BroadcastLocallySignedTransactionR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## ConvertBitcoinCashAddress
+
+> ConvertBitcoinCashAddressR ConvertBitcoinCashAddress(ctx, blockchain, network).Context(context).ConvertBitcoinCashAddressRB(convertBitcoinCashAddressRB).Execute()
+
+Convert Bitcoin Cash Address
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    blockchain := "bitcoin-cash" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    convertBitcoinCashAddressRB := *openapiclient.NewConvertBitcoinCashAddressRB(*openapiclient.NewConvertBitcoinCashAddressRBData(*openapiclient.NewConvertBitcoinCashAddressRBDataItem("bchtest:qpcgz3zt5zp5dj7vd9ms24xquamncvhnxvlz97eee8"))) // ConvertBitcoinCashAddressRB |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.FeaturesApi.ConvertBitcoinCashAddress(context.Background(), blockchain, network).Context(context).ConvertBitcoinCashAddressRB(convertBitcoinCashAddressRB).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `FeaturesApi.ConvertBitcoinCashAddress``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `ConvertBitcoinCashAddress`: ConvertBitcoinCashAddressR
+    fmt.Fprintf(os.Stdout, "Response from `FeaturesApi.ConvertBitcoinCashAddress`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**blockchain** | **string** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+**network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiConvertBitcoinCashAddressRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
+ **convertBitcoinCashAddressRB** | [**ConvertBitcoinCashAddressRB**](ConvertBitcoinCashAddressRB.md) |  | 
+
+### Return type
+
+[**ConvertBitcoinCashAddressR**](ConvertBitcoinCashAddressR.md)
 
 ### Authorization
 
@@ -274,9 +352,9 @@ func main() {
     network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
     context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
     addressFormat := "p2sh" // string | Represents the format of the address. (optional)
-    addressesCount := int32(2) // int32 | Represents the addresses count. (optional)
+    addressesCount := int64(2) // int64 | Represents the addresses count. (optional)
     isChange := true // bool | Defines if the specific address is a change or deposit address. If the value is True - it is a change address, if it is False - it is a Deposit address. (optional)
-    startIndex := int32(3) // int32 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional)
+    startIndex := int64(3) // int64 | The starting index of the response items, i.e. where the response should start listing the returned items. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -312,9 +390,9 @@ Name | Type | Description  | Notes
 
  **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
  **addressFormat** | **string** | Represents the format of the address. | 
- **addressesCount** | **int32** | Represents the addresses count. | 
+ **addressesCount** | **int64** | Represents the addresses count. | 
  **isChange** | **bool** | Defines if the specific address is a change or deposit address. If the value is True - it is a change address, if it is False - it is a Deposit address. | 
- **startIndex** | **int32** | The starting index of the response items, i.e. where the response should start listing the returned items. | 
+ **startIndex** | **int64** | The starting index of the response items, i.e. where the response should start listing the returned items. | 
 
 ### Return type
 

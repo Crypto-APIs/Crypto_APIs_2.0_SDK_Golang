@@ -7,14 +7,14 @@ Name | Type | Description | Notes
 **Addresses** | **[]string** |  | 
 **Asm** | **string** | Represents the assembly of the script public key of the address. | 
 **Hex** | **string** | Represents the hex of the script public key of the address. | 
-**ReqSigs** | **int32** | Represents the required signatures. | 
+**ReqSigs** | Pointer to **int32** | Represents the required signatures. | [optional] 
 **Type** | **string** | Represents the script type. | 
 
 ## Methods
 
 ### NewListTransactionsByBlockHashRIBSD2VoutInnerScriptPubKey
 
-`func NewListTransactionsByBlockHashRIBSD2VoutInnerScriptPubKey(addresses []string, asm string, hex string, reqSigs int32, type_ string, ) *ListTransactionsByBlockHashRIBSD2VoutInnerScriptPubKey`
+`func NewListTransactionsByBlockHashRIBSD2VoutInnerScriptPubKey(addresses []string, asm string, hex string, type_ string, ) *ListTransactionsByBlockHashRIBSD2VoutInnerScriptPubKey`
 
 NewListTransactionsByBlockHashRIBSD2VoutInnerScriptPubKey instantiates a new ListTransactionsByBlockHashRIBSD2VoutInnerScriptPubKey object
 This constructor will assign default values to properties that have it defined,
@@ -108,6 +108,11 @@ and a boolean to check if the value has been set.
 
 SetReqSigs sets ReqSigs field to given value.
 
+### HasReqSigs
+
+`func (o *ListTransactionsByBlockHashRIBSD2VoutInnerScriptPubKey) HasReqSigs() bool`
+
+HasReqSigs returns a boolean if a field has been set.
 
 ### GetType
 

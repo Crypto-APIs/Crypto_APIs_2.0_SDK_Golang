@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -27,8 +27,6 @@ type ListLatestMinedBlocksRI struct {
 	Timestamp int32 `json:"timestamp"`
 	// Represents the total number of all transactions as part of this block.
 	TransactionsCount int32 `json:"transactionsCount"`
-	TotalCoins ListLatestMinedBlocksRITotalCoins `json:"totalCoins"`
-	TotalFees ListLatestMinedBlocksRITotalFees `json:"totalFees"`
 	BlockchainSpecific ListLatestMinedBlocksRIBS `json:"blockchainSpecific"`
 }
 
@@ -36,15 +34,13 @@ type ListLatestMinedBlocksRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListLatestMinedBlocksRI(hash string, height int32, previousBlockHash string, timestamp int32, transactionsCount int32, totalCoins ListLatestMinedBlocksRITotalCoins, totalFees ListLatestMinedBlocksRITotalFees, blockchainSpecific ListLatestMinedBlocksRIBS) *ListLatestMinedBlocksRI {
+func NewListLatestMinedBlocksRI(hash string, height int32, previousBlockHash string, timestamp int32, transactionsCount int32, blockchainSpecific ListLatestMinedBlocksRIBS) *ListLatestMinedBlocksRI {
 	this := ListLatestMinedBlocksRI{}
 	this.Hash = hash
 	this.Height = height
 	this.PreviousBlockHash = previousBlockHash
 	this.Timestamp = timestamp
 	this.TransactionsCount = transactionsCount
-	this.TotalCoins = totalCoins
-	this.TotalFees = totalFees
 	this.BlockchainSpecific = blockchainSpecific
 	return &this
 }
@@ -177,54 +173,6 @@ func (o *ListLatestMinedBlocksRI) SetTransactionsCount(v int32) {
 	o.TransactionsCount = v
 }
 
-// GetTotalCoins returns the TotalCoins field value
-func (o *ListLatestMinedBlocksRI) GetTotalCoins() ListLatestMinedBlocksRITotalCoins {
-	if o == nil {
-		var ret ListLatestMinedBlocksRITotalCoins
-		return ret
-	}
-
-	return o.TotalCoins
-}
-
-// GetTotalCoinsOk returns a tuple with the TotalCoins field value
-// and a boolean to check if the value has been set.
-func (o *ListLatestMinedBlocksRI) GetTotalCoinsOk() (*ListLatestMinedBlocksRITotalCoins, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TotalCoins, true
-}
-
-// SetTotalCoins sets field value
-func (o *ListLatestMinedBlocksRI) SetTotalCoins(v ListLatestMinedBlocksRITotalCoins) {
-	o.TotalCoins = v
-}
-
-// GetTotalFees returns the TotalFees field value
-func (o *ListLatestMinedBlocksRI) GetTotalFees() ListLatestMinedBlocksRITotalFees {
-	if o == nil {
-		var ret ListLatestMinedBlocksRITotalFees
-		return ret
-	}
-
-	return o.TotalFees
-}
-
-// GetTotalFeesOk returns a tuple with the TotalFees field value
-// and a boolean to check if the value has been set.
-func (o *ListLatestMinedBlocksRI) GetTotalFeesOk() (*ListLatestMinedBlocksRITotalFees, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.TotalFees, true
-}
-
-// SetTotalFees sets field value
-func (o *ListLatestMinedBlocksRI) SetTotalFees(v ListLatestMinedBlocksRITotalFees) {
-	o.TotalFees = v
-}
-
 // GetBlockchainSpecific returns the BlockchainSpecific field value
 func (o *ListLatestMinedBlocksRI) GetBlockchainSpecific() ListLatestMinedBlocksRIBS {
 	if o == nil {
@@ -265,12 +213,6 @@ func (o ListLatestMinedBlocksRI) MarshalJSON() ([]byte, error) {
 	}
 	if true {
 		toSerialize["transactionsCount"] = o.TransactionsCount
-	}
-	if true {
-		toSerialize["totalCoins"] = o.TotalCoins
-	}
-	if true {
-		toSerialize["totalFees"] = o.TotalFees
 	}
 	if true {
 		toSerialize["blockchainSpecific"] = o.BlockchainSpecific

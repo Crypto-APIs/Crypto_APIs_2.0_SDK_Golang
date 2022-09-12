@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Defines the version of the transaction. | 
 **Vin** | [**[]GetTransactionDetailsByTransactionIDRIBSZVinInner**](GetTransactionDetailsByTransactionIDRIBSZVinInner.md) | Object Array representation of transaction inputs | 
-**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSZVoutInner**](GetTransactionDetailsByTransactionIDRIBSZVoutInner.md) | Object Array representation of transaction outputs | 
-**Contract** | **string** | Represents the specific transaction contract | 
+**Vout** | [**[]GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner**](GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner.md) | Object Array representation of transaction outputs | 
+**Contract** | **string** | Represents the specific transaction contract. | 
 **GasLimit** | **int32** | Represents the maximum amount of gas allowed in the block in order to determine how many transactions it can fit. | 
-**GasPrice** | [**GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice**](GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice.md) |  | 
-**GasUsed** | **int32** | Defines how much of the gas for the block has been used. | 
+**GasPrice** | **string** | Represents the price offered to the miner to purchase this amount of gas. | 
+**GasUsed** | **string** | Represents the exact unit of gas that was used for the transaction. | 
 **InputData** | **string** | Represents additional information that is required for the transaction. | 
 **Nonce** | **int32** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender&#39;s address. | 
 **TransactionStatus** | **string** | Represents the status of this transaction. | 
@@ -35,12 +35,22 @@ Name | Type | Description | Notes
 **Status** | **string** | Defines the status of the transaction. | 
 **Type** | **string** | Defines the type of the transaction. | 
 **Value** | [**GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue**](GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue.md) |  | 
+**Amount** | **string** | Representation of the amount value. | 
+**BandwidthUsed** | [**GetTransactionDetailsByTransactionIDFromCallbackRIBSTBandwidthUsed**](GetTransactionDetailsByTransactionIDFromCallbackRIBSTBandwidthUsed.md) |  | 
+**EnergyUsed** | [**GetTransactionDetailsByTransactionIDFromCallbackRIBSTEnergyUsed**](GetTransactionDetailsByTransactionIDFromCallbackRIBSTEnergyUsed.md) |  | 
+**HasInternalTransactions** | **bool** | Defines if the transaction includes internal transactions (true) or not (false). | 
+**HasTokenTransfers** | **string** | Defines if the transaction includes token transfers (true) or not (false). | 
+**Input** | **string** | Represents additional information that is required for the transaction. | 
+**Recipients** | **string** | Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
+**Senders** | **string** | Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
+**Gas** | **string** | Represents the price offered to the miner to purchase this amount of gas. | 
+**Txid** | **string** | Represents the unique identifier of a transaction, i.e. it could be transactionId in UTXO-based protocols like Bitcoin, and transaction hash in Ethereum blockchain. | 
 
 ## Methods
 
 ### NewGetTransactionDetailsByTransactionIDFromCallbackRIBS
 
-`func NewGetTransactionDetailsByTransactionIDFromCallbackRIBS(locktime int64, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSZVinInner, vout []GetTransactionDetailsByTransactionIDRIBSZVoutInner, contract string, gasLimit int32, gasPrice GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice, gasUsed int32, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, valueBalance string, versionGroupId string, additionalData string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, sequence int64, status string, type_ string, value GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue, ) *GetTransactionDetailsByTransactionIDFromCallbackRIBS`
+`func NewGetTransactionDetailsByTransactionIDFromCallbackRIBS(locktime int64, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSZVinInner, vout []GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner, contract string, gasLimit int32, gasPrice string, gasUsed string, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, valueBalance string, versionGroupId string, additionalData string, offer GetXRPRippleTransactionDetailsByTransactionIDRIOffer, receive GetXRPRippleTransactionDetailsByTransactionIDRIReceive, sequence int64, status string, type_ string, value GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue, amount string, bandwidthUsed GetTransactionDetailsByTransactionIDFromCallbackRIBSTBandwidthUsed, energyUsed GetTransactionDetailsByTransactionIDFromCallbackRIBSTEnergyUsed, hasInternalTransactions bool, hasTokenTransfers string, input string, recipients string, senders string, gas string, txid string, ) *GetTransactionDetailsByTransactionIDFromCallbackRIBS`
 
 NewGetTransactionDetailsByTransactionIDFromCallbackRIBS instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -157,20 +167,20 @@ SetVin sets Vin field to given value.
 
 ### GetVout
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetVout() []GetTransactionDetailsByTransactionIDRIBSZVoutInner`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetVout() []GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVoutInner, bool)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetVout(v []GetTransactionDetailsByTransactionIDRIBSZVoutInner)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetVout(v []GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner)`
 
 SetVout sets Vout field to given value.
 
@@ -217,40 +227,40 @@ SetGasLimit sets GasLimit field to given value.
 
 ### GetGasPrice
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetGasPrice() GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetGasPrice() string`
 
 GetGasPrice returns the GasPrice field if non-nil, zero value otherwise.
 
 ### GetGasPriceOk
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetGasPriceOk() (*GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice, bool)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetGasPriceOk() (*string, bool)`
 
 GetGasPriceOk returns a tuple with the GasPrice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGasPrice
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetGasPrice(v GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2GasPrice)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetGasPrice(v string)`
 
 SetGasPrice sets GasPrice field to given value.
 
 
 ### GetGasUsed
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetGasUsed() int32`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetGasUsed() string`
 
 GetGasUsed returns the GasUsed field if non-nil, zero value otherwise.
 
 ### GetGasUsedOk
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetGasUsedOk() (*int32, bool)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetGasUsedOk() (*string, bool)`
 
 GetGasUsedOk returns a tuple with the GasUsed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGasUsed
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetGasUsed(v int32)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetGasUsed(v string)`
 
 SetGasUsed sets GasUsed field to given value.
 
@@ -678,6 +688,206 @@ and a boolean to check if the value has been set.
 `func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetValue(v GetTransactionDetailsByTransactionIDFromCallbackRIBSXValue)`
 
 SetValue sets Value field to given value.
+
+
+### GetAmount
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetAmount() string`
+
+GetAmount returns the Amount field if non-nil, zero value otherwise.
+
+### GetAmountOk
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetAmountOk() (*string, bool)`
+
+GetAmountOk returns a tuple with the Amount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAmount
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetAmount(v string)`
+
+SetAmount sets Amount field to given value.
+
+
+### GetBandwidthUsed
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetBandwidthUsed() GetTransactionDetailsByTransactionIDFromCallbackRIBSTBandwidthUsed`
+
+GetBandwidthUsed returns the BandwidthUsed field if non-nil, zero value otherwise.
+
+### GetBandwidthUsedOk
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetBandwidthUsedOk() (*GetTransactionDetailsByTransactionIDFromCallbackRIBSTBandwidthUsed, bool)`
+
+GetBandwidthUsedOk returns a tuple with the BandwidthUsed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBandwidthUsed
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetBandwidthUsed(v GetTransactionDetailsByTransactionIDFromCallbackRIBSTBandwidthUsed)`
+
+SetBandwidthUsed sets BandwidthUsed field to given value.
+
+
+### GetEnergyUsed
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetEnergyUsed() GetTransactionDetailsByTransactionIDFromCallbackRIBSTEnergyUsed`
+
+GetEnergyUsed returns the EnergyUsed field if non-nil, zero value otherwise.
+
+### GetEnergyUsedOk
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetEnergyUsedOk() (*GetTransactionDetailsByTransactionIDFromCallbackRIBSTEnergyUsed, bool)`
+
+GetEnergyUsedOk returns a tuple with the EnergyUsed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnergyUsed
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetEnergyUsed(v GetTransactionDetailsByTransactionIDFromCallbackRIBSTEnergyUsed)`
+
+SetEnergyUsed sets EnergyUsed field to given value.
+
+
+### GetHasInternalTransactions
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetHasInternalTransactions() bool`
+
+GetHasInternalTransactions returns the HasInternalTransactions field if non-nil, zero value otherwise.
+
+### GetHasInternalTransactionsOk
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetHasInternalTransactionsOk() (*bool, bool)`
+
+GetHasInternalTransactionsOk returns a tuple with the HasInternalTransactions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasInternalTransactions
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetHasInternalTransactions(v bool)`
+
+SetHasInternalTransactions sets HasInternalTransactions field to given value.
+
+
+### GetHasTokenTransfers
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetHasTokenTransfers() string`
+
+GetHasTokenTransfers returns the HasTokenTransfers field if non-nil, zero value otherwise.
+
+### GetHasTokenTransfersOk
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetHasTokenTransfersOk() (*string, bool)`
+
+GetHasTokenTransfersOk returns a tuple with the HasTokenTransfers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasTokenTransfers
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetHasTokenTransfers(v string)`
+
+SetHasTokenTransfers sets HasTokenTransfers field to given value.
+
+
+### GetInput
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetInput() string`
+
+GetInput returns the Input field if non-nil, zero value otherwise.
+
+### GetInputOk
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetInputOk() (*string, bool)`
+
+GetInputOk returns a tuple with the Input field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInput
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetInput(v string)`
+
+SetInput sets Input field to given value.
+
+
+### GetRecipients
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetRecipients() string`
+
+GetRecipients returns the Recipients field if non-nil, zero value otherwise.
+
+### GetRecipientsOk
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetRecipientsOk() (*string, bool)`
+
+GetRecipientsOk returns a tuple with the Recipients field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetRecipients
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetRecipients(v string)`
+
+SetRecipients sets Recipients field to given value.
+
+
+### GetSenders
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetSenders() string`
+
+GetSenders returns the Senders field if non-nil, zero value otherwise.
+
+### GetSendersOk
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetSendersOk() (*string, bool)`
+
+GetSendersOk returns a tuple with the Senders field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSenders
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetSenders(v string)`
+
+SetSenders sets Senders field to given value.
+
+
+### GetGas
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetGas() string`
+
+GetGas returns the Gas field if non-nil, zero value otherwise.
+
+### GetGasOk
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetGasOk() (*string, bool)`
+
+GetGasOk returns a tuple with the Gas field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetGas
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetGas(v string)`
+
+SetGas sets Gas field to given value.
+
+
+### GetTxid
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetTxid() string`
+
+GetTxid returns the Txid field if non-nil, zero value otherwise.
+
+### GetTxidOk
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetTxidOk() (*string, bool)`
+
+GetTxidOk returns a tuple with the Txid field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTxid
+
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBS) SetTxid(v string)`
+
+SetTxid sets Txid field to given value.
 
 
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Index** | **int32** | Represents the index position of the transaction in the block. | 
 **MinedInBlockHash** | **string** | Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm. | 
-**MinedInBlockHeight** | **int32** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
+**MinedInBlockHeight** | **int64** | Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block. | 
 **Recipients** | [**[]ListHDWalletXPubYPubZPubTransactionsRIRecipientsInner**](ListHDWalletXPubYPubZPubTransactionsRIRecipientsInner.md) | Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
 **Senders** | [**[]ListHDWalletXPubYPubZPubTransactionsRISendersInner**](ListHDWalletXPubYPubZPubTransactionsRISendersInner.md) | Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list. | 
 **Timestamp** | **int32** | Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed. | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewListHDWalletXPubYPubZPubTransactionsRI
 
-`func NewListHDWalletXPubYPubZPubTransactionsRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []ListHDWalletXPubYPubZPubTransactionsRIRecipientsInner, senders []ListHDWalletXPubYPubZPubTransactionsRISendersInner, timestamp int32, transactionHash string, transactionId string, fee ListHDWalletXPubYPubZPubTransactionsRIFee, ) *ListHDWalletXPubYPubZPubTransactionsRI`
+`func NewListHDWalletXPubYPubZPubTransactionsRI(index int32, minedInBlockHash string, minedInBlockHeight int64, recipients []ListHDWalletXPubYPubZPubTransactionsRIRecipientsInner, senders []ListHDWalletXPubYPubZPubTransactionsRISendersInner, timestamp int32, transactionHash string, transactionId string, fee ListHDWalletXPubYPubZPubTransactionsRIFee, ) *ListHDWalletXPubYPubZPubTransactionsRI`
 
 NewListHDWalletXPubYPubZPubTransactionsRI instantiates a new ListHDWalletXPubYPubZPubTransactionsRI object
 This constructor will assign default values to properties that have it defined,
@@ -75,20 +75,20 @@ SetMinedInBlockHash sets MinedInBlockHash field to given value.
 
 ### GetMinedInBlockHeight
 
-`func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHeight() int32`
+`func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHeight() int64`
 
 GetMinedInBlockHeight returns the MinedInBlockHeight field if non-nil, zero value otherwise.
 
 ### GetMinedInBlockHeightOk
 
-`func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHeightOk() (*int32, bool)`
+`func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHeightOk() (*int64, bool)`
 
 GetMinedInBlockHeightOk returns a tuple with the MinedInBlockHeight field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMinedInBlockHeight
 
-`func (o *ListHDWalletXPubYPubZPubTransactionsRI) SetMinedInBlockHeight(v int32)`
+`func (o *ListHDWalletXPubYPubZPubTransactionsRI) SetMinedInBlockHeight(v int64)`
 
 SetMinedInBlockHeight sets MinedInBlockHeight field to given value.
 

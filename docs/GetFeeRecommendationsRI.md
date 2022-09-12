@@ -4,11 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Unit** | **string** | Defines the unit of the fee, e.g. BTC. | 
+**Unit** | **string** | Currency unit | 
 **Fast** | **string** | Fast fee per byte calculated from unconfirmed transactions | 
 **Slow** | **string** | Slow fee per byte calculated from unconfirmed transactions | 
 **Standard** | **string** | Standard fee per byte calculated from unconfirmed transactions | 
-**FeeMultiplier** | Pointer to **string** | Represents the fee cushion multiplier used to multiply the base fee. | [optional] 
 
 ## Methods
 
@@ -108,31 +107,6 @@ and a boolean to check if the value has been set.
 
 SetStandard sets Standard field to given value.
 
-
-### GetFeeMultiplier
-
-`func (o *GetFeeRecommendationsRI) GetFeeMultiplier() string`
-
-GetFeeMultiplier returns the FeeMultiplier field if non-nil, zero value otherwise.
-
-### GetFeeMultiplierOk
-
-`func (o *GetFeeRecommendationsRI) GetFeeMultiplierOk() (*string, bool)`
-
-GetFeeMultiplierOk returns a tuple with the FeeMultiplier field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetFeeMultiplier
-
-`func (o *GetFeeRecommendationsRI) SetFeeMultiplier(v string)`
-
-SetFeeMultiplier sets FeeMultiplier field to given value.
-
-### HasFeeMultiplier
-
-`func (o *GetFeeRecommendationsRI) HasFeeMultiplier() bool`
-
-HasFeeMultiplier returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -181,7 +181,7 @@ func (a *UnifiedEndpointsApiService) EstimateTransactionSmartFeeExecute(r ApiEst
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -201,7 +201,7 @@ func (a *UnifiedEndpointsApiService) EstimateTransactionSmartFeeExecute(r ApiEst
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -211,7 +211,7 @@ func (a *UnifiedEndpointsApiService) EstimateTransactionSmartFeeExecute(r ApiEst
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -221,7 +221,7 @@ func (a *UnifiedEndpointsApiService) EstimateTransactionSmartFeeExecute(r ApiEst
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -231,7 +231,7 @@ func (a *UnifiedEndpointsApiService) EstimateTransactionSmartFeeExecute(r ApiEst
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -241,7 +241,7 @@ func (a *UnifiedEndpointsApiService) EstimateTransactionSmartFeeExecute(r ApiEst
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -252,6 +252,230 @@ func (a *UnifiedEndpointsApiService) EstimateTransactionSmartFeeExecute(r ApiEst
 		}
 		if localVarHTTPResponse.StatusCode == 501 {
 			var v EstimateTransactionSmartFee501Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetAddressBalanceRequest struct {
+	ctx context.Context
+	ApiService *UnifiedEndpointsApiService
+	blockchain string
+	network string
+	address string
+	context *string
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiGetAddressBalanceRequest) Context(context string) ApiGetAddressBalanceRequest {
+	r.context = &context
+	return r
+}
+
+func (r ApiGetAddressBalanceRequest) Execute() (*GetAddressBalanceR, *http.Response, error) {
+	return r.ApiService.GetAddressBalanceExecute(r)
+}
+
+/*
+GetAddressBalance Get Address Balance
+
+Through this endpoint the customer can receive the balance of a given address based on confirmed/synced blocks only. In the case where there are any incoming or outgoing unconfirmed transactions for the specific address, they will not be counted or calculated here. Applies only for coins.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+ @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+ @param address Represents the public address, which is a compressed and shortened form of a public key.
+ @return ApiGetAddressBalanceRequest
+*/
+func (a *UnifiedEndpointsApiService) GetAddressBalance(ctx context.Context, blockchain string, network string, address string) ApiGetAddressBalanceRequest {
+	return ApiGetAddressBalanceRequest{
+		ApiService: a,
+		ctx: ctx,
+		blockchain: blockchain,
+		network: network,
+		address: address,
+	}
+}
+
+// Execute executes the request
+//  @return GetAddressBalanceR
+func (a *UnifiedEndpointsApiService) GetAddressBalanceExecute(r ApiGetAddressBalanceRequest) (*GetAddressBalanceR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *GetAddressBalanceR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnifiedEndpointsApiService.GetAddressBalance")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/addresses/{address}/balance"
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"address"+"}", url.PathEscape(parameterToString(r.address, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v GetAddressBalance400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v GetAddressBalance401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v ConvertBitcoinCashAddress402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v GetAddressBalance403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ConvertBitcoinCashAddress409Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ConvertBitcoinCashAddress415Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ConvertBitcoinCashAddress422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ConvertBitcoinCashAddress429Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -415,7 +639,7 @@ func (a *UnifiedEndpointsApiService) GetAddressDetailsExecute(r ApiGetAddressDet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -435,7 +659,7 @@ func (a *UnifiedEndpointsApiService) GetAddressDetailsExecute(r ApiGetAddressDet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -445,7 +669,7 @@ func (a *UnifiedEndpointsApiService) GetAddressDetailsExecute(r ApiGetAddressDet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -455,7 +679,7 @@ func (a *UnifiedEndpointsApiService) GetAddressDetailsExecute(r ApiGetAddressDet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -465,7 +689,7 @@ func (a *UnifiedEndpointsApiService) GetAddressDetailsExecute(r ApiGetAddressDet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -475,7 +699,7 @@ func (a *UnifiedEndpointsApiService) GetAddressDetailsExecute(r ApiGetAddressDet
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -641,7 +865,7 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHashExecute(r ApiGetB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -671,7 +895,7 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHashExecute(r ApiGetB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -681,7 +905,7 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHashExecute(r ApiGetB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -691,7 +915,7 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHashExecute(r ApiGetB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -701,7 +925,7 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHashExecute(r ApiGetB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -711,7 +935,7 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHashExecute(r ApiGetB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -739,7 +963,7 @@ type ApiGetBlockDetailsByBlockHeightRequest struct {
 	ApiService *UnifiedEndpointsApiService
 	blockchain string
 	network string
-	height int32
+	height int64
 	context *string
 }
 
@@ -766,7 +990,7 @@ Blockchain specific data is information such as version, nonce, size, bits, merk
  @param height Represents the number of blocks in the blockchain preceding this specific block. Block numbers have no gaps. A blockchain usually starts with block 0 called the \"Genesis block\".
  @return ApiGetBlockDetailsByBlockHeightRequest
 */
-func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHeight(ctx context.Context, blockchain string, network string, height int32) ApiGetBlockDetailsByBlockHeightRequest {
+func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHeight(ctx context.Context, blockchain string, network string, height int64) ApiGetBlockDetailsByBlockHeightRequest {
 	return ApiGetBlockDetailsByBlockHeightRequest{
 		ApiService: a,
 		ctx: ctx,
@@ -877,7 +1101,7 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHeightExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -907,7 +1131,7 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHeightExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -917,7 +1141,7 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHeightExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -927,7 +1151,7 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHeightExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -937,7 +1161,7 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHeightExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -947,7 +1171,7 @@ func (a *UnifiedEndpointsApiService) GetBlockDetailsByBlockHeightExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1107,7 +1331,7 @@ func (a *UnifiedEndpointsApiService) GetFeeRecommendationsExecute(r ApiGetFeeRec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1137,7 +1361,7 @@ func (a *UnifiedEndpointsApiService) GetFeeRecommendationsExecute(r ApiGetFeeRec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1147,7 +1371,7 @@ func (a *UnifiedEndpointsApiService) GetFeeRecommendationsExecute(r ApiGetFeeRec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1157,7 +1381,7 @@ func (a *UnifiedEndpointsApiService) GetFeeRecommendationsExecute(r ApiGetFeeRec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1167,7 +1391,7 @@ func (a *UnifiedEndpointsApiService) GetFeeRecommendationsExecute(r ApiGetFeeRec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1177,7 +1401,7 @@ func (a *UnifiedEndpointsApiService) GetFeeRecommendationsExecute(r ApiGetFeeRec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1339,7 +1563,7 @@ func (a *UnifiedEndpointsApiService) GetLastMinedBlockExecute(r ApiGetLastMinedB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1369,7 +1593,7 @@ func (a *UnifiedEndpointsApiService) GetLastMinedBlockExecute(r ApiGetLastMinedB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1379,7 +1603,7 @@ func (a *UnifiedEndpointsApiService) GetLastMinedBlockExecute(r ApiGetLastMinedB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1389,7 +1613,7 @@ func (a *UnifiedEndpointsApiService) GetLastMinedBlockExecute(r ApiGetLastMinedB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1399,7 +1623,7 @@ func (a *UnifiedEndpointsApiService) GetLastMinedBlockExecute(r ApiGetLastMinedB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1409,7 +1633,7 @@ func (a *UnifiedEndpointsApiService) GetLastMinedBlockExecute(r ApiGetLastMinedB
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1573,7 +1797,7 @@ func (a *UnifiedEndpointsApiService) GetNextAvailableNonceExecute(r ApiGetNextAv
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1593,7 +1817,7 @@ func (a *UnifiedEndpointsApiService) GetNextAvailableNonceExecute(r ApiGetNextAv
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1603,7 +1827,7 @@ func (a *UnifiedEndpointsApiService) GetNextAvailableNonceExecute(r ApiGetNextAv
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1613,7 +1837,7 @@ func (a *UnifiedEndpointsApiService) GetNextAvailableNonceExecute(r ApiGetNextAv
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1623,7 +1847,7 @@ func (a *UnifiedEndpointsApiService) GetNextAvailableNonceExecute(r ApiGetNextAv
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1633,7 +1857,7 @@ func (a *UnifiedEndpointsApiService) GetNextAvailableNonceExecute(r ApiGetNextAv
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1797,7 +2021,7 @@ func (a *UnifiedEndpointsApiService) GetRawTransactionDataExecute(r ApiGetRawTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1827,7 +2051,7 @@ func (a *UnifiedEndpointsApiService) GetRawTransactionDataExecute(r ApiGetRawTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1837,7 +2061,7 @@ func (a *UnifiedEndpointsApiService) GetRawTransactionDataExecute(r ApiGetRawTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1847,7 +2071,7 @@ func (a *UnifiedEndpointsApiService) GetRawTransactionDataExecute(r ApiGetRawTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1857,7 +2081,7 @@ func (a *UnifiedEndpointsApiService) GetRawTransactionDataExecute(r ApiGetRawTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1867,7 +2091,7 @@ func (a *UnifiedEndpointsApiService) GetRawTransactionDataExecute(r ApiGetRawTra
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2031,7 +2255,7 @@ func (a *UnifiedEndpointsApiService) GetTransactionDetailsByTransactionIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2061,7 +2285,7 @@ func (a *UnifiedEndpointsApiService) GetTransactionDetailsByTransactionIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2071,7 +2295,7 @@ func (a *UnifiedEndpointsApiService) GetTransactionDetailsByTransactionIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2081,7 +2305,7 @@ func (a *UnifiedEndpointsApiService) GetTransactionDetailsByTransactionIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2091,7 +2315,7 @@ func (a *UnifiedEndpointsApiService) GetTransactionDetailsByTransactionIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2101,247 +2325,7 @@ func (a *UnifiedEndpointsApiService) GetTransactionDetailsByTransactionIDExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiListAllUnconfirmedTransactionsRequest struct {
-	ctx context.Context
-	ApiService *UnifiedEndpointsApiService
-	blockchain string
-	network string
-	context *string
-	limit *int64
-	offset *int64
-}
-
-// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
-func (r ApiListAllUnconfirmedTransactionsRequest) Context(context string) ApiListAllUnconfirmedTransactionsRequest {
-	r.context = &context
-	return r
-}
-
-// Defines how many items should be returned in the response per page basis.
-func (r ApiListAllUnconfirmedTransactionsRequest) Limit(limit int64) ApiListAllUnconfirmedTransactionsRequest {
-	r.limit = &limit
-	return r
-}
-
-// The starting index of the response items, i.e. where the response should start listing the returned items.
-func (r ApiListAllUnconfirmedTransactionsRequest) Offset(offset int64) ApiListAllUnconfirmedTransactionsRequest {
-	r.offset = &offset
-	return r
-}
-
-func (r ApiListAllUnconfirmedTransactionsRequest) Execute() (*ListAllUnconfirmedTransactionsR, *http.Response, error) {
-	return r.ApiService.ListAllUnconfirmedTransactionsExecute(r)
-}
-
-/*
-ListAllUnconfirmedTransactions List All Unconfirmed Transactions
-
-Through this endpoint customers can list all **unconfirmed**  transactions for a specified blockchain and network.
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
- @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
- @return ApiListAllUnconfirmedTransactionsRequest
-*/
-func (a *UnifiedEndpointsApiService) ListAllUnconfirmedTransactions(ctx context.Context, blockchain string, network string) ApiListAllUnconfirmedTransactionsRequest {
-	return ApiListAllUnconfirmedTransactionsRequest{
-		ApiService: a,
-		ctx: ctx,
-		blockchain: blockchain,
-		network: network,
-	}
-}
-
-// Execute executes the request
-//  @return ListAllUnconfirmedTransactionsR
-func (a *UnifiedEndpointsApiService) ListAllUnconfirmedTransactionsExecute(r ApiListAllUnconfirmedTransactionsRequest) (*ListAllUnconfirmedTransactionsR, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  *ListAllUnconfirmedTransactionsR
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "UnifiedEndpointsApiService.ListAllUnconfirmedTransactions")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/address-transactions-unconfirmed"
-	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-
-	if r.context != nil {
-		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
-	}
-	if r.limit != nil {
-		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
-	}
-	if r.offset != nil {
-		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
-	}
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	if r.ctx != nil {
-		// API Key Authentication
-		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
-			if apiKey, ok := auth["ApiKey"]; ok {
-				var key string
-				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
-				} else {
-					key = apiKey.Key
-				}
-				localVarHeaderParams["x-api-key"] = key
-			}
-		}
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v ListAllUnconfirmedTransactions400Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 401 {
-			var v ListAllUnconfirmedTransactions401Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 403 {
-			var v ListAllUnconfirmedTransactions403Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-			newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2373,8 +2357,8 @@ type ApiListConfirmedTokensTransfersByAddressAndTimeRangeRequest struct {
 	fromTimestamp *int32
 	toTimestamp *int32
 	context *string
-	limit *int32
-	offset *int32
+	limit *int64
+	offset *int64
 }
 
 // Defines the specific time/date from which the results will start being listed.
@@ -2396,13 +2380,13 @@ func (r ApiListConfirmedTokensTransfersByAddressAndTimeRangeRequest) Context(con
 }
 
 // Defines how many items should be returned in the response per page basis.
-func (r ApiListConfirmedTokensTransfersByAddressAndTimeRangeRequest) Limit(limit int32) ApiListConfirmedTokensTransfersByAddressAndTimeRangeRequest {
+func (r ApiListConfirmedTokensTransfersByAddressAndTimeRangeRequest) Limit(limit int64) ApiListConfirmedTokensTransfersByAddressAndTimeRangeRequest {
 	r.limit = &limit
 	return r
 }
 
 // The starting index of the response items, i.e. where the response should start listing the returned items.
-func (r ApiListConfirmedTokensTransfersByAddressAndTimeRangeRequest) Offset(offset int32) ApiListConfirmedTokensTransfersByAddressAndTimeRangeRequest {
+func (r ApiListConfirmedTokensTransfersByAddressAndTimeRangeRequest) Offset(offset int64) ApiListConfirmedTokensTransfersByAddressAndTimeRangeRequest {
 	r.offset = &offset
 	return r
 }
@@ -2549,7 +2533,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTokensTransfersByAddressAndTim
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2569,7 +2553,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTokensTransfersByAddressAndTim
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2579,7 +2563,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTokensTransfersByAddressAndTim
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2589,7 +2573,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTokensTransfersByAddressAndTim
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2599,7 +2583,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTokensTransfersByAddressAndTim
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2609,7 +2593,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTokensTransfersByAddressAndTim
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2793,7 +2777,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTransactionsByAddressExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2813,7 +2797,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTransactionsByAddressExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2823,7 +2807,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTransactionsByAddressExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2833,7 +2817,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTransactionsByAddressExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2843,7 +2827,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTransactionsByAddressExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2853,7 +2837,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTransactionsByAddressExecute(r
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2977,13 +2961,13 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTransactionsByAddressAndTimeRa
 	if r.context != nil {
 		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
 	}
+	localVarQueryParams.Add("fromTimestamp", parameterToString(*r.fromTimestamp, ""))
 	if r.limit != nil {
 		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
 	}
 	if r.offset != nil {
 		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
 	}
-	localVarQueryParams.Add("fromTimestamp", parameterToString(*r.fromTimestamp, ""))
 	localVarQueryParams.Add("toTimestamp", parameterToString(*r.toTimestamp, ""))
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -3059,7 +3043,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTransactionsByAddressAndTimeRa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3079,7 +3063,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTransactionsByAddressAndTimeRa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3089,7 +3073,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTransactionsByAddressAndTimeRa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3099,7 +3083,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTransactionsByAddressAndTimeRa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3109,7 +3093,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTransactionsByAddressAndTimeRa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3119,7 +3103,7 @@ func (a *UnifiedEndpointsApiService) ListConfirmedTransactionsByAddressAndTimeRa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3151,8 +3135,8 @@ type ApiListInternalTransactionsByAddressAndTimeRangeRequest struct {
 	fromTimestamp *int32
 	toTimestamp *int32
 	context *string
-	limit *int32
-	offset *int32
+	limit *int64
+	offset *int64
 }
 
 // Defines the specific time/date from which the results will start being listed.
@@ -3174,13 +3158,13 @@ func (r ApiListInternalTransactionsByAddressAndTimeRangeRequest) Context(context
 }
 
 // Defines how many items should be returned in the response per page basis.
-func (r ApiListInternalTransactionsByAddressAndTimeRangeRequest) Limit(limit int32) ApiListInternalTransactionsByAddressAndTimeRangeRequest {
+func (r ApiListInternalTransactionsByAddressAndTimeRangeRequest) Limit(limit int64) ApiListInternalTransactionsByAddressAndTimeRangeRequest {
 	r.limit = &limit
 	return r
 }
 
 // The starting index of the response items, i.e. where the response should start listing the returned items.
-func (r ApiListInternalTransactionsByAddressAndTimeRangeRequest) Offset(offset int32) ApiListInternalTransactionsByAddressAndTimeRangeRequest {
+func (r ApiListInternalTransactionsByAddressAndTimeRangeRequest) Offset(offset int64) ApiListInternalTransactionsByAddressAndTimeRangeRequest {
 	r.offset = &offset
 	return r
 }
@@ -3325,7 +3309,7 @@ func (a *UnifiedEndpointsApiService) ListInternalTransactionsByAddressAndTimeRan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3345,7 +3329,7 @@ func (a *UnifiedEndpointsApiService) ListInternalTransactionsByAddressAndTimeRan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3355,7 +3339,7 @@ func (a *UnifiedEndpointsApiService) ListInternalTransactionsByAddressAndTimeRan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3365,7 +3349,7 @@ func (a *UnifiedEndpointsApiService) ListInternalTransactionsByAddressAndTimeRan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3375,7 +3359,7 @@ func (a *UnifiedEndpointsApiService) ListInternalTransactionsByAddressAndTimeRan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3385,7 +3369,7 @@ func (a *UnifiedEndpointsApiService) ListInternalTransactionsByAddressAndTimeRan
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3549,7 +3533,7 @@ func (a *UnifiedEndpointsApiService) ListLatestMinedBlocksExecute(r ApiListLates
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3579,7 +3563,7 @@ func (a *UnifiedEndpointsApiService) ListLatestMinedBlocksExecute(r ApiListLates
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3589,7 +3573,7 @@ func (a *UnifiedEndpointsApiService) ListLatestMinedBlocksExecute(r ApiListLates
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3599,7 +3583,7 @@ func (a *UnifiedEndpointsApiService) ListLatestMinedBlocksExecute(r ApiListLates
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3609,7 +3593,7 @@ func (a *UnifiedEndpointsApiService) ListLatestMinedBlocksExecute(r ApiListLates
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3619,7 +3603,7 @@ func (a *UnifiedEndpointsApiService) ListLatestMinedBlocksExecute(r ApiListLates
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3803,7 +3787,7 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHashExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3823,7 +3807,7 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHashExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3833,7 +3817,7 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHashExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3843,7 +3827,7 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHashExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3853,7 +3837,7 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHashExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -3863,7 +3847,7 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHashExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4047,7 +4031,7 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHeightExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4077,7 +4061,7 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHeightExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4087,7 +4071,7 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHeightExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4097,7 +4081,7 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHeightExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4107,7 +4091,7 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHeightExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4117,7 +4101,7 @@ func (a *UnifiedEndpointsApiService) ListTransactionsByBlockHeightExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4301,7 +4285,7 @@ func (a *UnifiedEndpointsApiService) ListUnconfirmedTransactionsByAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4321,7 +4305,7 @@ func (a *UnifiedEndpointsApiService) ListUnconfirmedTransactionsByAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4331,7 +4315,7 @@ func (a *UnifiedEndpointsApiService) ListUnconfirmedTransactionsByAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4341,7 +4325,7 @@ func (a *UnifiedEndpointsApiService) ListUnconfirmedTransactionsByAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4351,7 +4335,7 @@ func (a *UnifiedEndpointsApiService) ListUnconfirmedTransactionsByAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4361,7 +4345,7 @@ func (a *UnifiedEndpointsApiService) ListUnconfirmedTransactionsByAddressExecute
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4545,7 +4529,7 @@ func (a *UnifiedEndpointsApiService) ListUnspentTransactionOutputsByAddressExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4565,7 +4549,7 @@ func (a *UnifiedEndpointsApiService) ListUnspentTransactionOutputsByAddressExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4575,7 +4559,7 @@ func (a *UnifiedEndpointsApiService) ListUnspentTransactionOutputsByAddressExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4585,7 +4569,7 @@ func (a *UnifiedEndpointsApiService) ListUnspentTransactionOutputsByAddressExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4595,7 +4579,7 @@ func (a *UnifiedEndpointsApiService) ListUnspentTransactionOutputsByAddressExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -4605,7 +4589,7 @@ func (a *UnifiedEndpointsApiService) ListUnspentTransactionOutputsByAddressExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

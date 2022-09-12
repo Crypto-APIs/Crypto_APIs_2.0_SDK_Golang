@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -26,7 +26,7 @@ type ListLatestMinedBlocksRIBSD struct {
 	// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
 	MerkleRoot string `json:"merkleRoot"`
 	// Represents a random value that can be adjusted to satisfy the proof of work
-	Nonce int32 `json:"nonce"`
+	Nonce int64 `json:"nonce"`
 	// Represents the total size of the block in Bytes.
 	Size int32 `json:"size"`
 	// Represents the version of the specific block on the blockchain.
@@ -39,7 +39,7 @@ type ListLatestMinedBlocksRIBSD struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListLatestMinedBlocksRIBSD(bits string, chainwork string, difficulty string, merkleRoot string, nonce int32, size int32, version int32, versionHex string) *ListLatestMinedBlocksRIBSD {
+func NewListLatestMinedBlocksRIBSD(bits string, chainwork string, difficulty string, merkleRoot string, nonce int64, size int32, version int32, versionHex string) *ListLatestMinedBlocksRIBSD {
 	this := ListLatestMinedBlocksRIBSD{}
 	this.Bits = bits
 	this.Chainwork = chainwork
@@ -157,9 +157,9 @@ func (o *ListLatestMinedBlocksRIBSD) SetMerkleRoot(v string) {
 }
 
 // GetNonce returns the Nonce field value
-func (o *ListLatestMinedBlocksRIBSD) GetNonce() int32 {
+func (o *ListLatestMinedBlocksRIBSD) GetNonce() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -168,7 +168,7 @@ func (o *ListLatestMinedBlocksRIBSD) GetNonce() int32 {
 
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
-func (o *ListLatestMinedBlocksRIBSD) GetNonceOk() (*int32, bool) {
+func (o *ListLatestMinedBlocksRIBSD) GetNonceOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -176,7 +176,7 @@ func (o *ListLatestMinedBlocksRIBSD) GetNonceOk() (*int32, bool) {
 }
 
 // SetNonce sets field value
-func (o *ListLatestMinedBlocksRIBSD) SetNonce(v int32) {
+func (o *ListLatestMinedBlocksRIBSD) SetNonce(v int64) {
 	o.Nonce = v
 }
 

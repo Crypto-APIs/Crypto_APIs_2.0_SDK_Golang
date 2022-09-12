@@ -1,9 +1,10 @@
 # \CreateSubscriptionsForApi
 
-All URIs are relative to *https://rest.cryptoapis.io/v2*
+All URIs are relative to *https://rest.cryptoapis.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**BlockHeightReached**](CreateSubscriptionsForApi.md#BlockHeightReached) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/block-height-reached | Block Height Reached
 [**MinedTransaction**](CreateSubscriptionsForApi.md#MinedTransaction) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/transaction-mined | Mined transaction
 [**NewBlock**](CreateSubscriptionsForApi.md#NewBlock) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/block-mined | New Block
 [**NewConfirmedCoinsTransactions**](CreateSubscriptionsForApi.md#NewConfirmedCoinsTransactions) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-confirmed | New confirmed coins transactions
@@ -18,6 +19,83 @@ Method | HTTP request | Description
 [**NewUnconfirmedCoinsTransactions**](CreateSubscriptionsForApi.md#NewUnconfirmedCoinsTransactions) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/address-coins-transactions-unconfirmed | New unconfirmed coins transactions
 [**NewUnconfirmedTokensTransactions**](CreateSubscriptionsForApi.md#NewUnconfirmedTokensTransactions) | **Post** /blockchain-events/{blockchain}/{network}/subscriptions/address-tokens-transactions-unconfirmed | New unconfirmed tokens transactions
 
+
+
+## BlockHeightReached
+
+> BlockHeightReachedR BlockHeightReached(ctx, blockchain, network).Context(context).BlockHeightReachedRB(blockHeightReachedRB).Execute()
+
+Block Height Reached
+
+
+
+### Example
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "os"
+    openapiclient "./openapi"
+)
+
+func main() {
+    blockchain := "bitcoin" // string | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+    network := "testnet" // string | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+    context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
+    blockHeightReachedRB := *openapiclient.NewBlockHeightReachedRB(*openapiclient.NewBlockHeightReachedRBData(*openapiclient.NewBlockHeightReachedRBDataItem(int64(667900), "https://example.com"))) // BlockHeightReachedRB |  (optional)
+
+    configuration := openapiclient.NewConfiguration()
+    apiClient := openapiclient.NewAPIClient(configuration)
+    resp, r, err := apiClient.CreateSubscriptionsForApi.BlockHeightReached(context.Background(), blockchain, network).Context(context).BlockHeightReachedRB(blockHeightReachedRB).Execute()
+    if err != nil {
+        fmt.Fprintf(os.Stderr, "Error when calling `CreateSubscriptionsForApi.BlockHeightReached``: %v\n", err)
+        fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
+    }
+    // response from `BlockHeightReached`: BlockHeightReachedR
+    fmt.Fprintf(os.Stdout, "Response from `CreateSubscriptionsForApi.BlockHeightReached`: %v\n", resp)
+}
+```
+
+### Path Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**blockchain** | **string** | Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc. | 
+**network** | **string** | Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \&quot;mainnet\&quot; is the live network with actual data while networks like \&quot;testnet\&quot;, \&quot;ropsten\&quot; are test networks. | 
+
+### Other Parameters
+
+Other parameters are passed through a pointer to a apiBlockHeightReachedRequest struct via the builder pattern
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+
+
+ **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
+ **blockHeightReachedRB** | [**BlockHeightReachedRB**](BlockHeightReachedRB.md) |  | 
+
+### Return type
+
+[**BlockHeightReachedR**](BlockHeightReachedR.md)
+
+### Authorization
+
+[ApiKey](../README.md#ApiKey)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
 
 ## MinedTransaction

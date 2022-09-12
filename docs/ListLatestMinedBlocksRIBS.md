@@ -25,12 +25,14 @@ Name | Type | Description | Notes
 **DsDifficulty** | **string** | Defines how difficult it is to mine the dsBlocks. | 
 **DsLeader** | **string** | Represents a part of the DS Committee which leads the consensus protocol for the epoch. | 
 **MicroBlocks** | **[]string** |  | 
+**TotalCoins** | Pointer to [**ListLatestMinedBlocksRIBSXTotalCoins**](ListLatestMinedBlocksRIBSXTotalCoins.md) |  | [optional] 
+**TotalFees** | [**ListLatestMinedBlocksRIBSXTotalFees**](ListLatestMinedBlocksRIBSXTotalFees.md) |  | 
 
 ## Methods
 
 ### NewListLatestMinedBlocksRIBS
 
-`func NewListLatestMinedBlocksRIBS(bits string, chainwork string, difficulty string, merkleRoot string, nonce string, size int32, strippedSize int32, version int32, versionHex string, weight int32, extraData string, gasLimit int32, gasUsed int32, minedInSeconds int32, sha3Uncles string, totalDifficulty string, uncles []string, dsBlock int32, dsDifficulty string, dsLeader string, microBlocks []string, ) *ListLatestMinedBlocksRIBS`
+`func NewListLatestMinedBlocksRIBS(bits string, chainwork string, difficulty string, merkleRoot string, nonce string, size int32, strippedSize int32, version int32, versionHex string, weight int32, extraData string, gasLimit int32, gasUsed int32, minedInSeconds int32, sha3Uncles string, totalDifficulty string, uncles []string, dsBlock int32, dsDifficulty string, dsLeader string, microBlocks []string, totalFees ListLatestMinedBlocksRIBSXTotalFees, ) *ListLatestMinedBlocksRIBS`
 
 NewListLatestMinedBlocksRIBS instantiates a new ListLatestMinedBlocksRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -463,6 +465,51 @@ and a boolean to check if the value has been set.
 `func (o *ListLatestMinedBlocksRIBS) SetMicroBlocks(v []string)`
 
 SetMicroBlocks sets MicroBlocks field to given value.
+
+
+### GetTotalCoins
+
+`func (o *ListLatestMinedBlocksRIBS) GetTotalCoins() ListLatestMinedBlocksRIBSXTotalCoins`
+
+GetTotalCoins returns the TotalCoins field if non-nil, zero value otherwise.
+
+### GetTotalCoinsOk
+
+`func (o *ListLatestMinedBlocksRIBS) GetTotalCoinsOk() (*ListLatestMinedBlocksRIBSXTotalCoins, bool)`
+
+GetTotalCoinsOk returns a tuple with the TotalCoins field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalCoins
+
+`func (o *ListLatestMinedBlocksRIBS) SetTotalCoins(v ListLatestMinedBlocksRIBSXTotalCoins)`
+
+SetTotalCoins sets TotalCoins field to given value.
+
+### HasTotalCoins
+
+`func (o *ListLatestMinedBlocksRIBS) HasTotalCoins() bool`
+
+HasTotalCoins returns a boolean if a field has been set.
+
+### GetTotalFees
+
+`func (o *ListLatestMinedBlocksRIBS) GetTotalFees() ListLatestMinedBlocksRIBSXTotalFees`
+
+GetTotalFees returns the TotalFees field if non-nil, zero value otherwise.
+
+### GetTotalFeesOk
+
+`func (o *ListLatestMinedBlocksRIBS) GetTotalFeesOk() (*ListLatestMinedBlocksRIBSXTotalFees, bool)`
+
+GetTotalFeesOk returns a tuple with the TotalFees field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalFees
+
+`func (o *ListLatestMinedBlocksRIBS) SetTotalFees(v ListLatestMinedBlocksRIBSXTotalFees)`
+
+SetTotalFees sets TotalFees field to given value.
 
 
 

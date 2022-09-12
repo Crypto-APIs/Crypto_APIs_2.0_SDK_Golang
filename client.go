@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -42,7 +42,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the CryptoAPIs API v2.0.0
+// APIClient manages communication with the CryptoAPIs API v2021-03-20
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -75,8 +75,6 @@ type APIClient struct {
 	ManageSubscriptionsApi *ManageSubscriptionsApiService
 
 	MetadataApi *MetadataApiService
-
-	OmniLayerApi *OmniLayerApiService
 
 	TokensApi *TokensApiService
 
@@ -118,7 +116,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.InternalApi = (*InternalApiService)(&c.common)
 	c.ManageSubscriptionsApi = (*ManageSubscriptionsApiService)(&c.common)
 	c.MetadataApi = (*MetadataApiService)(&c.common)
-	c.OmniLayerApi = (*OmniLayerApiService)(&c.common)
 	c.TokensApi = (*TokensApiService)(&c.common)
 	c.TransactionsApi = (*TransactionsApiService)(&c.common)
 	c.UnifiedEndpointsApi = (*UnifiedEndpointsApiService)(&c.common)

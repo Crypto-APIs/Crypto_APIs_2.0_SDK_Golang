@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -17,15 +17,15 @@ import (
 
 // GetAddressDetailsFromCallbackRI struct for GetAddressDetailsFromCallbackRI
 type GetAddressDetailsFromCallbackRI struct {
-	// Defines the count of the incoming transactions.
+	// Defines the received transaction count to the address.
 	IncomingTransactionsCount int32 `json:"incomingTransactionsCount"`
-	// Defines the count of the outgoing transactions.
+	// Defines the sent transaction count from the address.
 	OutgoingTransactionsCount int32 `json:"outgoingTransactionsCount"`
-	// Represents the total number of confirmed coins transactions for this address, both incoming and outgoing. Applies for coins only **and not** tokens transfers e.g. for Ethereum. `transactionsCount` could result as less than incoming and outgoing transactions put together (e.g. in Bitcoin), due to the fact that one and the same address could be in senders and receivers addresses.
+	// Represents the total number of confirmed coins transactions for this address, both incoming and outgoing. Applies for coins only and not tokens transfers e.g. for Ethereum. transactionsCount could result as less than incoming and outgoing transactions put together (e.g. in Bitcoin), due to the fact that one and the same address could be in senders and receivers addresses.
 	TransactionsCount int32 `json:"transactionsCount"`
-	ConfirmedBalance GetAddressDetailsRIConfirmedBalance `json:"confirmedBalance"`
-	TotalReceived *GetAddressDetailsFromCallbackRITotalReceived `json:"totalReceived,omitempty"`
-	TotalSpent *GetAddressDetailsFromCallbackRITotalSpent `json:"totalSpent,omitempty"`
+	ConfirmedBalance GetAddressDetailsFromCallbackRIConfirmedBalance `json:"confirmedBalance"`
+	TotalReceived GetAddressDetailsFromCallbackRITotalReceived `json:"totalReceived"`
+	TotalSpent GetAddressDetailsFromCallbackRITotalSpent `json:"totalSpent"`
 	// Defines the transaction input's sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime.
 	Sequence *int64 `json:"sequence,omitempty"`
 }
@@ -34,12 +34,14 @@ type GetAddressDetailsFromCallbackRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetAddressDetailsFromCallbackRI(incomingTransactionsCount int32, outgoingTransactionsCount int32, transactionsCount int32, confirmedBalance GetAddressDetailsRIConfirmedBalance) *GetAddressDetailsFromCallbackRI {
+func NewGetAddressDetailsFromCallbackRI(incomingTransactionsCount int32, outgoingTransactionsCount int32, transactionsCount int32, confirmedBalance GetAddressDetailsFromCallbackRIConfirmedBalance, totalReceived GetAddressDetailsFromCallbackRITotalReceived, totalSpent GetAddressDetailsFromCallbackRITotalSpent) *GetAddressDetailsFromCallbackRI {
 	this := GetAddressDetailsFromCallbackRI{}
 	this.IncomingTransactionsCount = incomingTransactionsCount
 	this.OutgoingTransactionsCount = outgoingTransactionsCount
 	this.TransactionsCount = transactionsCount
 	this.ConfirmedBalance = confirmedBalance
+	this.TotalReceived = totalReceived
+	this.TotalSpent = totalSpent
 	return &this
 }
 
@@ -124,9 +126,9 @@ func (o *GetAddressDetailsFromCallbackRI) SetTransactionsCount(v int32) {
 }
 
 // GetConfirmedBalance returns the ConfirmedBalance field value
-func (o *GetAddressDetailsFromCallbackRI) GetConfirmedBalance() GetAddressDetailsRIConfirmedBalance {
+func (o *GetAddressDetailsFromCallbackRI) GetConfirmedBalance() GetAddressDetailsFromCallbackRIConfirmedBalance {
 	if o == nil {
-		var ret GetAddressDetailsRIConfirmedBalance
+		var ret GetAddressDetailsFromCallbackRIConfirmedBalance
 		return ret
 	}
 
@@ -135,7 +137,7 @@ func (o *GetAddressDetailsFromCallbackRI) GetConfirmedBalance() GetAddressDetail
 
 // GetConfirmedBalanceOk returns a tuple with the ConfirmedBalance field value
 // and a boolean to check if the value has been set.
-func (o *GetAddressDetailsFromCallbackRI) GetConfirmedBalanceOk() (*GetAddressDetailsRIConfirmedBalance, bool) {
+func (o *GetAddressDetailsFromCallbackRI) GetConfirmedBalanceOk() (*GetAddressDetailsFromCallbackRIConfirmedBalance, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -143,72 +145,56 @@ func (o *GetAddressDetailsFromCallbackRI) GetConfirmedBalanceOk() (*GetAddressDe
 }
 
 // SetConfirmedBalance sets field value
-func (o *GetAddressDetailsFromCallbackRI) SetConfirmedBalance(v GetAddressDetailsRIConfirmedBalance) {
+func (o *GetAddressDetailsFromCallbackRI) SetConfirmedBalance(v GetAddressDetailsFromCallbackRIConfirmedBalance) {
 	o.ConfirmedBalance = v
 }
 
-// GetTotalReceived returns the TotalReceived field value if set, zero value otherwise.
+// GetTotalReceived returns the TotalReceived field value
 func (o *GetAddressDetailsFromCallbackRI) GetTotalReceived() GetAddressDetailsFromCallbackRITotalReceived {
-	if o == nil || o.TotalReceived == nil {
+	if o == nil {
 		var ret GetAddressDetailsFromCallbackRITotalReceived
 		return ret
 	}
-	return *o.TotalReceived
+
+	return o.TotalReceived
 }
 
-// GetTotalReceivedOk returns a tuple with the TotalReceived field value if set, nil otherwise
+// GetTotalReceivedOk returns a tuple with the TotalReceived field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsFromCallbackRI) GetTotalReceivedOk() (*GetAddressDetailsFromCallbackRITotalReceived, bool) {
-	if o == nil || o.TotalReceived == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.TotalReceived, true
+	return &o.TotalReceived, true
 }
 
-// HasTotalReceived returns a boolean if a field has been set.
-func (o *GetAddressDetailsFromCallbackRI) HasTotalReceived() bool {
-	if o != nil && o.TotalReceived != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTotalReceived gets a reference to the given GetAddressDetailsFromCallbackRITotalReceived and assigns it to the TotalReceived field.
+// SetTotalReceived sets field value
 func (o *GetAddressDetailsFromCallbackRI) SetTotalReceived(v GetAddressDetailsFromCallbackRITotalReceived) {
-	o.TotalReceived = &v
+	o.TotalReceived = v
 }
 
-// GetTotalSpent returns the TotalSpent field value if set, zero value otherwise.
+// GetTotalSpent returns the TotalSpent field value
 func (o *GetAddressDetailsFromCallbackRI) GetTotalSpent() GetAddressDetailsFromCallbackRITotalSpent {
-	if o == nil || o.TotalSpent == nil {
+	if o == nil {
 		var ret GetAddressDetailsFromCallbackRITotalSpent
 		return ret
 	}
-	return *o.TotalSpent
+
+	return o.TotalSpent
 }
 
-// GetTotalSpentOk returns a tuple with the TotalSpent field value if set, nil otherwise
+// GetTotalSpentOk returns a tuple with the TotalSpent field value
 // and a boolean to check if the value has been set.
 func (o *GetAddressDetailsFromCallbackRI) GetTotalSpentOk() (*GetAddressDetailsFromCallbackRITotalSpent, bool) {
-	if o == nil || o.TotalSpent == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.TotalSpent, true
+	return &o.TotalSpent, true
 }
 
-// HasTotalSpent returns a boolean if a field has been set.
-func (o *GetAddressDetailsFromCallbackRI) HasTotalSpent() bool {
-	if o != nil && o.TotalSpent != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTotalSpent gets a reference to the given GetAddressDetailsFromCallbackRITotalSpent and assigns it to the TotalSpent field.
+// SetTotalSpent sets field value
 func (o *GetAddressDetailsFromCallbackRI) SetTotalSpent(v GetAddressDetailsFromCallbackRITotalSpent) {
-	o.TotalSpent = &v
+	o.TotalSpent = v
 }
 
 // GetSequence returns the Sequence field value if set, zero value otherwise.
@@ -257,10 +243,10 @@ func (o GetAddressDetailsFromCallbackRI) MarshalJSON() ([]byte, error) {
 	if true {
 		toSerialize["confirmedBalance"] = o.ConfirmedBalance
 	}
-	if o.TotalReceived != nil {
+	if true {
 		toSerialize["totalReceived"] = o.TotalReceived
 	}
-	if o.TotalSpent != nil {
+	if true {
 		toSerialize["totalSpent"] = o.TotalSpent
 	}
 	if o.Sequence != nil {

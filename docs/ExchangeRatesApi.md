@@ -1,6 +1,6 @@
 # \ExchangeRatesApi
 
-All URIs are relative to *https://rest.cryptoapis.io/v2*
+All URIs are relative to *https://rest.cryptoapis.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,7 +33,7 @@ func main() {
     fromAssetSymbol := "btc" // string | Defines the base asset symbol to get a rate for.
     toAssetSymbol := "usd" // string | Defines the relation asset symbol in which the base asset rate will be displayed.
     context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    calculationTimestamp := int32(1635514425) // int32 | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. (optional)
+    calculationTimestamp := int32(1635514425) // int32 | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. Oldest possible timestamp is 30 days. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -66,7 +66,7 @@ Name | Type | Description  | Notes
 
 
  **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
- **calculationTimestamp** | **int32** | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. | 
+ **calculationTimestamp** | **int32** | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. Oldest possible timestamp is 30 days. | 
 
 ### Return type
 
@@ -110,7 +110,7 @@ func main() {
     fromAssetId := "5b1ea92e584bf50020130612" // string | Defines the base asset Reference ID to get a rate for.
     toAssetId := "5b1ea92e584bf50020130615" // string | Defines the relation asset Reference ID in which the base asset rate will be displayed.
     context := "yourExampleString" // string | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. `context` is specified by the user. (optional)
-    calculationTimestamp := int32(1618577849) // int32 | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. (optional)
+    calculationTimestamp := int32(1618577849) // int32 | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. Oldest possible timestamp is 30 days. (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -143,7 +143,7 @@ Name | Type | Description  | Notes
 
 
  **context** | **string** | In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user. | 
- **calculationTimestamp** | **int32** | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. | 
+ **calculationTimestamp** | **int32** | Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. Oldest possible timestamp is 30 days. | 
 
 ### Return type
 

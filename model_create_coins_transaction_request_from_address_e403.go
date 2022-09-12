@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -22,6 +22,7 @@ type CreateCoinsTransactionRequestFromAddressE403 struct {
 	EndpointNotAllowedForApiKey *EndpointNotAllowedForApiKey
 	EndpointNotAllowedForPlan *EndpointNotAllowedForPlan
 	FeatureMainnetsNotAllowedForPlan *FeatureMainnetsNotAllowedForPlan
+	WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType *WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType
 }
 
 // BannedIpAddressAsCreateCoinsTransactionRequestFromAddressE403 is a convenience function that returns BannedIpAddress wrapped in CreateCoinsTransactionRequestFromAddressE403
@@ -49,6 +50,13 @@ func EndpointNotAllowedForPlanAsCreateCoinsTransactionRequestFromAddressE403(v *
 func FeatureMainnetsNotAllowedForPlanAsCreateCoinsTransactionRequestFromAddressE403(v *FeatureMainnetsNotAllowedForPlan) CreateCoinsTransactionRequestFromAddressE403 {
 	return CreateCoinsTransactionRequestFromAddressE403{
 		FeatureMainnetsNotAllowedForPlan: v,
+	}
+}
+
+// WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletTypeAsCreateCoinsTransactionRequestFromAddressE403 is a convenience function that returns WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType wrapped in CreateCoinsTransactionRequestFromAddressE403
+func WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletTypeAsCreateCoinsTransactionRequestFromAddressE403(v *WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType) CreateCoinsTransactionRequestFromAddressE403 {
+	return CreateCoinsTransactionRequestFromAddressE403{
+		WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType: v,
 	}
 }
 
@@ -109,12 +117,26 @@ func (dst *CreateCoinsTransactionRequestFromAddressE403) UnmarshalJSON(data []by
 		dst.FeatureMainnetsNotAllowedForPlan = nil
 	}
 
+	// try to unmarshal data into WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType
+	err = newStrictDecoder(data).Decode(&dst.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType)
+	if err == nil {
+		jsonWalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType, _ := json.Marshal(dst.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType)
+		if string(jsonWalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType) == "{}" { // empty struct
+			dst.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType = nil
+	}
+
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.BannedIpAddress = nil
 		dst.EndpointNotAllowedForApiKey = nil
 		dst.EndpointNotAllowedForPlan = nil
 		dst.FeatureMainnetsNotAllowedForPlan = nil
+		dst.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType = nil
 
 		return fmt.Errorf("Data matches more than one schema in oneOf(CreateCoinsTransactionRequestFromAddressE403)")
 	} else if match == 1 {
@@ -142,6 +164,10 @@ func (src CreateCoinsTransactionRequestFromAddressE403) MarshalJSON() ([]byte, e
 		return json.Marshal(&src.FeatureMainnetsNotAllowedForPlan)
 	}
 
+	if src.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType != nil {
+		return json.Marshal(&src.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType)
+	}
+
 	return nil, nil // no data in oneOf schemas
 }
 
@@ -164,6 +190,10 @@ func (obj *CreateCoinsTransactionRequestFromAddressE403) GetActualInstance() (in
 
 	if obj.FeatureMainnetsNotAllowedForPlan != nil {
 		return obj.FeatureMainnetsNotAllowedForPlan
+	}
+
+	if obj.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType != nil {
+		return obj.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType
 	}
 
 	// all schemas are nil

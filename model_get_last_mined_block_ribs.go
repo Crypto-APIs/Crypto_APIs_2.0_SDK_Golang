@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -27,6 +27,7 @@ type GetLastMinedBlockRIBS struct {
 	GetLastMinedBlockRIBSEC *GetLastMinedBlockRIBSEC
 	GetLastMinedBlockRIBSL *GetLastMinedBlockRIBSL
 	GetLastMinedBlockRIBSZ *GetLastMinedBlockRIBSZ
+	GetLastMinedBlockRIBSZ2 *GetLastMinedBlockRIBSZ2
 }
 
 // GetLastMinedBlockRIBSBAsGetLastMinedBlockRIBS is a convenience function that returns GetLastMinedBlockRIBSB wrapped in GetLastMinedBlockRIBS
@@ -89,6 +90,13 @@ func GetLastMinedBlockRIBSLAsGetLastMinedBlockRIBS(v *GetLastMinedBlockRIBSL) Ge
 func GetLastMinedBlockRIBSZAsGetLastMinedBlockRIBS(v *GetLastMinedBlockRIBSZ) GetLastMinedBlockRIBS {
 	return GetLastMinedBlockRIBS{
 		GetLastMinedBlockRIBSZ: v,
+	}
+}
+
+// GetLastMinedBlockRIBSZ2AsGetLastMinedBlockRIBS is a convenience function that returns GetLastMinedBlockRIBSZ2 wrapped in GetLastMinedBlockRIBS
+func GetLastMinedBlockRIBSZ2AsGetLastMinedBlockRIBS(v *GetLastMinedBlockRIBSZ2) GetLastMinedBlockRIBS {
+	return GetLastMinedBlockRIBS{
+		GetLastMinedBlockRIBSZ2: v,
 	}
 }
 
@@ -214,6 +222,19 @@ func (dst *GetLastMinedBlockRIBS) UnmarshalJSON(data []byte) error {
 		dst.GetLastMinedBlockRIBSZ = nil
 	}
 
+	// try to unmarshal data into GetLastMinedBlockRIBSZ2
+	err = newStrictDecoder(data).Decode(&dst.GetLastMinedBlockRIBSZ2)
+	if err == nil {
+		jsonGetLastMinedBlockRIBSZ2, _ := json.Marshal(dst.GetLastMinedBlockRIBSZ2)
+		if string(jsonGetLastMinedBlockRIBSZ2) == "{}" { // empty struct
+			dst.GetLastMinedBlockRIBSZ2 = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.GetLastMinedBlockRIBSZ2 = nil
+	}
+
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.GetLastMinedBlockRIBSB = nil
@@ -225,6 +246,7 @@ func (dst *GetLastMinedBlockRIBS) UnmarshalJSON(data []byte) error {
 		dst.GetLastMinedBlockRIBSEC = nil
 		dst.GetLastMinedBlockRIBSL = nil
 		dst.GetLastMinedBlockRIBSZ = nil
+		dst.GetLastMinedBlockRIBSZ2 = nil
 
 		return fmt.Errorf("Data matches more than one schema in oneOf(GetLastMinedBlockRIBS)")
 	} else if match == 1 {
@@ -272,6 +294,10 @@ func (src GetLastMinedBlockRIBS) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.GetLastMinedBlockRIBSZ)
 	}
 
+	if src.GetLastMinedBlockRIBSZ2 != nil {
+		return json.Marshal(&src.GetLastMinedBlockRIBSZ2)
+	}
+
 	return nil, nil // no data in oneOf schemas
 }
 
@@ -314,6 +340,10 @@ func (obj *GetLastMinedBlockRIBS) GetActualInstance() (interface{}) {
 
 	if obj.GetLastMinedBlockRIBSZ != nil {
 		return obj.GetLastMinedBlockRIBSZ
+	}
+
+	if obj.GetLastMinedBlockRIBSZ2 != nil {
+		return obj.GetLastMinedBlockRIBSZ2
 	}
 
 	// all schemas are nil

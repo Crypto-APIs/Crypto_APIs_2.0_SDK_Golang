@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **ContractAddress** | **string** | Represents the contract address of the token, which controls its logic. It is not the address that holds the tokens. | 
-**MinedInBlockHeight** | **int32** | Defines the block height in which this transaction was confirmed/mined. | 
+**MinedInBlockHeight** | **int64** | Defines the block height in which this transaction was confirmed/mined. | 
 **RecipientAddress** | **string** | Defines the address to which the recipient receives the transferred tokens. | 
 **SenderAddress** | **string** | Defines the address from which the sender transfers tokens. | 
 **TokenDecimals** | **int32** | Defines the decimals of the token, i.e. the number of digits that come after the decimal coma of the token. | 
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 
 ### NewListTokensTransfersByTransactionHashRI
 
-`func NewListTokensTransfersByTransactionHashRI(contractAddress string, minedInBlockHeight int32, recipientAddress string, senderAddress string, tokenDecimals int32, tokenName string, tokenSymbol string, tokenType string, tokensAmount string, transactionHash string, transactionTimestamp int32, transactionFee ListTokensTransfersByTransactionHashRITransactionFee, ) *ListTokensTransfersByTransactionHashRI`
+`func NewListTokensTransfersByTransactionHashRI(contractAddress string, minedInBlockHeight int64, recipientAddress string, senderAddress string, tokenDecimals int32, tokenName string, tokenSymbol string, tokenType string, tokensAmount string, transactionHash string, transactionTimestamp int32, transactionFee ListTokensTransfersByTransactionHashRITransactionFee, ) *ListTokensTransfersByTransactionHashRI`
 
 NewListTokensTransfersByTransactionHashRI instantiates a new ListTokensTransfersByTransactionHashRI object
 This constructor will assign default values to properties that have it defined,
@@ -58,20 +58,20 @@ SetContractAddress sets ContractAddress field to given value.
 
 ### GetMinedInBlockHeight
 
-`func (o *ListTokensTransfersByTransactionHashRI) GetMinedInBlockHeight() int32`
+`func (o *ListTokensTransfersByTransactionHashRI) GetMinedInBlockHeight() int64`
 
 GetMinedInBlockHeight returns the MinedInBlockHeight field if non-nil, zero value otherwise.
 
 ### GetMinedInBlockHeightOk
 
-`func (o *ListTokensTransfersByTransactionHashRI) GetMinedInBlockHeightOk() (*int32, bool)`
+`func (o *ListTokensTransfersByTransactionHashRI) GetMinedInBlockHeightOk() (*int64, bool)`
 
 GetMinedInBlockHeightOk returns a tuple with the MinedInBlockHeight field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetMinedInBlockHeight
 
-`func (o *ListTokensTransfersByTransactionHashRI) SetMinedInBlockHeight(v int32)`
+`func (o *ListTokensTransfersByTransactionHashRI) SetMinedInBlockHeight(v int64)`
 
 SetMinedInBlockHeight sets MinedInBlockHeight field to given value.
 

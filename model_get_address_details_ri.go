@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -22,9 +22,9 @@ type GetAddressDetailsRI struct {
 	ConfirmedBalance GetAddressDetailsRIConfirmedBalance `json:"confirmedBalance"`
 	TotalReceived GetAddressDetailsRITotalReceived `json:"totalReceived"`
 	TotalSpent GetAddressDetailsRITotalSpent `json:"totalSpent"`
-	// Defines the received transaction count to the address.
+	// Numeric representation of the received transaction count of the address
 	IncomingTransactionsCount int32 `json:"incomingTransactionsCount"`
-	// Defines the sent transaction count from the address.
+	// Numeric representation of the sent transaction count of the address
 	OutgoingTransactionsCount int32 `json:"outgoingTransactionsCount"`
 }
 

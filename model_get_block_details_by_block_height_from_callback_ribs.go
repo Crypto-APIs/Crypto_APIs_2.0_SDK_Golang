@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -26,6 +26,8 @@ type GetBlockDetailsByBlockHeightFromCallbackRIBS struct {
 	GetBlockDetailsByBlockHeightFromCallbackRIBSE *GetBlockDetailsByBlockHeightFromCallbackRIBSE
 	GetBlockDetailsByBlockHeightFromCallbackRIBSEC *GetBlockDetailsByBlockHeightFromCallbackRIBSEC
 	GetBlockDetailsByBlockHeightFromCallbackRIBSL *GetBlockDetailsByBlockHeightFromCallbackRIBSL
+	GetBlockDetailsByBlockHeightFromCallbackRIBSP *GetBlockDetailsByBlockHeightFromCallbackRIBSP
+	GetBlockDetailsByBlockHeightFromCallbackRIBST *GetBlockDetailsByBlockHeightFromCallbackRIBST
 	GetBlockDetailsByBlockHeightFromCallbackRIBSX *GetBlockDetailsByBlockHeightFromCallbackRIBSX
 	GetBlockDetailsByBlockHeightFromCallbackRIBSZ *GetBlockDetailsByBlockHeightFromCallbackRIBSZ
 	GetBlockDetailsByBlockHeightFromCallbackRIBSZ2 *GetBlockDetailsByBlockHeightFromCallbackRIBSZ2
@@ -84,6 +86,20 @@ func GetBlockDetailsByBlockHeightFromCallbackRIBSECAsGetBlockDetailsByBlockHeigh
 func GetBlockDetailsByBlockHeightFromCallbackRIBSLAsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBSL) GetBlockDetailsByBlockHeightFromCallbackRIBS {
 	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
 		GetBlockDetailsByBlockHeightFromCallbackRIBSL: v,
+	}
+}
+
+// GetBlockDetailsByBlockHeightFromCallbackRIBSPAsGetBlockDetailsByBlockHeightFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHeightFromCallbackRIBSP wrapped in GetBlockDetailsByBlockHeightFromCallbackRIBS
+func GetBlockDetailsByBlockHeightFromCallbackRIBSPAsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBSP) GetBlockDetailsByBlockHeightFromCallbackRIBS {
+	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
+		GetBlockDetailsByBlockHeightFromCallbackRIBSP: v,
+	}
+}
+
+// GetBlockDetailsByBlockHeightFromCallbackRIBSTAsGetBlockDetailsByBlockHeightFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHeightFromCallbackRIBST wrapped in GetBlockDetailsByBlockHeightFromCallbackRIBS
+func GetBlockDetailsByBlockHeightFromCallbackRIBSTAsGetBlockDetailsByBlockHeightFromCallbackRIBS(v *GetBlockDetailsByBlockHeightFromCallbackRIBST) GetBlockDetailsByBlockHeightFromCallbackRIBS {
+	return GetBlockDetailsByBlockHeightFromCallbackRIBS{
+		GetBlockDetailsByBlockHeightFromCallbackRIBST: v,
 	}
 }
 
@@ -217,6 +233,32 @@ func (dst *GetBlockDetailsByBlockHeightFromCallbackRIBS) UnmarshalJSON(data []by
 		dst.GetBlockDetailsByBlockHeightFromCallbackRIBSL = nil
 	}
 
+	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBSP
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBSP)
+	if err == nil {
+		jsonGetBlockDetailsByBlockHeightFromCallbackRIBSP, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightFromCallbackRIBSP)
+		if string(jsonGetBlockDetailsByBlockHeightFromCallbackRIBSP) == "{}" { // empty struct
+			dst.GetBlockDetailsByBlockHeightFromCallbackRIBSP = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.GetBlockDetailsByBlockHeightFromCallbackRIBSP = nil
+	}
+
+	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBST
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBST)
+	if err == nil {
+		jsonGetBlockDetailsByBlockHeightFromCallbackRIBST, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightFromCallbackRIBST)
+		if string(jsonGetBlockDetailsByBlockHeightFromCallbackRIBST) == "{}" { // empty struct
+			dst.GetBlockDetailsByBlockHeightFromCallbackRIBST = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.GetBlockDetailsByBlockHeightFromCallbackRIBST = nil
+	}
+
 	// try to unmarshal data into GetBlockDetailsByBlockHeightFromCallbackRIBSX
 	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightFromCallbackRIBSX)
 	if err == nil {
@@ -266,6 +308,8 @@ func (dst *GetBlockDetailsByBlockHeightFromCallbackRIBS) UnmarshalJSON(data []by
 		dst.GetBlockDetailsByBlockHeightFromCallbackRIBSE = nil
 		dst.GetBlockDetailsByBlockHeightFromCallbackRIBSEC = nil
 		dst.GetBlockDetailsByBlockHeightFromCallbackRIBSL = nil
+		dst.GetBlockDetailsByBlockHeightFromCallbackRIBSP = nil
+		dst.GetBlockDetailsByBlockHeightFromCallbackRIBST = nil
 		dst.GetBlockDetailsByBlockHeightFromCallbackRIBSX = nil
 		dst.GetBlockDetailsByBlockHeightFromCallbackRIBSZ = nil
 		dst.GetBlockDetailsByBlockHeightFromCallbackRIBSZ2 = nil
@@ -310,6 +354,14 @@ func (src GetBlockDetailsByBlockHeightFromCallbackRIBS) MarshalJSON() ([]byte, e
 
 	if src.GetBlockDetailsByBlockHeightFromCallbackRIBSL != nil {
 		return json.Marshal(&src.GetBlockDetailsByBlockHeightFromCallbackRIBSL)
+	}
+
+	if src.GetBlockDetailsByBlockHeightFromCallbackRIBSP != nil {
+		return json.Marshal(&src.GetBlockDetailsByBlockHeightFromCallbackRIBSP)
+	}
+
+	if src.GetBlockDetailsByBlockHeightFromCallbackRIBST != nil {
+		return json.Marshal(&src.GetBlockDetailsByBlockHeightFromCallbackRIBST)
 	}
 
 	if src.GetBlockDetailsByBlockHeightFromCallbackRIBSX != nil {
@@ -362,6 +414,14 @@ func (obj *GetBlockDetailsByBlockHeightFromCallbackRIBS) GetActualInstance() (in
 
 	if obj.GetBlockDetailsByBlockHeightFromCallbackRIBSL != nil {
 		return obj.GetBlockDetailsByBlockHeightFromCallbackRIBSL
+	}
+
+	if obj.GetBlockDetailsByBlockHeightFromCallbackRIBSP != nil {
+		return obj.GetBlockDetailsByBlockHeightFromCallbackRIBSP
+	}
+
+	if obj.GetBlockDetailsByBlockHeightFromCallbackRIBST != nil {
+		return obj.GetBlockDetailsByBlockHeightFromCallbackRIBST
 	}
 
 	if obj.GetBlockDetailsByBlockHeightFromCallbackRIBSX != nil {

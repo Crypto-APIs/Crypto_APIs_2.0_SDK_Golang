@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **Chainwork** | **string** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | 
 **Difficulty** | **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
 **MerkleRoot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
-**Nonce** | **int32** | Represents a random value that can be adjusted to satisfy the proof of work | 
+**Nonce** | **int64** | Represents a random value that can be adjusted to satisfy the proof of work | 
 **Size** | **int32** | Represents the total size of the block in Bytes. | 
 **StrippedSize** | **int32** | Defines the numeric representation of the block size excluding the witness data. | 
 **Version** | **int32** | Represents the version of the specific block on the blockchain. | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewGetBlockDetailsByBlockHeightFromCallbackRIBSD2
 
-`func NewGetBlockDetailsByBlockHeightFromCallbackRIBSD2(bits string, chainwork string, difficulty string, merkleRoot string, nonce int32, size int32, strippedSize int32, version int32, weight int32, ) *GetBlockDetailsByBlockHeightFromCallbackRIBSD2`
+`func NewGetBlockDetailsByBlockHeightFromCallbackRIBSD2(bits string, chainwork string, difficulty string, merkleRoot string, nonce int64, size int32, strippedSize int32, version int32, weight int32, ) *GetBlockDetailsByBlockHeightFromCallbackRIBSD2`
 
 NewGetBlockDetailsByBlockHeightFromCallbackRIBSD2 instantiates a new GetBlockDetailsByBlockHeightFromCallbackRIBSD2 object
 This constructor will assign default values to properties that have it defined,
@@ -115,20 +115,20 @@ SetMerkleRoot sets MerkleRoot field to given value.
 
 ### GetNonce
 
-`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD2) GetNonce() int32`
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD2) GetNonce() int64`
 
 GetNonce returns the Nonce field if non-nil, zero value otherwise.
 
 ### GetNonceOk
 
-`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD2) GetNonceOk() (*int32, bool)`
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD2) GetNonceOk() (*int64, bool)`
 
 GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNonce
 
-`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD2) SetNonce(v int32)`
+`func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD2) SetNonce(v int64)`
 
 SetNonce sets Nonce field to given value.
 

@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -23,6 +23,7 @@ type GenerateDepositAddressE403 struct {
 	EndpointNotAllowedForPlan *EndpointNotAllowedForPlan
 	FeatureMainnetsNotAllowedForPlan *FeatureMainnetsNotAllowedForPlan
 	WalletAsAServiceDepositAddressesLimitReached *WalletAsAServiceDepositAddressesLimitReached
+	WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType *WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType
 }
 
 // BannedIpAddressAsGenerateDepositAddressE403 is a convenience function that returns BannedIpAddress wrapped in GenerateDepositAddressE403
@@ -57,6 +58,13 @@ func FeatureMainnetsNotAllowedForPlanAsGenerateDepositAddressE403(v *FeatureMain
 func WalletAsAServiceDepositAddressesLimitReachedAsGenerateDepositAddressE403(v *WalletAsAServiceDepositAddressesLimitReached) GenerateDepositAddressE403 {
 	return GenerateDepositAddressE403{
 		WalletAsAServiceDepositAddressesLimitReached: v,
+	}
+}
+
+// WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletTypeAsGenerateDepositAddressE403 is a convenience function that returns WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType wrapped in GenerateDepositAddressE403
+func WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletTypeAsGenerateDepositAddressE403(v *WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType) GenerateDepositAddressE403 {
+	return GenerateDepositAddressE403{
+		WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType: v,
 	}
 }
 
@@ -130,6 +138,19 @@ func (dst *GenerateDepositAddressE403) UnmarshalJSON(data []byte) error {
 		dst.WalletAsAServiceDepositAddressesLimitReached = nil
 	}
 
+	// try to unmarshal data into WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType
+	err = newStrictDecoder(data).Decode(&dst.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType)
+	if err == nil {
+		jsonWalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType, _ := json.Marshal(dst.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType)
+		if string(jsonWalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType) == "{}" { // empty struct
+			dst.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType = nil
+	}
+
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.BannedIpAddress = nil
@@ -137,6 +158,7 @@ func (dst *GenerateDepositAddressE403) UnmarshalJSON(data []byte) error {
 		dst.EndpointNotAllowedForPlan = nil
 		dst.FeatureMainnetsNotAllowedForPlan = nil
 		dst.WalletAsAServiceDepositAddressesLimitReached = nil
+		dst.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType = nil
 
 		return fmt.Errorf("Data matches more than one schema in oneOf(GenerateDepositAddressE403)")
 	} else if match == 1 {
@@ -168,6 +190,10 @@ func (src GenerateDepositAddressE403) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.WalletAsAServiceDepositAddressesLimitReached)
 	}
 
+	if src.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType != nil {
+		return json.Marshal(&src.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType)
+	}
+
 	return nil, nil // no data in oneOf schemas
 }
 
@@ -194,6 +220,10 @@ func (obj *GenerateDepositAddressE403) GetActualInstance() (interface{}) {
 
 	if obj.WalletAsAServiceDepositAddressesLimitReached != nil {
 		return obj.WalletAsAServiceDepositAddressesLimitReached
+	}
+
+	if obj.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType != nil {
+		return obj.WalletAsAServiceProvidedNetworkIsNotSuitableForThisWalletType
 	}
 
 	// all schemas are nil

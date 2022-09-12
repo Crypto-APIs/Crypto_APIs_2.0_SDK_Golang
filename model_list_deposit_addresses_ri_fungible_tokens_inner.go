@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -26,7 +26,7 @@ type ListDepositAddressesRIFungibleTokensInner struct {
 	// Defines the symbol of the fungible tokens.
 	Symbol string `json:"symbol"`
 	// Defines the decimals of the token, i.e. the number of digits that come after the decimal coma of the token.
-	TokenDecimals int32 `json:"tokenDecimals"`
+	TokenDecimals int64 `json:"tokenDecimals"`
 	// Defines the specific token type.
 	Type string `json:"type"`
 }
@@ -35,7 +35,7 @@ type ListDepositAddressesRIFungibleTokensInner struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListDepositAddressesRIFungibleTokensInner(amount string, identifier string, name string, symbol string, tokenDecimals int32, type_ string) *ListDepositAddressesRIFungibleTokensInner {
+func NewListDepositAddressesRIFungibleTokensInner(amount string, identifier string, name string, symbol string, tokenDecimals int64, type_ string) *ListDepositAddressesRIFungibleTokensInner {
 	this := ListDepositAddressesRIFungibleTokensInner{}
 	this.Amount = amount
 	this.Identifier = identifier
@@ -151,9 +151,9 @@ func (o *ListDepositAddressesRIFungibleTokensInner) SetSymbol(v string) {
 }
 
 // GetTokenDecimals returns the TokenDecimals field value
-func (o *ListDepositAddressesRIFungibleTokensInner) GetTokenDecimals() int32 {
+func (o *ListDepositAddressesRIFungibleTokensInner) GetTokenDecimals() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -162,7 +162,7 @@ func (o *ListDepositAddressesRIFungibleTokensInner) GetTokenDecimals() int32 {
 
 // GetTokenDecimalsOk returns a tuple with the TokenDecimals field value
 // and a boolean to check if the value has been set.
-func (o *ListDepositAddressesRIFungibleTokensInner) GetTokenDecimalsOk() (*int32, bool) {
+func (o *ListDepositAddressesRIFungibleTokensInner) GetTokenDecimalsOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -170,7 +170,7 @@ func (o *ListDepositAddressesRIFungibleTokensInner) GetTokenDecimalsOk() (*int32
 }
 
 // SetTokenDecimals sets field value
-func (o *ListDepositAddressesRIFungibleTokensInner) SetTokenDecimals(v int32) {
+func (o *ListDepositAddressesRIFungibleTokensInner) SetTokenDecimals(v int64) {
 	o.TokenDecimals = v
 }
 

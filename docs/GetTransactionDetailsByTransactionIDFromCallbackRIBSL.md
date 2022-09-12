@@ -9,13 +9,13 @@ Name | Type | Description | Notes
 **VSize** | **int32** | Represents the virtual size of this transaction. | 
 **Version** | **int32** | Represents transaction version number. | 
 **Vin** | [**[]GetTransactionDetailsByTransactionIDRIBSLVinInner**](GetTransactionDetailsByTransactionIDRIBSLVinInner.md) | Represents the transaction inputs. | 
-**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSLVoutInner**](GetTransactionDetailsByTransactionIDRIBSLVoutInner.md) | Represents the transaction outputs. | 
+**Vout** | [**[]GetTransactionDetailsByTransactionIDFromCallbackRIBSLVoutInner**](GetTransactionDetailsByTransactionIDFromCallbackRIBSLVoutInner.md) | Represents the transaction outputs. | 
 
 ## Methods
 
 ### NewGetTransactionDetailsByTransactionIDFromCallbackRIBSL
 
-`func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSL(locktime int64, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSLVinInner, vout []GetTransactionDetailsByTransactionIDRIBSLVoutInner, ) *GetTransactionDetailsByTransactionIDFromCallbackRIBSL`
+`func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSL(locktime int64, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSLVinInner, vout []GetTransactionDetailsByTransactionIDFromCallbackRIBSLVoutInner, ) *GetTransactionDetailsByTransactionIDFromCallbackRIBSL`
 
 NewGetTransactionDetailsByTransactionIDFromCallbackRIBSL instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBSL object
 This constructor will assign default values to properties that have it defined,
@@ -132,20 +132,20 @@ SetVin sets Vin field to given value.
 
 ### GetVout
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) GetVout() []GetTransactionDetailsByTransactionIDRIBSLVoutInner`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) GetVout() []GetTransactionDetailsByTransactionIDFromCallbackRIBSLVoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSLVoutInner, bool)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDFromCallbackRIBSLVoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) SetVout(v []GetTransactionDetailsByTransactionIDRIBSLVoutInner)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) SetVout(v []GetTransactionDetailsByTransactionIDFromCallbackRIBSLVoutInner)`
 
 SetVout sets Vout field to given value.
 

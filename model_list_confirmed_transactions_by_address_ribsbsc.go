@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -26,8 +26,12 @@ type ListConfirmedTransactionsByAddressRIBSBSC struct {
 	GasUsed string `json:"gasUsed"`
 	// Represents additional information that is required for the transaction.
 	InputData string `json:"inputData"`
+	// Represents the total internal transactions count.
+	InternalTransactionsCount int32 `json:"internalTransactionsCount"`
 	// Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.
 	Nonce int32 `json:"nonce"`
+	// Represents the total token transfers count.
+	TokenTransfersCount int32 `json:"tokenTransfersCount"`
 	// String representation of the transaction status
 	TransactionStatus string `json:"transactionStatus"`
 }
@@ -36,13 +40,15 @@ type ListConfirmedTransactionsByAddressRIBSBSC struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListConfirmedTransactionsByAddressRIBSBSC(gasLimit string, gasPrice ListConfirmedTransactionsByAddressRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32, transactionStatus string) *ListConfirmedTransactionsByAddressRIBSBSC {
+func NewListConfirmedTransactionsByAddressRIBSBSC(gasLimit string, gasPrice ListConfirmedTransactionsByAddressRIBSBSCGasPrice, gasUsed string, inputData string, internalTransactionsCount int32, nonce int32, tokenTransfersCount int32, transactionStatus string) *ListConfirmedTransactionsByAddressRIBSBSC {
 	this := ListConfirmedTransactionsByAddressRIBSBSC{}
 	this.GasLimit = gasLimit
 	this.GasPrice = gasPrice
 	this.GasUsed = gasUsed
 	this.InputData = inputData
+	this.InternalTransactionsCount = internalTransactionsCount
 	this.Nonce = nonce
+	this.TokenTransfersCount = tokenTransfersCount
 	this.TransactionStatus = transactionStatus
 	return &this
 }
@@ -183,6 +189,30 @@ func (o *ListConfirmedTransactionsByAddressRIBSBSC) SetInputData(v string) {
 	o.InputData = v
 }
 
+// GetInternalTransactionsCount returns the InternalTransactionsCount field value
+func (o *ListConfirmedTransactionsByAddressRIBSBSC) GetInternalTransactionsCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.InternalTransactionsCount
+}
+
+// GetInternalTransactionsCountOk returns a tuple with the InternalTransactionsCount field value
+// and a boolean to check if the value has been set.
+func (o *ListConfirmedTransactionsByAddressRIBSBSC) GetInternalTransactionsCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.InternalTransactionsCount, true
+}
+
+// SetInternalTransactionsCount sets field value
+func (o *ListConfirmedTransactionsByAddressRIBSBSC) SetInternalTransactionsCount(v int32) {
+	o.InternalTransactionsCount = v
+}
+
 // GetNonce returns the Nonce field value
 func (o *ListConfirmedTransactionsByAddressRIBSBSC) GetNonce() int32 {
 	if o == nil {
@@ -205,6 +235,30 @@ func (o *ListConfirmedTransactionsByAddressRIBSBSC) GetNonceOk() (*int32, bool) 
 // SetNonce sets field value
 func (o *ListConfirmedTransactionsByAddressRIBSBSC) SetNonce(v int32) {
 	o.Nonce = v
+}
+
+// GetTokenTransfersCount returns the TokenTransfersCount field value
+func (o *ListConfirmedTransactionsByAddressRIBSBSC) GetTokenTransfersCount() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.TokenTransfersCount
+}
+
+// GetTokenTransfersCountOk returns a tuple with the TokenTransfersCount field value
+// and a boolean to check if the value has been set.
+func (o *ListConfirmedTransactionsByAddressRIBSBSC) GetTokenTransfersCountOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.TokenTransfersCount, true
+}
+
+// SetTokenTransfersCount sets field value
+func (o *ListConfirmedTransactionsByAddressRIBSBSC) SetTokenTransfersCount(v int32) {
+	o.TokenTransfersCount = v
 }
 
 // GetTransactionStatus returns the TransactionStatus field value
@@ -249,7 +303,13 @@ func (o ListConfirmedTransactionsByAddressRIBSBSC) MarshalJSON() ([]byte, error)
 		toSerialize["inputData"] = o.InputData
 	}
 	if true {
+		toSerialize["internalTransactionsCount"] = o.InternalTransactionsCount
+	}
+	if true {
 		toSerialize["nonce"] = o.Nonce
+	}
+	if true {
+		toSerialize["tokenTransfersCount"] = o.TokenTransfersCount
 	}
 	if true {
 		toSerialize["transactionStatus"] = o.TransactionStatus

@@ -8,14 +8,14 @@ Name | Type | Description | Notes
 **Identifier** | **string** | Defines the specific token identifier. For Bitcoin-based transactions it should be the propertyId and for Ethereum-based transactions - the contract. | 
 **Name** | **string** | Defines the token&#39;s name as a string. | 
 **Symbol** | **string** | Defines the symbol of the fungible tokens. | 
-**TokenDecimals** | **int32** | Defines the decimals of the token, i.e. the number of digits that come after the decimal coma of the token. | 
+**TokenDecimals** | **int64** | Defines the decimals of the token, i.e. the number of digits that come after the decimal coma of the token. | 
 **Type** | **string** | Defines the specific token type. | 
 
 ## Methods
 
 ### NewListDepositAddressesRIFungibleTokensInner
 
-`func NewListDepositAddressesRIFungibleTokensInner(amount string, identifier string, name string, symbol string, tokenDecimals int32, type_ string, ) *ListDepositAddressesRIFungibleTokensInner`
+`func NewListDepositAddressesRIFungibleTokensInner(amount string, identifier string, name string, symbol string, tokenDecimals int64, type_ string, ) *ListDepositAddressesRIFungibleTokensInner`
 
 NewListDepositAddressesRIFungibleTokensInner instantiates a new ListDepositAddressesRIFungibleTokensInner object
 This constructor will assign default values to properties that have it defined,
@@ -112,20 +112,20 @@ SetSymbol sets Symbol field to given value.
 
 ### GetTokenDecimals
 
-`func (o *ListDepositAddressesRIFungibleTokensInner) GetTokenDecimals() int32`
+`func (o *ListDepositAddressesRIFungibleTokensInner) GetTokenDecimals() int64`
 
 GetTokenDecimals returns the TokenDecimals field if non-nil, zero value otherwise.
 
 ### GetTokenDecimalsOk
 
-`func (o *ListDepositAddressesRIFungibleTokensInner) GetTokenDecimalsOk() (*int32, bool)`
+`func (o *ListDepositAddressesRIFungibleTokensInner) GetTokenDecimalsOk() (*int64, bool)`
 
 GetTokenDecimalsOk returns a tuple with the TokenDecimals field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTokenDecimals
 
-`func (o *ListDepositAddressesRIFungibleTokensInner) SetTokenDecimals(v int32)`
+`func (o *ListDepositAddressesRIFungibleTokensInner) SetTokenDecimals(v int64)`
 
 SetTokenDecimals sets TokenDecimals field to given value.
 

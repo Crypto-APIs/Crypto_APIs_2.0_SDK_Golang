@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**IncomingTransactionsCount** | **int32** | Defines the count of the incoming transactions. | 
-**OutgoingTransactionsCount** | **int32** | Defines the count of the outgoing transactions. | 
-**TransactionsCount** | **int32** | Represents the total number of confirmed coins transactions for this address, both incoming and outgoing. Applies for coins only **and not** tokens transfers e.g. for Ethereum. &#x60;transactionsCount&#x60; could result as less than incoming and outgoing transactions put together (e.g. in Bitcoin), due to the fact that one and the same address could be in senders and receivers addresses. | 
-**ConfirmedBalance** | [**GetAddressDetailsRIConfirmedBalance**](GetAddressDetailsRIConfirmedBalance.md) |  | 
-**TotalReceived** | Pointer to [**GetAddressDetailsFromCallbackRITotalReceived**](GetAddressDetailsFromCallbackRITotalReceived.md) |  | [optional] 
-**TotalSpent** | Pointer to [**GetAddressDetailsFromCallbackRITotalSpent**](GetAddressDetailsFromCallbackRITotalSpent.md) |  | [optional] 
+**IncomingTransactionsCount** | **int32** | Defines the received transaction count to the address. | 
+**OutgoingTransactionsCount** | **int32** | Defines the sent transaction count from the address. | 
+**TransactionsCount** | **int32** | Represents the total number of confirmed coins transactions for this address, both incoming and outgoing. Applies for coins only and not tokens transfers e.g. for Ethereum. transactionsCount could result as less than incoming and outgoing transactions put together (e.g. in Bitcoin), due to the fact that one and the same address could be in senders and receivers addresses. | 
+**ConfirmedBalance** | [**GetAddressDetailsFromCallbackRIConfirmedBalance**](GetAddressDetailsFromCallbackRIConfirmedBalance.md) |  | 
+**TotalReceived** | [**GetAddressDetailsFromCallbackRITotalReceived**](GetAddressDetailsFromCallbackRITotalReceived.md) |  | 
+**TotalSpent** | [**GetAddressDetailsFromCallbackRITotalSpent**](GetAddressDetailsFromCallbackRITotalSpent.md) |  | 
 **Sequence** | Pointer to **int64** | Defines the transaction input&#39;s sequence as an integer, which is is used when transactions are replaced with newer versions before LockTime. | [optional] 
 
 ## Methods
 
 ### NewGetAddressDetailsFromCallbackRI
 
-`func NewGetAddressDetailsFromCallbackRI(incomingTransactionsCount int32, outgoingTransactionsCount int32, transactionsCount int32, confirmedBalance GetAddressDetailsRIConfirmedBalance, ) *GetAddressDetailsFromCallbackRI`
+`func NewGetAddressDetailsFromCallbackRI(incomingTransactionsCount int32, outgoingTransactionsCount int32, transactionsCount int32, confirmedBalance GetAddressDetailsFromCallbackRIConfirmedBalance, totalReceived GetAddressDetailsFromCallbackRITotalReceived, totalSpent GetAddressDetailsFromCallbackRITotalSpent, ) *GetAddressDetailsFromCallbackRI`
 
 NewGetAddressDetailsFromCallbackRI instantiates a new GetAddressDetailsFromCallbackRI object
 This constructor will assign default values to properties that have it defined,
@@ -93,20 +93,20 @@ SetTransactionsCount sets TransactionsCount field to given value.
 
 ### GetConfirmedBalance
 
-`func (o *GetAddressDetailsFromCallbackRI) GetConfirmedBalance() GetAddressDetailsRIConfirmedBalance`
+`func (o *GetAddressDetailsFromCallbackRI) GetConfirmedBalance() GetAddressDetailsFromCallbackRIConfirmedBalance`
 
 GetConfirmedBalance returns the ConfirmedBalance field if non-nil, zero value otherwise.
 
 ### GetConfirmedBalanceOk
 
-`func (o *GetAddressDetailsFromCallbackRI) GetConfirmedBalanceOk() (*GetAddressDetailsRIConfirmedBalance, bool)`
+`func (o *GetAddressDetailsFromCallbackRI) GetConfirmedBalanceOk() (*GetAddressDetailsFromCallbackRIConfirmedBalance, bool)`
 
 GetConfirmedBalanceOk returns a tuple with the ConfirmedBalance field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetConfirmedBalance
 
-`func (o *GetAddressDetailsFromCallbackRI) SetConfirmedBalance(v GetAddressDetailsRIConfirmedBalance)`
+`func (o *GetAddressDetailsFromCallbackRI) SetConfirmedBalance(v GetAddressDetailsFromCallbackRIConfirmedBalance)`
 
 SetConfirmedBalance sets ConfirmedBalance field to given value.
 
@@ -130,11 +130,6 @@ and a boolean to check if the value has been set.
 
 SetTotalReceived sets TotalReceived field to given value.
 
-### HasTotalReceived
-
-`func (o *GetAddressDetailsFromCallbackRI) HasTotalReceived() bool`
-
-HasTotalReceived returns a boolean if a field has been set.
 
 ### GetTotalSpent
 
@@ -155,11 +150,6 @@ and a boolean to check if the value has been set.
 
 SetTotalSpent sets TotalSpent field to given value.
 
-### HasTotalSpent
-
-`func (o *GetAddressDetailsFromCallbackRI) HasTotalSpent() bool`
-
-HasTotalSpent returns a boolean if a field has been set.
 
 ### GetSequence
 

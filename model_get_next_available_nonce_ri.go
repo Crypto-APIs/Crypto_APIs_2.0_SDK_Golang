@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -18,14 +18,14 @@ import (
 // GetNextAvailableNonceRI struct for GetNextAvailableNonceRI
 type GetNextAvailableNonceRI struct {
 	// Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender's address.
-	NextAvailableNonce int32 `json:"nextAvailableNonce"`
+	NextAvailableNonce int64 `json:"nextAvailableNonce"`
 }
 
 // NewGetNextAvailableNonceRI instantiates a new GetNextAvailableNonceRI object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetNextAvailableNonceRI(nextAvailableNonce int32) *GetNextAvailableNonceRI {
+func NewGetNextAvailableNonceRI(nextAvailableNonce int64) *GetNextAvailableNonceRI {
 	this := GetNextAvailableNonceRI{}
 	this.NextAvailableNonce = nextAvailableNonce
 	return &this
@@ -40,9 +40,9 @@ func NewGetNextAvailableNonceRIWithDefaults() *GetNextAvailableNonceRI {
 }
 
 // GetNextAvailableNonce returns the NextAvailableNonce field value
-func (o *GetNextAvailableNonceRI) GetNextAvailableNonce() int32 {
+func (o *GetNextAvailableNonceRI) GetNextAvailableNonce() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -51,7 +51,7 @@ func (o *GetNextAvailableNonceRI) GetNextAvailableNonce() int32 {
 
 // GetNextAvailableNonceOk returns a tuple with the NextAvailableNonce field value
 // and a boolean to check if the value has been set.
-func (o *GetNextAvailableNonceRI) GetNextAvailableNonceOk() (*int32, bool) {
+func (o *GetNextAvailableNonceRI) GetNextAvailableNonceOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -59,7 +59,7 @@ func (o *GetNextAvailableNonceRI) GetNextAvailableNonceOk() (*int32, bool) {
 }
 
 // SetNextAvailableNonce sets field value
-func (o *GetNextAvailableNonceRI) SetNextAvailableNonce(v int32) {
+func (o *GetNextAvailableNonceRI) SetNextAvailableNonce(v int64) {
 	o.NextAvailableNonce = v
 }
 

@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -46,14 +46,14 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSZ struct {
 	// Object Array representation of transaction inputs
 	Vin []GetTransactionDetailsByTransactionIDRIBSZVinInner `json:"vin"`
 	// Object Array representation of transaction outputs
-	Vout []GetTransactionDetailsByTransactionIDRIBSZVoutInner `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner `json:"vout"`
 }
 
 // NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBSZ object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int64, overwintered bool, size int32, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, valueBalance string, version int32, versionGroupId string, vin []GetTransactionDetailsByTransactionIDRIBSZVinInner, vout []GetTransactionDetailsByTransactionIDRIBSZVoutInner) *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int64, overwintered bool, size int32, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, valueBalance string, version int32, versionGroupId string, vin []GetTransactionDetailsByTransactionIDRIBSZVinInner, vout []GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner) *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRIBSZ{}
 	this.BindingSig = bindingSig
 	this.ExpiryHeight = expiryHeight
@@ -418,9 +418,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVin(v []GetTr
 }
 
 // GetVout returns the Vout field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVout() []GetTransactionDetailsByTransactionIDRIBSZVoutInner {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVout() []GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSZVoutInner
+		var ret []GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner
 		return ret
 	}
 
@@ -429,7 +429,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVout() []GetT
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSZVoutInner, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVoutOk() ([]GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -437,7 +437,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVoutOk() ([]G
 }
 
 // SetVout sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVout(v []GetTransactionDetailsByTransactionIDRIBSZVoutInner) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVout(v []GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner) {
 	o.Vout = v
 }
 

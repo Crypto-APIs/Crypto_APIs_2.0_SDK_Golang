@@ -28,12 +28,15 @@ Name | Type | Description | Notes
 **MicroBlocks** | **[]string** |  | 
 **TotalCoins** | [**GetLatestMinedXRPRippleBlockRITotalCoins**](GetLatestMinedXRPRippleBlockRITotalCoins.md) |  | 
 **TotalFees** | [**GetLatestMinedXRPRippleBlockRITotalFees**](GetLatestMinedXRPRippleBlockRITotalFees.md) |  | 
+**BandwidthUsed** | **string** | Represents the bandwidth used for the transaction. | 
+**BurnedTrx** | **string** | Represents the block burned TRX. | 
+**EnergyUsed** | **string** | Representats the used energy for the transaction. | 
 
 ## Methods
 
 ### NewGetBlockDetailsByBlockHashFromCallbackRIBS
 
-`func NewGetBlockDetailsByBlockHashFromCallbackRIBS(bits string, chainwork string, difficulty string, merkleRoot string, nonce string, size int32, strippedSize int32, version int32, versionHex string, weight int32, strippedsize int32, extraData string, gasLimit int32, gasUsed int32, minedInSeconds int32, sha3Uncles string, totalDifficulty string, dsBlock int32, dsDifficulty string, dsLeader string, microBlocks []string, totalCoins GetLatestMinedXRPRippleBlockRITotalCoins, totalFees GetLatestMinedXRPRippleBlockRITotalFees, ) *GetBlockDetailsByBlockHashFromCallbackRIBS`
+`func NewGetBlockDetailsByBlockHashFromCallbackRIBS(bits string, chainwork string, difficulty string, merkleRoot string, nonce string, size int32, strippedSize int32, version int32, versionHex string, weight int32, strippedsize int32, extraData string, gasLimit int32, gasUsed int32, minedInSeconds int32, sha3Uncles string, totalDifficulty string, dsBlock int32, dsDifficulty string, dsLeader string, microBlocks []string, totalCoins GetLatestMinedXRPRippleBlockRITotalCoins, totalFees GetLatestMinedXRPRippleBlockRITotalFees, bandwidthUsed string, burnedTrx string, energyUsed string, ) *GetBlockDetailsByBlockHashFromCallbackRIBS`
 
 NewGetBlockDetailsByBlockHashFromCallbackRIBS instantiates a new GetBlockDetailsByBlockHashFromCallbackRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -531,6 +534,66 @@ and a boolean to check if the value has been set.
 `func (o *GetBlockDetailsByBlockHashFromCallbackRIBS) SetTotalFees(v GetLatestMinedXRPRippleBlockRITotalFees)`
 
 SetTotalFees sets TotalFees field to given value.
+
+
+### GetBandwidthUsed
+
+`func (o *GetBlockDetailsByBlockHashFromCallbackRIBS) GetBandwidthUsed() string`
+
+GetBandwidthUsed returns the BandwidthUsed field if non-nil, zero value otherwise.
+
+### GetBandwidthUsedOk
+
+`func (o *GetBlockDetailsByBlockHashFromCallbackRIBS) GetBandwidthUsedOk() (*string, bool)`
+
+GetBandwidthUsedOk returns a tuple with the BandwidthUsed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBandwidthUsed
+
+`func (o *GetBlockDetailsByBlockHashFromCallbackRIBS) SetBandwidthUsed(v string)`
+
+SetBandwidthUsed sets BandwidthUsed field to given value.
+
+
+### GetBurnedTrx
+
+`func (o *GetBlockDetailsByBlockHashFromCallbackRIBS) GetBurnedTrx() string`
+
+GetBurnedTrx returns the BurnedTrx field if non-nil, zero value otherwise.
+
+### GetBurnedTrxOk
+
+`func (o *GetBlockDetailsByBlockHashFromCallbackRIBS) GetBurnedTrxOk() (*string, bool)`
+
+GetBurnedTrxOk returns a tuple with the BurnedTrx field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBurnedTrx
+
+`func (o *GetBlockDetailsByBlockHashFromCallbackRIBS) SetBurnedTrx(v string)`
+
+SetBurnedTrx sets BurnedTrx field to given value.
+
+
+### GetEnergyUsed
+
+`func (o *GetBlockDetailsByBlockHashFromCallbackRIBS) GetEnergyUsed() string`
+
+GetEnergyUsed returns the EnergyUsed field if non-nil, zero value otherwise.
+
+### GetEnergyUsedOk
+
+`func (o *GetBlockDetailsByBlockHashFromCallbackRIBS) GetEnergyUsedOk() (*string, bool)`
+
+GetEnergyUsedOk returns a tuple with the EnergyUsed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnergyUsed
+
+`func (o *GetBlockDetailsByBlockHashFromCallbackRIBS) SetEnergyUsed(v string)`
+
+SetEnergyUsed sets EnergyUsed field to given value.
 
 
 

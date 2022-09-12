@@ -18,13 +18,13 @@ Name | Type | Description | Notes
 **Version** | **int32** | Defines the version of the transaction. | 
 **VersionGroupId** | **string** | Represents the transaction version group ID | 
 **Vin** | [**[]GetTransactionDetailsByTransactionIDRIBSZVinInner**](GetTransactionDetailsByTransactionIDRIBSZVinInner.md) | Object Array representation of transaction inputs | 
-**Vout** | [**[]GetTransactionDetailsByTransactionIDRIBSZVoutInner**](GetTransactionDetailsByTransactionIDRIBSZVoutInner.md) | Object Array representation of transaction outputs | 
+**Vout** | [**[]GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner**](GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner.md) | Object Array representation of transaction outputs | 
 
 ## Methods
 
 ### NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ
 
-`func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int64, overwintered bool, size int32, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, valueBalance string, version int32, versionGroupId string, vin []GetTransactionDetailsByTransactionIDRIBSZVinInner, vout []GetTransactionDetailsByTransactionIDRIBSZVoutInner, ) *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ`
+`func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ(bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, locktime int64, overwintered bool, size int32, vJoinSplit []GetTransactionDetailsByTransactionIDRIBSZVJoinSplitInner, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, valueBalance string, version int32, versionGroupId string, vin []GetTransactionDetailsByTransactionIDRIBSZVinInner, vout []GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner, ) *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ`
 
 NewGetTransactionDetailsByTransactionIDFromCallbackRIBSZ instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBSZ object
 This constructor will assign default values to properties that have it defined,
@@ -321,20 +321,20 @@ SetVin sets Vin field to given value.
 
 ### GetVout
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVout() []GetTransactionDetailsByTransactionIDRIBSZVoutInner`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVout() []GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner`
 
 GetVout returns the Vout field if non-nil, zero value otherwise.
 
 ### GetVoutOk
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDRIBSZVoutInner, bool)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) GetVoutOk() (*[]GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner, bool)`
 
 GetVoutOk returns a tuple with the Vout field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetVout
 
-`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVout(v []GetTransactionDetailsByTransactionIDRIBSZVoutInner)`
+`func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ) SetVout(v []GetTransactionDetailsByTransactionIDFromCallbackRIBSZVoutInner)`
 
 SetVout sets Vout field to given value.
 

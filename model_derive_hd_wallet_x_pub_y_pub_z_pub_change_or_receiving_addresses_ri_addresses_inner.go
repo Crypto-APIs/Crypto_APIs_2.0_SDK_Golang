@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -20,14 +20,14 @@ type DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner struct
 	// Represents the public address, which is a compressed and shortened form of a public key.
 	Address string `json:"address"`
 	// Represents the output index. It refers to the UTXO sequence in the transaction outputs (vout).
-	Index int32 `json:"index"`
+	Index int64 `json:"index"`
 }
 
 // NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner instantiates a new DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner(address string, index int32) *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner {
+func NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner(address string, index int64) *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner {
 	this := DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner{}
 	this.Address = address
 	this.Index = index
@@ -67,9 +67,9 @@ func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) S
 }
 
 // GetIndex returns the Index field value
-func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) GetIndex() int32 {
+func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) GetIndex() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -78,7 +78,7 @@ func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) G
 
 // GetIndexOk returns a tuple with the Index field value
 // and a boolean to check if the value has been set.
-func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) GetIndexOk() (*int32, bool) {
+func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) GetIndexOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -86,7 +86,7 @@ func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) G
 }
 
 // SetIndex sets field value
-func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) SetIndex(v int32) {
+func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) SetIndex(v int64) {
 	o.Index = v
 }
 

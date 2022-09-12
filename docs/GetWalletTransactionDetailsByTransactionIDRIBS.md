@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Vout** | [**[]ListTransactionsByBlockHeightRIBSZVoutInner**](ListTransactionsByBlockHeightRIBSZVoutInner.md) | Object Array representation of transaction outputs | 
 **Contract** | **string** | Represents the specific transaction contract | 
 **GasLimit** | **string** | Represents the amount of gas used by this specific transaction alone. | 
-**GasPrice** | [**GetTransactionDetailsByTransactionIDRIBSBSCGasPrice**](GetTransactionDetailsByTransactionIDRIBSBSCGasPrice.md) |  | 
+**GasPrice** | [**GetWalletTransactionDetailsByTransactionIDRIBSPGasPrice**](GetWalletTransactionDetailsByTransactionIDRIBSPGasPrice.md) |  | 
 **GasUsed** | **string** | Defines the unit of the gas price amount, e.g. BTC, ETH, XRP. | 
 **InputData** | **string** | Represents additional information that is required for the transaction. | 
 **Nonce** | **int32** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender&#39;s address. | 
@@ -27,12 +27,19 @@ Name | Type | Description | Notes
 **VShieldedSpend** | Pointer to [**[]GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner**](GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner.md) | Object Array representation of transaction spend descriptions | [optional] 
 **ValueBalance** | **string** | String representation of the transaction value balance | 
 **VersionGroupId** | **string** | Represents the transaction version group ID. | 
+**Amount** | **string** | String representation of the amount value | 
+**BandwidthUsed** | **string** | Numeric representation of the transaction used bandwidth | 
+**EnergyUsed** | **string** | String representation of the transaction used energy | 
+**HasInternalTransactions** | **bool** |  | 
+**HasTokenTransfers** | **bool** |  | 
+**Input** | **string** | Numeric representation of the transaction input | 
+**Status** | **string** | String representation of the transaction status | 
 
 ## Methods
 
 ### NewGetWalletTransactionDetailsByTransactionIDRIBS
 
-`func NewGetWalletTransactionDetailsByTransactionIDRIBS(locktime int64, size int32, vSize int32, version int32, vin []GetWalletTransactionDetailsByTransactionIDRIBSZVinInner, vout []ListTransactionsByBlockHeightRIBSZVoutInner, contract string, gasLimit string, gasPrice GetTransactionDetailsByTransactionIDRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, valueBalance string, versionGroupId string, ) *GetWalletTransactionDetailsByTransactionIDRIBS`
+`func NewGetWalletTransactionDetailsByTransactionIDRIBS(locktime int64, size int32, vSize int32, version int32, vin []GetWalletTransactionDetailsByTransactionIDRIBSZVinInner, vout []ListTransactionsByBlockHeightRIBSZVoutInner, contract string, gasLimit string, gasPrice GetWalletTransactionDetailsByTransactionIDRIBSPGasPrice, gasUsed string, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, valueBalance string, versionGroupId string, amount string, bandwidthUsed string, energyUsed string, hasInternalTransactions bool, hasTokenTransfers bool, input string, status string, ) *GetWalletTransactionDetailsByTransactionIDRIBS`
 
 NewGetWalletTransactionDetailsByTransactionIDRIBS instantiates a new GetWalletTransactionDetailsByTransactionIDRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -209,20 +216,20 @@ SetGasLimit sets GasLimit field to given value.
 
 ### GetGasPrice
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetGasPrice() GetTransactionDetailsByTransactionIDRIBSBSCGasPrice`
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetGasPrice() GetWalletTransactionDetailsByTransactionIDRIBSPGasPrice`
 
 GetGasPrice returns the GasPrice field if non-nil, zero value otherwise.
 
 ### GetGasPriceOk
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetGasPriceOk() (*GetTransactionDetailsByTransactionIDRIBSBSCGasPrice, bool)`
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetGasPriceOk() (*GetWalletTransactionDetailsByTransactionIDRIBSPGasPrice, bool)`
 
 GetGasPriceOk returns a tuple with the GasPrice field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGasPrice
 
-`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) SetGasPrice(v GetTransactionDetailsByTransactionIDRIBSBSCGasPrice)`
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) SetGasPrice(v GetWalletTransactionDetailsByTransactionIDRIBSPGasPrice)`
 
 SetGasPrice sets GasPrice field to given value.
 
@@ -520,6 +527,146 @@ and a boolean to check if the value has been set.
 `func (o *GetWalletTransactionDetailsByTransactionIDRIBS) SetVersionGroupId(v string)`
 
 SetVersionGroupId sets VersionGroupId field to given value.
+
+
+### GetAmount
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetAmount() string`
+
+GetAmount returns the Amount field if non-nil, zero value otherwise.
+
+### GetAmountOk
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetAmountOk() (*string, bool)`
+
+GetAmountOk returns a tuple with the Amount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetAmount
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) SetAmount(v string)`
+
+SetAmount sets Amount field to given value.
+
+
+### GetBandwidthUsed
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetBandwidthUsed() string`
+
+GetBandwidthUsed returns the BandwidthUsed field if non-nil, zero value otherwise.
+
+### GetBandwidthUsedOk
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetBandwidthUsedOk() (*string, bool)`
+
+GetBandwidthUsedOk returns a tuple with the BandwidthUsed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetBandwidthUsed
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) SetBandwidthUsed(v string)`
+
+SetBandwidthUsed sets BandwidthUsed field to given value.
+
+
+### GetEnergyUsed
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetEnergyUsed() string`
+
+GetEnergyUsed returns the EnergyUsed field if non-nil, zero value otherwise.
+
+### GetEnergyUsedOk
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetEnergyUsedOk() (*string, bool)`
+
+GetEnergyUsedOk returns a tuple with the EnergyUsed field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetEnergyUsed
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) SetEnergyUsed(v string)`
+
+SetEnergyUsed sets EnergyUsed field to given value.
+
+
+### GetHasInternalTransactions
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetHasInternalTransactions() bool`
+
+GetHasInternalTransactions returns the HasInternalTransactions field if non-nil, zero value otherwise.
+
+### GetHasInternalTransactionsOk
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetHasInternalTransactionsOk() (*bool, bool)`
+
+GetHasInternalTransactionsOk returns a tuple with the HasInternalTransactions field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasInternalTransactions
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) SetHasInternalTransactions(v bool)`
+
+SetHasInternalTransactions sets HasInternalTransactions field to given value.
+
+
+### GetHasTokenTransfers
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetHasTokenTransfers() bool`
+
+GetHasTokenTransfers returns the HasTokenTransfers field if non-nil, zero value otherwise.
+
+### GetHasTokenTransfersOk
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetHasTokenTransfersOk() (*bool, bool)`
+
+GetHasTokenTransfersOk returns a tuple with the HasTokenTransfers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetHasTokenTransfers
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) SetHasTokenTransfers(v bool)`
+
+SetHasTokenTransfers sets HasTokenTransfers field to given value.
+
+
+### GetInput
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetInput() string`
+
+GetInput returns the Input field if non-nil, zero value otherwise.
+
+### GetInputOk
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetInputOk() (*string, bool)`
+
+GetInputOk returns a tuple with the Input field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInput
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) SetInput(v string)`
+
+SetInput sets Input field to given value.
+
+
+### GetStatus
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetStatus() string`
+
+GetStatus returns the Status field if non-nil, zero value otherwise.
+
+### GetStatusOk
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) GetStatusOk() (*string, bool)`
+
+GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetStatus
+
+`func (o *GetWalletTransactionDetailsByTransactionIDRIBS) SetStatus(v string)`
+
+SetStatus sets Status field to given value.
 
 
 

@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -32,6 +32,7 @@ type GetTransactionDetailsByTransactionIDFromCallbackRI struct {
 	// Represents the same as transactionId for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols hash is different from transactionId for SegWit transactions.
 	TransactionHash string `json:"transactionHash"`
 	Fee GetTransactionDetailsByTransactionIDFromCallbackRIFee `json:"fee"`
+	// Represents the state of the transaction whether it is confirmed or not confirmed.
 	IsConfirmed bool `json:"isConfirmed"`
 	BlockchainSpecific GetTransactionDetailsByTransactionIDFromCallbackRIBS `json:"blockchainSpecific"`
 }

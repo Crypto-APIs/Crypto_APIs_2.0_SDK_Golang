@@ -5,13 +5,13 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Address** | **string** | Represents the public address, which is a compressed and shortened form of a public key. | 
-**Index** | **int32** | Represents the output index. It refers to the UTXO sequence in the transaction outputs (vout). | 
+**Index** | **int64** | Represents the output index. It refers to the UTXO sequence in the transaction outputs (vout). | 
 
 ## Methods
 
 ### NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner
 
-`func NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner(address string, index int32, ) *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner`
+`func NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner(address string, index int64, ) *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner`
 
 NewDeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner instantiates a new DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner object
 This constructor will assign default values to properties that have it defined,
@@ -48,20 +48,20 @@ SetAddress sets Address field to given value.
 
 ### GetIndex
 
-`func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) GetIndex() int32`
+`func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) GetIndex() int64`
 
 GetIndex returns the Index field if non-nil, zero value otherwise.
 
 ### GetIndexOk
 
-`func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) GetIndexOk() (*int32, bool)`
+`func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) GetIndexOk() (*int64, bool)`
 
 GetIndexOk returns a tuple with the Index field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetIndex
 
-`func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) SetIndex(v int32)`
+`func (o *DeriveHDWalletXPubYPubZPubChangeOrReceivingAddressesRIAddressesInner) SetIndex(v int64)`
 
 SetIndex sets Index field to given value.
 

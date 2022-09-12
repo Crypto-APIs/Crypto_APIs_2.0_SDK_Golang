@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -23,7 +23,7 @@ type GetWalletTransactionDetailsByTransactionIDRIBSBCVoutInnerScriptPubKey struc
 	// Represents the hex of the script public key of the address.
 	Hex string `json:"hex"`
 	// Represents the required signatures.
-	ReqSigs int32 `json:"reqSigs"`
+	ReqSigs *int32 `json:"reqSigs,omitempty"`
 	// Represents the script type.
 	Type string `json:"type"`
 }
@@ -32,12 +32,11 @@ type GetWalletTransactionDetailsByTransactionIDRIBSBCVoutInnerScriptPubKey struc
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetWalletTransactionDetailsByTransactionIDRIBSBCVoutInnerScriptPubKey(addresses []string, asm string, hex string, reqSigs int32, type_ string) *GetWalletTransactionDetailsByTransactionIDRIBSBCVoutInnerScriptPubKey {
+func NewGetWalletTransactionDetailsByTransactionIDRIBSBCVoutInnerScriptPubKey(addresses []string, asm string, hex string, type_ string) *GetWalletTransactionDetailsByTransactionIDRIBSBCVoutInnerScriptPubKey {
 	this := GetWalletTransactionDetailsByTransactionIDRIBSBCVoutInnerScriptPubKey{}
 	this.Addresses = addresses
 	this.Asm = asm
 	this.Hex = hex
-	this.ReqSigs = reqSigs
 	this.Type = type_
 	return &this
 }
@@ -122,28 +121,36 @@ func (o *GetWalletTransactionDetailsByTransactionIDRIBSBCVoutInnerScriptPubKey) 
 	o.Hex = v
 }
 
-// GetReqSigs returns the ReqSigs field value
+// GetReqSigs returns the ReqSigs field value if set, zero value otherwise.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSBCVoutInnerScriptPubKey) GetReqSigs() int32 {
-	if o == nil {
+	if o == nil || o.ReqSigs == nil {
 		var ret int32
 		return ret
 	}
-
-	return o.ReqSigs
+	return *o.ReqSigs
 }
 
-// GetReqSigsOk returns a tuple with the ReqSigs field value
+// GetReqSigsOk returns a tuple with the ReqSigs field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSBCVoutInnerScriptPubKey) GetReqSigsOk() (*int32, bool) {
-	if o == nil {
+	if o == nil || o.ReqSigs == nil {
 		return nil, false
 	}
-	return &o.ReqSigs, true
+	return o.ReqSigs, true
 }
 
-// SetReqSigs sets field value
+// HasReqSigs returns a boolean if a field has been set.
+func (o *GetWalletTransactionDetailsByTransactionIDRIBSBCVoutInnerScriptPubKey) HasReqSigs() bool {
+	if o != nil && o.ReqSigs != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetReqSigs gets a reference to the given int32 and assigns it to the ReqSigs field.
 func (o *GetWalletTransactionDetailsByTransactionIDRIBSBCVoutInnerScriptPubKey) SetReqSigs(v int32) {
-	o.ReqSigs = v
+	o.ReqSigs = &v
 }
 
 // GetType returns the Type field value
@@ -181,7 +188,7 @@ func (o GetWalletTransactionDetailsByTransactionIDRIBSBCVoutInnerScriptPubKey) M
 	if true {
 		toSerialize["hex"] = o.Hex
 	}
-	if true {
+	if o.ReqSigs != nil {
 		toSerialize["reqSigs"] = o.ReqSigs
 	}
 	if true {

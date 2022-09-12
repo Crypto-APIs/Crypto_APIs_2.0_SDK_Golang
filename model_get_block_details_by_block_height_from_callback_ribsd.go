@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -26,7 +26,7 @@ type GetBlockDetailsByBlockHeightFromCallbackRIBSD struct {
 	// Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions' hashes that are part of a blockchain block.
 	MerkleRoot string `json:"merkleRoot"`
 	// Represents a random value that can be adjusted to satisfy the proof of work
-	Nonce int32 `json:"nonce"`
+	Nonce int64 `json:"nonce"`
 	// Represents the total size of the block in Bytes.
 	Size int32 `json:"size"`
 	// Represents the version of the specific block on the blockchain.
@@ -39,7 +39,7 @@ type GetBlockDetailsByBlockHeightFromCallbackRIBSD struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetBlockDetailsByBlockHeightFromCallbackRIBSD(bits string, chainwork string, difficulty string, merkleRoot string, nonce int32, size int32, version int32, versionHex string) *GetBlockDetailsByBlockHeightFromCallbackRIBSD {
+func NewGetBlockDetailsByBlockHeightFromCallbackRIBSD(bits string, chainwork string, difficulty string, merkleRoot string, nonce int64, size int32, version int32, versionHex string) *GetBlockDetailsByBlockHeightFromCallbackRIBSD {
 	this := GetBlockDetailsByBlockHeightFromCallbackRIBSD{}
 	this.Bits = bits
 	this.Chainwork = chainwork
@@ -157,9 +157,9 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD) SetMerkleRoot(v string) 
 }
 
 // GetNonce returns the Nonce field value
-func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD) GetNonce() int32 {
+func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD) GetNonce() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -168,7 +168,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD) GetNonce() int32 {
 
 // GetNonceOk returns a tuple with the Nonce field value
 // and a boolean to check if the value has been set.
-func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD) GetNonceOk() (*int32, bool) {
+func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD) GetNonceOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -176,7 +176,7 @@ func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD) GetNonceOk() (*int32, bo
 }
 
 // SetNonce sets field value
-func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD) SetNonce(v int32) {
+func (o *GetBlockDetailsByBlockHeightFromCallbackRIBSD) SetNonce(v int64) {
 	o.Nonce = v
 }
 

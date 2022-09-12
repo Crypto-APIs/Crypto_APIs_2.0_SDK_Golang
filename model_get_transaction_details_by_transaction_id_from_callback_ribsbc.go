@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -26,14 +26,14 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSBC struct {
 	// Represents the transaction inputs.
 	Vin []GetTransactionDetailsByTransactionIDRIBSBCVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []GetTransactionDetailsByTransactionIDRIBSBCVoutInner `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDFromCallbackRIBSBCVoutInner `json:"vout"`
 }
 
 // NewGetTransactionDetailsByTransactionIDFromCallbackRIBSBC instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBSBC object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSBC(locktime int64, size int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSBCVinInner, vout []GetTransactionDetailsByTransactionIDRIBSBCVoutInner) *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSBC(locktime int64, size int32, version int32, vin []GetTransactionDetailsByTransactionIDRIBSBCVinInner, vout []GetTransactionDetailsByTransactionIDFromCallbackRIBSBCVoutInner) *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRIBSBC{}
 	this.Locktime = locktime
 	this.Size = size
@@ -148,9 +148,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) SetVin(v []GetT
 }
 
 // GetVout returns the Vout field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVout() []GetTransactionDetailsByTransactionIDRIBSBCVoutInner {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVout() []GetTransactionDetailsByTransactionIDFromCallbackRIBSBCVoutInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSBCVoutInner
+		var ret []GetTransactionDetailsByTransactionIDFromCallbackRIBSBCVoutInner
 		return ret
 	}
 
@@ -159,7 +159,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVout() []Get
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSBCVoutInner, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVoutOk() ([]GetTransactionDetailsByTransactionIDFromCallbackRIBSBCVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -167,7 +167,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) GetVoutOk() ([]
 }
 
 // SetVout sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) SetVout(v []GetTransactionDetailsByTransactionIDRIBSBCVoutInner) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSBC) SetVout(v []GetTransactionDetailsByTransactionIDFromCallbackRIBSBCVoutInner) {
 	o.Vout = v
 }
 

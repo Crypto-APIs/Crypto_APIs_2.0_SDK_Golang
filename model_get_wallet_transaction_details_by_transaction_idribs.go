@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -26,6 +26,8 @@ type GetWalletTransactionDetailsByTransactionIDRIBS struct {
 	GetWalletTransactionDetailsByTransactionIDRIBSE *GetWalletTransactionDetailsByTransactionIDRIBSE
 	GetWalletTransactionDetailsByTransactionIDRIBSEC *GetWalletTransactionDetailsByTransactionIDRIBSEC
 	GetWalletTransactionDetailsByTransactionIDRIBSL *GetWalletTransactionDetailsByTransactionIDRIBSL
+	GetWalletTransactionDetailsByTransactionIDRIBSP *GetWalletTransactionDetailsByTransactionIDRIBSP
+	GetWalletTransactionDetailsByTransactionIDRIBST *GetWalletTransactionDetailsByTransactionIDRIBST
 	GetWalletTransactionDetailsByTransactionIDRIBSZ *GetWalletTransactionDetailsByTransactionIDRIBSZ
 }
 
@@ -82,6 +84,20 @@ func GetWalletTransactionDetailsByTransactionIDRIBSECAsGetWalletTransactionDetai
 func GetWalletTransactionDetailsByTransactionIDRIBSLAsGetWalletTransactionDetailsByTransactionIDRIBS(v *GetWalletTransactionDetailsByTransactionIDRIBSL) GetWalletTransactionDetailsByTransactionIDRIBS {
 	return GetWalletTransactionDetailsByTransactionIDRIBS{
 		GetWalletTransactionDetailsByTransactionIDRIBSL: v,
+	}
+}
+
+// GetWalletTransactionDetailsByTransactionIDRIBSPAsGetWalletTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetWalletTransactionDetailsByTransactionIDRIBSP wrapped in GetWalletTransactionDetailsByTransactionIDRIBS
+func GetWalletTransactionDetailsByTransactionIDRIBSPAsGetWalletTransactionDetailsByTransactionIDRIBS(v *GetWalletTransactionDetailsByTransactionIDRIBSP) GetWalletTransactionDetailsByTransactionIDRIBS {
+	return GetWalletTransactionDetailsByTransactionIDRIBS{
+		GetWalletTransactionDetailsByTransactionIDRIBSP: v,
+	}
+}
+
+// GetWalletTransactionDetailsByTransactionIDRIBSTAsGetWalletTransactionDetailsByTransactionIDRIBS is a convenience function that returns GetWalletTransactionDetailsByTransactionIDRIBST wrapped in GetWalletTransactionDetailsByTransactionIDRIBS
+func GetWalletTransactionDetailsByTransactionIDRIBSTAsGetWalletTransactionDetailsByTransactionIDRIBS(v *GetWalletTransactionDetailsByTransactionIDRIBST) GetWalletTransactionDetailsByTransactionIDRIBS {
+	return GetWalletTransactionDetailsByTransactionIDRIBS{
+		GetWalletTransactionDetailsByTransactionIDRIBST: v,
 	}
 }
 
@@ -201,6 +217,32 @@ func (dst *GetWalletTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []
 		dst.GetWalletTransactionDetailsByTransactionIDRIBSL = nil
 	}
 
+	// try to unmarshal data into GetWalletTransactionDetailsByTransactionIDRIBSP
+	err = newStrictDecoder(data).Decode(&dst.GetWalletTransactionDetailsByTransactionIDRIBSP)
+	if err == nil {
+		jsonGetWalletTransactionDetailsByTransactionIDRIBSP, _ := json.Marshal(dst.GetWalletTransactionDetailsByTransactionIDRIBSP)
+		if string(jsonGetWalletTransactionDetailsByTransactionIDRIBSP) == "{}" { // empty struct
+			dst.GetWalletTransactionDetailsByTransactionIDRIBSP = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.GetWalletTransactionDetailsByTransactionIDRIBSP = nil
+	}
+
+	// try to unmarshal data into GetWalletTransactionDetailsByTransactionIDRIBST
+	err = newStrictDecoder(data).Decode(&dst.GetWalletTransactionDetailsByTransactionIDRIBST)
+	if err == nil {
+		jsonGetWalletTransactionDetailsByTransactionIDRIBST, _ := json.Marshal(dst.GetWalletTransactionDetailsByTransactionIDRIBST)
+		if string(jsonGetWalletTransactionDetailsByTransactionIDRIBST) == "{}" { // empty struct
+			dst.GetWalletTransactionDetailsByTransactionIDRIBST = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.GetWalletTransactionDetailsByTransactionIDRIBST = nil
+	}
+
 	// try to unmarshal data into GetWalletTransactionDetailsByTransactionIDRIBSZ
 	err = newStrictDecoder(data).Decode(&dst.GetWalletTransactionDetailsByTransactionIDRIBSZ)
 	if err == nil {
@@ -224,6 +266,8 @@ func (dst *GetWalletTransactionDetailsByTransactionIDRIBS) UnmarshalJSON(data []
 		dst.GetWalletTransactionDetailsByTransactionIDRIBSE = nil
 		dst.GetWalletTransactionDetailsByTransactionIDRIBSEC = nil
 		dst.GetWalletTransactionDetailsByTransactionIDRIBSL = nil
+		dst.GetWalletTransactionDetailsByTransactionIDRIBSP = nil
+		dst.GetWalletTransactionDetailsByTransactionIDRIBST = nil
 		dst.GetWalletTransactionDetailsByTransactionIDRIBSZ = nil
 
 		return fmt.Errorf("Data matches more than one schema in oneOf(GetWalletTransactionDetailsByTransactionIDRIBS)")
@@ -268,6 +312,14 @@ func (src GetWalletTransactionDetailsByTransactionIDRIBS) MarshalJSON() ([]byte,
 		return json.Marshal(&src.GetWalletTransactionDetailsByTransactionIDRIBSL)
 	}
 
+	if src.GetWalletTransactionDetailsByTransactionIDRIBSP != nil {
+		return json.Marshal(&src.GetWalletTransactionDetailsByTransactionIDRIBSP)
+	}
+
+	if src.GetWalletTransactionDetailsByTransactionIDRIBST != nil {
+		return json.Marshal(&src.GetWalletTransactionDetailsByTransactionIDRIBST)
+	}
+
 	if src.GetWalletTransactionDetailsByTransactionIDRIBSZ != nil {
 		return json.Marshal(&src.GetWalletTransactionDetailsByTransactionIDRIBSZ)
 	}
@@ -310,6 +362,14 @@ func (obj *GetWalletTransactionDetailsByTransactionIDRIBS) GetActualInstance() (
 
 	if obj.GetWalletTransactionDetailsByTransactionIDRIBSL != nil {
 		return obj.GetWalletTransactionDetailsByTransactionIDRIBSL
+	}
+
+	if obj.GetWalletTransactionDetailsByTransactionIDRIBSP != nil {
+		return obj.GetWalletTransactionDetailsByTransactionIDRIBSP
+	}
+
+	if obj.GetWalletTransactionDetailsByTransactionIDRIBST != nil {
+		return obj.GetWalletTransactionDetailsByTransactionIDRIBST
 	}
 
 	if obj.GetWalletTransactionDetailsByTransactionIDRIBSZ != nil {

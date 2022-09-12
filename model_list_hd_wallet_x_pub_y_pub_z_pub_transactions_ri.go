@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -22,7 +22,7 @@ type ListHDWalletXPubYPubZPubTransactionsRI struct {
 	// Represents the hash of the block where this transaction was mined/confirmed for first time. The hash is defined as a cryptographic digital fingerprint made by hashing the block header twice through the SHA256 algorithm.
 	MinedInBlockHash string `json:"minedInBlockHash"`
 	// Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
-	MinedInBlockHeight int32 `json:"minedInBlockHeight"`
+	MinedInBlockHeight int64 `json:"minedInBlockHeight"`
 	// Represents a list of recipient addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
 	Recipients []ListHDWalletXPubYPubZPubTransactionsRIRecipientsInner `json:"recipients"`
 	// Represents a list of sender addresses with the respective amounts. In account-based protocols like Ethereum there is only one address in this list.
@@ -40,7 +40,7 @@ type ListHDWalletXPubYPubZPubTransactionsRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListHDWalletXPubYPubZPubTransactionsRI(index int32, minedInBlockHash string, minedInBlockHeight int32, recipients []ListHDWalletXPubYPubZPubTransactionsRIRecipientsInner, senders []ListHDWalletXPubYPubZPubTransactionsRISendersInner, timestamp int32, transactionHash string, transactionId string, fee ListHDWalletXPubYPubZPubTransactionsRIFee) *ListHDWalletXPubYPubZPubTransactionsRI {
+func NewListHDWalletXPubYPubZPubTransactionsRI(index int32, minedInBlockHash string, minedInBlockHeight int64, recipients []ListHDWalletXPubYPubZPubTransactionsRIRecipientsInner, senders []ListHDWalletXPubYPubZPubTransactionsRISendersInner, timestamp int32, transactionHash string, transactionId string, fee ListHDWalletXPubYPubZPubTransactionsRIFee) *ListHDWalletXPubYPubZPubTransactionsRI {
 	this := ListHDWalletXPubYPubZPubTransactionsRI{}
 	this.Index = index
 	this.MinedInBlockHash = minedInBlockHash
@@ -111,9 +111,9 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) SetMinedInBlockHash(v string) {
 }
 
 // GetMinedInBlockHeight returns the MinedInBlockHeight field value
-func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHeight() int32 {
+func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHeight() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -122,7 +122,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHeight() int32 {
 
 // GetMinedInBlockHeightOk returns a tuple with the MinedInBlockHeight field value
 // and a boolean to check if the value has been set.
-func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHeightOk() (*int32, bool) {
+func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHeightOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -130,7 +130,7 @@ func (o *ListHDWalletXPubYPubZPubTransactionsRI) GetMinedInBlockHeightOk() (*int
 }
 
 // SetMinedInBlockHeight sets field value
-func (o *ListHDWalletXPubYPubZPubTransactionsRI) SetMinedInBlockHeight(v int32) {
+func (o *ListHDWalletXPubYPubZPubTransactionsRI) SetMinedInBlockHeight(v int64) {
 	o.MinedInBlockHeight = v
 }
 

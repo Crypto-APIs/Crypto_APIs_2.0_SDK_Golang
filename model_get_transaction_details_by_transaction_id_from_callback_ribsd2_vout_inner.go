@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -19,7 +19,7 @@ import (
 type GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner struct {
 	// Defines whether the output is spent or not.
 	IsSpent bool `json:"isSpent"`
-	ScriptPubKey GetTransactionDetailsByTransactionIDRIBSDVoutInnerScriptPubKey `json:"scriptPubKey"`
+	ScriptPubKey GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInnerScriptPubKey `json:"scriptPubKey"`
 	// String representation of the amount
 	Value string `json:"value"`
 }
@@ -28,7 +28,7 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner(isSpent bool, scriptPubKey GetTransactionDetailsByTransactionIDRIBSDVoutInnerScriptPubKey, value string) *GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner(isSpent bool, scriptPubKey GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInnerScriptPubKey, value string) *GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner{}
 	this.IsSpent = isSpent
 	this.ScriptPubKey = scriptPubKey
@@ -69,9 +69,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner) SetIsS
 }
 
 // GetScriptPubKey returns the ScriptPubKey field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner) GetScriptPubKey() GetTransactionDetailsByTransactionIDRIBSDVoutInnerScriptPubKey {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner) GetScriptPubKey() GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInnerScriptPubKey {
 	if o == nil {
-		var ret GetTransactionDetailsByTransactionIDRIBSDVoutInnerScriptPubKey
+		var ret GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInnerScriptPubKey
 		return ret
 	}
 
@@ -80,7 +80,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner) GetScr
 
 // GetScriptPubKeyOk returns a tuple with the ScriptPubKey field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner) GetScriptPubKeyOk() (*GetTransactionDetailsByTransactionIDRIBSDVoutInnerScriptPubKey, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner) GetScriptPubKeyOk() (*GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInnerScriptPubKey, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -88,7 +88,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner) GetScr
 }
 
 // SetScriptPubKey sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner) SetScriptPubKey(v GetTransactionDetailsByTransactionIDRIBSDVoutInnerScriptPubKey) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInner) SetScriptPubKey(v GetTransactionDetailsByTransactionIDFromCallbackRIBSD2VoutInnerScriptPubKey) {
 	o.ScriptPubKey = v
 }
 

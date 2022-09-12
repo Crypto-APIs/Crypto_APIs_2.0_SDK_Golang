@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -25,10 +25,10 @@ type GetWalletTransactionDetailsByTransactionIDRI struct {
 	MinedInBlockHash *string `json:"minedInBlockHash,omitempty"`
 	// Represents the hight of the block where this transaction was mined/confirmed for first time. The height is defined as the number of blocks in the blockchain preceding this specific block.
 	MinedInBlockHeight *int32 `json:"minedInBlockHeight,omitempty"`
-	// Object Array representation of transaction receivers
-	Recipients []GetWalletTransactionDetailsByTransactionIDRIRecipientsInner `json:"recipients"`
-	// Object Array representation of transaction senders
-	Senders []GetWalletTransactionDetailsByTransactionIDRISendersInner `json:"senders"`
+	// String representation of the transaction to address
+	Recipients string `json:"recipients"`
+	// String representation of the transaction from address
+	Senders string `json:"senders"`
 	// Defines the exact date/time in Unix Timestamp when this transaction was mined, confirmed or first seen in Mempool, if it is unconfirmed.
 	Timestamp int32 `json:"timestamp"`
 	// Represents the same as `transactionId` for account-based protocols like Ethereum, while it could be different in UTXO-based protocols like Bitcoin. E.g., in UTXO-based protocols `hash` is different from `transactionId` for SegWit transactions.
@@ -43,7 +43,7 @@ type GetWalletTransactionDetailsByTransactionIDRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetWalletTransactionDetailsByTransactionIDRI(index int32, isConfirmed bool, recipients []GetWalletTransactionDetailsByTransactionIDRIRecipientsInner, senders []GetWalletTransactionDetailsByTransactionIDRISendersInner, timestamp int32, transactionHash string, transactionId string, fee GetWalletTransactionDetailsByTransactionIDRIFee, blockchainSpecific GetWalletTransactionDetailsByTransactionIDRIBS) *GetWalletTransactionDetailsByTransactionIDRI {
+func NewGetWalletTransactionDetailsByTransactionIDRI(index int32, isConfirmed bool, recipients string, senders string, timestamp int32, transactionHash string, transactionId string, fee GetWalletTransactionDetailsByTransactionIDRIFee, blockchainSpecific GetWalletTransactionDetailsByTransactionIDRIBS) *GetWalletTransactionDetailsByTransactionIDRI {
 	this := GetWalletTransactionDetailsByTransactionIDRI{}
 	this.Index = index
 	this.IsConfirmed = isConfirmed
@@ -178,9 +178,9 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) SetMinedInBlockHeight(v i
 }
 
 // GetRecipients returns the Recipients field value
-func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipients() []GetWalletTransactionDetailsByTransactionIDRIRecipientsInner {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipients() string {
 	if o == nil {
-		var ret []GetWalletTransactionDetailsByTransactionIDRIRecipientsInner
+		var ret string
 		return ret
 	}
 
@@ -189,22 +189,22 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipients() []GetWall
 
 // GetRecipientsOk returns a tuple with the Recipients field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipientsOk() ([]GetWalletTransactionDetailsByTransactionIDRIRecipientsInner, bool) {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) GetRecipientsOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Recipients, true
+	return &o.Recipients, true
 }
 
 // SetRecipients sets field value
-func (o *GetWalletTransactionDetailsByTransactionIDRI) SetRecipients(v []GetWalletTransactionDetailsByTransactionIDRIRecipientsInner) {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) SetRecipients(v string) {
 	o.Recipients = v
 }
 
 // GetSenders returns the Senders field value
-func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSenders() []GetWalletTransactionDetailsByTransactionIDRISendersInner {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSenders() string {
 	if o == nil {
-		var ret []GetWalletTransactionDetailsByTransactionIDRISendersInner
+		var ret string
 		return ret
 	}
 
@@ -213,15 +213,15 @@ func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSenders() []GetWalletT
 
 // GetSendersOk returns a tuple with the Senders field value
 // and a boolean to check if the value has been set.
-func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSendersOk() ([]GetWalletTransactionDetailsByTransactionIDRISendersInner, bool) {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) GetSendersOk() (*string, bool) {
 	if o == nil {
 		return nil, false
 	}
-	return o.Senders, true
+	return &o.Senders, true
 }
 
 // SetSenders sets field value
-func (o *GetWalletTransactionDetailsByTransactionIDRI) SetSenders(v []GetWalletTransactionDetailsByTransactionIDRISendersInner) {
+func (o *GetWalletTransactionDetailsByTransactionIDRI) SetSenders(v string) {
 	o.Senders = v
 }
 

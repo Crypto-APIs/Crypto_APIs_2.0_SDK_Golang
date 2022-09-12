@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -26,6 +26,7 @@ type GetBlockDetailsByBlockHashFromCallbackRIBS struct {
 	GetBlockDetailsByBlockHashFromCallbackRIBSE *GetBlockDetailsByBlockHashFromCallbackRIBSE
 	GetBlockDetailsByBlockHashFromCallbackRIBSEC *GetBlockDetailsByBlockHashFromCallbackRIBSEC
 	GetBlockDetailsByBlockHashFromCallbackRIBSL *GetBlockDetailsByBlockHashFromCallbackRIBSL
+	GetBlockDetailsByBlockHashFromCallbackRIBST *GetBlockDetailsByBlockHashFromCallbackRIBST
 	GetBlockDetailsByBlockHashFromCallbackRIBSX *GetBlockDetailsByBlockHashFromCallbackRIBSX
 	GetBlockDetailsByBlockHashFromCallbackRIBSZ *GetBlockDetailsByBlockHashFromCallbackRIBSZ
 	GetBlockDetailsByBlockHashFromCallbackRIBSZ2 *GetBlockDetailsByBlockHashFromCallbackRIBSZ2
@@ -84,6 +85,13 @@ func GetBlockDetailsByBlockHashFromCallbackRIBSECAsGetBlockDetailsByBlockHashFro
 func GetBlockDetailsByBlockHashFromCallbackRIBSLAsGetBlockDetailsByBlockHashFromCallbackRIBS(v *GetBlockDetailsByBlockHashFromCallbackRIBSL) GetBlockDetailsByBlockHashFromCallbackRIBS {
 	return GetBlockDetailsByBlockHashFromCallbackRIBS{
 		GetBlockDetailsByBlockHashFromCallbackRIBSL: v,
+	}
+}
+
+// GetBlockDetailsByBlockHashFromCallbackRIBSTAsGetBlockDetailsByBlockHashFromCallbackRIBS is a convenience function that returns GetBlockDetailsByBlockHashFromCallbackRIBST wrapped in GetBlockDetailsByBlockHashFromCallbackRIBS
+func GetBlockDetailsByBlockHashFromCallbackRIBSTAsGetBlockDetailsByBlockHashFromCallbackRIBS(v *GetBlockDetailsByBlockHashFromCallbackRIBST) GetBlockDetailsByBlockHashFromCallbackRIBS {
+	return GetBlockDetailsByBlockHashFromCallbackRIBS{
+		GetBlockDetailsByBlockHashFromCallbackRIBST: v,
 	}
 }
 
@@ -217,6 +225,19 @@ func (dst *GetBlockDetailsByBlockHashFromCallbackRIBS) UnmarshalJSON(data []byte
 		dst.GetBlockDetailsByBlockHashFromCallbackRIBSL = nil
 	}
 
+	// try to unmarshal data into GetBlockDetailsByBlockHashFromCallbackRIBST
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHashFromCallbackRIBST)
+	if err == nil {
+		jsonGetBlockDetailsByBlockHashFromCallbackRIBST, _ := json.Marshal(dst.GetBlockDetailsByBlockHashFromCallbackRIBST)
+		if string(jsonGetBlockDetailsByBlockHashFromCallbackRIBST) == "{}" { // empty struct
+			dst.GetBlockDetailsByBlockHashFromCallbackRIBST = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.GetBlockDetailsByBlockHashFromCallbackRIBST = nil
+	}
+
 	// try to unmarshal data into GetBlockDetailsByBlockHashFromCallbackRIBSX
 	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHashFromCallbackRIBSX)
 	if err == nil {
@@ -266,6 +287,7 @@ func (dst *GetBlockDetailsByBlockHashFromCallbackRIBS) UnmarshalJSON(data []byte
 		dst.GetBlockDetailsByBlockHashFromCallbackRIBSE = nil
 		dst.GetBlockDetailsByBlockHashFromCallbackRIBSEC = nil
 		dst.GetBlockDetailsByBlockHashFromCallbackRIBSL = nil
+		dst.GetBlockDetailsByBlockHashFromCallbackRIBST = nil
 		dst.GetBlockDetailsByBlockHashFromCallbackRIBSX = nil
 		dst.GetBlockDetailsByBlockHashFromCallbackRIBSZ = nil
 		dst.GetBlockDetailsByBlockHashFromCallbackRIBSZ2 = nil
@@ -310,6 +332,10 @@ func (src GetBlockDetailsByBlockHashFromCallbackRIBS) MarshalJSON() ([]byte, err
 
 	if src.GetBlockDetailsByBlockHashFromCallbackRIBSL != nil {
 		return json.Marshal(&src.GetBlockDetailsByBlockHashFromCallbackRIBSL)
+	}
+
+	if src.GetBlockDetailsByBlockHashFromCallbackRIBST != nil {
+		return json.Marshal(&src.GetBlockDetailsByBlockHashFromCallbackRIBST)
 	}
 
 	if src.GetBlockDetailsByBlockHashFromCallbackRIBSX != nil {
@@ -362,6 +388,10 @@ func (obj *GetBlockDetailsByBlockHashFromCallbackRIBS) GetActualInstance() (inte
 
 	if obj.GetBlockDetailsByBlockHashFromCallbackRIBSL != nil {
 		return obj.GetBlockDetailsByBlockHashFromCallbackRIBSL
+	}
+
+	if obj.GetBlockDetailsByBlockHashFromCallbackRIBST != nil {
+		return obj.GetBlockDetailsByBlockHashFromCallbackRIBST
 	}
 
 	if obj.GetBlockDetailsByBlockHashFromCallbackRIBSX != nil {

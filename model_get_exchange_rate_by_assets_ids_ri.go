@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -17,7 +17,7 @@ import (
 
 // GetExchangeRateByAssetsIDsRI struct for GetExchangeRateByAssetsIDsRI
 type GetExchangeRateByAssetsIDsRI struct {
-	// Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp.
+	// Defines the time of the market data used to calculate the exchange rate in UNIX Timestamp. Oldest possible timestamp is 30 days.
 	CalculationTimestamp int32 `json:"calculationTimestamp"`
 	// Defines the base asset Reference ID to get a rate for.
 	FromAssetId string `json:"fromAssetId"`

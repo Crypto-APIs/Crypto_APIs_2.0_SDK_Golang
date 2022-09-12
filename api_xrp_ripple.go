@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -159,7 +159,7 @@ func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -189,7 +189,7 @@ func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -199,7 +199,7 @@ func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -209,7 +209,7 @@ func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -219,7 +219,7 @@ func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -229,7 +229,7 @@ func (a *XRPRippleApiService) GetLatestMinedXRPRippleBlockExecute(r ApiGetLatest
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -391,7 +391,7 @@ func (a *XRPRippleApiService) GetXRPRippleAddressDetailsExecute(r ApiGetXRPRippl
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -411,7 +411,7 @@ func (a *XRPRippleApiService) GetXRPRippleAddressDetailsExecute(r ApiGetXRPRippl
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -421,7 +421,7 @@ func (a *XRPRippleApiService) GetXRPRippleAddressDetailsExecute(r ApiGetXRPRippl
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -431,7 +431,7 @@ func (a *XRPRippleApiService) GetXRPRippleAddressDetailsExecute(r ApiGetXRPRippl
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -441,7 +441,7 @@ func (a *XRPRippleApiService) GetXRPRippleAddressDetailsExecute(r ApiGetXRPRippl
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -451,7 +451,7 @@ func (a *XRPRippleApiService) GetXRPRippleAddressDetailsExecute(r ApiGetXRPRippl
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -613,7 +613,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -643,7 +643,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -653,7 +653,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -663,7 +663,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -673,7 +673,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -683,7 +683,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHashExecute(r ApiGe
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -845,7 +845,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -875,7 +875,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -885,7 +885,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -895,7 +895,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -905,7 +905,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -915,7 +915,7 @@ func (a *XRPRippleApiService) GetXRPRippleBlockDetailsByBlockHeightExecute(r Api
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1077,7 +1077,7 @@ func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionIDExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1107,7 +1107,7 @@ func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionIDExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1117,7 +1117,7 @@ func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionIDExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1127,7 +1127,7 @@ func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionIDExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1137,7 +1137,7 @@ func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionIDExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1147,7 +1147,7 @@ func (a *XRPRippleApiService) GetXRPRippleTransactionDetailsByTransactionIDExecu
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1338,7 +1338,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1358,7 +1358,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1368,7 +1368,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1378,7 +1378,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1388,7 +1388,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1398,7 +1398,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressExecute(r ApiLis
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1610,7 +1610,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressAndTimeRangeExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1630,7 +1630,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressAndTimeRangeExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1640,7 +1640,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressAndTimeRangeExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1650,7 +1650,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressAndTimeRangeExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1660,7 +1660,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressAndTimeRangeExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1670,7 +1670,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByAddressAndTimeRangeExec
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1852,7 +1852,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1872,7 +1872,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1882,7 +1882,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1892,7 +1892,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1902,7 +1902,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1912,7 +1912,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHashExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2094,7 +2094,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeightExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2114,7 +2114,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeightExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2124,7 +2124,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeightExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2134,7 +2134,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeightExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 422 {
-			var v GetAddressDetails422Response
+			var v ConvertBitcoinCashAddress422Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2144,7 +2144,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeightExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -2154,7 +2154,7 @@ func (a *XRPRippleApiService) ListXRPRippleTransactionsByBlockHeightExecute(r Ap
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

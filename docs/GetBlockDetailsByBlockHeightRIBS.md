@@ -5,27 +5,31 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Difficulty** | **string** | Represents a mathematical value of how hard it is to find a valid hash for this block. | 
-**Nonce** | **string** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
-**Size** | **int32** | Represents the total size of the block in Bytes. | 
 **Bits** | **string** | Represents a specific sub-unit of Zcash. Bits have two-decimal precision | 
 **Chainwork** | **string** | Represents a hexadecimal number of all the hashes necessary to produce the current chain. E.g., when converting 0000000000000000000000000000000000000000000086859f7a841475b236fd to a decimal you get 635262017308958427068157 hashes, or 635262 exahashes. | 
 **MerkleRoot** | **string** | Defines the single and final (root) node of a Merkle tree. It is the combined hash of all transactions&#39; hashes that are part of a blockchain block. | 
+**Nonce** | **string** | Represents a random value that can be adjusted to satisfy the Proof of Work. | 
+**Size** | **int32** | Represents the total size of the block in Bytes. | 
 **StrippedSize** | **int32** | Defines the numeric representation of the block size excluding the witness data. | 
 **Version** | **int32** | Represents the block version number. | 
 **VersionHex** | **string** | Is the hexadecimal string representation of the block&#39;s version. | 
 **Weight** | **int32** | Represents a measurement to compare the size of different transactions to each other in proportion to the block size limi | 
 **ExtraData** | **string** | Represents any data that can be included by the miner in the block. | 
-**GasLimit** | **string** | Defines the total gas limit of all transactions in the block. | 
-**GasUsed** | **string** | Represents the total amount of gas used by all transactions in this block. | 
+**GasLimit** | **int32** | Numeric representation of the block gas_limit | 
+**GasUsed** | **int32** | Numeric representation of the block gas_limit | 
 **MinedInSeconds** | **int32** | Specifies the amount of time required for the block to be mined in seconds. | 
 **Sha3Uncles** | **string** | Defines the combined hash of all uncles for a given parent. | 
 **TotalDifficulty** | **string** | Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block. | 
+**DsBlock** | **int32** | Numeric representation of the ds block | 
+**DsDifficulty** | **string** | Numeric representation of the ds difficulty | 
+**DsLeader** | **string** | String representation of the ds leader | 
+**MicroBlocks** | **[]string** |  | 
 
 ## Methods
 
 ### NewGetBlockDetailsByBlockHeightRIBS
 
-`func NewGetBlockDetailsByBlockHeightRIBS(difficulty string, nonce string, size int32, bits string, chainwork string, merkleRoot string, strippedSize int32, version int32, versionHex string, weight int32, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, totalDifficulty string, ) *GetBlockDetailsByBlockHeightRIBS`
+`func NewGetBlockDetailsByBlockHeightRIBS(difficulty string, bits string, chainwork string, merkleRoot string, nonce string, size int32, strippedSize int32, version int32, versionHex string, weight int32, extraData string, gasLimit int32, gasUsed int32, minedInSeconds int32, sha3Uncles string, totalDifficulty string, dsBlock int32, dsDifficulty string, dsLeader string, microBlocks []string, ) *GetBlockDetailsByBlockHeightRIBS`
 
 NewGetBlockDetailsByBlockHeightRIBS instantiates a new GetBlockDetailsByBlockHeightRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -58,46 +62,6 @@ and a boolean to check if the value has been set.
 `func (o *GetBlockDetailsByBlockHeightRIBS) SetDifficulty(v string)`
 
 SetDifficulty sets Difficulty field to given value.
-
-
-### GetNonce
-
-`func (o *GetBlockDetailsByBlockHeightRIBS) GetNonce() string`
-
-GetNonce returns the Nonce field if non-nil, zero value otherwise.
-
-### GetNonceOk
-
-`func (o *GetBlockDetailsByBlockHeightRIBS) GetNonceOk() (*string, bool)`
-
-GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetNonce
-
-`func (o *GetBlockDetailsByBlockHeightRIBS) SetNonce(v string)`
-
-SetNonce sets Nonce field to given value.
-
-
-### GetSize
-
-`func (o *GetBlockDetailsByBlockHeightRIBS) GetSize() int32`
-
-GetSize returns the Size field if non-nil, zero value otherwise.
-
-### GetSizeOk
-
-`func (o *GetBlockDetailsByBlockHeightRIBS) GetSizeOk() (*int32, bool)`
-
-GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetSize
-
-`func (o *GetBlockDetailsByBlockHeightRIBS) SetSize(v int32)`
-
-SetSize sets Size field to given value.
 
 
 ### GetBits
@@ -158,6 +122,46 @@ and a boolean to check if the value has been set.
 `func (o *GetBlockDetailsByBlockHeightRIBS) SetMerkleRoot(v string)`
 
 SetMerkleRoot sets MerkleRoot field to given value.
+
+
+### GetNonce
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetNonce() string`
+
+GetNonce returns the Nonce field if non-nil, zero value otherwise.
+
+### GetNonceOk
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetNonceOk() (*string, bool)`
+
+GetNonceOk returns a tuple with the Nonce field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNonce
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) SetNonce(v string)`
+
+SetNonce sets Nonce field to given value.
+
+
+### GetSize
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetSize() int32`
+
+GetSize returns the Size field if non-nil, zero value otherwise.
+
+### GetSizeOk
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetSizeOk() (*int32, bool)`
+
+GetSizeOk returns a tuple with the Size field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSize
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) SetSize(v int32)`
+
+SetSize sets Size field to given value.
 
 
 ### GetStrippedSize
@@ -262,40 +266,40 @@ SetExtraData sets ExtraData field to given value.
 
 ### GetGasLimit
 
-`func (o *GetBlockDetailsByBlockHeightRIBS) GetGasLimit() string`
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetGasLimit() int32`
 
 GetGasLimit returns the GasLimit field if non-nil, zero value otherwise.
 
 ### GetGasLimitOk
 
-`func (o *GetBlockDetailsByBlockHeightRIBS) GetGasLimitOk() (*string, bool)`
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetGasLimitOk() (*int32, bool)`
 
 GetGasLimitOk returns a tuple with the GasLimit field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGasLimit
 
-`func (o *GetBlockDetailsByBlockHeightRIBS) SetGasLimit(v string)`
+`func (o *GetBlockDetailsByBlockHeightRIBS) SetGasLimit(v int32)`
 
 SetGasLimit sets GasLimit field to given value.
 
 
 ### GetGasUsed
 
-`func (o *GetBlockDetailsByBlockHeightRIBS) GetGasUsed() string`
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetGasUsed() int32`
 
 GetGasUsed returns the GasUsed field if non-nil, zero value otherwise.
 
 ### GetGasUsedOk
 
-`func (o *GetBlockDetailsByBlockHeightRIBS) GetGasUsedOk() (*string, bool)`
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetGasUsedOk() (*int32, bool)`
 
 GetGasUsedOk returns a tuple with the GasUsed field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetGasUsed
 
-`func (o *GetBlockDetailsByBlockHeightRIBS) SetGasUsed(v string)`
+`func (o *GetBlockDetailsByBlockHeightRIBS) SetGasUsed(v int32)`
 
 SetGasUsed sets GasUsed field to given value.
 
@@ -358,6 +362,86 @@ and a boolean to check if the value has been set.
 `func (o *GetBlockDetailsByBlockHeightRIBS) SetTotalDifficulty(v string)`
 
 SetTotalDifficulty sets TotalDifficulty field to given value.
+
+
+### GetDsBlock
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetDsBlock() int32`
+
+GetDsBlock returns the DsBlock field if non-nil, zero value otherwise.
+
+### GetDsBlockOk
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetDsBlockOk() (*int32, bool)`
+
+GetDsBlockOk returns a tuple with the DsBlock field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDsBlock
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) SetDsBlock(v int32)`
+
+SetDsBlock sets DsBlock field to given value.
+
+
+### GetDsDifficulty
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetDsDifficulty() string`
+
+GetDsDifficulty returns the DsDifficulty field if non-nil, zero value otherwise.
+
+### GetDsDifficultyOk
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetDsDifficultyOk() (*string, bool)`
+
+GetDsDifficultyOk returns a tuple with the DsDifficulty field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDsDifficulty
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) SetDsDifficulty(v string)`
+
+SetDsDifficulty sets DsDifficulty field to given value.
+
+
+### GetDsLeader
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetDsLeader() string`
+
+GetDsLeader returns the DsLeader field if non-nil, zero value otherwise.
+
+### GetDsLeaderOk
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetDsLeaderOk() (*string, bool)`
+
+GetDsLeaderOk returns a tuple with the DsLeader field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetDsLeader
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) SetDsLeader(v string)`
+
+SetDsLeader sets DsLeader field to given value.
+
+
+### GetMicroBlocks
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetMicroBlocks() []string`
+
+GetMicroBlocks returns the MicroBlocks field if non-nil, zero value otherwise.
+
+### GetMicroBlocksOk
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) GetMicroBlocksOk() (*[]string, bool)`
+
+GetMicroBlocksOk returns a tuple with the MicroBlocks field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetMicroBlocks
+
+`func (o *GetBlockDetailsByBlockHeightRIBS) SetMicroBlocks(v []string)`
+
+SetMicroBlocks sets MicroBlocks field to given value.
 
 
 

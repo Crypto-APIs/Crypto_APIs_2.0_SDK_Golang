@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Amount** | **string** | Represents the amount of the latest rate. | 
-**CalculationTimestamp** | Pointer to **int32** | Defines when the price was calculated in UNIX timestamp. | [optional] 
+**CalculationTimestamp** | Pointer to **int32** | Defines when the price was calculated in UNIX timestamp. Oldest possible timestamp is 30 days. | [optional] 
 **Unit** | **string** | Specifies the unit of the latest price of the asset. | 
 
 ## Methods

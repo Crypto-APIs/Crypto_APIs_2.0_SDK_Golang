@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -26,6 +26,8 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBS struct {
 	GetTransactionDetailsByTransactionIDFromCallbackRIBSE *GetTransactionDetailsByTransactionIDFromCallbackRIBSE
 	GetTransactionDetailsByTransactionIDFromCallbackRIBSEC *GetTransactionDetailsByTransactionIDFromCallbackRIBSEC
 	GetTransactionDetailsByTransactionIDFromCallbackRIBSL *GetTransactionDetailsByTransactionIDFromCallbackRIBSL
+	GetTransactionDetailsByTransactionIDFromCallbackRIBSP *GetTransactionDetailsByTransactionIDFromCallbackRIBSP
+	GetTransactionDetailsByTransactionIDFromCallbackRIBST *GetTransactionDetailsByTransactionIDFromCallbackRIBST
 	GetTransactionDetailsByTransactionIDFromCallbackRIBSX *GetTransactionDetailsByTransactionIDFromCallbackRIBSX
 	GetTransactionDetailsByTransactionIDFromCallbackRIBSZ *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ
 	GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2 *GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2
@@ -84,6 +86,20 @@ func GetTransactionDetailsByTransactionIDFromCallbackRIBSECAsGetTransactionDetai
 func GetTransactionDetailsByTransactionIDFromCallbackRIBSLAsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBSL) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
 	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
 		GetTransactionDetailsByTransactionIDFromCallbackRIBSL: v,
+	}
+}
+
+// GetTransactionDetailsByTransactionIDFromCallbackRIBSPAsGetTransactionDetailsByTransactionIDFromCallbackRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDFromCallbackRIBSP wrapped in GetTransactionDetailsByTransactionIDFromCallbackRIBS
+func GetTransactionDetailsByTransactionIDFromCallbackRIBSPAsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBSP) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
+	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
+		GetTransactionDetailsByTransactionIDFromCallbackRIBSP: v,
+	}
+}
+
+// GetTransactionDetailsByTransactionIDFromCallbackRIBSTAsGetTransactionDetailsByTransactionIDFromCallbackRIBS is a convenience function that returns GetTransactionDetailsByTransactionIDFromCallbackRIBST wrapped in GetTransactionDetailsByTransactionIDFromCallbackRIBS
+func GetTransactionDetailsByTransactionIDFromCallbackRIBSTAsGetTransactionDetailsByTransactionIDFromCallbackRIBS(v *GetTransactionDetailsByTransactionIDFromCallbackRIBST) GetTransactionDetailsByTransactionIDFromCallbackRIBS {
+	return GetTransactionDetailsByTransactionIDFromCallbackRIBS{
+		GetTransactionDetailsByTransactionIDFromCallbackRIBST: v,
 	}
 }
 
@@ -217,6 +233,32 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackRIBS) UnmarshalJSON(d
 		dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSL = nil
 	}
 
+	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBSP
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSP)
+	if err == nil {
+		jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSP, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSP)
+		if string(jsonGetTransactionDetailsByTransactionIDFromCallbackRIBSP) == "{}" { // empty struct
+			dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSP = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSP = nil
+	}
+
+	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBST
+	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBST)
+	if err == nil {
+		jsonGetTransactionDetailsByTransactionIDFromCallbackRIBST, _ := json.Marshal(dst.GetTransactionDetailsByTransactionIDFromCallbackRIBST)
+		if string(jsonGetTransactionDetailsByTransactionIDFromCallbackRIBST) == "{}" { // empty struct
+			dst.GetTransactionDetailsByTransactionIDFromCallbackRIBST = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.GetTransactionDetailsByTransactionIDFromCallbackRIBST = nil
+	}
+
 	// try to unmarshal data into GetTransactionDetailsByTransactionIDFromCallbackRIBSX
 	err = newStrictDecoder(data).Decode(&dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSX)
 	if err == nil {
@@ -266,6 +308,8 @@ func (dst *GetTransactionDetailsByTransactionIDFromCallbackRIBS) UnmarshalJSON(d
 		dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSE = nil
 		dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSEC = nil
 		dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSL = nil
+		dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSP = nil
+		dst.GetTransactionDetailsByTransactionIDFromCallbackRIBST = nil
 		dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSX = nil
 		dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSZ = nil
 		dst.GetTransactionDetailsByTransactionIDFromCallbackRIBSZ2 = nil
@@ -310,6 +354,14 @@ func (src GetTransactionDetailsByTransactionIDFromCallbackRIBS) MarshalJSON() ([
 
 	if src.GetTransactionDetailsByTransactionIDFromCallbackRIBSL != nil {
 		return json.Marshal(&src.GetTransactionDetailsByTransactionIDFromCallbackRIBSL)
+	}
+
+	if src.GetTransactionDetailsByTransactionIDFromCallbackRIBSP != nil {
+		return json.Marshal(&src.GetTransactionDetailsByTransactionIDFromCallbackRIBSP)
+	}
+
+	if src.GetTransactionDetailsByTransactionIDFromCallbackRIBST != nil {
+		return json.Marshal(&src.GetTransactionDetailsByTransactionIDFromCallbackRIBST)
 	}
 
 	if src.GetTransactionDetailsByTransactionIDFromCallbackRIBSX != nil {
@@ -362,6 +414,14 @@ func (obj *GetTransactionDetailsByTransactionIDFromCallbackRIBS) GetActualInstan
 
 	if obj.GetTransactionDetailsByTransactionIDFromCallbackRIBSL != nil {
 		return obj.GetTransactionDetailsByTransactionIDFromCallbackRIBSL
+	}
+
+	if obj.GetTransactionDetailsByTransactionIDFromCallbackRIBSP != nil {
+		return obj.GetTransactionDetailsByTransactionIDFromCallbackRIBSP
+	}
+
+	if obj.GetTransactionDetailsByTransactionIDFromCallbackRIBST != nil {
+		return obj.GetTransactionDetailsByTransactionIDFromCallbackRIBST
 	}
 
 	if obj.GetTransactionDetailsByTransactionIDFromCallbackRIBSX != nil {

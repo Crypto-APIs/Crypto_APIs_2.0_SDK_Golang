@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -19,10 +19,6 @@ import (
 type GetLastMinedBlockRIBSBSC struct {
 	// Represents a mathematical value of how hard it is to find a valid hash for this block.
 	Difficulty string `json:"difficulty"`
-	// Represents a random value that can be adjusted to satisfy the proof of work
-	Nonce string `json:"nonce"`
-	// Represents the total size of the block in Bytes.
-	Size int32 `json:"size"`
 	// Represents any data that can be included by the miner in the block.
 	ExtraData string `json:"extraData"`
 	// Defines the total gas limit of all transactions in the block.
@@ -31,8 +27,12 @@ type GetLastMinedBlockRIBSBSC struct {
 	GasUsed string `json:"gasUsed"`
 	// Specifies the amount of time required for the block to be mined in second
 	MinedInSeconds int32 `json:"minedInSeconds"`
+	// Represents a random value that can be adjusted to satisfy the proof of work
+	Nonce string `json:"nonce"`
 	// Defines the combined hash of all uncles for a given parent.
 	Sha3Uncles string `json:"sha3Uncles"`
+	// Represents the total size of the block in Bytes.
+	Size int32 `json:"size"`
 	// Defines the total difficulty of the chain until this block, i.e. how difficult it is for a specific miner to mine a new block
 	TotalDifficulty string `json:"totalDifficulty"`
 	Uncles []string `json:"uncles"`
@@ -42,16 +42,16 @@ type GetLastMinedBlockRIBSBSC struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetLastMinedBlockRIBSBSC(difficulty string, nonce string, size int32, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, sha3Uncles string, totalDifficulty string, uncles []string) *GetLastMinedBlockRIBSBSC {
+func NewGetLastMinedBlockRIBSBSC(difficulty string, extraData string, gasLimit string, gasUsed string, minedInSeconds int32, nonce string, sha3Uncles string, size int32, totalDifficulty string, uncles []string) *GetLastMinedBlockRIBSBSC {
 	this := GetLastMinedBlockRIBSBSC{}
 	this.Difficulty = difficulty
-	this.Nonce = nonce
-	this.Size = size
 	this.ExtraData = extraData
 	this.GasLimit = gasLimit
 	this.GasUsed = gasUsed
 	this.MinedInSeconds = minedInSeconds
+	this.Nonce = nonce
 	this.Sha3Uncles = sha3Uncles
+	this.Size = size
 	this.TotalDifficulty = totalDifficulty
 	this.Uncles = uncles
 	return &this
@@ -87,54 +87,6 @@ func (o *GetLastMinedBlockRIBSBSC) GetDifficultyOk() (*string, bool) {
 // SetDifficulty sets field value
 func (o *GetLastMinedBlockRIBSBSC) SetDifficulty(v string) {
 	o.Difficulty = v
-}
-
-// GetNonce returns the Nonce field value
-func (o *GetLastMinedBlockRIBSBSC) GetNonce() string {
-	if o == nil {
-		var ret string
-		return ret
-	}
-
-	return o.Nonce
-}
-
-// GetNonceOk returns a tuple with the Nonce field value
-// and a boolean to check if the value has been set.
-func (o *GetLastMinedBlockRIBSBSC) GetNonceOk() (*string, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Nonce, true
-}
-
-// SetNonce sets field value
-func (o *GetLastMinedBlockRIBSBSC) SetNonce(v string) {
-	o.Nonce = v
-}
-
-// GetSize returns the Size field value
-func (o *GetLastMinedBlockRIBSBSC) GetSize() int32 {
-	if o == nil {
-		var ret int32
-		return ret
-	}
-
-	return o.Size
-}
-
-// GetSizeOk returns a tuple with the Size field value
-// and a boolean to check if the value has been set.
-func (o *GetLastMinedBlockRIBSBSC) GetSizeOk() (*int32, bool) {
-	if o == nil {
-		return nil, false
-	}
-	return &o.Size, true
-}
-
-// SetSize sets field value
-func (o *GetLastMinedBlockRIBSBSC) SetSize(v int32) {
-	o.Size = v
 }
 
 // GetExtraData returns the ExtraData field value
@@ -233,6 +185,30 @@ func (o *GetLastMinedBlockRIBSBSC) SetMinedInSeconds(v int32) {
 	o.MinedInSeconds = v
 }
 
+// GetNonce returns the Nonce field value
+func (o *GetLastMinedBlockRIBSBSC) GetNonce() string {
+	if o == nil {
+		var ret string
+		return ret
+	}
+
+	return o.Nonce
+}
+
+// GetNonceOk returns a tuple with the Nonce field value
+// and a boolean to check if the value has been set.
+func (o *GetLastMinedBlockRIBSBSC) GetNonceOk() (*string, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Nonce, true
+}
+
+// SetNonce sets field value
+func (o *GetLastMinedBlockRIBSBSC) SetNonce(v string) {
+	o.Nonce = v
+}
+
 // GetSha3Uncles returns the Sha3Uncles field value
 func (o *GetLastMinedBlockRIBSBSC) GetSha3Uncles() string {
 	if o == nil {
@@ -255,6 +231,30 @@ func (o *GetLastMinedBlockRIBSBSC) GetSha3UnclesOk() (*string, bool) {
 // SetSha3Uncles sets field value
 func (o *GetLastMinedBlockRIBSBSC) SetSha3Uncles(v string) {
 	o.Sha3Uncles = v
+}
+
+// GetSize returns the Size field value
+func (o *GetLastMinedBlockRIBSBSC) GetSize() int32 {
+	if o == nil {
+		var ret int32
+		return ret
+	}
+
+	return o.Size
+}
+
+// GetSizeOk returns a tuple with the Size field value
+// and a boolean to check if the value has been set.
+func (o *GetLastMinedBlockRIBSBSC) GetSizeOk() (*int32, bool) {
+	if o == nil {
+		return nil, false
+	}
+	return &o.Size, true
+}
+
+// SetSize sets field value
+func (o *GetLastMinedBlockRIBSBSC) SetSize(v int32) {
+	o.Size = v
 }
 
 // GetTotalDifficulty returns the TotalDifficulty field value
@@ -311,12 +311,6 @@ func (o GetLastMinedBlockRIBSBSC) MarshalJSON() ([]byte, error) {
 		toSerialize["difficulty"] = o.Difficulty
 	}
 	if true {
-		toSerialize["nonce"] = o.Nonce
-	}
-	if true {
-		toSerialize["size"] = o.Size
-	}
-	if true {
 		toSerialize["extraData"] = o.ExtraData
 	}
 	if true {
@@ -329,7 +323,13 @@ func (o GetLastMinedBlockRIBSBSC) MarshalJSON() ([]byte, error) {
 		toSerialize["minedInSeconds"] = o.MinedInSeconds
 	}
 	if true {
+		toSerialize["nonce"] = o.Nonce
+	}
+	if true {
 		toSerialize["sha3Uncles"] = o.Sha3Uncles
+	}
+	if true {
+		toSerialize["size"] = o.Size
 	}
 	if true {
 		toSerialize["totalDifficulty"] = o.TotalDifficulty

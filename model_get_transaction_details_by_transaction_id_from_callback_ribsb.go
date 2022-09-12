@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -28,14 +28,14 @@ type GetTransactionDetailsByTransactionIDFromCallbackRIBSB struct {
 	// Represents the transaction inputs.
 	Vin []GetTransactionDetailsByTransactionIDFromCallbackRIBSBVinInner `json:"vin"`
 	// Represents the transaction outputs.
-	Vout []GetTransactionDetailsByTransactionIDRIBSBVoutInner `json:"vout"`
+	Vout []GetTransactionDetailsByTransactionIDFromCallbackRIBSBVoutInner `json:"vout"`
 }
 
 // NewGetTransactionDetailsByTransactionIDFromCallbackRIBSB instantiates a new GetTransactionDetailsByTransactionIDFromCallbackRIBSB object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSB(locktime int64, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDFromCallbackRIBSBVinInner, vout []GetTransactionDetailsByTransactionIDRIBSBVoutInner) *GetTransactionDetailsByTransactionIDFromCallbackRIBSB {
+func NewGetTransactionDetailsByTransactionIDFromCallbackRIBSB(locktime int64, size int32, vSize int32, version int32, vin []GetTransactionDetailsByTransactionIDFromCallbackRIBSBVinInner, vout []GetTransactionDetailsByTransactionIDFromCallbackRIBSBVoutInner) *GetTransactionDetailsByTransactionIDFromCallbackRIBSB {
 	this := GetTransactionDetailsByTransactionIDFromCallbackRIBSB{}
 	this.Locktime = locktime
 	this.Size = size
@@ -175,9 +175,9 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSB) SetVin(v []GetTr
 }
 
 // GetVout returns the Vout field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSB) GetVout() []GetTransactionDetailsByTransactionIDRIBSBVoutInner {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSB) GetVout() []GetTransactionDetailsByTransactionIDFromCallbackRIBSBVoutInner {
 	if o == nil {
-		var ret []GetTransactionDetailsByTransactionIDRIBSBVoutInner
+		var ret []GetTransactionDetailsByTransactionIDFromCallbackRIBSBVoutInner
 		return ret
 	}
 
@@ -186,7 +186,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSB) GetVout() []GetT
 
 // GetVoutOk returns a tuple with the Vout field value
 // and a boolean to check if the value has been set.
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSB) GetVoutOk() ([]GetTransactionDetailsByTransactionIDRIBSBVoutInner, bool) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSB) GetVoutOk() ([]GetTransactionDetailsByTransactionIDFromCallbackRIBSBVoutInner, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -194,7 +194,7 @@ func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSB) GetVoutOk() ([]G
 }
 
 // SetVout sets field value
-func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSB) SetVout(v []GetTransactionDetailsByTransactionIDRIBSBVoutInner) {
+func (o *GetTransactionDetailsByTransactionIDFromCallbackRIBSB) SetVout(v []GetTransactionDetailsByTransactionIDFromCallbackRIBSBVoutInner) {
 	o.Vout = v
 }
 

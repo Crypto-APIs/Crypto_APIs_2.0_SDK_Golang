@@ -15,7 +15,9 @@ Name | Type | Description | Notes
 **GasPrice** | [**ListConfirmedTransactionsByAddressRIBSBSCGasPrice**](ListConfirmedTransactionsByAddressRIBSBSCGasPrice.md) |  | 
 **GasUsed** | **string** | Represents the exact unit of gas that was used for the transaction. | 
 **InputData** | **string** | Represents additional information that is required for the transaction. | 
+**InternalTransactionsCount** | **int32** | Represents the total internal transactions count. | 
 **Nonce** | **int32** | Represents the sequential running number for an address, starting from 0 for the first transaction. E.g., if the nonce of a transaction is 10, it would be the 11th transaction sent from the sender&#39;s address. | 
+**TokenTransfersCount** | **int32** | Represents the total token transfers count. | 
 **TransactionStatus** | **string** | String representation of the transaction status | 
 **BindingSig** | **string** | It is used to enforce balance of Spend and Output transfers, in order to prevent their replay across transactions. | 
 **ExpiryHeight** | **int32** | Represents a block height after which the transaction will expire. | 
@@ -32,7 +34,7 @@ Name | Type | Description | Notes
 
 ### NewListConfirmedTransactionsByAddressRIBS
 
-`func NewListConfirmedTransactionsByAddressRIBS(locktime int64, size int32, vSize int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSZVinInner, vout []GetTransactionDetailsByTransactionIDRIBSZVoutInner, contract string, gasLimit string, gasPrice ListConfirmedTransactionsByAddressRIBSBSCGasPrice, gasUsed string, inputData string, nonce int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []ListConfirmedTransactionsByAddressRIBSZVJoinSplitInner, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, valueBalance string, versionGroupId string, ) *ListConfirmedTransactionsByAddressRIBS`
+`func NewListConfirmedTransactionsByAddressRIBS(locktime int64, size int32, vSize int32, version int32, vin []ListConfirmedTransactionsByAddressRIBSZVinInner, vout []GetTransactionDetailsByTransactionIDRIBSZVoutInner, contract string, gasLimit string, gasPrice ListConfirmedTransactionsByAddressRIBSBSCGasPrice, gasUsed string, inputData string, internalTransactionsCount int32, nonce int32, tokenTransfersCount int32, transactionStatus string, bindingSig string, expiryHeight int32, joinSplitPubKey string, joinSplitSig string, overwintered bool, vJoinSplit []ListConfirmedTransactionsByAddressRIBSZVJoinSplitInner, vShieldedOutput []GetTransactionDetailsByTransactionIDRIBSZVShieldedOutputInner, vShieldedSpend []GetTransactionDetailsByTransactionIDRIBSZVShieldedSpendInner, valueBalance string, versionGroupId string, ) *ListConfirmedTransactionsByAddressRIBS`
 
 NewListConfirmedTransactionsByAddressRIBS instantiates a new ListConfirmedTransactionsByAddressRIBS object
 This constructor will assign default values to properties that have it defined,
@@ -267,6 +269,26 @@ and a boolean to check if the value has been set.
 SetInputData sets InputData field to given value.
 
 
+### GetInternalTransactionsCount
+
+`func (o *ListConfirmedTransactionsByAddressRIBS) GetInternalTransactionsCount() int32`
+
+GetInternalTransactionsCount returns the InternalTransactionsCount field if non-nil, zero value otherwise.
+
+### GetInternalTransactionsCountOk
+
+`func (o *ListConfirmedTransactionsByAddressRIBS) GetInternalTransactionsCountOk() (*int32, bool)`
+
+GetInternalTransactionsCountOk returns a tuple with the InternalTransactionsCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetInternalTransactionsCount
+
+`func (o *ListConfirmedTransactionsByAddressRIBS) SetInternalTransactionsCount(v int32)`
+
+SetInternalTransactionsCount sets InternalTransactionsCount field to given value.
+
+
 ### GetNonce
 
 `func (o *ListConfirmedTransactionsByAddressRIBS) GetNonce() int32`
@@ -285,6 +307,26 @@ and a boolean to check if the value has been set.
 `func (o *ListConfirmedTransactionsByAddressRIBS) SetNonce(v int32)`
 
 SetNonce sets Nonce field to given value.
+
+
+### GetTokenTransfersCount
+
+`func (o *ListConfirmedTransactionsByAddressRIBS) GetTokenTransfersCount() int32`
+
+GetTokenTransfersCount returns the TokenTransfersCount field if non-nil, zero value otherwise.
+
+### GetTokenTransfersCountOk
+
+`func (o *ListConfirmedTransactionsByAddressRIBS) GetTokenTransfersCountOk() (*int32, bool)`
+
+GetTokenTransfersCountOk returns a tuple with the TokenTransfersCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTokenTransfersCount
+
+`func (o *ListConfirmedTransactionsByAddressRIBS) SetTokenTransfersCount(v int32)`
+
+SetTokenTransfersCount sets TokenTransfersCount field to given value.
 
 
 ### GetTransactionStatus

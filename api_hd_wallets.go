@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -23,6 +23,462 @@ import (
 
 // HDWalletsApiService HDWalletsApi service
 type HDWalletsApiService service
+
+type ApiDeriveAndSyncNewChangeAddressesRequest struct {
+	ctx context.Context
+	ApiService *HDWalletsApiService
+	blockchain string
+	network string
+	context *string
+	deriveAndSyncNewChangeAddressesRB *DeriveAndSyncNewChangeAddressesRB
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiDeriveAndSyncNewChangeAddressesRequest) Context(context string) ApiDeriveAndSyncNewChangeAddressesRequest {
+	r.context = &context
+	return r
+}
+
+func (r ApiDeriveAndSyncNewChangeAddressesRequest) DeriveAndSyncNewChangeAddressesRB(deriveAndSyncNewChangeAddressesRB DeriveAndSyncNewChangeAddressesRB) ApiDeriveAndSyncNewChangeAddressesRequest {
+	r.deriveAndSyncNewChangeAddressesRB = &deriveAndSyncNewChangeAddressesRB
+	return r
+}
+
+func (r ApiDeriveAndSyncNewChangeAddressesRequest) Execute() (*DeriveAndSyncNewChangeAddressesR, *http.Response, error) {
+	return r.ApiService.DeriveAndSyncNewChangeAddressesExecute(r)
+}
+
+/*
+DeriveAndSyncNewChangeAddresses Derive And Sync New Change Addresses
+
+Through this endpoint users can derive 100 change addresses, starting from the last index we have data for, which are then added to the xPub, subscribed for syncing, and start recording data. If no data is available, it will start from index 0.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+ @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+ @return ApiDeriveAndSyncNewChangeAddressesRequest
+*/
+func (a *HDWalletsApiService) DeriveAndSyncNewChangeAddresses(ctx context.Context, blockchain string, network string) ApiDeriveAndSyncNewChangeAddressesRequest {
+	return ApiDeriveAndSyncNewChangeAddressesRequest{
+		ApiService: a,
+		ctx: ctx,
+		blockchain: blockchain,
+		network: network,
+	}
+}
+
+// Execute executes the request
+//  @return DeriveAndSyncNewChangeAddressesR
+func (a *HDWalletsApiService) DeriveAndSyncNewChangeAddressesExecute(r ApiDeriveAndSyncNewChangeAddressesRequest) (*DeriveAndSyncNewChangeAddressesR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DeriveAndSyncNewChangeAddressesR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HDWalletsApiService.DeriveAndSyncNewChangeAddresses")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/hd/derive-sync-change"
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.deriveAndSyncNewChangeAddressesRB
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v DeriveAndSyncNewChangeAddresses400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v DeriveAndSyncNewChangeAddresses401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v ConvertBitcoinCashAddress402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v DeriveAndSyncNewChangeAddresses403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ConvertBitcoinCashAddress409Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ConvertBitcoinCashAddress415Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ConvertBitcoinCashAddress422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ConvertBitcoinCashAddress429Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ConvertBitcoinCashAddress500Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiDeriveAndSyncNewReceivingAddressesRequest struct {
+	ctx context.Context
+	ApiService *HDWalletsApiService
+	blockchain string
+	network string
+	context *string
+	deriveAndSyncNewReceivingAddressesRB *DeriveAndSyncNewReceivingAddressesRB
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiDeriveAndSyncNewReceivingAddressesRequest) Context(context string) ApiDeriveAndSyncNewReceivingAddressesRequest {
+	r.context = &context
+	return r
+}
+
+func (r ApiDeriveAndSyncNewReceivingAddressesRequest) DeriveAndSyncNewReceivingAddressesRB(deriveAndSyncNewReceivingAddressesRB DeriveAndSyncNewReceivingAddressesRB) ApiDeriveAndSyncNewReceivingAddressesRequest {
+	r.deriveAndSyncNewReceivingAddressesRB = &deriveAndSyncNewReceivingAddressesRB
+	return r
+}
+
+func (r ApiDeriveAndSyncNewReceivingAddressesRequest) Execute() (*DeriveAndSyncNewReceivingAddressesR, *http.Response, error) {
+	return r.ApiService.DeriveAndSyncNewReceivingAddressesExecute(r)
+}
+
+/*
+DeriveAndSyncNewReceivingAddresses Derive And Sync New Receiving Addresses
+
+Through this endpoint users can derive 100 receiving addresses, starting from the last index we have data for, which are then added to the xPub, subscribed for syncing, and start recording data. If no data is available, it will start from index 0.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+ @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+ @return ApiDeriveAndSyncNewReceivingAddressesRequest
+*/
+func (a *HDWalletsApiService) DeriveAndSyncNewReceivingAddresses(ctx context.Context, blockchain string, network string) ApiDeriveAndSyncNewReceivingAddressesRequest {
+	return ApiDeriveAndSyncNewReceivingAddressesRequest{
+		ApiService: a,
+		ctx: ctx,
+		blockchain: blockchain,
+		network: network,
+	}
+}
+
+// Execute executes the request
+//  @return DeriveAndSyncNewReceivingAddressesR
+func (a *HDWalletsApiService) DeriveAndSyncNewReceivingAddressesExecute(r ApiDeriveAndSyncNewReceivingAddressesRequest) (*DeriveAndSyncNewReceivingAddressesR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *DeriveAndSyncNewReceivingAddressesR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HDWalletsApiService.DeriveAndSyncNewReceivingAddresses")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/hd/derive-and-sync"
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.deriveAndSyncNewReceivingAddressesRB
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v DeriveAndSyncNewReceivingAddresses400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v DeriveAndSyncNewReceivingAddresses401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v ConvertBitcoinCashAddress402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v DeriveAndSyncNewReceivingAddresses403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ConvertBitcoinCashAddress409Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ConvertBitcoinCashAddress415Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ConvertBitcoinCashAddress422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ConvertBitcoinCashAddress429Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ConvertBitcoinCashAddress500Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
 
 type ApiGetHDWalletXPubYPubZPubAssetsRequest struct {
 	ctx context.Context
@@ -175,7 +631,7 @@ func (a *HDWalletsApiService) GetHDWalletXPubYPubZPubAssetsExecute(r ApiGetHDWal
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -195,7 +651,7 @@ func (a *HDWalletsApiService) GetHDWalletXPubYPubZPubAssetsExecute(r ApiGetHDWal
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -205,7 +661,7 @@ func (a *HDWalletsApiService) GetHDWalletXPubYPubZPubAssetsExecute(r ApiGetHDWal
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -225,7 +681,7 @@ func (a *HDWalletsApiService) GetHDWalletXPubYPubZPubAssetsExecute(r ApiGetHDWal
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -235,7 +691,7 @@ func (a *HDWalletsApiService) GetHDWalletXPubYPubZPubAssetsExecute(r ApiGetHDWal
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -409,7 +865,7 @@ func (a *HDWalletsApiService) GetHDWalletXPubYPubZPubDetailsExecute(r ApiGetHDWa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -429,7 +885,7 @@ func (a *HDWalletsApiService) GetHDWalletXPubYPubZPubDetailsExecute(r ApiGetHDWa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -439,7 +895,7 @@ func (a *HDWalletsApiService) GetHDWalletXPubYPubZPubDetailsExecute(r ApiGetHDWa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -459,7 +915,7 @@ func (a *HDWalletsApiService) GetHDWalletXPubYPubZPubDetailsExecute(r ApiGetHDWa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -469,7 +925,7 @@ func (a *HDWalletsApiService) GetHDWalletXPubYPubZPubDetailsExecute(r ApiGetHDWa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -500,8 +956,8 @@ type ApiListHDWalletXPubYPubZPubTransactionsRequest struct {
 	network string
 	context *string
 	derivation *string
-	limit *int32
-	offset *int32
+	limit *int64
+	offset *int64
 }
 
 // In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
@@ -517,13 +973,13 @@ func (r ApiListHDWalletXPubYPubZPubTransactionsRequest) Derivation(derivation st
 }
 
 // Defines how many items should be returned in the response per page basis.
-func (r ApiListHDWalletXPubYPubZPubTransactionsRequest) Limit(limit int32) ApiListHDWalletXPubYPubZPubTransactionsRequest {
+func (r ApiListHDWalletXPubYPubZPubTransactionsRequest) Limit(limit int64) ApiListHDWalletXPubYPubZPubTransactionsRequest {
 	r.limit = &limit
 	return r
 }
 
 // The starting index of the response items, i.e. where the response should start listing the returned items.
-func (r ApiListHDWalletXPubYPubZPubTransactionsRequest) Offset(offset int32) ApiListHDWalletXPubYPubZPubTransactionsRequest {
+func (r ApiListHDWalletXPubYPubZPubTransactionsRequest) Offset(offset int64) ApiListHDWalletXPubYPubZPubTransactionsRequest {
 	r.offset = &offset
 	return r
 }
@@ -663,7 +1119,7 @@ func (a *HDWalletsApiService) ListHDWalletXPubYPubZPubTransactionsExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -683,7 +1139,7 @@ func (a *HDWalletsApiService) ListHDWalletXPubYPubZPubTransactionsExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -693,7 +1149,7 @@ func (a *HDWalletsApiService) ListHDWalletXPubYPubZPubTransactionsExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -713,7 +1169,7 @@ func (a *HDWalletsApiService) ListHDWalletXPubYPubZPubTransactionsExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -723,7 +1179,7 @@ func (a *HDWalletsApiService) ListHDWalletXPubYPubZPubTransactionsExecute(r ApiL
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -754,8 +1210,8 @@ type ApiListHDWalletXPubYPubZPubUTXOsRequest struct {
 	network string
 	context *string
 	derivation *string
-	limit *int32
-	offset *int32
+	limit *int64
+	offset *int64
 }
 
 // In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
@@ -771,13 +1227,13 @@ func (r ApiListHDWalletXPubYPubZPubUTXOsRequest) Derivation(derivation string) A
 }
 
 // Defines how many items should be returned in the response per page basis.
-func (r ApiListHDWalletXPubYPubZPubUTXOsRequest) Limit(limit int32) ApiListHDWalletXPubYPubZPubUTXOsRequest {
+func (r ApiListHDWalletXPubYPubZPubUTXOsRequest) Limit(limit int64) ApiListHDWalletXPubYPubZPubUTXOsRequest {
 	r.limit = &limit
 	return r
 }
 
 // The starting index of the response items, i.e. where the response should start listing the returned items.
-func (r ApiListHDWalletXPubYPubZPubUTXOsRequest) Offset(offset int32) ApiListHDWalletXPubYPubZPubUTXOsRequest {
+func (r ApiListHDWalletXPubYPubZPubUTXOsRequest) Offset(offset int64) ApiListHDWalletXPubYPubZPubUTXOsRequest {
 	r.offset = &offset
 	return r
 }
@@ -917,7 +1373,7 @@ func (a *HDWalletsApiService) ListHDWalletXPubYPubZPubUTXOsExecute(r ApiListHDWa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -937,7 +1393,7 @@ func (a *HDWalletsApiService) ListHDWalletXPubYPubZPubUTXOsExecute(r ApiListHDWa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 409 {
-			var v GetAddressDetails409Response
+			var v ConvertBitcoinCashAddress409Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -947,7 +1403,7 @@ func (a *HDWalletsApiService) ListHDWalletXPubYPubZPubUTXOsExecute(r ApiListHDWa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -967,7 +1423,7 @@ func (a *HDWalletsApiService) ListHDWalletXPubYPubZPubUTXOsExecute(r ApiListHDWa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -977,7 +1433,727 @@ func (a *HDWalletsApiService) ListHDWalletXPubYPubZPubUTXOsExecute(r ApiListHDWa
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiListSyncedAddressesRequest struct {
+	ctx context.Context
+	ApiService *HDWalletsApiService
+	blockchain string
+	extendedPublicKey string
+	network string
+	context *string
+	addressFormat *string
+	isChangeAddress *bool
+	limit *int64
+	offset *int64
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiListSyncedAddressesRequest) Context(context string) ApiListSyncedAddressesRequest {
+	r.context = &context
+	return r
+}
+
+// Defines the address format value.
+func (r ApiListSyncedAddressesRequest) AddressFormat(addressFormat string) ApiListSyncedAddressesRequest {
+	r.addressFormat = &addressFormat
+	return r
+}
+
+// Defines if the address is change addres or not.
+func (r ApiListSyncedAddressesRequest) IsChangeAddress(isChangeAddress bool) ApiListSyncedAddressesRequest {
+	r.isChangeAddress = &isChangeAddress
+	return r
+}
+
+// Defines how many items should be returned in the response per page basis.
+func (r ApiListSyncedAddressesRequest) Limit(limit int64) ApiListSyncedAddressesRequest {
+	r.limit = &limit
+	return r
+}
+
+// The starting index of the response items, i.e. where the response should start listing the returned items.
+func (r ApiListSyncedAddressesRequest) Offset(offset int64) ApiListSyncedAddressesRequest {
+	r.offset = &offset
+	return r
+}
+
+func (r ApiListSyncedAddressesRequest) Execute() (*ListSyncedAddressesR, *http.Response, error) {
+	return r.ApiService.ListSyncedAddressesExecute(r)
+}
+
+/*
+ListSyncedAddresses List Synced Addresses
+
+Through this endpoint users can list all addresses that Crypto APIs has synced for a specific xPub. This includes previous and current/new xPubs, what addresses we’ve synced for them, etc.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+ @param extendedPublicKey Defines the account extended publicly known key which is used to derive all child public keys.
+ @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+ @return ApiListSyncedAddressesRequest
+*/
+func (a *HDWalletsApiService) ListSyncedAddresses(ctx context.Context, blockchain string, extendedPublicKey string, network string) ApiListSyncedAddressesRequest {
+	return ApiListSyncedAddressesRequest{
+		ApiService: a,
+		ctx: ctx,
+		blockchain: blockchain,
+		extendedPublicKey: extendedPublicKey,
+		network: network,
+	}
+}
+
+// Execute executes the request
+//  @return ListSyncedAddressesR
+func (a *HDWalletsApiService) ListSyncedAddressesExecute(r ApiListSyncedAddressesRequest) (*ListSyncedAddressesR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *ListSyncedAddressesR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HDWalletsApiService.ListSyncedAddresses")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/hd/{extendedPublicKey}/synced-addresses"
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"extendedPublicKey"+"}", url.PathEscape(parameterToString(r.extendedPublicKey, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	if r.addressFormat != nil {
+		localVarQueryParams.Add("addressFormat", parameterToString(*r.addressFormat, ""))
+	}
+	if r.isChangeAddress != nil {
+		localVarQueryParams.Add("isChangeAddress", parameterToString(*r.isChangeAddress, ""))
+	}
+	if r.limit != nil {
+		localVarQueryParams.Add("limit", parameterToString(*r.limit, ""))
+	}
+	if r.offset != nil {
+		localVarQueryParams.Add("offset", parameterToString(*r.offset, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v ListSyncedAddresses400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v ListSyncedAddresses401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v ConvertBitcoinCashAddress402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v ListSyncedAddresses403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ConvertBitcoinCashAddress409Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ConvertBitcoinCashAddress415Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ConvertBitcoinCashAddress422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ConvertBitcoinCashAddress429Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ConvertBitcoinCashAddress500Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRequest struct {
+	ctx context.Context
+	ApiService *HDWalletsApiService
+	blockchain string
+	network string
+	context *string
+	prepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRB *PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRB
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiPrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRequest) Context(context string) ApiPrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRequest {
+	r.context = &context
+	return r
+}
+
+func (r ApiPrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRequest) PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRB(prepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRB PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRB) ApiPrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRequest {
+	r.prepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRB = &prepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRB
+	return r
+}
+
+func (r ApiPrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRequest) Execute() (*PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubR, *http.Response, error) {
+	return r.ApiService.PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubExecute(r)
+}
+
+/*
+PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPub Prepare A UTXO-Based Transaction From HD Wallet (xPub, yPub, zPub)
+
+Through the “Prepare a UTXO-based transaction from xPub” endpoint users can prepare a transaction for signing from all synced with Crypto APIs addresses for the specific xPub. This is based on the `selectionStrategy` and the addresses’ balances. In the case a user has an address not synced with Crypto APIs, it will not be included. This endpoint applies to all supported UTXO-based blockchain protocols, e.g. Bitcoin, Litecoin, etc.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param blockchain
+ @param network
+ @return ApiPrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRequest
+*/
+func (a *HDWalletsApiService) PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPub(ctx context.Context, blockchain string, network string) ApiPrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRequest {
+	return ApiPrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRequest{
+		ApiService: a,
+		ctx: ctx,
+		blockchain: blockchain,
+		network: network,
+	}
+}
+
+// Execute executes the request
+//  @return PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubR
+func (a *HDWalletsApiService) PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubExecute(r ApiPrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRequest) (*PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HDWalletsApiService.PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPub")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/transactions/prepare-utxo-transaction"
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.prepareAUTXOBasedTransactionFromHDWalletXPubYPubZPubRB
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPub400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPub401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v ConvertBitcoinCashAddress402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PrepareAUTXOBasedTransactionFromHDWalletXPubYPubZPub403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ConvertBitcoinCashAddress409Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ConvertBitcoinCashAddress415Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ConvertBitcoinCashAddress422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ConvertBitcoinCashAddress429Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ConvertBitcoinCashAddress500Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiPrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRequest struct {
+	ctx context.Context
+	ApiService *HDWalletsApiService
+	blockchain string
+	network string
+	context *string
+	prepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRB *PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRB
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiPrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRequest) Context(context string) ApiPrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRequest {
+	r.context = &context
+	return r
+}
+
+func (r ApiPrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRequest) PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRB(prepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRB PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRB) ApiPrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRequest {
+	r.prepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRB = &prepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRB
+	return r
+}
+
+func (r ApiPrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRequest) Execute() (*PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubR, *http.Response, error) {
+	return r.ApiService.PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubExecute(r)
+}
+
+/*
+PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPub Prepare An Account-Based Transaction From HD Wallet (xPub, yPub, zPub)
+
+Through the “Prepare an account-based transaction from xPub” endpoint users can prepare a transaction for signing from a synced with Crypto APIs address from the specific xPub. This endpoint applies to all supported account-based blockchain protocols, e.g. Ethereum, BSC, etc
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param blockchain
+ @param network
+ @return ApiPrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRequest
+*/
+func (a *HDWalletsApiService) PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPub(ctx context.Context, blockchain string, network string) ApiPrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRequest {
+	return ApiPrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRequest{
+		ApiService: a,
+		ctx: ctx,
+		blockchain: blockchain,
+		network: network,
+	}
+}
+
+// Execute executes the request
+//  @return PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubR
+func (a *HDWalletsApiService) PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubExecute(r ApiPrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRequest) (*PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HDWalletsApiService.PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPub")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/transactions/prepare-account-based-transaction"
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.prepareAnAccountBasedTransactionFromHDWalletXPubYPubZPubRB
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPub400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPub401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v ConvertBitcoinCashAddress402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v PrepareAnAccountBasedTransactionFromHDWalletXPubYPubZPub403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v ConvertBitcoinCashAddress409Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ConvertBitcoinCashAddress415Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v ConvertBitcoinCashAddress422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ConvertBitcoinCashAddress429Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1145,7 +2321,7 @@ func (a *HDWalletsApiService) SyncHDWalletXPubYPubZPubExecute(r ApiSyncHDWalletX
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 402 {
-			var v GetAddressDetails402Response
+			var v ConvertBitcoinCashAddress402Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1175,7 +2351,7 @@ func (a *HDWalletsApiService) SyncHDWalletXPubYPubZPubExecute(r ApiSyncHDWalletX
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 415 {
-			var v GetAddressDetails415Response
+			var v ConvertBitcoinCashAddress415Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1195,7 +2371,7 @@ func (a *HDWalletsApiService) SyncHDWalletXPubYPubZPubExecute(r ApiSyncHDWalletX
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 429 {
-			var v GetAddressDetails429Response
+			var v ConvertBitcoinCashAddress429Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()
@@ -1205,7 +2381,235 @@ func (a *HDWalletsApiService) SyncHDWalletXPubYPubZPubExecute(r ApiSyncHDWalletX
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		if localVarHTTPResponse.StatusCode == 500 {
-			var v GetAddressDetails500Response
+			var v ConvertBitcoinCashAddress500Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiSyncNewHDWalletXPubYPubZPubRequest struct {
+	ctx context.Context
+	ApiService *HDWalletsApiService
+	blockchain string
+	network string
+	context *string
+	syncNewHDWalletXPubYPubZPubRB *SyncNewHDWalletXPubYPubZPubRB
+}
+
+// In batch situations the user can use the context to correlate responses with requests. This property is present regardless of whether the response was successful or returned as an error. &#x60;context&#x60; is specified by the user.
+func (r ApiSyncNewHDWalletXPubYPubZPubRequest) Context(context string) ApiSyncNewHDWalletXPubYPubZPubRequest {
+	r.context = &context
+	return r
+}
+
+func (r ApiSyncNewHDWalletXPubYPubZPubRequest) SyncNewHDWalletXPubYPubZPubRB(syncNewHDWalletXPubYPubZPubRB SyncNewHDWalletXPubYPubZPubRB) ApiSyncNewHDWalletXPubYPubZPubRequest {
+	r.syncNewHDWalletXPubYPubZPubRB = &syncNewHDWalletXPubYPubZPubRB
+	return r
+}
+
+func (r ApiSyncNewHDWalletXPubYPubZPubRequest) Execute() (*SyncNewHDWalletXPubYPubZPubR, *http.Response, error) {
+	return r.ApiService.SyncNewHDWalletXPubYPubZPubExecute(r)
+}
+
+/*
+SyncNewHDWalletXPubYPubZPub Sync New HD Wallet (xPub, yPub, zPub)
+
+Through this endpoint users can add a brand new xPub to the Crypto APIs system to be ready for deriving. Unlike our other similar endpoint “Sync HD Wallet (xPub, yPub, zPub)”, this endpoint does not create new addresses nor syncs old data.
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param blockchain Represents the specific blockchain protocol name, e.g. Ethereum, Bitcoin, etc.
+ @param network Represents the name of the blockchain network used; blockchain networks are usually identical as technology and software, but they differ in data, e.g. - \"mainnet\" is the live network with actual data while networks like \"testnet\", \"ropsten\" are test networks.
+ @return ApiSyncNewHDWalletXPubYPubZPubRequest
+*/
+func (a *HDWalletsApiService) SyncNewHDWalletXPubYPubZPub(ctx context.Context, blockchain string, network string) ApiSyncNewHDWalletXPubYPubZPubRequest {
+	return ApiSyncNewHDWalletXPubYPubZPubRequest{
+		ApiService: a,
+		ctx: ctx,
+		blockchain: blockchain,
+		network: network,
+	}
+}
+
+// Execute executes the request
+//  @return SyncNewHDWalletXPubYPubZPubR
+func (a *HDWalletsApiService) SyncNewHDWalletXPubYPubZPubExecute(r ApiSyncNewHDWalletXPubYPubZPubRequest) (*SyncNewHDWalletXPubYPubZPubR, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodPost
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *SyncNewHDWalletXPubYPubZPubR
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "HDWalletsApiService.SyncNewHDWalletXPubYPubZPub")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/blockchain-data/{blockchain}/{network}/hd/sync-new"
+	localVarPath = strings.Replace(localVarPath, "{"+"blockchain"+"}", url.PathEscape(parameterToString(r.blockchain, "")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"network"+"}", url.PathEscape(parameterToString(r.network, "")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	if r.context != nil {
+		localVarQueryParams.Add("context", parameterToString(*r.context, ""))
+	}
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{"application/json"}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	// body params
+	localVarPostBody = r.syncNewHDWalletXPubYPubZPubRB
+	if r.ctx != nil {
+		// API Key Authentication
+		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {
+			if apiKey, ok := auth["ApiKey"]; ok {
+				var key string
+				if apiKey.Prefix != "" {
+					key = apiKey.Prefix + " " + apiKey.Key
+				} else {
+					key = apiKey.Key
+				}
+				localVarHeaderParams["x-api-key"] = key
+			}
+		}
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := ioutil.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = ioutil.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v SyncNewHDWalletXPubYPubZPub400Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 401 {
+			var v SyncNewHDWalletXPubYPubZPub401Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 402 {
+			var v ConvertBitcoinCashAddress402Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 403 {
+			var v SyncNewHDWalletXPubYPubZPub403Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 409 {
+			var v SyncNewHDWalletXPubYPubZPub409Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 415 {
+			var v ConvertBitcoinCashAddress415Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 422 {
+			var v SyncNewHDWalletXPubYPubZPub422Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 429 {
+			var v ConvertBitcoinCashAddress429Response
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+			newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 500 {
+			var v ConvertBitcoinCashAddress500Response
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
 				newErr.error = err.Error()

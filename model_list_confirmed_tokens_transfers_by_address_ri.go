@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -20,7 +20,7 @@ type ListConfirmedTokensTransfersByAddressRI struct {
 	// Represents the contract address of the token, which controls its logic. It is not the address that holds the tokens.
 	ContractAddress string `json:"contractAddress"`
 	// Defines the block height in which this transaction was confirmed/mined.
-	MinedInBlockHeight int32 `json:"minedInBlockHeight"`
+	MinedInBlockHeight int64 `json:"minedInBlockHeight"`
 	// Defines the address to which the recipient receives the transferred tokens.
 	RecipientAddress string `json:"recipientAddress"`
 	// Defines the address from which the sender transfers tokens.
@@ -48,7 +48,7 @@ type ListConfirmedTokensTransfersByAddressRI struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewListConfirmedTokensTransfersByAddressRI(contractAddress string, minedInBlockHeight int32, recipientAddress string, senderAddress string, tokenDecimals int32, tokenName string, tokenSymbol string, tokenType string, transactionHash string, transactionTimestamp int32, transactionFee ListTokensTransfersByTransactionHashRITransactionFee) *ListConfirmedTokensTransfersByAddressRI {
+func NewListConfirmedTokensTransfersByAddressRI(contractAddress string, minedInBlockHeight int64, recipientAddress string, senderAddress string, tokenDecimals int32, tokenName string, tokenSymbol string, tokenType string, transactionHash string, transactionTimestamp int32, transactionFee ListTokensTransfersByTransactionHashRITransactionFee) *ListConfirmedTokensTransfersByAddressRI {
 	this := ListConfirmedTokensTransfersByAddressRI{}
 	this.ContractAddress = contractAddress
 	this.MinedInBlockHeight = minedInBlockHeight
@@ -97,9 +97,9 @@ func (o *ListConfirmedTokensTransfersByAddressRI) SetContractAddress(v string) {
 }
 
 // GetMinedInBlockHeight returns the MinedInBlockHeight field value
-func (o *ListConfirmedTokensTransfersByAddressRI) GetMinedInBlockHeight() int32 {
+func (o *ListConfirmedTokensTransfersByAddressRI) GetMinedInBlockHeight() int64 {
 	if o == nil {
-		var ret int32
+		var ret int64
 		return ret
 	}
 
@@ -108,7 +108,7 @@ func (o *ListConfirmedTokensTransfersByAddressRI) GetMinedInBlockHeight() int32 
 
 // GetMinedInBlockHeightOk returns a tuple with the MinedInBlockHeight field value
 // and a boolean to check if the value has been set.
-func (o *ListConfirmedTokensTransfersByAddressRI) GetMinedInBlockHeightOk() (*int32, bool) {
+func (o *ListConfirmedTokensTransfersByAddressRI) GetMinedInBlockHeightOk() (*int64, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -116,7 +116,7 @@ func (o *ListConfirmedTokensTransfersByAddressRI) GetMinedInBlockHeightOk() (*in
 }
 
 // SetMinedInBlockHeight sets field value
-func (o *ListConfirmedTokensTransfersByAddressRI) SetMinedInBlockHeight(v int32) {
+func (o *ListConfirmedTokensTransfersByAddressRI) SetMinedInBlockHeight(v int64) {
 	o.MinedInBlockHeight = v
 }
 

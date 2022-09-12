@@ -1,9 +1,9 @@
 /*
 CryptoAPIs
 
-Crypto APIs 2.0 is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs 2.0 can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs 2.0 provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
+Crypto APIs is a complex and innovative infrastructure layer that radically simplifies the development of any Blockchain and Crypto related applications. Organized around REST, Crypto APIs can assist both novice Bitcoin/Ethereum enthusiasts and crypto experts with the development of their blockchain applications. Crypto APIs provides unified endpoints and data, raw data, automatic tokens and coins forwardings, callback functionalities, and much more.
 
-API version: 2.0.0
+API version: 2021-03-20
 Contact: developers@cryptoapis.io
 */
 
@@ -27,6 +27,7 @@ type GetBlockDetailsByBlockHeightRIBS struct {
 	GetBlockDetailsByBlockHeightRIBSEC *GetBlockDetailsByBlockHeightRIBSEC
 	GetBlockDetailsByBlockHeightRIBSL *GetBlockDetailsByBlockHeightRIBSL
 	GetBlockDetailsByBlockHeightRIBSZ *GetBlockDetailsByBlockHeightRIBSZ
+	GetBlockDetailsByBlockHeightRIBSZ2 *GetBlockDetailsByBlockHeightRIBSZ2
 }
 
 // GetBlockDetailsByBlockHeightRIBSBAsGetBlockDetailsByBlockHeightRIBS is a convenience function that returns GetBlockDetailsByBlockHeightRIBSB wrapped in GetBlockDetailsByBlockHeightRIBS
@@ -89,6 +90,13 @@ func GetBlockDetailsByBlockHeightRIBSLAsGetBlockDetailsByBlockHeightRIBS(v *GetB
 func GetBlockDetailsByBlockHeightRIBSZAsGetBlockDetailsByBlockHeightRIBS(v *GetBlockDetailsByBlockHeightRIBSZ) GetBlockDetailsByBlockHeightRIBS {
 	return GetBlockDetailsByBlockHeightRIBS{
 		GetBlockDetailsByBlockHeightRIBSZ: v,
+	}
+}
+
+// GetBlockDetailsByBlockHeightRIBSZ2AsGetBlockDetailsByBlockHeightRIBS is a convenience function that returns GetBlockDetailsByBlockHeightRIBSZ2 wrapped in GetBlockDetailsByBlockHeightRIBS
+func GetBlockDetailsByBlockHeightRIBSZ2AsGetBlockDetailsByBlockHeightRIBS(v *GetBlockDetailsByBlockHeightRIBSZ2) GetBlockDetailsByBlockHeightRIBS {
+	return GetBlockDetailsByBlockHeightRIBS{
+		GetBlockDetailsByBlockHeightRIBSZ2: v,
 	}
 }
 
@@ -214,6 +222,19 @@ func (dst *GetBlockDetailsByBlockHeightRIBS) UnmarshalJSON(data []byte) error {
 		dst.GetBlockDetailsByBlockHeightRIBSZ = nil
 	}
 
+	// try to unmarshal data into GetBlockDetailsByBlockHeightRIBSZ2
+	err = newStrictDecoder(data).Decode(&dst.GetBlockDetailsByBlockHeightRIBSZ2)
+	if err == nil {
+		jsonGetBlockDetailsByBlockHeightRIBSZ2, _ := json.Marshal(dst.GetBlockDetailsByBlockHeightRIBSZ2)
+		if string(jsonGetBlockDetailsByBlockHeightRIBSZ2) == "{}" { // empty struct
+			dst.GetBlockDetailsByBlockHeightRIBSZ2 = nil
+		} else {
+			match++
+		}
+	} else {
+		dst.GetBlockDetailsByBlockHeightRIBSZ2 = nil
+	}
+
 	if match > 1 { // more than 1 match
 		// reset to nil
 		dst.GetBlockDetailsByBlockHeightRIBSB = nil
@@ -225,6 +246,7 @@ func (dst *GetBlockDetailsByBlockHeightRIBS) UnmarshalJSON(data []byte) error {
 		dst.GetBlockDetailsByBlockHeightRIBSEC = nil
 		dst.GetBlockDetailsByBlockHeightRIBSL = nil
 		dst.GetBlockDetailsByBlockHeightRIBSZ = nil
+		dst.GetBlockDetailsByBlockHeightRIBSZ2 = nil
 
 		return fmt.Errorf("Data matches more than one schema in oneOf(GetBlockDetailsByBlockHeightRIBS)")
 	} else if match == 1 {
@@ -272,6 +294,10 @@ func (src GetBlockDetailsByBlockHeightRIBS) MarshalJSON() ([]byte, error) {
 		return json.Marshal(&src.GetBlockDetailsByBlockHeightRIBSZ)
 	}
 
+	if src.GetBlockDetailsByBlockHeightRIBSZ2 != nil {
+		return json.Marshal(&src.GetBlockDetailsByBlockHeightRIBSZ2)
+	}
+
 	return nil, nil // no data in oneOf schemas
 }
 
@@ -314,6 +340,10 @@ func (obj *GetBlockDetailsByBlockHeightRIBS) GetActualInstance() (interface{}) {
 
 	if obj.GetBlockDetailsByBlockHeightRIBSZ != nil {
 		return obj.GetBlockDetailsByBlockHeightRIBSZ
+	}
+
+	if obj.GetBlockDetailsByBlockHeightRIBSZ2 != nil {
+		return obj.GetBlockDetailsByBlockHeightRIBSZ2
 	}
 
 	// all schemas are nil
